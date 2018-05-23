@@ -24,8 +24,9 @@
 请根据Demo的READ.md文件内容，在管理后台配置玩家在游戏内需要同步的属性
 
 *以飞机大战为例*：
-名称|类型|最大值|长度|export|editable|备注
-:--:|:--:|:--:|:--:|:--:|:--:|:--:
+
+|名称|类型|最大值|长度|export|editable|备注|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 isdead|boolean|-|-|true|false|玩家是否已被淘汰
 position|int[]|65535|2|true|true|玩家x、y轴位置
 score|int|65535|-|true|false|玩家分数
