@@ -218,19 +218,11 @@ android {
 ```
 ## 初始化BmobSDK
 
-在你应用程序启动的Activity的onCreate()方法中初始化Bmob功能。代码如下所示：
+在你应用程序启动的Application的onCreate()方法中初始化Bmob功能。代码如下所示：
 
 ```java
-package com.bmob.example;
-import cn.bmob.v3.Bmob;
-import android.app.Activity;
-import android.os.Bundle;
-public class MainActivity extends Activity {
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-	     // TODO Auto-generated method stub
-	    super.onCreate(savedInstanceState);
-	     //提供以下两种方式进行初始化操作：
+
+	   //提供以下两种方式进行初始化操作：
 
 		//第一：默认初始化
 		Bmob.initialize(this, "Your Application ID");
@@ -249,8 +241,6 @@ public class MainActivity extends Activity {
 		//.setFileExpiration(2500)
 		//.build();
 		//Bmob.initialize(config);
-	}
-}
 ```
 
 ## 添加一行数据
