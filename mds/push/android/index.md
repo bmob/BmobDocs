@@ -7,8 +7,8 @@
 
 | SDK或Demo     | 下载地址          |
 |------------------------------|--------------------------------|
-| 数据服务 SDK| 使用最新版本v3.6.3，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|
-| 消息推送 SDK| 使用最新版本v1.0.2，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|  
+| 数据服务 SDK| 使用最新版本v3.6.9-rc2，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|
+| 消息推送 SDK| 使用最新版本v1.0.3，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|  
 | 消息推送 Demo| [https://github.com/chaozhouzhang/bmob-push-demo](https://github.com/chaozhouzhang/bmob-push-demo)|
 
 自动集成方式：
