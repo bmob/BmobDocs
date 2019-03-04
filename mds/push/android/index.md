@@ -27,9 +27,16 @@ allprojects {
 ```gradle
 dependencies {
     //Bmob的数据服务SDK
-    compile 'cn.bmob.android:bmob-sdk:3.6.3'
+    implementation 'cn.bmob.android:bmob-sdk:3.6.9-rc2'
     //Bmob的消息推送SDK
-    compile 'cn.bmob.android:bmob-push:1.0.2'
+    implementation 'cn.bmob.android:bmob-push:1.0.3'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.2"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.squareup.okio:okio:2.1.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'androidx.core:core:1.0.0+'
+
 }
 ```
 ### 2.2、配置AndroidManifest.xml
