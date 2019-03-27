@@ -482,7 +482,7 @@ void Update ()
 **Player.java :**
 
 ```
-package cn.bmob.gamesdk.server.been;
+package cn.bmob.gamesdk.server.custom;
 
 import cn.bmob.gamesdk.server.api.BmobGameSDKHook;
 import cn.bmob.gamesdk.server.api.JSON;
@@ -513,7 +513,7 @@ public class Player extends PlayerBase {
 
 
 ```
-package cn.bmob.gamesdk.server.been;
+package cn.bmob.gamesdk.server.custom;
 
 import cn.bmob.gamesdk.server.api.RoomBase;
 
