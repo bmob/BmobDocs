@@ -54,6 +54,7 @@ pages:
         - '开发文档': 'data/wechat_app_new/index.md'
     - 'Kotlin': 'data/kotlin/index.md'
     - 'Python': 'data/python/index.md'
+    - 'Flutter': 'data/flutter/index.md'
 - '云函数':
     - 'Android': 'cloud_function/android/index.md'
     - 'iOS': 'cloud_function/ios/index.md'
