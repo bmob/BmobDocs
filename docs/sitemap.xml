@@ -101,6 +101,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/data/flutter/</loc>
+     <lastmod>2019-04-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
