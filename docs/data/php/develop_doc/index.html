@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>开发文档 - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot; PHP – Bmob后端云 </title>        
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li class="active">
+									<a href="../">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../wechat_app/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../push/android/">推送服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../push/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/common_problem/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+					<div class="code-title">PHP</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">开发文档</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">简介</a>
+												
+											</li>
+												
+											<li class=""><a href="#_2">快速入门</a>
+												
+											</li>
+												
+											<li class=""><a href="#_3">应用程序</a>
+												
+											</li>
+												
+											<li class=""><a href="#_4">应用安全</a>
+												
+											</li>
+												
+											<li class=""><a href="#_5">数据类型</a>
+												
+											</li>
+												
+											<li class=""><a href="#phpsdk">phpsdk相关类的说明</a>
+												
+											</li>
+												
+											<li class=""><a href="#_6">对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_7">数据对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_8">对象格式</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_9">数据类型</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_10">添加数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_11">查询数据</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_12">查询所有数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_13">查询单条数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_14">查询条件</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_15">分页查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_16">结果排序</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_17">统计对象数量</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_18">复合查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_19">查询指定列</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#bql">使用 BQL 查询</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_20">修改数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_21">删除数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_22">删除字段</a>
+												
+											</li>
+												
+											<li class=""><a href="#_23">数组</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_24">添加数组数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_25">更新数组数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_26">查询数组数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_27">删除数组数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#key">使用索引和对象key修改数组中的对象</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_28">修改对象的某个值</a>
+												
+											</li>
+												
+											<li class=""><a href="#_29">数据关联</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_30">关联关系描述</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_32">一对一关系</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_36">一对多关系</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_39">多对多关系</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#include">include用法</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_44">批量数据操作</a>
+												
+											</li>
+												
+											<li class=""><a href="#_45">原子计数器</a>
+												
+											</li>
+												
+											<li class=""><a href="#_46">文件</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_47">整个文件上传</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_48">删除文件</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_49">用户</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_50">属性</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_51">注册用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_52">使用手机号码一键注册或登陆</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_53">登录用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_54">获取当前用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_55">更新用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_56">删除用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_57">查询用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_58">密码重置</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_59">使用短信验证码进行密码重置</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_60">提供旧密码方式安全修改用户密码</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_61">邮箱验证</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_62">用户账户连接</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#acl">ACL和角色</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#acl_1">ACL的格式</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_66">角色和相关操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_70">角色的使用</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_72">地理位置</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_73">创建地理位置对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_74">查询地理位置信息</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_75">统计相关的查询</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_76">计算总和</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_77">分组计算总和</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_78">多个分组并计算多个列的总和</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_79">分组计算总和并只返回满足条件的部分值</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_80">分组计算总和并返回每个分组的记录数</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_81">获取不重复的列值</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_82">其他关键字</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#app">app服务</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#app_1">获取app信息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#app_2">创建新的app</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#app_3">修改app信息</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_83">数据表</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#app_4">获取app表的信息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_84">创建字段支持的数据类型</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_85">创建一个表</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_86">创建一个表</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_87">修改表的结构</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_88">删除表</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_89">获取服务器的时间</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Bmob平台为您的移动应用提供了一个完整的后端解决方案，我们提供轻量级的SDK开发包，让开发者以最小的配置和最简单的方式使用Bmob平台提供的服务，进而完全消除开发者编写服务器代码以及维护服务器的操作。</p>
+<h2 id="_2">快速入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>建议您在阅读本开发文档之前，先阅读我们提供的 <a href="http://docs.bmob.cn/data/PHP/a_faststart/doc/index.html">php快速入门文档</a>，便于您后续的开发。</p>
+<h2 id="_3">应用程序<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在Bmob平台注册后，每个账户可创建多个应用程序，创建的每个应用程序有各自的Application ID，应用程序将凭其Application ID使用Bmob SDK。</p>
+<h2 id="_4">应用安全<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>请大家在使用Bmob开发应用程序之前，仔细阅读“数据与安全”的文档：<a href="http://docs.bmob.cn/other/Other/n_datasafety/doc/index.html">http://docs.bmob.cn/other/Other/n_datasafety/doc/index.html</a></p>
+<h2 id="_5">数据类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>目前为止，我们支持的数据类型有String、Integer、Boolean、ArrayList以及BmobObject对象类型。同时Bmob也支持BmobDate、BmobGeoPoint、BmobFile数据类型。</p>
+<h2 id="phpsdk">phpsdk相关类的说明<a class="headerlink" href="#phpsdk" title="Permanent link">&para;</a></h2>
+<p>lib/BmobObject.class.php:对象操作类
+lib/BmobUser.class.php：用户操作类
+lib/BmobBatch.class.php：批量操作类
+lib/BmobFile.class.php：文件操作类
+lib/BmobImage.class.php：图片操作类
+lib/BmobRole.class.php：权限类
+lib/BmobPush.class.php：推送类
+lib/BmobPay.class.php：支付类
+lib/BmobSms.class.php：短信消息类
+lib/BmobApp.class.php：app操作类
+lib/BmobSchemas.class.php：数据表操作类
+lib/BmobTimestamp.class.php：获取服务器时间类
+lib/BmobCloudCode.class.php：云端代码类
+lib/BmobBql.class.php：bql操作类</p>
+<h2 id="_6">对象<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>一个数据对象（APP中创建的BmobObject类和子类）对应于Bmob后台的一个数据表。</p>
+<h3 id="_7">数据对象<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Bmob存储的数据是建立在BmobObject基础上的，所以任何要保存的数据对象必须继承自BmobObject类。BmobObject类本身包含<code>objectId</code>、<code>createdAt</code>、<code>updatedAt</code>、<code>ACL</code>四个默认的属性，objectId是数据的唯一标示，相当于表的主键，createdAt是数据的创建时间，updatedAt是数据的最后修改时间，ACL是数据的操作权限。</p>
+<p>如，你的游戏中使用GameScore表来记录玩家的比分信息，其中表的字段有：score（分数）、playerName（玩家名字）属性，那么这个数据对象如下定义：</p>
+<pre><code class="php">
+$bmobObj = new BmobObject(&quot;GameScore&quot;);
+$bmobObj-&gt;create(array(&quot;playerName&quot;=&gt;&quot;game&quot;,&quot;score&quot;=&gt;20)); //添加对象
+</code></pre>
+
+<p><strong>需要注意的是：</strong></p>
+<ul>
+<li>php不需要对<code>objectId</code>、<code>createdAt</code>、<code>updatedAt</code>、<code>ACL</code>四个属性进行定义。</li>
+<li>不少开发者会没有注意到<code>createdAt</code>和<code>updatedAt</code>属性中的字母<code>d</code>，写成createAt和updateAt。</li>
+</ul>
+<h3 id="_8">对象格式<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>通过php sdk保存数据，这个数据是无模式化的（Schema Less）,这意味着你不需要提前标注每个对象上有哪些Key，你只需要随意设置key-value对就可以，php sdk后端会存储它的。</p>
+<p>举个例子，假设你正在记录一局游戏的最高分，一个简单的对象可能包含:</p>
+<pre><code>array(
+    &quot;score&quot;=&gt; 1337,
+    &quot;playerName&quot;=&gt; &quot;Sean Plott&quot;,
+    &quot;cheatMode&quot;=&gt; false
+)
+</code></pre>
+
+<p>Key必须是字母和数字组成的字符串,Value可以是任何可以JSON编码的东西.</p>
+<p>每个对象都有一个类名，你可以通过类名来区分不同的数据，例如，我们可以把游戏得分对象称之为GameScore.我们推荐你使用  <strong>NameYourClassesLikeThis</strong> 和 <strong>nameYourKeysLikeThis</strong> 这样的格式为你的类名和Key命名，这可以使你的代码看起来很漂亮.</p>
+<p>当你从<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>中获取对象时，一些字段会被自动加上: createdAt, updatedAt 和 objectId， 这些字段的名字是保留的，你不能自行设置它们，我们上面设置的对象在获取时应该是下面的样子.</p>
+<pre><code>array(
+    &quot;score&quot;=&gt; 1337,
+    &quot;playerName&quot;=&gt; &quot;Sean Plott&quot;,
+    &quot;cheatMode&quot;=&gt; false,
+    &quot;createdAt&quot;=&gt; &quot;2011-08-20 02:06:57&quot;,
+    &quot;updatedAt&quot;=&gt; &quot;2011-08-20 02:06:57&quot;,
+    &quot;objectId&quot;=&gt; &quot;e1kXT22L&quot;
+)
+</code></pre>
+
+<p>createdAt和updatedAt都是UTC时间戳,以ISO 8601标准和毫秒级精度储存:YYYY-MM-DD HH:MM:SS. objectId是一个string,在类中唯一表明了一个对象。</p>
+<h3 id="_9">数据类型<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>到现在为止我们只使用了可以被标准JSON编码的值，<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>移动客户端SDK库同样支持日期,地理位置数据和指针数据、关系型数据。在php sdk中，这些值都被编码了，同时有一个"__type"字段来标识出它们所属的类型，所以如果你采用正确的编码的话就可以读或者写这些字段了。</p>
+<p>Date类型包含了一个"iso"字段存储了一个UTC时间戳,以ISO 8601格式和毫秒级的精度来存储时间: YYYY-MM-DDTHH:MM:SS.MMMZ，或者 YYYY-MM-DDTHH:MM:SS</p>
+<pre><code>array(
+    &quot;__type&quot;=&gt;&quot;Date&quot;,
+    &quot;iso&quot;=&gt;&quot;2011-08-21 18:02:52&quot;
+)
+</code></pre>
+
+<p>File类型是在上传后返回的JSON数据再加一个Key为"__Type":"File", 用来保存到数据列为文件类型的值：</p>
+<pre><code>array(
+    &quot;__type&quot;=&gt;&quot;File&quot;,
+    &quot;group&quot;=&gt; &quot;group1&quot;,
+    &quot;filename&quot;=&gt; &quot;1.xml&quot;,
+    &quot;url&quot;=&gt; &quot;M00/01/14/sd2lkds0.xml&quot;
+)
+</code></pre>
+
+<p>Pointer 类型是在当前对象要指向另一个对象时使用，它包含了 className 和 objectId 两个作为一个指针正确指向的必填值.</p>
+<pre><code>array(
+  &quot;__type&quot;=&gt; &quot;Pointer&quot;,
+  &quot;className&quot;=&gt; &quot;Game&quot;,
+  &quot;objectId&quot;=&gt; &quot;DdUOIIIW&quot;
+)
+</code></pre>
+
+<p>指向用户对象的 <strong>Pointer</strong> 的 <strong>className</strong> 为_User, 前面加一个下划线表示开发者不能定义的类名, 而且所指的类是系统内置的。</p>
+<p><strong>Relation</strong> 类型被用在多对多的类型上, 移动端的库将使用 <strong>BmobRelation</strong> 作为值, 它有一个 className 字段表示目标对象的类名：</p>
+<pre><code>array(
+  &quot;__type&quot;=&gt; &quot;Relation&quot;,
+  &quot;className&quot;=&gt; &quot;GameScore&quot;
+)
+</code></pre>
+
+<p>当使用查询时， <strong>Relation</strong> 对象的行为很像是 <strong>Pointer</strong> 的数组, 任何操作针对于 <strong>Pointer</strong> 的数组的 (除了 include) 都可以对 <strong>Relation</strong> 起作用.</p>
+<p>当更多的数据类型被加入的时候, 它们都会采用 hashmap <strong>加上一个 type</strong> 字段的形式, 所以你不应该使用type作为你自己的JSON对象的Key。</p>
+<h2 id="_10">添加数据<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>添加数据使用BmobObject对象的<code>create</code>方法，就可以将当前对象的内容保存到Bmob服务端。</p>
+<p>例如，你现在要保存一条游戏分数的记录，代码如下：</p>
+<pre><code class="php">
+$bmobObj = new BmobObject(&quot;GameScore&quot;);
+$res=$bmobObj-&gt;create(array(&quot;playerName&quot;=&gt;&quot;比目&quot;,&quot;score&quot;=&gt;89)); //添加对象
+
+</code></pre>
+
+<p>运行以上代码，如果添加成功，你可以在Bmob提供的后台的数据浏览中看到类似这样的结果：</p>
+<pre><code class="php">objectId: &quot;0c6db13c&quot;, score: 89, playerName: &quot;比目&quot;,createdAt:&quot;2013-09-27 10:32:54&quot;, updatedAt:&quot;2013-09-27 10:32:54&quot;
+</code></pre>
+
+<p><strong>这里需要注意的是：</strong></p>
+<ol>
+<li>
+<p>如果服务器端不存在GameScore表，那么系统将自动建表，并插入数据。</p>
+</li>
+<li>
+<p>如果服务器端已经存在GameScore表，和相应的score、playerName字段，那么你此时添加的数据和数据类型也应该和服务器端的表结构一致，否则会保存数据失败。</p>
+</li>
+<li>
+<p>每个BmobObject对象都有几个默认的键(数据列)是不需要开发者指定的，<code>objectId</code>是每个保存成功数据的唯一标识符。<code>createdAt</code>和<code>updatedAt</code>代表每个对象(每条数据)在服务器上创建和最后修改的时间。这些键(数据列)的创建和数据内容是由服务器端自主来完成的。<code>因此，使用create和update方法时,如果保存了objectId对象，否则会出现提示：“It is a reserved field: objectId(105)”--表明objectId为系统保留字段，不允许修改。</code>。</p>
+</li>
+</ol>
+<h2 id="_11">查询数据<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>数据的查询可能是每个应用都会频繁使用到的，可以使用BmobObject类，它提供了多样的方法来实现不同条件的查询，同时它的使用也是非常的简单和方便的。</p>
+<h3 id="_12">查询所有数据<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>查询某个数据表中的所有数据是非常简单的查询操作，例如：查询GameScore表中playerName为“比目”的50条数据记录。</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:&quot;比目&quot;}','limit=50'));
+</code></pre>
+
+<p>查询的结果不需要进行任何处理，BmobSDK已经为你封装成相应的php集合了，你直接使用即可。</p>
+<h3 id="_13">查询单条数据<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>当我们知道某条数据的<code>objectId</code>时，就可以根据<code>objectId</code>直接获取单条数据对象。例如：查询<code>objectId</code>为<code>a203eba875</code>的人员信息。</p>
+<pre><code class="php">
+$res=$bmobObj-&gt;get(&quot;a203eba875&quot;);
+
+</code></pre>
+
+<h3 id="_14">查询条件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>在查询的使用过程中，基于不同条件的查询是非常常见的，BmobQuery同样也支持不同条件的查询。</p>
+<p>比如需要查询playerName不等于“Barbie”的数据时可以这样写：</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:{&quot;$ne&quot;:&quot;Barbie&quot;}}'));
+</code></pre>
+
+<p>当然，你可以在你的查询操作中添加多个约束条件，来查询符合要求的数据。例如，下面的例子是查询playerName不等于“Barbie”，score大于90的数据</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:{&quot;$ne&quot;:&quot;Barbie&quot;},&quot;score&quot;:{&quot;$gt&quot;:90}}'));
+</code></pre>
+
+<p>如果你想查询匹配几个不同值的数据，如：要查询“Barbie”,“Joe”,“Julia”三个人的成绩时，你可以使用下面的方法来实现。</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:{&quot;$in&quot;:[&quot;Barbie&quot;,&quot;Joe&quot;,&quot;“Julia&quot;]}}'));
+</code></pre>
+
+<p>相反，如果你想查询排除“Barbie”,“Joe”,“Julia”这三个人的其他同学的信息，你可以使用<code>$nin</code>来实现。</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:{&quot;$nin&quot;:[&quot;Barbie&quot;,&quot;Joe&quot;,&quot;“Julia&quot;]}}'));
+</code></pre>
+
+<p>为了获得score得分包括数组中所有的值，如score是[1,3, 5]就满足，是[1, 5,10]就不满足:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;score&quot;:{&quot;$all&quot;:[1,3,5]}}'));
+</code></pre>
+
+<p>为了获取playerName不在列表中的GameScore对象们，我们可以:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:{&quot;$nin&quot;:[&quot;Jonathan Walsh&quot;,&quot;Dario Wunsch&quot;,&quot;Shawn Simon&quot;]}}'));
+</code></pre>
+
+<p>为了获取有分数的对象，我们应该用::</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;score&quot;:{&quot;$exists&quot;:true}}'));
+</code></pre>
+
+<p>为了获取没有分数的对象，用:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;score&quot;:{&quot;$exists&quot;:false}}'));
+</code></pre>
+
+<p>你还可以使用模糊查询，支持PCRE正则表达式：</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:{&quot;$regex&quot;:&quot;smile.*&quot;}}'));
+</code></pre>
+
+<p><strong>注:模糊查询只对付费用户开放，付费后可直接使用。</strong></p>
+<p>如果您的查询条件某个列值要匹配另一个查询的返回值，举例有一个队伍(Team)保存了每个城市的得分情况且用户表中有一列为用户家乡(hometown), 您可以创建一个查询来寻找用户的家乡是得分大于0.5的城市的所有运动员， 就像这样查询:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;hometown&quot;:{&quot;$select&quot;:{&quot;query&quot;:{&quot;className&quot;:&quot;Team&quot;,&quot;where&quot;:{&quot;winPct&quot;:{&quot;$gt&quot;:0.5}}},&quot;key&quot;:&quot;city&quot;}}}'));
+</code></pre>
+
+<p>反之查询Team中得分小于等于0.5的城市的所有运动员，构造查询如下：</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;hometown&quot;:{&quot;$dontSelect&quot;:{&quot;query&quot;:{&quot;className&quot;:&quot;Team&quot;,&quot;where&quot;:{&quot;winPct&quot;:{&quot;$gt&quot;:0.5}}},&quot;key&quot;:&quot;city&quot;}}}'));
+</code></pre>
+
+<p>下面是查询时支持的参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$lt</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">$lte</td>
+<td align="center">小于等于</td>
+</tr>
+<tr>
+<td align="center">$gt</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">$gte</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">$ne</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">$in</td>
+<td align="center">包含在数组中</td>
+</tr>
+<tr>
+<td align="center">$nin</td>
+<td align="center">不包含在数组中</td>
+</tr>
+<tr>
+<td align="center">$exists</td>
+<td align="center">这个 Key 有值</td>
+</tr>
+<tr>
+<td align="center">$select</td>
+<td align="center">匹配另一个查询的返回值</td>
+</tr>
+<tr>
+<td align="center">$dontSelect</td>
+<td align="center">排除另一个查询的返回</td>
+</tr>
+<tr>
+<td align="center">$all</td>
+<td align="center">包括所有给定的值</td>
+</tr>
+<tr>
+<td align="center">$regex</td>
+<td align="center">匹配PCRE表达式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">分页查询<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>你可以用limit和skip来做分页，limit的默认值是100，但是任何1到1000的值都是可选的，就是说，为了获取在400到600之间的对象:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:&quot;game&quot;}','limit=200','skip=400'));
+</code></pre>
+
+<h3 id="_16">结果排序<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>你可以用order参数指定一个字段来排序，前面加一个负号的前缀表示降序，这样返回的对象会以score升序排列:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:&quot;game&quot;}','order=score'));
+</code></pre>
+
+<p>而以下这样返回的对象会以score降序排列:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:&quot;game&quot;}','order=-score'));
+</code></pre>
+
+<p>你可以用多个字段进行排序，只要用一个逗号隔开列表就可以，为了获取GameScore，以score的升序和name的降序进行排序:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:&quot;game&quot;}','order=score,-name'));
+</code></pre>
+
+<h3 id="_17">统计对象数量<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>如果你在使用limit，或者如果返回的结果很多，你可能想要知道到底有多少对象应该返回，而不用把它们全部获得以后再计数，此时你可以使用count参数。举个例子，如果你仅仅是关心一个特定的玩家玩过的游戏数量：</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:&quot;game&quot;}','limit=0','count=1'));
+</code></pre>
+
+<p>因为请求了count而且把limit设为了0，返回的值里面只有计数，results为空数组集。</p>
+<pre><code>{ [&quot;count&quot;]=&gt; int(6) [&quot;results&quot;]=&gt; array(0) { } }
+</code></pre>
+
+<h3 id="_18">复合查询<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$or</td>
+<td align="center">复合查询中的或查询</td>
+</tr>
+<tr>
+<td align="center">$and</td>
+<td align="center">复合查询中的与查询</td>
+</tr>
+</tbody>
+</table>
+<p>如果你想查询对象符合几种查询之一，你可以使用$or或$and操作符，带一个JSON数组作为它的值。例如，如果你想找到player赢了很多或者赢了很少，你可以用如下的方式:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;$or&quot;:[{&quot;wins&quot;:{&quot;$gt&quot;:150}},{&quot;wins&quot;:{&quot;$lt&quot;:5}}]}'));
+</code></pre>
+
+<p>查询今天内的数据，方式如下:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;$and&quot;:[{&quot;createdAt&quot;:{&quot;$gte&quot;:{&quot;__type&quot;: &quot;Date&quot;, &quot;iso&quot;: &quot;2014-07-15 00:00:00&quot;}}},{&quot;createdAt&quot;:{&quot;$lte&quot;:{&quot;__type&quot;: &quot;Date&quot;, &quot;iso&quot;: &quot;2014-07-15 23:59:59&quot;}}}]}'));
+</code></pre>
+
+<p><strong>因为createdAt updatedAt服务器自动生成的时间，在服务器保存的是精确到微秒值的时间，所以基于时间类型比较的值要加1秒。</strong></p>
+<p>任何在查询上的其他的约束都会对返回的对象生效，所以你可以用$or对其他的查询添加约束。</p>
+<p>注意我们不会在 <strong>组合查询的子查询</strong> 中支持非过滤型的约束(例如:limit skip sort include)，但最外层的查询中是支持非过滤型约束的。</p>
+<h3 id="_19">查询指定列<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>你可以限定返回的字段，通过传入keys参数，值为用一个逗号分隔的字段名称列表，为了获取对象只包含score和playerName字段(还有特殊的内置字段比如objectId,createdAt和updatedAt)，请求如下：</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('$res=$bmobObj-&gt;get(&quot;&quot;,array(&quot;keys=score,playerName&quot;))'));
+</code></pre>
+
+<h3 id="bql">使用 BQL 查询<a class="headerlink" href="#bql" title="Permanent link">&para;</a></h3>
+<p>我们还提供类 SQL 语法的 BQL 查询语言来查询数据，例如：</p>
+<pre><code class="php">     $bmobBql = new BmobBql();
+     $res = $bmobBql-&gt;query(array('bql=select * from GameScore where name=? limit ?,? order by name'));
+</code></pre>
+
+<p>更多请参考 <a href="http://docs.bmob.cn/other/Other/m_bql/doc/index.html" title="BQL 详细指南">BQL 详细指南</a> 。</p>
+<p>BQL 还支持占位符查询，where 和 limit 子句的条件参数可以使用问号替换，然后通过 <code>values</code> 数组传入：</p>
+<pre><code class="php">    $bmobBql = new BmobBql();
+     $res = $bmobBql-&gt;query(array('bql=select * from GameScore where name=? limit ?,? order by name','values=[&quot;dennis&quot;, 0, 100]'));
+
+</code></pre>
+
+<h2 id="_20">修改数据<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>为了更改一个对象上已经有的数据，你可以发送一个PUT请求到对象相应的URL上，只有你指定的Key的值才会变更为新值，任何你未指定的Key的值都不会更改，所以你可以只更新对象数据的一个子集。例如，我们来更改我们对象的一个score的字段:</p>
+<pre><code class="php">$res=$bmobObj-&gt;update(&quot;16d846f51c&quot;, array(&quot;score&quot;=&gt;60));
+</code></pre>
+
+<p>返回的JSON对象只会包含一个updatedAt字段，表明更新发生的时间：</p>
+<pre><code>{ [&quot;updatedAt&quot;]=&gt; string(19) &quot;2015-10-26 16:33:51&quot; }
+</code></pre>
+
+<h2 id="_21">删除数据<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>为了在<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>上删除一个对象，可以发送一个DELETE请求到指定的对象的URL，比如:</p>
+<pre><code class="php">$res=$bmobObj-&gt;delete(&quot;bd89c6bce9&quot;); //删除对象bd89c6bce9
+</code></pre>
+
+<h2 id="_22">删除字段<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>你可以在一个对象中删除一个字段，通过Delete操作:</p>
+<pre><code class="php"> $res=$bmobObj-&gt;deleteField(&quot;ZS5wHHHV&quot;,&quot;score&quot;); //在一个对象中删除一个字段
+</code></pre>
+
+<h2 id="_23">数组<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p>为了存储数组型数据，<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>提供了3种操作来原子性地更改一个数组字段:</p>
+<p><strong>Add</strong> 在一个数组字段的后面添加一些指定的对象(包装在一个数组内)</p>
+<p><strong>AddUnique</strong> 只会在原本数组字段中没有这些对象的情形下才会添加入数组，插入数组的位置不固定的</p>
+<p><strong>Remove</strong> 从一个数组字段的值内移除指定的数组中的所有对象</p>
+<h3 id="_24">添加数组数据<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>添加一行记录时创建一个普通的数组类型字段，可以使用以下方法添加：</p>
+<pre><code class="php"> $res=$bmobObj-&gt;addArray(&quot;list&quot;,array(&quot;person1&quot;,&quot;person2&quot;));
+</code></pre>
+
+<h3 id="_25">更新数组数据<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>每一种方法都会有一个objects，即包含了这些方法将被添加或删除的对象列表，举个例子，技能skills是一个类似于集合的数组类型，那么我们可以在skills中加入一些对象，只有在skills原来的对象中不包含这些值的情况下才会被加入:</p>
+<pre><code class="php"> $res=$bmobObj-&gt;updateArray(&quot;ZS5wHHHV&quot;,&quot;skills&quot;,array(&quot;flying&quot;,&quot;kungfu&quot;));
+</code></pre>
+
+<h3 id="_26">查询数组数据<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>对于Key的类型是数组的情况，可以查找Key的数组值中包含有2的对象:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;arrayKey&quot;:2}'));
+</code></pre>
+
+<p>你同样可以使用"$all"操作符来找到类型为数组的Key的值中包含有2,3和4的对象:</p>
+<pre><code class="php">$res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;arrayKey&quot;:{&quot;$all&quot;:[2,3,4]}}'));
+</code></pre>
+
+<h3 id="_27">删除数组数据<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>同理我们可以使用Remove这个操作在把这些对象从skills中移除：</p>
+<pre><code class="php">$res=$bmobObj-&gt;deleteArray(&quot;ZS5wHHHV&quot;,&quot;skills&quot;,array(&quot;flying&quot;,&quot;kungfu&quot;));
+</code></pre>
+
+<h3 id="key">使用索引和对象key修改数组中的对象<a class="headerlink" href="#key" title="Permanent link">&para;</a></h3>
+<p>比如你当前行有一列叫用户的工作经验projectExperiences，是一个Array数组列，里面包含了多个对象值：[{"name":"项目名称","descr":"项目描述"，"startTime":"开始时间"，"endTime":"结束时间"}, ...]</p>
+<p>那么我们要修改projectExperiences数组中第一个对象的name值：</p>
+<pre><code class="php">$bmobUser = new BmobUser();
+$res=$bmobUser-&gt;update(&quot;16d846f51c&quot;, array(&quot;projectExperiences.0.name&quot;=&gt;&quot;项目名称2&quot;));
+</code></pre>
+
+<h2 id="_28">修改对象的某个值<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<p>比如你当前行有一列叫userAttibute,保存的是一个JSON 对象，比如是: {"name":"John", "gender":"男"}</p>
+<p>那么我们要修改这个对象的某个Key的值：</p>
+<pre><code>$res=$bmobObj-&gt;update(&quot;16d846f51c&quot;, array(&quot;userAttibute.gender&quot;=&gt;&quot;女&quot;));
+</code></pre>
+
+<h2 id="_29">数据关联<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<h3 id="_30">关联关系描述<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<p>在程序设计中，不同类型的数据之间可能存在某种关系。</p>
+<p>比如：帖子和作者的关系，一篇帖子只属于某个用户，这是<code>一对一的关系</code>,</p>
+<p>比如：帖子和评论的关系，一条评论只属于某一篇帖子，而一篇帖子对应有很多条评论，这是<code>一对多的关系</code>,</p>
+<p>比如：学生和课程的关系，一个学生可以选择很多课程，一个课程也可以被很多学生所选择，这是<code>多对多的关系</code>。</p>
+<p>Bmob提供了<code>Pointer（一对一、一对多）</code>和<code>Relation（多对多）</code>两种数据类型来解决这种业务需求。</p>
+<h4 id="_31">本案例的场景描述<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
+<p>由于关联关系讲解起来比较复杂，以下用一个简单的案例来说明在Bmob中是如何使用关联关系的。</p>
+<p>场景：<strong>用户发表帖子，同时又可对帖子进行评论留言。</strong></p>
+<p>在这个场景中涉及到三个表：用户表（<code>_User</code>）、帖子表（<code>Post</code>）、评论表（<code>Comment</code>）,以下是各个表的字段：</p>
+<p><code>_User</code>字段如下：</p>
+<table>
+<tr><th> 字段 </td><th>类型</th><th>  含义</th></tr>
+<tr><td> objectId </td><td>  String</td><td>  用户ID</td></tr>
+<tr><td> username </td><td>  String</td><td>  用户名(可以既发帖子又发评论)</td></tr>
+<tr><td> age </td><td>  Integer</td><td>  年龄</td></tr>
+</table>
+
+<hr />
+<p><code>Post</code>字段如下：</p>
+<table>
+<tr><th> 字段 </td><th>  含义</th><th>  类型</th></tr>
+<tr><td> objectId </td><td>  String</td><td> 帖子ID </td></tr>
+<tr><td> title </td><td>  String</td><td> 帖子标题 </td></tr>
+<tr><td> content </td><td>  String</td><td> 帖子内容 </td></tr>
+<tr><td> author </td><td>  Pointer<_User></td><td> 帖子作者 </td></tr>
+<tr><td> likes </td><td>  Relation<_User></td><td> 喜欢帖子的读者 </td></tr>
+</table>
+
+<hr />
+<p><code>Comment</code>字段如下：</p>
+<table>
+<tr><th> 字段 </td><th>  含义</th><th>  类型</th></tr>
+<tr><td> objectId </td><td>  String</td><td> 评论ID </td></tr>
+<tr><td> content </td><td>  String</td><td> 评论内容 </td></tr>
+<tr><td> post </td><td>   Pointer< Post></td><td> 评论对应的帖子 </td></tr>
+<tr><td> author </td><td>  Pointer<_User></td><td> 评论该帖子的人 </td></tr>
+</table>
+
+<hr />
+<h4 id="web">Web端创建关联字段<a class="headerlink" href="#web" title="Permanent link">&para;</a></h4>
+<p>如果你需要在Web端创建上述表的话，那么当选择的字段类型为<code>Pointer或Relation</code>时，会提示你选择该字段所指向或关联的数据表。</p>
+<p>如下图所示：</p>
+<p><img alt="图1 点击添加云端方法名" src="../image/createline.jpg" /></p>
+<p>以下举例均假定A用户已注册并登陆</p>
+<p><img alt="图1" src="../image/userA.png" /></p>
+<h3 id="_32">一对一关系<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p><strong>用户发表帖子，一篇帖子也只能属于某个用户，那么帖子和用户之间的关系是<code>一对一关系</code>，建议使用<code>Pointer</code>类型来表示。</strong></p>
+<p><code>Pointer</code>本质上可以看成是我们将一个指向某条记录的指针记录下来，我们查询时可以通过该指针来获得其指向的关联对象。</p>
+<p>用户A（该ObjectId为“0290813a89”）写了一篇帖子，需要在<code>Post</code>表中生成一条记录，并将该帖子关联到用户A这条记录，表明该帖子是A所发表的。</p>
+<p>示例如下：</p>
+<pre><code class="php">    $post = new BmobObject(&quot;Post&quot;);
+    $res=$post-&gt;addRelPointer(&quot;author&quot;,&quot;_User&quot;,&quot;0290813a89&quot;);
+    $res=$post-&gt;update($res-&gt;objectId, array(&quot;content&quot;=&gt;&quot;帖子内容&quot;));
+</code></pre>
+
+<p>添加成功后，在后台的<code>Post</code>表中，你就会看到有一条记录生成，并且该帖子的<code>author</code>字段的值指向了<code>_User</code>表中的<code>用户A</code>这条记录。</p>
+<p><img alt="图1" src="../image/post1.png" /></p>
+<h4 id="_33">查询一对一关联<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
+<p>如果想查询用户A（该ObjectId为“0290813a89”）所发表的所有帖子，那么可以这样：</p>
+<pre><code class="php">    $post = new BmobObject(&quot;Post&quot;);
+    $res=$post-&gt;addRelPointer(array(array(&quot;author&quot;,&quot;_User&quot;,&quot;0290813a89&quot;)));
+    $res=$post-&gt;update($res-&gt;objectId, array(&quot;content&quot;=&gt;&quot;帖子内容&quot;));
+</code></pre>
+
+<h4 id="_34">修改一对一关联<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<p>如果希望将<code>83ce274594</code>这条帖子的作者修改成<code>用户B</code>,示例：</p>
+<pre><code class="php">    $res=$post-&gt;updateRelPointer(&quot;83ce274594&quot;, &quot;author&quot;, &quot;_User&quot;, &quot;7f00a95bdf&quot;);
+</code></pre>
+
+<p>修改成功后，在后台可查看到<code>83ce274594</code>这个帖子的作者已经变更为用户B</p>
+<p><img alt="图1" src="../image/postupdate.png" /></p>
+<h4 id="_35">删除一对一关联<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<p>如果你想和<code>83ce274594</code>这个帖子解除关联关系，可以这样：</p>
+<pre><code class="php">    $res=$post-&gt;deleteField(&quot;83ce274594&quot;,&quot;author&quot;);
+</code></pre>
+
+<p>删除成功后，在后台的<code>Post</code>表中，你就会看到<code>83ce274594</code>这个帖子的<code>author</code>字段的值已经被置空了。</p>
+<p><img alt="图1" src="../image/postdelete.png" /></p>
+<h3 id="_36">一对多关系<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<p><strong>一篇评论只能属于某一篇帖子，一篇帖子可以有很多用户对其进行评论，那么帖子和评论之间的关系就是<code>一对多关系</code>，推荐使用<code>pointer</code>类型来表示</strong>。</p>
+<p>因为使用方法和上面的一对一关联基本相同，只是查询一对多关联的时候有些区别，故只举添加和查询两个例子：</p>
+<h4 id="_37">添加一对多关联<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h4>
+<p>将评论和微博进行关联，并同时和当前用户进行关联，表明是当前用户对该帖子进行评论，示例如下：</p>
+<pre><code class="php">    $comment = new BmobObject(&quot;Comment&quot;);
+    $res=$comment-&gt;addRelPointer(array(array(&quot;author&quot;,&quot;_User&quot;,&quot;0290813a89&quot;),array(&quot;post&quot;,&quot;Post&quot;,&quot;81108a33c8&quot;)));
+</code></pre>
+
+<h4 id="_38">查询一对多关联<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
+<p>我想<code>查询出某个帖子（objectId为81108a33c8）的所有评论,同时将该评论的作者的信息也查询出来</code>，那么可以使用下面的方法：</p>
+<pre><code class="php">    $res=$comment-&gt;get(&quot;&quot;,array('where={&quot;post&quot;:{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Post&quot;,&quot;objectId&quot;:&quot;81108a33c8&quot;}}','include=author'));
+</code></pre>
+
+<h3 id="_39">多对多关系<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<p><strong>一个帖子可以被很多用户所喜欢，一个用户也可能会喜欢很多帖子，那么可以使用<code>Relation</code>类型来表示这种<code>多对多关联关系</code></strong>。</p>
+<p><code>Relation</code>本质上可以理解为其存储的是一个对象，而这个对象中存储的是多个指向其它记录的指针。</p>
+<h4 id="_40">添加多对多关联<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
+<pre><code class="php">    $res=$post-&gt;updateRelRelation(&quot;83ce274594&quot;, &quot;likes&quot;, array(array(&quot;_User&quot;,&quot;focb9e3d60&quot;)));
+</code></pre>
+
+<p>添加成功后，在后台的<code>Post</code>表中就能查看到<code>likes</code>字段已经生成并对应到了<code>_User</code></p>
+<p><img alt="图1" src="../image/relation.png" /></p>
+<p>点击红框中的<code>关联关系</code>按钮展开后，可查看刚才所添加的喜欢该帖子的用户A：</p>
+<p><img alt="图1" src="../image/likes.png" /></p>
+<h4 id="_41">查询多对多关联<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
+<p>如果希望<code>查询喜欢该帖子（objectId为83ce274594）的所有用户</code>，那么可以使用下面的方法：</p>
+<p>示例代码：</p>
+<pre><code class="php">    $res = $bmobUser-&gt;get(0,array('where={&quot;$relatedTo&quot;:{&quot;object&quot;:{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Post&quot;,&quot;objectId&quot;:&quot;83ce274594&quot;},&quot;key&quot;:&quot;likes&quot;}}'));
+</code></pre>
+
+<h4 id="_42">修改多对多关联<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h4>
+<p>如果<code>用户B也喜欢该帖子（objectId为83ce274594）</code>，此时需要为该帖子(Post)的<code>likes</code>字段多添加一个用户,示例如下：</p>
+<pre><code>$res=$post-&gt;updateRelRelation(&quot;83ce274594&quot;, &quot;likes&quot;, array(array(&quot;_User&quot;,&quot;83ce274594&quot;)));
+</code></pre>
+
+<p>修改成功后，你在点击该帖子的<code>likes</code>字段下面的<code>关联关系</code>按钮展开后，可查看刚才所添加的喜欢该帖子的用户B：</p>
+<p><img alt="图1" src="../image/updaterelation.png" /></p>
+<h4 id="_43">删除多对多关联<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<p>如果<code>想对该帖子进行取消喜欢的操作</code>，此时，需要删除之前的多对多关联，具体代码：</p>
+<pre><code class="php">$res=$post-&gt;deleteRelation(&quot;81108a33c8&quot;, &quot;likes&quot;, array(array(&quot;_User&quot;,&quot;eb3e34f23b&quot;)));
+</code></pre>
+
+<h3 id="include">include用法<a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
+<p>在某些情况下，你想在一个查询内获取<code>Pointer</code>类型的关联对象。</p>
+<p>比如上述示例中，如果希望在查询帖子信息的同时也把该帖子的作者的信息查询出来，可以使用<code>include</code>方法</p>
+<pre><code class="php">$res=$post-&gt;get(&quot;&quot;,array('include=author'));
+</code></pre>
+
+<p>你可以使用<code>,</code>号(逗号)操作符来<code>include并列查询</code>两个对象</p>
+<p>比如，查询评论表的同时将该评论用户的信息和所评论的帖子信息也一并查询出来（因为Comment表有两个<code>Pointer类型</code>的字段），那么可以这样做：</p>
+<pre><code class="php">$res=$comment-&gt;get(&quot;&quot;,array('include=author,post'));
+</code></pre>
+
+<p>你同时还可以使用 <code>.</code>号（英语句号）操作符来进行<code>include中的内嵌对象查询</code></p>
+<p>比如，你想在查询评论信息的同时将该评论<code>Comment</code>对应的帖子<code>post</code>以及该帖子的作者信息<code>author</code>一并查询出来，你可以这样做：</p>
+<pre><code class="php">$res=$comment-&gt;get(&quot;&quot;,array('include=post.author'));
+</code></pre>
+
+<p><strong>注：include的查询对象只能为BmobPointer类型，而不能是BmobRelation类型。</strong></p>
+<h2 id="_44">批量数据操作<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h2>
+<p>为了减少因为网络通讯次数太多而带来的时间浪费, 你可以使用下面的批量(batch)操作，在一个请求中对多个普通对象进行添加(create)、更新(update)、删除(delete) 操作，上限为50个。</p>
+<p>在一个批量(batch)请求中每一个操作都有自己对应的方法、路径和主体, 这些参数可以代替你通常使用的HTTP方法. 这些操作会以发送过去的顺序来执行, 比如我们要创建一系列的 GameScore 的对象:</p>
+<pre><code>    $bmobBatch = new BmobBatch();
+    $data=array(
+        array(
+            &quot;method&quot;=&gt;&quot;POST&quot;,
+            &quot;path&quot;=&gt;&quot;/1/classes/GameScore&quot;,
+            &quot;body&quot;=&gt;array(
+                        &quot;score&quot;=&gt;1337,
+                        &quot;playerName&quot;=&gt;&quot;Sean Plott&quot;,
+                    ),
+        ),
+        array(
+            &quot;method&quot;=&gt;&quot;POST&quot;,
+            &quot;path&quot;=&gt;&quot;/1/classes/GameScore&quot;,
+            &quot;body&quot;=&gt;array(
+                        &quot;score&quot;=&gt;1338,
+                        &quot;playerName&quot;=&gt;&quot;ZeroCool&quot;,
+                    ),
+        ),
+    );
+    $res=$bmobBatch-&gt;batch($data);
+</code></pre>
+
+<p>批量操作的响应会是一个列表, 列表的返回值个数与给定的requests请求个数是相等的。列表中每个返回项都有一个字段是 <strong>"success"</strong> 或者 <strong>"error"</strong>， <strong>"success"</strong> 的值通常和你进行其他REST操作成功时返回的值是一样的:</p>
+<pre><code>Array
+(
+    [0] =&gt; stdClass Object
+        (
+            [success] =&gt; stdClass Object
+                (
+                    [createdAt] =&gt; 2015-10-30 10:51:52
+                    [objectId] =&gt; 495ac937b8
+                )
+
+        )
+
+    [1] =&gt; stdClass Object
+        (
+            [success] =&gt; stdClass Object
+                (
+                    [createdAt] =&gt; 2015-10-30 10:51:52
+                    [objectId] =&gt; e8597579be
+                )
+
+        )
+
+)
+
+</code></pre>
+
+<p><strong>"error"</strong> 的值是有返回码和错误信息字符串的一个对象:</p>
+<pre><code>[error] =&gt; stdClass Object
+    (
+        [code] =&gt; 101
+        [error] =&gt; &quot;object not found for delete&quot;
+    )
+</code></pre>
+
+<p>在 batch 操作中更新(update)和删除(delete)同样是有效的，如果相应记录有ACL规则，则必须传入该用户的Token才能进行更新或删除:</p>
+<pre><code>    $bmobBatch = new BmobBatch();
+    $data=array(
+        array(
+            &quot;method&quot;=&gt;&quot;PUT&quot;,
+            &quot;token&quot;=&gt;&quot;pnktnjyb996sj4p156gjtp4im&quot;,
+            &quot;path&quot;=&gt;&quot;/1/users/51e3a334e4b0b3eb44adbe1a&quot;,
+            &quot;body&quot;=&gt;array(
+                        &quot;score&quot;=&gt;1337,
+                    ),
+        ),
+        array(
+            &quot;method&quot;=&gt;&quot;DELETE&quot;,
+            &quot;token&quot;=&gt;&quot;pnktnjyb996sj4p156gjtp4im&quot;,
+            &quot;path&quot;=&gt;&quot;/1/users/51a8a4d9e4b0d034f6159a35&quot;,
+        ),
+    );
+    $res=$bmobBatch-&gt;batch($data);
+</code></pre>
+
+<h2 id="_45">原子计数器<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
+<p>很多应用可能会有需要计数器的功能，比如某条信息被点赞多少次等。Bmob提供了非常便捷的方式来保证原子性的修改某一数值字段的值。</p>
+<pre><code class="php">$bmobObj = new BmobObject(&quot;GameScore&quot;);
+$res=$bmobObj-&gt;increment(&quot;bd89c6bce9&quot;,&quot;score&quot;,array(2)); //id为bd89c6bce9的field score数值加2
+
+</code></pre>
+
+<p>同理可以让score像下面一样减少一个固定的值：</p>
+<pre><code class="php">$res=$bmobObj-&gt;increment(&quot;bd89c6bce9&quot;,&quot;score&quot;,array(-2)); //id为bd89c6bce9的field score数值减2
+</code></pre>
+
+<h2 id="_46">文件<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
+<p>Bmob的文件上传有整个文件上传和分片上传两种方式，可以分别实现小文件上传和大文件的上传。</p>
+<h3 id="_47">整个文件上传<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<p>上传整个文件到bmob，发送一个POST请求到file路径，参数是：文件名，。
+上传一个 hello.txt 文件实现方法如下：</p>
+<pre><code class="php">$bmobFile = new BmobFile();
+//第一个参数是文件的名称,第二个参数是文件的url(可以是本地路径,最终是通过file_get_contents获取文件内容)
+$res=$bmobFile-&gt;uploadFile(&quot;heelo.txt&quot;,&quot;http://file.bmob.cn/M02/17/99/oYYBAFYfXS6AKB96AAAABNsGNwg872.txt&quot;);
+</code></pre>
+
+<p>返回的主体是一个JSON对象，包含：文件名（filename）、分组（group）、文件地址（url）。 http://file.bmob.cn/ + url 就是文件上传成功后的完整地址，返回的Http Headers中的Location会包含该完整地址:</p>
+<pre><code class="php">[filename] =&gt; heelo.txt [group] =&gt; group1 [url] =&gt; M02/57/6A/oYYBAFYy3amAQI7cAAAAAjP0FTs923.txt
+
+</code></pre>
+
+<p>然后你需要把上传后的文件对象上传:</p>
+<pre><code class="php">$fileArray = array(&quot;__type&quot;=&gt;&quot;File&quot;, &quot;group&quot;=&gt;$res-&gt;group,&quot;filename&quot;=&gt;$res-&gt;filename,&quot;url&quot;=&gt;$res-&gt;url);
+$res=$bmobObj-&gt;create(array(&quot;score&quot;=&gt;11,&quot;file&quot;=&gt;$fileArray));
+</code></pre>
+
+<h3 id="_48">删除文件<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<p>删除文件，必须要知道文件的url，如下：</p>
+<pre><code class="php">$res=$bmobFile-&gt;delete(&quot;M02/54/09/oYYBAFYxx4uAbgTcAAAbpS8UHE45961.js&quot;);
+</code></pre>
+
+<p>其中M02/54/09/oYYBAFYxx4uAbgTcAAAbpS8UHE45961.js是文件的url。</p>
+<p>返回结果格式如下：</p>
+<pre><code>{ $msg =&gt; &quot;ok&quot; }
+</code></pre>
+
+<p><strong>删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。</strong></p>
+<h2 id="_49">用户<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
+<p>很多跨平台和跨系统的应用都有一个统一的登录流程，<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>通过REST API访问用户的账户让你实现该功能。</p>
+<p>通常来说，用户这个类的功能与其他的对象是相同的，比如都没有限制模式(Schema Less)，User对象和其他对象不同的是一个用户必须有用户名(username)和密码(password)，密码会被自动地加密和存储。<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>强制你username和email这两个Key的值必须是不重复的。</p>
+<h3 id="_50">属性<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<p><a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>默认会有几个特定的属性：
+username: 用户的用户名<code>（必需）</code>。
+password: 用户的密码<code>（必需）</code>。
+email: 用户的电子邮件地址<code>（可选）</code>。</p>
+<h3 id="_51">注册用户<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<p>注册一个新用户与创建一个新的普通对象之间的不同点在于其username和password字段都是必要的，password字段会以与其他的字段不一样的方式处理，它在保存时会被加密而且永远不会被返回给任何来自客户端的请求。</p>
+<p>在你的应用设置页面中，你可以向<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>来请求认证邮件地址，这项设置启用了的话，所有用户在注册时填写email这个Key的值，并且邮箱有效的情况下，就会向这个邮箱地址发出一封邮件，邮件中会包含一个来自<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>的邮箱验证的链接，当你的用户查收邮件并点击这个链接后，这个用户emailVerified的Key的值会置为True，你可以在emailVerified字段上查看用户的email是否已经通过验证了。</p>
+<p>为了注册一个新的用户，需要向user路径发送一个POST请求，你可以加入一个甚至多个新的字段，例如，创建一个有家庭电话字段的新用户:</p>
+<pre><code>$bmobUser = new BmobUser();
+$res = $bmobUser-&gt;register(array(&quot;username&quot;=&gt;&quot;cooldude117&quot;, &quot;password&quot;=&gt;&quot;p_n7!-e8&quot;, &quot;phone&quot;=&gt;&quot;415-392-0202&quot;, &quot;email&quot;=&gt;&quot;bmobtest111@126.com&quot;));
+</code></pre>
+
+<p>当创建成功时,HTTP响应头的状态码返回为201 Created，Http响应头的Location值包含了该新用户的URL:</p>
+<pre><code>Status: 201 Created
+Location: https://api2.bmob.cn/1/users/Kc3M222J
+</code></pre>
+
+<p>返回的主体是包含objectId，表示唯一的用户, createdAt时间戳表示用户注册时间, sessionToken可以被用来认证更新或删除这名用户信息的请求。</p>
+<pre><code>[createdAt] =&gt; 2011-11-07 20:58:34, [objectId] =&gt; Kc3M222J, [sessionToken] =&gt; pnktnjyb996sj4p156gjtp4im,
+</code></pre>
+
+<p><strong>这里需要注意一点的是，有些时候你可能需要在用户注册时发送一封验证邮件，以确认用户邮箱的真实性。这时，你只需要登录自己的应用管理后台，在应用设置-&gt;邮件设置（下图）中把“邮箱验证”功能打开，Bmob云后端就会在注册时自动发动一封验证邮件给用户。</strong></p>
+<p><img alt="" src="../image/email_verify.jpg" />
+设置邮箱验证功能</p>
+<h3 id="_52">使用手机号码一键注册或登陆<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<p><a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a> 支持让用户直接输入手机号码进行注册，如果手机号码存在则自动登陆：</p>
+<pre><code> $res = $bmobUser-&gt;register(array(&quot;mobilePhoneNumber&quot;=&gt;&quot;131xxxxxxxx&quot;, &quot;smsCode&quot;=&gt;&quot;502845&quot;));
+</code></pre>
+
+<p>其中 <strong>mobilePhoneNumber</strong> 就是手机号码，而 <strong>smsCode</strong> 是使用 <a href="../BmobSms中的sendSms">请求短信验证码方法</a>发送到用户手机上的 6位验证码字符串。如果是新用户且不传入 username，默认用户名将是手机号码。</p>
+<p>注册或者登陆成功后，返回的应答跟登陆接口类似：</p>
+<pre><code>  &quot;username&quot; =&gt;&quot;185xxxxxxxx&quot;,
+  &quot;mobilePhoneNumber&quot; =&gt; &quot;185xxxxxxxx&quot;,
+  &quot;mobilePhoneVerified&quot; =&gt; true,
+  &quot;createdAt&quot; =&gt; &quot;2011-11-07 20:58:34&quot;,
+  &quot;updatedAt&quot; =&gt; &quot;2011-11-07 20:58:34&quot;,
+  &quot;objectId&quot; =&gt; &quot;Kc3M222J&quot;,
+  &quot;sessionToken&quot; =&gt; &quot;pnktnjyb996sj4p156gjtp4im&quot;
+  ……其他属性
+
+</code></pre>
+
+<p>如果是第一次注册，将默认设置_User表的 <strong>mobilePhoneVerified</strong> 属性为 true。</p>
+<h3 id="_53">登录用户<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<p>你的用户注册之后，你需要让他们用自己的用户名和密码登录，为了做到这一点，发送一个HTTP GET请求到 <strong>/1/login</strong> ，加上username和password作为URL编码后的参数：</p>
+<pre><code>$res = $bmobUser-&gt;login(&quot;test111@qq.com&quot;,&quot;111111&quot;);
+</code></pre>
+
+<p>username 支持传入_User表的username或email或mobilePhoneNumber字段的值，作为登录的扩展功能，以实现邮箱和密码、手机号和密码登录功能。</p>
+<p>除了有用户名或邮箱或手机号码和密码登录的功能，<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a> 还支持使用手机号码和验证码一键快速登录的功能，而 <strong>smsCode</strong> 是使用<a href="../BmobSms中的sendSms">请求短信验证码方法</a>发送到用户手机上的 6位验证码字符串：</p>
+<pre><code>$res = $bmobUser-&gt;loginByMobile(&quot;131xxxxxxxx&quot;,&quot;745399&quot;);
+</code></pre>
+
+<p>返回的主体是一个JSON对象，包括所有除了password以外的自定义字段，它同样包含了createdAt,updateAt,objectId和sessionToken字段：</p>
+<pre><code>    &quot;username&quot;=&gt;&quot;cooldude6&quot;,
+    &quot;phone&quot;=&gt;&quot;415-392-0202&quot;,
+    &quot;createdAt&quot;=&gt; &quot;2011-11-07 20:58:34&quot;,
+    &quot;updatedAt&quot;=&gt;&quot;2011-11-07 20:58:34&quot;,
+    &quot;objectId&quot;=&gt;&quot;Kc3M222J&quot;,
+    &quot;sessionToken&quot;=&gt;&quot;pnktnjyb996sj4p156gjtp4im&quot;
+</code></pre>
+
+<h3 id="_54">获取当前用户<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<p>当注册一个用户后，你可以通过发送一个HTTP GET请求到用户注册成功时返回的HTTP请求头中的Location的URL获取用户的信息。比如，为了获取上面注册成功的用户：</p>
+<pre><code>$res = $bmobUser-&gt;get(&quot;415b8fe99a&quot;); // 获取id为415b8fe99a用户的信息
+</code></pre>
+
+<p>返回的对象包含所有用户提供的字段,除了密码以外.也包括了createdAt,updatedAt和objectId字段.</p>
+<pre><code>
+    &quot;username&quot;=&gt;&quot;cooldude6&quot;,
+    &quot;phone&quot;=&gt; &quot;415-392-0202&quot;,
+    &quot;createdAt&quot;=&gt; &quot;2011-11-07 20:58:34&quot;,
+    &quot;updatedAt&quot;=&gt; &quot;2011-11-07 20:58:34&quot;,
+    &quot;objectId&quot;=&gt; &quot;415b8fe99a&quot;
+
+</code></pre>
+
+<h3 id="_55">更新用户<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<p>在通常的情况下，我们都不希望用户去修改自己的数据，但可以通过认证让用户去做这件事，修改的用户的数据必须要传入sessionToken，这个sessionToken在注册和登录时都会返回。</p>
+<p>为了改动一个用户已经有的数据，需要对这个用户的URL发送一个HTTP PUT请求，任何你没有指定的key会保持不变，所以你可以只改动用户信息中的一部分，username和password可以更改，但是新的username不能重复。</p>
+<p>比如，如果我们想对 cooldude6 的电话做出一些改动：</p>
+<pre><code>$res = $bmobUser-&gt;update(&quot;415b8fe99a&quot;, &quot;050391db407114d9801c8f2788c6b25a&quot;, array(&quot;phone&quot;=&gt;&quot;02011111&quot;));
+</code></pre>
+
+<p>上面的050391db407114d9801c8f2788c6b25a是sessionToken</p>
+<p>返回只有一个updatedAt字段表明更新发生的时间.</p>
+<pre><code>{
+    &quot;updatedAt&quot;=&gt;&quot;2011-11-07 21:25:10&quot;
+}
+</code></pre>
+
+<p><strong>在更新用户信息时，如果用户邮箱有变更并且在管理后台打开了邮箱验证选项的话，Bmob云后端同样会自动发动一封验证邮件给用户。</strong></p>
+<h3 id="_56">删除用户<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<p>为了在<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>上删除一个用户，可以向用户的URL上发送一个DELETE请求，前提是你必须填入sessiontoken以便认证授权，例子：</p>
+<pre><code>$res = $bmobUser-&gt;delete(&quot;415b8fe99a&quot;, &quot;050391db407114d9801c8f2788c6b25a&quot;); // 删除id为415b8fe99a的用户, 第一参数是用户id, 第二个参数为sessiontoken,在用户登录或注册后获取, 必填
+</code></pre>
+
+<h3 id="_57">查询用户<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<p>你可以一次获取多个用户，只要向用户的根URL发送一个GET请求，没有任何URL参数的话，可以简单地列出所有用户：</p>
+<pre><code> $res = $bmobUser-&gt;get(); // 获取所有用户的信息
+</code></pre>
+
+<p>返回的值是一个JSON对象包括一个results字段, 值是包含了所有对象的一个JSON数组.</p>
+<pre><code>    [results] =&gt; Array
+        (
+            [0] =&gt; stdClass Object
+                (
+                    [age] =&gt; 11
+                    [createdAt] =&gt; 2015-10-19 15:45:17
+                    [email] =&gt; test111@qq.com
+                    [emailVerified] =&gt;
+                    [objectId] =&gt; WXHsFFFd
+                    [updatedAt] =&gt; 2015-10-27 18:03:42
+                    [username] =&gt; b
+                )
+
+            [1] =&gt; stdClass Object
+                (
+                    [createdAt] =&gt; 2015-10-22 10:24:49
+                    [mobilePhoneNumber] =&gt; 13168399536
+                    [mobilePhoneNumberVerified] =&gt; 1
+                    [objectId] =&gt; 0290813a89
+                    [updatedAt] =&gt; 2015-10-26 17:47:00
+                    [username] =&gt; a
+                )
+
+            [2] =&gt; stdClass Object
+                (
+                    [createdAt] =&gt; 2015-10-30 14:44:18
+                    [email] =&gt; bmobtest111@126.com
+                    [emailVerified] =&gt;
+                    [objectId] =&gt; eb3e34f23b
+                    [phone] =&gt; 415-392-0202
+                    [updatedAt] =&gt; 2015-10-30 14:44:18
+                    [username] =&gt; cooldude117
+                )
+
+        )
+</code></pre>
+
+<p>浏览器中查看用户表</p>
+<p>User表是一个特殊的表，专门存储BmobUser对象。在浏览器端，你会看到一个User表旁边有一个小人的图标。</p>
+<p><img alt="" src="../image/create_table.png" /></p>
+<h3 id="_58">密码重置<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+<p>你可以使用这项功能，前提是用户将email与他们的账户关联起来.</p>
+<pre><code> $res = $bmobUser-&gt;requestPasswordReset(&quot;bmobxxx@126.com&quot;);
+</code></pre>
+
+<p>如果成功的话,返回的值是一个JSON对象。
+密码重置流程如下：</p>
+<ol>
+<li>用户输入他们的电子邮件，请求重置自己的密码。</li>
+<li>Bmob向他们的邮箱发送一封包含特殊的密码重置连接的电子邮件，此邮件的模板可在Bmob后台中修改。</li>
+<li>用户根据向导点击重置密码连接，打开一个特殊的Bmob页面，输入一个新的密码。</li>
+<li>用户的密码已被重置为新输入的密码。</li>
+</ol>
+<h3 id="_59">使用短信验证码进行密码重置<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
+<p>如果用户有绑定了手机号码，就可以通过手机验证码短信来实现使用手机号码找回密码的功能，先调用发送验证码 $bmobSms-&gt;sendSms 会将验证码发送到用户手机上，用户收到验证码并输入后，调用resetPasswordBySmsCode 来为用户设置新的密码：</p>
+<pre><code>$res = $bmobUser-&gt;resetPasswordBySmsCode(&quot;111111&quot;, &quot;134554&quot;); // 使用短信验证码进行密码重置
+</code></pre>
+
+<p>如果成功的话,返回如下:</p>
+<pre><code>&quot;msg&quot;: &quot;ok&quot;
+</code></pre>
+
+<p>这时，用户就可以用新密码登陆了。</p>
+<h3 id="_60">提供旧密码方式安全修改用户密码<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
+<p>很多开发者希望让用户输入一次旧密码做一次校验，旧密码正确才可以修改为新密码，因此我们提供了一个单独的方法updateUserPassword来安全地修改用户密码：</p>
+<pre><code>$res = $bmobUser-&gt;updateUserPassword(&quot;WXHsFFFd&quot;, &quot;d365d5834061d9f6805047131893ae13&quot; , &quot;123456&quot;, &quot;111111&quot;); //用户输入一次旧密码做一次校验，旧密码正确才可以修改为新密码
+</code></pre>
+
+<p>WXHsFFFd：为当前登录用户的objectId。
+d365d5834061d9f6805047131893ae13：sessionToken</p>
+<p><strong>注意：仍然需要传入 sessionToken，也就是登录用户才可以修改自己的密码。</strong></p>
+<h3 id="_61">邮箱验证<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<p>设置邮件验证是一个可选的应用设置, 这样可以对已经确认过邮件的用户提供一部分保留的体验，邮件验证功能会在用户(User)对象中加入emailVerified字段, 当一个用户的邮件被新添加或者修改过的话，emailVerified会默认被设为false，如果应用设置中开启了邮箱认证功能，<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>会对用户填写的邮箱发送一个链接, 这个链接可以把emailVerified设置为 true.</p>
+<p>emailVerified 字段有 3 种状态可以考虑：</p>
+<p><strong>true</strong> : 用户可以点击邮件中的链接通过<a href="http://www.bmob.cn/" title="Bmob移动后端云服务平台">Bmob</a>来验证地址，一个用户永远不会在新创建这个值的时候出现emailVerified为true。</p>
+<p><strong>false</strong> : 用户(User)对象最后一次被刷新的时候, 用户并没有确认过他的邮箱地址, 如果你看到emailVerified为false的话，你可以考虑刷新 用户(User)对象。</p>
+<p><strong>missing</strong> : 用户(User)对象已经被创建，但应用设置并没有开启邮件验证功能； 或者用户(User)对象没有email邮箱。</p>
+<h4 id="email">请求验证Email<a class="headerlink" href="#email" title="Permanent link">&para;</a></h4>
+<p>发送到用户邮箱验证的邮件会在一周内失效，可以通过调用 <strong>requestEmailVerifyy</strong> 来强制重新发送：</p>
+<pre><code>$res = $bmobUser-&gt;requestEmailVerify(&quot;h622222225@126.com&quot;); //请求验证Email
+</code></pre>
+
+<h3 id="_62">用户账户连接<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
+<p>Bmob允许你连接你的用户到第三方账户服务系统，比如新浪微博和QQ，这样就允许您的用户用已经存在的第三方账户直接登录您的App。通过注册或者更新的用户信息的功能，使用 <strong>authData</strong> 字段来保存第三方服务的授权信息就可以做到。一旦用户关联了某个第三方账户，<strong>authData</strong> 将被存储到您的Bmob的用户信息里，并通过登录即可重新获取到。</p>
+<p><strong>authData</strong> 是一个普通的 JSON 对象，它所要求的key根据第三方账户服务不同而不同，具体要求见下面。每种情况下，你都需要自己负责完成整个授权过程 (一般是通过 OAuth 协议，1.0 或者 2.0) 通过连接的API来获取授权信息。</p>
+<p>新浪微博的 <strong>authData</strong> 内容:</p>
+<pre><code>array(
+    &quot;authData&quot;=&gt;
+        array(&quot;weibo&quot;=&gt;array(
+            &quot;uid&quot;=&gt;&quot;123456789&quot;,
+            &quot;access_token&quot;=&gt;&quot;2.00ed6eMCV9DWcBcb79e8108f8m1HdE&quot;,
+            &quot;expires_in&quot;=&gt;1564469423540,
+    ))
+)
+
+</code></pre>
+
+<p>腾讯QQ的 <strong>authData</strong> 内容:</p>
+<pre><code>array(
+    &quot;authData&quot;=&gt;
+        array(&quot;weibo&quot;=&gt;array(
+            &quot;openid&quot;=&gt;&quot;2345CA18A5CD6255E5BA185E7BECD222&quot;,
+            &quot;access_token&quot;=&gt;&quot;12345678-SM3m2avZxh5cjJmIrAfx4ZYyamdofM7IjU&quot;,
+            &quot;expires_in&quot;=&gt;1382686496,
+    ))
+)
+
+</code></pre>
+
+<p>匿名用户 (Anonymous user) 的 authData 内容:</p>
+<pre><code>array(
+    &quot;authData&quot;=&gt;array(&quot;id&quot;=&gt;&quot;random UUID with lowercase hexadecimal digits&quot;)
+)
+
+</code></pre>
+
+<h4 id="_63">注册和登录<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h4>
+<p>使用一个第三方账户连接服务来注册用户并登录，同样使用POST请求/1/users，只是需要提供authData字段。例如，使用新浪微博账户注册或者登录用户:</p>
+<pre><code>$data = array(
+    &quot;authData&quot;=&gt;
+        array(&quot;weibo&quot;=&gt;array(
+            &quot;uid&quot;=&gt;&quot;123456789&quot;,
+            &quot;access_token&quot;=&gt;&quot;2.00ed6eMCV9DWcBcb79e8108f8m1HdE&quot;,
+            &quot;expires_in&quot;=&gt;1564469423540,
+    ))
+);
+$res = $bmobUser-&gt;register($data);
+
+</code></pre>
+
+<p>Bmob 会校验提供的 authData 是否有效，并检查是否已经有一个用户连接了这个 authData 服务。如果已经有用户存在并连接了同一个 authData，那么Http响应头将返回 200 OK 和详细信息 (包括用户的 sessionToken):</p>
+<pre><code>Status: 200 OK
+Location: https://api2.bmob.cn/1/users/Kc3M222J
+</code></pre>
+
+<p>返回的内容类似</p>
+<pre><code>
+  &quot;username&quot;=&gt;&quot;Bmob&quot;,
+  &quot;createdAt&quot;=&gt;&quot;2011-11-07 21:25:10&quot;,
+  &quot;updatedAt&quot;=&gt;&quot;2011-11-07 21:25:10&quot;,
+  &quot;objectId&quot;=&gt;&quot;Kc3M222J&quot;,
+  &quot;sessionToken&quot;=&gt;&quot;pnktnjyb996sj4p156gjtp4im&quot;,
+  &quot;authData&quot;=&gt;array(
+    &quot;weibo&quot;=&gt;array(
+      &quot;uid&quot;=&gt; &quot;123456789&quot;,
+      &quot;access_token&quot;=&gt; &quot;2.00ed6eMCV9DWcBcb79e8108f8m1HdE&quot;,
+      &quot;expires_in&quot;=&gt; 1564469423540
+    )
+  )
+
+</code></pre>
+
+<h4 id="_64">连接<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h4>
+<p>连接一个现有的用户到新浪微博或者腾讯QQ帐号，可以通过发送一个 PUT 请求附带 authData 字段到以上Location返回的用户URL做到。例如，连接一个用户到腾讯QQ帐号发起的请求类似这样:</p>
+<pre><code class="php">
+$data = array(
+    &quot;authData&quot;=&gt;
+        array(&quot;weibo&quot;=&gt;array(
+            &quot;openid&quot;=&gt;&quot;2345CA18A5CD6255E5BA185E7BECD222&quot;,
+            &quot;access_token&quot;=&gt;&quot;12345678-SM3m2avZxh5cjJmIrAfx4ZYyamdofM7IjU&quot;,
+            &quot;expires_in&quot;=&gt;1382686496,
+    ))
+);
+ $res = $bmobUser-&gt;update(&quot;415b8fe99a&quot;, &quot;050391db407114d9801c8f2788c6b25a&quot;, $data));
+
+</code></pre>
+
+<p>完成连接后，你可以使用匹配的 authData 来认证他们。</p>
+<h4 id="_65">断开连接<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h4>
+<p>断开一个现有用户到某个服务，可以发送一个 PUT 请求设置 authData 中对应的服务为 null 来做到。例如，取消新浪微博关联:</p>
+<pre><code class="php">$data = array(
+    &quot;authData&quot;=&gt;
+        array(&quot;weibo&quot;=&gt;null
+    ))
+);
+$res = $bmobUser-&gt;update(&quot;415b8fe99a&quot;, &quot;050391db407114d9801c8f2788c6b25a&quot;, $data));
+
+</code></pre>
+
+<h2 id="acl">ACL和角色<a class="headerlink" href="#acl" title="Permanent link">&para;</a></h2>
+<p>数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看<a href="http://docs.bmob.cn/datasafety/index.html?menukey=otherdoc&amp;key=datasafety">Bmob数据与安全页面</a>，了解Bmob如何保护数据安全）。</p>
+<p>其中，最灵活的方法是通过ACL和角色，它的思路是每一条数据有一个用户和角色的列表，以及这些用户和角色拥有什么样的许可权限。</p>
+<p>大多数应用程序需要对不同的数据进行灵活的访问和控制，这就可以使用Bmob提供的ACL模式来实现。例如：</p>
+<ul>
+<li>对于私有数据，读写权限可以只局限于数据的所有者。</li>
+<li>对于一个论坛，会员和版主有写的权限，一般的游客只有读的权限。</li>
+<li>对于日志数据只有开发者才能够访问，ACL可以拒绝所有的访问权限。</li>
+<li>属于一个被授权的用户或者开发者所创建的数据，可以有公共的读的权限，但是写入权限仅限于管理者角色。</li>
+<li>一个用户发送给另外一个用户的消息，可以只给这些用户赋予读写的权限。</li>
+</ul>
+<h3 id="acl_1">ACL的格式<a class="headerlink" href="#acl_1" title="Permanent link">&para;</a></h3>
+<p>在Bmob中，ACL是用array来表示的。这个array的key是objectId（用户表某个用户对应的objectId）或者是 *(表示公共的访问权限)，ACL 的值是 "读和写的权限", 这个array的key总是权限名, 而这些key的值总是 true。</p>
+<p>如果您想让一个 id 为 "Kc3M222k" 的用户有读和写一条数据的权限, 而且这个数据应该可以被全部人读取的话，这个ACL的表达方式如下：</p>
+<pre><code>array(
+    &quot;Kc3M222k&quot;=&gt;array(
+        &quot;read&quot;=&gt;true,&quot;write&quot;=&gt;true
+        )，
+    &quot;*&quot;=&gt;array(
+        &quot;read&quot;=&gt;true
+        )，
+)
+</code></pre>
+
+<h3 id="_66">角色和相关操作<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
+<p>在很多情况下，你需要定义一些用户具有某种相同的数据操作权限，而另外一群用户具有另外一种相同的数据操作权限，这时你就可以使用到Bmob的角色（对应Bmob在Web提供的Role表、SDK中的BmobRole类）功能，设置不同的用户组不同的操作权限。角色表有三个特殊字段：</p>
+<p><code>name</code> : 必须字段，表示角色名称,而且只允许被设置一次（命名必须由字母, 空格, 减号或者下划线构成）；</p>
+<p><code>users</code> :一个指向一系列用户的关系, 这些用户会继承角色的权限；</p>
+<p><code>roles</code> : 一个指向一系列子角色的关系, 这些子关系会继承父角色所有的权限。</p>
+<h4 id="_67">创建角色<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h4>
+<p>创建一个新角色的方法如下（固定POST数据到https://api2.bmob.cn/1/roles中，且必须提供 <code>name</code> 字段）：</p>
+<pre><code>    $bmobRole = new BmobRole();
+    $res = $bmobRole-&gt;createRole(array(&quot;name&quot;=&gt;&quot;Mo1derators&quot;, &quot;ACL&quot;=&gt;array(&quot;*&quot;=&gt;array(&quot;read&quot;=&gt;true,&quot;write&quot;=&gt;true)))); //创建角色
+
+</code></pre>
+
+<p>如果你要创建一个包括了“用户和子角色”的角色，实现方式如下：</p>
+<pre><code>$data = array(
+    &quot;name&quot;=&gt;&quot;Mo1derators&quot;,
+     &quot;ACL&quot;=&gt;array(
+        &quot;*&quot;=&gt;array(&quot;read&quot;=&gt;true,&quot;write&quot;=&gt;true)
+      )，
+     &quot;roles&quot;=&gt;array(
+         &quot;__op&quot;=&gt;&quot;AddRelation&quot;,
+        &quot;objects&quot;=&gt; array(
+              &quot;__type&quot;=&gt;&quot;Pointer&quot;,
+              &quot;className&quot;=&gt;&quot;_Role&quot;,
+              &quot;objectId&quot;=&gt;&quot;Fe441wZ5&quot;
+            )
+      ），
+)
+$res = $bmobRole-&gt;createRole($data);
+</code></pre>
+
+<p>当创建成功后返回HTTP如下：</p>
+<pre><code>Status: 201 Created
+Location: https://api2.bmob.cn/1/roles/51e3812D
+</code></pre>
+
+<h4 id="_68">获取角色<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h4>
+<p>获取角色对象的方法如下：</p>
+<pre><code>$res = $bmobRole-&gt;getRole(&quot;fff849f7d4&quot;); //获取角色
+</code></pre>
+
+<p>响应结果如下：</p>
+<pre><code>    [ACL] =&gt; stdClass Object
+        (
+            [*] =&gt; stdClass Object
+                (
+                    [read] =&gt; 1
+                    [write] =&gt; 1
+                )
+
+        )
+
+    [createdAt] =&gt; 2015-10-23 10:19:06
+    [name] =&gt; Mo1derators
+    [objectId] =&gt; dcf9ad7d2e
+    [updatedAt] =&gt; 2015-10-23 10:19:06
+</code></pre>
+
+<h4 id="_69">更新角色<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h4>
+<p>更新角色时，一个很重要的一点是： <code>name</code> 字段不可以更改。添加和删除 <code>users</code> 和 <code>roles</code> 可以通过使用 AddRelation 和 RemoveRelation 操作符进行。</p>
+<p>如给 "Moderators" 角色增加 1 个用户，实现如下:</p>
+<pre><code>    $data=array(
+            array(
+              &quot;__type&quot;=&gt;&quot;Pointer&quot;,
+                 &quot;className&quot;=&gt;&quot;_User&quot;,
+                 &quot;objectId&quot;=&gt;&quot;WXHsFFFd&quot;,
+            ),
+        );
+    $res = $bmobRole-&gt;updateRole(&quot;d4642acf90&quot;, &quot;users&quot;, &quot;AddRelation&quot;, $data);
+
+</code></pre>
+
+<p>删除 "Moderrators" 的一个子角色的实现如下：</p>
+<pre><code>    $data=array(
+            array(
+              &quot;__type&quot;=&gt;&quot;Pointer&quot;,
+                 &quot;className&quot;=&gt;&quot;_User&quot;,
+                 &quot;objectId&quot;=&gt;&quot;WXHsFFFd&quot;,
+            ),
+        );
+    $res = $bmobRole-&gt;updateRole(&quot;d4642acf90&quot;, &quot;users&quot;, &quot;RemoveRelation&quot;, $data);
+</code></pre>
+
+<h3 id="_70">角色的使用<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h3>
+<p>设置一条数据的角色权限，需要在ACL中把Key的名字设置为 “<code>role:</code> + 角色名称” 。如限制一条数据可以被在 "Members" 里的任何人读到, 而且可以被它的创建者（objectId为<code>f1766d0b42</code>）和任何有 "Moderators" 角色的人所修改, 实现方式如下:</p>
+<pre><code>
+  &quot;f1766d0b42&quot;=&gt;array(
+    &quot;write&quot;=&gt;true
+  ),
+  &quot;role:Members&quot;=&gt;array(
+    &quot;read&quot;=&gt;true
+  },
+  &quot;role:Moderators&quot;=&gt;array(
+    &quot;write&quot;=&gt;true
+  }
+
+</code></pre>
+
+<p>如果这个用户和 "Moderators" 本身就是 "Members" 的子角色和用户，那么，您不必为创建的用户和 "Moderators" 指定读的权限，因为它们都会继承授予 "Members" 的权限。</p>
+<h4 id="_71">角色的继承<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h4>
+<p>一个角色可以包含另一个，可以为 2 个角色建立一个父-子关系。 这个关系的结果就是任何被授予父角色的权限隐含地被授予子角色。</p>
+<p>这样的关系类型通常在用户管理的内容类的应用上比较常见, 比如在论坛中，有一些少数的用户是 "管理员（Administartors）", 有最高的权限，可以调整系统设置、 创建新的论坛等等。 另一类用户是 "版主（Moderators）"，他们可以对用户发帖的内容进行管理。可见，任何有管理员权限的人都应该有版主的权限。为建立起这种关系, 您应该把 "Administartors" 的角色设置为 "Moderators" 的子角色, 具体来说就是把 "Administrators" 这个角色加入 "Moderators" 对象的 roles 关系之中，实现如下：</p>
+<pre><code class="java">
+    $data=array(
+            array(
+              &quot;__type&quot;=&gt;&quot;Pointer&quot;,
+                 &quot;className&quot;=&gt;&quot;_Role&quot;,
+                 &quot;objectId&quot;=&gt;&quot;&lt;AdministratorsRoleObjectId&gt;&quot;,
+            ),
+        );
+    $res = $bmobRole-&gt;updateRole(&quot;&lt;ModeratorsRoleObjectId&gt;&quot;, &quot;roles&quot;, &quot;AddRelation&quot;, $data);
+
+</code></pre>
+
+<h2 id="_72">地理位置<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
+<p>Bmob允许用户根据地球的经度和纬度坐标进行基于地理位置的信息查询。你可以在查询中添加一个GeoPoint的对象查询。你可以实现轻松查找出离当前用户最接近的信息或地点的功能。</p>
+<h3 id="_73">创建地理位置对象<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h3>
+<pre><code>
+$data = array(&quot;location&quot;=&gt;array(
+                               &quot;__type&quot;=&gt; &quot;GeoPoint&quot;,
+                               &quot;latitude&quot;=&gt; 50.934755,
+                               &quot;longitude&quot;=&gt; 24.52065,
+                        )
+             );
+
+$res=$bmobObj-&gt;update(&quot;e1kXT22L&quot;, $data);
+
+</code></pre>
+
+<h3 id="_74">查询地理位置信息<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h3>
+<p>现在你有一系列的对象对应的地理坐标，如果能发现哪些对象离指定的点近就好了，这可以通过GeoPoint数据类型加上在查询中使用$nearSphere做到。获取离用户最近的10个地点应该看起来像下面这个样子:</p>
+<pre><code>$res=$bmobObj-&gt;get(&quot;&quot;,array('where={
+    &quot;location&quot;: {
+        &quot;$nearSphere&quot;: {
+            &quot;__type&quot;: &quot;GeoPoint&quot;,
+            &quot;latitude&quot;: 30.0,
+            &quot;longitude&quot;: -20.0
+        }
+      }
+    }','limit=200'));
+</code></pre>
+
+<p>这操作会按离纬度30.0，经度-20.0的距离排序返回一系列的结果，第一个就是最近的对象。(注意如果一个特定的order参数是给定了的话，它会覆盖按距离排序的结果)，例如，查询操作返回的结果：</p>
+<pre><code>        array(
+        &quot;location&quot;=&gt;array(
+             &quot;__type&quot;=&gt; &quot;GeoPoint&quot;,
+            &quot;latitude&quot;=&gt; 40.0,
+            &quot;longitude&quot;=&gt; -30.0
+        ),
+        &quot;updatedAt&quot;=&gt; &quot;2011-12-06 22:36:04&quot;,
+        &quot;createdAt&quot;=&gt; &quot;2011-12-06 22:36:04&quot;,
+        &quot;objectId&quot;=&gt; &quot;e1kXT22L&quot;
+        )
+</code></pre>
+
+<p>为了限定搜索的最大距离范围，需要加入$maxDistanceInMiles(英里)和$maxDistanceInKilometers(公里d)或者$maxDistanceInRadians(弧度)参数来限定，如果不加，则默认是100KM的半径。比如要找的半径在10公里内的话:</p>
+<pre><code>$res=$bmobObj-&gt;get(&quot;&quot;,array('where={
+        &quot;location&quot;: {
+            &quot;$nearSphere&quot;: {
+                &quot;__type&quot;: &quot;GeoPoint&quot;,
+                &quot;latitude&quot;: 30.0,
+                &quot;longitude&quot;: -20.0
+            },
+        &quot;$maxDistanceInKilometers&quot;: 10.0
+        }
+    }','limit=200'));
+</code></pre>
+
+<p>同样作查询寻找在一个特定的范围里面的对象也是可以的，为了找到在一个矩形区域里的对象，按下面的格式加入一个约束 {"$within": {"$box": [southwestGeoPoint, northeastGeoPoint]}}：</p>
+<pre><code>$res=$bmobObj-&gt;get(&quot;&quot;,array('where={
+        &quot;location&quot;: {
+            &quot;$within&quot;: {
+                &quot;$box&quot;: [
+                    {
+                        &quot;__type&quot;: &quot;GeoPoint&quot;,
+                        &quot;latitude&quot;: 37.71,
+                        &quot;longitude&quot;: -122.53
+                    },
+                    {
+                        &quot;__type&quot;: &quot;GeoPoint&quot;,
+                        &quot;latitude&quot;: 30.82,
+                        &quot;longitude&quot;: -122.37
+                    }
+                ]
+            }
+        }
+    }','limit=200'));
+</code></pre>
+
+<p><strong>注意事项</strong></p>
+<p>关于地理位置的有一些问题是值得留意的:</p>
+<ol>
+<li>每一个表<code>只能</code>一个地理位置列，每一个对象<code>只能</code>有一个索引指向一个GeoPoint对象</li>
+<li>GeoPoint的点不能超过规定的范围。<code>纬度的范围</code>应该是在<code>-90.0到90.0</code>之间。<code>经度的范围</code>应该是在<code>-180.0到180.0</code>之间。如果您添加的经纬度超出了以上范围，将导致程序错误。</li>
+<li>删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。</li>
+<li>如果不加任何距离范围限制，则默认是100公里的半径范围。</li>
+</ol>
+<h2 id="_75">统计相关的查询<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h2>
+<p>Bmob的统计查询，提供以下关键字或其组合的查询操作：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">groupby</td>
+<td align="center">分组操作</td>
+</tr>
+<tr>
+<td align="center">groupcount</td>
+<td align="center">返回每个分组的总记录</td>
+</tr>
+<tr>
+<td align="center">sum</td>
+<td align="center">计算总和</td>
+</tr>
+<tr>
+<td align="center">average</td>
+<td align="center">计算平均值</td>
+</tr>
+<tr>
+<td align="center">max</td>
+<td align="center">计算最大值</td>
+</tr>
+<tr>
+<td align="center">min</td>
+<td align="center">计算最小值</td>
+</tr>
+<tr>
+<td align="center">having</td>
+<td align="center">分组中的过滤条件</td>
+</tr>
+</tbody>
+</table>
+<p>为避免和用户创建的列名称冲突，Bmob约定以上统计关键字（sum, max, min)的查询结果值都用 '_(关键字)+首字母大写的列名' 的格式，如计算玩家得分列名称为score总和的操作，则返回的结果集会有一个列名为_sumScore。average返回的列为 '_avg+首字母大写的列名'，有groupcount的情形下则返回_count。</p>
+<p>以上关键字除了groupcount是传Boolean值true或false，having传的是和where类似的json字符串，但having只应该用于过滤分组查询得到的结果集，即having只应该包含结果集中的列名如{"_sumScore":{"$gt":100}}，其他关键字必须是字符串而必须是表中包含的列名，多个列名用,分隔。</p>
+<p>比如，GameScore表是游戏玩家的信息和得分表，有playerName(玩家名称)、score(玩家得分)等你自己创建的列，还有Bmob的默认列objectId, createdAt, updatedAt,那么我们现在举例如何使用以上的查询关键字来作这个表的统计。</p>
+<h3 id="_76">计算总和<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<p>我们要计算GameScore表所有玩家的得分总和，sum后面只能拼接Number类型的列名，即要计算哪个列的值的总和，只对Number类型有效，多个Number列用,分隔，则查询如下：</p>
+<pre><code> $res=$bmobObj-&gt;get(&quot;&quot;,array('sum=score'));
+</code></pre>
+
+<p>返回内容如下：</p>
+<pre><code>   [_sumScore] =&gt; 11371
+
+</code></pre>
+
+<h3 id="_77">分组计算总和<a class="headerlink" href="#_77" title="Permanent link">&para;</a></h3>
+<p>比如我们以创建时间按天统计所有玩家的得分，并按时间降序, groupby后面只能拼接列名，如果该列是时间类型，则按天分组，其他类型，则按确定值分组:</p>
+<pre><code>$res=$bmobObj-&gt;get(&quot;&quot;,array('sum=score','groupby=createdAt'));
+</code></pre>
+
+<p>返回内容如下：</p>
+<pre><code>            [0] =&gt; Array
+                (
+                    [_sumScore] =&gt; 20
+                    [createdAt] =&gt; 2015-10-29
+                )
+
+            [1] =&gt; Array
+                (
+                    [_sumScore] =&gt; 0
+                    [createdAt] =&gt; 2014-05-19
+                )
+</code></pre>
+
+<h3 id="_78">多个分组并计算多个列的总和<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h3>
+<p>比如我们以创建时间按天和按玩家名称分组统计所有玩家的得分1，得分2的总和，并按得分1的总和降序, groupby后面只能拼接列名，如果该列是时间类型，则按天分组，其他类型，则按确定值分组:</p>
+<pre><code>$res=$bmobObj-&gt;get(&quot;&quot;,array('sum=score1,score2','groupby=createdAt,playerName','order=-_sumscore1'));
+</code></pre>
+
+<p>返回内容如下：</p>
+<pre><code>            [0] =&gt; Array
+                (
+                    [_sumScore1] =&gt; 399,
+                    [_sumScore2] =&gt; 120,
+                    [playerName] =&gt; &quot;John&quot;,
+                    [createdAt] =&gt; 2015-10-29
+                )
+
+            [1] =&gt; Array
+                (
+                    [_sumScore1] =&gt; 299,
+                    [_sumScore2] =&gt; 250,
+                    [playerName] =&gt; &quot;Bily&quot;,
+                    [createdAt] =&gt; 2015-10-29
+                )
+</code></pre>
+
+<h3 id="_79">分组计算总和并只返回满足条件的部分值<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h3>
+<p>比如我们以创建时间按天统计所有玩家的得分，并只返回某天的总得分大于2000的记录，并按时间降序，having是用于过滤部分结果，其中的_sumScore是 '_sum+首字母大写的列名' 的格式表示是计算这个列的总和的值:</p>
+<pre><code>
+$res=$bmobObj-&gt;get(&quot;&quot;,array('sum=score','having={&quot;_sumScore&quot;:{&quot;$gt&quot;: 2000}}','order=-createdAt','groupby=createdAt'));
+</code></pre>
+
+<p>返回内容如下：</p>
+<pre><code>            [0] =&gt; Array
+                (
+                    [_sumScore] =&gt; 2398
+                    [createdAt] =&gt; 2015-10-29
+                )
+
+
+</code></pre>
+
+<h3 id="_80">分组计算总和并返回每个分组的记录数<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h3>
+<p>比如我们以创建时间按天统计所有玩家的得分和每一天有多少条玩家的得分记录，并按时间降序:</p>
+<pre><code>
+$res=$bmobObj-&gt;get(&quot;&quot;,array('sum=score','groupby=createdAt','groupcount=true','order=-createdAt'));
+
+</code></pre>
+
+<p>返回内容如下：</p>
+<pre><code>            [0] =&gt; Array
+                (
+                    [_sumScore] =&gt; 2398,
+                    [_count] =&gt; 10,
+                    [createdAt] =&gt; 2015-10-29
+                )
+
+            [1] =&gt; Array
+                (
+                    [_sumScore] =&gt; 100,
+                    [_count] =&gt; 2,
+                    [createdAt] =&gt; 2015-10-29
+                )
+</code></pre>
+
+<h3 id="_81">获取不重复的列值<a class="headerlink" href="#_81" title="Permanent link">&para;</a></h3>
+<p>比如我们获取表中所有的唯一的score:</p>
+<pre><code>curl -X GET \
+    -H &quot;X-Bmob-Application-Id: Your Application ID&quot; \
+    -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot; \
+    -G \
+    --data-urlencode 'groupby=score' \
+    https://api2.bmob.cn/1/classes/GameScore
+
+$res=$bmobObj-&gt;get(&quot;&quot;,array('groupby=score'));
+</code></pre>
+
+<p>返回内容如下：</p>
+<pre><code>            [0] =&gt; Array
+                (
+                    [score] =&gt; 78
+
+                )
+
+            [1] =&gt; Array
+                (
+                    [score] =&gt; 79
+
+                )
+</code></pre>
+
+<h3 id="_82">其他关键字<a class="headerlink" href="#_82" title="Permanent link">&para;</a></h3>
+<p>average(计算平均值)， max(计算最大值)，min(计算最小值)和sum查询语句是类似的，只用把上面的例子中的sum替换为相应的average, max, min就可以了。</p>
+<h2 id="app">app服务<a class="headerlink" href="#app" title="Permanent link">&para;</a></h2>
+<p>通过appapi，你可以查看，创建或编辑你的app，在用户管理后台也实现了这样的功能。通过验证你的bmob email账号和密码，你可以获取所有的app信息，创建一个新的app或者修改旧的app的信息。</p>
+<h3 id="app_1">获取app信息<a class="headerlink" href="#app_1" title="Permanent link">&para;</a></h3>
+<p>获取所有的app信息</p>
+<pre><code>    $bmobApp = new BmobApp();
+    $res = $bmobApp-&gt;getApp(&quot;611115@126.com&quot;, &quot;111111&quot;); //获取全部app的信息
+</code></pre>
+
+<p>获取某个特定的app信息</p>
+<pre><code>$res = $bmobApp-&gt;getApp(&quot;611115@126.com&quot;, &quot;111111&quot;, &quot;85b5xxxxxxxx9e59a795da547c68e6&quot;); //获取app id 为&quot;85b56934cce1129e59a795da547c68e6&quot;的信息
+</code></pre>
+
+<h3 id="app_2">创建新的app<a class="headerlink" href="#app_2" title="Permanent link">&para;</a></h3>
+<p>通过使用post 方法，可以在你的账号上创建一个app，创建app时支持如下的参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数用途</th>
+<th align="center">取值范围</th>
+<th align="center">是否必须要填</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">appName</td>
+<td align="center">app的名称</td>
+<td align="center">少于30个字符</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">status</td>
+<td align="center">app是否可用</td>
+<td align="center">0：表示禁用，1：表示可用</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">notAllowedCreateTable</td>
+<td align="center">是否允许通过api创建表</td>
+<td align="center">0：表示允许创建表，1：表示不允许创建表</td>
+<td align="center">否</td>
+</tr>
+</tbody>
+</table>
+<p>下面是一个创建app的例子</p>
+<pre><code>$res = $bmobApp-&gt;createApp(&quot;611115@126.com&quot;, &quot;111111&quot;, array(&quot;appName&quot;=&gt;&quot;myapp111&quot;)); //创建一个名为&quot;myapp111&quot;的app
+</code></pre>
+
+<h3 id="app_3">修改app信息<a class="headerlink" href="#app_3" title="Permanent link">&para;</a></h3>
+<p>通过使用PUT 方法，可以修改app的信息，修改app信息时支持如下的参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">参数用途</th>
+<th align="center">取值范围</th>
+<th align="center">是否必须要填</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">appName</td>
+<td align="center">app的名称</td>
+<td align="center">少于30个字符</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">status</td>
+<td align="center">app是否可用</td>
+<td align="center">0：表示禁用，1：表示可用</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">notAllowedCreateTable</td>
+<td align="center">是否允许通过api创建表</td>
+<td align="center">0：表示允许创建表，1：表示不允许创建表</td>
+<td align="center">否</td>
+</tr>
+</tbody>
+</table>
+<p>下面是修改app信息的例子</p>
+<pre><code>$res = $bmobApp-&gt;updateApp(&quot;611115@126.com&quot;, &quot;111111&quot;, &quot;330xxxxxxxxx578d1f923126547bea5&quot;, array(&quot;appName&quot;=&gt;&quot;myapp11122&quot;));
+</code></pre>
+
+<h2 id="_83">数据表<a class="headerlink" href="#_83" title="Permanent link">&para;</a></h2>
+<p>通过数据表的php sdk，你可以查看，创建或编辑你的表结构，在用户管理后台的数据浏览页面也实现了这样的功能。</p>
+<p>注意，调用数据表相关的php sdk，必须指定Master Key。</p>
+<h3 id="app_4">获取app表的信息<a class="headerlink" href="#app_4" title="Permanent link">&para;</a></h3>
+<pre><code>$bmobSchemas = new BmobSchemas();
+$res = $bmobSchemas-&gt;getSchemas(&quot;e09fb5cbb5bxxxxxxxx9504604c0dcff&quot;);
+</code></pre>
+
+<p>获取某个特定表的信息</p>
+<pre><code>$res = $bmobSchemas-&gt;getSchemas(&quot;e09fb5cbb5b825c78989504604c0dcff&quot;, &quot;Game&quot;);
+</code></pre>
+
+<h3 id="_84">创建字段支持的数据类型<a class="headerlink" href="#_84" title="Permanent link">&para;</a></h3>
+<p>String
+Number
+Bool
+Date
+File
+Geo
+Array
+Object
+Pointer
+Relation</p>
+<h3 id="_85">创建一个表<a class="headerlink" href="#_85" title="Permanent link">&para;</a></h3>
+<p>创建表“City”，并添加字段“name”</p>
+<pre><code>    $data=array(
+            &quot;className&quot; =&gt; &quot;City&quot;,
+            &quot;fields&quot; =&gt; array(
+              &quot;name&quot; =&gt; array(
+                &quot;type&quot;=&gt;&quot;String&quot;,
+              ),
+            ),
+        );
+    $res = $bmobSchemas-&gt;createSchemas(&quot;e09fb5cbb5bxxxxxxxx9504604c0dcff&quot;, &quot;City&quot;, $data);
+</code></pre>
+
+<h3 id="_86">创建一个表<a class="headerlink" href="#_86" title="Permanent link">&para;</a></h3>
+<p>创建表“City”，并添加字段“name”</p>
+<pre><code>    $data=array(
+            &quot;className&quot; =&gt; &quot;City&quot;,
+            &quot;fields&quot; =&gt; array(
+              &quot;name&quot; =&gt; array(
+                &quot;type&quot;=&gt;&quot;String&quot;,
+              ),
+            ),
+        );
+    $res = $bmobSchemas-&gt;createSchemas(&quot;e09fb5cbb5bxxxxxxxx9504604c0dcff&quot;, &quot;City&quot;, $data);
+</code></pre>
+
+<p>如果创建表的字段是Pointer或Relation类型，需要用targetClass指定关联的表，例如：</p>
+<pre><code>    $data=array(
+            &quot;className&quot; =&gt; &quot;City&quot;,
+            &quot;fields&quot; =&gt; array(
+              &quot;name&quot; =&gt; array(
+                &quot;type&quot;=&gt;&quot;Pointer&quot;,
+                &quot;targetClass&quot;=&gt;&quot;_User&quot;
+              ),
+            ),
+        );
+    $res = $bmobSchemas-&gt;createSchemas(&quot;e09fb5cbb5bxxxxxxxx9504604c0dcff&quot;, &quot;City&quot;, $data);
+</code></pre>
+
+<h3 id="_87">修改表的结构<a class="headerlink" href="#_87" title="Permanent link">&para;</a></h3>
+<p>在表“City”中添加字段“name”</p>
+<pre><code>    $data=array(
+            &quot;className&quot; =&gt; &quot;City&quot;,
+            &quot;fields&quot; =&gt; array(
+              &quot;name&quot; =&gt; array(
+                &quot;type&quot;=&gt;&quot;String&quot;,
+              ),
+            ),
+        );
+    $res = $bmobSchemas-&gt;updateSchemas(&quot;e09fb5cbb5bxxxxxxxx9504604c0dcff&quot;, &quot;City&quot;, $data);
+</code></pre>
+
+<p>在表“City”中删除字段“name”</p>
+<pre><code>    $data=array(
+            &quot;className&quot; =&gt; &quot;City&quot;,
+            &quot;fields&quot; =&gt; array(
+              &quot;name&quot; =&gt; array(
+                &quot;type&quot;=&gt;&quot;String&quot;,
+                &quot;__op&quot;=&gt;&quot;Delete&quot;
+              ),
+            ),
+        );
+    $res = $bmobSchemas-&gt;updateSchemas(&quot;e09fb5cbb5bxxxxxxxx9504604c0dcff&quot;, &quot;City&quot;, $data);
+</code></pre>
+
+<h3 id="_88">删除表<a class="headerlink" href="#_88" title="Permanent link">&para;</a></h3>
+<pre><code>$res = $bmobSchemas-&gt;deleteSchemas(&quot;e09fb5cbb5bxxxxxxxx9504604c0dcff&quot;, &quot;City&quot;);
+</code></pre>
+
+<h2 id="_89">获取服务器的时间<a class="headerlink" href="#_89" title="Permanent link">&para;</a></h2>
+<p>有时，app需要获取服务器的时间，可通过下面的api</p>
+<pre><code>    $bmobTimestamp = new BmobTimestamp();
+    $res = $bmobTimestamp-&gt;getTimestamp();
+</code></pre>
+
+<p>返回结果如下：</p>
+<pre><code>array（
+    [&quot;timestamp&quot;]=&gt;1446522662，
+    [&quot;datetime&quot;]=&gt;&quot;2015-11-03 11:51:02&quot;
+）
+
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>

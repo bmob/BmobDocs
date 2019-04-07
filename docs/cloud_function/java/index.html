@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>Java - Bmob文档中心</title>
+            -->
+            <title>云函数 &middot;  – Bmob后端云 </title>        
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../data/wechat_app/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="../android/">云函数</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li class="active">
+                                    <a href="./">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../push/android/">推送服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../push/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/common_problem/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+					<div class="code-title">Java</div>
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+							
+								
+									
+										<li class="active "><a href="#java">Java云函数</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_1">调用方法</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_3">日志</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_4">代码规范</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_5">工具</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_6">方法参数</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_12">内置类</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_15">内置方法</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_16">示例</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_17">注意事项</a></li>
+											</ul>
+											
+										</li>
+									
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h1 id="java">Java云函数<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
+<ul>
+<li>云函数是一段部署在服务端的代码片段，采用 java 或 node.js 进行编写，然后部署运行在Bmob服务器</li>
+<li>通过云函数可以解决很多复杂的业务逻辑，从此无需将要将大量的数据发送到移动设备上做计算处理</li>
+<li>只需将这些计算都交由服务端运算处理，最后移动客户端仅仅需要接收云函数运算处理返回的数据结果就可以了</li>
+<li>通过更新云函数代码片段，客户端无需更新，便满足业务改动的需求。这样云函数便有更多的灵活性和自主性</li>
+</ul>
+<h2 id="_1">调用方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>云函数提供了以下几种方式提供调用：</p>
+<table>
+<thead>
+<tr>
+<th align="center">调用方式</th>
+<th align="center">所需信息</th>
+<th align="center">优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">SDK</td>
+<td align="center">AppId</td>
+<td align="center">交互自带加密,接入快速</td>
+</tr>
+<tr>
+<td align="center">RestApi</td>
+<td align="center">AppId、RestKey</td>
+<td align="center">所有平台适用，通用性强</td>
+</tr>
+<tr>
+<td align="center">Http请求</td>
+<td align="center">Secret Key</td>
+<td align="center">所有平台适用，可用浏览器打开</td>
+</tr>
+</tbody>
+</table>
+<h3 id="restful-api">Restful API<a class="headerlink" href="#restful-api" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>调用 <code>api.bmob.cn</code> ，与调用NodeJS版云函数的方式 <strong>完全相同</strong>。这种方式下，服务器会 <strong>自动判断语言</strong>，但 <strong>限制 <code>Method</code> 为 <code>Post</code> 且 <code>Content-Type</code> 为 <code>application/json</code></strong></p>
+</li>
+<li>
+<p>调用 <code>javacloud.bmob.cn</code> ，调用方式基本相同，这种方式 <strong>仅可调用Java云函数</strong>，但 <strong>不限制 <code>Method</code> 和 <code>Content-Type</code></strong></p>
+<pre><code>// 使用Appid + RestKey请求api.bmob.cn域名(自动判断语言)
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: application/json" \
+    -d '{"name": "zwr"}' \
+    https://api.bmob.cn/1/functions/[function name]
+
+// 使用Appid + RestKey请求javacloud.bmob.cn域名(仅支持Java云函数)
+curl -X [method] \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -d '[body]' \
+    https://javacloud.bmob.cn/1/functions/[function name]
+
+// 使用Master Key请求
+curl -X [method] \
+    -H "X-Bmob-Master-Key: Your Master Key" \
+    -d '[body]' \
+    https://javacloud.bmob.cn/1/functions/[function name]
+</code></pre>
+</li>
+</ol>
+<h3 id="http">Http请求<a class="headerlink" href="#http" title="Permanent link">&para;</a></h3>
+<pre><code>    // 使用Secret Key请求
+    curl -X [method] \
+        -H "header key: header value" \
+        -d '[body]' \
+        https://javacloud.bmob.cn/[secret key]/[function name]
+
+    // 或者直接用浏览器打开，即GET请求
+    https://javacloud.bmob.cn/[secret key]/[function name]?k1=v1&amp;k2=v2
+
+    // 当直接进入 https://javacloud.bmob.cn/[secret key] 时，会触发 index 方法
+    // 当 function name 不存在是，会触发 notfound 方法
+</code></pre>
+<hr />
+<p>以下是Bmob各种SDK调用Java云函数的方法，与调用NodeJS版云函数的方式 <strong>完全相同</strong></p>
+<h3 id="android-sdk">Android SDK<a class="headerlink" href="#android-sdk" title="Permanent link">&para;</a></h3>
+<pre><code>    AsyncCustomEndpoints ace = new AsyncCustomEndpoints();
+    ace.callEndpoint(Context, String funcName, JSONObject params, new CloudCodeListener() {
+        @Override
+        public void done(Object object, BmobException e) {
+            if (e == null) 
+                Log.e(TAG, "Succeed: " + object);
+            else
+                Log.e(TAG, "Failed: " + e);
+        }
+    });
+</code></pre>
+<h3 id="_2">微信小程序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<pre><code>    Bmob.Cloud.run('test', {'name': 'zwr'}).then(function (result) {
+        console.log("Succeed: ");
+        console.log(result);
+    }, function (error) {
+        console.log("Failed: ");
+        console.log(error);
+    });
+</code></pre>
+<h3 id="ios-sdk">iOS SDK<a class="headerlink" href="#ios-sdk" title="Permanent link">&para;</a></h3>
+<pre><code>    [BmobCloud callFunctionInBackground:@"funcName" withParameters:nil block:^(id object, NSError *error) {
+        if (error) {
+          NSLog(@"Failed: %@",[error description]);
+        }else{
+            NSLog(@"Succeed: %@",object);
+        }
+    }] ;
+</code></pre>
+<h3 id="c-sdk">C# SDK<a class="headerlink" href="#c-sdk" title="Permanent link">&para;</a></h3>
+<pre><code>    IDictionary&lt;String, Object&gt; parameters ＝  new IDictionary&lt;String, Object&gt;{{"name","zwr"}};
+    Bmob.Endpoint&lt;Hashtable&gt;("test", parameters, (resp, exception) =&gt; 
+    {
+        if (exception == null)
+        {
+            print("Succeed: " + resp);
+        }
+        else
+        {
+            print("Failed: " + exception.Message);
+        }
+    });
+</code></pre>
+<h3 id="php-sdk">PHP SDK<a class="headerlink" href="#php-sdk" title="Permanent link">&para;</a></h3>
+<pre><code>    $cloudCode = new BmobCloudCode('test'); //调用名字为test的云函数
+    $res = $cloudCode-&gt;get(array("name"=&gt;"zwr")); //传入参数name，其值为zwr
+</code></pre>
+<h3 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link">&para;</a></h3>
+<pre><code>    Bmob.Cloud.run('test', {"name":"tom"}, {
+        success: function(result) {
+            console.log("Succeed: ");
+            console.log(result);
+        },
+        error: function(error) {
+            console.log("Failed: ");
+            console.log(error);
+        }
+    });
+</code></pre>
+<h2 id="_3">日志<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>可在Bmob后台根据时间、日志级别、内容关键字、方法名搜索想要的日志</li>
+<li>每个应用拥有最大10m的日志空间，循环写入</li>
+<li>高级用户有实时日志功能</li>
+</ul>
+<h2 id="_4">代码规范<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>java云函数必须遵循以下格式：</p>
+<pre><code>public static void onRequest(final Request request, final Response response, final Modules modules) throws Throwable {
+// 上面这个方法体，不允许任何修改
+// 这里使用Java编写云函数
+// 最后一个字符必须是 }
+}
+</code></pre>
+</li>
+<li>
+<p>代码不能包含以下关键字：(保存代码时有错误提醒)</p>
+</li>
+</ul>
+<p>Class
+    File
+    System
+    ...</p>
+<ul>
+<li>需要获取当前毫秒时，可用 <code>getTime()</code> 、<code>new java.util.Date().getTime()</code> 替代 <code>System.currentTimeMillis()</code></li>
+<li>如果确实需要用到被禁止使用的关键字，例如查询"File"表，可用"F"+"ile"的形式拼接</li>
+<li>不可包含<code>/**/</code>注释，如需注释，请用 <code>//</code></li>
+<li>仅可写一个Java的方法，不能写多个方法、类变量、静态变量等</li>
+<li>云函数执行完毕后，必须用response.send方法返回响应数据，否则会被当做超时，多次超时可能会被暂停使用</li>
+</ul>
+<h2 id="_5">工具<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Github页面如下：</p>
+<p><a href="https://github.com/bmob/BmobJavaCloud">https://github.com/bmob/BmobJavaCloud</a> </p>
+<ul>
+<li><code>libs目录</code> 下提供了 <code>Bmob-JavaCloud-Apis_xxx.jar</code> 以供开发者使用IDE(ecplise、as)开发时参考</li>
+<li><code>exec目录</code> 下提供了 <code>macos</code>、<code>linux</code>、<code>windows 64位</code>等平台的<code>可执行文件</code>，以供开发者快速进行代码的上传、修改、同步到本地和删除</li>
+<li><code>samples目录</code> 提供了案例</li>
+<li><code>doc目录</code> 下提供了文档</li>
+</ul>
+<h2 id="_6">方法参数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="request">Request对象<a class="headerlink" href="#request" title="Permanent link">&para;</a></h3>
+<p>onRequest方法参数中 <code>Request request</code> 包含了本次请求的全部信息：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">获取方法</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">路径Path</td>
+<td align="center">String</td>
+<td align="center">request.getPath()</td>
+<td align="center">/xxxxxxxxxxxxxxxx/test1</td>
+</tr>
+<tr>
+<td align="center">方法Method</td>
+<td align="center">String</td>
+<td align="center">request.getMethod()</td>
+<td align="center">POST</td>
+</tr>
+<tr>
+<td align="center">请求头Headers</td>
+<td align="center">JSONObject</td>
+<td align="center">request.getHeaders()</td>
+<td align="center">{"User-Agent":["Chorme"]}</td>
+</tr>
+<tr>
+<td align="center">请求体Body</td>
+<td align="center">byte[]</td>
+<td align="center">request.getBody()</td>
+<td align="center">[98, 109, 111, 98]</td>
+</tr>
+<tr>
+<td align="center">Get参数</td>
+<td align="center">JSONObject</td>
+<td align="center">request.getQueryParams()</td>
+<td align="center">{"page": "1"}</td>
+</tr>
+<tr>
+<td align="center">Body内参数</td>
+<td align="center">JSONObject</td>
+<td align="center">request.getParams()</td>
+<td align="center">{"username": "zwr"}</td>
+</tr>
+<tr>
+<td align="center">单个请求头</td>
+<td align="center">String</td>
+<td align="center">request.getHeader(String key)</td>
+<td align="center">request.getHeader("User-Agent") = "Chrome"</td>
+</tr>
+<tr>
+<td align="center">单个Get参数</td>
+<td align="center">String</td>
+<td align="center">request.getQueryParam(String key)</td>
+<td align="center">request.getQueryParam("page") = "1"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response">Response对象<a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
+<ul>
+<li>onRequest方法参数中 <code>Response response</code> 用于响应请求，返回数据</li>
+<li>
+<p>Response对象主要内容是 <code>send</code> 方法，参数不同共有4种重载形式(Overloading):</p>
+</li>
+<li>
+<p>send(Object res)</p>
+</li>
+<li>send(Object res, int statusCode)</li>
+<li>send(Object res, int statusCode, String statusMsg)</li>
+<li>send(Object res, int statusCode, String statusMsg, JSONObject headers)</li>
+</ul>
+<p>以下是参数说明：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">res</td>
+<td align="center">Object</td>
+<td align="center">返回的内容：如果为byte[]类型直接返回；否则会返回res.toString("UTF-8")</td>
+</tr>
+<tr>
+<td align="center">statusCode</td>
+<td align="center">int</td>
+<td align="center">返回的Http响应状态码，例如200、404</td>
+</tr>
+<tr>
+<td align="center">statusMsg</td>
+<td align="center">String</td>
+<td align="center">返回的Http响应状态，例如OK、NotFound</td>
+</tr>
+<tr>
+<td align="center">headers</td>
+<td align="center">JSONObject</td>
+<td align="center">返回的头部信息，采用String-String的格式，例如{"Content-Type": "text/plain; charset=UTF-8"}</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>示例<pre><code>// 1. 直接返回字符串
+response.send("Hello world--Bmob");
+// 2. 返回404错误
+response.send("Error", 404, "NotFound");
+// 3. 返回中文字符串，需要返回包含charset的header
+response.send(
+    "你好，比目",
+    200,
+    "OK",
+    JSON.toJson("Content-Type", "text/plain; charset=UTF-8")
+);
+</code></pre>
+</li>
+</ul>
+<hr />
+<p>181206更新：</p>
+<p>支持响应跨域请求</p>
+<pre><code>// 在send方法被调用之前调用
+response.setAllowCross(
+    boolean isAllow,
+    String host,
+    String contentType, 
+    String[] methods, 
+    String[] allowHeaders,
+    String[] exposeHeaders
+);
+</code></pre>
+
+<h3 id="modules">Modules对象<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h3>
+<ul>
+<li>onRequest方法参数中 <code>Modules modules</code> 提供了几个模块供开发者调用：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">模块名</th>
+<th align="center">获取方式</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Bmob数据库操作</td>
+<td align="center">modules.oData</td>
+<td align="center">封装了Bmob的大多数api，以供开发者进行快速的业务逻辑开发，详见下文 <code>&lt;Bmob数据操作&gt;</code></td>
+</tr>
+<tr>
+<td align="center">内存操作</td>
+<td align="center">modules.oMemory</td>
+<td align="center">提供了一定内存空间给开发者快速读写，详见下文 <code>&lt;内存操作&gt;</code></td>
+</tr>
+<tr>
+<td align="center">日志输出</td>
+<td align="center">modules.oLog</td>
+<td align="center">提供了几个级别的日志输出，以便调试，详见下文 <code>&lt;日志输出&gt;</code></td>
+</tr>
+<tr>
+<td align="center">持久化操作</td>
+<td align="center">modules.oPersistence</td>
+<td align="center">利用系统IO进行数据持久层操作，可用于静态网页，详见下文<code>&lt;持久化&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Http请求</td>
+<td align="center">modules.oHttp</td>
+<td align="center">发起http的各种请求，如POST、GET等，详见下文<code>&lt;Http请求&gt;</code></td>
+</tr>
+<tr>
+<td align="center">游戏平台操作</td>
+<td align="center">modules.oGame</td>
+<td align="center">从云函数对Bmob Game SDK进行房间、玩家管理，详见下文<code>&lt;游戏平台操作&gt;</code></td>
+</tr>
+<tr>
+<td align="center">微信接口</td>
+<td align="center">modules.oWechat</td>
+<td align="center">目前提供了几个方法，用于小程序客服交互，详见下文 <code>&lt;微信接口&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="bmob">Bmob数据操作<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h4>
+<p>以下均为 <code>modules.oData</code> 的方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法体</th>
+<th align="center">返回值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">setTimeout(int)</td>
+<td align="center">this</td>
+<td align="center">设置超时时间(单位:毫秒)，与云函数超时无关</td>
+</tr>
+<tr>
+<td align="center">setHeader(String...)</td>
+<td align="center">this</td>
+<td align="center">设置请求头</td>
+</tr>
+<tr>
+<td align="center">setHeader(JSONObject)</td>
+<td align="center">this</td>
+<td align="center">设置请求头</td>
+</tr>
+<tr>
+<td align="center">setUserSession(String)</td>
+<td align="center">this</td>
+<td align="center">设置用户的Session Token</td>
+</tr>
+<tr>
+<td align="center">setMasterKey(String)</td>
+<td align="center">this</td>
+<td align="center">设置应用的Master Key</td>
+</tr>
+<tr>
+<td align="center">insert(String table,JSONObject data)</td>
+<td align="center">HttpResponse</td>
+<td align="center">往数据表中添加一行</td>
+</tr>
+<tr>
+<td align="center">remove(String table,String objectId)</td>
+<td align="center">HttpResponse</td>
+<td align="center">删除数据表中的一行</td>
+</tr>
+<tr>
+<td align="center">update(String table,String objectId,JSONObject data)</td>
+<td align="center">HttpResponse</td>
+<td align="center">更新数据表中的一行</td>
+</tr>
+<tr>
+<td align="center">find(Querier)</td>
+<td align="center">HttpResponse</td>
+<td align="center">使用查询器查询数据</td>
+</tr>
+<tr>
+<td align="center">findOne(String table,String objectId)</td>
+<td align="center">HttpResponse</td>
+<td align="center">查询数据表中的一行</td>
+</tr>
+<tr>
+<td align="center">uploadfile(String fileName,bytes[] bytes)</td>
+<td align="center">HttpResponse</td>
+<td align="center">上传一个文件</td>
+</tr>
+<tr>
+<td align="center">uploadfile(String fileName,bytes[] bytes,String contentType)</td>
+<td align="center">HttpResponse</td>
+<td align="center">上传一个文件，并指定格式</td>
+</tr>
+<tr>
+<td align="center">deletefile(String cdnName,String url)</td>
+<td align="center">HttpResponse</td>
+<td align="center">删除文件</td>
+</tr>
+<tr>
+<td align="center">deletefiles(JSONObject)</td>
+<td align="center">HttpResponse</td>
+<td align="center">批量删除文件</td>
+</tr>
+<tr>
+<td align="center">bql(String,Object...)</td>
+<td align="center">HttpResponse</td>
+<td align="center">使用BQL查询</td>
+</tr>
+<tr>
+<td align="center">userSignUp(JSONObject)</td>
+<td align="center">HttpResponse</td>
+<td align="center">用户注册</td>
+</tr>
+<tr>
+<td align="center">userLogin(String username,String password</td>
+<td align="center">HttpResponse</td>
+<td align="center">用户通过账号、密码登陆</td>
+</tr>
+<tr>
+<td align="center">userLoginBySMS(String mobile, String smsCode,JSONObject userInfo)</td>
+<td align="center">HttpResponse</td>
+<td align="center">用户通过短信验证码一键注册或登录</td>
+</tr>
+<tr>
+<td align="center">userResetPasswordByEmail(String email)</td>
+<td align="center">HttpResponse</td>
+<td align="center">用户请求Email重置密码</td>
+</tr>
+<tr>
+<td align="center">userResetPasswordBySMS(String smsCode,String password)</td>
+<td align="center">HttpResponse</td>
+<td align="center">用户通过短信验证码重置密码</td>
+</tr>
+<tr>
+<td align="center">userResetPasswordByPWD(String userId,String session, String oldPassword, String newPassword)</td>
+<td align="center">HttpResponse</td>
+<td align="center">用户通过旧密码修改新密码</td>
+</tr>
+<tr>
+<td align="center">sendCustomSMS(String mobile, String content)</td>
+<td align="center">HttpResponse</td>
+<td align="center">发送自定义短信</td>
+</tr>
+<tr>
+<td align="center">sendSMSCode(String mobile, String template)</td>
+<td align="center">HttpResponse</td>
+<td align="center">发送某模版的短信验证码</td>
+</tr>
+<tr>
+<td align="center">verifySMSCode(String mobile, String smsCode)</td>
+<td align="center">HttpResponse</td>
+<td align="center">验证短信验证码</td>
+</tr>
+<tr>
+<td align="center">payQuery(String orderId)</td>
+<td align="center">HttpResponse</td>
+<td align="center">查询支付订单</td>
+</tr>
+<tr>
+<td align="center">cloudCode(String funcName, JSONObject body)</td>
+<td align="center">HttpResponse</td>
+<td align="center">调用云函数</td>
+</tr>
+<tr>
+<td align="center">push(JSONObject body)</td>
+<td align="center">HttpResponse</td>
+<td align="center">向客户端推送消息</td>
+</tr>
+<tr>
+<td align="center">roleInsert(JSONObject data)</td>
+<td align="center">HttpResponse</td>
+<td align="center">ACL:创建角色</td>
+</tr>
+<tr>
+<td align="center">roleFindOne(String roleId)</td>
+<td align="center">HttpResponse</td>
+<td align="center">ACL:查询角色</td>
+</tr>
+<tr>
+<td align="center">roleUpdate(String roleId, JSONObject data)</td>
+<td align="center">HttpResponse</td>
+<td align="center">ACL:修改角色</td>
+</tr>
+<tr>
+<td align="center">roleDelete(String roleId)</td>
+<td align="center">HttpResponse</td>
+<td align="center">ACL:删除角色</td>
+</tr>
+<tr>
+<td align="center">getDBTime()</td>
+<td align="center">HttpResponse</td>
+<td align="center">获取Restful服务器的时间</td>
+</tr>
+<tr>
+<td align="center">batch(JSONArray requests)</td>
+<td align="center">HttpResponse</td>
+<td align="center">批量请求</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_7">内存操作<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>modules.oMemory</code> 提供了内存操作，可以进行快速的缓存读写，</li>
+<li><strong>内存随时可能被重置(暂无持久化功能)</strong>，所以在使用的时候，最好结合Base64、Bmob数据库来使用</li>
+<li>若使用得当，可以提高效率、减少Bmob api请求压力。</li>
+<li>内存块是以 <strong>应用为单位</strong> 分配的，也就是允许一个应用下 <strong>跨Java云函数</strong> 同时进行读写</li>
+<li>目前内存大小统一为 <strong>64kb/App</strong>(有可能变动)，可以通过 <code>modules.oMemory.MemorySize</code> 获取</li>
+<li>下面的方法除 <code>clean</code> 之外，分为 <code>当作byte数组</code> 和 <code>当作Map</code> 使用两种方式，这两种方式 <strong>不能混用</strong> ，如果你的应用选择将内存转为Map类型使用，就不能再用byte数组类型的接口操作内存，否则会出现异常</li>
+<li>以下均为 <code>modules.oMemory</code> 的方法</li>
+</ul>
+<p>// 把内存当作byte数组使用，往内存写byte数组
+    // buff: 写入内容
+    // buffOffset: 写入内容内偏移值
+    // memoryOffset: 内存偏移值
+    // length: 写入长度
+    // return 是否写入成功(超出授予的内存大小，即返回失败)
+    public native boolean write(byte[] buff, int buffOffset, int memoryOffset,
+            int length);</p>
+<pre><code>// 把内存当作byte数组使用，读取内存
+public native boolean read(byte[] buff, int memoryOffset, int buffOffset,
+        int length);
+
+// 把内存当作byte数组使用，读取内存
+// return 越界时返回null，没有写入过返回 new byte[length]
+public native byte[] read(int memoryOffset, int length);
+
+// 清理内存
+public native void clean();
+
+// 把内存当作Map类型操作，写入键值对
+public native boolean putMap(String key, Serializable value);
+
+// 把内存当作Map类型操作，写入追加Map
+public native boolean putMap(Map&lt;String, Serializable&gt; kvs);
+
+// 把内存当作Map类型操作，获取一个值
+public native &lt;T extends Serializable&gt; T getMap(String key);
+
+// 把内存当作Map类型操作，覆盖写入Map
+public native boolean writeMap(Map&lt;String, Serializable&gt; kvs);
+
+// 把内存当作Map类型操作，读取整个Map
+public native Map&lt;String, Serializable&gt; readMap();
+
+// 把内存当作Map类型操作, 写入一个byte
+public native boolean writeByte(int index, byte b);
+
+// 把内存当作Map类型操作, 读取一个byte
+public native byte readByte(int index);
+</code></pre>
+<p>​                </p>
+<h4 id="_8">日志输出<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>以下均为 <code>modules.oLog</code> 的方法：</p>
+<pre><code>    // 设置需要输出的日志级别
+    // Level_All = 0
+    // Level_Debug = 1
+    // Level_Warn = 2
+    // Level_Error = 3
+    modules.oLog.level = modules.oLog.Level_All // 全部都会输出
+    modules.oLog.level = modules.oLog.Level_Warn // 仅输出Warn和Error
+    modules.oLog.level = modules.oLog.Level_Error // 仅Error级别日志
+
+    modules.oLog.d(Object) // 输出Debug级别日志
+    modules.oLog.w(Object) // 输出Warn级别日志
+    modules.oLog.e(Object) // 输出Error级别日志
+    modules.oLog.debug(String,Object...) // 格式化输出Debug级别日志
+    modules.oLog.warn(String,Object...) // 格式化输出Warn级别日志
+    modules.oLog.error(String,Object...) // 格式化输出Error级别日志
+</code></pre>
+<h3 id="_9">持久化<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><em>请注意，此处的持久化不同于利用Bmob数据库，是一种非可靠的、利用系统IO实现的数据持久化管理</em></p>
+<p><em>在不同负载环境下，或使用超出额度时，均可能会造成数据被清空</em></p>
+<p><em>利用该模块，你可以轻松实现前端代码的部署，例如单页h5应用、vue项目等，且不会造成数据库api数的增加</em></p>
+<p><code>modules.oPersistence</code> 只有两个方法:</p>
+<pre><code>// 获取一个持久化项
+// 参数为路径，举例：
+// (&quot;index.html&quot;)
+// (&quot;web/html/index.html&quot;)
+// (&quot;web&quot;,&quot;html&quot;,&quot;index.html&quot;)
+// (&quot;web&quot;,&quot;html/js&quot;,&quot;index.js&quot;)
+// 返回 PersistenceItem 对象，可进行IO操作，返回null说明发生错误，可能是额度达到上限或路径非法
+
+PersistenceItem modules.oPersistence.get(...)
+
+
+// 获取持久化的结构
+JSONObject modules.oPersistence.getStruct()
+/* 返回值举例：
+    {   
+        &quot;index.html&quot;: 123, // 项对应的是length
+        &quot;web&quot;: { // 层级对应的是Object
+            &quot;html&quot;: {
+                &quot;index.html&quot;: 456
+            },
+            &quot;js&quot;: {
+                &quot;index.js&quot;: 789
+            },
+            &quot;config&quot;: 123
+        }
+    }
+*/
+</code></pre>
+
+<p><strong>PersistenceItem</strong></p>
+<p>可进行持久化操作的项，可进行读、写、删除、获取空间大小等</p>
+<p>方法:</p>
+<pre><code>// 获取大小
+long size();
+
+// 写入
+boolean write(byte[] data)
+
+// 写入，是否追加
+boolean write(byte[] data, boolean append); 
+
+// 读取
+public final native boolean read(byte[] buff);
+
+// 读取，跳过字节数
+public final native boolean read(byte[] buff, long skip);
+
+// 删除该项
+public final native boolean delete();
+
+// 将zip文件内容解压到持久化空间
+public final native boolean unzip(byte[] data);
+public final native boolean unzip(java.io.InputStream is);
+
+// 将持久化空间的所有文件打包成zip文件
+public final native byte[] zip();
+public final native boolean zip(java.io.OutputStream os);
+
+</code></pre>
+
+<p><em>目前云函数普通用户有以下限制：50个持久化项、单项大小不超过10Mb、总大小不超过10Mb、每次云函数执行周期内可读写各1次</em></p>
+<p><em>如需提高以上额度或取消限制，请联系官方客服</em></p>
+<h3 id="http_1">Http请求<a class="headerlink" href="#http_1" title="Permanent link">&para;</a></h3>
+<p>以下均为<code>modules.oHttp</code>对象的方法</p>
+<pre><code>// get请求一个网址
+HttpResponse get(String url);
+
+// post发起一次请求
+HttpResponse post(String url, String contentType, byte[] data);
+
+// post发起Json请求
+HttpResponse post(String url, JSONObject jsonData);
+
+// post发起Form请求
+HttpResponse post(String url, Map&lt;String, String&gt; formData);
+
+// 发起任意http请求
+HttpResponse request(String url, String method, JSONObject headers, byte[] data, int timeout);
+</code></pre>
+
+<p><em>目前云函数普通用户有以下限制：每次云函数执行周期内可进行1次请求</em></p>
+<p><em>如需提高以上额度或取消限制，请联系官方客服</em></p>
+<h3 id="_10">游戏平台操作<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>该模块用于配合 <a href="https://game.bmob.cn">Bmob游戏SDK</a> 使用，可执行例如定期清理房间、踢出玩家、获取游戏参数等操作</strong></p>
+<p>以下均为<code>modules.oGame</code>对象的方法</p>
+<pre><code>// 初始化
+init(String bgsId, int version);
+
+// 创建房间
+HttpResponse createRoom(String hostUserId, int playerCount);
+
+// 销毁房间
+HttpResponse destroyRoom(String hostUserId, String slaveAddress, int roomId, String roomMasterKey);
+
+// 踢出玩家
+HttpResponse kick(String hostUserId, String slaveAddress, int roomId, String roomMasterKey, int kickingPlayerNo);
+
+// 获取游戏配置
+HttpResponse getConf();
+</code></pre>
+
+<h4 id="_11">微信接口<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<ul>
+<li>推荐将小程序的appid、app secret在Bmob后台设置，由Bmob进行AccessToken的生命周期管理</li>
+<li>以下均为 <code>modules.oWechat</code> 的方法<pre><code>// 设置当前的AccessToken
+setAccessToken(String)
+
+// 设置小程序的key，不推荐调用，推荐在Bmob后台设置
+initWechatApp(String appId, String appSecret)
+
+// 获取当前的AccessToken
+// 如果通过调用initWechatApp方法设置了小程序参数，则直接从微信接口获取，请注意自行保存并管理有效期，以避免频繁获取
+// 如果未调用initWechatApp，则从Bmob平台获取
+getAccessToken()
+getAccessToken(boolean useCache) // 参数为false时不使用缓存
+
+// 发送消息给小程序的用户
+// type可以为text、image、link
+// msg为String或JSON，请参考Demo和微信官方文档
+sendWechatAppMsg(String openId, String type, Object msg)
+
+// 判断是否从微信发送的请求
+// 实际上就是封装了判断signature是否等于SHA1(sort(timestamp,nonce,token))
+isWechatRequest(String token, Request request)
+</code></pre>
+</li>
+</ul>
+<h2 id="_12">内置类<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="httpresponse">HttpResponse<a class="headerlink" href="#httpresponse" title="Permanent link">&para;</a></h3>
+<p><strong>类变量</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">err</td>
+<td align="center">String</td>
+<td align="center">错误信息</td>
+</tr>
+<tr>
+<td align="center">res</td>
+<td align="center">ResponseStatus</td>
+<td align="center">请求状态(见下表)</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">byte[]</td>
+<td align="center">返回的数据</td>
+</tr>
+<tr>
+<td align="center">stringData</td>
+<td align="center">String</td>
+<td align="center">返回的数据转String格式</td>
+</tr>
+<tr>
+<td align="center">jsonData</td>
+<td align="center">JSONObject</td>
+<td align="center">返回的数据转JSON格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="responsestatus">ResponseStatus<a class="headerlink" href="#responsestatus" title="Permanent link">&para;</a></h3>
+<p><strong>类变量</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">code</td>
+<td align="center">int</td>
+<td align="center">状态码</td>
+</tr>
+<tr>
+<td align="center">status</td>
+<td align="center">String</td>
+<td align="center">状态描述</td>
+</tr>
+<tr>
+<td align="center">headers</td>
+<td align="center">JSONObject</td>
+<td align="center">返回的Http头部</td>
+</tr>
+</tbody>
+</table>
+<h3 id="querier">Querier<a class="headerlink" href="#querier" title="Permanent link">&para;</a></h3>
+<p><strong>类方法</strong>: <strong>返回类型均为 <code>Querier</code></strong> (以链式调用)</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法体</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">\&lt;init>(String table)</td>
+<td align="center">构造方法，传入表名</td>
+</tr>
+<tr>
+<td align="center">limit(int)</td>
+<td align="center">设置最大返回行数</td>
+</tr>
+<tr>
+<td align="center">skip(int)</td>
+<td align="center">设置跳过的个数</td>
+</tr>
+<tr>
+<td align="center">order(String)</td>
+<td align="center">排序规则</td>
+</tr>
+<tr>
+<td align="center">keys(String)</td>
+<td align="center">需要返回的属性</td>
+</tr>
+<tr>
+<td align="center">include(String)</td>
+<td align="center">需要返回详细信息的Pointer属性</td>
+</tr>
+<tr>
+<td align="center">where(JSONObject)</td>
+<td align="center">设置查询条件</td>
+</tr>
+<tr>
+<td align="center">addWhere(JSONObject)</td>
+<td align="center">添加条件</td>
+</tr>
+<tr>
+<td align="center">and(Querier)</td>
+<td align="center">and复合查询</td>
+</tr>
+<tr>
+<td align="center">or(Querier)</td>
+<td align="center">or复合查询</td>
+</tr>
+<tr>
+<td align="center">addWhereExists(String)</td>
+<td align="center">某字段有值</td>
+</tr>
+<tr>
+<td align="center">addWhereNotExists(String)</td>
+<td align="center">某字段无值</td>
+</tr>
+<tr>
+<td align="center">addWhereExists(String,boolean)</td>
+<td align="center">某字段有/无值</td>
+</tr>
+<tr>
+<td align="center">addWhereEqualTo(String,Object)</td>
+<td align="center">某字段等于</td>
+</tr>
+<tr>
+<td align="center">addWhereNotEqualTo(String,Object)</td>
+<td align="center">某字段不等于</td>
+</tr>
+<tr>
+<td align="center">addWhereGreaterThan(String,Object)</td>
+<td align="center">某字段大于</td>
+</tr>
+<tr>
+<td align="center">addWhereGreaterThanOrEqualTo(String,Object)</td>
+<td align="center">某字段大于等于</td>
+</tr>
+<tr>
+<td align="center">addWhereLessThan(String,Object)</td>
+<td align="center">某字段小于</td>
+</tr>
+<tr>
+<td align="center">addWhereLessThanOrEqualTo(String,Object)</td>
+<td align="center">某字段小于等于</td>
+</tr>
+<tr>
+<td align="center">addWhereRelatedTo(String table,toObjId,toKey)</td>
+<td align="center">在某表作为Relation关联起来的数据</td>
+</tr>
+<tr>
+<td align="center">addWhereNear(String,BmobGeoPoint,double maxMiles, double maxKM, double maxRadians)</td>
+<td align="center">地理位置在一定范围内</td>
+</tr>
+<tr>
+<td align="center">addWhereWithinGeoBox(String,BmobGeoPoint,BmobGeoPoint)</td>
+<td align="center">地理位置在矩形范围内</td>
+</tr>
+<tr>
+<td align="center">addWhereContainedIn(String key, Object... objs)</td>
+<td align="center">值在列表内</td>
+</tr>
+<tr>
+<td align="center">addWhereContainedInArray(String key,JSONArray arr)</td>
+<td align="center">值在列表内</td>
+</tr>
+<tr>
+<td align="center">addWhereNotContainedIn(String key,Object... objs)</td>
+<td align="center">值不在列表内</td>
+</tr>
+<tr>
+<td align="center">addWhereNotContainedInArray(String key,JSONArray arr)</td>
+<td align="center">值不在列表内</td>
+</tr>
+<tr>
+<td align="center">addWhereContainsAll(String key, Object... objs)</td>
+<td align="center">列表包含全部项</td>
+</tr>
+<tr>
+<td align="center">addWhereContainsAllInArray(String key,JSONArray arr)</td>
+<td align="center">列表包含全部项</td>
+</tr>
+<tr>
+<td align="center">addWhereStrContains(String key, String keyWord)</td>
+<td align="center">String类型模糊查询</td>
+</tr>
+<tr>
+<td align="center">addWhereMatchesQuery(String key,JSONObject innerQuery, String innerKey)</td>
+<td align="center">某项符合子查询</td>
+</tr>
+<tr>
+<td align="center">addWhereDoesNotMatchQuery(String key,JSONObject innerQuery, String innerKey)</td>
+<td align="center">某项不符合子查询</td>
+</tr>
+<tr>
+<td align="center">addWhereMatchesQuery(String key,Querier innerQuery, String innerKey)</td>
+<td align="center">某项符合子查询</td>
+</tr>
+<tr>
+<td align="center">addWhereDoesNotMatchQuery(String key,Querier innerQuery, String innerKey)</td>
+<td align="center">某项不符合子查询</td>
+</tr>
+<tr>
+<td align="center">addWhereInQuery(String key, JSONObject inQuery)</td>
+<td align="center">某项包含在子查询</td>
+</tr>
+<tr>
+<td align="center">addWhereNotInQuery(String key,JSONObject inQuery)</td>
+<td align="center">某项不包含在子查询</td>
+</tr>
+<tr>
+<td align="center">addWhereInQuery(String key, Querier querier)</td>
+<td align="center">某项包含在子查询</td>
+</tr>
+<tr>
+<td align="center">addWhereNotInQuery(String key, Querier querier)</td>
+<td align="center">某项不包含在子查询</td>
+</tr>
+<tr>
+<td align="center">count(int)</td>
+<td align="center">统计接口: 返回数量</td>
+</tr>
+<tr>
+<td align="center">groupby(String)</td>
+<td align="center">统计接口: 根据某列分组</td>
+</tr>
+<tr>
+<td align="center">groupcount(boolean)</td>
+<td align="center">统计接口: 分组后组内统计数量</td>
+</tr>
+<tr>
+<td align="center">sum(String)</td>
+<td align="center">统计接口: 计算总数</td>
+</tr>
+<tr>
+<td align="center">average(String)</td>
+<td align="center">统计接口: 计算平均数</td>
+</tr>
+<tr>
+<td align="center">max(String)</td>
+<td align="center">统计接口: 获取最大值</td>
+</tr>
+<tr>
+<td align="center">min(String)</td>
+<td align="center">统计接口: 获取最小值</td>
+</tr>
+<tr>
+<td align="center">having</td>
+<td align="center">统计接口: 分组中的过滤条件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bmobupdater">BmobUpdater<a class="headerlink" href="#bmobupdater" title="Permanent link">&para;</a></h3>
+<p>该类的全部静态方法都用于设置insert、update方法的请求内容，<strong>返回类型均为 <code>JSONObject</code></strong></p>
+<p><strong>静态方法</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法体</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">add(JSONObject data,String key,Object value)</td>
+<td align="center">往data添加一个键值</td>
+</tr>
+<tr>
+<td align="center">increment(JSONObject data,String key,Number number)</td>
+<td align="center">原子计数</td>
+</tr>
+<tr>
+<td align="center">arrayAdd(JSONObject data,String key,Object obj)</td>
+<td align="center">往Array类型添加一项</td>
+</tr>
+<tr>
+<td align="center">arrayAddAll(JSONObject data,String key,JSONArray objects)</td>
+<td align="center">往Array类型添加多项</td>
+</tr>
+<tr>
+<td align="center">arrayAddUnique(JSONObject data,String key,Object obj)</td>
+<td align="center">往Array类型不重复地添加一项</td>
+</tr>
+<tr>
+<td align="center">arrayAddAllUnique(JSONObject data,String key,JSONArray objects)</td>
+<td align="center">往Array类型不重复地添加多项</td>
+</tr>
+<tr>
+<td align="center">arrayRemoveAll(JSONObject data,String key,JSONArray objects)</td>
+<td align="center">删除Array类型的多项</td>
+</tr>
+<tr>
+<td align="center">addRelations(JSONObject data, String key,BmobPointer...pointers)</td>
+<td align="center">添加多个Relation关系</td>
+</tr>
+<tr>
+<td align="center">removeRelations(JSONObject data, String key,BmobPointer...pointers)</td>
+<td align="center">移除多个Relation关系</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    String stringify(JSONObject m)
+    String stringify(JSONArray m)
+    JSONObject parse(String s)
+    JSONArray parseArray(String s)
+    JSONObject setJson(JSONObject json, Object... kNvs)
+    JSONArray append(JSONArray array, Object... objs)
+    JSONArray toArray(Object... objs)
+    JSONObject strsToJson(String... kNvs)
+    JSONObject toJson(Object... kNvs)
+    boolean sort(List array, String keys)
+    boolean clean(Map json, String rules);
+</code></pre>
+<h3 id="jsonobject">JSONObject<a class="headerlink" href="#jsonobject" title="Permanent link">&para;</a></h3>
+<p>类方法：</p>
+<pre><code>    int size()
+    boolean isEmpty()
+    boolean containsKey(Object key)
+    boolean containsValue(Object value)
+    Object get(Object key)
+    Object put(String key, Object value) 
+    Object remove(Object key)
+    void clear()
+    Set&lt;String&gt; keySet()
+    BigInteger getBigInteger(String key)
+    BigDecimal getBigDecimal(String key)
+    Boolean getBoolean(String key)
+    boolean getBooleanValue(String key) 
+    Byte getByte(String key)
+    byte getByteValue(String key)
+    Date getDate(String key)
+    Double getDouble(String key)
+    double getDoubleValue(String key)
+    Float getFloat(String key)
+    float getFloatValue(String key)
+    Integer getInteger(String key)
+    int getIntValue(String key)
+    JSONArray getJSONArray(String key)
+    JSONObject getJSONObject(String key)
+    Long getLong(String key)
+    long getLongValue(String key)
+    Short getShort(String key)
+    short getShortValue(String key)
+    String getString(String key)
+</code></pre>
+<h3 id="jsonarray">JSONArray<a class="headerlink" href="#jsonarray" title="Permanent link">&para;</a></h3>
+<p>类方法：</p>
+<pre><code>    int size() 
+    boolean isEmpty() 
+    boolean contains(Object o) 
+    boolean add(Object e) 
+    boolean remove(Object o) 
+    boolean containsAll(Collection&lt;?&gt; c) 
+    boolean addAll(Collection&lt;? extends Object&gt; c) 
+    boolean addAll(int index, Collection&lt;? extends Object&gt; c) 
+    boolean removeAll(Collection&lt;?&gt; c) 
+    boolean retainAll(Collection&lt;?&gt; c) 
+    void clear() 
+    Object get(int index) 
+    Object set(int index, Object element) 
+    void add(int index, Object element) 
+    Object remove(int index) 
+    BigInteger getBigInteger(int index) 
+    BigDecimal getBigDecimal(int index) 
+    Boolean getBoolean(int index) 
+    boolean getBooleanValue(int index) 
+    Byte getByte(int index) 
+    byte getByteValue(int index) 
+    Date getDate(int index) 
+    Double getDouble(int index) 
+    double getDoubleValue(int index) 
+    Float getFloat(int index) 
+    float getFloatValue(int index) 
+    Integer getInteger(int index) 
+    int getIntValue(int index) 
+    JSONArray getJSONArray(int index) 
+    JSONObject getJSONObject(int index) 
+    Long getLong(int index) 
+    long getLongValue(int index) 
+    Short getShort(int index) 
+    short getShortValue(int index) 
+    String getString(int index)
+</code></pre>
+<h3 id="bmobpointer">BmobPointer<a class="headerlink" href="#bmobpointer" title="Permanent link">&para;</a></h3>
+<p>构造方法：</p>
+<pre><code>    BmobPointer(String className, String objectId)
+</code></pre>
+<h3 id="bmobfile">Bmobfile<a class="headerlink" href="#bmobfile" title="Permanent link">&para;</a></h3>
+<p>构造方法：</p>
+<pre><code>    Bmobfile(String filename, String url)
+</code></pre>
+<h3 id="bmobdate">BmobDate<a class="headerlink" href="#bmobdate" title="Permanent link">&para;</a></h3>
+<p>构造方法：</p>
+<pre><code>    BmobDate(String timeStamp)
+    BmobDate(long millSec)
+</code></pre>
+<h3 id="bmobgeopoint">BmobGeoPoint<a class="headerlink" href="#bmobgeopoint" title="Permanent link">&para;</a></h3>
+<p>构造方法：</p>
+<pre><code>    BmobGeoPoint(double longitude, double latitude)
+</code></pre>
+<p>静态方法：</p>
+<pre><code>    double CalcuDistance(double lat1, double lng1, double lat2, double lng2)
+</code></pre>
+<h3 id="aes">AES<a class="headerlink" href="#aes" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    byte[] aes(byte[] str, byte[] key, byte[] iv, boolean eOd, String keyAlgorithm, String cipherAlgorithm)
+    byte[] Encode(byte[] content, byte[] key, byte[] iv)
+    byte[] Decode(byte[] content, byte[] key, byte[] iv)
+</code></pre>
+<h3 id="base64">Base64<a class="headerlink" href="#base64" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    String Encode(byte[] data)
+    byte[] Decode(String str)
+</code></pre>
+<h3 id="hex">Hex<a class="headerlink" href="#hex" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    String Encode(byte[] data)
+    byte[] Decode(String str)
+</code></pre>
+<h3 id="email">Email<a class="headerlink" href="#email" title="Permanent link">&para;</a></h3>
+<p>构造方法：</p>
+<pre><code>    // host: 邮件服务商的地址，例如qq邮箱为smtp.qq.com
+    // port: 邮件服务商的端口号，例如qq邮箱为465
+    // email: 用于发送邮件的邮箱地址
+    // password: 邮箱密码，请注意很多邮件服务商不允许直接使用登陆密码，需要另外申请
+    Email(String host, int port, String email, String password)
+</code></pre>
+<h3 id="_13">类变量<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<pre><code>    // 修改邮件的发送方名称
+    String username
+</code></pre>
+<h3 id="_14">类方法<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<pre><code>    // email: 接受方的邮件地址
+    // title: 邮件标题
+    // body: 邮件内容
+    // 返回值的jsonData.getIntValue("code") == 200时为发送成功
+    HttpResponse send(String email, String title, String body)
+</code></pre>
+<h3 id="crypto">Crypto<a class="headerlink" href="#crypto" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    String Encode(String algorithm, String content)
+    String Encode(String algorithm, byte[] bytes)
+    byte[] EncodeToBytes(String algorithm, byte[] bytes)
+    String Bytes2Hex(byte bytes[])
+    String Bytes2Hex(byte bytes[], int offset, int length)
+</code></pre>
+<h3 id="gzip">GZip<a class="headerlink" href="#gzip" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    byte[] Decode(byte[] bytes)
+    byte[] Encode(byte[] bytes)
+</code></pre>
+<h3 id="md5">MD5<a class="headerlink" href="#md5" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    String Encode(String content)
+    String Encode(byte[] bytes)
+    byte[] EncodeToBytes(byte[] bytes)
+</code></pre>
+<h3 id="rsa">RSA<a class="headerlink" href="#rsa" title="Permanent link">&para;</a></h3>
+<p>请注意，别忘了要写类的全称，例如 <code>java.security.PrivateKey</code>，否则编译失败</p>
+<p>静态方法：</p>
+<pre><code>    java.security.KeyPair GenerateKeys()
+    java.security.PrivateKey ParsePrivateKey(byte[] keyBytes)
+    java.security.PublicKey ParsePublicKey(byte[] keyBytes)
+
+    // 下面4个方法，都可以再添加一个String参数，传入算法
+    // 默认的算法为：加解密[RSA/ECB/PKCS1Padding], 签名[SHA1WithRSA]
+    byte[] Encode(PublicKey pubKey, byte[] content)
+    byte[] Decode(PrivateKey priKey, byte[] content)
+    byte[] Sign(PrivateKey priKey, byte[] content)
+    boolean Verify(PublicKey pubKey, byte[] content, byte[] sign)
+</code></pre>
+<h3 id="sha1">SHA1<a class="headerlink" href="#sha1" title="Permanent link">&para;</a></h3>
+<p>静态方法：</p>
+<pre><code>    String Encode(String content)
+    String Encode(byte[] bytes)
+    byte[] EncodeToBytes(byte[] bytes)
+</code></pre>
+<h2 id="_15">内置方法<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<pre><code>    long getTime() // 获取当前毫秒
+    String fmt(String, Object...) // 格式化
+    JSON.toJson(Object...) // Json化
+    JSONObject JSON.parse(String) // String转JSONObject
+    JSONArray JSON.parseArray(String) // String转JSONArray
+    boolean isStrEmpty(String) // 判断字符串是否为空
+    arraycopy(Object from, int fromOffset, Object to, int toOffset, int length) // 复制数组内容
+</code></pre>
+<p>​               </p>
+<h2 id="_16">示例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>案例主要放在了Github: <strong><a href="https://github.com/bmob/BmobJavaCloud/tree/master/samples">Bmob云函数案例</a></strong></p>
+<ul>
+<li><strong>场景1</strong>:</li>
+</ul>
+<p>用户在app提交了反馈，参数有"userObjectId"、"title"、"content"、"type"，需要保存到FeedBack表</p>
+<pre><code>JSONObject params = request.getParams();
+String title = params.getString("title");
+String content = params.getString("content");
+String userId = params.getString("userObjectId");
+int type = params.getIntValue("type");
+
+JSONObject data = JSON.toJson(
+    "title", title,
+    "content", content,
+    "type", type
+);
+BmobUpdater.add(
+    data,
+    "user",
+    new BmobPointer("_User", userId)
+);
+
+response.send(
+    modules.oData.insert(
+        "Feedback",
+        data
+    ).stringData
+);
+</code></pre>
+<ul>
+<li>
+<p><strong>场景2</strong>:</p>
+<p>查询Feedback表中，type为1、title字段不为空，且创建时间在12小时以内的最新10条数据，并只需要反馈content和对应user的用户名</p>
+<pre><code>Querier q = new Querier("Feedback")
+                .limit(10)
+                .include("user")
+                .order("-createdAt");
+q.addWhereEqualTo("type", 1);
+q.addWhereExists("title");
+q.addWhereGreaterThanOrEqualTo("createdAt",
+    new BmobDate(getTime() - 12 * 60 * 60 * 1000)
+);
+HttpResponse res = modules.oData.find(q);
+JSONArray feedbacks = res.jsonData.getJSONArray("results");
+if (feedbacks == null)// 请求有错误，直接返回全部内容
+    response.send(res.data);
+else {
+    JSONArray arr = new JSONArray();
+    for (int i = 0, l = feedbacks.size(); i &lt; l; i++) {
+        JSONObject fb = feedbacks.getJSONObject(i);
+        JSONObject user = fb.getJSONObject("user");
+        arr.add(
+            JSON.toJson(
+                "username",
+                user == null ? null : user.getString("username"),
+                "content",
+                fb.getString("content")
+            )
+        );
+    }
+    response.send(JSON.toJson("results", arr));
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="_17">注意事项<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>如果你编写的Java云函数经常发生运行超时、上下行超流量、滥用内存等现象，官方将会自动封停你的云函数功能，修改后向客服申请方可继续使用</p>
+</li>
+<li>
+<p>如果某接口调用频率较高，超过默认并发量，则会直接返回错误，解决方法：</p>
+<pre><code>1.修改客户端代码，降低请求频率
+2.修改云函数，提高代码质量和效率，减少网络请求相关的超时时长，尽快结束工作
+3.购买更高的并发配置
+</code></pre>
+</li>
+<li>
+<p>如果需要接受更大的请求体，或返回更大的结果，请购买更高的配置</p>
+</li>
+<li>如果你用 <code>eclipse</code> 等IDE开发，使用 <a href="https://github.com/bmob/BmobJavaCloud/tree/master/exec">同步工具</a> 是一个不错的选择</li>
+</ul>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>
