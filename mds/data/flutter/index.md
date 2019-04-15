@@ -1,7 +1,7 @@
 # bmob-flutter-sdk
 Bmob Flutter SDK
 
-
+Flutter官方咨询QQ群：788254534
 
 
 # 1、集成
@@ -10,7 +10,7 @@ Bmob Flutter SDK
 依赖配置：
 ```
 dependencies:
-  data_plugin: ^0.0.5
+  data_plugin: ^0.0.6
 ```
 ## 1.2、安装
 安装指令：
@@ -781,4 +781,36 @@ void _verifySmsCode(BuildContext context) {
 }
 
 ```
+
+## 2.13、数据监听
+
+```
+///数据监听
+void _listen() {
+  RealTimeDataManager.getInstance().listen(
+      onConnected: (Client client) {
+        print("监听数据连接成功，开始订阅消息！");
+        client.subTableUpdate("Blog");
+      },
+      onDisconnected: () {
+        print("监听数据断开连接");
+      },
+      onDataChanged: (Change data) {
+        Blog blog = Blog.fromJson(data.data);
+        print("监听到数据变化："+blog.toJson().toString());
+      },
+      onError: (error) {
+        print("监听数据发送错误："+error.toString());
+      });
+}
+```
+
+监听成功后的订阅动作：
+
+|方法|解释|
+|---|---|
+|subTableUpdate|订阅表更新|
+|subTableDelete|订阅表删除|
+|subRowUpdate|订阅行更新|
+|subRowDelete|订阅行删除|
 
