@@ -568,6 +568,10 @@
 												<li><a class="itm-l2" href="#212_1">2.12、短信操作</a></li>
 											</ul>
 											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#213">2.13、数据监听</a></li>
+											</ul>
+											
 										</li>
 									
 								
@@ -598,11 +602,12 @@
 
 <h1 id="bmob-flutter-sdk">bmob-flutter-sdk<a class="headerlink" href="#bmob-flutter-sdk" title="Permanent link">&para;</a></h1>
 <p>Bmob Flutter SDK</p>
+<p>Flutter官方咨询QQ群：788254534</p>
 <h1 id="1">1、集成<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
 <h2 id="11">1.1、依赖<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
 <p>依赖配置：</p>
 <pre><code>dependencies:
-  data_plugin: ^0.0.5
+  data_plugin: ^0.0.6
 </code></pre>
 
 <h2 id="12">1.2、安装<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
@@ -1439,6 +1444,55 @@ void _verifySmsCode(BuildContext context) {
 }
 
 </code></pre>
+
+<h2 id="213">2.13、数据监听<a class="headerlink" href="#213" title="Permanent link">&para;</a></h2>
+<pre><code>///数据监听
+void _listen() {
+  RealTimeDataManager.getInstance().listen(
+      onConnected: (Client client) {
+        print(&quot;监听数据连接成功，开始订阅消息！&quot;);
+        client.subTableUpdate(&quot;Blog&quot;);
+      },
+      onDisconnected: () {
+        print(&quot;监听数据断开连接&quot;);
+      },
+      onDataChanged: (Change data) {
+        Blog blog = Blog.fromJson(data.data);
+        print(&quot;监听到数据变化：&quot;+blog.toJson().toString());
+      },
+      onError: (error) {
+        print(&quot;监听数据发送错误：&quot;+error.toString());
+      });
+}
+</code></pre>
+
+<p>监听成功后的订阅动作：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subTableUpdate</td>
+<td>订阅表更新</td>
+</tr>
+<tr>
+<td>subTableDelete</td>
+<td>订阅表删除</td>
+</tr>
+<tr>
+<td>subRowUpdate</td>
+<td>订阅行更新</td>
+</tr>
+<tr>
+<td>subRowDelete</td>
+<td>订阅行删除</td>
+</tr>
+</tbody>
+</table>
                 </div>
             </div>
         </div>
