@@ -23,6 +23,7 @@ IM SDK 使用Data SDK的BmobFile用于图片、语音等文件消息的发送，
 | bmob-im:2.0.6 至 2.0.8| bmob-sdk:3.5.5| 
 | bmob-im:2.0.9| bmob-sdk:3.5.6|
 | bmob-im:2.1.1| bmob-sdk:3.6.3| 
+| bmob-im:2.1.4| bmob-sdk:3.7.3| 
            
 # 2、BmobNewIM SDK 集成
 ## 2.1、手动集成
@@ -87,8 +88,8 @@ task clean(type: Delete) {
 	dependencies {
 	    compile fileTree(dir: 'libs', include: ['*.jar'])
 		//TODO 集成：1.2、配置IM SDK（bmob-im）版本和Data SDK（bmob-sdk）版本：特定版本的bmob-im依赖特定版本的bmob-sdk
-		compile 'cn.bmob.android:bmob-im:2.1.1@aar'
-		compile 'cn.bmob.android:bmob-sdk:3.6.3'
+		compile 'cn.bmob.android:bmob-im:2.1.4@aar'
+		compile 'cn.bmob.android:bmob-sdk:3.7.3'
 	}
 ```
 

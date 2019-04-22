@@ -1,3 +1,10 @@
+### v2.1.4 2019年04月22日
+1、BmobNewIM v2.1.4将所依赖的数据SDK版本提升到BmobSDK v3.7.3。
+2、需要在清单文件AndroidManifesr.xml中配置前台服务权限：
+```
+<!--前台服务-->
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+```
 ### v2.0.6_Beta	  2016年04月28日
 1、BmobNewIM_v2.0.6将所依赖的数据SDK提升为BmobSDK_v3.5.5。
 
