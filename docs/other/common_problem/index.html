@@ -1226,7 +1226,7 @@ java.lang.UnsatisfiedLinkError: Couldn't load bmob from loader dalvik.system.Pat
 出现这个问题的原因是retrofit依赖的okhttp和sdk的远程aar包中的okhttp重复导致的，将会导致编译不过，解决方式有：<br />
 1 下载Retrofit的jar包，采用本地依赖的方式；<br />
 2 compile Retrofit的配置加下exclude，把重复的okhttp除去，如下：  </p>
-<pre><code>compile ('com.squareup.retrofit2:retrofit:2.1.0'){
+<pre><code>implementation ('com.squareup.retrofit2:retrofit:2.1.0'){
         exclude group : 'com.squareup.okhttp3'
     }
 </code></pre>

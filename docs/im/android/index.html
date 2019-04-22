@@ -770,10 +770,10 @@ task clean(type: Delete) {
 
 <h3 id="222appbuildgradledependenciessync-now">2.2.2、在app下的build.gradle文件中添加dependencies外部依赖库，添加后点击Sync Now同步配置<a class="headerlink" href="#222appbuildgradledependenciessync-now" title="Permanent link">&para;</a></h3>
 <pre><code class="gradle">    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
         //TODO 集成：1.2、配置IM SDK（bmob-im）版本和Data SDK（bmob-sdk）版本：特定版本的bmob-im依赖特定版本的bmob-sdk
-        compile 'cn.bmob.android:bmob-im:2.1.4@aar'
-        compile 'cn.bmob.android:bmob-sdk:3.7.3'
+        implementation 'cn.bmob.android:bmob-im:2.1.4@aar'
+        implementation 'cn.bmob.android:bmob-sdk:3.7.3'
     }
 </code></pre>
 

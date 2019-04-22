@@ -648,7 +648,7 @@
 </code></pre>
 
 <ol>
-<li>在<code>app</code>的<code>build.gradle</code>文件中添加<code>compile依赖文件</code>：</li>
+<li>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</li>
 </ol>
 <pre><code class="gradle">android {
     useLibrary 'org.apache.http.legacy'
@@ -684,12 +684,12 @@
 <li><code>bmob-sdk:3.4.6</code>的相关依赖包可见注释[3]</li>
 </ul>
 <p><strong>[3]、bmob-sdk:3.4.6依赖以下包：</strong></p>
-<pre><code>compile 'cn.bmob.android:bmob-sdk:3.4.6'
-compile 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
-compile 'com.squareup.okio:okio:1.4.0'
+<pre><code>implementation 'cn.bmob.android:bmob-sdk:3.4.6'
+implementation 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
+implementation 'com.squareup.okio:okio:1.4.0'
 </code></pre>
 <p>如果需要兼容Android6.0系统，请添加以下两项：</p>
-<pre><code>compile 'cn.bmob.android:http-legacy:1.0'
+<pre><code>implementation 'cn.bmob.android:http-legacy:1.0'
 </code></pre>
 <p><strong>[4]、bmob-sms适用于只需要使用Bmob短信功能的开发者，而bmob-sdk内部包含了bmob-sms的短信功能,请不要重复添加。</strong></p>
 <p><strong>[5]、BmobSDK的官方仓库：<a href="https://github.com/bmob/bmob-android-sdk">bmob-android-sdk</a>，开发者可到此仓库查看最新发布的各版本SDK，我们会尽量与官网发布的SDK保持同步更新。</strong></p>
