@@ -881,7 +881,7 @@ java.lang.UnsatisfiedLinkError: com.android.tools.fd.runtime.IncrementalClassLoa
 1 下载Retrofit的jar包，采用本地依赖的方式；  
 2 compile Retrofit的配置加下exclude，把重复的okhttp除去，如下：  
 ```
-compile ('com.squareup.retrofit2:retrofit:2.1.0'){
+implementation ('com.squareup.retrofit2:retrofit:2.1.0'){
         exclude group : 'com.squareup.okhttp3'
     }
 ```

@@ -57,7 +57,7 @@
 ```
 
 
-2. 在`app`的`build.gradle`文件中添加`compile依赖文件`：
+2. 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 android {
     useLibrary 'org.apache.http.legacy'
@@ -98,13 +98,13 @@ android {
 
 **[3]、bmob-sdk:3.4.6依赖以下包：**
 	
-	compile 'cn.bmob.android:bmob-sdk:3.4.6'
-	compile 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
-    compile 'com.squareup.okio:okio:1.4.0'
+	implementation 'cn.bmob.android:bmob-sdk:3.4.6'
+	implementation 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
+    implementation 'com.squareup.okio:okio:1.4.0'
 
 如果需要兼容Android6.0系统，请添加以下两项：
 
-	compile 'cn.bmob.android:http-legacy:1.0'
+	implementation 'cn.bmob.android:http-legacy:1.0'
 
 **[4]、bmob-sms适用于只需要使用Bmob短信功能的开发者，而bmob-sdk内部包含了bmob-sms的短信功能,请不要重复添加。**
 
