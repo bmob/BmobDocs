@@ -28,9 +28,9 @@ import 'package:data_plugin/data_plugin.dart';
 https://pub.dartlang.org/
 ```
 安装介绍：
-```
+
 https://pub.dartlang.org/packages/data_plugin#-installing-tab-
-```
+
 
 ## 1.5、平台
 目前涉及到特定平台信息处理的方法只适配了Android外，其他方法均兼容Android、iOS。
@@ -63,9 +63,9 @@ import 'package:data_plugin/bmob/table/bmob_user.dart';
 3、发布库
 
 此SDK插件只用于Bmob数据服务相关的数据操作，与此服务无关的UI以及其他涉及平台功能的操作需要开发者自行编写。Dart允许开发者自己编写相关的UI库以及平台插件，并发布到Dart仓库供所有开发者使用，具体可以参考：
-```
+
 https://zhuanlan.zhihu.com/p/60136574
-```
+
 
 ## 2.1、数据类型
 
