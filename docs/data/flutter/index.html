@@ -569,7 +569,15 @@
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#213">2.13、数据监听</a></li>
+												<li><a class="itm-l2" href="#213_1">2.13、数据监听</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#214">2.14、排序</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#215">2.15、分页</a></li>
 											</ul>
 											
 										</li>
@@ -607,7 +615,7 @@
 <h2 id="11">1.1、依赖<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
 <p>依赖配置：</p>
 <pre><code>dependencies:
-  data_plugin: ^0.0.6
+  data_plugin: ^0.0.9
 </code></pre>
 
 <h2 id="12">1.2、安装<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
@@ -821,10 +829,33 @@ static void initMasterKey(appId, apiKey, masterKey);
 <pre><code>https://zhuanlan.zhihu.com/p/59932453
 </code></pre>
 
+<h3 id="213">2.1.3、错误类型<a class="headerlink" href="#213" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>错误代码</td>
+</tr>
+<tr>
+<td>error</td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+<p>获取错误信息</p>
+<pre><code>BmobError bmobError = BmobError.convert(e);
+</code></pre>
+
 <h2 id="22">2.2、增删改查一条数据<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
 <p>新增：</p>
 <pre><code>///保存一条数据
-void _saveSingle(BuildContext context) {
+_saveSingle(BuildContext context) {
   BmobUser bmobUser = BmobUser();
   bmobUser.objectId = &quot;7c7fd3afe1&quot;;
   Blog blog = Blog();
@@ -832,33 +863,29 @@ void _saveSingle(BuildContext context) {
   blog.content = &quot;博客内容&quot;;
   blog.author = bmobUser;
   blog.like = 77;
-  blog.save(successListener: (BmobSaved data) {
-    String message = &quot;创建一条数据成功：${data.objectId} - ${data.createdAt}&quot;;
-    currentObjectId = data.objectId;
-    print(message);
+  blog.save().then((BmobSaved bmobSaved) {
+    String message =
+        &quot;创建一条数据成功：${bmobSaved.objectId} - ${bmobSaved.createdAt}&quot;;
+    currentObjectId = bmobSaved.objectId;
     showSuccess(context, message);
-  }, errorListener: (BmobError bmobError) {
-    String message = &quot;创建一条数据失败：${bmobError.error}&quot;;
-    print(message);
-    showError(context, message);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>查询：</p>
 <pre><code>///查询一条数据
-void _querySingle(BuildContext context) {
+_querySingle(BuildContext context) {
   if (currentObjectId != null) {
     BmobQuery&lt;Blog&gt; bmobQuery = BmobQuery();
     bmobQuery.setInclude(&quot;author&quot;);
-    bmobQuery.queryObject(currentObjectId, successListener: (dynamic data) {
+    bmobQuery.queryObject(currentObjectId).then((data) {
       Blog blog = Blog.fromJson(data);
-      print(blog.title);
       showSuccess(context,
           &quot;查询一条数据成功：${blog.title} - ${blog.content} - ${blog.author.username}&quot;);
-    }, errorListener: (BmobError error) {
-      print(error.error);
-      showError(context, error.error);
+    }).catchError((e) {
+      showError(context, BmobError.convert(e).error);
     });
   } else {
     showError(context, &quot;请先新增一条数据&quot;);
@@ -868,18 +895,16 @@ void _querySingle(BuildContext context) {
 
 <p>修改：</p>
 <pre><code>///修改一条数据
-void _updateSingle(BuildContext context) {
+_updateSingle(BuildContext context) {
   if (currentObjectId != null) {
     Blog blog = Blog();
     blog.objectId = currentObjectId;
     blog.title = &quot;修改一条数据&quot;;
     blog.content = &quot;修改一条数据&quot;;
-    blog.update(successListener: (BmobUpdated data) {
-      print(data.updatedAt);
-      showSuccess(context, &quot;修改一条数据成功：${data.updatedAt}&quot;);
-    }, errorListener: (BmobError error) {
-      print(error);
-      showError(context, &quot;修改一条数据失败：${error.error}&quot;);
+    blog.update().then((BmobUpdated bmobUpdated) {
+      showSuccess(context, &quot;修改一条数据成功：${bmobUpdated.updatedAt}&quot;);
+    }).catchError((e) {
+      showError(context, BmobError.convert(e).error);
     });
   } else {
     showError(context, &quot;请先新增一条数据&quot;);
@@ -889,17 +914,15 @@ void _updateSingle(BuildContext context) {
 
 <p>删除：</p>
 <pre><code>///删除一条数据
-void _deleteSingle(BuildContext context) {
+_deleteSingle(BuildContext context) {
   if (currentObjectId != null) {
     Blog blog = Blog();
     blog.objectId = currentObjectId;
-    blog.delete(successListener: (BmobHandled data) {
+    blog.delete().then((BmobHandled bmobHandled) {
       currentObjectId = null;
-      print(data.msg);
-      showSuccess(context, &quot;删除一条数据成功：${data.msg}&quot;);
-    }, errorListener: (BmobError error) {
-      print(error);
-      showError(context, &quot;删除一条数据失败：${error.error}&quot;);
+      showSuccess(context, &quot;删除一条数据成功：${bmobHandled.msg}&quot;);
+    }).catchError((e) {
+      showError(context, BmobError.convert(e).error);
     });
   } else {
     showError(context, &quot;请先新增一条数据&quot;);
@@ -909,16 +932,14 @@ void _deleteSingle(BuildContext context) {
 
 <p>删除字段值：</p>
 <pre><code>///删除一个字段的值
-void _deleteFieldValue(BuildContext context) {
+_deleteFieldValue(BuildContext context) {
   if (currentObjectId != null) {
     Blog blog = Blog();
     blog.objectId = currentObjectId;
-    blog.deleteFieldValue(&quot;content&quot;,successListener: (BmobUpdated data) {
-      print(data.updatedAt);
-      showSuccess(context, &quot;删除发布内容成功：${data.updatedAt}&quot;);
-    }, errorListener: (BmobError error) {
-      print(error);
-      showError(context, &quot;删除发布内容失败：${error.error}&quot;);
+    blog.deleteFieldValue(&quot;content&quot;).then((BmobUpdated bmobUpdated) {
+      showSuccess(context, &quot;删除发布内容成功：${bmobUpdated.updatedAt}&quot;);
+    }).catchError((e) {
+      showError(context, &quot;删除发布内容失败&quot; + BmobError.convert(e).error);
     });
   } else {
     showError(context, &quot;请先新增一条数据&quot;);
@@ -928,11 +949,12 @@ void _deleteFieldValue(BuildContext context) {
 
 <h2 id="23">2.3、查询多条数据<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
 <p>等于：</p>
-<pre><code>//等于条件查询
+<pre><code>///等于条件查询
 void _queryWhereEqual(BuildContext context) {
   BmobQuery&lt;Blog&gt; query = BmobQuery();
   query.addWhereEqualTo(&quot;title&quot;, &quot;博客标题&quot;);
-  query.queryObjects(successListener: (List&lt;dynamic&gt; data) {
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
     List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
     for (Blog blog in blogs) {
       if (blog != null) {
@@ -941,19 +963,19 @@ void _queryWhereEqual(BuildContext context) {
         print(blog.content);
       }
     }
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    showError(context, error.error);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>不等于：</p>
-<pre><code>//不等条件查询
+<pre><code>///不等条件查询
 void _queryWhereNotEqual(BuildContext context) {
   BmobQuery&lt;Blog&gt; query = BmobQuery();
   query.addWhereNotEqualTo(&quot;title&quot;, &quot;博客标题&quot;);
-  query.queryObjects(successListener: (List&lt;dynamic&gt; data) {
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
     List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
     for (Blog blog in blogs) {
       if (blog != null) {
@@ -962,19 +984,19 @@ void _queryWhereNotEqual(BuildContext context) {
         print(blog.content);
       }
     }
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    showError(context, error.error);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>小于：</p>
-<pre><code>//小于条件查询
-void _queryWhereLess(BuildContext context) {
+<pre><code>///小于查询
+_queryWhereLess(BuildContext context) {
   BmobQuery&lt;Blog&gt; query = BmobQuery();
   query.addWhereLessThan(&quot;like&quot;, 80);
-  query.queryObjects(successListener: (List&lt;dynamic&gt; data) {
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
     List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
     for (Blog blog in blogs) {
       if (blog != null) {
@@ -983,19 +1005,19 @@ void _queryWhereLess(BuildContext context) {
         print(blog.content);
       }
     }
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    showError(context, error.error);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>小于等于：</p>
-<pre><code>//小于等于条件查询
-void _queryWhereLessEqual(BuildContext context) {
+<pre><code>///小于等于查询
+_queryWhereLessEqual(BuildContext context) {
   BmobQuery&lt;Blog&gt; query = BmobQuery();
   query.addWhereLessThanOrEqualTo(&quot;like&quot;, 77);
-  query.queryObjects(successListener: (List&lt;dynamic&gt; data) {
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
     List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
     for (Blog blog in blogs) {
       if (blog != null) {
@@ -1004,19 +1026,19 @@ void _queryWhereLessEqual(BuildContext context) {
         print(blog.content);
       }
     }
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    showError(context, error.error);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>大于：</p>
-<pre><code>//大于条件查询
-void _queryWhereLarge(BuildContext context) {
+<pre><code>///大于查询
+_queryWhereLarge(BuildContext context) {
   BmobQuery&lt;Blog&gt; query = BmobQuery();
   query.addWhereGreaterThan(&quot;like&quot;, 70);
-  query.queryObjects(successListener: (List&lt;dynamic&gt; data) {
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
     List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
     for (Blog blog in blogs) {
       if (blog != null) {
@@ -1025,19 +1047,19 @@ void _queryWhereLarge(BuildContext context) {
         print(blog.content);
       }
     }
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    showError(context, error.error);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>大于等于：</p>
-<pre><code>//大于等于条件查询
-void _queryWhereLargeEqual(BuildContext context) {
+<pre><code>///大于等于查询
+_queryWhereLargeEqual(BuildContext context) {
   BmobQuery&lt;Blog&gt; query = BmobQuery();
   query.addWhereGreaterThanOrEqualTo(&quot;like&quot;, 77);
-  query.queryObjects(successListener: (List&lt;dynamic&gt; data) {
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
     List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
     for (Blog blog in blogs) {
       if (blog != null) {
@@ -1046,56 +1068,52 @@ void _queryWhereLargeEqual(BuildContext context) {
         print(blog.content);
       }
     }
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    showError(context, error.error);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <h2 id="24">2.4、关联操作<a class="headerlink" href="#24" title="Permanent link">&para;</a></h2>
 <p>添加：</p>
-<pre><code>//添加关联关系
-void _addPointer() {
+<pre><code>///添加关联关系
+_addPointer() {
   Blog blog = Blog();
   User user = User();
   user.objectId = &quot;4760e7a143&quot;;
   blog.author = user;
   blog.title = &quot;添加关联关系&quot;;
   blog.content = &quot;添加帖子对应的作者&quot;;
-  blog.save(successListener: (BmobSaved bmobSaved) {
+  blog.save().then((BmobSaved bmobSaved) {
     currentObjectId = bmobSaved.objectId;
     print(bmobSaved.objectId);
     DataPlugin.toast(&quot;添加成功：\n${bmobSaved.objectId}\n${bmobSaved.createdAt}&quot;);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError);
-    DataPlugin.toast(bmobError.toString());
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>解除：</p>
-<pre><code>//解除关联关系
-void _deletePointer() {
+<pre><code>///解除关联关系
+_deletePointer() {
   if (currentObjectId == null) {
     DataPlugin.toast(&quot;请先添加关联关系&quot;);
     return;
   }
   Blog blog = Blog();
   blog.objectId = currentObjectId;
-  blog.deleteFieldValue(&quot;author&quot;, successListener: (BmobUpdated bmobUpdate) {
-    print(bmobUpdate.updatedAt);
-    DataPlugin.toast(bmobUpdate.updatedAt);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  blog.deleteFieldValue(&quot;author&quot;).then((BmobUpdated bmobUpdated) {
+    DataPlugin.toast(bmobUpdated.updatedAt);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>修改：</p>
-<pre><code>//修改关联关系
-void _modifyPointer() {
+<pre><code>///修改关联关系
+_modifyPointer() {
   if (currentObjectId == null) {
     DataPlugin.toast(&quot;请先添加关联关系&quot;);
     return;
@@ -1105,23 +1123,22 @@ void _modifyPointer() {
   User user = User();
   user.objectId = &quot;358f092cb1&quot;;
   blog.author = user;
-  blog.update(successListener: (BmobUpdated bmobUpdated) {
-    print(bmobUpdated.updatedAt);
+  blog.update().then((BmobUpdated bmobUpdated) {
     DataPlugin.toast(bmobUpdated.updatedAt);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>查询：</p>
-<pre><code>//查询关联数据
-void _queryPointer() {
+<pre><code>///查询关联数据
+_queryPointer() {
   BmobQuery&lt;Blog&gt; query = BmobQuery();
   query.setInclude(&quot;author&quot;);
-  query.queryObjects(successListener: (List&lt;dynamic&gt; data) {
+  query.queryObjects().then((data) {
     DataPlugin.toast(&quot;查询成功${data.length}&quot;);
+
     List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
     for (Blog blog in blogs) {
       if (blog != null) {
@@ -1134,37 +1151,35 @@ void _queryPointer() {
         }
       }
     }
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    DataPlugin.toast(error.error);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <h2 id="25">2.5、位置操作<a class="headerlink" href="#25" title="Permanent link">&para;</a></h2>
 <p>添加：</p>
-<pre><code>//添加位置数据
-void _addGeoPoint() {
+<pre><code>///添加地理位置信息
+_addGeoPoint() {
   Blog blog = Blog();
   BmobGeoPoint bmobGeoPoint = BmobGeoPoint();
   bmobGeoPoint.latitude = 12.4445;
   bmobGeoPoint.longitude = 124.122;
-
   blog.addr = bmobGeoPoint;
-  blog.save(successListener: (BmobSaved bmobSaved) {
-    print(bmobSaved.objectId);
-    DataPlugin.toast(bmobSaved.objectId);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  blog.save().then((BmobSaved bmobSaved) {
+    String message =
+        &quot;创建一条数据成功：${bmobSaved.objectId} - ${bmobSaved.createdAt}&quot;;
+    showSuccess(context, message);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <h2 id="26">2.6、时间操作<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
 <p>添加：</p>
-<pre><code>//添加时间数据
-void _addDate() {
+<pre><code>///添加时间数据
+_addDate() {
   DateTime dateTime = DateTime.now();
   BmobDate bmobDate = BmobDate();
   bmobDate.setDate(dateTime);
@@ -1172,75 +1187,68 @@ void _addDate() {
   blog.time = bmobDate;
   blog.title = &quot;添加时间类型&quot;;
   blog.content = &quot;测试时间类型的请求&quot;;
-  blog.save(successListener: (BmobSaved bmobSaved){
-    print(bmobSaved.objectId);
-    DataPlugin.toast(bmobSaved.objectId);
-  },errorListener: (BmobError bmobError){
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  blog.save().then((BmobSaved bmobSaved) {
+    showSuccess(context, bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>获取服务器时间：</p>
-<pre><code>//获取服务器时间
-void _getServerTime() {
-  BmobDateManager.getServerTimestamp(successListener: (ServerTime serverTime) {
-    print(serverTime);
-    DataPlugin.toast(&quot;${serverTime.timestamp}\n${serverTime.datetime}&quot;);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError);
-    DataPlugin.toast(bmobError.toString());
+<pre><code>///获取服务器时间
+_getServerTime() {
+  BmobDateManager.getServerTimestamp().then((ServerTime serverTime) {
+    showSuccess(context, &quot;${serverTime.timestamp}\n${serverTime.datetime}&quot;);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <h2 id="27">2.7、文件操作<a class="headerlink" href="#27" title="Permanent link">&para;</a></h2>
 <p>上传文件，Android在上传前需先允许文件访问权限，可以使用SDK自带的文件选择器。</p>
-<pre><code>//上传文件，上传文件涉及到android的文件访问权限，调用此方法前需要开发者们先适配好应用在各个android版本的权限管理。
-void _uploadFile(String path) {
-  if(path==null){
+<pre><code>///上传文件，上传文件涉及到android的文件访问权限，调用此方法前需要开发者们先适配好应用在各个android版本的权限管理。
+_uploadFile(String path) {
+  if (path == null) {
     DataPlugin.toast(&quot;请先选择文件&quot;);
     return;
   }
   DataPlugin.toast(&quot;上传中，请稍候……&quot;);
   File file = new File(path);
-  BmobFileManager.upload(file, successListener: (BmobFile bmobFile) {
+  BmobFileManager.upload(file).then((BmobFile bmobFile) {
     _bmobFile = bmobFile;
     _url = bmobFile.url;
     print(&quot;${bmobFile.cdn}\n${bmobFile.url}\n${bmobFile.filename}&quot;);
     DataPlugin.toast(
         &quot;上传成功：${bmobFile.cdn}\n${bmobFile.url}\n${bmobFile.filename}&quot;);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>添加已上传文件到表中：</p>
-<pre><code>//添加文件到表中
-void _addFile(BmobFile bmobFile) {
-  if(bmobFile==null){
+<pre><code>///添加文件到表中
+_addFile(BmobFile bmobFile) {
+  if (bmobFile == null) {
     DataPlugin.toast(&quot;请先上传文件&quot;);
     return;
   }
   Blog blog = Blog();
   blog.pic = bmobFile;
-  blog.save(successListener: (BmobSaved bmobSaved) {
-    print(bmobSaved.objectId);
-    DataPlugin.toast(&quot;添加成功：&quot;+bmobSaved.objectId);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  blog.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(&quot;添加成功：&quot; + bmobSaved.objectId);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>下载已上传文件：</p>
-<pre><code>//下载文件，直接使用dio下载，下载文件涉及到android的文件访问权限，调用此方法前需要开发者们先适配好应用在各个android版本的权限管理。
-void _downloadFile(String url, String path) async {
-  if(url==null){
+<pre><code>///下载文件，直接使用dio下载，下载文件涉及到android的文件访问权限，调用此方法前需要开发者们先适配好应用在各个android版本的权限管理。
+_downloadFile(String url, String path) async {
+  if (url == null) {
     DataPlugin.toast(&quot;请先上传文件&quot;);
     return;
   }
@@ -1248,87 +1256,115 @@ void _downloadFile(String url, String path) async {
   Response&lt;dynamic&gt; response = await dio.download(url, path);
   print(response.toString());
   print(response.data);
-
   DataPlugin.toast(&quot;下载结束&quot;);
 }
 </code></pre>
 
 <p>删除已上传文件：</p>
-<pre><code>//删除文件
-void _deleteFile(String url) {
-  if(url==null){
+<pre><code>///删除文件
+_deleteFile(String url) {
+  if (url == null) {
     DataPlugin.toast(&quot;请先上传文件&quot;);
     return;
   }
-  BmobFileManager.delete(url, successListener: (BmobHandled bmobHandled) {
-    print(bmobHandled.msg);
-    DataPlugin.toast(&quot;删除成功：&quot;+bmobHandled.msg);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  BmobFileManager.delete(url).then((BmobHandled bmobHandled) {
+    DataPlugin.toast(&quot;删除成功：&quot; + bmobHandled.msg);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <h2 id="28">2.8、用户操作<a class="headerlink" href="#28" title="Permanent link">&para;</a></h2>
 <p>登录：</p>
-<pre><code>void _login(BuildContext context) {
-  print({'邮箱': _email, '密码': _password});
+<pre><code>///用户名和密码登录
+_login(BuildContext context) {
   BmobUser bmobUserRegister = BmobUser();
   bmobUserRegister.username = _email;
   bmobUserRegister.password = _password;
-  bmobUserRegister.login(successListener: (BmobUser data) {
-    print(&quot;用户登录成功：&quot; + data.username);
-
-    showSuccess(context, &quot;登录成功：&quot;+data.username);
-  }, errorListener: (BmobError bmobError) {
-    print(&quot;用户登录失败：&quot; + bmobError.error);
+  bmobUserRegister.login().then((BmobUser bmobUser) {
+    showSuccess(context, bmobUser.getObjectId() + &quot;\n&quot; + bmobUser.username);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>注册：</p>
-<pre><code>void _register() {
-  print({'手机号': _email, '密码': _password});
+<pre><code>///用户名密码注册
+_register() {
   BmobUser bmobUserRegister = BmobUser();
-  bmobUserRegister.username = _email;
+  bmobUserRegister.username = _username;
   bmobUserRegister.password = _password;
-  bmobUserRegister.register(successListener: (BmobRegistered data) {
-    String message = &quot;用户注册成功：&quot; + data.objectId;
-    print(message);
-    showResult(context, &quot;success&quot;, message);
-  }, errorListener: (BmobError bmobError) {
-    String message = &quot;用户注册失败：&quot; + bmobError.error;
-    print(message);
-    showResult(context, &quot;error&quot;, message);
+  bmobUserRegister.register().then((BmobRegistered data) {
+    showSuccess(context, data.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
-
 </code></pre>
 
 <h2 id="29">2.9、角色操作<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
 <p>添加角色：</p>
-<pre><code>void _saveRole() {
-  BmobRole bmobRole =BmobRole();
-  bmobRole.name =&quot;teacher&quot;;
+<pre><code>///添加角色
+_saveRole() {
+  BmobRole bmobRole = BmobRole();
+  bmobRole.name = &quot;teacher&quot;;
   User user = User();
   user.setObjectId(&quot;f06590e3c2&quot;);
   BmobRelation bmobRelation = BmobRelation();
   bmobRelation.add(user);
   bmobRole.setUsers(bmobRelation);
-  bmobRole.save(successListener: (BmobSaved bmobSaved) {
-    print(bmobSaved.objectId);
+  bmobRole.save().then((BmobSaved bmobSaved) {
     DataPlugin.toast(bmobSaved.objectId);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>添加角色并添加某用户到该角色中：</p>
+<pre><code>///添加某用户到某角色中
+_addUserToRole() {
+  BmobRole bmobRole = BmobRole();
+  bmobRole.name = &quot;student&quot;;
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  BmobRelation bmobRelation = BmobRelation();
+  bmobRelation.add(user);
+  bmobRole.setUsers(bmobRelation);
+  bmobRole.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>添加某用户到已存在的角色中：</p>
+<pre><code>///添加用户到已存在的角色中
+_addUserToSavedRole() {
+  if (currentBmobRole == null) {
+    showError(context, &quot;请先创造角色&quot;);
+    return;
+  }
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  BmobRelation bmobRelation = BmobRelation();
+  bmobRelation.add(user);
+  currentBmobRole.setUsers(bmobRelation);
+  currentBmobRole.update().then((BmobUpdated bmobUpdated) {
+    DataPlugin.toast(bmobUpdated.updatedAt);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <h2 id="210">2.10、数据访问权限操作<a class="headerlink" href="#210" title="Permanent link">&para;</a></h2>
 <p>设置数据公共访问权限：</p>
-<pre><code>void _saveDataAndPublicAcl() {
+<pre><code>///设置数据公共访问权限
+_saveDataAndPublicAcl() {
   Blog blog = Blog();
   blog.title = &quot;帖子标题&quot;;
   User user = User();
@@ -1338,18 +1374,17 @@ void _deleteFile(String url) {
   BmobAcl bmobAcl = BmobAcl();
   bmobAcl.setPublicReadAccess(true);
   blog.setAcl(bmobAcl);
-  blog.save(successListener: (BmobSaved bmobSaved) {
-    print(bmobSaved.objectId);
+  blog.save().then((BmobSaved bmobSaved) {
     DataPlugin.toast(bmobSaved.objectId);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>设置某用户对该数据的访问权限：</p>
-<pre><code>void _saveDataAndUserAcl() {
+<pre><code>///设置某用户对该数据的访问权限
+_saveDataAndUserAcl() {
   Blog blog = Blog();
   blog.title = &quot;帖子标题&quot;;
   User user = User();
@@ -1357,20 +1392,19 @@ void _deleteFile(String url) {
   blog.author = user;
   blog.content = &quot;帖子内容&quot;;
   BmobAcl bmobAcl = BmobAcl();
-  bmobAcl.addRoleReadAccess(user.getObjectId(),true);
+  bmobAcl.addRoleReadAccess(user.getObjectId(), true);
   blog.setAcl(bmobAcl);
-  blog.save(successListener: (BmobSaved bmobSaved) {
-    print(bmobSaved.objectId);
+  blog.save().then((BmobSaved bmobSaved) {
     DataPlugin.toast(bmobSaved.objectId);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>设置某角色对该数据的访问权限：</p>
-<pre><code>void _saveDataAndRoleAcl() {
+<pre><code>///设置某角色对该数据的访问权限
+_saveDataAndRoleAcl() {
   Blog blog = Blog();
   blog.title = &quot;帖子标题&quot;;
   User user = User();
@@ -1378,91 +1412,99 @@ void _deleteFile(String url) {
   blog.author = user;
   blog.content = &quot;帖子内容&quot;;
   BmobAcl bmobAcl = BmobAcl();
-  bmobAcl.addRoleReadAccess(&quot;teacher&quot;,true);
+  bmobAcl.addRoleReadAccess(&quot;teacher&quot;, true);
   blog.setAcl(bmobAcl);
-  blog.save(successListener: (BmobSaved bmobSaved) {
-    print(bmobSaved.objectId);
+  blog.save().then((BmobSaved bmobSaved) {
     DataPlugin.toast(bmobSaved.objectId);
-  }, errorListener: (BmobError bmobError) {
-    print(bmobError.toString());
-    DataPlugin.toast(bmobError.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <h2 id="211_1">2.11、设备操作<a class="headerlink" href="#211_1" title="Permanent link">&para;</a></h2>
 <p>获取设备ID：</p>
-<pre><code>//获取设备ID，与原生交互
-Future _getInstallationId(BuildContext context) async {
+<pre><code>///获取设备ID
+_getInstallationId(BuildContext context) async {
   String installationId = await BmobInstallationManager.getInstallationId();
-  print(installationId);
-  DataPlugin.toast(installationId);
+  showSuccess(context, installationId);
 }
 </code></pre>
 
 <p>初始化设备信息：</p>
 <pre><code>//初始化设备，与原生交互
-void _initInstallation(BuildContext context) {
-  BmobInstallationManager.init(
-      successCallback: (BmobInstallation bmobInstallation) {
-    print(bmobInstallation.toJson());
-    DataPlugin.toast(bmobInstallation.toJson().toString());
-  }, errorCallback: (BmobError error) {
-    print(error.toJson());
+///初始化设备
+_initInstallation(BuildContext context) {
+  BmobInstallationManager.init().then((BmobInstallation bmobInstallation) {
+    showSuccess(context, bmobInstallation.toJson().toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
-
 </code></pre>
 
 <h2 id="212_1">2.12、短信操作<a class="headerlink" href="#212_1" title="Permanent link">&para;</a></h2>
 <p>发送短信验证码：</p>
 <pre><code>///发送短信验证码：需要手机号码
-void _sendSms(BuildContext context) {
-  print({'手机号码': _phoneNumber, '验证码': _smsCode});
+_sendSms(BuildContext context) {
   BmobSms bmobSms = BmobSms();
   bmobSms.template = &quot;&quot;;
   bmobSms.mobilePhoneNumber = _phoneNumber;
-  bmobSms.sendSms(successListener: (BmobSent data) {
-    showSuccess(context, &quot;发送成功:&quot; + data.smsId.toString());
-  }, errorListener: (BmobError error) {
-    print(error.error);
-    showError(context, error.error);
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, &quot;发送成功:&quot; + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
   });
 }
 </code></pre>
 
 <p>验证短信验证码：</p>
 <pre><code>///验证短信验证码：需要手机号码和验证码
-void _verifySmsCode(BuildContext context) {
+_verifySmsCode(BuildContext context) {
   BmobSms bmobSms = BmobSms();
   bmobSms.mobilePhoneNumber = _phoneNumber;
-  bmobSms.verifySmsCode(_smsCode, successListener: (BmobHandled data) {
-    showSuccess(context, &quot;验证成功：&quot;+data.msg);
-  }, errorListener: (BmobError error) {
-    showError(context, error.error);
+  bmobSms.verifySmsCode(_smsCode).then((BmobHandled bmobHandled) {
+    showSuccess(context, &quot;验证成功：&quot; + bmobHandled.msg);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="213_1">2.13、数据监听<a class="headerlink" href="#213_1" title="Permanent link">&para;</a></h2>
+<pre><code>///数据监听
+_listen() {
+  RealTimeDataManager.getInstance().listen(onConnected: (Client client) {
+    showSuccess(context, &quot;监听数据连接成功，开始订阅消息！&quot;);
+    client.subTableUpdate(&quot;Blog&quot;);
+  }, onDisconnected: () {
+    showError(context, &quot;监听数据断开连接&quot;);
+  }, onDataChanged: (Change data) {
+    ///注意：此处返回的data.data类型与Blog类型不一致，需要使用map来获取具体属性值而不是使用Blog
+    Map map = data.data;
+    showSuccess(context, &quot;监听到数据变化：&quot; + map.toString());
+  }, onError: (error) {
+    showError(context, error.toString());
   });
 }
 
-</code></pre>
-
-<h2 id="213">2.13、数据监听<a class="headerlink" href="#213" title="Permanent link">&para;</a></h2>
-<pre><code>///数据监听
-void _listen() {
-  RealTimeDataManager.getInstance().listen(
-      onConnected: (Client client) {
-        print(&quot;监听数据连接成功，开始订阅消息！&quot;);
-        client.subTableUpdate(&quot;Blog&quot;);
-      },
-      onDisconnected: () {
-        print(&quot;监听数据断开连接&quot;);
-      },
-      onDataChanged: (Change data) {
-        Blog blog = Blog.fromJson(data.data);
-        print(&quot;监听到数据变化：&quot;+blog.toJson().toString());
-      },
-      onError: (error) {
-        print(&quot;监听数据发送错误：&quot;+error.toString());
-      });
+///改编数据
+_change(context) {
+  ///保存一条数据
+  BmobUser bmobUser = BmobUser();
+  bmobUser.objectId = &quot;7c7fd3afe1&quot;;
+  Blog blog = Blog();
+  blog.title = &quot;博客标题&quot;;
+  blog.content = &quot;博客内容&quot;;
+  blog.author = bmobUser;
+  blog.like = 77;
+  blog.save().then((BmobSaved bmobSaved) {
+    String message =
+        &quot;创建一条数据成功：${bmobSaved.objectId} - ${bmobSaved.createdAt}&quot;;
+    showSuccess(context, message);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
 }
 </code></pre>
 
@@ -1493,6 +1535,70 @@ void _listen() {
 </tr>
 </tbody>
 </table>
+<h2 id="214">2.14、排序<a class="headerlink" href="#214" title="Permanent link">&para;</a></h2>
+<p>正序：
+setOrder("字段名称");
+逆序：
+setOrder("-字段名称");</p>
+<pre><code>///数据排序
+_queryOrder(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.setOrder(&quot;createdAt&quot;);
+  query.setLimit(10);
+  query.setSkip(10);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    Navigator.pushNamed(context, &quot;listRoute&quot;);
+
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="215">2.15、分页<a class="headerlink" href="#215" title="Permanent link">&para;</a></h2>
+<p>设置返回条数：
+setLimit(int value);</p>
+<p>设置忽略条数：
+setSkip(int value);</p>
+<pre><code>///查询多条数据
+void _queryList(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.setInclude(&quot;author&quot;);
+  query.setLimit(10);
+  query.setSkip(10);
+  query.queryObjects().then((List&lt;dynamic&gt; data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+
+    setState(() {
+      _items = blogs;
+    });
+    int index = 0;
+    for (Blog blog in blogs) {
+      index++;
+      if (blog != null) {
+        print(index);
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
                 </div>
             </div>
         </div>
