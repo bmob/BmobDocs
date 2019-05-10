@@ -3281,16 +3281,14 @@ cdnname为删除失败的cdn名称，url1，url2为删除失败的url地址。
 
 如下为删除上传例子中的jpg文件
 ```
+
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
-  -d '{
-   {
-    "upyun":["2016/04/14/9306f2e74090d668801eac8814b3f56f.jpg","2016/04/14/ycf2f2e74090d668801eac88145523f.jpg"],
-}
-}'\
-  https://api2.bmob.cn/2/cdnBatchDelete
+  -d '{"upyun":["2019/05/10/7f4dfb73408c97d1805c34481a4da82a.txt","2019/05/10/b5d3431540ac250080379658ae5c800d.txt"]}'\
+  http://127.0.0.1:8081/2/cdnBatchDelete
+  
 ```
 **删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。**
 
