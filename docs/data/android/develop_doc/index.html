@@ -3125,7 +3125,7 @@ private void duration() throws ParseException {
     categoryBmobQueryEnd.addWhereLessThanOrEqualTo(&quot;createdAt&quot;, bmobCreatedAtDateEnd);
     List&lt;BmobQuery&lt;Category&gt;&gt; queries = new ArrayList&lt;&gt;();
     queries.add(categoryBmobQueryStart);
-    queries.add(categoryBmobQueryStart);
+    queries.add(categoryBmobQueryEnd);
 
 
     BmobQuery&lt;Category&gt; categoryBmobQuery = new BmobQuery&lt;&gt;();
