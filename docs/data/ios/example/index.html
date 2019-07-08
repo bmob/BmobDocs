@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>示例/功能 - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot; iOS – Bmob后端云 </title>        
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../android/">Android</a>
+                                </li>
+                            
+                            
+								<li class="active">
+									<a href="../">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../wechat_app/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../push/android/">推送服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../push/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/common_problem/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+					<div class="code-title">iOS</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">示例/功能</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">失物招领案例教程</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_2">需求描述</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_3">数据结构设计</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#sdk">初始化SDK</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_4">添加失物及招领信息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_5">获取失物及招领列表</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_6">后记</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_7">案例下载</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_8">推送案例教程</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_9">推送案例需求描述</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_10">推送案例数据结构设计</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_11">推送案例安装和初始化</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_12">发送反馈功能的开发</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_13">查看反馈功能的开发</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_14">推送案例后记</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_15">推送案例下载</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_16">其他案例</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../update_log/">更新日志</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../classdoc/">类库文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../lib_gdx/">libGDX</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../swift_quick_start/">Swift快速入门</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../swift_develop_doc/">Swift开发文档</a>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">失物招领案例教程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">需求描述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>为演示Bmob提供的云数据库的功能，本文制作了一个失物招领的简单案例，实现物品的发布和呈现，展示如何使用Bmob快速开发一个有后端数据库的应用软件。使用场景如下：用户捡到物品，打开手机软件，填写物品的招领信息（标题、描述和联系方式）；用户丢失物品，打开手机软件，填写物品的丢失信息（标题、描述和联系方式）；任何人都可以查看到失物和招领的信息列表。</p>
+<p><strong>说明一点的是，因为是演示案例，所以信息的添加并没有进行用户身份验证。</strong></p>
+<p>本案例将使用到Bmob的如下功能：</p>
+<p>1、  添加数据
+添加失物/招领信息到服务器中。</p>
+<p>2、  查找数据</p>
+<p>在列表中显示所有用户发布的失物/招领信息。</p>
+<p>本案例最终实现的部分界面效果如下：</p>
+<p><img alt="" src="../image/flash.jpg" /> </p>
+<p>失物招领软件闪图</p>
+<p><img alt="" src="../image/lost.jpg" /> </p>
+<p>招领列表页</p>
+<p><img alt="" src="../image/add_b.jpg" /> </p>
+<p>添加失物信息</p>
+<h3 id="_3">数据结构设计<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>本案例的数据结构非常简单，只需要设计两个表，一个是失物表（Lost表），一个是招领表（Found表），对应的数据结构如下（省略对常用默认字段objectId、createAt、updateAt的描述，对于还不知道怎么创建应用和添加数据表的开发朋友请先移步<a href="http://docs.bmob.cn/data/iOS/a_faststart/doc/index.html" title="快速入门指南">快速入门指南</a>查看相关教程）：</p>
+<table>
+    <tr>
+        <td colspan=3 align=center>失物表（Lost）</td>
+    </tr>
+    <tr>
+        <td>字段名</td><td>类型</td><td>描述</td>
+    </tr>
+    <tr>
+        <td>describe</td><td>String</td><td>失物的描述信息</td>
+    </tr>
+    <tr>
+        <td>phone</td><td>String</td><td>联系的手机号码</td>
+    </tr>
+    <tr>
+        <td>title</td><td>String</td><td>失物的标题信息</td>
+    </tr>
+</table>
+
+<blockquote></blockquote>
+<table>
+    <tr>
+        <td colspan=3 align=center>招领表（Found）</td>
+    </tr>
+    <tr>
+        <td>字段名</td><td>类型</td><td>描述</td>
+    </tr>
+    <tr>
+        <td>describe</td><td>String</td><td>招领的描述信息</td>
+    </tr>
+    <tr>
+        <td>phone</td><td>String</td><td>联系的手机号码</td>
+    </tr>
+    <tr>
+        <td>title</td><td>String</td><td>招领的标题信息</td>
+    </tr>
+</table>
+
+<h3 id="sdk">初始化SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h3>
+<p>Bmob为每个应用都提供了一个唯一标识（对应为开发者后台应用中的“应用密钥-&gt;Application ID”），使用Bmob开发的应用都要首先使用这个Application ID”进行初始化。对应代码如下（详细代码实现参看main.m文件）：</p>
+<pre><code class="java">int main(int argc, char * argv[])
+{
+
+    @autoreleasepool {
+        //registerWithAppKey需要使用Application ID进行初始化
+        [Bmob registerWithAppKey:@&quot;e9bbe5f23a1aa1d60d525871e1d7db99&quot;];
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
+</code></pre>
+
+<h3 id="_4">添加失物及招领信息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>用户填写了失物信息之后，只需要构造一个BmobObject实例，然后简单调用setObject方法就可以将信息添加到云数据库中，实现代码如下（详细代码实现参看AddViewController.m文件）：</p>
+<pre><code class="java">        //创建BmobObject对象，指定对应要操作的数据表名称
+        BmobObject *obj = [[BmobObject alloc] initWithClassName:className];
+        //设置字段值
+        [obj setObject:titleTextField.text forKey:@&quot;title&quot;];
+        [obj setObject:phoneTextField.text forKey:@&quot;phone&quot;];
+        [obj setObject:desTextField.text forKey:@&quot;describe&quot;];
+        //执行保存操作
+        [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+
+            if (!error) {
+                //其他代码
+            }
+
+        }];
+</code></pre>
+
+<h3 id="_5">获取失物及招领列表<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Bmob提供了复杂和简单的查询方法，可以对查询结果进行排序，可以对结果进行缓存。本案例只使用到Bmob提供的最简单的查询和排序功能，直接调用BmobQuery类的findObjects方法和orderByDescending方法来获取失物列表，实现代码如下（详细代码实现参看MainActivity类）：</p>
+<pre><code class="java">    //创建BmobQuery实例，指定对应要操作的数据表名称
+    BmobQuery *query = [BmobQuery queryWithClassName:className];
+    //按updatedAt进行降序排列
+    [query orderByDescending:@&quot;updatedAt&quot;];
+    //返回最多20个结果
+    query.limit = 20;
+    //执行查询
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        //处理查询结果
+        for (BmobObject *obj in array) {
+            News *info    = [[News alloc] init];
+            if ([obj objectForKey:@&quot;title&quot;]) {
+                info.title    = [obj objectForKey:@&quot;title&quot;];
+            }
+            if ([obj objectForKey:@&quot;describe&quot;]) {
+                info.content  = [obj objectForKey:@&quot;describe&quot;];
+            }
+            if ([obj objectForKey:@&quot;phone&quot;]) {
+                info.phoneNum = [obj objectForKey:@&quot;phone&quot;];
+            }
+            info.time     = [_dateFormatter stringFromDate:obj.updatedAt];
+            [_infoMutableArray addObject:info];
+        }
+
+        [_tableView reloadData];
+    }];
+</code></pre>
+
+<h3 id="_6">后记<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>本案例只是演示如何用Bmob进行快速的数据添加和查询，在真实的应用环境下，你还可能还需要使用到用户系统、文件服务、更复杂的数据结构和服务，这些都可以使用Bmob就可以实现。如果想要获取更多的信息，请各位查看Bmob的<a href="http://docs.bmob.cn/data/iOS/b_developdoc/doc/index.html" title="开发文档">开发文档</a>或者联系技术客服。欢迎砸砖，欢迎提出更多的意见和建议帮助Bmob更好的发展。谢谢～</p>
+<h3 id="_7">案例下载<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/bmob/bmob-app-demo-show/blob/master/download/Bmob_Sample_lost_found_ios.zip" title="失物招领案例下载">失物招领案例下载</a></p>
+<h2 id="_8">推送案例教程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">推送案例需求描述<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>用户反馈是移动开发中最常见的功能，可以用来收集我们的用户对软件的意见和建议。通常在开发用户反馈功能时，我们都会将用户反馈的信息保存到服务器中，定期登录后台管理系统查看，这样很难做到实时查看用户反馈信息。本文结合Bmob推送服务和数据存储服务开发用户反馈功能，实现用户提交反馈信息保存在Bmob云数据库的同时，也将用户的反馈信息推送到运营/研发人员的设备中。</p>
+<p>本案例将使用到Bmob的如下功能：</p>
+<p>1、  推送服务</p>
+<p>将用户的反馈信息实时推送到订阅了接收反馈信息的设备中，实现端到端的消息传递。</p>
+<p>2、  数据存储服务</p>
+<p>添加和查看反馈信息，使用到了添加、查询和按时间排序的功能。</p>
+<p>本案例最终实现的界面效果如下：</p>
+<p><img alt="" src="../image/image001.jpg" /> </p>
+<p>发送反馈截图</p>
+<p><img alt="" src="../image/image002.jpg" /> </p>
+<p>查看反馈意见截图</p>
+<h3 id="_10">推送案例数据结构设计<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>在Bmob开发者后台创建一个应用（还不知道怎么创建应用和添加数据表的开发朋友请先移步快速入门指南查看相关教程），添加两个表，分别是Feedback（用户反馈信息表，存储用户提交的反馈信息）和Installation（设备安装表，存储需要接收推送信息的设备信息）。以下是对这两个表的数据结构的详细描述（省略对常用默认字段objectId、createAt、updateAt的描述）</p>
+<table>
+    <tr>
+        <td colspan=3 align=center>Feedback表</td>
+    </tr>
+    <tr>
+        <td>字段名</td><td>类型</td><td>描述</td>
+    </tr>
+    <tr>
+        <td>Contact</td><td>String</td><td>用户的联系方式</td>
+    </tr>
+    <tr>
+        <td>deviceType</td><td>String</td><td>系统字段，是一个必须的字段, 必须被设置为 "ios" 或者 "android", 而且自这个对象生成以后就不能变化</td>
+    </tr>
+    <tr>
+        <td>content</td><td>String</td><td>反馈内容</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td colspan=3 align=center>Installation表</td>
+    </tr>
+    <tr>
+        <td>字段名</td><td>类型</td><td>描述</td>
+    </tr>
+    <tr>
+        <td>installationId</td><td>String</td><td>系统字段，是一个Bmob生成的字符串标志, 而且如果 deviceType 是 android 的话是一个必填字段, 如果是 ios 的话则可选. 它只要对象被生成了就不能发生改变, 而且对一个 app 来说是不可重复的</td>
+    </tr>
+    <tr>
+        <td>deviceToken</td><td>String</td><td>系统字段，是一个 Apple 生成的字符串标志, 在 deviceType 为 ios 上的设备是必须的, 而且自对象生成开始就不能改动, 对于一个 app 来说也是不可重复的</td>
+    </tr>
+    <tr>
+        <td>badge</td><td>Number</td><td>系统字段，表示iOS 设备最新已知的应用badge</td>
+    </tr>
+    <tr>
+        <td>timeZone</td><td>String</td><td>系统字段，表示安装的这个设备的系统时区</td>
+    </tr>
+    <tr>
+        <td>channels</td><td>Array</td><td>系统字段，表示这个安装对象的订阅频道列表</td>
+    </tr>
+    <tr>
+        <td>appIdentifiter</td><td>String</td><td>iOS应用的Bundle identifier</td>
+    </tr>
+    <tr>
+        <td>isDeveloper</td><td>Boolean</td><td>是否是开发者（是的话则用于接收推送信息）</td>
+    </tr>
+</table>
+
+<h3 id="_11">推送案例安装和初始化<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>还不知道怎么安装使用Bmob数据存储Sdk的开发朋友请先移步快速入门指南查看相关教程。</p>
+<p>推送服务的SDK初始化和Bmob数据存储SDK一样，只需要在main.m调用registerWithAppKey方法即可：</p>
+<pre><code class="java">int main(int argc, char * argv[])
+{
+
+    //可更换为您的应用的key
+    [Bmob registerWithAppKey:@&quot;3124f50157a5df138aba77a85e1d8909&quot;];
+
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
+</code></pre>
+
+<h3 id="_12">发送反馈功能的开发<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>这里要实现的是当用户点击“发送”反馈按钮之后，先把用户的反馈信息上传到Bmob云数据库中，然后发送一条推送信息到Installation表中isDeveloper为true的设备中去。</p>
+<p>为实现将数据保存到云数据库的功能，你需要先创建BmobObject对象，该对象通过initWithClassName方法与云端数据库的Feedback表对应起来，然后通过setObject方法设置数据对象。实现代码如下：</p>
+<pre><code class="java">BmobObject *feedbackObj = [[BmobObject alloc] initWithClassName:@&quot;Feedback&quot;];
+
+//联系方式
+[feedbackObj setObject:contactTextfield.text forKey:@&quot;contact&quot;];
+
+//反馈内容
+    [feedbackObj setObject:ncTextView.text forKey:@&quot;content&quot;];
+</code></pre>
+
+<p>接着，你就可以直接调用BmobObject对象的saveInBackgroundWithResultBlock方法，将数据插入到云数据库中了。实现代码如下：</p>
+<pre><code class="java">//保存反馈信息到Bmob云数据库中
+[feedbackObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+if (isSuccessful) {
+        NSLog(@”保存成功”);
+    }else{
+NSLog(@”保存失败”);
+}
+}];
+</code></pre>
+
+<p>保存成功之后，你可以推送一条信息到BmobInstallation安装表中isDeveloper字段值为true的设备中。实现代码如下：</p>
+<pre><code class="java">/**
+ * 推送反馈信息给isDeveloper的设备
+ * @param message 反馈信息
+ */
+
+-(void)sendPush:(NSString*) message {
+    //发送推送
+    BmobPush *push = [BmobPush push];
+    BmobQuery *query = [BmobInstallation query];
+    //条件为isDeveloper是true
+    [query whereKey:@&quot;isDeveloper&quot; equalTo:[NSNumber numberWithBool:YES] ];
+    [push setQuery:query];
+    //推送内容为反馈的内容
+    [push setMessage: message];
+    [push sendPushInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+        NSLog(@&quot;push error =====&gt;%@&quot;,[error description]);
+    }];
+}
+</code></pre>
+
+<h3 id="_13">查看反馈功能的开发<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>为了接收用户端推送过来的反馈信息，需要在AppDelegate类中注册通知功能（application类registerForRemoteNotificationTypes方法）、设置推送消息到达之后的处理方法（BmobPush类handlePush方法），当然了，还需要将接收推送信息的当前机器信息添加到云端数据库中的设备安装表中（BmobInstallation）。实现代码如下：</p>
+<pre><code class="java">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    //注册通知功能
+[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|
+UIRemoteNotificationTypeBadge|
+UIRemoteNotificationTypeSound];
+    ……
+    return YES;
+}
+
+//接收推送信息的处理服务
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSLog(@&quot;userInfo %@&quot;,[userInfo description]);
+    [BmobPush handlePush:userInfo];
+}
+
+//往云端数据库中的设备表注册信息
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    BmobInstallation    *installation = [BmobInstallation currentInstallation];
+    [installation setDeviceTokenFromData:deviceToken];
+    //设置isDeveloper为true
+    [installation setObject:[NSNumber numberWithBool:YES] forKey:@&quot;isDeveloper&quot;];
+    [installation saveInBackground];
+}
+</code></pre>
+
+<p>查看反馈列表的功能实现很简单，只需要调用BmobQuery的findObjectsInBackgroundWithBlock方法就可以了，实现代码如下：</p>
+<pre><code class="java">//创建BmobQuery查询对象，对应查询云端数据库中的Feedback表
+BmobQuery *query = [BmobQuery queryWithClassName:@&quot;Feedback&quot;];
+//按updatedAt降序排列
+[query orderByDescending:@&quot;updatedAt&quot;];
+[query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        //处理查询结果
+        for (BmobObject *obj in array) {
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            [dic setObject:[obj objectForKey:@&quot;content&quot;] forKey:@&quot;content&quot;];
+            [dic setObject:[obj objectForKey:@&quot;contact&quot;] forKey:@&quot;contact&quot;];
+            [dic setObject:obj.createdAt forKey:@&quot;time&quot;];
+            [_feedbacksArray addObject:dic];
+            [_feedbackTableView reloadData];
+        }
+ }];
+</code></pre>
+
+<h3 id="_14">推送案例后记<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>当然了，实际使用过程的反馈功能可能并没有那么简单，或许你需要实现能够直接跟用户对话的反馈功能，或许你想要实现智能化的机器回答，这些都可以使用Bmob移动云服务平台进行快速设计和开发的。欢迎各位砸砖，欢迎提出更多的意见和建议帮助Bmob更好的发展。谢谢～</p>
+<h3 id="_15">推送案例下载<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/bmob/bmob-ios-demo" title="反馈案例下载">反馈案例下载</a></p>
+<h2 id="_16">其他案例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>快速入门相关源码:<a href="https://github.com/bmob/bmob-ios-demo">https://github.com/bmob/bmob-ios-demo</a></p>
+<p>数据关联章节Demo下载:<a href="https://github.com/bmob/bmob-ios-demo/tree/master/BmobSDK/BmobRelationDemo">https://github.com/bmob/bmob-ios-demo/tree/master/BmobSDK/BmobRelationDemo</a></p>
+<p>第三方登录Demo:<a href="https://github.com/bmob/bmob-ios-demo">https://github.com/bmob/bmob-ios-demo</a></p>
+<p>文件管理Demo:<a href="https://github.com/bmob/bmob-ios-demo/tree/master/BmobSDK/BmobFileDemo">https://github.com/bmob/bmob-ios-demo/tree/master/BmobSDK/BmobFileDemo</a></p>
+<p>数据实时更新Demo:<a href="https://github.com/bmob/bmob-ios-demo/blob/master/BmobDataDemo_iOS.zip">https://github.com/bmob/bmob-ios-demo/blob/master/BmobDataDemo_iOS.zip</a></p>
+<p>BmobIMSDK源代码：<a href="https://github.com/bmob/bmob-iOS-im-sdk">https://github.com/bmob/bmob-iOS-im-sdk</a></p>
+<p>Swift使用BmobSDK案例源码:<a href="https://github.com/bmob/bmob-app-demo-show/blob/master/download/BmobSwift.zip">https://github.com/bmob/bmob-app-demo-show/blob/master/download/BmobSwift.zip</a></p>
+<p>踢球吧源码<a href="https://github.com/bmob/BmobTiQiuBa">https://github.com/bmob/BmobTiQiuBa</a></p>
+<p>mexiQQ开发者实现的iOS实践案例<a href="https://github.com/bmob/VReader-iOS">https://github.com/bmob/VReader-iOS</a></p>
+<p>iOS云端逻辑案例:<a href="https://github.com/bmob/bmob-ios-demo/blob/master/CloudFunction.zip">https://github.com/bmob/bmob-ios-demo/blob/master/CloudFunction.zip</a></p>
+<p>iOS BmobSDK API使用案例:<a href="https://github.com/bmob/bmob-ios-demo/blob/master/BmobStorageDemo.zip">https://github.com/bmob/bmob-ios-demo/blob/master/BmobStorageDemo.zip</a></p>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>更新日志 - Bmob文档中心</title>
+            -->
+            <title>即时通讯 &middot; Android – Bmob后端云 </title>        
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li class="active">
+									<a href="../">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../push/android/">推送服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../push/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/common_problem/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+					<div class="code-title">Android</div>
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../class_doc/">类库文档</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">更新日志</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#v214-20190422">v2.1.4 2019年04月22日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v206_beta-20160428">v2.0.6_Beta   2016年04月28日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v205_beta-2016601">v2.0.5_Beta   2016年6月01日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v204_beta-2016429">v2.0.4_Beta   2016年4月29日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v203_beta-2016419">v2.0.3_Beta   2016年4月19日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v202_beta-2016310">v2.0.2_Beta   2016年3月10日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v201_beta-2016304">v2.0.1_Beta   2016年3月04日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v200_beta-2016201">v2.0.0_Beta   2016年2月01日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v119_beta-2015820">v1.1.9_Beta   2015年8月20日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v118_beta-2015408">v1.1.8_Beta   2015年4月08日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v117_beta-2015318">v1.1.7_Beta   2015年3月18日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v116_beta-2015204">v1.1.6_Beta   2015年2月04日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v115_beta-2015105">v1.1.5_Beta   2015年1月05日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v114_beta-20141027">v1.1.4_Beta   2014年10月27日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v113_beta-20141023">v1.1.3_Beta   2014年10月23日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v112_beta-2014923">v1.1.2_Beta   2014年9月23日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v111_beta-2014814">v1.1.1_Beta   2014年8月14日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v110_beta-2014801">v1.1.0_Beta   2014年8月01日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v109_beta-2014725">v1.0.9_Beta   2014年7月25日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v108_beta-2014717">v1.0.8_Beta   2014年7月17日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v107_beta-2014714">v1.0.7_Beta   2014年7月14日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v106_beta-2014711">v1.0.6_Beta   2014年7月11日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v105_beta-2014704">v1.0.5_Beta   2014年7月04日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v104_beta-2014627">v1.0.4_Beta   2014年6月27日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v103_beta-2014625">v1.0.3_Beta   2014年6月25日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v102_beta-2014623">v1.0.2_Beta   2014年6月23日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v101_beta-2014620">v1.0.1_beta   2014年6月20日</a>
+												
+											</li>
+												
+											<li class=""><a href="#v100_beta-2014613">v1.0.0_Beta   2014年6月13日</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h3 id="v214-20190422">v2.1.4 2019年04月22日<a class="headerlink" href="#v214-20190422" title="Permanent link">&para;</a></h3>
+<p>1、BmobNewIM v2.1.4将所依赖的数据SDK版本提升到BmobSDK v3.7.3。
+2、需要在清单文件AndroidManifesr.xml中配置前台服务权限：</p>
+<pre><code>&lt;!--前台服务--&gt;
+&lt;uses-permission android:name=&quot;android.permission.FOREGROUND_SERVICE&quot; /&gt;
+</code></pre>
+
+<h3 id="v206_beta-20160428">v2.0.6_Beta   2016年04月28日<a class="headerlink" href="#v206_beta-20160428" title="Permanent link">&para;</a></h3>
+<p>1、BmobNewIM_v2.0.6将所依赖的数据SDK提升为BmobSDK_v3.5.5。</p>
+<h3 id="v205_beta-2016601">v2.0.5_Beta   2016年6月01日<a class="headerlink" href="#v205_beta-2016601" title="Permanent link">&para;</a></h3>
+<p>1、BmobImService更名为BmobIMService,请务必修改；
+2、自2.0.5版本开始，提供aar格式的NewIMSDK,包含BmobNewIM_xxxx.jar、androidasync_2.1.6.jar、bmob_im_notification_strings.xml，开发者不再需要导入以上文件；
+3、demo提供自定义会话类型的示例，并修复部分已知问题；
+4、操作本地会话及消息表时去除服务连接的检验，减少client disconnect的发生；
+5、与之配套使用的BmobSDK版本3.4.7。</p>
+<h3 id="v204_beta-2016429">v2.0.4_Beta   2016年4月29日<a class="headerlink" href="#v204_beta-2016429" title="Permanent link">&para;</a></h3>
+<p>1、优化服务重连机制；
+2、优化核心进程保活；
+3、新增消息监听器MessageListHandler,允许为单一页面注册消息接收器；
+3、修复发送BmobIMVideoMessage视频消息时出现的类型转换异常；
+4、配套Demo中新增好友管理功能，包含添加好友，同意添加好友、查询好友、删除好友等功能。</p>
+<h3 id="v203_beta-2016419">v2.0.3_Beta   2016年4月19日<a class="headerlink" href="#v203_beta-2016419" title="Permanent link">&para;</a></h3>
+<p>1、修复离线消息重复获取的问题；
+2、修复语音消息无法获取时长的问题；
+3、修复部分机型无法发送语音的问题；
+4、依赖BmobSDK_v3.4.6_0415。</p>
+<h3 id="v202_beta-2016310">v2.0.2_Beta   2016年3月10日<a class="headerlink" href="#v202_beta-2016310" title="Permanent link">&para;</a></h3>
+<p>1、增加消息接收器（BmobIMMessageHandler），方便对消息进行统一管理；
+2、修复接收的消息无法使用isTransient属性来存储消息；
+3、修复通知栏显示网址的问题；
+4、修复锁屏期间接收的消息无法及时更新到聊天界面的问题；
+5、支持跨平台与iOS进行通讯；
+6、SDK内部不再集成EventBus库,方便开发者使用新版EventBus。</p>
+<h3 id="v201_beta-2016304">v2.0.1_Beta   2016年3月04日<a class="headerlink" href="#v201_beta-2016304" title="Permanent link">&para;</a></h3>
+<p>1、新增支持图片消息（BmobIMImageMessage）、语音消息（BmobIMAudioMessage）、地理位置消息（BmobIMLocationMessage）；
+2、新增通知管理器（BmobNotificationManager）类，方便开发者显示通知栏；
+3、支持自定义消息类型，API使用更加简便；
+4、修复切换账号时无法正确显示对应账号下会话的问题；
+5、完善服务重连机制，优化服务性能。</p>
+<h3 id="v200_beta-2016201">v2.0.0_Beta   2016年2月01日<a class="headerlink" href="#v200_beta-2016201" title="Permanent link">&para;</a></h3>
+<p>1、全新架构、接口设计更加人性化，降低开发者使用成本；2、支持文本发送；3、支持陌生人聊天。</p>
+<h3 id="v119_beta-2015820">v1.1.9_Beta   2015年8月20日<a class="headerlink" href="#v119_beta-2015820" title="Permanent link">&para;</a></h3>
+<p>1、允许自定义好友查询的总数；
+2、配套使用的BmobSDK为V3.4.3_0820版本。</p>
+<h3 id="v118_beta-2015408">v1.1.8_Beta   2015年4月08日<a class="headerlink" href="#v118_beta-2015408" title="Permanent link">&para;</a></h3>
+<p>1、完善服务重连机制，同步提升聊天稳定性和及时性；
+2、配套使用的BmobSDK为V3.3.5_0408版本。 
+---------------强烈建议更新-------------------</p>
+<h3 id="v117_beta-2015318">v1.1.7_Beta   2015年3月18日<a class="headerlink" href="#v117_beta-2015318" title="Permanent link">&para;</a></h3>
+<p>1、兼容Android5.0系统，解决由Service Intent must be explicit的系统警告导致无法接收到聊天消息的问题；
+2、同步更新BmobSDK到3.3.4版本。</p>
+<h3 id="v116_beta-2015204">v1.1.6_Beta   2015年2月04日<a class="headerlink" href="#v116_beta-2015204" title="Permanent link">&para;</a></h3>
+<p>1、允许开发者自定义通知栏提示语;
+2、修复由于聊天双方的本机时间不一致导致的聊天记录顺序错位的问题;
+3、与之配套使用的BmobSDK为BmobSDK_V3.3.2_0128.jar。</p>
+<h3 id="v115_beta-2015105">v1.1.5_Beta   2015年1月05日<a class="headerlink" href="#v115_beta-2015105" title="Permanent link">&para;</a></h3>
+<p>1、修复发送图片或者语音时导致应用奔溃的问题；
+2、新增支持自定义聊天消息体。</p>
+<h3 id="v114_beta-20141027">v1.1.4_Beta   2014年10月27日<a class="headerlink" href="#v114_beta-20141027" title="Permanent link">&para;</a></h3>
+<p>1、修复查询附近的人中无法过滤性别为女的用户的bug；
+2、优化导致推送延迟或无法接收到推送的问题。</p>
+<h3 id="v113_beta-20141023">v1.1.3_Beta   2014年10月23日<a class="headerlink" href="#v113_beta-20141023" title="Permanent link">&para;</a></h3>
+<p>1、聊天消息和Tag标记的消息的时间单位保持一致，均为秒；
+2、解决聊天消息和好友验证消息多次提醒的问题；
+3、重写sendTagMessage方法，支持扩展MsgTag，
+4、新增支持查询当前用户所有的未读消息个数；
+5、解决多设备登录同一账号时无法下线的问题；
+6、优化由于推送服务频繁重启导致无法收发消息的bug。</p>
+<h3 id="v112_beta-2014923">v1.1.2_Beta   2014年9月23日<a class="headerlink" href="#v112_beta-2014923" title="Permanent link">&para;</a></h3>
+<p>1、新增支持陌生人聊天，允许发送给非好友用户；
+2、新增支持自定义消息的发送，便于开发者扩展；
+3、新版本大幅度增加稳定性和及时性，保证实时到达率。
+4、排除web后端推送对客户端的影响。</p>
+<h3 id="v111_beta-2014814">v1.1.1_Beta   2014年8月14日<a class="headerlink" href="#v111_beta-2014814" title="Permanent link">&para;</a></h3>
+<p>1、新增查询指定范围内的附近的人列表；
+2、添加用户的性别设置；
+3、附近的人新增额外属性查询：如查询性别为女的用户。</p>
+<h3 id="v110_beta-2014801">v1.1.0_Beta   2014年8月01日<a class="headerlink" href="#v110_beta-2014801" title="Permanent link">&para;</a></h3>
+<p>1、解决接收语音（时间超过10s）播放不成功的问题;
+2、增加服务的稳定性，防止被杀死;
+3、当账号注销登陆后又未登陆其他设备时，该账号仍能接收来自其他账号的消息（再次登陆成功之后即可看见未读消息）。</p>
+<h3 id="v109_beta-2014725">v1.0.9_Beta   2014年7月25日<a class="headerlink" href="#v109_beta-2014725" title="Permanent link">&para;</a></h3>
+<p>1、修复图片或语音发送较慢的问题；
+2、修复注册成功之后退出应用之后再次回到登陆页的问题；
+3、修复部分机型接收到的语音消息无法播放的问题
+4、修复好友头像更换后会话界面的好友头像无法及时更换的问题。
+5、修复当应用锁屏后在回到聊天页面时，新接收的消息重复显示的问题;</p>
+<h3 id="v108_beta-2014717">v1.0.8_Beta   2014年7月17日<a class="headerlink" href="#v108_beta-2014717" title="Permanent link">&para;</a></h3>
+<p>1、支持跨平台聊天，与ios端完成互通，跨平台支持的消息类型：纯文字、表情、图片。
+2、解决多次登录之后，本地存储的昵称和头像均消失的问题;
+3、新增对通知的声音和震动的控制。</p>
+<h3 id="v107_beta-2014714">v1.0.7_Beta   2014年7月14日<a class="headerlink" href="#v107_beta-2014714" title="Permanent link">&para;</a></h3>
+<p>解决用户注册账户时报错的bug。</p>
+<h3 id="v106_beta-2014711">v1.0.6_Beta   2014年7月11日<a class="headerlink" href="#v106_beta-2014711" title="Permanent link">&para;</a></h3>
+<p>1、解决当应用锁屏后在回到聊天页面时，新接收的消息不能显示的问题;
+2、解决频繁接收到不属于本人好友的消息而导致页面不断刷新的问题；
+3、解决播放语音过程中出现的播放错误的问题;
+4、修正发送图片的方式，重构部分代码。</p>
+<h3 id="v105_beta-2014704">v1.0.5_Beta   2014年7月04日<a class="headerlink" href="#v105_beta-2014704" title="Permanent link">&para;</a></h3>
+<p>1、新增对单一用户的语音消息的发送;
+2、修复分页查询附近的人和好友列表时出现重复数据的问题;
+3、修复其他bug。</p>
+<h3 id="v104_beta-2014627">v1.0.4_Beta   2014年6月27日<a class="headerlink" href="#v104_beta-2014627" title="Permanent link">&para;</a></h3>
+<p>1、新增地理位置交友.可查看附近的人列表; 2、支持分页列表的分页查询;
+3、修改其他bug。</p>
+<h3 id="v103_beta-2014625">v1.0.3_Beta   2014年6月25日<a class="headerlink" href="#v103_beta-2014625" title="Permanent link">&para;</a></h3>
+<p>1、新增对单一用户的位置类型的消息的发送;
+2、支持黑名单管理功能;
+3、修改其他bug。</p>
+<h3 id="v102_beta-2014623">v1.0.2_Beta   2014年6月23日<a class="headerlink" href="#v102_beta-2014623" title="Permanent link">&para;</a></h3>
+<p>解决用户注册或登录成功之后，无法收发消息的问题。</p>
+<h3 id="v101_beta-2014620">v1.0.1_beta   2014年6月20日<a class="headerlink" href="#v101_beta-2014620" title="Permanent link">&para;</a></h3>
+<p>1、新增对单一用户的聊天图片（本地相册和拍照）发送;
+2、新增消息回执发送：已发送、已阅读两种状态;
+3、修改添加好友时出现的发送好友验证失败的bug;
+4、解决多账户登陆同一设备时，非当前登陆账号接收不到消息的bug。</p>
+<h3 id="v100_beta-2014613">v1.0.0_Beta   2014年6月13日<a class="headerlink" href="#v100_beta-2014613" title="Permanent link">&para;</a></h3>
+<p>1、提供完整的好友管理功能，包括添加好友、删除好友、好友列表，也可以与你已有的用户系统完全解耦;
+2、支持单一用户的文字和表情聊天;
+3、支持会话的本地化存储;
+4、自定义消息接受机制;
+5、同一账号多处登陆强制下线。</p>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>
