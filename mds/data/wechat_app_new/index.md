@@ -32,6 +32,10 @@ var Bmob = require('./src/lib/app.js');
 
 
 
+### 
+
+
+
 ### 初始化
 
 为了您的前端应用安全，SDK 2.0版本启用新的初始化key，新SDK请使用以下方式初始化，其他方法未变动
@@ -79,7 +83,7 @@ npm install hydrogen-js-sdk
 // 打开 main.js
 import Bmob from "hydrogen-js-sdk";
 
-// 初始化
+// 初始化 SDK版本 2.0.0 以下保留之前的初始化方法
 Bmob.initialize("你的Application ID", "你的REST API Key");
 
 // 挂载到全局使用
@@ -95,6 +99,14 @@ Bmob.User.login('username','password').then(res => {
 ```
 
 
+
+### 调试模式
+
+当小程序开发的时候，有时在手机端不便看出请求的网址，与参数，可以初始化后开启调试模式，开启后会请求到测试服务器，并打印调试信息。注意：上线后请关闭此选项
+
+```
+Bmob.debug(true)
+```
 
 
 
