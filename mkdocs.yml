@@ -9,7 +9,7 @@ copyright: Copyright © 2017 Bmob, Maintained by the Bmob Support.
 pages:
 - '文档首页': 'index.md'
 - '数据服务':
-    - 'Android': 
+    - 'Android':
         - '快速入门': 'data/android/index.md'
         - '开发文档': 'data/android/develop_doc.md'
         - '示例/功能': 'data/android/example.md'
@@ -42,7 +42,7 @@ pages:
         - '快速入门': 'data/wechat_app_new/rm.md'
         - '开发文档': 'data/wechat_app_new/index.md'
     - 'Cocos2D-X': 'data/cocos2d_x/index.md'
-    - '小程序':
+    - '小程序(旧、弃用)':
         - '快速入门': 'data/wechat_app/index.md'
         - '开发文档': 'data/wechat_app/develop_doc.md'
         - '示例/功能': 'data/wechat_app/example.md'
@@ -114,7 +114,7 @@ pages:
     - 'JavaScript': 'push/javascript/index.md'
     - 'REST API': 'push/restful/index.md'
 - '其他':
-    - '常见问题': 'other/common_problem/index.md' 
+    - '常见问题': 'other/common_problem/index.md'
     - '错误码': 'other/error_code/index.md'
     - '数据安全': 'other/data_safety/index.md'
     - 'BQL': 'other/bql/index.md'
