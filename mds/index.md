@@ -206,6 +206,7 @@
 						<h3 class="title">其他</h3>
 						<div class="text-left">
 							<ul class="links else">
+							<li><a href="./other/domain/index.html" class="intro" >域名绑定</a></li>
 								<li><a href="./other/error_code/index.html" class="intro" >错误码</a></li>
 								<li><a href="./other/common_problem/index.html" class="intro" >常见问题</a></li>
 								<li><a href="./other/bql/index.html" class="intro" >BQL详细指南</a></li>
