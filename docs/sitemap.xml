@@ -288,6 +288,12 @@
     
         
     <url>
+     <loc>/other/domain/</loc>
+     <lastmod>2019-08-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/other/common_problem/</loc>
      <lastmod>2019-08-16</lastmod>
      <changefreq>daily</changefreq>
