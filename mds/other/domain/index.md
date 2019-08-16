@@ -10,7 +10,7 @@
 
 >  备案域名，这里需要注意的是，一般使用二级域名例如：files.xxxx.com
 
-![QQ20190813-175604](/Users/tanpeng/Applications/web/bmob/BmobDocs/mds/other/domain/QQ20190813-175604.png)
+![QQ20190813-175604](./QQ20190813-175604.png)
 
 
 
@@ -30,7 +30,7 @@
 
 域名解析添加cname解析
 
-![QQ20190816-094939](/Users/tanpeng/Applications/web/bmob/BmobDocs/mds/other/domain/QQ20190816-094939.png)
+![QQ20190816-094939](./QQ20190816-094939.png)
 
 
 

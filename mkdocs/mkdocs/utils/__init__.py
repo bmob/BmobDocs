@@ -230,7 +230,7 @@ def get_html_title_class(title, path):
     elif path.find("/kotlin/") != -1:
         return "Kotlin"
     elif path.find("/cocos2d_x/") != -1:
-        return "Cocos2D-X"        
+        return "Cocos2D-X"
     elif path.find("/web/") != -1:
         return "Web"
     elif path.find("/cocos_creator/") != -1:
@@ -243,6 +243,8 @@ def get_html_title_class(title, path):
         return "经典案例"
     elif path.find("other/common_problem/index.md") != -1:
         return "常见问题"
+    elif path.find("other/domain/index.md") != -1:
+    return "域名管理"
     elif path.find("other/error_code/index.md") != -1:
         return "错误码"
     elif path.find("other/data_safety/index.md") != -1:
