@@ -114,6 +114,7 @@ pages:
     - 'JavaScript': 'push/javascript/index.md'
     - 'REST API': 'push/restful/index.md'
 - '其他':
+    - '域名管理': 'other/domain/index.md'
     - '常见问题': 'other/common_problem/index.md'
     - '错误码': 'other/error_code/index.md'
     - '数据安全': 'other/data_safety/index.md'
