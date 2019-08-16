@@ -96,7 +96,7 @@
 							
                             
 								<li >
-									<a href="../../wechat_app/">小程序</a>
+									<a href="../../wechat_app/">小程序(旧、弃用)</a>
                                 </li>
                             
                             
@@ -127,6 +127,11 @@
                             
                                 <li >
                                     <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../flutter/">Flutter</a>
                                 </li>
 							
                         </ul>
@@ -372,6 +377,7 @@
 		
 				
 					<div class="code-title">Android</div>
+				
 				
 				
 				
@@ -764,6 +770,8 @@
 									</li>
 								
 							
+						
+					
 						
 					
 						
@@ -3117,7 +3125,7 @@ private void duration() throws ParseException {
     categoryBmobQueryEnd.addWhereLessThanOrEqualTo(&quot;createdAt&quot;, bmobCreatedAtDateEnd);
     List&lt;BmobQuery&lt;Category&gt;&gt; queries = new ArrayList&lt;&gt;();
     queries.add(categoryBmobQueryStart);
-    queries.add(categoryBmobQueryStart);
+    queries.add(categoryBmobQueryEnd);
 
 
     BmobQuery&lt;Category&gt; categoryBmobQuery = new BmobQuery&lt;&gt;();
