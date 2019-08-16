@@ -522,14 +522,14 @@
 <blockquote>
 <p>备案域名，这里需要注意的是，一般使用二级域名例如：files.xxxx.com</p>
 </blockquote>
-<p><img alt="QQ20190813-175604" src="../../Users/tanpeng/Applications/web/bmob/BmobDocs/mds/other/domain/QQ20190813-175604.png" /></p>
+<p><img alt="QQ20190813-175604" src="./QQ20190813-175604.png" /></p>
 <p>第二步：进入域名管理商，修改 CNAME 记录</p>
 <p>登入域名的 DNS 服务商网站，修改 CNAME 记录，具体配置方法可参见如下链接：</p>
 <p><a href="https://support.dnspod.cn/Kb/showarticle/tsid/32/?spm=5176.doc27112.2.16.GAMn1f">DNSPod CNAME 接入 CDN</a></p>
 <p><a href="http://www.xinnet.com/service/cjwt/domain/guanli/1164.html?spm=5176.doc27112.2.17.GAMn1f">新网 CNAME 接入 CDN</a></p>
 <p><a href="https://help.aliyun.com/document_detail/29725.html?spm=5176.doc27112.2.15.jhFGwZ">万网 CNAME 接入 CDN</a></p>
 <p>域名解析添加cname解析</p>
-<p><img alt="QQ20190816-094939" src="../../Users/tanpeng/Applications/web/bmob/BmobDocs/mds/other/domain/QQ20190816-094939.png" /></p>
+<p><img alt="QQ20190816-094939" src="./QQ20190816-094939.png" /></p>
 <p>第三步：验证 CNAME 配置是否生效</p>
 <p>因 DNS 解析记录都有缓存时间，CNAME 的生效时间一般是 600s，可通过 ping 所配置的加速域名，检验 CNAME 配置是否生效，如果后缀显示为 aicdn.com，则证明 CNAME 配置已生效，即加速业务正式开始启用。文件域名如下所示：</p>
 <pre><code>➜  ~ ping cdn.xxxxxx.com
