@@ -60,6 +60,19 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 [Bmob resetDomain:@"https://open-vip.bmob.cn"];
 ```
 其中，参数为开发者的域名，调用后的所有请求都指向新的域名。
+
+
+如果使用自定义域名，假设你绑定的sdk域名是testopen.xxx.com，请使用下面的代码，让你的域名在sdk中生效：
+```
+[Bmob resetDomain:@"https://testopen.xxx.com"];
+```
+
+如果是自定义域名使用了https，则为：
+```
+[Bmob resetDomain:@"https://testopen.xxx.com"];
+```
+
+
 ## 对象
 
 ### 数据对象
