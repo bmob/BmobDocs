@@ -2294,7 +2294,7 @@ private void duration() throws ParseException {
     categoryBmobQueryEnd.addWhereLessThanOrEqualTo("createdAt", bmobCreatedAtDateEnd);
     List<BmobQuery<Category>> queries = new ArrayList<>();
     queries.add(categoryBmobQueryStart);
-    queries.add(categoryBmobQueryStart);
+    queries.add(categoryBmobQueryEnd);
 
 
     BmobQuery<Category> categoryBmobQuery = new BmobQuery<>();
@@ -4677,8 +4677,10 @@ Bmob.resetDomain("http://open-vip.bmob.cn/8/");
 http://open-vip.bmob.cn/8/
 此域名目前仅为企业版用户使用！
 ```
-## 数据迁移
-在应用设置-套餐升级-应用套餐类型，购买了企业Pro版的用户，可以提交工单通知工作人员进行数据迁移。
+## 重置域名
+文件、Android SDK 、 API 、 云函数自定义域名绑定功能。
+请直接参考：[重置域名设置](http://doc.bmob.cn/other/domain/)
+
 
 ## 海外加速
 

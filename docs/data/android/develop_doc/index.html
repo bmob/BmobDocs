@@ -96,7 +96,7 @@
 							
                             
 								<li >
-									<a href="../../wechat_app/">小程序</a>
+									<a href="../../wechat_app/">小程序(旧、弃用)</a>
                                 </li>
                             
                             
@@ -127,6 +127,11 @@
                             
                                 <li >
                                     <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../flutter/">Flutter</a>
                                 </li>
 							
                         </ul>
@@ -321,10 +326,15 @@
             
               <li class="pull-left">
                 
-					<!--<a href="../../../other/common_problem/">其他</a>-->
+					<!--<a href="../../../other/domain/">其他</a>-->
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/domain/">域名管理</a>
+                                </li>
+							
                             
                                 <li >
                                     <a href="../../../other/common_problem/">常见问题</a>
@@ -387,17 +397,6 @@
 				
 				
 				
-		
-	
-		
-				
-				
-				
-				
-				
-				
-				
-				
 				
 		
 	
@@ -407,17 +406,8 @@
 				
 				
 				
-		
-	
-		
 				
 				
-				
-				
-				
-		
-	
-		
 				
 				
 		
@@ -431,6 +421,28 @@
 		
 	
 		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
 				
 				
 				
@@ -714,7 +726,7 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_72">数据迁移</a></li>
+													<li><a class="itm-l2" href="#_72">重置域名</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
@@ -764,6 +776,8 @@
 									</li>
 								
 							
+						
+					
 						
 					
 						
@@ -3117,7 +3131,7 @@ private void duration() throws ParseException {
     categoryBmobQueryEnd.addWhereLessThanOrEqualTo(&quot;createdAt&quot;, bmobCreatedAtDateEnd);
     List&lt;BmobQuery&lt;Category&gt;&gt; queries = new ArrayList&lt;&gt;();
     queries.add(categoryBmobQueryStart);
-    queries.add(categoryBmobQueryStart);
+    queries.add(categoryBmobQueryEnd);
 
 
     BmobQuery&lt;Category&gt; categoryBmobQuery = new BmobQuery&lt;&gt;();
@@ -5369,8 +5383,9 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 此域名目前仅为企业版用户使用！
 </code></pre>
 
-<h2 id="_72">数据迁移<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
-<p>在应用设置-套餐升级-应用套餐类型，购买了企业Pro版的用户，可以提交工单通知工作人员进行数据迁移。</p>
+<h2 id="_72">重置域名<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
+<p>文件、Android SDK 、 API 、 云函数自定义域名绑定功能。
+请直接参考：<a href="http://doc.bmob.cn/other/domain/">重置域名设置</a></p>
 <h2 id="_73">海外加速<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h2>
 <p>在应用设置-套餐升级，购买了海外节点加速功能的用户，可以提高海外访问速度。</p>
 <h2 id="_74">统计功能<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h2>

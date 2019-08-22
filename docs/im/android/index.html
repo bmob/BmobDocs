@@ -96,7 +96,7 @@
 							
                             
 								<li >
-									<a href="../../data/wechat_app/">小程序</a>
+									<a href="../../data/wechat_app/">小程序(旧、弃用)</a>
                                 </li>
                             
                             
@@ -127,6 +127,11 @@
                             
                                 <li >
                                     <a href="../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/flutter/">Flutter</a>
                                 </li>
 							
                         </ul>
@@ -321,10 +326,15 @@
             
               <li class="pull-left">
                 
-					<!--<a href="../../other/common_problem/">其他</a>-->
+					<!--<a href="../../other/domain/">其他</a>-->
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
                             
                                 <li >
                                     <a href="../../other/common_problem/">常见问题</a>
@@ -370,6 +380,7 @@
 		
 	
 		
+				
 				
 				
 				
@@ -431,6 +442,7 @@
 		
 	
 		
+				
 				
 				
 				
@@ -653,6 +665,10 @@
 <td>bmob-im:2.1.1</td>
 <td>bmob-sdk:3.6.3</td>
 </tr>
+<tr>
+<td>bmob-im:2.1.4</td>
+<td>bmob-sdk:3.7.3</td>
+</tr>
 </tbody>
 </table>
 <h1 id="2bmobnewim-sdk">2、BmobNewIM SDK 集成<a class="headerlink" href="#2bmobnewim-sdk" title="Permanent link">&para;</a></h1>
@@ -667,7 +683,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Github基于BmobNewIM SDK v2.1.1 的Demo</td>
+<td>Github基于BmobNewIM SDK v2.1.4 的Demo</td>
 <td><a href="https://github.com/chaozhouzhang/bmob-newim-demo">bmob-newim-demo</a></td>
 </tr>
 <tr>
@@ -760,10 +776,10 @@ task clean(type: Delete) {
 
 <h3 id="222appbuildgradledependenciessync-now">2.2.2、在app下的build.gradle文件中添加dependencies外部依赖库，添加后点击Sync Now同步配置<a class="headerlink" href="#222appbuildgradledependenciessync-now" title="Permanent link">&para;</a></h3>
 <pre><code class="gradle">    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
         //TODO 集成：1.2、配置IM SDK（bmob-im）版本和Data SDK（bmob-sdk）版本：特定版本的bmob-im依赖特定版本的bmob-sdk
-        compile 'cn.bmob.android:bmob-im:2.1.1@aar'
-        compile 'cn.bmob.android:bmob-sdk:3.6.3'
+        implementation 'cn.bmob.android:bmob-im:2.1.4@aar'
+        implementation 'cn.bmob.android:bmob-sdk:3.7.3'
     }
 </code></pre>
 

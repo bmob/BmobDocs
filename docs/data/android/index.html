@@ -96,7 +96,7 @@
 							
                             
 								<li >
-									<a href="../wechat_app/">小程序</a>
+									<a href="../wechat_app/">小程序(旧、弃用)</a>
                                 </li>
                             
                             
@@ -127,6 +127,11 @@
                             
                                 <li >
                                     <a href="../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../flutter/">Flutter</a>
                                 </li>
 							
                         </ul>
@@ -321,10 +326,15 @@
             
               <li class="pull-left">
                 
-					<!--<a href="../../other/common_problem/">其他</a>-->
+					<!--<a href="../../other/domain/">其他</a>-->
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
                             
                                 <li >
                                     <a href="../../other/common_problem/">常见问题</a>
@@ -387,17 +397,6 @@
 				
 				
 				
-		
-	
-		
-				
-				
-				
-				
-				
-				
-				
-				
 				
 		
 	
@@ -407,17 +406,8 @@
 				
 				
 				
-		
-	
-		
 				
 				
-				
-				
-				
-		
-	
-		
 				
 				
 		
@@ -431,6 +421,28 @@
 		
 	
 		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
 				
 				
 				
@@ -578,6 +590,8 @@
 					
 						
 					
+						
+					
 				
 			
 		
@@ -640,7 +654,7 @@
 </code></pre>
 
 <ol>
-<li>在<code>app</code>的<code>build.gradle</code>文件中添加<code>compile依赖文件</code>：</li>
+<li>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</li>
 </ol>
 <pre><code class="gradle">android {
     useLibrary 'org.apache.http.legacy'
@@ -648,7 +662,7 @@
 </code></pre>
 
 <pre><code class="gradle">    dependencies {
-        implementation 'cn.bmob.android:bmob-sdk:3.6.9'
+        implementation 'cn.bmob.android:bmob-sdk:3.7.3-rc1'
         implementation &quot;io.reactivex.rxjava2:rxjava:2.2.2&quot;
         implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
         implementation 'com.squareup.okio:okio:2.1.0'
@@ -676,12 +690,12 @@
 <li><code>bmob-sdk:3.4.6</code>的相关依赖包可见注释[3]</li>
 </ul>
 <p><strong>[3]、bmob-sdk:3.4.6依赖以下包：</strong></p>
-<pre><code>compile 'cn.bmob.android:bmob-sdk:3.4.6'
-compile 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
-compile 'com.squareup.okio:okio:1.4.0'
+<pre><code>implementation 'cn.bmob.android:bmob-sdk:3.4.6'
+implementation 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
+implementation 'com.squareup.okio:okio:1.4.0'
 </code></pre>
 <p>如果需要兼容Android6.0系统，请添加以下两项：</p>
-<pre><code>compile 'cn.bmob.android:http-legacy:1.0'
+<pre><code>implementation 'cn.bmob.android:http-legacy:1.0'
 </code></pre>
 <p><strong>[4]、bmob-sms适用于只需要使用Bmob短信功能的开发者，而bmob-sdk内部包含了bmob-sms的短信功能,请不要重复添加。</strong></p>
 <p><strong>[5]、BmobSDK的官方仓库：<a href="https://github.com/bmob/bmob-android-sdk">bmob-android-sdk</a>，开发者可到此仓库查看最新发布的各版本SDK，我们会尽量与官网发布的SDK保持同步更新。</strong></p>
@@ -786,17 +800,9 @@ compile 'com.squareup.okio:okio:1.4.0'
 </code></pre>
 
 <h2 id="bmobsdk">初始化BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
-<p>在你应用程序启动的Activity的onCreate()方法中初始化Bmob功能。代码如下所示：</p>
-<pre><code class="java">package com.bmob.example;
-import cn.bmob.v3.Bmob;
-import android.app.Activity;
-import android.os.Bundle;
-public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-         // TODO Auto-generated method stub
-        super.onCreate(savedInstanceState);
-         //提供以下两种方式进行初始化操作：
+<p>在你应用程序启动的Application的onCreate()方法中初始化Bmob功能。代码如下所示：</p>
+<pre><code class="java">
+       //提供以下两种方式进行初始化操作：
 
         //第一：默认初始化
         Bmob.initialize(this, &quot;Your Application ID&quot;);
@@ -815,8 +821,6 @@ public class MainActivity extends Activity {
         //.setFileExpiration(2500)
         //.build();
         //Bmob.initialize(config);
-    }
-}
 </code></pre>
 
 <h2 id="_4">添加一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>

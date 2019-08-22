@@ -32,7 +32,23 @@ var Bmob = require('./src/lib/app.js');
 
 
 
+### 
+
+
+
 ### 初始化
+
+为了您的前端应用安全，SDK 2.0版本启用新的初始化key，新SDK请使用以下方式初始化，其他方法未变动
+
+```
+Bmob.initialize("你的Secret Key", "你的API 安全码");
+```
+
+**API 安全码**: 在应用功能设置，安全验证，API安全码自己设置
+
+
+
+SDK版本 **2.0.0** 以下保留之前的初始化方法
 
 ```
 Bmob.initialize("你的Application ID", "你的REST API Key");
@@ -67,7 +83,7 @@ npm install hydrogen-js-sdk
 // 打开 main.js
 import Bmob from "hydrogen-js-sdk";
 
-// 初始化
+// 初始化 SDK版本 2.0.0 以下保留之前的初始化方法
 Bmob.initialize("你的Application ID", "你的REST API Key");
 
 // 挂载到全局使用
@@ -83,6 +99,14 @@ Bmob.User.login('username','password').then(res => {
 ```
 
 
+
+### 调试模式
+
+当小程序开发的时候，有时在手机端不便看出请求的网址，与参数，可以初始化后开启调试模式，开启后会请求到测试服务器，并打印调试信息。注意：上线后请关闭此选项
+
+```
+Bmob.debug(true)
+```
 
 
 
@@ -1301,7 +1325,22 @@ query.relation('_User').then(res => {
 })
 ```
 
+## 查询服务器当前时间
+
+此方法放回服务器当前时间
+
+**请求示例：**
+
+```
+Bmob.timestamp().then(res => {
+  console.log(res);
+})
+```
+
+## 
+
 ## 数据类型
+
 **Bmob后端云**有很多常见的数据类型，在查询、添加数据库的时候，经常需要了解数据类型结构。
 
 到现在为止我们只使用了可以被标准**JSON**编码的值，Bmob移动客户端SDK库同样支持日期,地理位置数据和指针数据、关系型数据。在REST API中，这些值都被编码了，同时有一个**"__type"**字段来标识出它们所属的类型，所以如果你采用正确的编码的话就可以读或者写这些字段了。
