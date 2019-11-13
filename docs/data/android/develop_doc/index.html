@@ -726,7 +726,7 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_72">数据迁移</a></li>
+													<li><a class="itm-l2" href="#_72">重置域名</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
@@ -5383,8 +5383,17 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 此域名目前仅为企业版用户使用！
 </code></pre>
 
-<h2 id="_72">数据迁移<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
-<p>在应用设置-套餐升级-应用套餐类型，购买了企业Pro版的用户，可以提交工单通知工作人员进行数据迁移。</p>
+<h2 id="_72">重置域名<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h2>
+<p>文件、Android SDK 、 API 、 云函数自定义域名绑定功能。
+如果使用自定义域名，假设你绑定的sdk域名是testopen.xxx.com，请使用下面的代码，让你的域名在sdk中生效：</p>
+<pre><code class="Java">Bmob.resetDomain(&quot;http://testopen.xxx.com/8/&quot;);
+</code></pre>
+
+<p>如果是自定义域名使用了https，则为：</p>
+<pre><code class="Java">Bmob.resetDomain(&quot;https://testopen.xxx.com/8/&quot;);
+</code></pre>
+
+<p>请直接参考：<a href="http://doc.bmob.cn/other/domain/">重置域名设置</a></p>
 <h2 id="_73">海外加速<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h2>
 <p>在应用设置-套餐升级，购买了海外节点加速功能的用户，可以提高海外访问速度。</p>
 <h2 id="_74">统计功能<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h2>

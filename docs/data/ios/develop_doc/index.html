@@ -918,6 +918,14 @@
 </code></pre>
 
 <p>其中，参数为开发者的域名，调用后的所有请求都指向新的域名。</p>
+<p>如果使用自定义域名，假设你绑定的sdk域名是testopen.xxx.com，请使用下面的代码，让你的域名在sdk中生效：</p>
+<pre><code>[Bmob resetDomain:@&quot;https://testopen.xxx.com&quot;];
+</code></pre>
+
+<p>如果是自定义域名使用了https，则为：</p>
+<pre><code>[Bmob resetDomain:@&quot;https://testopen.xxx.com&quot;];
+</code></pre>
+
 <h2 id="_6">对象<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">数据对象<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>Bmob存储的数据是建立在BmobObject基础上的，每个BmobObject包含键(Key)-值(value)对的JSON兼容数据。这个数据是无模式的，这意味着不需要提前指定每个BmobObject存在什么键。你只需要设置你想要的键值对让我们在后端存储。</p>
