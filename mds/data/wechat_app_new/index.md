@@ -2611,7 +2611,7 @@ Bmob提供了数据实时功能，当开发者监听某个变化事件，例如�
 对实时数据对象进行初始化
 
 ```
-let BmobSocketIo =new Bmob.Socket()
+let BmobSocketIo =new Bmob.Socket("你的Application ID")
 ```
 
 ### 订阅事件
