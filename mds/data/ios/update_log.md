@@ -1,10 +1,16 @@
-##v2.3.0(2018-04-11)
+## v2.4.1(2019-10-11)
+1、修复bug
+
+## v2.3.4(2019-06-09)
+1、修复bug
+
+## v2.3.0(2018-04-11)
 1、去除支付文件
 
-##v2.2.9 (2018-04-08)
+## v2.2.9 (2018-04-08)
 1、修复文件上传过大crash的bug
 
-##v2.2.8 (2017-12-08)
+## v2.2.8 (2017-12-08)
 1、修复bug
 
 ## v2.2.7（2017-12-04）
@@ -444,3 +450,5 @@ BmobUser类增加：
 ## v1.1.0(2013-09-22)
 1、BmobFile类添加了初始化方法：-(id)initWithClassName:(NSString *)className withFileData:(NSData*)data;可以直接上传二进制数据；
 2、修复了BmobQuery类中- (void)findObjectsInBackgroundWithBlock:(BmobObjectArrayResultBlock)block;得到的数组中的对象不能更新的bug；
+
+
