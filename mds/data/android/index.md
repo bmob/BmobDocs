@@ -51,7 +51,7 @@
 	    repositories {
 	        jcenter()
 			//Bmob的maven仓库地址--必填
-				maven {url 'https://dl.bintray.com/chaozhouzhang/maven' }
+			maven {url 'https://dl.bintray.com/chaozhouzhang/maven' }
 	    }
 	}
 ```
@@ -65,7 +65,7 @@ android {
 ```
 ```gradle
 	dependencies {
-    	implementation 'cn.bmob:android-data:3.7.7'
+    	implementation 'cn.bmob.android:bmob-sdk:3.7.7'
     	implementation "io.reactivex.rxjava2:rxjava:2.2.2"
     	implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     	implementation 'com.squareup.okio:okio:2.1.0'
