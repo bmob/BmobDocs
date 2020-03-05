@@ -51,7 +51,7 @@
 	    repositories {
 	        jcenter()
 			//Bmob的maven仓库地址--必填
-	        maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+				maven {url 'https://dl.bintray.com/chaozhouzhang/maven' }
 	    }
 	}
 ```
@@ -65,7 +65,7 @@ android {
 ```
 ```gradle
 	dependencies {
-    	implementation 'cn.bmob.android:bmob-sdk:3.7.3-rc1'
+    	implementation 'cn.bmob:android-data:3.7.7'
     	implementation "io.reactivex.rxjava2:rxjava:2.2.2"
     	implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     	implementation 'com.squareup.okio:okio:2.1.0'
@@ -102,9 +102,6 @@ android {
 	implementation 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
     implementation 'com.squareup.okio:okio:1.4.0'
 
-如果需要兼容Android6.0系统，请添加以下两项：
-
-	implementation 'cn.bmob.android:http-legacy:1.0'
 
 **[4]、bmob-sms适用于只需要使用Bmob短信功能的开发者，而bmob-sdk内部包含了bmob-sms的短信功能,请不要重复添加。**
 
