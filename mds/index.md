@@ -45,7 +45,7 @@
 							<ul class="links">
 								<li><s class="languageType"></s><a href="./data/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./data/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./data/restful/index.html" class="intro" >REST API</a></li>
+								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./data/restful/index.html" class="intro" >API 文档</a></li>
 								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./data/csharp/index.html" class="intro" >C#</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >JavaScript</a></li>
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./data/php/index.html" class="intro" >PHP</a></li>
@@ -75,7 +75,7 @@
 							<ul class="links">
 								<li><s class="languageType"></s><a href="./cloud_function/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./cloud_function/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./cloud_function/restful/index.html" class="intro" >REST API</a></li>
+								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./cloud_function/restful/index.html" class="intro" >API 文档</a></li>
 								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./cloud_function/csharp/index.html" class="intro" >C#</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/javascript/index.html" class="intro" >JavaScript</a></li>
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./cloud_function/php/index.html" class="intro" >PHP</a></li>
@@ -98,7 +98,7 @@
 							<ul class="links">
 								<li><s class="languageType"></s><a href="./sms/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./sms/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./sms/restful/index.html" class="intro" >REST API</a></li>
+								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./sms/restful/index.html" class="intro" >API 文档</a></li>
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./sms/php/index.html" class="intro" >PHP</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./sms/javascript/index.html" class="intro" >JavaScript</a></li>
 								<li></li>
@@ -155,7 +155,7 @@
 							<ul class="links">
 								<li><s class="languageType"></s><a href="./push/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./push/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./push/restful/index.html" class="intro" >REST API</a></li>
+								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./push/restful/index.html" class="intro" >API 文档</a></li>
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./push/php/index.html" class="intro" >PHP</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./push/javascript/index.html" class="intro" >JavaScript</a></li>
 								<li></li>
@@ -175,7 +175,7 @@
 				<ul class="links">
 				  <li><s class="languageType"></s><a href="./pay/android/index.html" class="intro" >Android</a></li>
 				  <li><s class="languageType" style="background-position:left -26px;"></s><a href="./pay/ios/index.html" class="intro" >iOS</a></li>
-				  <li><s class="languageType"  style="background-position:left -52px;"></s><a href="./pay/restful/index.html" class="intro" >REST API</a></li>
+				  <li><s class="languageType"  style="background-position:left -52px;"></s><a href="./pay/restful/index.html" class="intro" >API 文档</a></li>
 				  <li></li>
 				</ul>
 			</div>

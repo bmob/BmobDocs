@@ -2163,9 +2163,11 @@ upload:function(){
           console.log('itemn',item)
           file = Bmob.File('abc.jpg', item);
         }
-        file.save().then(res => {
+        file.imgSecCheck().then(res => {
           console.log(res.length);
           console.log(res);
+        }).catch(err=>{
+            console.log(err);
         })
 
       }
@@ -2177,7 +2179,7 @@ upload:function(){
 
 ```
 正常：
-{"msg":"ok"}
+["{"cdn":"upyun","filename":"abc.jpg","url":"http://…2018/05/07/e65172f540195fe880043cc74236e397.jpg"}", "{"cdn":"upyun","filename":"abc.jpg","url":"http://…2018/05/07/5670bf6740385bca802f9c33beb69ab9.jpg"}"]
 违规：
 {"code":10007,"error":"CheckMsg errcode:图片违规"}
 ```
@@ -2210,10 +2212,10 @@ upload:function(){
     	access_token: 'access_token'
     }
 
-### 小程序模版消息 ###
+### 小程序订阅消息 ###
 **简介：**
 
-小程序模板消息，通过传入模版，设置模版信息，需要在模版中设置多个参数(openId,templateId,formId)
+小程序订阅消息，通过传入模版，设置模版信息，需要在模版中设置多个参数(openId,templateId,formId)
 
 **参数说明：**
 
