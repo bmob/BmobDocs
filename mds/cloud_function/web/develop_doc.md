@@ -42,41 +42,6 @@ test：云函数的名称
 name=jeff: 传入一个参数，名称是name，值是jeff
 与REST API不同，无需再传其它诸如app id等请求头。
 
-## 转为套餐后调用云函数的方式
-
-bmob允许以http的方式直接调用云函数。
-
-### 获取应用的id值
-
-进入应用后台->云逻辑，下图中的箭头所指的数字就是该应用的id值：
-![](image/appid.png)
-
-
-### Get的方式调用云函数
-
-下面展示了以Get的方式调用云函数：
-```
-curl -X GET http://cloud-xxxxx.bmobapp.com/test?name=jeff
-```
-其中：
-cloud-xxxxx.bmobapp.com：该应用的云函数专属域名，其中xxxxx为上节“获取应用的id值”所获取的id值。
-test：云函数的名称。
-name=jeff: 传入一个参数，名称是name，值是jeff。
-与REST API不同，无需再传其它诸如app id等请求头。
-
-### Post的方式调用云函数
-下面展示了以Post的方式调用云函数：
-```
-curl -X POST \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    -d 'name=jeff' \
-    http://cloud-xxxxx.bmobapp.com/test
-```
-其中：
-cloud-xxxxx.bmobapp.com：该应用的云函数专属域名，其中xxxxx为上节“获取应用的id值”所获取的id值。
-test：云函数的名称
-name=jeff: 传入一个参数，名称是name，值是jeff
-与REST API不同，无需再传其它诸如app id等请求头。
 
 ## 云函数模块解释
 
