@@ -1,0 +1,2899 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>开发文档 - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot; 小程序 – Bmob后端云 </title>        
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li class="active">
+									<a href="../">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../push/android/">推送服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../push/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../push/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					<div class="code-title">小程序(旧、弃用)</div>
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">开发文档</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">简介</a>
+												
+											</li>
+												
+											<li class=""><a href="#_2">应用程序</a>
+												
+											</li>
+												
+											<li class=""><a href="#_3">对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_4">数据对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_5">创建对象</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_6">使用图文素材</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_7">增加一篇图文</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_8">静态文件</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_9">下载域名</a>
+												
+											</li>
+												
+											<li class=""><a href="#_10">客服消息</a>
+												
+											</li>
+												
+											<li class=""><a href="#websocket">WebSocket</a>
+												
+											</li>
+												
+											<li class=""><a href="#token">小程序token接口</a>
+												
+											</li>
+												
+											<li class=""><a href="#_11">微信主人通知接口</a>
+												
+											</li>
+												
+											<li class=""><a href="#_12">生成小程序二维码</a>
+												
+											</li>
+												
+											<li class=""><a href="#id">小程序分享群Id</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#id_1">当用户成功地将小程序页面分享到微信群的时候，小程序的回调中可以获取分享目标的微信群 ID。</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#id_2">当用户从微信群进入小程序页面的时候，小程序启动时可以获取用户进入小程序的渠道群聊 ID。</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#2id">页面只要加上这2个函数，即可实现转发到群功能，这里主要讲下解密群ID。</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_13">小程序模板消息</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#2">模板消息支持2种方式调用。</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_14">小程序短信验证码</a>
+												
+											</li>
+												
+											<li class=""><a href="#_15">小程序支付</a>
+												
+											</li>
+												
+											<li class=""><a href="#_16">小程序退款</a>
+												
+											</li>
+												
+											<li class=""><a href="#_17">小程序付款到零钱</a>
+												
+											</li>
+												
+											<li class=""><a href="#_18">添加数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_19">查询数据</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_20">查询所有数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_21">获取对象的特殊属性</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_22">查询单条数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_23">条件查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_24">分页查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_25">结果排序</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_26">统计记录数量</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_27">复杂查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_28">查询指定列</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_29">对字符串类型做查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_30">或查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_31">统计相关的查询</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_33">修改数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_34">删除数据</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_35">删除字段</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_36">常见数据类型的操作</a>
+												
+											</li>
+												
+											<li class=""><a href="#_37">数组操作</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_38">添加及更新数组</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_39">数组查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_40">删除数组</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_41">批量操作</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_42">批量更新示例</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_43">批量增删改</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_44">批量删除示例</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_45">批量增加更新示例</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_46">数据关联</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_47">添加及修改关联关系</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_49">原子计数器</a>
+												
+											</li>
+												
+											<li class=""><a href="#_50">文件上传</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_51">文件上传</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_52">图片批量上传</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_53">文件删除</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_54">图片处理</a>
+												
+											</li>
+												
+											<li class=""><a href="#promise">Promise</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#then">then 方法</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#promise_1">将Promise 组织在一起</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_55">错误处理</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#promise_2">创建 Promise</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#promise_3">顺序的Promise</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#promise_4">并行的Promise</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_56">创建异步方法</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#collection">Collection</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#collection_1">获取Collection</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#collection_2">Collection 排序</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#collection_3">修改一个 Collection</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_57">用户</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_58">属性</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_59">注册一</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_60">注册二</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#app">登录（自有账户密码登录，适合APP迁移过来的用户）</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#email">验证 Email</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_61">当前用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_62">修改当前用户信息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_63">用户对象的安全</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_64">其他对象的安全</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_65">重设密码</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_66">查询</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_67">关联</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#acl">ACL和角色</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#acl_1">ACL的格式</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_68">角色和相关操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_69">创建角色</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_70">角色对象的安全性</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_71">其他对象的安全性</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_72">角色继承</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_73">地理位置</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_74">创建地理位置对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_75">查询地理位置对象</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_76">小程序使用云逻辑</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../example/">示例/功能</a>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Bmob平台为您的移动应用提供了一个完整的后端解决方案，我们提供轻量级的SDK开发包，让开发者以最小的配置和最简单的方式使用Bmob平台提供的服务，进而完全消除开发者编写服务器代码以及维护服务器的操作。</li>
+</ul>
+<h2 id="_2">应用程序<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在Bmob平台注册后，每个账户可创建多个应用程序，创建的每个应用程序都有其独自的应用程序ID，此后所有的应用程序将凭其ID进行Bmob SDK的使用。即使只有一个应用程序，也可以以不同的版本进行测试和生产。</p>
+<h2 id="_3">对象<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">数据对象<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Bmob数据存储是建立在<code>Bmob.Object</code>基础上的。如写日记的<code>Bmob.Object</code>示例如下：</p>
+<pre><code>title: &quot;I am title&quot;, content: &quot;I am content&quot;
+</code></pre>
+
+<p>这里需要注意的是：anchor</p>
+<ul>
+<li>键必须是字母或者数字的字符串，值可以是字符串、数字、布尔值或者数组和字典。</li>
+<li>每一个<code>Bmob.Object</code>都是一个特定子类的实例，子类名可以来区分各种数据，如我们可以把写日记的类称之为<code>diary</code>。</li>
+</ul>
+<h3 id="_5">创建对象<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>你可以使用<code>Bmob.Object.extend</code>方法来创建新的<code>Bmob.Object</code>子类，示例代码如下：</p>
+<pre><code>
+    // 创建Bmob.Object子类
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+
+    // 创建该类的一个实例
+    var diary = new Diary();
+
+</code></pre>
+
+<p>如果你想为<code>Bmob.Object</code>的子类添加一些实例方法和类方法，示例代码如下：</p>
+<pre><code>
+    // 为Bmob.Object的子类添加实例方法和类方法
+    var Diary = Bmob.Object.extend(&quot;diary&quot;, {
+      //实例方法
+      gleaterThanOneHundred: function() {
+        return this.get(&quot;title&quot;);
+      }
+    }, {
+      //类方法
+      spawn: function(title) {
+        var diary = new Diary();
+        diary.set(&quot;title&quot;, title);
+        return diary;
+      }
+    });
+
+    var diary = Diary.spawn(&quot;hello world&quot;);
+    console.log(diary.gleaterThanOneHundred());
+</code></pre>
+
+<h2 id="_6">使用图文素材<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>图文素材，类似微信的图文素材，经常被用在活动、广告、详细说明等情况。
+使用图文素材系统会生成一个<code>_Article</code> 的数据表。如需取出图文素材的数据，只需跟普通表一样操作即可。</p>
+<h3 id="_7">增加一篇图文<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<pre><code>
+   var Diary = Bmob.Object.extend(&quot;_Article&quot;);
+      var diary = new Diary();
+      diary.set(&quot;title&quot;,&quot;hello&quot;);
+      diary.set(&quot;content&quot;,&quot;hello world&quot;);
+      //添加数据，第一个入口参数是null
+      diary.save(null, {
+        success: function(result) {
+          // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
+            console.log(&quot;创建成功, objectId:&quot;+result.id);
+        },
+        error: function(result, error) {
+          // 添加失败
+          console.log('创建失败');
+
+        }
+      });
+
+</code></pre>
+
+<h3 id="_8">静态文件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>为了满足应用各类需求，保存的内容会生成一个HTML文件，存在您的文件中，如应用支持显示HTML，可直接显示，或者url内容转发到朋友圈。</p>
+<p>ps:最近小程序也推出了显示H5页面，如果需要使用，可开通FTP功能自己管理应用的文件空间。</p>
+<h2 id="_9">下载域名<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>由于最近微信封了~~*.upaiyun.com~~   域名，如果你没做文件下载功能，只是显示图片，可以不填写。如果你需要做下载功能，在应用设置里面，可以开启独立域名， 开启后，填写到微信平台就好了，当然有时候你想用自己的域名，也是可以的，可以工单联系我们。</p>
+<h2 id="_10">客服消息<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>使用nodejs云函数可以对其他平台接口进行服务端开发，具体开发请参考微信官方文档。</p>
+<h2 id="websocket">WebSocket<a class="headerlink" href="#websocket" title="Permanent link">&para;</a></h2>
+<p>一个微信小程序同时只能有一个 WebSocket 连接，如果当前已存在一个 WebSocket 连接，会创建失败。WebSocket可以做一些实时数据功能，比如聊天室，你画我猜之类的游戏。具体文档参考 <strong>JavaScript-&gt;实时数据平台</strong></p>
+<h2 id="token">小程序token接口<a class="headerlink" href="#token" title="Permanent link">&para;</a></h2>
+<p>微信access_token，业务场景,当其他平台需要使用你小程序的token，并不想与Bmob的平台冲突，可以通过此API实现</p>
+<pre><code>curl --request GET \
+  --url https://api2.bmob.cn/1/wechatApp/getAccessToken \
+  --header 'content-type: application/json' \
+  --header 'x-bmob-application-id: ' \
+  --header 'x-bmob-rest-api-key: ' \
+</code></pre>
+
+<h2 id="_11">微信主人通知接口<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>微信主动推送通知，业务场景：比如你有APP，有人下单了，或者有人留言了。你可以收到微信推送通知。</p>
+<p>支持2种调用方法
+1.小程序
+2.REST API</p>
+<p>1.小程序<code>Bmob.sendMasterMessage</code>调用主人通知接口</p>
+<pre><code>
+成功后发送主人模板消息，这个只需把openid改正确即可接收到， Bmob后端云公众号回复openid
+          var temp = {
+            &quot;touser&quot;: &quot;Bmob公众号回复，openid 得到&quot;,
+            &quot;template_id&quot;: &quot;-ERkPwp0ntimqH39bggQc_Pj55a18CYLpj-Ert8-c8Y&quot;,
+            &quot;url&quot;: &quot;https://www.bmob.cn/&quot;,
+            &quot;data&quot;: {
+              &quot;first&quot;: {
+                &quot;value&quot;: &quot;您好，REST API 失效，请登录控制台查看。&quot;,
+                &quot;color&quot;: &quot;#c00&quot;
+              },
+              &quot;keyword1&quot;: {
+                &quot;value&quot;: &quot;REST API 失效&quot;
+              },
+              &quot;keyword2&quot;: {
+                &quot;value&quot;: &quot;2017-07-03 16:13:01&quot;
+              },
+              &quot;keyword3&quot;: {
+                &quot;value&quot;: &quot;高&quot;
+              },
+              &quot;remark&quot;: {
+                &quot;value&quot;: &quot;如果您十分钟内再次收到此信息，请及时处理。&quot;
+              }
+            }
+          }
+          console.log(temp);
+          Bmob.sendMasterMessage(temp).then(function (obj) {
+            console.log('发送成功');
+            console.log(obj);
+          }, function (err) {
+            console.log(err);
+          });
+
+</code></pre>
+
+<p>2.REST API调用方式</p>
+<pre><code>curl --request POST \
+  --url http://api2.bmob.cn/1/wechatApp/notifyMsg \
+  --header 'content-type: application/json' \
+  --header 'x-bmob-application-id: ' \
+  --header 'x-bmob-rest-api-key: ' \
+  --data '{
+   &quot;touser&quot;: &quot;Bmob公众号回复，openid 得到&quot;,
+   &quot;template_id&quot;:&quot;-ERkPwp0ntimqH39bggQc_Pj55a18CYLpj-Ert8-c8Y&quot;,
+   &quot;url&quot;: &quot;http://www.bmob.cn/&quot;,
+   &quot;data&quot;: {
+       &quot;first&quot;: {
+           &quot;value&quot;: &quot;您好，REST API 失效，请登录控制台查看。&quot;,
+           &quot;color&quot;: &quot;#c00&quot;
+       },
+       &quot;keyword1&quot;: {
+           &quot;value&quot;: &quot;REST API 失效&quot;
+       },
+       &quot;keyword2&quot;: {
+           &quot;value&quot;: &quot;2017-07-03 16:13:01&quot;
+       },
+       &quot;keyword3&quot;: {
+           &quot;value&quot;: &quot;高&quot;
+       },
+       &quot;remark&quot;: {
+           &quot;value&quot;: &quot;如果您十分钟内再次收到此信息，请及时处理。&quot;
+       }
+   }}'
+
+
+</code></pre>
+
+<p>PS:<code>openid</code> 关注Bmob后端云公众平台回复<code>openid</code></p>
+<p>开放3个模板：
+1.新订单通知（template_id：K9-6_Ayj4MLC2yvwY60-cq18tngJHAlqDfsOvv3D7a8
+）</p>
+<pre><code>{{first.DATA}}
+
+提交时间：{{tradeDateTime.DATA}}
+订单类型：{{orderType.DATA}}
+客户信息：{{customerInfo.DATA}}
+{{orderItemName.DATA}}：{{orderItemData.DATA}}
+{{remark.DATA}}
+</code></pre>
+
+<p>2.系统报警通知（template_id：-ERkPwp0ntimqH39bggQc_Pj55a18CYLpj-Ert8-c8Y
+）</p>
+<pre><code>{{first.DATA}}
+系统名称：{{keyword1.DATA}}
+报警时间：{{keyword2.DATA}}
+报警级别：{{keyword3.DATA}}
+{{remark.DATA}}
+</code></pre>
+
+<p>3.购买成功通知（template_id：Mbk3kYqRGkL98ch6Lie4XSXtOsxXj2SC0SRQXd89G1Y
+）</p>
+<pre><code>您好，您已购买成功。
+
+商品信息：{{name.DATA}}
+{{remark.DATA}}
+</code></pre>
+
+<p>4.审核结果通知（template_id：aNNNmi7WK4kohleWhCkDRKJiHOZnIpkrhXx5XPx4dx0
+）</p>
+<pre><code>{{first.DATA}}
+账号名称：{{keyword1.DATA}}
+审核状态：{{keyword2.DATA}}
+审核时间：{{keyword3.DATA}}
+{{remark.DATA}}
+</code></pre>
+
+<p>ps：目前每个应用，每天有100条的免费额度，如需更多，可以工单联系我们</p>
+<h2 id="_12">生成小程序二维码<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>生成推广二维码非常简单，比如你是传统企业，你可以为你店里每件衣服生成一个二维码，用户扫描直接可以付款定位到那件衣服，如果你是餐厅老板，客户在桌子上扫描二维码可以定位那张桌子。如果你是互联网企业，你可以发布二维码到朋友圈，可以定位到是谁推荐了这个用户，这个用户上级是谁，等等。Bmob封装了生成二维码函数，以下示例代码。</p>
+<p>Bmob.generateCode 参数列表</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>值</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>pages/index/index</td>
+<td>页面路径，支持参数</td>
+</tr>
+<tr>
+<td>width</td>
+<td>430</td>
+<td>二维码宽度，这个参数微信规定不能少于180</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>a\b\c</td>
+<td>对应微信二维码abc方案</td>
+</tr>
+<tr>
+<td>scene</td>
+<td>Bmob</td>
+<td>微信B方案才需要此值</td>
+</tr>
+<tr>
+<td>type</td>
+<td>0/1</td>
+<td>默认0，返回二维码base64数据.如果为1则服务端返回为二维码网络路径</td>
+</tr>
+</tbody>
+</table>
+<p>更多微信官方小程序码介绍 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/qrcode.html" title="微信官方小程序码介绍">微信官方小程序码介绍</a></p>
+<pre><code>
+
+formSubmit: function (event) {
+        var path = event.detail.value.path; //路径
+        var width = event.detail.value.width; //宽度
+        var that = this;
+        Bmob.generateCode({ &quot;path&quot;: path, &quot;width&quot;: width }).then(function (obj) {
+            console.log(obj);
+            that.setData({
+                imageBytes: obj.imageBytes  //二维码示例, 这里也可以返回二维码URL，请看上面参数
+            })
+
+        }, function (err) {
+
+            //失败
+        });
+    }
+
+</code></pre>
+
+<h2 id="id">小程序分享群Id<a class="headerlink" href="#id" title="Permanent link">&para;</a></h2>
+<p>有些时候，我们小程序需要把内容分享到微信群，统计每个微信群有多少用户来查看了此信息。可以使用此接口，下面是微信官方的2个说法</p>
+<ul>
+<li>
+<h5 id="id_1">当用户成功地将小程序页面分享到微信群的时候，小程序的回调中可以获取分享目标的微信群 ID。<a class="headerlink" href="#id_1" title="Permanent link">&para;</a></h5>
+</li>
+<li>
+<h5 id="id_2">当用户从微信群进入小程序页面的时候，小程序启动时可以获取用户进入小程序的渠道群聊 ID。<a class="headerlink" href="#id_2" title="Permanent link">&para;</a></h5>
+</li>
+</ul>
+<pre><code>
+Page({
+  onLoad () {
+    wx.showShareMenu({
+      withShareTicket: true //要求小程序返回分享目标信息
+    })
+  },
+  // 其他的页面函数、生命周期函数等
+  onShareAppMessage() {
+    return {
+      title: '页面分享标题',
+      path: '/pages/path/to/target',
+      success(res){
+        console.log(res.shareTickets);
+                wx.getShareInfo({
+          shareTicket: res.shareTickets,
+          complete(res) {
+
+            //内部调用云函数
+            var currentUser = Bmob.User.current();
+            var data = { &quot;objectId&quot;: currentUser.id, &quot;encryptedData&quot;: res.encryptedData, &quot;iv&quot;: res.iv};
+            console.log(data);
+
+            // console.log(data);
+            Bmob.Cloud.run('getOpenGId', data).then(function (obj) {
+              // var res = JSON.parse(obj)
+              console.log(obj)
+            }, function (err) {
+              console.log(err)
+            });
+
+          }
+        })
+
+
+      }
+    }
+  }
+}
+
+</code></pre>
+
+<ul>
+<li>
+<h5 id="2id">页面只要加上这2个函数，即可实现转发到群功能，这里主要讲下解密群ID。<a class="headerlink" href="#2id" title="Permanent link">&para;</a></h5>
+</li>
+</ul>
+<p>解密群ID主要是通过云逻辑来实现，这里添加一个<code>getOpenGId</code> 逻辑。你也可以复制腾讯官方提供的nodejs里面的代码</p>
+<pre><code>
+function onRequest(request, response, modules) {
+    var objectId = request.body.objectId;
+    var db = modules.oData;
+    var crypto = modules.crypto;
+    db.findOne({
+        &quot;table&quot;: &quot;_User&quot;,
+        //表名
+        &quot;objectId&quot;: objectId //记录的objectId
+    },
+    function(err, data) {
+        //回调函数
+        var data = JSON.parse(data);
+        var sessionkey = data.authData.weapp.session_key;   //微信最新版本改版，此id是由前端发送过来
+        var encryptedData = request.body.encryptedData;
+        var iv = request.body.iv
+        var groupid = groupIdParse(modules, sessionkey, encryptedData, iv) response.end(groupid);
+
+    });
+
+    function groupIdParse(modules, sessionKey, encryptedData, iv) {
+        var crypto = modules.oCrypto;
+        var sessionKey = new Buffer(sessionKey, 'base64'); //new Base64().decode(sessionKey);
+        encryptedData = new Buffer(encryptedData, 'base64'); //new Base64().decode(encryptedData);
+        iv = new Buffer(iv, 'base64'); //new Base64().decode(iv)
+        var result = '';
+        try {
+            // 解密
+            var decipher = crypto.createDecipheriv('aes-128-cbc', sessionKey, iv)
+            // 设置自动 padding 为 true，删除填充补位
+            decipher.setAutoPadding(true) var decoded = decipher.update(encryptedData, 'binary', 'utf8') decoded += decipher.final('utf8') result = decoded;
+            // decoded = JSON.parse(decoded)
+        } catch(err) {
+            throw new Error('Illegal Buffer123' + err)
+        }
+        //  if (decoded.watermark.appid !== this.appId) {
+        //     //  throw new Error('Illegal Buffer')
+        // }
+        return result;
+    }
+
+}
+</code></pre>
+
+<p>解密返回数据：<code>{"openGId":"GLfcX0ber2CAPtXng-ac4g8zyNmk","watermark":{"timestamp":1496720764,"appid":"wx77d6b7031c1e4763"}}</code></p>
+<p>如果你的应用功能出现解密报错，你可以写死传过来的三个变量，示例：</p>
+<pre><code>var sessionKey=&quot;xTlW5jfSUP3Kx0vC5PJbmw==&quot;;
+    var encryptedData=&quot;SLvbzyuyck7384tlGjXwI5Meb2LydIhUGvwerwsvJhws1EJb7LnFPX1MfRcTyF8Bfj0ZRP8wu8XR+7hmTqgdQx11nOlJA0RawSoTJNYmy9kfYQsdqTq5EX0rRH8VozPURnTrjM9EGbfqaN6EetI/aQ==&quot;;
+    var iv=&quot;7/TqHciNjSi3cdFFxr97ww==&quot;;
+
+    var groupid=groupIdParse(modules,sessionKey,encryptedData,iv)
+    var jsongid=JSON.parse(groupid);
+    response.end(groupid);
+    return;
+</code></pre>
+
+<h2 id="_13">小程序模板消息<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>小程序模板消息首先是通过获取<code>access_token</code>来发送。access_token有效期2小时。</p>
+<ul>
+<li>
+<h5 id="2">模板消息支持2种方式调用。<a class="headerlink" href="#2" title="Permanent link">&para;</a></h5>
+</li>
+<li>1.REST API</li>
+<li>2.小程序</li>
+</ul>
+<p>REST API</p>
+<pre><code>curl -X POST \
+  http://api2.bmob.cn/1/wechatApp/SendWeAppMessage \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'x-bmob-application-id: XXX' \
+  -H 'x-bmob-rest-api-key: XXX' \
+  -d '{
+     &quot;touser&quot;: &quot;osr4I0WBS4kZuD_5P-_-bxbSobTg&quot;,
+        &quot;template_id&quot;: &quot;omTTRD3pAMiAGKmyKo15Ifc2U_wLr6oWRZOifnTngvQ&quot;,
+        &quot;page&quot;: &quot;index&quot;,
+        &quot;form_id&quot;:&quot;3a8c5659469c9a582c8fd65054ea5307&quot;,
+        &quot;data&quot;: {
+          &quot;keyword1&quot;: {
+            &quot;value&quot;: &quot;SDK测试内容&quot;,
+            &quot;color&quot;: &quot;#173177&quot;
+          },
+      &quot;keyword2&quot;: {
+          &quot;value&quot;: &quot;2015年01月05日 12:30&quot;
+      },
+      &quot;keyword3&quot;: {
+          &quot;value&quot;: &quot;Bmob科技&quot;
+      }
+    }
+    ,&quot;emphasis_keyword&quot;: &quot;&quot;
+}'
+</code></pre>
+
+<p>REST API主要用在一些特殊情况，例如审核后给用户发送一个通知，定时发通知等这种要配合云逻辑或自己服务端来使用。</p>
+<p>小程序内部调用比较常用，使用门槛低</p>
+<pre><code>var currentUser = Bmob.User.current();
+var temp = {
+    &quot;touser&quot;: currentUser.get(&quot;openid&quot;),
+    &quot;template_id&quot;: &quot;B-2GcobfYnptevxY8G3SdA72YLYGZpOoJO_FEHlouWg&quot;,
+    &quot;page&quot;: &quot;&quot;,
+    &quot;form_id&quot;: formId,
+    &quot;data&quot;: {
+        &quot;keyword1&quot;: {
+            &quot;value&quot;: &quot;SDK测试内容&quot;,
+            &quot;color&quot;: &quot;#173177&quot;
+        },
+        &quot;keyword2&quot;: {
+            &quot;value&quot;: &quot;199.00&quot;
+        },
+        &quot;keyword3&quot;: {
+            &quot;value&quot;: &quot;123456789&quot;
+        },
+        &quot;keyword4&quot;: {
+            &quot;value&quot;: &quot;2015年01月05日 12:30&quot;
+        },
+        &quot;keyword5&quot;: {
+            &quot;value&quot;: &quot;恭喜您支付成功，如有疑问请反馈与我&quot;
+        }
+    },
+    &quot;emphasis_keyword&quot;: &quot;keyword1.DATA&quot;
+}
+Bmob.sendMessage(temp).then(function(obj) {
+    console.log('发送成功')
+},
+function(err) {
+  console.log(err)
+});
+
+
+</code></pre>
+
+<h2 id="_14">小程序短信验证码<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>方法调用与JavaScript一致，查看JavaScript 短信文档 <a href="https://docs.bmob.cn/sms/JavaScript/b_developdoc/doc/index.html#请求短信验证码" title="请求短信验证码">请求短信验证码</a></p>
+<h2 id="_15">小程序支付<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>小程序支付使用先在控制台填写商户号、商户支付密钥，发起请求获取微信需要的字段，这里用Bmob.Pay.wechatPay获取<code>nonceStr</code>,<code>packages</code>,<code>orderId</code>等相关信息。然后 wx.requestPayment弹窗支付页面，里面处理成功失败。 （Bmob的接口都是独立的，任何平台小程序都可以使用，只需要你的小程序微信商户平台开通了都支持。目前小程序支付Bmob平台不收取任何手续费，只要是Bmob平台付费会员都可使用。）</p>
+<pre><code>var openId = wx.getStorageSync('openid');
+//传参数金额，名称，描述,openid
+    Bmob.Pay.wechatPay(0.01, '哇哈哈1瓶', '哇哈哈饮料，杭州生产', openId).then(function (resp) {
+      console.log(resp);
+
+      that.setData({
+        loading: true,
+        dataInfo: resp
+      })
+
+      //服务端返回成功
+      var timeStamp = resp.timestamp,
+        nonceStr = resp.noncestr,
+        packages = resp.package,
+        orderId = resp.out_trade_no,//订单号，如需保存请建表保存。
+        sign = resp.sign;
+
+      //打印订单号
+      console.log(orderId);
+
+      //发起支付
+      wx.requestPayment({
+        'timeStamp': timeStamp,
+        'nonceStr': nonceStr,
+        'package': packages,
+        'signType': 'MD5',
+        'paySign': sign,
+        'success': function (res) {
+          //付款成功,这里可以写你的业务代码
+          console.log(res);
+        },
+        'fail': function (res) {
+          //付款失败
+          console.log('付款失败');
+          console.log(res);
+        }
+      })
+
+    }, function (err) {
+      console.log('服务端返回失败');
+      console.log(err);
+    });
+
+
+
+</code></pre>
+
+<h2 id="_16">小程序退款<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p><strong>参数说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order_no</td>
+<td>string</td>
+<td>是</td>
+<td>订单号</td>
+</tr>
+<tr>
+<td>refund_fee</td>
+<td>float</td>
+<td>是</td>
+<td>退款金额</td>
+</tr>
+<tr>
+<td>desc</td>
+<td>string</td>
+<td>是</td>
+<td>退款备注</td>
+</tr>
+</tbody>
+</table>
+<p><strong>请求示例：</strong></p>
+<pre><code>var res = {
+        &quot;order_no&quot;: &quot;3a94dad09cef0697c87c58befc7jsapi&quot;,
+        &quot;refund_fee&quot;: 0.1,
+        &quot;desc&quot;: &quot;退款&quot;,
+      }
+    Bmob.refund(res).then(function (obj) {
+      console.log(obj)
+    },
+      function (err) {
+        console.log('失败了', err)
+      });
+</code></pre>
+
+<h2 id="_17">小程序付款到零钱<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p><strong>简介：</strong></p>
+<p>付款到零钱目前已经支持，常见使用场景是用户小程序里面提现，由于此接口用的人少，如需要使用可提交工单联系工作人员。</p>
+<p><strong>注意事项：</strong></p>
+<p>此功能先看下自己微信支付支付有开通，默认是没开通的，微信18年的开通条件是</p>
+<p>开通条件
+需同时满足两个条件，才有开通该功能入口：
+1、T+0 （T日结算至基本账户），结算商户需满足两个条件：1、入驻满90天，2、截止今日往回推30天连续不间断保持有交易。
+2、其余结算周期的商户无限制，可立即前往【商户平台】-&gt;【产品中心】申请开通。
+注：连续30天交易无金额限制，请保持正常交易。</p>
+<h2 id="_18">添加数据<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>添加数据非常简单，任何<code>Bmob.Object</code>子类都有<code>save</code>方法可以用于将当前对象的内容保存到服务端。示例代码如下：</p>
+<pre><code>
+    //创建类和实例
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+    var diary = new Diary();
+    diary.set(&quot;title&quot;,&quot;hello&quot;);
+    diary.set(&quot;content&quot;,&quot;hello world&quot;);
+    //添加数据，第一个入口参数是null
+    diary.save(null, {
+        success: function(result) {
+          // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
+            console.log(&quot;日记创建成功, objectId:&quot;+result.id);
+        },
+        error: function(result, error) {
+          // 添加失败
+          console.log('创建日记失败');
+
+        }
+    });
+</code></pre>
+
+<p>你也可以用如下的示例代码添加数据：</p>
+<pre><code>
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+    var diary = new Diary();
+    // 添加数据，第一个入口参数是Json数据
+    diary.save({
+      title: &quot;hello&quot;,
+      content: &quot;hello world&quot;
+    }, {
+      success: function(result) {
+        // 添加成功
+      },
+      error: function(result, error) {
+        // 添加失败
+      }
+    });
+</code></pre>
+
+<p>这里有几点需要注意的是:</p>
+<ol>
+<li>如果云端数据库中不存在<code>diary</code>表，Bmob会自动地在你第一次使用它的时候创建。</li>
+<li>每个<code>Bmob.Object</code>对象都有几个默认的字段是自动创建的：<code>objectId</code>是一个对于每一个保存的对象为一个标志；<code>createdAt</code>和<code>updatedAt</code>表示对象在Bmob中创建和最后一次更改的时间。这些字段的创建和内容是由服务器端自动完成的，在保存<code>Bmob.Object</code>之前不会存在。</li>
+<li>添加成功后，可以通过<code>result.createdAt</code>获取对象的创建时间，通过<code>result.updatedAt</code>获取对象的更新时间；可以通过<code>result.id</code>获取对象的objectId。</li>
+</ol>
+<h2 id="_19">查询数据<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>数据的查询是每个应用都会频繁使用到的，Bmob提供了<code>Bmob.Object</code>类，方便大家实现不同条件的查询。</p>
+<h3 id="_20">查询所有数据<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>查询某个数据表中的所有数据是非常简单的，只需要使用<code>Bmob.Query</code>的<code>find</code>方法就可以了，示例代码如下：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var query = new Bmob.Query(Diary);
+// 查询所有数据
+query.find({
+  success: function(results) {
+    console.log(&quot;共查询到 &quot; + results.length + &quot; 条记录&quot;);
+    // 循环处理查询到的数据
+    for (var i = 0; i &lt; results.length; i++) {
+      var object = results[i];
+      console.log(object.id + ' - ' + object.get('title'));
+    }
+  },
+  error: function(error) {
+    console.log(&quot;查询失败: &quot; + error.code + &quot; &quot; + error.message);
+  }
+});
+</code></pre>
+
+<p>如果你只想要一个结果，一个更加方便的方法是使用<code>first</code>，而不是<code>find</code>方法，示例代码如下：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var query = new Bmob.Query(Diary);
+query.first({
+  success: function(object) {
+    // 查询成功
+  },
+  error: function(error) {
+    console.log(&quot;查询失败: &quot; + error.code + &quot; &quot; + error.message);
+  }
+});
+</code></pre>
+
+<p><strong>这里需要注意一点的是：</strong>
+默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可<a href="https://docs.bmob.cn/data/wechatApp/b_developdoc/doc/index.html#分页查询">点击查看分页查询</a>一节。</p>
+<h3 id="_21">获取对象的特殊属性<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>注意，在对象中获取objectId，createdAt，updatedAt的方法分别如下：
+obj.id
+obj.createdAt
+obj.updatedAt</p>
+<h3 id="_22">查询单条数据<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>当我们知道某条数据的<code>objectId</code>时，就可以根据<code>objectId</code>值直接获取单条数据对象，示例代码如下：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+//创建查询对象，入口参数是对象类的实例
+var query = new Bmob.Query(Diary);
+//查询单条数据，第一个参数是这条数据的objectId值
+query.get(&quot;82c3e62d2c&quot;, {
+  success: function(result) {
+    // 查询成功，调用get方法获取对应属性的值
+    var title = result.get(&quot;title&quot;);
+    var content = result.get(&quot;content&quot;);
+  },
+  error: function(object, error) {
+    // 查询失败
+  }
+});
+</code></pre>
+
+<h3 id="_23">条件查询<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>如果要查询某个属性等于某个值，示例代码如下：</p>
+<pre><code>query.equalTo(&quot;title&quot;, &quot;bmob&quot;);
+</code></pre>
+
+<p>如果要查询某个属性不等于某个值，示例代码如下：</p>
+<pre><code>query.notEqualTo(&quot;title&quot;, &quot;bmob sdk&quot;);
+</code></pre>
+
+<p>如果要模糊查询某个值，示例代码如下（模糊查询目前只提供给付费套餐会员使用）：</p>
+<pre><code>query.equalTo(&quot;title&quot;, { &quot;$regex&quot;: &quot;&quot; + k + &quot;.*&quot; });
+</code></pre>
+
+<p>查询大于某个日期的数据，示例代码如下</p>
+<pre><code>query.equalTo(&quot;dateTime&quot;, {&quot;$gte&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2011-08-21 18:02:52&quot;}});
+</code></pre>
+
+<p>查询今天内的数据，方式如下:</p>
+<pre><code>query.equalTo(&quot;$and&quot;,[{&quot;createdAt&quot;:{&quot;$gte&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2014-07-15 00:00:00&quot;}}},{&quot;createdAt&quot;:{&quot;$lte&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2014-07-15 23:59:59&quot;}}}]);
+</code></pre>
+
+<p>对查询的属性值进行大小比较的示例代码如下：</p>
+<pre><code>// score &lt; 50
+query.lessThan(列名称, 50);
+
+// score &lt;= 50
+query.lessThanOrEqualTo(列名称, 50);
+
+// score &gt; 50
+query.greaterThan(列名称, 50);
+
+// score &gt;= 50
+query.greaterThanOrEqualTo(列名称, 50);
+</code></pre>
+
+<p>两条查询语句一起写，就相当于<code>AND</code>查询，如下示例代码，查询同时满足<code>"playerName"="bmob" and "score"&gt;100</code>的数据：</p>
+<pre><code>query.notEqualTo(&quot;title&quot;, &quot;bmob&quot;);
+query.greaterThan(列名称, 100);
+</code></pre>
+
+<p>一个完整的例子：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var query = new Bmob.Query(Diary);
+query.equalTo(&quot;title&quot;, &quot;hello&quot;);
+// 查询所有数据
+query.find({
+    success: function(results) {
+        console.log(&quot;共查询到 &quot; + results.length + &quot; 条记录&quot;);
+        // 循环处理查询到的数据
+        for (var i = 0; i &lt; results.length; i++) {
+        var object = results[i];
+        console.log(object.id + ' - ' + object.get('title'));
+        }
+    },
+    error: function(error) {
+        console.log(&quot;查询失败: &quot; + error.code + &quot; &quot; + error.message);
+    }
+});
+</code></pre>
+
+<h3 id="_24">分页查询<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>有时，在数据比较多的情况下，你希望查询出的符合要求的所有数据能按照多少条为一页来显示，这时可以使用<code>limit</code>方法来限制查询结果的数据条数来进行分页。默认情况下，Limit的值为10，最大有效设置值1000（设置的数值超过1000还是视为1000）。</p>
+<pre><code>// 返回最多10条数据
+query.limit(10);
+</code></pre>
+
+<p>在数据较多的情况下，在<code>limit</code>的基础上分页显示数据是比较合理的解决办法，<code>skip</code>方法可以做到跳过查询的前多少条数据来实现分页查询的功能。默认情况下<code>skip</code>的值为10。</p>
+<pre><code>query.skip(10); // skip the first 10 results
+</code></pre>
+
+<h3 id="_25">结果排序<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>我们可以对返回的结果进行排序（只支持<code>number</code>，<code>date</code>，<code>string</code>类型的排序），示例代码如下：</p>
+<pre><code>// 对score字段升序排列
+query.ascending(列名称);
+
+// 对score字段降序排列
+query.descending(列名称);
+</code></pre>
+
+<h3 id="_26">统计记录数量<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>如果你只是想统计满足<code>query</code>的结果集到底有多条记录，你可以使用<code>count</code>方法。如为了获得diary表的记录数量，示例代码如下：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var query = new Bmob.Query(Diary);
+query.count({
+  success: function(count) {
+    // 查询成功，返回记录数量
+    console.log(&quot;共有 &quot; + count + &quot; 条记录&quot;);
+  },
+  error: function(error) {
+    // 查询失败
+  }
+});
+
+</code></pre>
+
+<h3 id="_27">复杂查询<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>如果你想查询某一字段值在某一集合中的记录的话，可以使用<code>containedIn</code>方法，如获取<code>"Bmob"、"hello"、"sure"</code>三条标题为这的记录信息，那么示例代码如下：</p>
+<pre><code>// 第一个参数是字段名称，第二个参数是数组
+query.containedIn(&quot;title&quot;, [&quot;Bmob&quot;, &quot;hello&quot;, &quot;sure&quot;]);
+
+</code></pre>
+
+<p>相反地，你可以使用<code>notContainedIn</code>方法来查询在集合外的目标对象。</p>
+<p>如果想要查询含有某一特定属性的对象，可以使用<code>exists</code>。相对地，如果你想获取没有这一特定属性的对象，你可以使用<code>doesNotExist</code>，示例代码如下：</p>
+<pre><code>// 查询含有title属性的对象
+query.exists(&quot;title&quot;);
+
+// 查询不含有title属性的对象
+query.doesNotExist(&quot;title&quot;);
+</code></pre>
+
+<p>你可以使用<code>matchesKeyInQuery</code>方法来进行嵌套的子查询。举例说，如果你有一个类包含了用户心情， 而你在用户类中存储了用户的详细信息，你可以构造一个查询来查找被点赞次数超过5次的用户信息，示例代码如下：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var DiaryQuery = new Bmob.Query(Diary);
+DiaryQuery.greaterThan(&quot;isLike&quot;,5);
+var userQuery = new Bmob.Query(Bmob.User);
+userQuery.matchesKeyInQuery(&quot;phone&quot;, &quot;nickname&quot;, DiaryQuery);
+userQuery.find({
+  success: function(results) {
+    // results has the list of users with all user with record
+  }
+});
+</code></pre>
+
+<p>相对地，可以使用<code>doesNotMatchKeyInQuery</code>来获取属性不在子查询结果中的对象。比如为了获得用户的日记被点赞不超过5次的情况：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var DiaryQuery = new Bmob.Query(Diary);
+DiaryQuery.greaterThan(&quot;isLike&quot;,5);
+var userQuery = new Bmob.Query(Bmob.User);
+userQuery.doesNotMatchKeyInQuery(&quot;phone&quot;, &quot;nickname&quot;, DiaryQuery);
+userQuery.find({
+  success: function(results) {
+
+  }
+});
+</code></pre>
+
+<h3 id="_28">查询指定列<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>有时候你不想返回所有的字段信息，那么就可以用<code>select</code>方法来限定返回的字段。示例代码如下：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var query = new Bmob.Query(Diary);
+// 只返回select的字段值
+query.select(&quot;title&quot;);
+query.find().then(function(results) {
+  // 返回成功
+});
+</code></pre>
+
+<p><strong>注意：系统默认的字段<code>objectId</code>、<code>createdAt</code>、<code>updatedAt</code>、<code>ACL</code>也会返回。</strong></p>
+<h3 id="_29">对字符串类型做查询<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>如果想要查询以某一个特定字符串开头的记录，可以使用<code>startWith</code>方法，示例代码如下：</p>
+<pre><code>// 查询在title字段中以he开头的记录
+var query = new Bmob.Query(Diary);
+query.startsWith(&quot;title&quot;, &quot;he&quot;);
+</code></pre>
+
+<h3 id="_30">或查询<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<p>你可以使用<code>Bmob.Query.or</code>方法操作或查询，示例代码如下：</p>
+<pre><code>var query1 = new Bmob.Query(Diary);
+query1.greaterThan(&quot;isLike&quot;, 150);
+
+var query2 = new Bmob.Query(Diary);
+query2.lessThan(&quot;isLike&quot;, 5);
+
+var mainQuery = Bmob.Query.or(query1, query2);
+mainQuery.find({
+  success: function(results) {
+     // 返回 isLike &gt; 150 or isLike &lt; 5 的值
+  },
+  error: function(error) {
+    // 返回失败
+  }
+});
+</code></pre>
+
+<p><strong>注意：我们不会在组合查询的子查询中支持非过滤型的条件 (比如:limit,skip,ascending/descending,include)</strong></p>
+<h3 id="_31">统计相关的查询<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>Bmob的统计查询，提供以下关键字或其组合的查询操作：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">groupby</td>
+<td align="center">分组操作</td>
+</tr>
+<tr>
+<td align="center">groupcount</td>
+<td align="center">返回每个分组的总记录</td>
+</tr>
+<tr>
+<td align="center">sum</td>
+<td align="center">计算总和</td>
+</tr>
+<tr>
+<td align="center">average</td>
+<td align="center">计算平均值</td>
+</tr>
+<tr>
+<td align="center">max</td>
+<td align="center">计算最大值</td>
+</tr>
+<tr>
+<td align="center">min</td>
+<td align="center">计算最小值</td>
+</tr>
+<tr>
+<td align="center">having</td>
+<td align="center">分组中的过滤条件</td>
+</tr>
+</tbody>
+</table>
+<p>为避免和用户创建的列名称冲突，Bmob约定以上统计关键字（sum, max, min)的查询结果值都用 <code>_(关键字)+首字母大写的列名</code> 的格式，如计算玩家得分列名称为score总和的操作，则返回的结果集会有一个列名为_sumScore。average返回的列为 <code>_avg+首字母大写的列名</code> ，有groupcount的情形下则返回_count。</p>
+<p>以上关键字除了groupcount是传Boolean值true或false，having传的是和where类似的json字符串，但having只应该用于过滤分组查询得到的结果集，即having只应该包含结果集中的列名如 <code>{"_sumScore":{"$gt":100}}</code> ，其他关键字必须是字符串而必须是表中包含的列名，多个列名用,分隔。</p>
+<p>比如，GameScore表是游戏玩家的信息和得分表，有playerName(玩家名称)、score(玩家得分)等你自己创建的列，还有Bmob的默认列objectId, createdAt, updatedAt,那么我们现在举例如何使用以上的查询关键字来作这个表的统计。</p>
+<h4 id="_32">计算总和<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<p>我们要计算GameScore表所有玩家的得分总和，sum后面只能拼接Number类型的列名，即要计算哪个列的值的总和，只对Number类型有效，多个Number列用,分隔，则查询如下：</p>
+<pre><code>query._extraOptions = {&quot;sum&quot;:&quot;score&quot;};
+</code></pre>
+
+<p>返回内容如下：</p>
+<pre><code>[
+    {
+        &quot;_sumScore&quot;: 2398
+    }
+]
+
+</code></pre>
+
+<h2 id="_33">修改数据<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<p>修改数据非常简单，首先需要获取到要更新的<code>Bmob.Object</code>对象，修改值后保存数据就可以了，示例代码如下：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var query = new Bmob.Query(Diary);
+
+// 这个 id 是要修改条目的 objectId，你在
+ 这个存储并成功时可以获取到，请看前面的文档
+query.get('3453453453', {
+    success: function(result) {
+      // 回调中可以取得这个 GameScore 对象的一个实例，然后就可以修改它了
+      result.set('title', 'test!');
+      result.save();
+
+      // The object was retrieved successfully.
+    },
+    error: function(object, error) {
+
+    }
+});
+</code></pre>
+
+<p>或者</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var Diary = new Diary();
+Diary.set(&quot;title&quot;, &quot;111&quot;);
+Diary.set(&quot;content&quot;, &quot;222&quot;);
+//添加数据
+Diary.save(null, {
+  success: function(result) {
+    // 修改数据
+    result.set(&quot;title&quot;, &quot;111&quot;);
+    result.set(&quot;content&quot;, &quot;222&quot;);
+    result.save();
+  }
+})
+</code></pre>
+
+<p>如果想更新成功后获取更新后的对象属性，请设置<code>fetchWhenSave</code>：</p>
+<pre><code> //假设result是已经存在的对象
+    result.fetchWhenSave(true);
+    result.set(&quot;title&quot;, &quot;111&quot;);
+    result.set(&quot;content&quot;, &quot;222&quot;);
+    result.save();
+</code></pre>
+
+<h2 id="_34">删除数据<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<p>删除数据可以使用<code>Bmob.Object</code>的<code>destroy</code>方法，示例代码如下：</p>
+<pre><code>myObject.destroy({
+  success: function(myObject) {
+    // 删除成功
+  },
+  error: function(myObject, error) {
+    // 删除失败
+  }
+});
+
+</code></pre>
+
+<p>批量删除对象的示例代码如下：</p>
+<pre><code>//单个请求每次最多删除50条。
+ var query = new Bmob.Query('diary');
+ query.equalTo(&quot;title&quot;, &quot;后端云&quot;);
+          query.find().then(function (todos) {
+            return Bmob.Object.destroyAll(todos);
+          }).then(function (todos) {
+            console.log(todos);
+            // 删除成功
+          }, function (error) {
+            // 异常处理
+          });
+</code></pre>
+
+<p>如果你想将查询出来的对象都删除，或者删除符合查询条件的所有对象，可以调用<code>destroyAll</code>方法，示例代码如下：</p>
+<pre><code>query.destroyAll({
+   success: function(){
+      //删除成功
+   },
+   error: function(err){
+      // 删除失败
+   }
+   });
+</code></pre>
+
+<h3 id="_35">删除字段<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p>你可以使用<code>unset</code>方法在删除一个字段：</p>
+<pre><code>// 删除playerName字段
+myObject.unset(&quot;title&quot;);
+myObject.save();
+</code></pre>
+
+<h2 id="_36">常见数据类型的操作<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<pre><code>var number = 42;
+var string = &quot;the number is &quot; + number;
+var date = new Date();
+var array = [string, number];
+var object = { number: number, string: string };
+
+var bigObject = new BigObject();
+bigObject.set(&quot;myNumber&quot;, number);
+bigObject.set(&quot;myString&quot;, string);
+bigObject.set(&quot;myDate&quot;, date);
+bigObject.set(&quot;myArray&quot;, array);
+bigObject.set(&quot;myObject&quot;, object);
+bigObject.set(&quot;myNull&quot;, null);
+bigObject.save();
+</code></pre>
+
+<h2 id="_37">数组操作<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<h3 id="_38">添加及更新数组<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<p>为了帮你存储数组类数据，有三种操作你可以原子性地改动一个数组，这需要一个给定的 key：</p>
+<ul>
+<li><code>add</code>在一个数组的末尾加入一个给定的对象。</li>
+<li><code>addUnique</code>只会把原本不存在的对象加入数组，所以加入的位置没有保证。</li>
+</ul>
+<p>比如, 我们想在数组"DiaryType"中加入日记类型：</p>
+<pre><code>Diary.addUnique(&quot;DiaryType&quot;, &quot;public&quot;);
+Diary.addUnique(&quot;DiaryType&quot;, &quot;secret&quot;);
+Diary.save();
+</code></pre>
+
+<h3 id="_39">数组查询<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<p>对于value是数组的情况，你可以这样查询数组中的值有<code>2</code>的情况的对象：</p>
+<pre><code>// Find objects where the array in DiaryType contains public.
+query.equalTo(&quot;DiaryType&quot;,&quot;public&quot;);
+</code></pre>
+
+<p>你同样可以用下面的方式找到同时包含元素<code>2、3、4</code>的数组：</p>
+<pre><code>// Find objects where the array in DiaryType contains all of the elements public,secret.
+query.containsAll(&quot;DiaryType&quot;, [&quot;public&quot;,&quot;secret&quot;]);
+</code></pre>
+
+<h3 id="_40">删除数组<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<p><code>remove</code>在一个数组中删除所有指定的所有实例：</p>
+<pre><code>var Diary = Bmob.Object.extend(&quot;diary&quot;);
+var query = new Bmob.Query(Diary);
+query.get(&quot;bc5da708dc&quot;,{
+  success: function(result) {
+    result.remove(&quot;DiaryType&quot;,&quot;public&quot;);
+    result.save();
+  },
+  error: function(error) {
+    console.log(&quot;Error: &quot; + error.code + &quot; &quot; + error.message);
+  }
+});
+</code></pre>
+
+<h2 id="_41">批量操作<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<h3 id="_42">批量更新示例<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<pre><code>
+把Todo表title所有为Bmob的更新为Bmob后端云
+var query = new bmob.Query('Todo');
+query.equalTo(&quot;title&quot;, &quot;bmob&quot;);
+query.find().then(function(todos) {
+    todos.forEach(function(todo) {
+        todo.set('title', &quot;Bmob后端云&quot;);
+    });
+    return bmob.Object.saveAll(todos);
+}).then(function(todos) {
+    // 更新成功
+},
+function(error) {
+    // 异常处理
+});
+
+</code></pre>
+
+<h2 id="_43">批量增删改<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<pre><code>var objects = []; // 构建一个本地的 bmob.Object 对象数组
+// 批量创建（更新）
+bmob.Object.saveAll(objects).then(function(objects) {
+    // 成功
+},
+function(error) {
+    // 异常处理
+});
+// 批量删除
+bmob.Object.destroyAll(objects).then(function() {
+    // 成功
+},
+function(error) {
+    // 异常处理
+});
+// 批量获取
+bmob.Object.fetchAll(objects).then(function(objects) {
+    // 成功
+},
+function(error) {
+    // 异常处理
+});
+</code></pre>
+
+<h3 id="_44">批量删除示例<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<pre><code>    var objects = new Array()
+    objects.push({ &quot;id&quot;: &quot;1e9b9a093e&quot;, &quot;className&quot;: &quot;diary&quot; })
+
+    // 批量删除
+    Bmob.Object.destroyAll(objects).then(function () {
+      // 成功
+    },
+      function (error) {
+        // 异常处理
+      });
+</code></pre>
+
+<h3 id="_45">批量增加更新示例<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<pre><code>// 创建Bmob.Object子类
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+    var objects = new Array();
+    for (var i = 0; i &lt; 5; i++) {
+      // 创建该类的一个实例
+      var diary = new Diary();
+      diary.set('title', 'aaaa')
+      diary.set('content', 'dfdfdjjj')
+      objects.push(diary)
+    }
+
+    // 批量创建（更新）
+    Bmob.Object.saveAll(objects).then(function (objects) {
+      // 成功
+      console.log(&quot;批量更新成功&quot;, objects);
+    },
+      function (error) {
+        // 异常处理
+        console.log(&quot;异常处理&quot;);
+      });
+
+      修改传
+      diary.set('objectId', 'ba74dc1f09')
+</code></pre>
+
+<h2 id="_46">数据关联<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
+<h3 id="_47">添加及修改关联关系<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<h4 id="_48">一对一关系和一对多关系<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<p>一对一关系和一对多关系都可以通过在一个<code>Bmob.Object</code>内保存另一个对象来实现。比如，每一个 Comment都对应了一个Post，创建一个有一个Comment的Post，你可以这样写：</p>
+<pre><code>
+// Declare the types.
+var Post = Bmob.Object.extend(&quot;Post&quot;);
+var Comment = Bmob.Object.extend(&quot;Comment&quot;);
+
+// Create the post
+var myPost = new Post();
+myPost.set(&quot;title&quot;, &quot;I'm Hungry&quot;);
+myPost.set(&quot;content&quot;, &quot;Where should we go for lunch?&quot;);
+
+// Create the comment
+var myComment = new Comment();
+myComment.set(&quot;content&quot;, &quot;Let's do Sushirrito.&quot;);
+
+// Add the post as a value in the comment
+myComment.set(&quot;parent&quot;, myPost);
+
+// This will save both myPost and myComment
+myComment.save();
+
+</code></pre>
+
+<p>Bmob内部会自动处理，调用Comment的<code>save</code>方法就可以同时保存两个新对象。</p>
+<p>如果是现有对象想要关联到新对象，你同样可以通过只用它们的<code>objectId</code>来连接彼此。请注意，不能直接像上面的例子那样将现有对象设置进去，而是必须<code>new</code>一个新对象并只设置<code>id</code>属性：</p>
+<pre><code>var post = Bmob.Object.createWithoutData(&quot;Post&quot;, &quot;320b0395f3&quot;);
+myComment.set(&quot;parent&quot;, post);
+</code></pre>
+
+<p>或者：</p>
+<pre><code>var post = new Post();
+post.id = '520c7e1ae4b0a3ac9ebe326a';
+myComment.set(&quot;parent&quot;, post);
+</code></pre>
+
+<p>如果希望查询结果中包含多个相关联的其他数据类型。你可以使用 include 方 法。例如有个comments，你可能想同时获取它们相关的 post 数据:</p>
+<pre><code>var query = new Bmob.Query(Comment);
+
+query.include(&quot;post&quot;);
+
+</code></pre>
+
+<p>可以这样获取include对象的属性:</p>
+<pre><code>obj.get(&quot;inloudeObj&quot;).field
+</code></pre>
+
+<p>查出用户发表的日志示例</p>
+<pre><code>    var objectId,that=this;
+    var currentUser = Bmob.User.current();
+    objectId = currentUser.id;
+
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+    var query = new Bmob.Query(Diary);
+    var isme = new Bmob.User();
+    isme.id = objectId;     //当前用户的objectId
+    query.equalTo(&quot;own&quot;, isme);
+    query.descending('createdAt');  //排序
+    query.include(&quot;own&quot;);  //own 字段名称，类型 Pointer
+
+    // 查询所有数据
+    query.limit(that.data.limit);
+    query.find({
+      success: function (results) {
+        that.setData({
+          diaryList: results
+        })
+      },
+      error: function (error) {
+        console.log(&quot;查询失败: &quot; + error.code + &quot; &quot; + error.message);
+      }
+    });
+</code></pre>
+
+<p>wxml文件调用</p>
+<pre><code>&lt;view class=&quot;weui-media-box weui-media-box_text&quot; wx:for=&quot;{{diaryList}}&quot; wx:key=&quot;diaryItem&quot;&gt;
+日志标题：
+{{item.title}}
+用户表的日志作者：
+{{item.own.nickName}}
+&lt;/view&gt;
+
+</code></pre>
+
+<h2 id="_49">原子计数器<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
+<p>许多应用都需要维持一些计数器数据，譬如用来跟踪心情被点赞数目等等。Bmob提供了便捷的方式来对任何数字字段进行原子性的增加或者减少：</p>
+<pre><code>Diary.increment(&quot;isLike&quot;);
+Diary.save();
+</code></pre>
+
+<p>你可以同样传入第二个参数到<code>increment</code>方法来指定增加多少，<code>1</code>是默认值。</p>
+<h2 id="_50">文件上传<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h2>
+<h3 id="_51">文件上传<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<p>文件上传，例如，我们从本地上传一张图片到服务器，名称为"1.jpg"，可用以下代码：</p>
+<p>在js中添加以下代码：</p>
+<pre><code>wx.chooseImage({
+  count: 1, // 默认9
+  sizeType: [ 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+  sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+  success: function (res) {
+      var tempFilePaths = res.tempFilePaths;
+      if(tempFilePaths.length&gt;0){
+          var name=&quot;1.jpg&quot;;//上传的图片的别名，建议可以用日期命名
+          var file=new Bmob.File(name,tempFilePaths);
+          file.save().then(function(res){
+            console.log(res.url());
+          },function(error){
+            console.log(error);
+          })
+      }
+
+  }
+})
+
+#### PS： 特别注意的是 `tempFilePaths` 是微信返回的数组。
+
+</code></pre>
+
+<h3 id="_52">图片批量上传<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<p>图片批量上传，我们只需要for循环一下上面的就好，一下示例代码。</p>
+<pre><code>upImg: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 9, // 默认9
+      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        wx.showNavigationBarLoading()
+        that.setData({
+          loading: false
+        })
+        var urlArr = new Array();
+        // var urlArr={};
+        var tempFilePaths = res.tempFilePaths;
+        console.log(tempFilePaths)
+        var imgLength = tempFilePaths.length;
+        if (imgLength &gt; 0) {
+          var newDate = new Date();
+          var newDateStr = newDate.toLocaleDateString();
+
+          var j = 0;
+          //如果想顺序变更，可以for (var i = imgLength; i &gt; 0; i--)
+          for (var i = 0; i &lt; imgLength; i++) {
+            var tempFilePath = [tempFilePaths[i]];
+            var extension = /\.([^.]*)$/.exec(tempFilePath[0]);
+            if (extension) {
+              extension = extension[1].toLowerCase();
+            }
+            var name = newDateStr + &quot;.&quot; + extension;//上传的图片的别名
+
+            var file = new Bmob.File(name, tempFilePath);
+            file.save().then(function (res) {
+              wx.hideNavigationBarLoading()
+              var url = res.url();
+              console.log(&quot;第&quot; + i + &quot;张Url&quot; + url);
+
+              urlArr.push({ &quot;url&quot;: url });
+              j++;
+              console.log(j, imgLength);
+              // if (imgLength == j) {
+              //   console.log(imgLength, urlArr);
+              //如果担心网络延时问题，可以去掉这几行注释，就是全部上传完成后显示。
+                showPic(urlArr, that)
+              // }
+
+            }, function (error) {
+              console.log(error)
+            });
+
+          }
+
+
+
+
+        }
+
+      }
+    })
+  }
+})
+
+
+
+//上传完成后显示图片
+function showPic(urlArr, t) {
+  t.setData({
+    loading: true,
+    urlArr: urlArr
+  })
+}
+
+</code></pre>
+
+<h3 id="_53">文件删除<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<pre><code>var path;
+path = &quot;http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png&quot;;
+var s = new Bmob.Files.del(path).then(function(res) {
+    if (res.msg == &quot;ok&quot;) {
+        console.log('删除成功');
+    }
+},
+function(error) {
+    console.log(error)
+});
+</code></pre>
+
+<h2 id="_54">图片处理<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h2>
+<p>新版文件服务由第三方厂商又拍云提供，只需要在文件上传成功返回的url后面拼接特定参数即可实现缩放，缩略图，加水印等效果，<a href="http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png!/scale/80/watermark/text/5rC05Y2wCg==">如图</a>，具体可参考<a href="http://docs.upyun.com/cloud/image/">这里</a> 。</p>
+<h2 id="promise">Promise<a class="headerlink" href="#promise" title="Permanent link">&para;</a></h2>
+<p>除了回调函数之外，每一个在Bmob JavaScript SDK中的异步方法都会返回一个 Promise. 使用 Promise，你的代码可以比原来的嵌套 callback 的方法看起来优雅得多.</p>
+<h3 id="then">then 方法<a class="headerlink" href="#then" title="Permanent link">&para;</a></h3>
+<p>每一个<code>Promise</code>都有一个叫<code>then</code>的方法, 这个方法接受一对<code>callback</code>。第一个<code>callback</code>在<code>promise</code>被解决的时候调用，第二个会在<code>promise</code>被拒绝的时候调用。</p>
+<pre><code>obj.save().then(function(obj) {
+  // the object was saved successfully.
+}, function(error) {
+  // the save failed.
+});
+</code></pre>
+
+<h3 id="promise_1">将Promise 组织在一起<a class="headerlink" href="#promise_1" title="Permanent link">&para;</a></h3>
+<p><code>Promise</code>比较神奇，可以代替多层嵌套方式来解决发送异步请求代码的调用顺序问题。 如果一个<code>Promise</code>的回调会返回一个<code>Promise</code>，那么第二个<code>then</code>里的<code>callback</code>在第一个<code>then</code>的<code>callback</code>没有解决前是不会解决的。</p>
+<pre><code>var query = new Bmob.Query(&quot;Student&quot;);
+query.descending(&quot;gpa&quot;);
+query.find().then(function(students) {
+  students[0].set(&quot;valedictorian&quot;, true);
+  return students[0].save();
+
+}).then(function(valedictorian) {
+  return query.find();
+
+}).then(function(students) {
+  students[1].set(&quot;salutatorian&quot;, true);
+  return students[1].save();
+
+}).then(function(salutatorian) {
+  // Everything is done!
+
+});
+</code></pre>
+
+<h3 id="_55">错误处理<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<p>如果任意一个在链中的<code>Promise</code>返回一个错误的话，所有的成功的<code>callback</code>在接下来都会被跳过直到遇到一个处理错误的<code>callback</code>。处理<code>error</code>的<code>callback</code>可以转换<code>error</code>或者可以通过返回一个新的<code>Promise</code>的方式来处理它。你可以想象成拒绝的<code>promise</code>有点像异常，而<code>error callback</code>则像是一个<code>catch</code>来处理这个异常或者抛出异常。</p>
+<pre><code>var query = new Bmob.Query(&quot;Student&quot;);
+query.descending(&quot;gpa&quot;);
+query.find().then(function(students) {
+  students[0].set(&quot;valedictorian&quot;, true);
+  // Force this callback to fail.
+  return Bmob.Promise.error(&quot;There was an error.&quot;);
+
+}).then(function(valedictorian) {
+  // Now this will be skipped.
+  return query.find();
+
+}).then(function(students) {
+  // This will also be skipped.
+  students[1].set(&quot;salutatorian&quot;, true);
+  return students[1].save();
+}, function(error) {
+  // This error handler WILL be called. error will be &quot;There was an error.&quot;.
+  // Let's handle the error by returning a new promise.
+  return Bmob.Promise.as(&quot;Hello!&quot;);
+
+}).then(function(hello) {
+  // Everything is done!
+}, function(error) {
+  // This isn't called because the error was already handled.
+});
+</code></pre>
+
+<p>通常来说，在正常情况的回调函数链的末尾，加一个错误处理的回调函数会是很方便的做法.</p>
+<h3 id="promise_2">创建 Promise<a class="headerlink" href="#promise_2" title="Permanent link">&para;</a></h3>
+<p>在开始阶段，你可以只用系统（譬如<code>find</code>和<code>save</code>方法等）返回的<code>promise</code>。但在更高级的场景下，你可能需要创建自己的<code>promise</code>。在创建了<code>Promise</code>之后，你需要调用<code>resolve</code>或者<code>reject</code>来触发它的<code>callback</code>。</p>
+<pre><code>var successful = new Bmob.Promise();
+successful.resolve(&quot;The good result.&quot;);
+
+var failed = new Bmob.Promise();
+failed.reject(&quot;An error message.&quot;);
+</code></pre>
+
+<p>如果你在创建<code>promise</code>的时候就知道它的结果，下面有两个很方便的方法可以使用：</p>
+<pre><code>var successful = Bmob.Promise.as(&quot;The good result.&quot;);
+var failed = Bmob.Promise.error(&quot;An error message.&quot;);
+</code></pre>
+
+<h3 id="promise_3">顺序的Promise<a class="headerlink" href="#promise_3" title="Permanent link">&para;</a></h3>
+<pre><code>var query = new Bmob.Query(&quot;Comments&quot;);
+query.equalTo(&quot;post&quot;, 123);
+
+query.find().then(function(results) {
+  // Create a trivial resolved promise as a base case.
+  var promise = Bmob.Promise.as();
+  _.each(results, function(result) {
+    // For each item, extend the promise with a function to delete it.
+    promise = promise.then(function() {
+      // Return a promise that will be resolved when the delete is finished.
+      return result.destroy();
+    });
+  });
+  return promise;
+
+}).then(function() {
+  // Every comment was deleted.
+});
+</code></pre>
+
+<h3 id="promise_4">并行的Promise<a class="headerlink" href="#promise_4" title="Permanent link">&para;</a></h3>
+<p>你也可以用<code>Promise</code>来并行的进行多个任务，这时需要使用<code>when</code>方法。你可以一次同时开始几个操作，使用<code>Bmob.Promise.when</code>来创建一个新的<code>promise</code>，它会在所有输入的<code>Promise</code>被解决之后才被解决。即便一些输入的<code>promise</code>失败了，新的<code>Promise</code>也会被成功执行。你可以在 <code>callback</code>的参数部分检查每一个<code>promise</code>的结果，并行地进行操作会比顺序进行更快，但是也会消耗更多的系统资源和带宽。</p>
+<pre><code>var query = new Bmob.Query(&quot;Comments&quot;);
+query.equalTo(&quot;post&quot;, 123);
+
+query.find().then(function(results) {
+  // Collect one promise for each delete into an array.
+  var promises = [];
+  _.each(results, function(result) {
+    // Start this delete immediately and add its promise to the list.
+    promises.push(result.destroy());
+  });
+  // Return a new promise that is resolved when all of the deletes are finished.
+  return Bmob.Promise.when(promises);
+
+}).then(function() {
+  // Every comment was deleted.
+});
+</code></pre>
+
+<h3 id="_56">创建异步方法<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<p>有了上面这些工具以后, 就很容易创建你自己的异步方法来返回<code>promise</code>了。举例说，你可以创建一个有<code>promise</code>版本的<code>setTimeout</code>。</p>
+<pre><code>var delay = function(millis) {
+  var promise = new Bmob.Promise();
+  setTimeout(function() {
+    promise.resolve();
+  }, millis);
+  return promise;
+};
+
+delay(100).then(function() {
+  // This ran after 100ms!
+});
+</code></pre>
+
+<h2 id="collection">Collection<a class="headerlink" href="#collection" title="Permanent link">&para;</a></h2>
+<p>一个<code>Bmob.Collection</code>就是一个<code>Bmob.Objects</code>的有序集合，它和<code>Backbone.Collection</code>是兼容的，有相同的特性和功能，你可以通过用一个模型类或者一个特定的<code>Bmob.Query</code>来创建一个新的子类。</p>
+<pre><code>// A Collection containing all instances of TestObject.
+var TestCollection = Bmob.Collection.extend({
+  model: TestObject
+});
+var collection = new TestCollection();
+
+// A Collection of TestObjects whose temperature is &quot;hot&quot;.
+var HotCollection = Bmob.Collection.extend({
+  model: TestObject,
+  query: (new Bmob.Query(TestObject)).equalTo(&quot;temperature&quot;, &quot;hot&quot;)
+});
+var collection = new HotCollection();
+
+// The Collection of TestObjects that match a complex query.
+var query = new Bmob.Query(TestObject);
+query.equalTo(&quot;temperature&quot;, &quot;hot&quot;);
+query.greaterThan(&quot;degreesF&quot;, 100);
+var collection = query.collection();
+</code></pre>
+
+<h3 id="collection_1">获取Collection<a class="headerlink" href="#collection_1" title="Permanent link">&para;</a></h3>
+<p>使用<code>fetch</code>方法来获取一个<code>collection</code>里的所有元素:</p>
+<pre><code>var collection = new TestCollection();
+collection.fetch({
+  success: function(collection) {
+    collection.each(function(object) {
+      console.warn(object);
+    });
+  },
+  error: function(collection, error) {
+    // The collection could not be retrieved.
+  }
+});
+</code></pre>
+
+<h3 id="collection_2">Collection 排序<a class="headerlink" href="#collection_2" title="Permanent link">&para;</a></h3>
+<p>你可以设定一个<code>comparator</code>来对<code>collection</code>中的元素进行排序:</p>
+<pre><code>var collection = new TestCollection();
+collection.comparator = function(object) {
+  return object.get(&quot;temperature&quot;);
+};
+</code></pre>
+
+<h3 id="collection_3">修改一个 Collection<a class="headerlink" href="#collection_3" title="Permanent link">&para;</a></h3>
+<p><code>Collection</code>是可变的，你可以访问所有元素，增加或者删除元素：</p>
+<pre><code>var collection = new TestCollection();
+
+collection.add([
+  {&quot;name&quot;: &quot;Duke&quot;},
+  {&quot;name&quot;: &quot;Scarlett&quot;}
+]);
+
+// Get the &quot;Duke&quot; Bmob.Object by its sorted position.
+var model = collection.at(0);
+
+// Or you can get it by Bmob objectId.
+var modelAgain = collection.get(model.id);
+
+// Remove &quot;Duke&quot; from the collection.
+collection.remove(model);
+
+// Completely replace all items in the collection.
+collection.reset([
+  {&quot;name&quot;: &quot;Hawk&quot;},
+  {&quot;name&quot;: &quot;Jane&quot;}
+]);
+</code></pre>
+
+<h2 id="_57">用户<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
+<p>在许多应用中，都有一个用户账户的概念，用户账户让用户可以用安全的方式访问他们自己的信息。我们提供了一个特殊的用户类叫<code>Bmob.User</code>来自动处理有关用户的账户管理的功能。</p>
+<p><code>Bmob.User</code>是<code>Bmob.Object</code>的一个子类，而且有<code>Bmob.Object</code>一样的功能，比如可变的模式、自动的持久化、键值对接口等。所有对<code>Bmob.Object</code>有用的方法同样可以作用于<code>Bmob.User</code>。<code>Bmob.User</code>的不同之处在于<code>Bmob.User</code>对于用户的账户有一些特定的功能。</p>
+<h3 id="_58">属性<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+<p><code>Bmob.User</code>有一些与<code>Bmob.Object</code>不一样的字段:
+<code>username</code>：用户的用户名（必须提供）
+<code>password</code>：用户的密码（在注册的时候必须提供）
+<code>email</code>：用户的 email（可选）
+<code>userData</code>：每个微信用户的唯一标识，包括用户openId、expires_in、session_key（可选,自行创建，Object类型）
+我们会在下面的用例中详细介绍细节</p>
+<h3 id="_59">注册一<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
+<p><strong>登录注册集合类，接口默认第一次注册，否则返回用户信息</strong></p>
+<p>首先要在_User表新建一个用来存用户唯一标识的字段，例如：userData(Object类型)，然后在js中插入以下代码：</p>
+<p>V3.5 版本优化上面代码登陆只需在app.js 加入2行代码</p>
+<pre><code>onLaunch: function() {
+    var user = new Bmob.User() //实例化用户对象
+    user.auth()
+  },
+</code></pre>
+
+<blockquote>
+<p>2018-5-10号以后微信废除了<code>wx.getUserInfo</code> 方法，如需数据库保存用户昵称与头像，请看微信官方就教程更新到用户表。</p>
+</blockquote>
+<h3 id="_60">注册二<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
+<p><strong>使用用户账号密码进行注册</strong></p>
+<p>通常你的app第一件要做的事情就是让用户进行注册，这里把用户密码设置为<code>Openid</code>，下面的代码展示了怎样进行微信注册的过程（包括获取用户的唯一标识）：</p>
+<p>首先要在_User表新建一个用来存用户唯一标识的字段，例如：userData(Object类型)，然后在js中插入以下代码：</p>
+<pre><code>wx.login({
+  success: function(res) {
+    if (res.code) {
+        Bmob.User.requestOpenId(res.code, {//获取userData(根据个人的需要，如果需要获取userData的需要在应用密钥中配置你的微信小程序AppId和AppSecret，且在你的项目中要填写你的appId)
+          success: function(userData) {
+              wx.getUserInfo({
+                  success: function(result) {
+                    var userInfo = result.userInfo
+                    var nickName = userInfo.nickName
+
+                    var user = new Bmob.User();//开始注册用户
+                    user.set(&quot;username&quot;, nickName);
+                    user.set(&quot;password&quot;, userData.openid);//因为密码必须提供，但是微信直接登录小程序是没有密码的，所以用openId作为唯一密码
+                    user.set(&quot;userData&quot;, userData);
+                    user.signUp(null, {
+                        success: function(res) {
+                          console.log(&quot;注册成功!&quot;);
+                        },
+                        error: function(userData, error) {
+                          console.log(error)
+                        }
+                    });
+                  }
+              })
+          },
+          error: function(error) {
+              // Show the error message somewhere
+              console.log(&quot;Error: &quot; + error.code + &quot; &quot; + error.message);
+          }
+      });
+
+    } else {
+      console.log('获取用户登录态失败！' + res.errMsg)
+    }
+  }
+});
+</code></pre>
+
+<p>这个调用会异步地在在你的应用中创建一个新的用户。在它这样做之前，它同样会确认用户名和<code>email</code>在应用内都是唯一的。同样，我们从不会将用户密码以明文向任何客户端发送。</p>
+<p>注意我们使用了<code>signUp</code>方法而不是<code>save</code>方法，新的<code>Bmob.User</code>永远应该使用<code>signUp</code>方法来新建。而随后的用户的信息更新可以调用<code>save</code>来做。</p>
+<p>如果一个<code>signup</code>没有成功的话，你应该读取返回的错误对象。最常见的问题是<code>username</code>或者<code>email</code>已经被其他用户所使用了。你应该清楚地反馈给你的用户，让他们再次用一个不同的用户名来注册。</p>
+<p>你也可以使用<code>email</code>来作为用户名，只要求你的用户输入他们的<code>email</code>但是同时自动填充好<code>username</code>属性就可以了，<code>Bmob.User</code>会跟原来一样工作，我们会在下面的重设密码环节再次说明这个细节。</p>
+<blockquote></blockquote>
+<h3 id="app">登录（自有账户密码登录，适合APP迁移过来的用户）<a class="headerlink" href="#app" title="Permanent link">&para;</a></h3>
+<p>如果你要求你的用户用你自己设计的注册页面注册后，当然应该让他们在以后用自己的账户登录进来，你可以使用<code>logIn</code>方法来进行登陆：</p>
+<pre><code>Bmob.User.logIn(&quot;myname&quot;, &quot;mypass&quot;, {
+  success: function(user) {
+    // Do stuff after successful login.
+  },
+  error: function(user, error) {
+    // The login failed. Check error to see why.
+  }
+});
+</code></pre>
+
+<h3 id="email">验证 Email<a class="headerlink" href="#email" title="Permanent link">&para;</a></h3>
+<p>在application设置中启用email验证可以让你的应用给最终用户一些更安全的使用体验，譬如部分功能只开放给验证过邮箱的用户使用等等。Email验证会在<code>Bmob.User</code>上加入一个<code>emailVerified</code>字段。当一个<code>Bmob.User</code>的<code>email</code>被设定或者修改后,<code>emailVerfied</code>会被设定为<code>false</code>。Bmob 会向用户的<code>email</code>来发送一个链接，点击这个链接会设置<code>emailVerified</code>为<code>true</code>：</p>
+<p>有三种<code>emailVerified</code>状态可以供参考：</p>
+<ol>
+<li><code>true</code>：用户已经通过点击Bmob发过来的链接来确认邮箱地址. 当用户账户新创建的时候这个值永远不应该是true。</li>
+<li><code>false</code>：在 <code>Bmob.User</code>对象最后一次刷新的时候，用户还是没有确认他们的<code>email</code>地址，如果<code>emailVerified</code>是false 的话，你应该考虑调用<code>Bmob.User</code>的<code>fetch</code>方法。</li>
+<li><code>missing</code>：<code>Bmob.User</code>被创建了，但是当时的<code>email</code>验证功能还没有开启, 或者说<code>Bmob.User</code>没有email地址。</li>
+</ol>
+<p>代码例子如下：console.log</p>
+<pre><code>//reset password
+ Bmob.User.requestEmailVerify(&quot;h6k65@126.com&quot;, {
+  success: function() {
+    // Password reset request was sent successfully
+  },
+  error: function(error) {
+    // Show the error message somewhere
+    console.log(&quot;Error: &quot; + error.code + &quot; &quot; + error.message);
+  }
+});
+</code></pre>
+
+<h3 id="_61">当前用户<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<p>如果用户每次打开App的时候都要求登录无疑是令人感到厌烦的，你可以通过缓存当前的<code>Bmob.User</code>对象来避免这个问题。</p>
+<p>无论你使用任何注册或者登录方法，用户都会在<code>localStorage</code>中储存，你可以把缓存作为一个<code>session</code>对待，并且自动假设用户已经登录了。</p>
+<pre><code>var currentUser = Bmob.User.current();
+if (currentUser) {
+    // do stuff with the user
+} else {
+    // show the signup or login page
+}
+</code></pre>
+
+<p>你可以通过<code>logout</code>来清除掉当前的用户：</p>
+<pre><code>Bmob.User.logOut();
+
+var currentUser = Bmob.User.current();  // this will now be null
+</code></pre>
+
+<h3 id="_62">修改当前用户信息<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
+<p>修改本地缓存信息</p>
+<pre><code>var User = Bmob.Object.extend(&quot;_User&quot;);
+var query = new Bmob.Query(User);
+// 这个 id 是要修改条目的 id，你在生成这个存储并成功时可以获取到，请看前面的文档
+query.get(objectId, {
+  success: function (result) {
+    // 回调中可以取得这个 diary 对象的一个实例，然后就可以修改它了
+    result.set('mobilePhoneNumber', phone);
+    result.save().then(function (res) {
+      // 修改本地缓存
+      var currentUser = Bmob.User.current();
+      if (currentUser) {
+        currentUser.set(&quot;mobilePhoneNumber&quot;, phone);
+        Bmob.User._saveCurrentUser(currentUser);
+      }
+      // The object was retrieved successfully.
+      common.showTip(&quot;修改手机号成功&quot;, &quot;success&quot;, function () {
+        setTimeout(function () {
+          wx.navigateBack();
+        }, 1000)
+      });
+    }, function (err) {
+      // The object was retrieved successfully.
+      console.log(err)
+    });
+  })
+})
+</code></pre>
+
+<h3 id="_63">用户对象的安全<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h3>
+<p><code>Bmob.User</code>类默认就是受保护的，在<code>Bmob.User</code>中保存的数据只能被那个用户所修改。默认地，数据仍然可以被任意客户端所读取。这样就是说，有些<code>Bmob.User</code>对象被认证后是可以修改的，其他的仍然是只读的。</p>
+<p>特别的，你不能调用<code>save</code>或者<code>delete</code>方法除非<code>Bmob.User</code>经过了认证，就比如调用过了<code>logIn</code>或者<code>signUp</code>方法，这样保证只有用户能改动他们自身的数据。</p>
+<p>下面的代码展示了上面说的安全策略：</p>
+<pre><code>var user = Bmob.User.logIn(&quot;my_username&quot;, &quot;my_password&quot;, {
+  success: function(user) {
+    user.set(&quot;username&quot;, &quot;my_new_username&quot;);  // attempt to change username
+    user.save(null, {
+      success: function(user) {
+        // This succeeds, since the user was authenticated on the device
+
+        // Get the user from a non-authenticated method
+        var query = new Bmob.Query(Bmob.User);
+        query.get(user.objectId, {
+          success: function(userAgain) {
+            userAgain.set(&quot;username&quot;, &quot;another_username&quot;);
+            userAgain.save(null, {
+              error: function(userAgain, error) {
+                // This will error, since the Bmob.User is not authenticated
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+});
+</code></pre>
+
+<p>从<code>Bmob.User.current()</code>获取的<code>Bmob.User</code>总是已经通过验证了的。</p>
+<p>如果你需要查看一个<code>Bmob.User</code>是否已经认证过了，你可以调用<code>authenticated</code>方法，你不需要查看一个认证方法中返回的<code>Bmob.User</code>对象是否已经通过验证了。</p>
+<h3 id="_64">其他对象的安全<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h3>
+<p>和<code>Bmob.User</code>相同的安全模型也使用于其他对象。对于任何对象来说，你可以指定哪些用户会被允许读取对象，哪些用户被允许修改对象。为了支持这种安全机制，每一个对象都有一个允许访问列表 (ACL)，是被<code>Bmob.ACL</code>类所实现的。</p>
+<p>使用一个<code>Bmob.ACL</code>最简单的方式是指定一个对象只能被一个单一的用户读或者写。为了创建这样的对象，首先必须有一个已经登录的<code>Bmob.User</code>。然后，新的<code>Bmob.ACL(user)</code>生成一个<code>Bmob.ACL</code>来限定<code>user</code>的访问。一个对象的ACL会在对象保存的时候被存储起来，就像其他的属性一样，这样，为了创建一个当前user私有的一个note：</p>
+<pre><code>var Note = Bmob.Object.extend(&quot;Note&quot;);
+var privateNote = new Note();
+privateNote.set(&quot;content&quot;, &quot;This note is private!&quot;);
+privateNote.setACL(new Bmob.ACL(Bmob.User.current()));
+privateNote.save();
+</code></pre>
+
+<p>这个note只能由当前的用户所访问，但是可以在用户登录的任何设备上访问，只要是相同的用户就可以了。这项功能对于你如果想让用户再任何其他的设备上保存和访问数据十分有用，比如说一个私人的todo list应用。</p>
+<p>权限也能在使用者的基础上授予，你可以通过<code>setReadAccess</code>和<code>setWriteAccess</code>方法独立的向<code>Bmob.ACL</code>中添加权限。比如，假设你有一条消息想要发送给一个组里的多个用户，他们中的每一个都有读和写的权限：</p>
+<pre><code>var Message = Bmob.Object.extend(&quot;Message&quot;);
+var groupMessage = new Message();
+var groupACL = new Bmob.ACL();
+
+// userList is an array with the users we are sending this message to.
+for (var i = 0; i &lt; userList.length; i++) {
+  groupACL.setReadAccess(userList[i], true);
+  groupACL.setWriteAccess(userList[i], true);
+}
+
+groupMessage.setACL(groupACL);
+groupMessage.save();
+</code></pre>
+
+<p>你同样可以对所有的用户授权，只要使用<code>setPublicReadAccess</code>和<code>setPublicWriteAccess</code>就可以了。这样允许了在一个消息板上发评论的模式，比如，我们要创建一个post只能被它的作者修改，但是可以被所有人读取：</p>
+<pre><code>var publicPost = new Post();
+var postACL = new Bmob.ACL(Bmob.User.current());
+postACL.setPublicReadAccess(true);
+publicPost.setACL(postACL);
+publicPost.save();
+</code></pre>
+
+<p>比如说删除一个对象，但是你没有写的权限这种操作是禁止的，这样会返回一个<code>Bmob.Error.OBJECT_NOT_FOUND</code>的错误码，为了安全起见，这样防止了客户端区分出到底有哪些对象被创建了但是无法读取还是根本不存在。</p>
+<h3 id="_65">重设密码<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h3>
+<p>在现实中只要你引入了密码系统，总会有用户会忘掉他们的密码。在这种情形下，我们的库提供一个让他们安全地重设密码的功能。</p>
+<p>为了能让用户重设密码，应该要求用户提供他们的email地址，然后这样调用：</p>
+<pre><code> Bmob.User.requestPasswordReset(&quot;test@126.com&quot;, {
+  success: function() {
+    // Password reset request was sent successfully
+  },
+  error: function(error) {
+    // Show the error message somewhere
+    console.log(&quot;Error: &quot; + error.code + &quot; &quot; + error.message);
+  }
+});
+</code></pre>
+
+<p>这样会尝试匹配给定的email和用户的email或者username字段，然后会发送用户的密码重设邮件。由于我们是这样做的，所以你可以选择用户是否拿email作为他们的用户名，或者说用户把email作为用户的另一个信息保存。</p>
+<p>密码重设的流程如下:</p>
+<ol>
+<li>用户输入email来请求重设他们的密码。</li>
+<li>Bmob向用户的email地址发送邮件，包含了一个重设密码的链接。</li>
+<li>用户点击这个重设密码的链接，会重定向到一个Bmob页面来允许他们重设密码。</li>
+<li>用户输入新的密码，他们的密码现在会更新为输入的新密码。</li>
+</ol>
+<h3 id="_66">查询<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
+<p>为了查询用户，你可以简单的创建一个<code>Bmob.Query</code>针对<code>Bmob.Users</code>：</p>
+<pre><code>var query = new Bmob.Query(Bmob.User);
+query.equalTo(gender, &quot;female&quot;);  // find all the women
+query.find({
+  success: function(women) {
+    // Do stuff
+  }
+});
+</code></pre>
+
+<h3 id="_67">关联<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h3>
+<p>关联一个<code>Bmob.User</code>的对象可以很快就见效，比如说，假设你有一个blog程序，为了保存一个用户的新post还有读取他们所有的post。</p>
+<pre><code>var user = Bmob.User.current();
+
+// Make a new post
+var Post = Bmob.Object.extend(&quot;Post&quot;);
+var post = new Post();
+post.set(&quot;title&quot;, &quot;My New Post&quot;);
+post.set(&quot;body&quot;, &quot;This is some great content.&quot;);
+post.set(&quot;user&quot;, user);
+post.save(null, {
+  success: function(post) {
+    // Find all posts by the current user
+    var query = new Bmob.Query(Post);
+    query.equalTo(&quot;user&quot;, user);
+    query.find({
+      success: function(usersPosts) {
+        // userPosts contains all of the posts by the current user.
+      }
+    });
+  }
+});
+</code></pre>
+
+<h2 id="acl">ACL和角色<a class="headerlink" href="#acl" title="Permanent link">&para;</a></h2>
+<p>数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看<a href="http://doc.bmob.cn/other/data_safety/">Bmob数据与安全页面</a>，了解Bmob如何保护数据安全）。</p>
+<p>其中，最灵活的方法是通过ACL和角色，它的思路是每一条数据有一个用户和角色的列表，以及这些用户和角色拥有什么样的许可权限。</p>
+<p>大多数应用程序需要对不同的数据进行灵活的访问和控制，这就可以使用Bmob提供的ACL模式来实现。例如：</p>
+<ul>
+<li>对于私有数据，读写权限可以只局限于数据的所有者。</li>
+<li>对于一个论坛，会员和版主有写的权限，一般的游客只有读的权限。</li>
+<li>对于日志数据只有开发者才能够访问，ACL可以拒绝所有的访问权限。</li>
+<li>属于一个被授权的用户或者开发者所创建的数据，可以有公共的读的权限，但是写入权限仅限于管理者角色。</li>
+<li>一个用户发送给另外一个用户的消息，可以只给这些用户赋予读写的权限。</li>
+</ul>
+<h3 id="acl_1">ACL的格式<a class="headerlink" href="#acl_1" title="Permanent link">&para;</a></h3>
+<p>在Bmob中，ACL是按JSON对象格式（key-value）来表示的。这个JSON对象的key是objectId（用户表某个用户对应的objectId）或者是*(表示公共的访问权限)，ACL 的值是"读和写的权限"，这个JSON对象的key总是权限名，而这些key的值总是true。</p>
+<p>如果您想让一个id为"Kc3M222k"的用户有读和写一条数据的权限，而且这个数据应该可以被全部人读取的话，这个ACL的表达方式如下：</p>
+<pre><code>{
+  &quot;Kc3M222k&quot;: {
+    &quot;read&quot;: true,
+    &quot;write&quot;: true
+  },
+  &quot;*&quot;: {
+    &quot;read&quot;: true
+  }
+}
+</code></pre>
+
+<h3 id="_68">角色和相关操作<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h3>
+<p>在很多情况下，你需要定义一些用户具有某种相同的数据操作权限，而另外一群用户具有另外一种相同的数据操作权限，这时你就可以使用到Bmob的角色（对应Bmob在Web提供的Role表、SDK中的BmobRole类）功能，设置不同的用户组不同的操作权限。角色表有三个特殊字段：</p>
+<p><code>name</code> : 必须字段，表示角色名称,而且只允许被设置一次（命名必须由字母, 空格, 减号或者下划线构成）。</p>
+<p><code>users</code> :一个指向一系列用户的关系, 这些用户会继承角色的权限。</p>
+<p><code>roles</code> : 一个指向一系列子角色的关系, 这些子关系会继承父角色所有的权限。</p>
+<h3 id="_69">创建角色<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h3>
+<pre><code>var roleACL = new Bmob.ACL();
+roleACL.setPublicReadAccess(true);
+var role = new Bmob.Role(&quot;test&quot;, roleACL);
+role.save();
+</code></pre>
+
+<h3 id="_70">角色对象的安全性<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h3>
+<p><code>Bmob.Role</code>使用和其他Bmob对象一样的ACL权限策略, 除开它需要ACL被显式地设置以外。通常来说，只有用户有极大的权限（比如管理员）才应该被允许创建或者更改Role，所以你应该按这种标准来设定Role的ACL。请注意，如果你给了用户一个<code>Bmob.Role</code>一个写权限，这个用户有可能会在这个权限中加入另一个user，或者甚至直接把角色删除掉。</p>
+<p>为了创建一个新的<code>Bmob.Role</code>，你应该如下写：</p>
+<pre><code>// By specifying no write privileges for the ACL, we can ensure the role cannot be altered.
+var roleACL = new Bmob.ACL();
+roleACL.setPublicReadAccess(true);
+var role = new Bmob.Role(&quot;Administrator&quot;, roleACL);
+role.save();
+</code></pre>
+
+<p>你可以通过增加"user"和"roles"关系的成员来在<code>Bmob.Role</code>中加入用户或者子角色：</p>
+<pre><code>var role = new Bmob.Role(roleName, roleACL);
+for (var i = 0; i &lt; usersToAddToRole.length; i++) {
+  role.getUsers().add(usersToAddToRole[i]);
+}
+for (var i = 0; i &lt; rolesToAddToRole.length; i++) {
+  role.getRoles().add(rolesToAddToRole[i]);
+}
+role.save();
+</code></pre>
+
+<p><strong>请非常注意一点，注册角色的ACL的时候，它们只能被应该有权限修改它的人修改。</strong></p>
+<h3 id="_71">其他对象的安全性<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h3>
+<p>现在你应该已经创建了在你的程序中要使用的一系列的角色，你可以用ACL来定义他们的用户可以拥有的权限，每一个<code>Bmob.Object</code>都可以指定一个<code>Bmob.ACL</code>，这样提供了哪些用户或者角色应该有权限来读或者写这个对象。</p>
+<p>将一个读或者写的权限授予一个角色是很直观的，你可以使用<code>Bmob.Role</code>：</p>
+<pre><code>var moderators = /* Query for some Bmob.Role */;
+var wallPost = new Bmob.Object(&quot;WallPost&quot;);
+var postACL = new Bmob.ACL();
+postACL.setRoleWriteAccess(moderators, true);
+wallPost.setACL(postACL);
+wallPost.save();
+</code></pre>
+
+<p>你可以不需要查找这个Role，直接把名字提供给ACL：</p>
+<pre><code>var wallPost = new Bmob.Object(&quot;WallPost&quot;);
+var postACL = new Bmob.ACL();
+postACL.setRoleWriteAccess(&quot;Moderators&quot;, true);
+wallPost.setACL(postACL);
+wallPost.save();
+</code></pre>
+
+<h3 id="_72">角色继承<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h3>
+<p>就像上面所描述的一样，一个角色可能包含其他的角色，表示两个角色之间的父-子关系，这样做的结果就是任何被授予一个角色的权限都会被隐式地授予这个角 色的所有子角色。</p>
+<p>这样的关系很经常会在有用户管理内容的程序之中看到，比如论坛，有一个很少量的用户称为管理员，有最高的权限，比如程序设定、创建新的论坛、设定所有人能看到的内容等等。另一类有一部分类似于"版主" 的用户，这些人有责任保持用户创建的内容是合适的，任何一个"版主"有的权限"管理员"都应该有。为了启用这种关系，你应该使"管理员"成为"版主"的一个子角色。</p>
+<pre><code>var administrators = /* Your &quot;Administrators&quot; role */;
+var moderators = /* Your &quot;Moderators&quot; role */;
+moderators.getRoles().add(administrators);
+moderators.save();
+</code></pre>
+
+<h2 id="_73">地理位置<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h2>
+<h3 id="_74">创建地理位置对象<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h3>
+<p>地理位置对象的创建需要用到<code>Bmob.GeoPoint</code>类，如创建一个地理位置在纬度40度，经度在-30度的点的示例代码如下：</p>
+<pre><code>var point = new Bmob.GeoPoint({latitude: 40.0, longitude: -30.0});
+</code></pre>
+
+<h3 id="_75">查询地理位置对象<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
+<p>现在你可以有一系列的对象可以做空间坐标查询了，如果能轻松地发现有哪些对象离一个点最近就好了。这样可以通过在<code>Bmob.Query</code>中加入一个<code>near</code>来做查询，为了获得离用户最近的10个地点列表，可以这样：</p>
+<pre><code>// location对应Web后台的一个字段名称
+var userGeoPoint = userObject.get(&quot;location&quot;);
+// 创建查询
+var query = new Bmob.Query(PlaceObject);
+// location附近的位置
+query.near(&quot;location&quot;, userGeoPoint);
+// 返回10个地点数据
+query.limit(10);
+// 查询
+query.find({
+  success: function(placesObjects) {
+  }
+});
+</code></pre>
+
+<p>在这时<code>placeObjects</code>会返回一个按离<code>userGeoPoint</code>的距离排序的列表，注意如果一个<code>ascending()/descending()</code>给了查询的话，会取代按距离排序这项特性。</p>
+<p>为了按距离限制返回的结果，你可以使用<code>withinMiles</code>、<code>withinKilometers</code>和<code>withinRadians</code>。</p>
+<p>同样，查询在特定地域的Object是可以的。为了找到用矩形表示的一块地域中的对象，加入<code>withinGeoBox</code>来在<code>Bmob.Query</code>中加入约束。</p>
+<pre><code>var southwestOfSF = new Bmob.GeoPoint(37.708813, -122.526398);
+var northeastOfSF = new Bmob.GeoPoint(37.822802, -122.373962);
+
+var query = new Bmob.Query(PizzaPlaceObject);
+query.withinGeoBox(&quot;location&quot;, southwestOfSF, northeastOfSF);
+query.find({
+  success: function(pizzaPlacesInSF) {
+    ...
+  }
+});
+</code></pre>
+
+<p>一个完整的示例效果如下</p>
+<pre><code>//当前用户位置，40.0改为微信获取到的位置
+var point = new Bmob.GeoPoint({latitude: 40.0, longitude: -30.0});
+query.withinKilometers(&quot;locationGeo&quot;, point, 3000);  //位置周围3000米的数据
+</code></pre>
+
+<h2 id="_76">小程序使用云逻辑<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h2>
+<p>端逻辑调用使用Bmob.Cloud.run方法，如调用云函数中的"test"方法，并传递name参数到服务器中的示例代码如下：</p>
+<pre><code>Bmob.Cloud.run('test', {&quot;name&quot;:&quot;tom&quot;}, {
+  success: function(result) {
+    console.log(result);
+  },
+  error: function(error) {
+  }
+})
+</code></pre>
+
+<p>如果不需要传递参数，示例代码如下：</p>
+<pre><code>Bmob.Cloud.run('test', {}, {
+  success: function(result) {
+    console.log(result);
+  },
+  error: function(error) {
+  }
+})
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>
