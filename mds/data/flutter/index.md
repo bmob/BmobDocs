@@ -53,26 +53,25 @@ https://github.com/bmob/bmob-flutter-sdk/tree/master/data_demo
 /**
  * 非加密方式初始化
  */
-Bmob.init("你的自定义API域名, "appId", "apiKey");
+Bmob.init("https://api2.bmob.cn", "appId", "apiKey");
 ```
 ```
 /**
  * 超级权限非加密方式初始化
  */
-Bmob.initMasterKey("你的自定义API域名", "appId","apiKey","masterKey");
+Bmob.initMasterKey("https://api2.bmob.cn", "appId","apiKey","masterKey");
 ```
 ```
 /**
  * 加密方式初始化
  */
-Bmob.initEncryption("你的自定义API域名", "secretKey", "apiSafe");
+Bmob.initEncryption("https://api2.bmob.cn", "secretKey", "apiSafe");
 ```
 ```
 /**
  * 超级权限加密方式初始化
  */
-Bmob.initEncryptionMasterKey("你的自定义API域名","secretKey","apiSafe","masterKey");
-
+Bmob.initEncryptionMasterKey("https://api2.bmob.cn","secretKey","apiSafe","masterKey");
 ```
 2、导入源码
 
