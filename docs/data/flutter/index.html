@@ -586,6 +586,26 @@
 												<li><a class="itm-l2" href="#215">2.15、分页</a></li>
 											</ul>
 											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#216">2.16 统计查询</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_1">个数查询</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_2">查询用户</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_3">查询设备</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_4">复合查询</a></li>
+											</ul>
+											
 										</li>
 									
 								
@@ -621,7 +641,7 @@
 <h2 id="11">1.1、依赖<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
 <p>依赖配置：</p>
 <pre><code>dependencies:
-  data_plugin: ^0.0.9
+  data_plugin: ^0.0.16
 </code></pre>
 
 <h2 id="12">1.2、安装<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
@@ -655,8 +675,29 @@
 <h1 id="2">2、使用<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <p>1、初始化</p>
 <p>在runApp中进行一下初始化操作：</p>
-<pre><code>//SDK初始化，masterkey为管理权限密钥，建议在客户端使用时置空
-static void initMasterKey(appId, apiKey, masterKey);
+<pre><code>/**
+ * 非加密方式初始化
+ */
+Bmob.init(&quot;你的自定义API域名, &quot;appId&quot;, &quot;apiKey&quot;);
+</code></pre>
+
+<pre><code>/**
+ * 超级权限非加密方式初始化
+ */
+Bmob.initMasterKey(&quot;你的自定义API域名&quot;, &quot;appId&quot;,&quot;apiKey&quot;,&quot;masterKey&quot;);
+</code></pre>
+
+<pre><code>/**
+ * 加密方式初始化
+ */
+Bmob.initEncryption(&quot;你的自定义API域名&quot;, &quot;secretKey&quot;, &quot;apiSafe&quot;);
+</code></pre>
+
+<pre><code>/**
+ * 超级权限加密方式初始化
+ */
+Bmob.initEncryptionMasterKey(&quot;你的自定义API域名&quot;,&quot;secretKey&quot;,&quot;apiSafe&quot;,&quot;masterKey&quot;);
+
 </code></pre>
 
 <p>2、导入源码</p>
@@ -1306,6 +1347,74 @@ _register() {
 }
 </code></pre>
 
+<p>手机短信验证码登录：</p>
+<pre><code>///发送短信验证码：需要手机号码
+_sendSms(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.template = &quot;&quot;;
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, &quot;发送成功:&quot; + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<pre><code>///手机号码+短信验证码登录
+_loginBySms(BuildContext context) {
+  BmobUser bmobUserRegister = BmobUser();
+  bmobUserRegister.mobilePhoneNumber = _phoneNumber;
+  bmobUserRegister.loginBySms(_smsCode).then((BmobUser bmobUser) {
+    showSuccess(context, &quot;登录成功：&quot;+bmobUser.getObjectId() + &quot;\n&quot; + bmobUser.username);
+  }).catchError((e) {
+    print(e);
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>手机短信验证码重置密码：</p>
+<pre><code>///发送短信验证码：需要手机号码
+_sendSms(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.template = &quot;&quot;;
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, &quot;发送成功:&quot; + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<pre><code>///手机号码+短信验证码重置密码
+_resetBySms(BuildContext context) {
+  BmobUser bmobUser = BmobUser();
+  bmobUser.mobilePhoneNumber = _phoneNumber;
+  bmobUser
+      .requestPasswordResetBySmsCode(_smsCode)
+      .then((BmobHandled bmobHandled) {})
+      .catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>邮箱重置密码：</p>
+<pre><code>///发送重置密码邮件到邮箱，然后在邮件中重置密码，最后在应用中重新登录
+_sendEmail(BuildContext context) {
+  BmobUser bmobUser = BmobUser();
+  bmobUser.email = _email;
+  bmobUser
+      .requestPasswordResetByEmail()
+      .then((BmobHandled bmobHandled) {})
+      .catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
 <h2 id="29">2.9、角色操作<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
 <p>添加角色：</p>
 <pre><code>///添加角色
@@ -1594,6 +1703,314 @@ void _queryList(BuildContext context) {
           print(blog.author.objectId);
           print(blog.author.username);
         }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="216">2.16 统计查询<a class="headerlink" href="#216" title="Permanent link">&para;</a></h2>
+<p>分组操作，返回某些列的数值：</p>
+<pre><code>///分组操作，返回某些列的数值
+void _queryGroupBy(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.groupByKeys(&quot;title,content,like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>返回每个分组的总记录：</p>
+<pre><code>///返回每个分组的总记录
+void _queryGroupCount(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.hasGroupCount(true);
+  query.groupByKeys(&quot;title,content,like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的和：</p>
+<pre><code>///统计某些列的和
+void _querySum(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.sumKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的平均值：</p>
+<pre><code>///统计某些列的平均值
+void _queryAverage(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.averageKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的最大值：</p>
+<pre><code>///统计某些列的最大值
+void _queryMax(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.maxKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的最小值：</p>
+<pre><code>///统计某些列的最小值
+void _queryMin(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.minKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>添加过滤条件：</p>
+<pre><code>///添加过滤条件
+void _queryHaving(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  Map&lt;String,dynamic&gt; filter = Map();
+  filter[&quot;title&quot;]=&quot;博客标题&quot;;
+  query.havingFilter(filter);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+
+</code></pre>
+
+<h2 id="_1">个数查询<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<pre><code>///查询数据个数
+void _queryCount(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.queryCount().then((int count) {
+    showSuccess(context, &quot;个数： $count&quot;);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="_2">查询用户<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>查询单个用户</p>
+<pre><code>BmobQuery&lt;User&gt; query = BmobQuery();
+query.queryUser(&quot;8e64dd60d2&quot;).then((data) {
+  showSuccess(context, User.fromJson(data).username);
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+</code></pre>
+
+<p>查询多个用户</p>
+<pre><code>BmobQuery&lt;User&gt; query = BmobQuery();
+query.queryUsers().then((data) {
+  showSuccess(context, data.toString());
+  List&lt;User&gt; users =
+      data.map((i) =&gt; User.fromJson(i)).toList();
+  for (User user in users) {
+    if (user != null) {
+      print(user.objectId);
+    }
+  }
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+</code></pre>
+
+<h2 id="_3">查询设备<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>查询单个设备</p>
+<pre><code>BmobQuery&lt;BmobInstallation&gt; query = BmobQuery();
+query.queryInstallation(&quot;3795adbcad&quot;).then((data) {
+  showSuccess(context, BmobInstallation.fromJson(data).installationId);
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+</code></pre>
+
+<p>查询多个设备</p>
+<pre><code>BmobQuery&lt;BmobInstallation&gt; query = BmobQuery();
+query.queryInstallations().then((data) {
+  showSuccess(context, data.toString());
+  List&lt;BmobInstallation&gt; installations =
+  data.map((i) =&gt; BmobInstallation.fromJson(i)).toList();
+  for (BmobInstallation installation in installations) {
+    if (installation != null) {
+      print(installation.installationId);
+      print(installation.objectId);
+    }
+  }
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+</code></pre>
+
+<h2 id="_4">复合查询<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">或查询<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<pre><code>void _queryOr(BuildContext context){
+  BmobQuery&lt;Blog&gt; query1 = BmobQuery();
+  query1.addWhereEqualTo(&quot;content&quot;, &quot;内容&quot;);
+
+  BmobQuery&lt;Blog&gt; query2 = BmobQuery();
+  query2.addWhereEqualTo(&quot;title&quot;, &quot;标题&quot;);
+
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  List&lt;BmobQuery&lt;Blog&gt;&gt; list = new List();
+  list.add(query1);
+  list.add(query2);
+  query.or(list);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h3 id="_6">与查询<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<pre><code>
+void _queryAnd(BuildContext context){
+  BmobQuery&lt;Blog&gt; query1 = BmobQuery();
+  query1.addWhereEqualTo(&quot;content&quot;, &quot;内容&quot;);
+
+  BmobQuery&lt;Blog&gt; query2 = BmobQuery();
+  query2.addWhereEqualTo(&quot;title&quot;, &quot;标题&quot;);
+
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  List&lt;BmobQuery&lt;Blog&gt;&gt; list = new List();
+  list.add(query1);
+  list.add(query2);
+  query.and(list);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
       }
     }
   }).catchError((e) {
