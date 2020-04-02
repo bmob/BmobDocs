@@ -2434,7 +2434,7 @@ if (bUser) {
 <p>1.这个用户对象缓存了基本的数据，所以可以通过-(id)objectForKey:(id)key; 这个方法来得到某一列的值</p>
 <p>2.[BmobUser getCurrentObject] 跟[BmobUser getCurrentUser]功能作用是一样的，因版本升级的原因才保留了[BmobUser getCurrentObject]</p>
 <p>3.由于是缓存的数据，所以web端的修改，本地是不会更新的!!!需要重新登录才会更新本地缓存数据</p>
-<p>4.缓存用户的有效期为1年</p>
+<p>4.缓存用户的有效期为7天</p>
 <h3 id="_58">更新用户<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
 <p>当用户登录成功后，在本地有个缓存的用户对象，如果开发者希望更改当前用户的某个属性可按如下代码操作:</p>
 <pre><code>BmobUser *bUser = [BmobUser getCurrentUser];

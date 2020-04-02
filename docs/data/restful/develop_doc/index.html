@@ -3249,7 +3249,7 @@ Content-Type: application/json
 
 <h3 id="_55">更新用户<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
 <p><strong>请求描述</strong></p>
-<p>在通常的情况下，我们都不希望用户去修改自己的数据，但可以通过认证让用户去做这件事，用户必须加入一个 <strong>X-Bmob-Session-Token</strong> 头部来请求这个更新操作，这个sessionToken在注册和登录时都会返回。该值的有效期为1年。</p>
+<p>在通常的情况下，我们都不希望用户去修改自己的数据，但可以通过认证让用户去做这件事，用户必须加入一个 <strong>X-Bmob-Session-Token</strong> 头部来请求这个更新操作，这个sessionToken在注册和登录时都会返回。该值的有效期为7天。</p>
 <p>为了改动一个用户已经有的数据，需要对这个用户的URL发送一个HTTP PUT请求，任何你没有指定的key会保持不变，所以你可以只改动用户信息中的一部分，username和password可以更改，但是新的username不能重复。</p>
 <p><strong>请求</strong></p>
 <ul>
