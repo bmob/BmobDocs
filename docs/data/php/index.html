@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>快速入门 - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot; PHP – Bmob后端云 </title>        
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li class="active">
+									<a href="./">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../wechat_app/">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../push/android/">推送服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../push/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+					<div class="code-title">PHP</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									<li class="active">
+										<a class="itm-l1" href="./">快速入门</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">准备工作</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#sdk">SDK下载</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_2">安装和配置</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_3">运行效果</a>
+												
+											</li>
+												
+											<li class=""><a href="#_4">类库说明</a>
+												
+											</li>
+												
+											<li class=""><a href="#bmob">Bmob官方信息</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="develop_doc/">开发文档</a>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">准备工作<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本文档是Bmob官方提供的PHP SDK，方便PHP开发人员快速使用Bmob进行后端开发。</p>
+<p>【注】运行PHP需要相关运行环境，推荐在5.*以上环境上使用。PHP官方下载地址为：<a href="http://php.net/">http://php.net/</a> 。</p>
+<h3 id="sdk">SDK下载<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h3>
+<p>请到以下的Github地址clone我们的SDK最新代码：<a href="https://github.com/bmob/bmob-php-sdk">https://github.com/bmob/bmob-php-sdk</a></p>
+<h3 id="_2">安装和配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>打开<code>lib/BmobConfig.class.php</code>，填写<code>APPID</code>（后台获取“应用密钥”中的Application ID）和<code>RESTKEY</code>（后台获取“应用密钥”中的REST API Key）相应的值。如下所示：</p>
+<pre><code>class BmobConfig{
+    const APPID = '';       //替换后台&quot;应用密钥&quot;中的Application ID
+    const RESTKEY = '';     //后台&quot;应用密钥&quot;中的REST API Key
+    const BMOBURL = 'https://api2.bmob.cn/1/';   //保持不变
+
+}
+</code></pre>
+
+<h2 id="_3">运行效果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>打开项目中的<code>test.php</code>文件，可以看到如何使用PHP SDK相关的方法。</p>
+<pre><code>&lt;?php
+include_once 'lib/BmobObject.class.php';
+include_once 'lib/BmobUser.class.php';
+try {
+    /*
+     *  BmobObject 的例子
+    */
+    $bmobObj = new BmobObject(&quot;GameScore&quot;);
+    $res=$bmobObj-&gt;create(array(&quot;score&quot;=&gt;80,&quot;playerName&quot;=&gt;&quot;game&quot;)); //添加对象
+    $res=$bmobObj-&gt;get(&quot;bd89c6bce9&quot;); // 获取id为bd89c6bce9的对象
+    $res=$bmobObj-&gt;get(); //获取所有对象
+    //更新对象bd89c6bce9, 任何您未指定的key都不会更改,所以您可以只更新对象数据的一个子集
+    $res=$bmobObj-&gt;update(&quot;bd89c6bce9&quot;, array(&quot;score&quot;=&gt;60,&quot;playerName&quot;=&gt;&quot;game&quot;));
+    $res=$bmobObj-&gt;delete(&quot;bd89c6bce9&quot;); //删除对象bd89c6bce9
+    //对象的查询,这里是表示查找playerName为&quot;game&quot;的对象，只返回２个结果
+    $res=$bmobObj-&gt;get(&quot;&quot;,array('where={&quot;playerName&quot;:&quot;game&quot;}','limit=2'));
+    //id为bd89c6bce9的field score数值减2
+    $res=$bmobObj-&gt;increment(&quot;bd89c6bce9&quot;,&quot;score&quot;,array(-2));
+    //id为bd89c6bce9的field score数值加2
+    $res=$bmobObj-&gt;increment(&quot;bd89c6bce9&quot;,&quot;score&quot;,array(2));
+
+    /*
+     *  BmobUser 的例子
+     */
+    $bmobUser = new BmobUser();
+    //用户注册, 其中username和password为必填字段
+    $res = $bmobUser-&gt;register(array(&quot;username&quot;=&gt;&quot;cooldude117&quot;, &quot;password&quot;=&gt;&quot;p_n7!-e8&quot;, &quot;phone&quot;=&gt;&quot;415-392-0202&quot;, &quot;email&quot;=&gt;&quot;bmobtest111@126.com&quot;));
+    //用户登录, 第一个参数为用户名,第二个参数为密码
+    $res = $bmobUser-&gt;login(&quot;cooldude117&quot;,&quot;p_n7!-e8&quot;);
+    // 获取id为415b8fe99a用户的信息
+    $res = $bmobUser-&gt;get(&quot;415b8fe99a&quot;);
+    $res = $bmobUser-&gt;get(); // 获取所有用户的信息
+    $res = $bmobUser-&gt;update(&quot;415b8fe99a&quot;, &quot;050391db407114d9801c8f2788c6b25a&quot;, array(&quot;phone&quot;=&gt;&quot;02011111&quot;)); // 更新用户的信息
+    // 请求重设密码,前提是用户将email与他们的账户关联起来
+    $res = $bmobUser-&gt;requestPasswordReset(&quot;bmobtest111@126.com&quot;);
+    // 删除id为415b8fe99a的用户, 第一参数是用户id, 第二个参数为sessiontoken,在用户登录或注册后获取, 必填
+    $res = $bmobUser-&gt;delete(&quot;415b8fe99a&quot;, &quot;050391db407114d9801c8f2788c6b25a&quot;);
+
+    /*
+     *  BmobCloudCode 的例子
+     */
+    //调用名字为getMsgCode的云端代码
+    $cloudCode = new BmobCloudCode('getMsgCode');
+    //传入参数name，其值为bmob
+    $res = $cloudCode-&gt;get(array(&quot;name&quot;=&gt;&quot;bmob&quot;));
+
+
+    var_dump($res);
+
+} catch (Exception $e) {
+    echo $e;
+}
+</code></pre>
+
+<h2 id="_4">类库说明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>BmobConfig</li>
+</ol>
+<p>Bmob配置类，使用的时候需要修改里面的配置信息</p>
+<ol>
+<li>BmobUser</li>
+</ol>
+<p>Bmob用户表处理类，负责处理与_User表相关的事情</p>
+<ol>
+<li>BmobObject</li>
+</ol>
+<p>Bmob对象处理类，负责处理云端各种表的数据操作</p>
+<ol>
+<li>BmobRestClient</li>
+</ol>
+<p>Bmob基础类，用于完成REST API请求</p>
+<ol>
+<li>BmobException</li>
+</ol>
+<p>Bmob异常处理类</p>
+<ol>
+<li>BmobCloudCode</li>
+</ol>
+<p>Bmob云端代码调用类</p>
+<h2 id="bmob">Bmob官方信息<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
+<p>官方网址：<a href="http://www.bmob.cn">http://www.bmob.cn</a></p>
+<p>问答社区：<a href="http://wenda.bmob.cn">http://wenda.bmob.cn</a></p>
+<p>技术邮箱：support@bmob.cn</p>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>

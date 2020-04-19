@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>Flutter - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot;  – Bmob后端云 </title>        
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../wechat_app/">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../python/">Python</a>
+                                </li>
+							
+                            
+                                <li class="active">
+                                    <a href="./">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../push/android/">推送服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../push/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../push/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					<div class="code-title">Flutter</div>
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									
+										<li class="active "><a href="#bmob-flutter-sdk">bmob-flutter-sdk</a>
+											
+										</li>
+									
+										<li class=""><a href="#1">1、集成</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#11">1.1、依赖</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#12">1.2、安装</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#13">1.3、导入</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#14">1.4、仓库</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#15">1.5、平台</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#16">1.6、参考</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#2">2、使用</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#21">2.1、数据类型</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#22">2.2、增删改查一条数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#23">2.3、查询多条数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#24">2.4、关联操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#25">2.5、位置操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#26">2.6、时间操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#27">2.7、文件操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#28">2.8、用户操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#29">2.9、角色操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#210">2.10、数据访问权限操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#211_1">2.11、设备操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#212_1">2.12、短信操作</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#213_1">2.13、数据监听</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#214">2.14、排序</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#215">2.15、分页</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#216">2.16 统计查询</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_1">个数查询</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_2">查询用户</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_3">查询设备</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_4">复合查询</a></li>
+											</ul>
+											
+										</li>
+									
+								
+							
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h1 id="bmob-flutter-sdk">bmob-flutter-sdk<a class="headerlink" href="#bmob-flutter-sdk" title="Permanent link">&para;</a></h1>
+<p>Bmob Flutter SDK</p>
+<p>Flutter官方咨询QQ群：788254534</p>
+<h1 id="1">1、集成<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<h2 id="11">1.1、依赖<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>依赖配置：</p>
+<pre><code>dependencies:
+  data_plugin: ^0.0.16
+</code></pre>
+
+<h2 id="12">1.2、安装<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p>安装指令：</p>
+<pre><code>$ flutter packages get
+</code></pre>
+
+<h2 id="13">1.3、导入<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<p>导入语句：</p>
+<pre><code>import 'package:data_plugin/data_plugin.dart';
+</code></pre>
+
+<h2 id="14">1.4、仓库<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<p>可以在dart仓库搜索"data_plugin"查看具体信息：</p>
+<pre><code>https://pub.dartlang.org/
+</code></pre>
+
+<p>安装介绍：</p>
+<p>https://pub.dartlang.org/packages/data_plugin#-installing-tab-</p>
+<h2 id="15">1.5、平台<a class="headerlink" href="#15" title="Permanent link">&para;</a></h2>
+<p>目前涉及到特定平台信息处理的方法只适配了Android外，其他方法均兼容Android、iOS。</p>
+<h2 id="16">1.6、参考<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<p>源码：</p>
+<pre><code>https://github.com/bmob/bmob-flutter-sdk/tree/master/data_plugin
+</code></pre>
+
+<p>案例：</p>
+<pre><code>https://github.com/bmob/bmob-flutter-sdk/tree/master/data_demo
+</code></pre>
+
+<h1 id="2">2、使用<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>1、初始化</p>
+<p>在runApp中进行一下初始化操作：</p>
+<pre><code>/**
+ * 非加密方式初始化
+ */
+Bmob.init(&quot;https://api2.bmob.cn&quot;, &quot;appId&quot;, &quot;apiKey&quot;);
+</code></pre>
+
+<pre><code>/**
+ * 超级权限非加密方式初始化
+ */
+Bmob.initMasterKey(&quot;https://api2.bmob.cn&quot;, &quot;appId&quot;,&quot;apiKey&quot;,&quot;masterKey&quot;);
+</code></pre>
+
+<pre><code>/**
+ * 加密方式初始化
+ */
+Bmob.initEncryption(&quot;https://api2.bmob.cn&quot;, &quot;secretKey&quot;, &quot;apiSafe&quot;);
+</code></pre>
+
+<pre><code>/**
+ * 超级权限加密方式初始化
+ */
+Bmob.initEncryptionMasterKey(&quot;https://api2.bmob.cn&quot;,&quot;secretKey&quot;,&quot;apiSafe&quot;,&quot;masterKey&quot;);
+</code></pre>
+
+<p>2、导入源码</p>
+<p>Dart要求，在使用具体功能代码的时候需要先导入对应代码的所在源文件。
+例如，使用BmobUser前需要导入：</p>
+<pre><code>import 'package:data_plugin/bmob/table/bmob_user.dart';
+</code></pre>
+
+<p>3、发布库</p>
+<p>此SDK插件只用于Bmob数据服务相关的数据操作，与此服务无关的UI以及其他涉及平台功能的操作需要开发者自行编写。Dart允许开发者自己编写相关的UI库以及平台插件，并发布到Dart仓库供所有开发者使用，具体可以参考：</p>
+<p>https://zhuanlan.zhihu.com/p/60136574</p>
+<h2 id="21">2.1、数据类型<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<h3 id="211">2.1.1、基本数据类型<a class="headerlink" href="#211" title="Permanent link">&para;</a></h3>
+<p>1、基本数据类型 BmobObject</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>objectId</td>
+<td>数据唯一标志</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>数据创建时间</td>
+</tr>
+<tr>
+<td>updatedAt</td>
+<td>数据更新时间</td>
+</tr>
+<tr>
+<td>ACL</td>
+<td>数据访问权限</td>
+</tr>
+</tbody>
+</table>
+<p>2、时间类型 BmobDate</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iso</td>
+<td>时间</td>
+</tr>
+</tbody>
+</table>
+<p>3、文件类型 BmobFile</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>文件地址</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>文件名称</td>
+</tr>
+</tbody>
+</table>
+<p>4、位置类型 BmobGeoPoint</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>latitude</td>
+<td>纬度</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>经度</td>
+</tr>
+</tbody>
+</table>
+<p>5、用户类型 BmobUser</p>
+<p>继承自BmobObject</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>email</td>
+<td>邮箱</td>
+</tr>
+<tr>
+<td>emailVerified</td>
+<td>邮箱是否验证</td>
+</tr>
+<tr>
+<td>mobilePhoneNumber</td>
+<td>手机号码</td>
+</tr>
+<tr>
+<td>mobilePhoneNumberVerified</td>
+<td>手机号码是否验证</td>
+</tr>
+</tbody>
+</table>
+<p>6、设备类型 BmobInstallation</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>installationId</td>
+<td>设备ID</td>
+</tr>
+</tbody>
+</table>
+<p>7、角色类型 BmobRole</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>角色名称</td>
+</tr>
+<tr>
+<td>roles</td>
+<td>子角色</td>
+</tr>
+<tr>
+<td>users</td>
+<td>角色用户</td>
+</tr>
+</tbody>
+</table>
+<h3 id="212">2.1.2、自定义数据类型<a class="headerlink" href="#212" title="Permanent link">&para;</a></h3>
+<p>1、继承BmobObject</p>
+<p>2、进行JSON序列化处理
+参考：</p>
+<pre><code>https://zhuanlan.zhihu.com/p/59932453
+</code></pre>
+
+<h3 id="213">2.1.3、错误类型<a class="headerlink" href="#213" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>错误代码</td>
+</tr>
+<tr>
+<td>error</td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+<p>获取错误信息</p>
+<pre><code>BmobError bmobError = BmobError.convert(e);
+</code></pre>
+
+<h2 id="22">2.2、增删改查一条数据<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<p>新增：</p>
+<pre><code>///保存一条数据
+_saveSingle(BuildContext context) {
+  BmobUser bmobUser = BmobUser();
+  bmobUser.objectId = &quot;7c7fd3afe1&quot;;
+  Blog blog = Blog();
+  blog.title = &quot;博客标题&quot;;
+  blog.content = &quot;博客内容&quot;;
+  blog.author = bmobUser;
+  blog.like = 77;
+  blog.save().then((BmobSaved bmobSaved) {
+    String message =
+        &quot;创建一条数据成功：${bmobSaved.objectId} - ${bmobSaved.createdAt}&quot;;
+    currentObjectId = bmobSaved.objectId;
+    showSuccess(context, message);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>查询：</p>
+<pre><code>///查询一条数据
+_querySingle(BuildContext context) {
+  if (currentObjectId != null) {
+    BmobQuery&lt;Blog&gt; bmobQuery = BmobQuery();
+    bmobQuery.setInclude(&quot;author&quot;);
+    bmobQuery.queryObject(currentObjectId).then((data) {
+      Blog blog = Blog.fromJson(data);
+      showSuccess(context,
+          &quot;查询一条数据成功：${blog.title} - ${blog.content} - ${blog.author.username}&quot;);
+    }).catchError((e) {
+      showError(context, BmobError.convert(e).error);
+    });
+  } else {
+    showError(context, &quot;请先新增一条数据&quot;);
+  }
+}
+</code></pre>
+
+<p>修改：</p>
+<pre><code>///修改一条数据
+_updateSingle(BuildContext context) {
+  if (currentObjectId != null) {
+    Blog blog = Blog();
+    blog.objectId = currentObjectId;
+    blog.title = &quot;修改一条数据&quot;;
+    blog.content = &quot;修改一条数据&quot;;
+    blog.update().then((BmobUpdated bmobUpdated) {
+      showSuccess(context, &quot;修改一条数据成功：${bmobUpdated.updatedAt}&quot;);
+    }).catchError((e) {
+      showError(context, BmobError.convert(e).error);
+    });
+  } else {
+    showError(context, &quot;请先新增一条数据&quot;);
+  }
+}
+</code></pre>
+
+<p>删除：</p>
+<pre><code>///删除一条数据
+_deleteSingle(BuildContext context) {
+  if (currentObjectId != null) {
+    Blog blog = Blog();
+    blog.objectId = currentObjectId;
+    blog.delete().then((BmobHandled bmobHandled) {
+      currentObjectId = null;
+      showSuccess(context, &quot;删除一条数据成功：${bmobHandled.msg}&quot;);
+    }).catchError((e) {
+      showError(context, BmobError.convert(e).error);
+    });
+  } else {
+    showError(context, &quot;请先新增一条数据&quot;);
+  }
+}
+</code></pre>
+
+<p>删除字段值：</p>
+<pre><code>///删除一个字段的值
+_deleteFieldValue(BuildContext context) {
+  if (currentObjectId != null) {
+    Blog blog = Blog();
+    blog.objectId = currentObjectId;
+    blog.deleteFieldValue(&quot;content&quot;).then((BmobUpdated bmobUpdated) {
+      showSuccess(context, &quot;删除发布内容成功：${bmobUpdated.updatedAt}&quot;);
+    }).catchError((e) {
+      showError(context, &quot;删除发布内容失败&quot; + BmobError.convert(e).error);
+    });
+  } else {
+    showError(context, &quot;请先新增一条数据&quot;);
+  }
+}
+</code></pre>
+
+<h2 id="23">2.3、查询多条数据<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<p>等于：</p>
+<pre><code>///等于条件查询
+void _queryWhereEqual(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.addWhereEqualTo(&quot;title&quot;, &quot;博客标题&quot;);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>不等于：</p>
+<pre><code>///不等条件查询
+void _queryWhereNotEqual(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.addWhereNotEqualTo(&quot;title&quot;, &quot;博客标题&quot;);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>小于：</p>
+<pre><code>///小于查询
+_queryWhereLess(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.addWhereLessThan(&quot;like&quot;, 80);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>小于等于：</p>
+<pre><code>///小于等于查询
+_queryWhereLessEqual(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.addWhereLessThanOrEqualTo(&quot;like&quot;, 77);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>大于：</p>
+<pre><code>///大于查询
+_queryWhereLarge(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.addWhereGreaterThan(&quot;like&quot;, 70);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>大于等于：</p>
+<pre><code>///大于等于查询
+_queryWhereLargeEqual(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.addWhereGreaterThanOrEqualTo(&quot;like&quot;, 77);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="24">2.4、关联操作<a class="headerlink" href="#24" title="Permanent link">&para;</a></h2>
+<p>添加：</p>
+<pre><code>///添加关联关系
+_addPointer() {
+  Blog blog = Blog();
+  User user = User();
+  user.objectId = &quot;4760e7a143&quot;;
+  blog.author = user;
+  blog.title = &quot;添加关联关系&quot;;
+  blog.content = &quot;添加帖子对应的作者&quot;;
+  blog.save().then((BmobSaved bmobSaved) {
+    currentObjectId = bmobSaved.objectId;
+    print(bmobSaved.objectId);
+    DataPlugin.toast(&quot;添加成功：\n${bmobSaved.objectId}\n${bmobSaved.createdAt}&quot;);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>解除：</p>
+<pre><code>///解除关联关系
+_deletePointer() {
+  if (currentObjectId == null) {
+    DataPlugin.toast(&quot;请先添加关联关系&quot;);
+    return;
+  }
+  Blog blog = Blog();
+  blog.objectId = currentObjectId;
+  blog.deleteFieldValue(&quot;author&quot;).then((BmobUpdated bmobUpdated) {
+    DataPlugin.toast(bmobUpdated.updatedAt);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>修改：</p>
+<pre><code>///修改关联关系
+_modifyPointer() {
+  if (currentObjectId == null) {
+    DataPlugin.toast(&quot;请先添加关联关系&quot;);
+    return;
+  }
+  Blog blog = Blog();
+  blog.objectId = currentObjectId;
+  User user = User();
+  user.objectId = &quot;358f092cb1&quot;;
+  blog.author = user;
+  blog.update().then((BmobUpdated bmobUpdated) {
+    DataPlugin.toast(bmobUpdated.updatedAt);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>查询：</p>
+<pre><code>///查询关联数据
+_queryPointer() {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.setInclude(&quot;author&quot;);
+  query.queryObjects().then((data) {
+    DataPlugin.toast(&quot;查询成功${data.length}&quot;);
+
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="25">2.5、位置操作<a class="headerlink" href="#25" title="Permanent link">&para;</a></h2>
+<p>添加：</p>
+<pre><code>///添加地理位置信息
+_addGeoPoint() {
+  Blog blog = Blog();
+  BmobGeoPoint bmobGeoPoint = BmobGeoPoint();
+  bmobGeoPoint.latitude = 12.4445;
+  bmobGeoPoint.longitude = 124.122;
+  blog.addr = bmobGeoPoint;
+  blog.save().then((BmobSaved bmobSaved) {
+    String message =
+        &quot;创建一条数据成功：${bmobSaved.objectId} - ${bmobSaved.createdAt}&quot;;
+    showSuccess(context, message);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="26">2.6、时间操作<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
+<p>添加：</p>
+<pre><code>///添加时间数据
+_addDate() {
+  DateTime dateTime = DateTime.now();
+  BmobDate bmobDate = BmobDate();
+  bmobDate.setDate(dateTime);
+  Blog blog = Blog();
+  blog.time = bmobDate;
+  blog.title = &quot;添加时间类型&quot;;
+  blog.content = &quot;测试时间类型的请求&quot;;
+  blog.save().then((BmobSaved bmobSaved) {
+    showSuccess(context, bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>获取服务器时间：</p>
+<pre><code>///获取服务器时间
+_getServerTime() {
+  BmobDateManager.getServerTimestamp().then((ServerTime serverTime) {
+    showSuccess(context, &quot;${serverTime.timestamp}\n${serverTime.datetime}&quot;);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="27">2.7、文件操作<a class="headerlink" href="#27" title="Permanent link">&para;</a></h2>
+<p>上传文件，Android在上传前需先允许文件访问权限，可以使用SDK自带的文件选择器。</p>
+<pre><code>///上传文件，上传文件涉及到android的文件访问权限，调用此方法前需要开发者们先适配好应用在各个android版本的权限管理。
+_uploadFile(String path) {
+  if (path == null) {
+    DataPlugin.toast(&quot;请先选择文件&quot;);
+    return;
+  }
+  DataPlugin.toast(&quot;上传中，请稍候……&quot;);
+  File file = new File(path);
+  BmobFileManager.upload(file).then((BmobFile bmobFile) {
+    _bmobFile = bmobFile;
+    _url = bmobFile.url;
+    print(&quot;${bmobFile.cdn}\n${bmobFile.url}\n${bmobFile.filename}&quot;);
+    DataPlugin.toast(
+        &quot;上传成功：${bmobFile.cdn}\n${bmobFile.url}\n${bmobFile.filename}&quot;);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>添加已上传文件到表中：</p>
+<pre><code>///添加文件到表中
+_addFile(BmobFile bmobFile) {
+  if (bmobFile == null) {
+    DataPlugin.toast(&quot;请先上传文件&quot;);
+    return;
+  }
+  Blog blog = Blog();
+  blog.pic = bmobFile;
+  blog.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(&quot;添加成功：&quot; + bmobSaved.objectId);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>下载已上传文件：</p>
+<pre><code>///下载文件，直接使用dio下载，下载文件涉及到android的文件访问权限，调用此方法前需要开发者们先适配好应用在各个android版本的权限管理。
+_downloadFile(String url, String path) async {
+  if (url == null) {
+    DataPlugin.toast(&quot;请先上传文件&quot;);
+    return;
+  }
+  Dio dio = Dio();
+  Response&lt;dynamic&gt; response = await dio.download(url, path);
+  print(response.toString());
+  print(response.data);
+  DataPlugin.toast(&quot;下载结束&quot;);
+}
+</code></pre>
+
+<p>删除已上传文件：</p>
+<pre><code>///删除文件
+_deleteFile(String url) {
+  if (url == null) {
+    DataPlugin.toast(&quot;请先上传文件&quot;);
+    return;
+  }
+  BmobFileManager.delete(url).then((BmobHandled bmobHandled) {
+    DataPlugin.toast(&quot;删除成功：&quot; + bmobHandled.msg);
+  }).catchError((e) {
+    DataPlugin.toast(BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="28">2.8、用户操作<a class="headerlink" href="#28" title="Permanent link">&para;</a></h2>
+<p>登录：</p>
+<pre><code>///用户名和密码登录
+_login(BuildContext context) {
+  BmobUser bmobUserRegister = BmobUser();
+  bmobUserRegister.username = _email;
+  bmobUserRegister.password = _password;
+  bmobUserRegister.login().then((BmobUser bmobUser) {
+    showSuccess(context, bmobUser.getObjectId() + &quot;\n&quot; + bmobUser.username);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>注册：</p>
+<pre><code>///用户名密码注册
+_register() {
+  BmobUser bmobUserRegister = BmobUser();
+  bmobUserRegister.username = _username;
+  bmobUserRegister.password = _password;
+  bmobUserRegister.register().then((BmobRegistered data) {
+    showSuccess(context, data.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>手机短信验证码登录：</p>
+<pre><code>///发送短信验证码：需要手机号码
+_sendSms(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.template = &quot;&quot;;
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, &quot;发送成功:&quot; + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<pre><code>///手机号码+短信验证码登录
+_loginBySms(BuildContext context) {
+  BmobUser bmobUserRegister = BmobUser();
+  bmobUserRegister.mobilePhoneNumber = _phoneNumber;
+  bmobUserRegister.loginBySms(_smsCode).then((BmobUser bmobUser) {
+    showSuccess(context, &quot;登录成功：&quot;+bmobUser.getObjectId() + &quot;\n&quot; + bmobUser.username);
+  }).catchError((e) {
+    print(e);
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>手机短信验证码重置密码：</p>
+<pre><code>///发送短信验证码：需要手机号码
+_sendSms(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.template = &quot;&quot;;
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, &quot;发送成功:&quot; + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<pre><code>///手机号码+短信验证码重置密码
+_resetBySms(BuildContext context) {
+  BmobUser bmobUser = BmobUser();
+  bmobUser.mobilePhoneNumber = _phoneNumber;
+  bmobUser
+      .requestPasswordResetBySmsCode(_smsCode)
+      .then((BmobHandled bmobHandled) {})
+      .catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>邮箱重置密码：</p>
+<pre><code>///发送重置密码邮件到邮箱，然后在邮件中重置密码，最后在应用中重新登录
+_sendEmail(BuildContext context) {
+  BmobUser bmobUser = BmobUser();
+  bmobUser.email = _email;
+  bmobUser
+      .requestPasswordResetByEmail()
+      .then((BmobHandled bmobHandled) {})
+      .catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="29">2.9、角色操作<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
+<p>添加角色：</p>
+<pre><code>///添加角色
+_saveRole() {
+  BmobRole bmobRole = BmobRole();
+  bmobRole.name = &quot;teacher&quot;;
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  BmobRelation bmobRelation = BmobRelation();
+  bmobRelation.add(user);
+  bmobRole.setUsers(bmobRelation);
+  bmobRole.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>添加角色并添加某用户到该角色中：</p>
+<pre><code>///添加某用户到某角色中
+_addUserToRole() {
+  BmobRole bmobRole = BmobRole();
+  bmobRole.name = &quot;student&quot;;
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  BmobRelation bmobRelation = BmobRelation();
+  bmobRelation.add(user);
+  bmobRole.setUsers(bmobRelation);
+  bmobRole.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>添加某用户到已存在的角色中：</p>
+<pre><code>///添加用户到已存在的角色中
+_addUserToSavedRole() {
+  if (currentBmobRole == null) {
+    showError(context, &quot;请先创造角色&quot;);
+    return;
+  }
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  BmobRelation bmobRelation = BmobRelation();
+  bmobRelation.add(user);
+  currentBmobRole.setUsers(bmobRelation);
+  currentBmobRole.update().then((BmobUpdated bmobUpdated) {
+    DataPlugin.toast(bmobUpdated.updatedAt);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="210">2.10、数据访问权限操作<a class="headerlink" href="#210" title="Permanent link">&para;</a></h2>
+<p>设置数据公共访问权限：</p>
+<pre><code>///设置数据公共访问权限
+_saveDataAndPublicAcl() {
+  Blog blog = Blog();
+  blog.title = &quot;帖子标题&quot;;
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  blog.author = user;
+  blog.content = &quot;帖子内容&quot;;
+  BmobAcl bmobAcl = BmobAcl();
+  bmobAcl.setPublicReadAccess(true);
+  blog.setAcl(bmobAcl);
+  blog.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>设置某用户对该数据的访问权限：</p>
+<pre><code>///设置某用户对该数据的访问权限
+_saveDataAndUserAcl() {
+  Blog blog = Blog();
+  blog.title = &quot;帖子标题&quot;;
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  blog.author = user;
+  blog.content = &quot;帖子内容&quot;;
+  BmobAcl bmobAcl = BmobAcl();
+  bmobAcl.addRoleReadAccess(user.getObjectId(), true);
+  blog.setAcl(bmobAcl);
+  blog.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>设置某角色对该数据的访问权限：</p>
+<pre><code>///设置某角色对该数据的访问权限
+_saveDataAndRoleAcl() {
+  Blog blog = Blog();
+  blog.title = &quot;帖子标题&quot;;
+  User user = User();
+  user.setObjectId(&quot;f06590e3c2&quot;);
+  blog.author = user;
+  blog.content = &quot;帖子内容&quot;;
+  BmobAcl bmobAcl = BmobAcl();
+  bmobAcl.addRoleReadAccess(&quot;teacher&quot;, true);
+  blog.setAcl(bmobAcl);
+  blog.save().then((BmobSaved bmobSaved) {
+    DataPlugin.toast(bmobSaved.objectId);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="211_1">2.11、设备操作<a class="headerlink" href="#211_1" title="Permanent link">&para;</a></h2>
+<p>获取设备ID：</p>
+<pre><code>///获取设备ID
+_getInstallationId(BuildContext context) async {
+  String installationId = await BmobInstallationManager.getInstallationId();
+  showSuccess(context, installationId);
+}
+</code></pre>
+
+<p>初始化设备信息：</p>
+<pre><code>//初始化设备，与原生交互
+///初始化设备
+_initInstallation(BuildContext context) {
+  BmobInstallationManager.init().then((BmobInstallation bmobInstallation) {
+    showSuccess(context, bmobInstallation.toJson().toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="212_1">2.12、短信操作<a class="headerlink" href="#212_1" title="Permanent link">&para;</a></h2>
+<p>发送短信验证码：</p>
+<pre><code>///发送短信验证码：需要手机号码
+_sendSms(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.template = &quot;&quot;;
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, &quot;发送成功:&quot; + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>验证短信验证码：</p>
+<pre><code>///验证短信验证码：需要手机号码和验证码
+_verifySmsCode(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.verifySmsCode(_smsCode).then((BmobHandled bmobHandled) {
+    showSuccess(context, &quot;验证成功：&quot; + bmobHandled.msg);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="213_1">2.13、数据监听<a class="headerlink" href="#213_1" title="Permanent link">&para;</a></h2>
+<pre><code>///数据监听
+_listen() {
+  RealTimeDataManager.getInstance().listen(onConnected: (Client client) {
+    showSuccess(context, &quot;监听数据连接成功，开始订阅消息！&quot;);
+    client.subTableUpdate(&quot;Blog&quot;);
+  }, onDisconnected: () {
+    showError(context, &quot;监听数据断开连接&quot;);
+  }, onDataChanged: (Change data) {
+    ///注意：此处返回的data.data类型与Blog类型不一致，需要使用map来获取具体属性值而不是使用Blog
+    Map map = data.data;
+    showSuccess(context, &quot;监听到数据变化：&quot; + map.toString());
+  }, onError: (error) {
+    showError(context, error.toString());
+  });
+}
+
+///改编数据
+_change(context) {
+  ///保存一条数据
+  BmobUser bmobUser = BmobUser();
+  bmobUser.objectId = &quot;7c7fd3afe1&quot;;
+  Blog blog = Blog();
+  blog.title = &quot;博客标题&quot;;
+  blog.content = &quot;博客内容&quot;;
+  blog.author = bmobUser;
+  blog.like = 77;
+  blog.save().then((BmobSaved bmobSaved) {
+    String message =
+        &quot;创建一条数据成功：${bmobSaved.objectId} - ${bmobSaved.createdAt}&quot;;
+    showSuccess(context, message);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>监听成功后的订阅动作：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subTableUpdate</td>
+<td>订阅表更新</td>
+</tr>
+<tr>
+<td>subTableDelete</td>
+<td>订阅表删除</td>
+</tr>
+<tr>
+<td>subRowUpdate</td>
+<td>订阅行更新</td>
+</tr>
+<tr>
+<td>subRowDelete</td>
+<td>订阅行删除</td>
+</tr>
+</tbody>
+</table>
+<h2 id="214">2.14、排序<a class="headerlink" href="#214" title="Permanent link">&para;</a></h2>
+<p>正序：
+setOrder("字段名称");
+逆序：
+setOrder("-字段名称");</p>
+<pre><code>///数据排序
+_queryOrder(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.setOrder(&quot;createdAt&quot;);
+  query.setLimit(10);
+  query.setSkip(10);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    Navigator.pushNamed(context, &quot;listRoute&quot;);
+
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="215">2.15、分页<a class="headerlink" href="#215" title="Permanent link">&para;</a></h2>
+<p>设置返回条数：
+setLimit(int value);</p>
+<p>设置忽略条数：
+setSkip(int value);</p>
+<pre><code>///查询多条数据
+void _queryList(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.setInclude(&quot;author&quot;);
+  query.setLimit(10);
+  query.setSkip(10);
+  query.queryObjects().then((List&lt;dynamic&gt; data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+
+    setState(() {
+      _items = blogs;
+    });
+    int index = 0;
+    for (Blog blog in blogs) {
+      index++;
+      if (blog != null) {
+        print(index);
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="216">2.16 统计查询<a class="headerlink" href="#216" title="Permanent link">&para;</a></h2>
+<p>分组操作，返回某些列的数值：</p>
+<pre><code>///分组操作，返回某些列的数值
+void _queryGroupBy(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.groupByKeys(&quot;title,content,like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>返回每个分组的总记录：</p>
+<pre><code>///返回每个分组的总记录
+void _queryGroupCount(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.hasGroupCount(true);
+  query.groupByKeys(&quot;title,content,like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的和：</p>
+<pre><code>///统计某些列的和
+void _querySum(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.sumKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的平均值：</p>
+<pre><code>///统计某些列的平均值
+void _queryAverage(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.averageKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的最大值：</p>
+<pre><code>///统计某些列的最大值
+void _queryMax(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.maxKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>统计某些列的最小值：</p>
+<pre><code>///统计某些列的最小值
+void _queryMin(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.minKeys(&quot;like&quot;);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<p>添加过滤条件：</p>
+<pre><code>///添加过滤条件
+void _queryHaving(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  Map&lt;String,dynamic&gt; filter = Map();
+  filter[&quot;title&quot;]=&quot;博客标题&quot;;
+  query.havingFilter(filter);
+  query.queryObjects().then((data) {
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+
+</code></pre>
+
+<h2 id="_1">个数查询<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<pre><code>///查询数据个数
+void _queryCount(BuildContext context) {
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  query.queryCount().then((int count) {
+    showSuccess(context, &quot;个数： $count&quot;);
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h2 id="_2">查询用户<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>查询单个用户</p>
+<pre><code>BmobQuery&lt;User&gt; query = BmobQuery();
+query.queryUser(&quot;8e64dd60d2&quot;).then((data) {
+  showSuccess(context, User.fromJson(data).username);
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+</code></pre>
+
+<p>查询多个用户</p>
+<pre><code>BmobQuery&lt;User&gt; query = BmobQuery();
+query.queryUsers().then((data) {
+  showSuccess(context, data.toString());
+  List&lt;User&gt; users =
+      data.map((i) =&gt; User.fromJson(i)).toList();
+  for (User user in users) {
+    if (user != null) {
+      print(user.objectId);
+    }
+  }
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+</code></pre>
+
+<h2 id="_3">查询设备<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>查询单个设备</p>
+<pre><code>BmobQuery&lt;BmobInstallation&gt; query = BmobQuery();
+query.queryInstallation(&quot;3795adbcad&quot;).then((data) {
+  showSuccess(context, BmobInstallation.fromJson(data).installationId);
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+</code></pre>
+
+<p>查询多个设备</p>
+<pre><code>BmobQuery&lt;BmobInstallation&gt; query = BmobQuery();
+query.queryInstallations().then((data) {
+  showSuccess(context, data.toString());
+  List&lt;BmobInstallation&gt; installations =
+  data.map((i) =&gt; BmobInstallation.fromJson(i)).toList();
+  for (BmobInstallation installation in installations) {
+    if (installation != null) {
+      print(installation.installationId);
+      print(installation.objectId);
+    }
+  }
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+</code></pre>
+
+<h2 id="_4">复合查询<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">或查询<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<pre><code>void _queryOr(BuildContext context){
+  BmobQuery&lt;Blog&gt; query1 = BmobQuery();
+  query1.addWhereEqualTo(&quot;content&quot;, &quot;内容&quot;);
+
+  BmobQuery&lt;Blog&gt; query2 = BmobQuery();
+  query2.addWhereEqualTo(&quot;title&quot;, &quot;标题&quot;);
+
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  List&lt;BmobQuery&lt;Blog&gt;&gt; list = new List();
+  list.add(query1);
+  list.add(query2);
+  query.or(list);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+
+<h3 id="_6">与查询<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<pre><code>
+void _queryAnd(BuildContext context){
+  BmobQuery&lt;Blog&gt; query1 = BmobQuery();
+  query1.addWhereEqualTo(&quot;content&quot;, &quot;内容&quot;);
+
+  BmobQuery&lt;Blog&gt; query2 = BmobQuery();
+  query2.addWhereEqualTo(&quot;title&quot;, &quot;标题&quot;);
+
+  BmobQuery&lt;Blog&gt; query = BmobQuery();
+  List&lt;BmobQuery&lt;Blog&gt;&gt; list = new List();
+  list.add(query1);
+  list.add(query2);
+  query.and(list);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List&lt;Blog&gt; blogs = data.map((i) =&gt; Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>
