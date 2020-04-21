@@ -578,11 +578,11 @@
 <tbody>
 <tr>
 <td>数据服务 SDK</td>
-<td>使用最新版本v3.6.9-rc2，集成方式请见下方的自动集成方式。手动集成下载地址：<a href="https://www.bmob.cn/downloads">https://www.bmob.cn/downloads</a></td>
+<td>使用最新版本v3.7.8，集成方式请见下方的自动集成方式。手动集成下载地址：<a href="https://www.bmob.cn/downloads">https://www.bmob.cn/downloads</a></td>
 </tr>
 <tr>
 <td>消息推送 SDK</td>
-<td>使用最新版本v1.0.3，集成方式请见下方的自动集成方式。手动集成下载地址：<a href="https://www.bmob.cn/downloads">https://www.bmob.cn/downloads</a></td>
+<td>使用最新版本v1.0.5，集成方式请见下方的自动集成方式。手动集成下载地址：<a href="https://www.bmob.cn/downloads">https://www.bmob.cn/downloads</a></td>
 </tr>
 <tr>
 <td>消息推送 Demo</td>
@@ -596,7 +596,8 @@
     repositories {
         jcenter()
         //Bmob的maven仓库地址
-        maven { url &quot;https://raw.github.com/bmob/bmob-android-sdk/master&quot; }
+                    maven {url 'https://dl.bintray.com/chaozhouzhang/maven' }
+
     }
 }
 </code></pre>
@@ -604,15 +605,9 @@
 <p>2、配置app下的build.gradle文件：</p>
 <pre><code class="gradle">dependencies {
     //Bmob的数据服务SDK
-    implementation 'cn.bmob.android:bmob-sdk:3.6.9-rc2'
+    implementation 'cn.bmob.android:bmob-sdk:3.7.8'
     //Bmob的消息推送SDK
-    implementation 'cn.bmob.android:bmob-push:1.0.3'
-    implementation &quot;io.reactivex.rxjava2:rxjava:2.2.2&quot;
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'com.squareup.okio:okio:2.1.0'
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-    implementation 'androidx.core:core:1.0.0+'
+    implementation 'cn.bmob.android:bmob-push:1.0.5'
 
 }
 </code></pre>
@@ -643,6 +638,8 @@
 
 <h4 id="222androidmanifestxmlbmobpush-sdk">2.2.2、在您的应用程序AndroidManifest.xml文件中注册BmobPush SDK运行所需的推送服务和消息接收器<a class="headerlink" href="#222androidmanifestxmlbmobpush-sdk" title="Permanent link">&para;</a></h4>
 <pre><code class="xml">  &lt;!--TODO 集成：1.2、添加推送所需要的服务和广播--&gt;
+
+
     &lt;service
         android:label=&quot;PushService&quot;
         android:name=&quot;cn.bmob.push.lib.service.PushService&quot;
@@ -676,6 +673,12 @@
               &lt;action android:name=&quot;cn.bmob.push.action.MESSAGE&quot;/&gt;
          &lt;/intent-filter&gt;
     &lt;/receiver&gt;
+
+      &lt;meta-data
+            android:name=&quot;BMOB_PUSH_CLASS&quot;
+            android:value=&quot;你自己定义的消息推送广播接收器&quot;&gt;
+        &lt;/meta-data&gt;
+
 
     &lt;!-- 接收心跳和唤醒的广播，要和PushService运行在同个进程 --&gt;
     &lt;receiver
