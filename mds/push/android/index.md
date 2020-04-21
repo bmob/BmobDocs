@@ -7,8 +7,8 @@
 
 | SDK或Demo     | 下载地址          |
 |------------------------------|--------------------------------|
-| 数据服务 SDK| 使用最新版本v3.6.9-rc2，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|
-| 消息推送 SDK| 使用最新版本v1.0.3，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|  
+| 数据服务 SDK| 使用最新版本v3.7.8，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|
+| 消息推送 SDK| 使用最新版本v1.0.5，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|  
 | 消息推送 Demo| [https://github.com/chaozhouzhang/bmob-push-demo](https://github.com/chaozhouzhang/bmob-push-demo)|
 
 自动集成方式：
@@ -19,7 +19,8 @@ allprojects {
     repositories {
         jcenter()
         //Bmob的maven仓库地址
-        maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+                    maven {url 'https://dl.bintray.com/chaozhouzhang/maven' }
+
     }
 }
 ```
@@ -27,15 +28,9 @@ allprojects {
 ```gradle
 dependencies {
     //Bmob的数据服务SDK
-    implementation 'cn.bmob.android:bmob-sdk:3.6.9-rc2'
+    implementation 'cn.bmob.android:bmob-sdk:3.7.8'
     //Bmob的消息推送SDK
-    implementation 'cn.bmob.android:bmob-push:1.0.3'
-    implementation "io.reactivex.rxjava2:rxjava:2.2.2"
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'com.squareup.okio:okio:2.1.0'
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-    implementation 'androidx.core:core:1.0.0+'
+    implementation 'cn.bmob.android:bmob-push:1.0.5'
 
 }
 ```
@@ -69,6 +64,8 @@ dependencies {
 
 ```xml
   <!--TODO 集成：1.2、添加推送所需要的服务和广播-->
+  
+ 
 	<service
 	    android:label="PushService"
 		android:name="cn.bmob.push.lib.service.PushService"
@@ -102,6 +99,12 @@ dependencies {
 	          <action android:name="cn.bmob.push.action.MESSAGE"/>
 	     </intent-filter>
 	</receiver>
+	
+	  <meta-data
+            android:name="BMOB_PUSH_CLASS"
+            android:value="你自己定义的消息推送广播接收器">
+        </meta-data>
+  
 
 	<!-- 接收心跳和唤醒的广播，要和PushService运行在同个进程 -->
     <receiver

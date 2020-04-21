@@ -1,3 +1,7 @@
+### v2.1.5 2020年4月17日
+1、BmobNewIM v2.1.5将所依赖的数据SDK版本提升到BmobSDK v3.7.8。
+2、兼容android10.0需要在AndroidManifesr.xml中配置自定义的广播接收器。
+
 ### v2.1.4 2019年04月22日
 1、BmobNewIM v2.1.4将所依赖的数据SDK版本提升到BmobSDK v3.7.3。
 2、需要在清单文件AndroidManifesr.xml中配置前台服务权限：
