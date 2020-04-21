@@ -65,12 +65,12 @@ android {
 ```
 ```gradle
 	dependencies {
-    	implementation 'cn.bmob.android:bmob-sdk:3.7.7'
-    	implementation "io.reactivex.rxjava2:rxjava:2.2.2"
-    	implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    	implementation 'com.squareup.okio:okio:2.1.0'
-    	implementation 'com.google.code.gson:gson:2.8.5'
-    	implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'cn.bmob.android:bmob-sdk:3.7.8'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+    implementation 'com.squareup.okio:okio:2.2.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
 	}
 ```
 
