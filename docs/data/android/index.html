@@ -862,7 +862,7 @@ p2.save(new SaveListener&lt;String&gt;() {
 <h2 id="_5">获取一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <pre><code class="java">//查找Person表里面id为6b6c11c537的数据
 BmobQuery&lt;Person&gt; bmobQuery = new BmobQuery&lt;Person&gt;();
-bmobQuery.getObject(&quot;6b6c11c537&quot;, new &gt;QueryListener&lt;Person&gt;() {
+bmobQuery.getObject(&quot;6b6c11c537&quot;, new QueryListener&lt;Person&gt;() {
     @Override
     public void done(Person object,BmobException e) {
         if(e==null){
