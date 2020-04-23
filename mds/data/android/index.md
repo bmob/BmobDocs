@@ -291,7 +291,7 @@ p2.save(new SaveListener<String>() {
 ```java
 //查找Person表里面id为6b6c11c537的数据
 BmobQuery<Person> bmobQuery = new BmobQuery<Person>();
-bmobQuery.getObject("6b6c11c537", new >QueryListener<Person>() {
+bmobQuery.getObject("6b6c11c537", new QueryListener<Person>() {
 	@Override
 	public void done(Person object,BmobException e) {
 		if(e==null){
