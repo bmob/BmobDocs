@@ -290,42 +290,6 @@
             
               <li class="pull-left">
                 
-					<!--<a href="../../../push/android/">推送服务</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">推送服务 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                                <li >
-                                    <a href="../../../push/android/">Android</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../push/ios/">iOS</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../push/php/">PHP</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../push/javascript/">JavaScript</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../push/restful/">REST API</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
 					<!--<a href="../../../other/domain/">其他</a>-->
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
@@ -429,14 +393,6 @@
 		
 	
 		
-				
-				
-		
-	
-		
-				
-				
-				
 				
 				
 		
@@ -813,8 +769,6 @@
 		
 			
 		
-			
-		
 	</ul>
 </div>
             </div>
@@ -889,7 +843,7 @@
 </tbody>
 </table>
 <blockquote>
-<p>以上所有参数必填</p>
+<p>以上所有参数必填，请求时间客户端到服务器请求必须10s内，如果客户端手机时间不对，则无法请求。</p>
 </blockquote>
 <p>MD5加密规则说明</p>
 <table>
@@ -918,6 +872,7 @@
 </tr>
 </tbody>
 </table>
+<p>由于部分客户担心之前密匙已经泄露，控制台给新方法方式加了一个设置，关闭原有 <strong>X-Bmob-Application-Id</strong> 访问方式，具体设置请进入在应用功能设置，安全验证里面关闭。</p>
 <h2 id="_5">响应格式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>对于所有REST API请求的响应内容体都是一个JSON对象.</p>
 <p>一个请求是否成功是由HTTP状态码表明的， 一个2XX的状态码表示成功，而一个4XX表示请求失败。当一个请求失败时响应的主体仍然是一个JSON对象，但是总会包含code和error这两个字段，你可以用它们来进行调试。举个例子，如果保存一个对象的时候，尝试用不允许的Key，比如包含下划线的_name的话，就会得到如下请求失败的响应信息:</p>

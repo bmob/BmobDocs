@@ -254,40 +254,6 @@
     
         
     <url>
-     <loc>/push/android/</loc>
-     <lastmod>2020-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/push/ios/</loc>
-     <lastmod>2020-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/push/php/</loc>
-     <lastmod>2020-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/push/javascript/</loc>
-     <lastmod>2020-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/push/restful/</loc>
-     <lastmod>2020-08-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
      <loc>/other/domain/</loc>
      <lastmod>2020-08-21</lastmod>
      <changefreq>daily</changefreq>
