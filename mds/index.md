@@ -145,7 +145,7 @@
 					<!--//item-inner-->
 				</div>
 				<!--//item-->
-				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
+				<div style="display:none" class="item item-blue col-md-4 col-sm-6 col-xs-6">
 					<div class="item-inner">
 						<div class="icon-holder">
 							<i class="icon o5"></i>
