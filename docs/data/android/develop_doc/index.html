@@ -1678,7 +1678,7 @@ private void loginByAccount(final View view) {
 </code></pre>
 
 <h3 id="224">2.2.4、获取当前用户以及用户属性<a class="headerlink" href="#224" title="Permanent link">&para;</a></h3>
-<p>获取缓存的用户信息，缓存的有效期为1年。</p>
+<p>获取缓存的用户信息，缓存的有效期为7天。</p>
 <pre><code class="java">if (BmobUser.isLogin()) {
     User user = BmobUser.getCurrentUser(User.class);
     Snackbar.make(view, &quot;当前用户：&quot; + user.getUsername() + &quot;-&quot; + user.getAge(), Snackbar.LENGTH_LONG).show();

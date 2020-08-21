@@ -798,7 +798,7 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_72">小程序模版消息</a></li>
+													<li><a class="itm-l2" href="#_72">小程序订阅消息</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
@@ -3106,9 +3106,11 @@ Bmob.checkMsg(content).then(res =&gt; {
           console.log('itemn',item)
           file = Bmob.File('abc.jpg', item);
         }
-        file.save().then(res =&gt; {
+        file.imgSecCheck().then(res =&gt; {
           console.log(res.length);
           console.log(res);
+        }).catch(err=&gt;{
+            console.log(err);
         })
 
       }
@@ -3118,7 +3120,7 @@ Bmob.checkMsg(content).then(res =&gt; {
 
 <p><strong>返回示例:</strong></p>
 <pre><code>正常：
-{&quot;msg&quot;:&quot;ok&quot;}
+[&quot;{&quot;cdn&quot;:&quot;upyun&quot;,&quot;filename&quot;:&quot;abc.jpg&quot;,&quot;url&quot;:&quot;http://…2018/05/07/e65172f540195fe880043cc74236e397.jpg&quot;}&quot;, &quot;{&quot;cdn&quot;:&quot;upyun&quot;,&quot;filename&quot;:&quot;abc.jpg&quot;,&quot;url&quot;:&quot;http://…2018/05/07/5670bf6740385bca802f9c33beb69ab9.jpg&quot;}&quot;]
 违规：
 {&quot;code&quot;:10007,&quot;error&quot;:&quot;CheckMsg errcode:图片违规&quot;}
 </code></pre>
@@ -3142,9 +3144,9 @@ Bmob.checkMsg(content).then(res =&gt; {
     access_token: 'access_token'
 }
 </code></pre>
-<h3 id="_72">小程序模版消息<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h3>
+<h3 id="_72">小程序订阅消息<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h3>
 <p><strong>简介：</strong></p>
-<p>小程序模板消息，通过传入模版，设置模版信息，需要在模版中设置多个参数(openId,templateId,formId)</p>
+<p>小程序订阅消息，通过传入模版，设置模版信息，需要在模版中设置多个参数(openId,templateId,formId)</p>
 <p><strong>参数说明：</strong></p>
 <p>| 参数        | 类型   | 必填 |参数说明                                                     |
 | ----------- | ------ | ------------------------------------------------------------ |

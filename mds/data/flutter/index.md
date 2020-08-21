@@ -10,7 +10,7 @@ Flutter官方咨询QQ群：788254534
 依赖配置：
 ```
 dependencies:
-  data_plugin: ^0.0.9
+  data_plugin: ^0.0.16
 ```
 ## 1.2、安装
 安装指令：
@@ -50,8 +50,28 @@ https://github.com/bmob/bmob-flutter-sdk/tree/master/data_demo
 
 在runApp中进行一下初始化操作：
 ```
-//SDK初始化，masterkey为管理权限密钥，建议在客户端使用时置空
-static void initMasterKey(appId, apiKey, masterKey);
+/**
+ * 非加密方式初始化
+ */
+Bmob.init("https://api2.bmob.cn", "appId", "apiKey");
+```
+```
+/**
+ * 超级权限非加密方式初始化
+ */
+Bmob.initMasterKey("https://api2.bmob.cn", "appId","apiKey","masterKey");
+```
+```
+/**
+ * 加密方式初始化
+ */
+Bmob.initEncryption("https://api2.bmob.cn", "secretKey", "apiSafe");
+```
+```
+/**
+ * 超级权限加密方式初始化
+ */
+Bmob.initEncryptionMasterKey("https://api2.bmob.cn","secretKey","apiSafe","masterKey");
 ```
 2、导入源码
 
@@ -65,7 +85,6 @@ import 'package:data_plugin/bmob/table/bmob_user.dart';
 此SDK插件只用于Bmob数据服务相关的数据操作，与此服务无关的UI以及其他涉及平台功能的操作需要开发者自行编写。Dart允许开发者自己编写相关的UI库以及平台插件，并发布到Dart仓库供所有开发者使用，具体可以参考：
 
 https://zhuanlan.zhihu.com/p/60136574
-
 
 ## 2.1、数据类型
 
@@ -614,6 +633,74 @@ _register() {
   });
 }
 ```
+手机短信验证码登录：
+```
+///发送短信验证码：需要手机号码
+_sendSms(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.template = "";
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, "发送成功:" + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+```
+///手机号码+短信验证码登录
+_loginBySms(BuildContext context) {
+  BmobUser bmobUserRegister = BmobUser();
+  bmobUserRegister.mobilePhoneNumber = _phoneNumber;
+  bmobUserRegister.loginBySms(_smsCode).then((BmobUser bmobUser) {
+    showSuccess(context, "登录成功："+bmobUser.getObjectId() + "\n" + bmobUser.username);
+  }).catchError((e) {
+    print(e);
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+手机短信验证码重置密码：
+```
+///发送短信验证码：需要手机号码
+_sendSms(BuildContext context) {
+  BmobSms bmobSms = BmobSms();
+  bmobSms.template = "";
+  bmobSms.mobilePhoneNumber = _phoneNumber;
+  bmobSms.sendSms().then((BmobSent bmobSent) {
+    showSuccess(context, "发送成功:" + bmobSent.smsId.toString());
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+```
+///手机号码+短信验证码重置密码
+_resetBySms(BuildContext context) {
+  BmobUser bmobUser = BmobUser();
+  bmobUser.mobilePhoneNumber = _phoneNumber;
+  bmobUser
+      .requestPasswordResetBySmsCode(_smsCode)
+      .then((BmobHandled bmobHandled) {})
+      .catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+邮箱重置密码：
+```
+///发送重置密码邮件到邮箱，然后在邮件中重置密码，最后在应用中重新登录
+_sendEmail(BuildContext context) {
+  BmobUser bmobUser = BmobUser();
+  bmobUser.email = _email;
+  bmobUser
+      .requestPasswordResetByEmail()
+      .then((BmobHandled bmobHandled) {})
+      .catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
 ## 2.9、角色操作
 添加角色：
 ```
@@ -910,5 +997,326 @@ void _queryList(BuildContext context) {
 }
 ```
 
+## 2.16 统计查询
 
+分组操作，返回某些列的数值：
+```
+///分组操作，返回某些列的数值
+void _queryGroupBy(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  query.groupByKeys("title,content,like");
+  query.queryObjects().then((data) {
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+返回每个分组的总记录：
+```
+///返回每个分组的总记录
+void _queryGroupCount(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  query.hasGroupCount(true);
+  query.groupByKeys("title,content,like");
+  query.queryObjects().then((data) {
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+统计某些列的和：
+```
+///统计某些列的和
+void _querySum(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  query.sumKeys("like");
+  query.queryObjects().then((data) {
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+统计某些列的平均值：
+```
+///统计某些列的平均值
+void _queryAverage(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  query.averageKeys("like");
+  query.queryObjects().then((data) {
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+统计某些列的最大值：
+```
+///统计某些列的最大值
+void _queryMax(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  query.maxKeys("like");
+  query.queryObjects().then((data) {
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+统计某些列的最小值：
+```
+///统计某些列的最小值
+void _queryMin(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  query.minKeys("like");
+  query.queryObjects().then((data) {
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+添加过滤条件：
+```
+///添加过滤条件
+void _queryHaving(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  Map<String,dynamic> filter = Map();
+  filter["title"]="博客标题";
+  query.havingFilter(filter);
+  query.queryObjects().then((data) {
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    showSuccess(context, data.toString());
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+        if (blog.author != null) {
+          print(blog.author.objectId);
+          print(blog.author.username);
+        }
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+
+```
+
+## 个数查询
+
+```
+///查询数据个数
+void _queryCount(BuildContext context) {
+  BmobQuery<Blog> query = BmobQuery();
+  query.queryCount().then((int count) {
+    showSuccess(context, "个数： $count");
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+
+
+## 查询用户
+
+查询单个用户
+```
+BmobQuery<User> query = BmobQuery();
+query.queryUser("8e64dd60d2").then((data) {
+  showSuccess(context, User.fromJson(data).username);
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+```
+查询多个用户
+```
+BmobQuery<User> query = BmobQuery();
+query.queryUsers().then((data) {
+  showSuccess(context, data.toString());
+  List<User> users =
+      data.map((i) => User.fromJson(i)).toList();
+  for (User user in users) {
+    if (user != null) {
+      print(user.objectId);
+    }
+  }
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+```
+## 查询设备
+
+查询单个设备
+```
+BmobQuery<BmobInstallation> query = BmobQuery();
+query.queryInstallation("3795adbcad").then((data) {
+  showSuccess(context, BmobInstallation.fromJson(data).installationId);
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+```
+查询多个设备
+```
+BmobQuery<BmobInstallation> query = BmobQuery();
+query.queryInstallations().then((data) {
+  showSuccess(context, data.toString());
+  List<BmobInstallation> installations =
+  data.map((i) => BmobInstallation.fromJson(i)).toList();
+  for (BmobInstallation installation in installations) {
+    if (installation != null) {
+      print(installation.installationId);
+      print(installation.objectId);
+    }
+  }
+}).catchError((e) {
+  showError(context, BmobError.convert(e).error);
+});
+
+```
+
+## 复合查询
+
+### 或查询
+```
+void _queryOr(BuildContext context){
+  BmobQuery<Blog> query1 = BmobQuery();
+  query1.addWhereEqualTo("content", "内容");
+
+  BmobQuery<Blog> query2 = BmobQuery();
+  query2.addWhereEqualTo("title", "标题");
+
+  BmobQuery<Blog> query = BmobQuery();
+  List<BmobQuery<Blog>> list = new List();
+  list.add(query1);
+  list.add(query2);
+  query.or(list);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
+
+
+
+### 与查询
+
+
+```
+
+void _queryAnd(BuildContext context){
+  BmobQuery<Blog> query1 = BmobQuery();
+  query1.addWhereEqualTo("content", "内容");
+
+  BmobQuery<Blog> query2 = BmobQuery();
+  query2.addWhereEqualTo("title", "标题");
+
+  BmobQuery<Blog> query = BmobQuery();
+  List<BmobQuery<Blog>> list = new List();
+  list.add(query1);
+  list.add(query2);
+  query.and(list);
+  query.queryObjects().then((data) {
+    showSuccess(context, data.toString());
+    List<Blog> blogs = data.map((i) => Blog.fromJson(i)).toList();
+    for (Blog blog in blogs) {
+      if (blog != null) {
+        print(blog.objectId);
+        print(blog.title);
+        print(blog.content);
+      }
+    }
+  }).catchError((e) {
+    showError(context, BmobError.convert(e).error);
+  });
+}
+```
 
