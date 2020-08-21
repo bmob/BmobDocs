@@ -56,7 +56,7 @@ curl -X GET \
 | X-Bmob-Secret-Key     | string | Bmob控制台应用密匙 **Secret Key**                            |
 | X-Bmob-Safe-Sign      | string | md5 签名，签名规则 md5(url + timeStamp + safeToken + noncestr) ，具体 看下面介绍 |
 
-> 以上所有参数必填
+> 以上所有参数必填，请求时间客户端到服务器请求必须10s内，如果客户端手机时间不对，则无法请求。
 
 MD5加密规则说明
 
@@ -67,7 +67,7 @@ MD5加密规则说明
 | safeToken | 自定义API安全码，不通过网络传输。设置 **API 安全码**: 在应用功能设置，安全验证，API安全码自己设置长度为6个字符 |
 | noncestr  | 客户端请求产生的一个随机码，长度16个字符                     |
 
-
+由于部分客户担心之前密匙已经泄露，控制台给新方法方式加了一个设置，关闭原有 **X-Bmob-Application-Id** 访问方式，具体设置请进入在应用功能设置，安全验证里面关闭。
 
 
 
