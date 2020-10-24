@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>微信云函数 - Bmob文档中心</title>
+            -->
+            <title>云函数 &middot; Web – Bmob后端云 </title>        
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app/">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="../../android/">云函数</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../restful/">REST API</a>
+                                </li>
+							
+                            
+								<li class="active">
+									<a href="../">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					<div class="code-title">Web</div>
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../timing_tasks/">定时任务</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">微信云函数</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">简介</a>
+												
+											</li>
+												
+											<li class=""><a href="#bmob">创建bmob应用</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#bmob_1">注册bmob账号</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_2">创建应用</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_3">数据的基本操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_4">云函数</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#secret-key">获取Secret Key</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#get">以Get的方式调用云函数</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#post">以Post的方式调用云函数</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_8">微信公众平台的开发</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_9">创建云函数</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_10">启用微信公众号的开发模式</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_11">数据收发原理及消息数据格式</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_14">总结</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../norm/">编码规范</a>
+										
+									</li>
+								
+							
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在这篇微信公众平台开发教程中，将会带领你一步步领略使用云后端服务bmob的方便性，同时使用bmob进行微信公众号平台开发。</p>
+<p><strong>注意：升级云函数套餐后就没法在微信公众号中调用云函数</strong></p>
+<p>使用bmob有什么好处，下面一一为你道来：</p>
+<ul>
+<li>不需要购买服务器，不需要懂linux，不需要懂运维知识，零成本地拥有属于自己的后台系统。</li>
+<li>不在需要mysql，轻松存储和获取数据，同时提供了一个方便的数据管理后台。</li>
+<li>提供灵活的“云函数”，其融合了bmob的数据服务和大量的第三方服务，让你轻松应对复杂的业务逻辑。同时云函数能被第三方平台调用，再也不需要php，java等复杂的web服务。</li>
+</ul>
+<p>本教程将引导你完成如下任务：</p>
+<ul>
+<li>创建bmob应用</li>
+<li>使用bmob云函数实现微信公众平台的开发</li>
+</ul>
+<h2 id="bmob">创建bmob应用<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
+<p>在这节中，将会从基本的创建bmob账号开始，到创建应用，数据的基本操作，到云函数的运行，使读者对bmob的功能有初步的了解。</p>
+<p>在这个教程中，用到了bmob的两个功能：</p>
+<ul>
+<li>
+<p>数据存储：把订阅者发到微信公众号的信息存储起来。</p>
+</li>
+<li>
+<p>云函数：微信后台回调云函数后，完成公众号所需的业务逻辑：信息存储，把信息加工后返回给订阅者的微信。</p>
+</li>
+</ul>
+<h3 id="bmob_1">注册bmob账号<a class="headerlink" href="#bmob_1" title="Permanent link">&para;</a></h3>
+<p>在网址栏输入<a href="../www.bmob.cn" title="www.bmob.cn">www.bmob.cn</a>或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，如下图1所示：</p>
+<p><img alt="" src="../image/1.png" /></p>
+<p>注册成功，到注册所填入的邮箱查看bmob发送的邮件，点击其中激活链接后，就能使用邮箱和密码登录bmob。</p>
+<h3 id="_2">创建应用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>登录后，点击“我的控制台”，进入到了管理后台，如下图2所示：
+<img alt="" src="../image/2.png" /></p>
+<p>在bmob中，一个用户可以创建多个应用，每个应用拥有其所属的专用数据库，多个应用之间相互独立。</p>
+<p>用户需要创建一个应用，先点击管理后台中的“创建应用”按钮，如下图3所示：</p>
+<p><img alt="" src="../image/3.png" /></p>
+<p>在创建应用的输入框中输入app的名称，点击“创建应用”，就能成功创建应用，如下图4所示：</p>
+<p><img alt="" src="../image/4.png" /></p>
+<h3 id="_3">数据的基本操作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>创建应用成功后，开发者在管理后台点击刚才创建的应用，进入到应用的后台界面，其中最常用的是“数据浏览界面”，在该界面提供了便利的图形化操作，让开发者轻松地对该应用所属的数据库进行表的增删，数据的增删改查等操作，如下图5所示：</p>
+<p><img alt="" src="../image/5.png" /></p>
+<p>每个应用的数据库都有一个默认的表"_User",其提供了一些常用的字段来记录该应用的用户信息。</p>
+<p>开发者需要增加新的表来存储信息时，点击“添加表”按钮，输入表名，就能创建一张新表，如下图6所示：</p>
+<p><img alt="" src="../image/6.png" /></p>
+<p>在"添加新的表"界面中,选项“自定义”选项即可创建一张新的普通表，另外两个选项是较高级的功能，在本教程中暂时不需要用到。</p>
+<p>在这里，创建了一张名为"message"的表，用于存储订阅者发送到公众号后台的信息。</p>
+<p>在表"message"的操作界面中可看到，表"message"有4个默认的字段，其中3个最常用字段的含义如下：</p>
+<ul>
+<li>objectId：该行的id，objectId的作用和mysql中的经常使用的id类似，用于唯一标示一行。</li>
+<li>createdAt：改行数据的创建时间。</li>
+<li>updatedAt：改行数据的最后修改时间。</li>
+</ul>
+<p>当操作一行数据的时候，以上的3个字段的值由bmob后台自动管理。另外这些字段的名字是保留的，你不能自行设置它们。</p>
+<p>由于表"message"是需要把订阅者发到微信公众号的信息存储起来，存储信息的两个属性：谁发送这条信息，信息的内容，所以添加下面所需的字段：</p>
+<p>userId：订阅者的id，String类型。
+content：发送的内容，String。</p>
+<p>通过图8的“添加一列”功能，依次把userId和content这两个字段添加到表"message"中。</p>
+<p><img alt="" src="../image/8.png" /></p>
+<p><strong>注意：在用云函数添加数据时，如果发现其所操作的表和所操作的列不存，bmob后台会自动创建。这里为了演示bmob的数据浏览操作，所以才手动创建一次。</strong></p>
+<h3 id="_4">云函数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>阅读了上面的“数据的基本操作”的内容后，读者可能有个疑问，怎么对表的数据进行增删改查等操作呢？除了可以在"数据浏览"界面可以进行操作外，也可以通过云函数进行数据的增删改查，开发者也可以通过云函数完成更加复杂的业务逻辑。</p>
+<h4 id="_5">云函数的基本知识<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>对于一些复杂的应用，您可能希望增加一些特有的业务逻辑，并能灵活掌控，Bmob 云函数提供了这种灵活性，可以让您的代码直接在 Bmob云上运行, 通过SDK（Android，iOS），REST API api或者任何http的方式调用，即可获取结果数据。</p>
+<p>云函数的编码采用nodejs语法，简单易用。在云函数的编辑器中，系统默认生成了云函数的入口函数function onRequest(request, response, modules)，你可以根据自己的需求实现业务逻辑代码。 </p>
+<p>在云函数界面，创建一个名为"helloworld"的云函数，如下图9所示：</p>
+<p><img alt="" src="../image/9.png" /></p>
+<p>生成云函数后，可看到云函数生成的入口方法，如下图10所示：</p>
+<p><img alt="" src="../image/10.png" /></p>
+<p>开发者按照云函数的相关语法和提供的模块编写云函数，就能实现各种业务逻辑。</p>
+<p>从云函数的入口方法function onRequest(request, response, modules)可知，云函数包含三个模块，分别是request模块、response模块和modules模块。</p>
+<h5 id="request">request模块<a class="headerlink" href="#request" title="Permanent link">&para;</a></h5>
+<p>request模块用于获取传入的参数。由于现在调用云函数有两种方式（get和post），所以获取传入的参数的方式需要使用不同的方法。</p>
+<p>当用get请求的方式传入参数，可用如下的方法获取参数的值：</p>
+<pre><code>request.query.name  //获取传入参数name的值
+</code></pre>
+
+<p>当用post请求的方式传入参数，可用如下的方法获取参数的值：</p>
+<pre><code>request.body.name  //获取传入参数name的值
+</code></pre>
+
+<h5 id="response">response模块<a class="headerlink" href="#response" title="Permanent link">&para;</a></h5>
+<p>response为云函数的信息回传模块，该模块包含了一个end方法，实现将云端的执行结果（如查询的数据）返回给SDK或者RestApi等调用端：</p>
+<pre><code>response.end(string result)
+</code></pre>
+
+<h5 id="modules">modules模块<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h5>
+<p>modules是Bmob云函数提供给大家的各种对象处理的模块，包括数据库对象（oData）、文件对象（oFile）、地理位置对象（oLocation）、关联关系对象（oRelation）、原子操作对象（oAtom）、数据批量操作对象（oBatch）、数组对象（oArray）、消息推送对象（oPush）、云函数对象（oFunctions）、邮件发送对象（oMail）、同步对象（oAsync）、HTTP对象（oHttp）、字符编码转换对象（oEncodeing）、事件对象（oEvent）、bql对象（oBql）、html元素解析对象（oHtmlparser）、加密对象（oCrypto）。云函数想要调用这些对象时，只需要用如下的方法即可获取：</p>
+<pre><code>  //获取数据库对象
+  var db = modules.oData;
+  //下面进行其他操作
+</code></pre>
+
+<h4 id="helleworld">用云函数实现"helleworld"<a class="headerlink" href="#helleworld" title="Permanent link">&para;</a></h4>
+<p>下面用云函数输出一个经典的"helleworld"程序，让开发者对编写云函数有个初步的了解。</p>
+<p>输出"helleworld"的云函数如下：</p>
+<pre><code>function onRequest(request, response, modules) {
+    response.end(&quot;this is hello world&quot;);  //返回字符串&quot;this is hello world&quot;
+}                         
+</code></pre>
+
+<p>在"helloworld"的云函数编辑界面上输入上面的代码，按下“保存”按钮就能把编辑完毕的代码保存在云端，如下图11所示：</p>
+<p><img alt="" src="../image/11.png" /></p>
+<p>怎么运行上面编辑完毕云函数呢？bmob在每个云函数的编辑界面下方提供了一个方便的调试工具，如下图12所示：</p>
+<p><img alt="" src="../image/12.png" /></p>
+<p>这个工具有下面的功能：</p>
+<ul>
+<li>可选择以http "post"或者"get"的方法运行云函数。</li>
+<li>选择request的参数和对应值：可添加传入云函数的request的参数和对应值，参数的数目可以通过“再添加一个”按钮调整。</li>
+</ul>
+<p>需要运行名称为"helloworld"的云函数，在"helloworld"的云函数编辑界面下点击“发送请求”按钮，就能在调试工具上看到云函数返回的字符串“this is hello world”，如下图13所示：</p>
+<p><img alt="" src="../image/13.png" /></p>
+<p>整个云函数的执行流程如图13.1所示：</p>
+<p><img alt="" src="../image/13.1.png" /></p>
+<h4 id="_6">调用云函数的方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>除了使用bmob提供的云函数调式工具外，bmob允许开发者以http的方式直接调用云函数。</p>
+<h3 id="secret-key">获取Secret Key<a class="headerlink" href="#secret-key" title="Permanent link">&para;</a></h3>
+<p>用户需要以http的方式运行云函数，需要先确定应用的Secret Key。 调用云函数时，通过Secret Key标识一个应用，获取Secret Key的路径：
+管理后台-&gt;应用密钥-&gt;Secret Key, 如下图14所示：</p>
+<p><img alt="" src="../image/14.png" /></p>
+<p>注意：请妥善保管Secret Key，避免Secret Key的泄露！！！</p>
+<h3 id="get">以Get的方式调用云函数<a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
+<p>下面展示了以Get的方式调用云函数，在浏览器中输入下面的url：</p>
+<pre><code>http://cloudweixinopen.bmob.cn/a12af19a1b8bf434/helloworld
+</code></pre>
+
+<p>其中：</p>
+<ul>
+<li>a12af19a1b8bf434：应用的Secret Key。</li>
+<li>helloworld：云函数的名称</li>
+</ul>
+<p>看到云函数的返回结果如下图15所示：</p>
+<p><img alt="" src="../image/15.png" /></p>
+<h3 id="post">以Post的方式调用云函数<a class="headerlink" href="#post" title="Permanent link">&para;</a></h3>
+<p>下面通过curl工具展示了以Post的方式调用云函数：</p>
+<pre><code>curl -X POST \
+    http://cloudweixinopen.bmob.cn/a12af19a1b8bf434/helloworld
+</code></pre>
+
+<p>其中：</p>
+<ul>
+<li>a12af19a1b8bf434：应用的Secret Key。</li>
+<li>helloworld：云函数的名称</li>
+</ul>
+<h4 id="_7">云函数操作数据库初步入门<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>bmob提供了数据库对象（oData）用于操作数据。</p>
+<p>用云函数往数据表“message”插入一条数据，可用如下的代码</p>
+<pre><code>function onRequest(request, response, modules) {
+    //获取数据库对象
+    var db = modules.oData;
+    db.insert({
+      &quot;table&quot;:&quot;message&quot;,             //表名
+      &quot;data&quot;:{&quot;userId&quot;:&quot;dsfd2324&quot;,&quot;content&quot;:&quot;插入的第一条信息&quot;}            //需要插入的数据，格式为JSON
+    },function(err,data){         //回调函数
+        response.end(&quot;success&quot;);  //运行完毕后返回“success”
+    });
+}                         
+</code></pre>
+
+<p>点击保存后在云函数调试区按“发送请求”，返回“success”的值，如下图16所示：</p>
+<p><img alt="" src="../image/16.png" /></p>
+<p>在管理后台-&gt;数据浏览-&gt;应用表“message”下查看通过云函数新增的数据，如下图17所示：</p>
+<p><img alt="" src="../image/17.png" /></p>
+<p>用云函数查询表“message”的所有数据，可用如下的代码：</p>
+<pre><code>function onRequest(request, response, modules) {
+    //获取数据库对象
+    var db = modules.oData;
+    db.find({
+      &quot;table&quot;:&quot;message&quot;             //表名
+    },function(err,data){         //回调函数
+        response.end(data);       //data为返回的数据，格式为json
+    });
+}                                                 
+</code></pre>
+
+<p>点击保存后在云函数调试区按“发送请求”，返回表“message”的数据，如下图18所示：</p>
+<p><img alt="" src="../image/18.png" /></p>
+<p>需要了解更多云函数的操作，可阅读<a href="http://docs.bmob.cn/cloudcode/WEB/a_faststart/doc/index.html" title="云函数开发文档">http://docs.bmob.cn/cloudcode/WEB/a_faststart/doc/index.html</a></p>
+<p>在编写云函数时有个注意事项：云函数是使用异步编程。也就是说，当遇到文件读写请求，网络请求等IO操作时，代码不等待IO操作返回结果就执行后面的语句,当接收到IO操作的返回结果后才调用回调函数。</p>
+<p>当使用php，java等非异步编程语言时，如果需要插入数据后再查找数据，可用类似下面的代码：</p>
+<pre><code>    db-&gt;insert(xxxxx);
+    db-&gt;find(xxxxx);                                                 
+</code></pre>
+
+<p>在同步型的编程语言中，find和insert都是数据库的操作，有文件读写的IO操作，在db-&gt;find执行前，能确保db-&gt;insert已经执行完毕了。</p>
+<p>在异步编程中，用类似下面的代码才能保证执行完db.insert后才执行：</p>
+<pre><code>    db.insert({xxx},function(xxx){
+        db.find({xxx},function(xxx){xxxx});
+    });
+
+</code></pre>
+
+<p>只有通过在db.insert的回调函数中执行db.find，才能保证执行db.find前db.insert的数据库操作已经完成。</p>
+<p>举个生活中的例子说明异步编程。在饭馆里，服务员接待客人一般是这样的：</p>
+<blockquote>
+<p>服务员指引客人就座，把菜单递给客人，在客人浏览菜单时服务员在旁边一直等待，当客户点菜后，服务员把订单交给厨房后继续干别的事情。</p>
+</blockquote>
+<p>采用异步模式的服务员可以这样接待客人：</p>
+<blockquote>
+<p>服务员指引客人就座，把菜单递给客人，在客人浏览菜单时服务员就去干别的事情。当客户决定点菜后，客人把服务员招来，服务员把客人下的订单交给厨房后继续干别的事情。</p>
+</blockquote>
+<p>在服务员接待客人的行为中，通过比较普通的做法和异步的做法，能发现采用异步的方法后服务员的效率大大提高，云函数使用异步也是基于同样的理由，当云函数在等待IO操作（文件读写请求，网络请求）的结果时是一直空闲，如果不等待IO的结果继续执行下面的语句，能大大提高系统的效率。</p>
+<p>在云函数异步编程中“function(xxx){xxxx}”部分称为回调函数，云函数会把IO操作的返回结果封装后传入到function函数执行里面的逻辑。</p>
+<pre><code>    db.insert({xxx},function(xxx){xxxx});                            
+</code></pre>
+
+<h2 id="_8">微信公众平台的开发<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>在本节中，通过bmob云函数开发微信公众平台，实现一个反馈意见收集的功能：
+1.把订阅者发送到公众号后台的反馈意见存储在上一节在bmob中创建的表“message”中。
+2.订阅者提交反馈意见后，公众号自动给订阅者发送消息，表示消息已收到。</p>
+<h3 id="_9">创建云函数<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>创建一个名为"feedback"的云函数用于实现上面的功能，代码如下：</p>
+<pre><code>
+function onRequest(request, response, modules) {
+    var token = &quot;weixin&quot;;         //这里的值必须与在微信公众号后台填入的token值一致
+    var crypto = modules.oCrypto; //使用加解密模块
+    var httptype = modules.oHttptype;　//获取调用云函数的是post或者get方式
+    var xml2js = modules.oXml2js;　//实现xml和js格式之间的相互转换
+    var db = modules.oData;         //数据库对象
+    if (&quot;get&quot; == httptype) {
+        　//是get方法,则是微信验证回调的url是否有效
+          var oriStr = [token, request.query.timestamp, request.query.nonce].sort().join('')
+          var code = crypto.createHash('sha1').update(oriStr).digest('hex');
+          if (code == request.query.signature) {　//验证通过，输出
+              response.end(request.query.echostr);
+          } else {
+              response.end(&quot;Unauthorized&quot;);
+          }
+    } else {
+           //是post,接收定阅者发送过来的消息后返回，把反馈意见存储表“message”中。
+            db.insert({
+              &quot;table&quot;:&quot;message&quot;,             //表名
+              &quot;data&quot;:{&quot;userId&quot;:request.body.xml.FromUserName,&quot;content&quot;:request.body.xml.Content}           
+            },function(err,data){                        
+              //构造公众号后台所需要的xml格式，并返回给公众号后台  
+               var result = {
+                    xml: {
+                      ToUserName: request.body.xml.FromUserName,
+                      FromUserName: request.body.xml.ToUserName ,
+                      CreateTime: new Date().getTime(),
+                      MsgType: 'text',
+                      Content: '你好，你发送的反馈内容「' + request.body.xml.Content + '」已收到。'
+                    }
+                }
+                var builder = new xml2js.Builder();
+                var xml = builder.buildObject(result); //利用模块xml2js，把json对象转换为一个xml文本
+                response.set('Content-Type', 'text/xml'); //设置返回的http header
+                response.end(xml);
+            });
+
+
+
+    }
+}                                                                         
+
+</code></pre>
+
+<p>这个云函数的内容暂时看不懂没关系，下面会逐渐解释其中的含义。</p>
+<h3 id="_10">启用微信公众号的开发模式<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>只有启用微信公众号的开发模式后，才能把订阅者发送到微信公众号后台的消息发送到bmob云函数中进行处理。</p>
+<p>微信公众平台地址：<a href="https://mp.weixin.qq.com" title="https://mp.weixin.qq.com">https://mp.weixin.qq.com </a></p>
+<p>登录微信公众平台后台，在左侧列表中最下方，找到“开发者中心”，点击进入，如图19所示：</p>
+<p><img alt="" src="../image/19.jpg" /></p>
+<p>进入服云函数务器配置填写框，如图20所示：</p>
+<p><img alt="" src="../image/20.jpg" /></p>
+<p>点击“修改配置”按钮，如图21所示：</p>
+<p><img alt="" src="../image/21.png" /></p>
+<p>此处的URL（http://cloudweixinopen.bmob.cn/a12af19a1b8bf434/feedback）为上节中生成的云函数“feedback”的调用，按照云函数的调用规格，a12af19a1b8bf434为该应用的Secret Key，标明调用的是哪个应用，feedback为云函数的名称。Token定义为weixin。EncodingAESKey则不用填，点击“随机生成”让自动生成一个，消息加解密方式选择“明文模式”，然后点击“提交”按钮，如图22所示：</p>
+<p><img alt="" src="../image/22.jpg" /></p>
+<p>在弹出框中点击确定，如图24所示：</p>
+<p><img alt="" src="../image/24.jpg" /></p>
+<p>成功启用后如图25所示：</p>
+<p><img alt="" src="../image/25.png" /></p>
+<p>恭喜，你成功启用开发模式。</p>
+<p>用户往该公众号发送消息后，用户收到的反馈内容如图27所示：</p>
+<p><img alt="" src="../image/27.png" /></p>
+<p>查看应用的后台，可看到接收的消息已存储在表message中，如图28所示：</p>
+<p><img alt="" src="../image/28.png" /></p>
+<h3 id="_11">数据收发原理及消息数据格式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>云函数开发微信公众号有两个重要原理一定要弄明白：</p>
+<ul>
+<li>变为开发模式时，微信公众号后台往配置的url发送校验请求，这个过程云函数校验信息的原理。</li>
+<li>云函数收发微信公众号后台传递过来的消息的原理。</li>
+</ul>
+<h4 id="_12">变为开发模式时的消息校验原理<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>在开发者首次提交验证申请时，微信公众号后台将发送GET请求到填写的URL上，并且带上四个参数（signature、timestamp、nonce、echostr），开发者通过对签名（signature）的效验来判断此条消息的真实性。</p>
+<p>这4个参数的含义如下：</p>
+<ul>
+<li>signature：微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。</li>
+<li>timestamp：时间戳。</li>
+<li>nonce：随机数</li>
+<li>echostr：随机字符串</li>
+</ul>
+<p>此后，每次开发者接收用户消息的时候，微信公众号后台也都会带上前面三个参数（signature、timestamp、nonce）访问开发者设置的URL，开发者依然通过对签名的效验判断此条消息的真实性。效验方式与首次提交验证申请一致。</p>
+<p>开发者通过检验signature对请求进行校验（下面有校验方式）。若确认此次GET请求来自微信公众号后台，请原样返回echostr参数内容，则接入生效，成为开发者成功，否则接入失败。</p>
+<p>消息校验流程如下：</p>
+<ol>
+<li>将token、timestamp、nonce三个参数进行字典序排序。</li>
+<li>将三个参数字符串拼接成一个字符串进行sha1加密。</li>
+<li>开发者获得加密后的字符串可与signature对比，标识该请求来源于微信。</li>
+</ol>
+<p>整个流程如图26所示：</p>
+<p><img alt="" src="../image/26.png" /></p>
+<p>使用的云函数如下：</p>
+<pre><code>        　//是get方法,则是微信验证回调的url是否有效
+          var oriStr = [token, request.query.timestamp, request.query.nonce].sort().join('')
+          var code = crypto.createHash('sha1').update(oriStr).digest('hex');
+          if (code == request.query.signature) {　//验证通过，输出
+              response.end(request.query.echostr);
+          } else {
+              response.end(&quot;Unauthorized&quot;);
+          }
+</code></pre>
+
+<p>其中token的值是在微信公众号后台填入的token值：“weixin”。</p>
+<p>在这个校验流程的云函数中，使用oCrypto这个云函数的加密对象模块，提供md5和sha1两种加密算法。通过这个模块，按照微信校验的流程完成校验。oCrypto更多的功能详细参考：https://www.npmjs.org/package/crypto</p>
+<p>另外，云函数使用了oHttptype模块获取当前的http调用方式。因为微信公众平台调用云函数有两种方式：</p>
+<ul>
+<li>get方式，用于检验。</li>
+<li>post方式，用于转发订阅者往公众平台发送的消息。</li>
+</ul>
+<p>通过oHttptype模块得知是用采用get方式调用云函数，运行校验的代码并返回echostr参数。</p>
+<h4 id="_13">云函数收发微信公众号后台传递过来的消息的原理<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>在上一节的演示中，订阅者往该公众号发送消息后，返回已收到反馈内容的消息。</p>
+<p>这一原理的消息流程如图29所示：</p>
+<p><img alt="" src="../image/29.png" /></p>
+<p>云函数内部通过下面的代码处理用户发送的消息：</p>
+<pre><code>           //是post,接收定阅者发送过来的消息后返回，把反馈意见存储表“message”中。
+            db.insert({
+              &quot;table&quot;:&quot;message&quot;,             //表名
+              &quot;data&quot;:{&quot;userId&quot;:request.body.xml.FromUserName,&quot;content&quot;:request.body.xml.Content}           
+            },function(err,data){         
+              //构造公众号后台所需要的xml格式，并返回给公众号后台  
+               var result = {
+                    xml: {
+                      ToUserName: request.body.xml.FromUserName,
+                      FromUserName: request.body.xml.ToUserName ,
+                      CreateTime: new Date().getTime(),
+                      MsgType: 'text',
+                      Content: '你好，你发送的反馈内容「' + request.body.xml.Content + '」已收到。'
+                    }
+                }
+                var builder = new xml2js.Builder();
+                var xml = builder.buildObject(result); //利用模块xml2js，把json对象转换为一个xml文本
+                response.set('Content-Type', 'text/xml'); //设置返回的http header
+                response.end(xml);
+            });
+</code></pre>
+
+<p>从上图可以看出，用户在发送一个文本后，微信公众号后台将组装一个xml消息发送给云函数服务器。当云函数接收到http头部Content-Type为text/xml的请求后，云函数自动把xml消息转换为一个对象放在request.body.xml中，通过获取request.body.xml对应的属性就能获取xml节点的值。</p>
+<p>云函数解析xml对象，根据节点信息，把发送者(request.body.xml.FromUserName)和消息内容（request.body.xml.Content）存储在表“message”后，然后通过一定的规则组装成一个xml文本回复给微信公众号后台，微信公众号后台再回复给用户。在这个收发过程中，发送方和接收方进行了调换(ToUserName和FromUserName值互换)，收发都是以xml格式在后台进行传输的。所以掌握各种消息类型的接收回复是进行微信公众平台开发的基础！</p>
+<p>最常见的消息类型为文本的xml格式如下：</p>
+<pre><code>&lt;xml&gt;
+&lt;ToUserName&gt;&lt;![CDATA[gh_b36303ca8941]]&gt;&lt;/ToUserName&gt;
+&lt;FromUserName&gt;&lt;![CDATA[oqwUds6-SG7L8t6ZBDexZvaRWnXM]]&gt;&lt;/FromUserName&gt;
+&lt;CreateTime&gt;1444464955&lt;/CreateTime&gt;
+&lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;
+&lt;Content&gt;&lt;![CDATA[这个公众号不错]]&gt;&lt;/Content&gt;
+&lt;MsgId&gt;6203929742163889773&lt;/MsgId&gt;
+&lt;/xml&gt;                                           
+</code></pre>
+
+<p>XML格式讲解：</p>
+<ul>
+<li>ToUserName 消息接收方微信号，一般为公众平台账号微信号</li>
+<li>FromUserName 消息发送方微信号</li>
+<li>CreateTime 消息创建时间</li>
+<li>MsgType 消息类型；文本消息为text</li>
+<li>Content 消息内容</li>
+<li>MsgId 消息ID号</li>
+</ul>
+<p>各种类型的消息详解，请查看微信开发文档：<a href="http://mp.weixin.qq.com/wiki/14/89b871b5466b19b3efa4ada8e577d45e.html" title="公众号的各种消息类型">http://mp.weixin.qq.com/wiki/14/89b871b5466b19b3efa4ada8e577d45e.html</a></p>
+<h2 id="_14">总结<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>通过本教程，你得到了以下收获：</p>
+<ul>
+<li>了解bmob应用和云函数的功能。</li>
+<li>在不需要搭建服务器，不需要懂得基本的运维知识下，使用bmob云函数在30分钟内实现微信公众平台的开发，完了消息存储和消息自动回复这两个功能。</li>
+</ul>
+<p>阅读本教程后，想了解云后端服务bmob可以实现哪些更酷的功能吗？点击<a href="http://www.bmob.cn" title="这里">http://www.bmob.cn</a>，立刻进入bmob了解更多。</p>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+    </body>
+
+</html>
