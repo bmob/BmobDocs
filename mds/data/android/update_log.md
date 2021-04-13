@@ -1,3 +1,9 @@
+## v3.8.1(2021/04/06)
+1、修复初始化时SQLiteOpenHelper.onCreate方法执行错误的问题
+
+## v3.8.0(2021/03/26)
+1、修改sdk默认域名为open3.bmob.cn
+
 ## v3.7.8(2020/04/17)
 1、修复部分bug。
 2、兼容push、im SDK
