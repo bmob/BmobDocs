@@ -34,44 +34,16 @@
 
 ### 自动导入(推荐)
 
-请按照如下两个步骤进行：
-
-1. 在 `Project` 的 `build.gradle` 文件中添加 `Bmob的maven仓库地址`：
-```
-	buildscript {
-	    repositories {
-	        jcenter()
-	    }
-	    dependencies {
-	        classpath 'com.android.tools.build:gradle:1.2.3'
-	    }
-	}
-	
-	allprojects {
-	    repositories {
-	        jcenter()
-			//Bmob的maven仓库地址--必填
-			maven {url 'https://dl.bintray.com/chaozhouzhang/maven' }
-	    }
-	}
-```
-
-
-2. 在`app`的`build.gradle`文件中添加`依赖文件`：
+在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
-android {
-    useLibrary 'org.apache.http.legacy'
+dependencies {
+	implementation 'io.github.bmob:andorid-sdk:3.8.1'
+	implementation "io.reactivex.rxjava2:rxjava:2.2.8"
+	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+	implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+	implementation 'com.squareup.okio:okio:2.2.2'
+	implementation 'com.google.code.gson:gson:2.8.5'
 }
-```
-```gradle
-	dependencies {
-    implementation 'cn.bmob.android:bmob-sdk:3.7.8'
-    implementation "io.reactivex.rxjava2:rxjava:2.2.8"
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
-    implementation 'com.squareup.okio:okio:2.2.2'
-    implementation 'com.google.code.gson:gson:2.8.5'
-	}
 ```
 
 **注：**
