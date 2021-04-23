@@ -585,44 +585,15 @@
 <h3 id="androidstudio">AndroidStudio配置<a class="headerlink" href="#androidstudio" title="Permanent link">&para;</a></h3>
 <p>鉴于目前Google官方推荐使用 <code>Android Studio</code> 进行Android项目开发，自 <code>V3.4.2</code> 开始，Bmob Android SDK 可以使用Gradle来进行包依赖管理，如果你使用Android Studio来进行基于BmobSDK的项目开发，有两种方式：</p>
 <h3 id="_2">自动导入(推荐)<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>请按照如下两个步骤进行：</p>
-<ol>
-<li>在 <code>Project</code> 的 <code>build.gradle</code> 文件中添加 <code>Bmob的maven仓库地址</code>：</li>
-</ol>
-<pre><code>    buildscript {
-        repositories {
-            jcenter()
-        }
-        dependencies {
-            classpath 'com.android.tools.build:gradle:1.2.3'
-        }
-    }
-
-    allprojects {
-        repositories {
-            jcenter()
-            //Bmob的maven仓库地址--必填
-            maven {url 'https://dl.bintray.com/chaozhouzhang/maven' }
-        }
-    }
-</code></pre>
-
-<ol>
-<li>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</li>
-</ol>
-<pre><code class="gradle">android {
-    useLibrary 'org.apache.http.legacy'
-}
-</code></pre>
-
-<pre><code class="gradle">    dependencies {
-    implementation 'cn.bmob.android:bmob-sdk:3.7.8'
+<p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
+<pre><code class="gradle">dependencies {
+    implementation 'io.github.bmob:andorid-sdk:3.8.1'
     implementation &quot;io.reactivex.rxjava2:rxjava:2.2.8&quot;
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.okhttp3:okhttp:3.14.1'
     implementation 'com.squareup.okio:okio:2.2.2'
     implementation 'com.google.code.gson:gson:2.8.5'
-    }
+}
 </code></pre>
 
 <p><strong>注：</strong></p>
