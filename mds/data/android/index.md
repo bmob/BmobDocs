@@ -37,7 +37,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:andorid-sdk:3.8.1'
+	implementation 'io.github.bmob:android-sdk:3.8.2'
 	implementation "io.reactivex.rxjava2:rxjava:2.2.8"
 	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 	implementation 'com.squareup.okhttp3:okhttp:3.14.1'
