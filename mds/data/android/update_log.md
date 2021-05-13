@@ -1,3 +1,12 @@
+## v3.8.4(2021/04/06)
+1、修复初始化时SQLiteOpenHelper.onCreate方法执行错误的问题
+
+## v3.8.3(2021/04/06)
+1、修改okhttp依赖版本到okhttp:4.8.1
+
+## v3.8.2(2021/04/06)
+1、调整sdk groupid为io.github.bmob:android-sdk:3.8.2
+
 ## v3.8.1(2021/04/06)
 1、修复初始化时SQLiteOpenHelper.onCreate方法执行错误的问题
 
