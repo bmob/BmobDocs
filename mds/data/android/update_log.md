@@ -1,3 +1,6 @@
+## v3.8.5(2021/06/17)
+1、修复AsyncTask的虚方法DoInBackGround没有实现的问题
+
 ## v3.8.4(2021/04/06)
 1、修复初始化时SQLiteOpenHelper.onCreate方法执行错误的问题
 
