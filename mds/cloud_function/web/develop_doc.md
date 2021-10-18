@@ -1624,6 +1624,121 @@ function onRequest(request, response, modules) {
 
 
 
+## 新加密对象oCryptoJS
+
+Gzip
+
+```
+function onRequest(request, response, modules) {
+    var gzip = modules.oGzip;
+    gzip.gzip('Hello World').then((compressed) =>{
+        return gzip.ungzip(compressed);
+    }).then((decompressed) =>{
+        response.end(decompressed.toString());
+    });
+}
+
+
+```
+
+RSA 非对称加密
+
+```
+//RSA 
+function onRequest(request, response, modules) {
+
+    var NodeRSA = modules.oCryptoRSA;
+
+    var key = new NodeRSA({b: 512}); //生成新的512位长度密钥
+    
+    var text = 'Hello RSA!'; // 加密前数据
+    var encrypted = key.encrypt(text, 'base64');  // 加密后数据
+    console.log('encrypted: ', encrypted);
+    var decrypted = key.decrypt(encrypted, 'utf8'); // 解密后数据
+    console.log('decrypted: ', decrypted);
+    response.end(encrypted)
+}
+```
+
+AES 加密
+
+```
+// AES
+function onRequest(request, response, modules) {
+
+    var CryptoJS = modules.oCryptoJS;
+
+    let key = CryptoJS.enc.Utf8.parse('wAqH3oMU*aW4MYUJ'); //密钥必须是16位，且避免使用保留字符
+    let encryptedData = CryptoJS.AES.encrypt("hello", key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    let hexData = encryptedData.ciphertext.toString();
+    console.log(hexData)
+    // response.end(hexData)
+
+    //================解密================
+    let encryptedHexStr = CryptoJS.enc.Hex.parse(hexData);
+    let encryptedBase64Str = CryptoJS.enc.Base64.stringify(encryptedHexStr);
+    let decryptedData = CryptoJS.AES.decrypt(encryptedBase64Str, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    let text = decryptedData.toString(CryptoJS.enc.Utf8);
+    console.log("text",text)
+    response.end(text)
+}
+```
+
+
+
+## 时间格式化类
+
+获取当前时间，格式化为  `2022-11-18 14:36:03` 。
+
+```
+function onRequest(request, response, modules) {
+    let moment = modules.oMoment
+    let time = moment().format('YYYY-MM-DD HH:mm:ss');
+    response.end(time)
+}                                                                                    
+```
+
+### 格式化示例
+
+```
+moment().format('MMMM Do YYYY, h:mm:ss a'); // 十月 18日 2021, 2:38:27 下午
+moment().format('dddd');                    // 星期一
+moment().format("MMM Do YY");               // 10月 18日 21
+moment().format('YYYY [escaped] YYYY');     // 2021 escaped 2021
+moment().format();                          // 2021-10-18T14:38:27+08:00
+```
+
+### 相对时间
+
+```js
+moment("20111031", "YYYYMMDD").fromNow(); // 10 年前
+moment("20120620", "YYYYMMDD").fromNow(); // 9 年前
+moment().startOf('day').fromNow();        // 15 小时前
+moment().endOf('day').fromNow();          // 9 小时内
+moment().startOf('hour').fromNow();       // 39 分钟前
+                                          // undefined
+```
+
+### 日历时间
+
+```js
+moment().subtract(10, 'days').calendar(); // 2021/10/08
+moment().subtract(6, 'days').calendar();  // 上星期二14:38
+moment().subtract(3, 'days').calendar();  // 上星期五14:38
+moment().subtract(1, 'days').calendar();  // 昨天14:38
+moment().calendar();                      // 今天14:38
+moment().add(1, 'days').calendar();       // 明天14:38
+moment().add(3, 'days').calendar();       // 下星期四14:38
+moment().add(10, 'days').calendar();      // 2021/10/28
+                                          // undefined
+```
+
 ## 云函数调试工具
 
 1. ### 网页在线调试工具
