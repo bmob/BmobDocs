@@ -673,10 +673,30 @@
 												
 											</li>
 												
-											<li class=""><a href="#_53">云函数调试工具</a>
+											<li class=""><a href="#ocryptojs">新加密对象oCryptoJS</a>
+												
+											</li>
+												
+											<li class=""><a href="#_53">时间格式化类</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_54">网页在线调试工具</a></li>
+													<li><a class="itm-l2" href="#_54">格式化示例</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_55">相对时间</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_56">日历时间</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_57">云函数调试工具</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_58">网页在线调试工具</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
@@ -685,11 +705,11 @@
 												
 											</li>
 												
-											<li class=""><a href="#_55">错误对象</a>
+											<li class=""><a href="#_59">错误对象</a>
 												
 											</li>
 												
-											<li class=""><a href="#_56">日志对象</a>
+											<li class=""><a href="#_60">日志对象</a>
 												
 											</li>
 												
@@ -2117,10 +2137,107 @@ response.send(result.toString());
 
 </code></pre>
 
-<h2 id="_53">云函数调试工具<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<h2 id="ocryptojs">新加密对象oCryptoJS<a class="headerlink" href="#ocryptojs" title="Permanent link">&para;</a></h2>
+<p>Gzip</p>
+<pre><code>function onRequest(request, response, modules) {
+    var gzip = modules.oGzip;
+    gzip.gzip('Hello World').then((compressed) =&gt;{
+        return gzip.ungzip(compressed);
+    }).then((decompressed) =&gt;{
+        response.end(decompressed.toString());
+    });
+}
+
+
+</code></pre>
+
+<p>RSA 非对称加密</p>
+<pre><code>//RSA 
+function onRequest(request, response, modules) {
+
+    var NodeRSA = modules.oCryptoRSA;
+
+    var key = new NodeRSA({b: 512}); //生成新的512位长度密钥
+
+    var text = 'Hello RSA!'; // 加密前数据
+    var encrypted = key.encrypt(text, 'base64');  // 加密后数据
+    console.log('encrypted: ', encrypted);
+    var decrypted = key.decrypt(encrypted, 'utf8'); // 解密后数据
+    console.log('decrypted: ', decrypted);
+    response.end(encrypted)
+}
+</code></pre>
+
+<p>AES 加密</p>
+<pre><code>// AES
+function onRequest(request, response, modules) {
+
+    var CryptoJS = modules.oCryptoJS;
+
+    let key = CryptoJS.enc.Utf8.parse('wAqH3oMU*aW4MYUJ'); //密钥必须是16位，且避免使用保留字符
+    let encryptedData = CryptoJS.AES.encrypt(&quot;hello&quot;, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    let hexData = encryptedData.ciphertext.toString();
+    console.log(hexData)
+    // response.end(hexData)
+
+    //================解密================
+    let encryptedHexStr = CryptoJS.enc.Hex.parse(hexData);
+    let encryptedBase64Str = CryptoJS.enc.Base64.stringify(encryptedHexStr);
+    let decryptedData = CryptoJS.AES.decrypt(encryptedBase64Str, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    let text = decryptedData.toString(CryptoJS.enc.Utf8);
+    console.log(&quot;text&quot;,text)
+    response.end(text)
+}
+</code></pre>
+
+<h2 id="_53">时间格式化类<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<p>获取当前时间，格式化为  <code>2022-11-18 14:36:03</code> 。</p>
+<pre><code>function onRequest(request, response, modules) {
+    let moment = modules.oMoment
+    let time = moment().format('YYYY-MM-DD HH:mm:ss');
+    response.end(time)
+}                                                                                    
+</code></pre>
+
+<h3 id="_54">格式化示例<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<pre><code>moment().format('MMMM Do YYYY, h:mm:ss a'); // 十月 18日 2021, 2:38:27 下午
+moment().format('dddd');                    // 星期一
+moment().format(&quot;MMM Do YY&quot;);               // 10月 18日 21
+moment().format('YYYY [escaped] YYYY');     // 2021 escaped 2021
+moment().format();                          // 2021-10-18T14:38:27+08:00
+</code></pre>
+
+<h3 id="_55">相对时间<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<pre><code class="js">moment(&quot;20111031&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 10 年前
+moment(&quot;20120620&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 9 年前
+moment().startOf('day').fromNow();        // 15 小时前
+moment().endOf('day').fromNow();          // 9 小时内
+moment().startOf('hour').fromNow();       // 39 分钟前
+                                          // undefined
+</code></pre>
+
+<h3 id="_56">日历时间<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<pre><code class="js">moment().subtract(10, 'days').calendar(); // 2021/10/08
+moment().subtract(6, 'days').calendar();  // 上星期二14:38
+moment().subtract(3, 'days').calendar();  // 上星期五14:38
+moment().subtract(1, 'days').calendar();  // 昨天14:38
+moment().calendar();                      // 今天14:38
+moment().add(1, 'days').calendar();       // 明天14:38
+moment().add(3, 'days').calendar();       // 下星期四14:38
+moment().add(10, 'days').calendar();      // 2021/10/28
+                                          // undefined
+</code></pre>
+
+<h2 id="_57">云函数调试工具<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<h3 id="_54">网页在线调试工具<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<h3 id="_58">网页在线调试工具<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
 </li>
 </ol>
 <p>为方便开发者调试云函数，Bmob为开发者提供了便捷的云端调试工具，你可以直接在云函数的编辑页面下对编写的代码进行调试，如实现从Bar表中查找指定objectId号（SDK中上传参数）的数据，你可以在云函数中实现如下：</p>
@@ -2145,7 +2262,7 @@ response.send(result.toString());
 <p>有时我们开发的云函数，可能上百行代码，在网页不太方便，这时我们可以使用自己习惯的开发工具来编写代码，通过<strong>Bmobup</strong>命令来调试上传，Bmob平台Node、Java云函数本地开发调试工具,增加云函数开发效率，支持<code>Mac</code>,<code>Windows</code>,<code>liunx</code>系统 。它的流程会把你本地写的代码，提交到Bmob应用云函数并返回结果。</p>
 <p>项目地址：</p>
 <p>https://github.com/bmob/bmobup</p>
-<h2 id="_55">错误对象<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h2>
+<h2 id="_59">错误对象<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h2>
 <p>Bmob提供的官方模块（非第三方）的错误回调中都会有一个<code>err</code>对象，这个<code>err</code>对象包含两个属性：<code>error</code>和<code>code</code>，分别代表错误异常信息和错误代码。调用时可以简单如下使用：</p>
 <pre><code>function onRequest(request, response, modules) {
     var db = modules.oData;
@@ -2160,7 +2277,7 @@ response.send(result.toString());
 }
 </code></pre>
 
-<h2 id="_56">日志对象<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h2>
+<h2 id="_60">日志对象<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h2>
 <p><strong> 这个功能已暂时停用 </strong></p>
 <p>oLog 是一个日志对象，当程序调试时，可以把对应变量的值写入日志表。</p>
 <pre><code>function onRequest(request, response, modules) {
