@@ -2186,6 +2186,114 @@ upload:function(){
 
 ###  
 
+
+
+####  图片检测2.0：
+
+**简介：**
+
+校验一张图片是否含有违法违规内容，支持批量检测。
+
+应用场景举例：
+
+1. 图片智能鉴黄：涉及拍照的工具类应用(如美拍，识图类应用)用户拍照上传检测；电商类商品上架图片检测；媒体类用户文章里的图片检测等；
+2. 敏感人脸识别：用户头像；媒体类用户文章里的图片检测；社交类用户上传的图片检测等。 *频率限制：单个 appId 调用上限为 2000 次/分钟，200,000 次/天**（**图片大小限制：1M**）
+
+**参数说明：**
+
+
+
+| 属性                                  | 类型   | 默认值 | 必填 | 说明                                                         |
+| :------------------------------------ | :----- | :----- | :--- | :----------------------------------------------------------- |
+| media_url                             | string |        | 是   | 要检测的图片或音频的url，支持图片格式包括jpg, jepg, png, bmp, gif（取首帧），支持的音频格式包括mp3, aac, ac3, wma, flac, vorbis, opus, wav |
+| media_type                            | number |        | 是   | 1:音频;2:图片                                                |
+| version                               | number |        | 是   | 接口版本号，2.0版本为固定值2                                 |
+| openid                                | string |        | 是   | 用户的openid（用户需在近两小时访问过小程序）                 |
+| scene                                 | number |        | 是   | 场景枚举值（1 资料；2 评论；3 论坛；4 社交日志）             |
+
+
+
+**请求示例：**
+
+```
+uploadCheck:function(){
+    var that =this
+
+    // 2.0图片检测
+    wx.chooseImage({
+      count:9,
+      sizeType: ['compressed'], //original 原图，compressed 压缩图，默认二者都有
+      success: function(res) {
+        let userData = wx.Bmob.User.current()
+        var open_Id = userData.openid;
+        wx.showNavigationBarLoading()
+        that.setData({
+          loading:false
+        })
+        var urlArr = new Array();
+        var tempFilePaths = res.tempFilePaths;
+        var imgLength = tempFilePaths.length;
+        if(imgLength > 0){
+          var file;
+          for (var i = 0; i < imgLength; i++){
+            var tempFilePath = tempFilePaths[i];
+            var timestamp = Date.parse(new Date());
+            var extension = /\.([^.]*)$/.exec(tempFilePath);
+            extension = extension[1].toLowerCase();
+            var name = timestamp + "." +extension;
+            var file = wx.Bmob.File(name, tempFilePath);
+            
+          }
+          file.save().then(res => {
+   
+            console.log(res,99)
+
+            for (const key in res) {
+
+                const element = res[key];
+                console.log(element,'element');
+                let params = {
+                  media_url:element.url,
+                  media_type:2, //1:音频;2:图片
+                  openid:open_Id, //用户的openid（用户需在近两小时访问过小程序）
+                  scene:1, // 场景枚举值（1 资料；2 评论；3 论坛；4 社交日志）
+                  version:2 //默认2
+                }
+                //通过每张上传图的url进行检查，异步通知
+                wx.Bmob.mediaCheckAsync(params).then(res=>{
+                  console.log('hh',res);
+                })
+            }
+
+
+            common.showTip("上传成功", "success");
+          })
+          
+        }else{
+          common.showTip("请选择图片","loading");
+        }
+      },
+    })
+  },
+```
+
+**返回示例:**
+
+```
+正常：
+{"msg":"ok","traceId":"6206100d-141eeaea-33a3a42d"}
+违规：
+{"code":10007,"error":"CheckMsg errcode:图片违规"}
+```
+
+
+
+> 1. 检查后微信小程序后台填写异步处理地址，可以添加云函数的外网地址，然后云函数处理业务
+>
+> 2. 截图异步处理结果处理，具体请看官网文档 https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/sec-check/security.mediaCheckAsync.html
+
+
+
 ### 获取access_token ###
 
 **简介：**
