@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>开发文档 - Bmob文档中心</title>
+            -->
+            <title>即时通讯 &middot; iOS – Bmob后端云 </title>        
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../data/wechat_app/">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../android/">Android</a>
+                                </li>
+                            
+                            
+								<li class="active">
+									<a href="./">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+					<div class="code-title">iOS</div>
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+					
+						
+					
+						
+							
+								
+									<li class="active">
+										<a class="itm-l1" href="./">开发文档</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#ios_demo">下载iOS_Demo</a>
+												
+											</li>
+												
+											<li class=""><a href="#ios">iOS界面效果</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#ios_1">iOS联系人页面</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#ios_2">iOS会话页面</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#ios_3">iOS聊天页面</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#ios_4">iOS搜索联系人页面</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#ios_5">iOS设置页面</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#iosim">iOSIM快速入门</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#bmobimsdk">下载安装BmobIMSDK</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_1">配置相关服务</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_2">引入相关的库文件</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_3">初始化</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_4">注册推送</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_5">接收消息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_6">用户管理</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_11">消息发送</a></li>
+												</ul>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="update_log/">更新日志</a>
+										
+									</li>
+								
+							
+						
+					
+				
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="ios_demo">下载iOS_Demo<a class="headerlink" href="#ios_demo" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>IM Demo 仅供学习交流使用</p>
+</blockquote>
+<p><a href="https://github.com/pzee/BmobIM-Demo">点击这里下载demo（iOS）源码</a></p>
+<p>Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：</p>
+<ol>
+<li>支持好友管理功能，包括添加好友、删除好友、获取好友列表，也可以与你已有的用户系统完全解耦；</li>
+<li>支持的消息类型：纯文本,语音,图片,自定义消息</li>
+<li>支持会话的本地化存储；</li>
+</ol>
+<h2 id="ios">iOS界面效果<a class="headerlink" href="#ios" title="Permanent link">&para;</a></h2>
+<h3 id="ios_1">iOS联系人页面<a class="headerlink" href="#ios_1" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="./image/IMG_0613.png" /></p>
+<h3 id="ios_2">iOS会话页面<a class="headerlink" href="#ios_2" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="./image/IMG_0614.png" /></p>
+<h3 id="ios_3">iOS聊天页面<a class="headerlink" href="#ios_3" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="./image/IMG_0615.png" /></p>
+<h3 id="ios_4">iOS搜索联系人页面<a class="headerlink" href="#ios_4" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="./image/IMG_0616.png" /></p>
+<h3 id="ios_5">iOS设置页面<a class="headerlink" href="#ios_5" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="./image/IMG_0612.png" /></p>
+<h2 id="iosim">iOSIM快速入门<a class="headerlink" href="#iosim" title="Permanent link">&para;</a></h2>
+<h3 id="bmobimsdk">下载安装BmobIMSDK<a class="headerlink" href="#bmobimsdk" title="Permanent link">&para;</a></h3>
+<ol>
+<li>通过官网下载新的BmobIMSDK</li>
+<li>新建项目将BmobIMSDK 复制到新的项目工程</li>
+<li>具体可以参照<a href="https://github.com/pzee/BmobIM-Demo">Demo</a></li>
+</ol>
+<h3 id="_1">配置相关服务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>如果需要用到推送服务，所以需要在管理后台上传对应Bundle ID的p12文件，请勿加密，
+详细详细请参照：http://docs.bmob.cn/iospush/index.html?menukey=otherdoc&amp;key=iospush</p>
+<h3 id="_2">引入相关的库文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>如果项目中已包含BmobSDK数据服务SDK的话，可以不添加新的框架，如果没有则需添加SystemConfiguration.framework、CoreFoundation.framework、Foundation.framework、CFNetwork.framwork、CoreGraphics.framework、sqlite3.tbd</p>
+<h3 id="_3">初始化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在你的XCode工程中的AppDelegate.m文件中,引入相关的头文件， 填入申请的授权Key（SDK使用的是应用密钥里的Application ID），示例如下：</p>
+<p><code>#import &lt;BmobIMSDK/BmobIMSDK.h&gt;</code></p>
+<pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    //这里使用的是BmobSDK提供的用户系统，所以需要初始化BmobSDK
+    [Bmob registerWithAppKey:@&quot;Application ID&quot;];
+
+    self.sharedIM = [BmobIM sharedBmobIM];
+
+    [self.sharedIM registerWithAppKey:@&quot;Application ID&quot;];
+
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+
+    BmobUser *user = [BmobUser getCurrentUser];
+    //如果有用户了，不需要推送服务来推送消息的话，可以直接连接服务器
+    if (user) {
+        self.userId = user.objectId;
+        [self connectToServer];
+    }else{
+        //如果用户还未登录，则监听对应的通知，再进行处理
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogin:) name:@&quot;Login&quot; object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogout:) name:@&quot;Logout&quot; object:nil];
+    }
+
+    self.sharedIM.delegate = self;
+
+
+
+
+    return YES;
+}
+</code></pre>
+
+<p>如果需要推送服务的话，可以在其相关代理那里设置调用 [self.sharedIM setupDeviceToken:@"xxxx"]的方法后，在连接服务器</p>
+<pre><code>-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(nonnull NSError *)error{
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user) {
+        [self connectToServer];
+    }
+
+}
+</code></pre>
+
+<pre><code>-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+        BmobUser *user = [BmobUser getCurrentUser];
+    if (user) {
+        //开发者自己将deviceToken转成字符串
+        NSString *string = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
+        self.token = [[[string stringByReplacingOccurrencesOfString:@&quot; &quot; withString:@&quot;&quot;] stringByReplacingOccurrencesOfString:@&quot;&lt;&quot; withString:@&quot;&quot;] stringByReplacingOccurrencesOfString:@&quot;&gt;&quot; withString:@&quot;&quot;];
+        [self connectToServer];         
+    }
+}
+</code></pre>
+
+<p>登录的对应处理是</p>
+<pre><code>-(void)userLogin:(NSNotification *)noti{
+    NSString *userId = noti.object;
+    self.userId = userId;
+    [self connectToServer];
+}
+</code></pre>
+
+<p>退出登录的时候需要断开连接</p>
+<pre><code>-(void)userLogout:(NSNotification *)noti{
+    [self.sharedIM disconnect];
+}
+</code></pre>
+
+<p>连接服务器</p>
+<pre><code>-(void)connectToServer{
+    [self.sharedIM setupBelongId:self.userId];
+    [self.sharedIM setupDeviceToken:self.token];
+    [self.sharedIM connect];
+}
+</code></pre>
+
+<p>在应用进入前台或者后台的时候可以重新进行连接或者断开连接</p>
+<p>进入前台</p>
+<pre><code>- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
+    if (self.userId &amp;&amp; self.userId.length &gt; 0) {
+        [self connectToServer];
+    }
+}
+
+</code></pre>
+
+<p>进入后台</p>
+<pre><code>- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if ([self.sharedIM isConnected]) {
+        [self.sharedIM disconnect];
+    }
+</code></pre>
+
+<p><strong>需要说明的是，连接服务器建立一次即可，开发者自己控制连接服务器的时机。建立连接之前必须设置appKey和belongId，不然会抛出异常</strong></p>
+<h3 id="_4">注册推送<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>可以在函数 <code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</code> 添加推送的相关代码</p>
+<pre><code>
+   if (IS_iOS8) {
+        //iOS8推送
+        UIMutableUserNotificationCategory*categorys = [[UIMutableUserNotificationCategory alloc]init];
+        categorys.identifier=@&quot;BmobIMDemo&quot;;
+        UIUserNotificationSettings*userNotifiSetting = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound)
+                                                                                         categories:[NSSet setWithObjects:categorys,nil]];
+        [[UIApplication sharedApplication]registerUserNotificationSettings:userNotifiSetting];
+        [[UIApplication sharedApplication]registerForRemoteNotifications];
+    }else{
+        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+    }
+
+</code></pre>
+
+<h3 id="_5">接收消息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>在初始化的部分，我们已经设置了self.sharedIM的delegate，我们只需要在对应的代理函数那里处理相关的应用逻辑即可。
+在应用连接服务器的时候，SDK会主动的获取离线消息，并保存到本地数据库里面。在这里，开发者可能需要知道哪些人发来了消息，并且去下载相关人物信息。</p>
+<pre><code>-(void)didGetOfflineMessagesWithIM:(BmobIM *)im{
+    //获取哪些人的消息还未读
+    NSArray *objectIds = [self.sharedIM allConversationUsersIds];
+    if (objectIds &amp;&amp; objectIds.count &gt; 0) {
+        //Demo里面的方法去查找服务器相关人物的信息
+        [UserService loadUsersWithUserIds:objectIds completion:^(NSArray *array, NSError *error) {
+            if (array &amp;&amp; array.count &gt; 0) {
+                //保存到本地数据库
+                [self.sharedIM saveUserInfos:array];
+                //发新用户的通知
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNewMessageFromer object:nil];
+            }
+        }];
+    }
+}
+</code></pre>
+
+<p>另一方面，已经连接到服务器上了，就可以收到别人发送过来的消息，这是需要在另一个方法处理</p>
+<pre><code>-(void)didRecieveMessage:(BmobIMMessage *)message withIM:(BmobIM *)im{
+    //查看本地有无这个用户的信息
+    BmobIMUserInfo *userInfo = [self.sharedIM userInfoWithUserId:message.fromId];
+    if (!userInfo) {
+          //如果没有则去下载
+        [UserService loadUserWithUserId:message.fromId completion:^(BmobIMUserInfo *result, NSError *error) {
+            if (result) {
+                //保存到本地数据库
+                [self.sharedIM saveUserInfo:result];
+                //发新用户的通知
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNewMessageFromer object:nil];
+            }
+            //发接收到新信息的通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNewMessagesNotifacation object:message];
+        }];
+    }else{
+          //发接收到新信息的通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNewMessagesNotifacation object:message];
+    }
+    }
+</code></pre>
+
+<h3 id="_6">用户管理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h4 id="_7">注册<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>当用户还未进行注册的时候可以通过调用方法来进行简单的注册</p>
+<pre><code>    BmobUser *user = [[BmobUser alloc] init];
+    user.username = self.usernameTextField.text;
+    user.password = self.passwordTextField.text;
+
+
+    [user signUpInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;Login&quot; object:user.objectId];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            [self showInfomation:error.description];
+        }
+    }];
+</code></pre>
+
+<h4 id="_8">登录<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>用户已经注册了，想要在此应用登录的话，可以直接调用登录的方法</p>
+<pre><code>    [self showLoading];
+    [BmobUser loginWithUsernameInBackground:self.usernameTextField.text password:self.passwordTextField.text block:^(BmobUser *user, NSError *error) {
+        if (user) {
+            [self hideLoading];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;Login&quot; object:user.objectId];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            [self showInfomation:error.description];
+        }
+    }];
+</code></pre>
+
+<h4 id="_9">获取好友列表<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<pre><code>-(void)loadUserFriends{
+    [UserService friendsWithCompletion:^(NSArray *array, NSError *error) {
+        if (error) {
+            [self showInfomation:error.localizedDescription];
+        }else{
+            BmobUser *loginUser = [BmobUser getCurrentUser];
+            NSMutableArray *result  = [NSMutableArray array];
+            for (BmobObject *obj in array) {
+
+                BmobUser *friend = nil;
+                if ([[(BmobUser *)[obj objectForKey:@&quot;user&quot;] objectId] isEqualToString:loginUser.objectId]) {
+                    friend = [obj objectForKey:@&quot;friendUser&quot;];
+                }else{
+                    friend = [obj objectForKey:@&quot;user&quot;];
+                }
+                BmobIMUserInfo *info = [BmobIMUserInfo userInfoWithBmobUser:friend];
+
+                [result addObject:info];
+            }
+            if (result &amp;&amp; result.count &gt; 0) {
+                [self.userArray setArray:result];
+                [self.tableView reloadData];
+
+            }
+
+        }
+    }];
+}
+</code></pre>
+
+<h4 id="_10">添加好友<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<pre><code>-(void)addFriend{
+    [UserService addFriendNoticeWithUserId:self.userInfo.userId completion:^(BOOL isSuccessful, NSError *error) {
+        if (error) {
+            [self showInfomation:error.localizedDescription];
+        }else{
+            [self showInfomation:@&quot;已发送添加好友请求&quot;];
+        }
+    }];
+}
+</code></pre>
+
+<h3 id="_11">消息发送<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>通过IMSDK，用户可以与陌生人聊天，也可以与好友聊天，这个由开发者自由控制。当需要发起聊天的时候，需要建立起一个BmobIMConversation对象来进行管理，SDK提供了方法来快速构建BmobIMConversation对象。</p>
+<pre><code>//
+BmobIMConversation *conversation = [BmobIMConversation conversationWithId:self.userInfo.userId conversationType:BmobIMConversationTypeSingle];
+conversation.conversationTitle = self.userInfo.name;
+</code></pre>
+
+<h4 id="_12">查看聊天记录<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>进入聊天页面是，开发者可能需要让用户查看最近的聊天记录，这个时候可以通过BmobIMConversation 类提供的</p>
+<p><code>-(NSArray *)queryMessagesWithMessage:(BmobIMMessage *)message  limit:(int)limit;</code>来处理这个需求。</p>
+<p>例如，加载第一页数据的时候，只需要将message设置为nil，即可获取到</p>
+<pre><code>-(void)loadMessageRecords{
+    NSArray *array = [self.conversation queryMessagesWithMessage:nil limit:10];
+
+    if (array &amp;&amp; array.count &gt; 0) {
+        //排序
+        NSArray *result = [array sortedArrayUsingComparator:^NSComparisonResult(BmobIMMessage *obj1, BmobIMMessage *obj2) {
+            if (obj1.updatedTime &gt; obj2.updatedTime) {
+                return NSOrderedDescending;
+            }else if(obj1.updatedTime &lt;  obj2.updatedTime) {
+                return NSOrderedAscending;
+            }else{
+                return NSOrderedSame;
+            }
+
+        }];
+        [self.messagesArray setArray:result];
+        [self.tableView reloadData];
+
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+}
+</code></pre>
+
+<p>加载之前的历史消息记录，可以通过将message参数设置为时间为最后一条消息即可</p>
+<pre><code>-(void)loadMoreRecords{
+    if (!self.finished) {
+        self.page ++;
+        [self.freshControl beginRefreshing];
+
+        if (self.messagesArray.count &lt;= 0) {
+            [self.freshControl endRefreshing];
+            return;
+        }
+        BmobIMMessage *msg = [self.messagesArray firstObject];
+
+        NSArray *array = [self.conversation queryMessagesWithMessage:msg limit:10];
+
+        if (array &amp;&amp; array.count &gt; 0) {
+            NSMutableArray *messages = [NSMutableArray arrayWithArray:self.messagesArray];
+            [messages addObjectsFromArray:array];
+            //排序
+            NSArray *result = [messages sortedArrayUsingComparator:^NSComparisonResult(BmobIMMessage *obj1, BmobIMMessage *obj2) {
+                if (obj1.updatedTime &gt; obj2.updatedTime) {
+                    return NSOrderedDescending;
+                }else if(obj1.updatedTime &lt;  obj2.updatedTime) {
+                    return NSOrderedAscending;
+                }else{
+                    return NSOrderedSame;
+                }
+
+            }];
+            [self.messagesArray setArray:result];
+            [self.tableView reloadData];
+        }else{
+            self.finished = YES;
+            [self showInfomation:@&quot;没有更多的历史消息&quot;];
+        }
+
+    }else{
+        [self showInfomation:@&quot;没有更多的历史消息&quot;];
+    }
+
+    [self.freshControl endRefreshing];
+}
+</code></pre>
+
+<h4 id="_13">发送消息<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p><strong>发送文本消息</strong></p>
+<pre><code>-(void)sendTextWithTextField:(UITextField *)textField{
+    if (textField.text.length == 0) {
+        [self showInfomation:@&quot;请输入内容&quot;];
+    }else{
+        //创建BmobIMTextMessage对象
+        BmobIMTextMessage *message = [BmobIMTextMessage messageWithText:textField.text attributes:nil];
+         //聊天类型设置为单聊
+        message.conversationType =  BmobIMConversationTypeSingle;
+        message.createdTime = (uint64_t)([[NSDate date] timeIntervalSince1970] * 1000);
+        message.updatedTime = message.createdTime;
+        [self.messagesArray addObject:message];
+        [self.tableView reloadData];
+        self.bottomView.textField.text = nil;
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        __weak typeof(self)weakSelf = self;
+        [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
+            [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+
+        }];
+
+    }
+}
+</code></pre>
+
+<p><strong>发送图片</strong></p>
+<p>发送图片消息的流程是通过把拍照或者图片的内容，转成Data，然后通过Bmob文件上传接口来上传文件，获取到相关的信息（文件地址之类的），再构造对应的BmobIMImageMessage对象来发送消息。</p>
+<p>Demo封装了一个直接传入image就能发送图片的方法</p>
+<pre><code>+(void)uploadImage:(UIImage *)image
+        completion:(uploadBlock)block
+          progress:(BmobProgressBlock)progressBlock;
+</code></pre>
+
+<p>然后可以直接调用方法来发送图片，并在当前页显示出来</p>
+<pre><code>[MessageService uploadImage:resizeImage completion:^(BmobIMImageMessage *message, NSError *error) {
+        if (!error) {
+            [self.messagesArray addObject:message];
+            [self scrollToBottom];
+             __weak typeof(self)weakSelf = self;
+
+            [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
+                [weakSelf reloadLastRow];
+            }];
+        }else{
+            [self showInfomation:error.localizedDescription];
+        }
+    } progress:^(CGFloat progress) {
+        [self showProgress:progress];
+    }];
+
+</code></pre>
+
+<p><strong>发送语音文件</strong></p>
+<p>发送语音消息的流程是把录音下载的Data转成AMR格式，保存在本地，然后通过Bmob文件上传接口来上传文件，获取到相关的信息（文件地址之类的），再构造对应的BmobIMAudioMessage对象来发送消息。</p>
+<p>Demo封装了一个直接传入NSData就能发送语音文件的方法</p>
+<pre><code>+(void)uploadAudio:(NSData *)data
+                          duration:(CGFloat)duration
+                        completion:(uploadBlock)block
+                          progress:(BmobProgressBlock)progressBlock
+</code></pre>
+
+<p>直接调用这个方法就能发送语音文件</p>
+<pre><code>[MessageService uploadAudio:data
+                           duration:duration
+                         completion:^(BmobIMAudioMessage *message, NSError *error) {
+                             if (!error) {
+
+                                 [self.messagesArray addObject:message];
+                                 [self scrollToBottom];
+                                 __weak typeof(self)weakSelf = self;
+                                 [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
+                                     [weakSelf reloadLastRow];
+                                 }];
+                             }
+                         } progress:nil];
+</code></pre>
+
+<p><strong>发送其他文件消息</strong></p>
+<p>当开发者需要发送其他类型的文件消息的时候，先要继承BmobIMFileMessage类，通过BmobSDK提供的文件上传接口，把文件上传至服务器上，获取到url，再去创建对应的对象。
+这里的流程可以参照发送图片，发送语音的相关源代码。当然了，开发者也必须指定其msgType属性，好让应用可以根据这个属性来显示相应的视图。</p>
+<p><strong>发送位置</strong></p>
+<pre><code>BmobIMLocationMessage *message = [BmobIMLocationMessage messageWithAddress:@&quot;广州大学城&quot; attributes:@{KEY_METADATA:@{KEY_LATITUDE:@(23.039),KEY_LONGITUDE:@(113.388)}}];
+    message.conversationType =  BmobIMConversationTypeSingle;
+    message.createdTime = (uint64_t)([[NSDate date] timeIntervalSince1970] * 1000);
+    message.updatedTime = message.createdTime;
+    [self.messagesArray addObject:message];
+    [self scrollToBottom];
+
+    __weak typeof(self)weakSelf = self;
+
+    [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
+        [weakSelf reloadLastRow];
+    }];
+</code></pre>
+
+<p><strong>发送自定义消息</strong></p>
+<p>开发者也可以发送自定义消息(需继承BmobIMMessage)，例如添加好友的请求，当前聊天对象正在输入之类的消息，这种暂态的消息是不需要存储在数据库的，需要设置extra{KEY_IS_TRANSIENT:@(YES),...}。其他额外信息开发者可以自由设置</p>
+<p>例如发送添加好友通知，这种消息是暂时的，不需要保存到数据库里面，可以这样构造</p>
+<pre><code>    BmobIMMessage *message = [[BmobIMMessage alloc] init];
+    message.msgType = @&quot;notice&quot;;
+    message.conversationType = BmobIMConversationTypeSingle;
+    message.extra = @{KEY_IS_TRANSIENT:@(YES)};
+    message.content = @&quot;添加好友&quot;;
+    [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
+        NSLog(@&quot;error %@&quot;,error.localizedDescription);
+    }];
+</code></pre>
+
+<h4 id="_14">接收消息<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>在上一个大章节 接收消息 那里，我们已经把接收到的消息用通知的形式广播出来，我们只需要在聊天页面添加观察者来监听通知就行了。
+在Demo里在函数<code>- (void)viewDidLoad</code></p>
+<pre><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMessage:) name:kNewMessagesNotifacation object:nil];
+</code></pre>
+
+<p>在<code>-(void)receiveMessage:(NSNotification *)noti</code>进行对应的处理</p>
+<pre><code>-(void)receiveMessage:(NSNotification *)noti{
+    BmobIMMessage *message = noti.object;
+    //如果是消息来源是当前聊天用户，就将其加载到内存里并显示出来
+    if ([message.fromId isEqualToString:self.conversation.conversationId]) {
+        [self.messagesArray addObject:message];
+        [self.tableView reloadData];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+
+}
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>

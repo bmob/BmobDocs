@@ -1,0 +1,2309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>开发文档 - Bmob文档中心</title>
+            -->
+            <title>云函数 &middot; Web – Bmob后端云 </title>        
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app/">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="../../android/">云函数</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../restful/">REST API</a>
+                                </li>
+							
+                            
+								<li class="active">
+									<a href="../">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					<div class="code-title">Web</div>
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">开发文档</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">简介</a>
+												
+											</li>
+												
+											<li class=""><a href="#_2">调用云函数的方式</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#secret-key">获取Secret Key</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#get">以Get的方式调用云函数</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#post">以Post的方式调用云函数</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_3">云函数模块解释</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#request">request模块</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#response">response模块</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#modules">modules模块</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_4">数据库对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_5">查询多条数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_6">查询单条数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_7">获取表的记录数</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_8">修改数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_9">添加数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_10">删除数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_11">删除某行某字段的数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_12">用户注册</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_13">用户登录</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_14">用户密码重置</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_15">获取某一用户记录</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_16">更新某一用户记录</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_17">获得所有用户信息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_18">删除某一个指定用户</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_19">邮箱验证</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_20">文件对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#_21">云函数对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#_22">地理位置对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_23">创建地理位置</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_24">查询地理位置</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_25">关联关系对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_26">添加关联关系</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_27">修改关联对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_28">查询关联对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_29">删除关联关系</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_30">原子操作对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#_31">批量操作对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#_32">数组操作对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_33">添加数组对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_34">删除数组对象</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_35">查询数组对象</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_36">消息推送对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_37">安装消息推送服务</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#installation">保存installation</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_38">订阅频道和退订</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_41">广播推送消息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_42">组播推送消息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_43">多播推送消息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_48">点播推送消息</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_49">发送选项设置</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#http_1">HTTP请求对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#asyncawait">异步对象Async/Await</a>
+												
+											</li>
+												
+											<li class=""><a href="#_52">事件对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#encode">Encode编码转换对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#htmlohtmlparser">html元素解析对象（oHtmlparser）</a>
+												
+											</li>
+												
+											<li class=""><a href="#bqlobql">bql对象（oBql）</a>
+												
+											</li>
+												
+											<li class=""><a href="#ocrypto">加密对象（oCrypto）</a>
+												
+											</li>
+												
+											<li class=""><a href="#ocryptojs">新加密对象oCryptoJS</a>
+												
+											</li>
+												
+											<li class=""><a href="#_53">时间格式化类</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_54">格式化示例</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_55">相对时间</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_56">日历时间</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_57">云函数调试工具</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_58">网页在线调试工具</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#bmobup">命令调试工具 Bmobup</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_59">错误对象</a>
+												
+											</li>
+												
+											<li class=""><a href="#_60">日志对象</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../timing_tasks/">定时任务</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../weixin/">微信云函数</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../norm/">编码规范</a>
+										
+									</li>
+								
+							
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Bmob旨在让移动开发变得更简单。对于一些复杂的应用，您可能希望增加一些特有的业务逻辑，并能灵活掌控，Bmob云函数提供了这种灵活性，可以让您的代码直接在Bmob云上运行。一旦你在云端更新了代码，所有的移动应用都会立即自动更新，新功能的发布将会变得更加简单可控。</p>
+<p>在开发云函数时，希望大家能够先看看我们提供的编码规范文档：<a href="http://doc.bmob.cn/cloud_function/web/norm/">http://doc.bmob.cn/cloud_function/web/norm/</a></p>
+<h2 id="_2">调用云函数的方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>bmob允许以http的方式直接调用云函数。</p>
+<h3 id="secret-key">获取Secret Key<a class="headerlink" href="#secret-key" title="Permanent link">&para;</a></h3>
+<p>用户需要以http的方式运行云函数，需要先确定应用的Secret Key。 调用云函数时，通过Secret Key标识一个应用，获取Secret Key的路径：
+管理后台-&gt;应用密钥-&gt;Secret Key, 如下图所示：
+<img alt="" src="../image/secretKey.png" /></p>
+<p>注意：请妥善保管Secret Key，避免Secret Key的泄露！！！</p>
+<h3 id="get">以Get的方式调用云函数<a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
+<p>下面展示了以Get的方式调用云函数：</p>
+<pre><code>curl -X GET http://cloud.bmob.cn/0348d0c262bc91d9/test?name=jeff
+</code></pre>
+
+<p>其中：
+0348d0c262bc91d9：应用的Secret Key。
+test：云函数的名称
+name=jeff: 传入一个参数，名称是name，值是jeff
+与REST API不同，无需再传其它诸如app id等请求头。</p>
+<h3 id="post">以Post的方式调用云函数<a class="headerlink" href="#post" title="Permanent link">&para;</a></h3>
+<p>下面展示了以Post的方式调用云函数：</p>
+<pre><code>curl -X POST \
+    -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
+    -d 'name=jeff' \
+    http://cloud.bmob.cn/0348d0c262bc91d9/test
+</code></pre>
+
+<p>其中：
+0348d0c262bc91d9：应用的Secret Key。
+test：云函数的名称
+name=jeff: 传入一个参数，名称是name，值是jeff
+与REST API不同，无需再传其它诸如app id等请求头。</p>
+<h2 id="_3">云函数模块解释<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>从云函数的入口方法function onRequest(request, response, modules)可知，云函数包含三个模块，分别是request模块、response模块和modules模块。</p>
+<h3 id="request">request模块<a class="headerlink" href="#request" title="Permanent link">&para;</a></h3>
+<p>request模块用于获取传入的参数。由于现在调用云函数有两种方式（get和post），所以获取传入的参数的方式需要使用不同的方法。</p>
+<p><strong>注意，当通过android，ios等客户端sdk调用云函数，或者通过REST API api的方式调用云函数，都是采用post的方式。</strong></p>
+<h4 id="get_1">get方式<a class="headerlink" href="#get_1" title="Permanent link">&para;</a></h4>
+<p>用get方式调用云函数，例如：</p>
+<pre><code>curl -X GET http://cloud.bmob.cn/0348d0c262bc91d9/test?name=jeff
+</code></pre>
+
+<p>可用下面的方法获取name的值：</p>
+<pre><code>request.query.name
+</code></pre>
+
+<h4 id="post_1">post方式<a class="headerlink" href="#post_1" title="Permanent link">&para;</a></h4>
+<p>用post方式调用云函数，例如：</p>
+<pre><code>curl -X POST \
+    -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
+    -d 'name=jeff' \
+    http://cloud.bmob.cn/0348d0c262bc91d9/test
+</code></pre>
+
+<p>可用下面的方法获取name的值：</p>
+<pre><code>request.body.name
+</code></pre>
+
+<h4 id="http">获取调用云函数的http方式<a class="headerlink" href="#http" title="Permanent link">&para;</a></h4>
+<p>当云函数是用于某些平台的回调时，同一段云函数可能有时是采用get的方式调用，有时是采用post的方式调用, 可用下面的方法获取当前云函数是采用get还是post方式调用。</p>
+<p>例子如下：</p>
+<pre><code>    var httptype = request.method;　//获取调用云函数的是post或者get方式
+    if (&quot;GET&quot; == httptype) {
+        //采用get方式调用云函数
+    }else{
+        //采用post方式调用云函数
+    }
+
+</code></pre>
+
+<h3 id="response">response模块<a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
+<p>response为云函数的信息回传模块，该模块包含了一个send方法，实现将云端的执行结果（如查询的数据）返回给SDK或者RestApi等调用端：</p>
+<pre><code class="java">response.send(string result)
+</code></pre>
+
+<h3 id="modules">modules模块<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h3>
+<p>modules是Bmob云函数提供给大家的各种对象处理的模块，包括数据库对象（oData）、文件对象（oFile）、地理位置对象（oLocation）、关联关系对象（oRelation）、原子操作对象（oAtom）、数据批量操作对象（oBatch）、数组对象（oArray）、消息推送对象（oPush）、云函数对象（oFunctions）、HTTP对象（oHttp）、字符编码转换对象（oEncodeing）、事件对象（oEvent）、bql对象（oBql）、html元素解析对象（oHtmlparser）、加密对象（oCrypto）。云函数想要调用这些对象时，只需要用如下的方法即可获取：</p>
+<pre><code class="java">  //获取数据库对象
+  var db = modules.oData;
+  //下面进行其他操作
+</code></pre>
+
+<p><strong> 这里需要说明一点的是：云函数对数据格式的封装遵循RestApi的规则，如果在查看过程中有什么疑问，请移步到<a href="http://doc.bmob.cn/data/Restful/develop_doc/">RestApi开发文档</a>。 </strong></p>
+<h2 id="_4">数据库对象<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>数据库操作的简单实例如下：</p>
+<pre><code>function onRequest(request, response, modules) {
+  //获取数据库对象
+  var db = modules.oData;
+  //获取Posts表中的所有值
+  db.find({
+    &quot;table&quot;:&quot;Posts&quot;,
+  },function(err,data){
+    response.send(data);
+  });
+}
+</code></pre>
+
+<p>其中，Posts是查找的数据表名称，table是关键词。</p>
+<p>需要注意的是，Bmob云函数底层采用Nodejs进行开发，继承了Nodejs的异步非阻塞事件驱动模式，因此也不可避免的需要大量使用回调方法，这些方法往往以非显式声明的闭包形式存在。</p>
+<p><strong>此外，通过oData数据库对象获取返回的回调接口中，所有的data数据都是string类型，如果需要在云端中作为对象类型调用的话，需要将string类型转换为object类型，即：</strong></p>
+<pre><code>    var dataObject= JSON.parse(data);
+</code></pre>
+
+<p>oData对象的其他操作方法如下：</p>
+<h3 id="_5">查询多条数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<pre><code>find({
+  &quot;table&quot;:&quot;XXX&quot;,          //表名
+  &quot;keys&quot;:&quot;a,b,c&quot;,         //返回字段列表，多个字段用,分隔
+  &quot;where&quot;:{&quot;a&quot;:&quot;XXXX&quot;,&quot;b&quot;:&quot;XXXX&quot;},       //查询条件是一个JSON object
+  //&quot;where&quot;:{&quot;c&quot;:{&quot;$ne&quot;:1}},       //条件查询 查询c字段值不为1的记录
+  &quot;order&quot;:&quot;-a,b&quot;,         //排序列表，[-]字段名称,-表示降序，默认为升序
+  &quot;limit&quot;:10,            //limit大小，一页返回多少条记录，默认为0
+  &quot;skip&quot;:2,             //skip,分页offset，(page-1)*limit
+  &quot;count&quot;:1            //count,只返回符合条件的记录总数
+ },function(err,data){    //回调函数
+ });
+</code></pre>
+
+<p>以下是读取Games表（包含name字段）的数据，并对这些数据进行遍历，将name字段连接起来的一段代码样例：</p>
+<pre><code class="java">function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.find({
+    &quot;table&quot;:&quot;Games&quot;
+  },function(err,data){
+  //将返回结果转换为Json对象
+  var resultObject= JSON.parse(data);
+  //遍历这个Json对象
+  for(var results in resultObject)
+  {
+    var resultArr = resultObject[results];
+    var str =&quot; &quot;;
+    //遍历得到的每行结果
+    for(var oneline in resultArr){
+      str =str +&quot; &quot; + resultArr[oneline].name;
+    }
+    response.send(str);
+  }
+});
+}
+</code></pre>
+
+<h3 id="_6">查询单条数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<pre><code class="java">findOne({
+  &quot;table&quot;:&quot;XXX&quot;,             //表名
+  &quot;objectId&quot;:&quot;XXXX&quot;         //记录的objectId
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<p><strong>需要注意的是：</strong>
+1. 为确保User表的安全性，findOne方法不能直接操作User表。
+2. find方法返回的data是字符串类型，如果需要直接对象化调用的话，需要将string类型转换为object类型，即如下，从_User表中查找objectId=YIuNDDDO的数据，并把username信息显示出来：</p>
+<pre><code>function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.findOne({
+    &quot;table&quot;:&quot;_User&quot;,
+    &quot;objectId&quot;:&quot;YIuNDDDO&quot;
+  },function(err,data){
+    var dataObject= JSON.parse(data);
+    response.send(&quot;获取用户名信息为： &quot; + dataObject.username);
+  });
+}
+</code></pre>
+
+<h3 id="_7">获取表的记录数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<pre><code>function onRequest(request, response, modules) {
+    var db = modules.oData;
+    //获取表&quot;GameScore&quot;的总记录数
+    db.find({
+      &quot;table&quot;:&quot;GameScore&quot;,
+      &quot;limit&quot;:0,
+      &quot;count&quot;:1
+    },function(err,data){
+
+        resultObject= JSON.parse(data);
+        count=resultObject.count;
+        response.send(&quot;表记录数:&quot;+count);
+
+    });
+}
+</code></pre>
+
+<p>其中，<code>count</code>为标识位，具体原因大家可以参考Restapi说明文档：<a href="http://doc.bmob.cn/data/Restful/develop_doc/#_31">http://doc.bmob.cn/data/Restful/develop_doc/#_31</a>。</p>
+<h3 id="_8">修改数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<pre><code>update({
+  &quot;table&quot;:&quot;XXX&quot;,             //表名
+  &quot;objectId&quot;:&quot;XXXX&quot;,        //记录的objectId
+  &quot;data&quot;:{&quot;a&quot;:&quot;XXXX&quot;,&quot;b&quot;:&quot;XXXX&quot;}           //需要更新的数据，格式为JSON
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<p>以下是一个更新数据的示例代码，实现的效果是从Games表中找到objectId=hmw9888C的数据，将其name数据改为pingpang games。</p>
+<pre><code>function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.update({
+    &quot;table&quot;:&quot;Games&quot;,
+    &quot;objectId&quot;:&quot;hmw9888C&quot;,
+    &quot;data&quot;:{&quot;name&quot;:&quot;pingpang games&quot;}
+  },function(err,data){
+    response.send(&quot;success&quot;);
+  });
+}
+</code></pre>
+
+<h3 id="_9">添加数据<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<pre><code>insert({
+  &quot;table&quot;:&quot;XXX&quot;,             //表名
+  &quot;data&quot;:{&quot;a&quot;:&quot;XXXX&quot;,&quot;b&quot;:&quot;XXXX&quot;}            //需要更新的数据，格式为JSON
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_10">删除数据<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<pre><code>remove({
+  &quot;table&quot;:&quot;XXX&quot;,             //表名
+  &quot;objectId&quot;:&quot;XXXX&quot;        //记录的objectId
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_11">删除某行某字段的数据<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<pre><code>db.update({
+   'table': 'xxx',
+   'objectId': 'yyy',
+   'data': {
+     'zzz': { // zzz就是要删除的列名
+        '__op': 'Delete'
+      }
+   }
+}, function(err, data) {
+// DO ANYTHING
+});
+</code></pre>
+
+<h3 id="_12">用户注册<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<pre><code>userSignUp({
+  &quot;data&quot;:{&quot;a&quot;:&quot;XXXX&quot;,&quot;b&quot;:&quot;XXXX&quot;}             //用户注册的信息，格式为JSON
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_13">用户登录<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<pre><code>userLogin({
+  &quot;username&quot;:&quot;aa&quot;,            //登录用户名
+  &quot;password&quot;:&quot;&quot;              //用户密码
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_14">用户密码重置<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<pre><code>userRestPassword({
+  &quot;data&quot;:{&quot;email&quot;:&quot;XX@XX.com&quot;}      //需要重置密码的用户邮件账号
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_15">获取某一用户记录<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<pre><code>getUserByObjectId({
+  &quot;objectId&quot;:&quot;XXXX&quot;          //记录的objectId
+},function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_16">更新某一用户记录<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><strong>说明：必须先登录才能更新，切记！！！否则会报sessionToken error</strong></p>
+<pre><code>updateUserByObjectId({
+      &quot;objectId&quot;:&quot;XXXX&quot;,        //记录的objectId
+      &quot;data&quot;:{&quot;a&quot;:&quot;XXXX&quot;,&quot;b&quot;:&quot;XXXX&quot;}           //需要更新的数据，格式为JSON
+    },function(err,data){         //回调函数
+});
+</code></pre>
+
+<p>以下是更新用户信息的示例代码：</p>
+<pre><code>function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.userLogin({
+    &quot;username&quot;:&quot;123567&quot;,
+    &quot;password&quot;:&quot;123&quot;
+  },function(err, data){
+    if(data){
+      var dataObject = JSON.parse(data);
+      if(dataObject.error == null){
+        //需要设置登录之后获取的sessionToken头信息
+        db.setHeader({&quot;X-Bmob-Session-Token&quot;:dataObject.sessionToken});
+        db.updateUserByObjectId({&quot;objectId&quot;:dataObject.objectId ,data:{&quot;username&quot;:&quot;123&quot;}},function(err,data){
+          response.send(&quot;更新成功&quot;);
+      })
+    }else{
+      response.send(&quot;找不到该用户！&quot;);
+    }
+  }
+});
+}
+</code></pre>
+
+<h3 id="_17">获得所有用户信息<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<pre><code>getAllUser(function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_18">删除某一个指定用户<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><strong>说明：必须登录才行，切记！！！否则会报sessionToken error</strong></p>
+<pre><code>removeUserByObjectId({
+      &quot;objectId&quot;:&quot;XXXX&quot;        //记录的objectId
+    },function(err,data){         //回调函数
+});
+</code></pre>
+
+<h3 id="_19">邮箱验证<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>发送给用户的邮箱验证的邮件会在一周内失效，可以通过下面的方法来强制重新发送</p>
+<pre><code>requestEmailVerify({
+      &quot;data&quot;:{&quot;email&quot;:&quot;coolguy@iloveapps.com&quot;}
+  },function(err,data){
+    //回调函数
+  });
+</code></pre>
+
+<p><strong>这里有一个小技巧分享给大家，有时候你会希望能够用Master Key（Bmob给大家提供的超级权限，可以对数据进行任何操作）对数据进行操作，包括不需要用户登录就可以修改用户信息等。那么你只需要在对数据进行操作前，通过db.setHeader方法设置下Master Key头信息即可，如下：</strong></p>
+<pre><code>function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.setHeader({&quot;X-Bmob-Master-Key&quot;:&quot;这里填写Master Key信息&quot;});
+  db.updateUserByObjectId({&quot;objectId&quot;:&quot;这里是需要更新的用户ObjectId信息&quot; ,data:{&quot;username&quot;:&quot;123&quot;}},function(err,data){
+    response.send(&quot;更新成功&quot;);
+  });
+}
+</code></pre>
+
+<h2 id="_20">文件对象<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>云函数只支持文件的删除操作。删除文件，必须要知道文件的url，示例代码如下：</p>
+<pre><code>function onRequest(request, response, modules) {
+
+  var file = modules.oFile;
+
+  //文件的路径为 http://bmob-cdn-10.b0.upaiyun.com/2017/06/03/8989824440d8c3a680865e4086fcab62.jpg
+  file.del({
+    &quot;url&quot;:&quot;2017/06/03/8989824440d8c3a680865e4086fcab62.jpg&quot;  //截取有效路径
+  },function(err,data){
+     //回调函数
+  });
+}
+</code></pre>
+
+<p>其中，2017/06/03/8989824440d8c3a680865e4086fcab62.jpg 为文件完整路径的"http://bmob-cdn-10.b0.upaiyun.com/2017/06/03/8989824440d8c3a680865e4086fcab62.jpg"的有效url。</p>
+<p>返回结果是个json对象：</p>
+<pre><code>{
+  &quot;msg&quot;: &quot;ok&quot;
+}
+</code></pre>
+
+<h2 id="_21">云函数对象<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>在云函数中可以调用本app的其它云函数，示例代码如下：</p>
+<pre><code>function onRequest(request, response, modules) {
+
+    var functions = modules.oFunctions;
+
+    functions.run({
+       &quot;name&quot;: &quot;test&quot;,
+       &quot;data&quot;:{&quot;content&quot;:&quot;你好&quot;,&quot;address&quot;:&quot;guangzhou&quot;}
+    },function(err,data){
+       //回调函数
+    });
+}
+</code></pre>
+
+<p>在上面的例子中，<code>name</code>是云函数的函数名，<code>data</code>中是传递的参数</p>
+<p>如果不需要传递任何参数，可以用下面的实例代码：</p>
+<pre><code>function onRequest(request, response, modules) {
+
+    var functions = modules.oFunctions;
+
+    functions.run({
+       &quot;name&quot;: &quot;test&quot;
+    },function(err,data){
+       //回调函数
+    });
+}
+</code></pre>
+
+<h2 id="_22">地理位置对象<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>Bmob允许用户根据地球的经度和纬度坐标进行基于地理位置的信息查询。你可以在查询中添加一个GeoPoint的对象查询。您可以实现轻松查找出离当前用户最接近的信息或地点的功能。</p>
+<h3 id="_23">创建地理位置<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>创建地理位置的示例代码如下：</p>
+<pre><code>function onRequest(request, response, modules) {
+
+  var location = modules.oLocation;
+
+  location.create({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;j4w2DDDT&quot;,
+    &quot;data&quot;:{&quot;location&quot;:{
+            &quot;__type&quot;: &quot;GeoPoint&quot;,
+            &quot;latitude&quot;:  12.934755,
+            &quot;longitude&quot;: 24.52065
+        }}
+  },function(err,data){
+     //回调函数
+  });
+}
+</code></pre>
+
+<h3 id="_24">查询地理位置<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>现在您有一系列的对象对应的地理坐标，如果能发现那些对象离指定的点近就好了，这可以通过GeoPoint数据类型加上在查询中使用$nearSphere做到。获取离用户最近的10个地点的实现代码如下：</p>
+<pre><code>  location.query({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;limit&quot;:10,
+    &quot;where&quot;:{
+        &quot;location&quot;: {
+            &quot;$nearSphere&quot;: {
+                &quot;__type&quot;: &quot;GeoPoint&quot;,
+                &quot;latitude&quot;: 30.0,
+                &quot;longitude&quot;: 20.0
+            }
+          }
+    }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<p>这会按离纬度30.0，经度-20.0的距离排序返回一系列的结果，第一个就是最近的对象。(注意如果一个特定的order参数给了的话，它会覆盖按距离排序)，例如，下面是两个上面的查询返回的结果：</p>
+<pre><code>{
+    &quot;results&quot;: [
+    {
+        &quot;location&quot;: {
+             &quot;__type&quot;: &quot;GeoPoint&quot;,
+            &quot;latitude&quot;: 40.0,
+            &quot;longitude&quot;: -30.0
+        },
+        &quot;updatedAt&quot;: &quot;2011-12-06 22:36:04&quot;,
+        &quot;createdAt&quot;: &quot;2011-12-06 22:36:04&quot;,
+        &quot;objectId&quot;: &quot;e1kXT22L&quot;
+        },
+        {
+        &quot;location&quot;: {
+             &quot;__type&quot;: &quot;GeoPoint&quot;,
+             &quot;latitude&quot;: 30.0,
+             &quot;longitude&quot;: 20.0
+        },
+        &quot;updatedAt&quot;: &quot;2011-12-06 22:36:26&quot;,
+        &quot;createdAt&quot;: &quot;2011-12-06 22:36:26&quot;,
+        &quot;objectId&quot;: &quot;51e3a2a8e4b015ead4d95dd9&quot;
+        }
+    ]
+}
+</code></pre>
+
+<p>为了限定搜素的最大举例，需要加入$maxDistanceInMiles和$maxDistanceInKilometers或者$maxDistanceInRadians参数来限定。如果不加，则默认是100KM的半径。如，要找半径在10公里内的数据的实现代码如下：</p>
+<pre><code>  location.query({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;limit&quot;:10,
+    &quot;where&quot;:{
+        &quot;location&quot;: {
+            &quot;$nearSphere&quot;: {
+                &quot;__type&quot;: &quot;GeoPoint&quot;,
+                &quot;latitude&quot;: 30.0,
+                &quot;longitude&quot;: 20.0
+            },
+        &quot;$maxDistanceInKilometers&quot;: 10.0
+        }
+    }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<p>同样做查询寻找在一个特定的范围里面的对象也是可以的，为了找到在一个矩形的区域里的对象，按下面的格式加入一个约束 {"$within": {"$box": {[southwestGeoPoint, northeastGeoPoint]}}}，下面是一段示例代码：</p>
+<pre><code>  location.query({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;limit&quot;:10,
+    &quot;where&quot;:{
+        &quot;location&quot;: {
+            &quot;$within&quot;: {
+                &quot;$box&quot;: [
+                    {
+                        &quot;__type&quot;: &quot;GeoPoint&quot;,
+                        &quot;latitude&quot;: 37.71,
+                        &quot;longitude&quot;: 22.53
+                    },
+                    {
+                        &quot;__type&quot;: &quot;GeoPoint&quot;,
+                        &quot;latitude&quot;: 30.82,
+                        &quot;longitude&quot;: 22.37
+                    }
+                ]
+            }
+        }
+    }
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<h2 id="_25">关联关系对象<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>一个对象可以与其他对象相联系。就像数据库中的主外键关系一样，数据表 A 的某一个字段是数据表 B 的外键，只有表 B 中存在的数据才可插入进表 A 中的字段。</p>
+<h3 id="_26">添加关联关系<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>为了更新 <code>Pointer</code> 的Key类型，Bmob提供特殊的操作来原子化地添加和删除一个指针，我们可以像这样添加一行记录时并添加一个指针：</p>
+<pre><code>function onRequest(request, response, modules) {
+
+  var rel = modules.oRelation;
+  rel.add({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;data&quot;:{&quot;game&quot;:{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Game&quot;,&quot;objectId&quot;:&quot;ekZq111a&quot;}}
+  },function(err,data){
+     //回调函数
+  });
+}
+</code></pre>
+
+<p>为了更新 <code>Relation</code> 的Key类型，Bmob提供特殊的操作来原子化地添加和删除一个或多个关系，我们可以像这样添加一行记录时并添加多个关系:</p>
+<pre><code>  rel.add({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;data&quot;:{&quot;gamerel&quot;:{&quot;__op&quot;:&quot;AddRelation&quot;,&quot;objects&quot;:[{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Game&quot;,&quot;objectId&quot;:&quot;ekZq111a&quot;},{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Game&quot;,&quot;objectId&quot;:&quot;80SLHHHj&quot;}]}}
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_27">修改关联对象<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>为了更新 <code>Pointer</code> 的Key类型，Bmob提供特殊的操作来原子化地添加和删除一个指针，我们可以像这样添加一个指针:</p>
+<pre><code>  rel.update({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;8106dc7c9e&quot;,
+    &quot;data&quot;:{&quot;game&quot;:{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Game&quot;,&quot;objectId&quot;:&quot;80SLHHHj&quot;}}
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<p>为了更新 <code>Relation</code> 的Key类型，Bmob提供特殊的操作来原子化地添加和删除一个或多个关系，我们可以像这样添加多个关系:</p>
+<pre><code>  rel.update({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;8106dc7c9e&quot;,
+    &quot;data&quot;:{&quot;gamerel&quot;:{&quot;__op&quot;:&quot;AddRelation&quot;,&quot;objects&quot;:[{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Game&quot;,&quot;objectId&quot;:&quot;ekZq111a&quot;}]}}
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<h3 id="_28">查询关联对象<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>有几种方式来对关系 <code>Relation</code> 或 指针 <code>Pointer</code> 类型数据进行查询, 如果您将要获取对象中有个Key类型是关系 <code>Relation</code> 或 指针 <code>Pointer</code>，这都说明你要获取的对象是匹配到另一个特殊（关联或指向）的对象的, 您可以用一个 <code>where</code> 参数查询, 自己使用 <code>__type</code> 构造一个 <code>Pointer</code>, 就像你构造其他数据类型一样。举例说, 如果每一条评论(Comment对象)有一个Key叫post，类型是Pointer，并且指向了一个具体的帖子(Post对象，用objectId表示一个帖子)，那么您可以使用下面的请求获取一个帖子的所有评论:</p>
+<pre><code>rel.query({
+  &quot;table&quot;:&quot;Comment&quot;,
+  &quot;where&quot;:{&quot;post&quot;:{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Post&quot;,&quot;objectId&quot;:&quot;l4fQ999O&quot;}},
+ },function(err,data){
+    //回调函数
+ });
+</code></pre>
+
+<p>如果您想要获取对象, 这些对象的一个字段指向的对象是符合另一个查询的, 您可以使用 $inQuery 操作符，注意默认的 limit 是 100 而且最大的 limit 是 1000，这个限制同样适用于内部的查询, 所以对于较大的数据集您可能需要细心地构建查询来获得期望的行为。举例说, 假设您有一个 帖子(Post)类和一个评论(Comment)类, 每个评论(Comment)都有一个指向它的帖子(Post)的关系Key名为post，并且类型为Pointer, 您可以找到所有有图片的帖子(Post)的评论(Comment):</p>
+<pre><code>rel.query({
+  &quot;table&quot;:&quot;Comment&quot;,
+  &quot;where&quot;:{&quot;post&quot;:{&quot;$inQuery&quot;:{&quot;where&quot;:{&quot;image&quot;:{&quot;$exists&quot;:true}},&quot;className&quot;:&quot;Post&quot;}}},
+ },function(err,data){
+    //回调函数
+ });
+</code></pre>
+
+<p>同理，使用下面的请求，您可以找到所有没有图片的帖子(Post)的评论(Comment):</p>
+<pre><code>rel.query({
+  &quot;table&quot;:&quot;Comment&quot;,
+  &quot;where&quot;:{&quot;post&quot;:{&quot;$notInQuery&quot;:{&quot;where&quot;:{&quot;image&quot;:{&quot;$exists&quot;:true}},&quot;className&quot;:&quot;Post&quot;}}},
+ },function(err,data){
+    //回调函数
+ });
+</code></pre>
+
+<p>如果您想获取的对象，是其父对象的关系 <code>Relation</code> 类型的Key的所有成员的话, 您可以使用 $relatedTo 操作符, 假设您有一个帖子(Post)类和一个系统默认的用户(_User)类, 而每一个帖子(Post)都可以被不同的用户(_User)所喜欢。 如果帖子(Post)类下面有一个Key名为likes，且是 <code>Relation</code> 类型, 存储了喜欢这个帖子(Post)的用户(_User)。那么您可以找到喜欢过同一个指定的帖子(Post)的所有用户：</p>
+<pre><code>rel.query({
+  &quot;table&quot;:&quot;users&quot;,
+  &quot;where&quot;:{&quot;$relatedTo&quot;:{&quot;object&quot;:{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Post&quot;,&quot;objectId&quot;:&quot;l4fQ999O&quot;},&quot;key&quot;:&quot;likes&quot;}},
+ },function(err,data){
+    //回调函数
+ });
+</code></pre>
+
+<p>还可以使用组合查询，比如下面这样，判断用户是否喜欢(likes)过这个帖子：</p>
+<pre><code>rel.query({
+  &quot;table&quot;:&quot;Comment&quot;,
+  &quot;where&quot;:{&quot;likes&quot;:{&quot;$inQuery&quot;:{&quot;where&quot;:{&quot;objectId&quot;:&quot;l3xRGGGa&quot;},&quot;className&quot;:&quot;_User&quot;}}, &quot;objectId&quot;:&quot;l4fQ999O&quot;},
+  &quot;limit&quot;:10,
+  &quot;count&quot;:true
+ },function(err,data){
+    //回调函数
+ });
+</code></pre>
+
+<p>返回结果集如下：</p>
+<pre><code>{
+    count: 1
+    results: [ ]
+}
+</code></pre>
+
+<p>你可以做如下判断，如果count=1，表明用户喜欢的这个帖子objectId存在，即用户喜欢过这个帖子；若count=0, 表明用户没有喜欢过这个帖子。</p>
+<p>在某些情况之下，您可能需要在一个查询之中返回关联对象的多种类型，您可以通过传入字段名称到include参数中，多个字段名称用,间隔， 比如，我们想获得最近的10篇评论，而您想同时得到它们相关的post：
+<code>include的Key必须是Pointer类型</code></p>
+<pre><code>rel.query({
+  &quot;table&quot;:&quot;Comment&quot;,
+  &quot;order&quot;:&quot;-createdAt&quot;,
+  &quot;limit&quot;:10,
+  &quot;include&quot;:&quot;post&quot;
+ },function(err,data){
+    //回调函数
+ });
+</code></pre>
+
+<p>不是作为一个 <code>Pointer</code> 类型表示，post字段现在已经被展开为一个完整的帖子(Post)对象， __type 被设置为 <code>Object</code> 而 <code>className</code> 同样也被提供了。 举例说， 一个指向帖子(Post)的Pointer原本展示为：</p>
+<pre><code>{
+  &quot;__type&quot;: &quot;Pointer&quot;,
+  &quot;className&quot;: &quot;Post&quot;,
+  &quot;objectId&quot;: &quot;51e3a359e4b015ead4d95ddc&quot;
+}
+</code></pre>
+
+<p>当一个查询使用include参数来包含进去来取代 <code>Pointer</code> 之后，可以看到 <code>Pointer</code> 被展开为：</p>
+<pre><code>{
+  &quot;__type&quot;: &quot;Object&quot;,
+  &quot;className&quot;: &quot;Post&quot;,
+  &quot;objectId&quot;: &quot;51e3a359e4b015ead4d95ddc&quot;,
+  &quot;createdAt&quot;: &quot;2011-12-06T20:59:34.428Z&quot;,
+  &quot;updatedAt&quot;: &quot;2011-12-06T20:59:34.428Z&quot;,
+  &quot;otherFields&quot;: &quot;willAlsoBeIncluded&quot;
+}
+</code></pre>
+
+<p>您可以同样做多层的include, 这时要使用 "." 号. 如果您要include一条评论(Comment)对应的帖子(Post)的作者(author)：
+<code>include的Key必须是Pointer类型</code></p>
+<pre><code>rel.query({
+  &quot;table&quot;:&quot;Comment&quot;,
+  &quot;order&quot;:&quot;-createdAt&quot;,
+  &quot;limit&quot;:10,
+  &quot;include&quot;:&quot;post.author&quot;
+ },function(err,data){
+    //回调函数
+ });
+</code></pre>
+
+<h3 id="_29">删除关联关系<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>可以在一个对象中删除一个关系:</p>
+<pre><code>  rel.delete({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;8106dc7c9e&quot;,
+    &quot;data&quot;:{&quot;gamerel&quot;:{&quot;__op&quot;:&quot;RemoveRelation&quot;,&quot;objects&quot;:[{&quot;__type&quot;:&quot;Pointer&quot;,&quot;className&quot;:&quot;Game&quot;,&quot;objectId&quot;:&quot;ekZq111a&quot;}]}}
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<h2 id="_30">原子操作对象<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<p>很多应用可能会有需要计数器的功能，比如某条信息被点赞多少次等。Bmob提供了非常便捷的方式来保证原子性的修改某一数值字段的值，示例代码如下：</p>
+<pre><code>function onRequest(request, response, modules) {
+  //获取原子操作对象
+  var atom = modules.oAtom;
+
+  //score增加一个固定值操作
+  atom.exec({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;j4w2DDDT&quot;,
+    &quot;data&quot;:{&quot;score&quot;:{&quot;__op&quot;:&quot;Increment&quot;,&quot;amount&quot;:1}}
+  },function(err,data){
+     //回调函数
+  });
+}
+</code></pre>
+
+<pre><code>function onRequest(request, response, modules) {
+  //获取原子操作对象
+  var atom = modules.oAtom;
+
+  //score减少一个固定值操作
+  atom.exec({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;j4w2DDDT&quot;,
+    &quot;data&quot;:{&quot;score&quot;:{&quot;__op&quot;:&quot;Increment&quot;,&quot;amount&quot;:-1}}
+  },function(err,data){
+     //回调函数
+  });
+}
+</code></pre>
+
+<h2 id="_31">批量操作对象<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<p>为了减少因为网络通讯次数太多而带来的时间浪费, 您使用使用下面的批量(batch)操作，在一个请求中对多个普通对象(不支持系统内置的用户对象)进行添加(create)、更新(update)、删除(delete) 操作，上限为50个。</p>
+<pre><code>function onRequest(request, response, modules) {
+  //获取数组对象
+  var bat = modules.oBatch;
+
+  //批量操作
+  bat.exec({
+    &quot;data&quot;:{
+        &quot;requests&quot;: [
+          {
+            &quot;method&quot;: &quot;POST&quot;,
+            &quot;path&quot;: &quot;/1/classes/GameScore&quot;,
+            &quot;body&quot;: {
+              &quot;score&quot;: 1337,
+              &quot;playerName&quot;: &quot;Sean Plott&quot;
+            }
+          },
+          {
+            &quot;method&quot;: &quot;POST&quot;,
+            &quot;path&quot;: &quot;/1/classes/GameScore&quot;,
+            &quot;body&quot;: {
+              &quot;score&quot;: 1338,
+              &quot;playerName&quot;: &quot;ZeroCool&quot;
+            }
+          }
+        ]
+      }
+  },function(err,data){
+     //回调函数
+  });
+}
+</code></pre>
+
+<p>批量操作的响应会是一个列表, 列表的返回值个数同给定的requests请求个数是相等的。列表中每个返回项都有一个字段是 <code>"success"</code> 或者 <code>"error"</code>， <code>"success"</code> 的值是通常是和你进行其他REST操作成功时返回的值是一样的:</p>
+<pre><code>{
+  &quot;success&quot;: {
+    &quot;createdAt&quot;: &quot;2012-06-15T16:59:11.276Z&quot;,
+    &quot;objectId&quot;: &quot;51c3ba67e4b0f0e851c16221&quot;
+  }
+}
+</code></pre>
+
+<p><code>"error"</code> 的值是有返回码和错误信息字符串的一个对象:</p>
+<pre><code>{
+  &quot;error&quot;: {
+    &quot;code&quot;: 101,
+    &quot;error&quot;: &quot;object not found for delete&quot;
+  }
+}
+</code></pre>
+
+<p>在 batch 操作中更新(update)和删除(delete)同样是有效的:</p>
+<pre><code>function onRequest(request, response, modules) {
+  //获取数组对象
+  var bat = modules.oBatch;
+
+  //批量操作
+  bat.exec({
+    &quot;data&quot;:{
+        &quot;requests&quot;: [
+          {
+            &quot;method&quot;: &quot;PUT&quot;,
+            &quot;path&quot;: &quot;/1/classes/GameScore/51e3a334e4b0b3eb44adbe1a&quot;,
+            &quot;body&quot;: {
+              &quot;score&quot;: 999999
+            }
+          },
+          {
+            &quot;method&quot;: &quot;DELETE&quot;,
+            &quot;path&quot;: &quot;/1/classes/GameScore/51a8a4d9e4b0d034f6159a35&quot;
+          }
+        ]
+      }
+  },function(err,data){
+     //回调函数
+  });
+}
+</code></pre>
+
+<h2 id="_32">数组操作对象<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<p>用下面的方法来获取数组对象：</p>
+<pre><code>  var arr = modules.oArray;
+
+</code></pre>
+
+<h3 id="_33">添加数组对象<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p>添加数组对象,不管元素是否存在都添加的实现代码如下：</p>
+<pre><code>  arr.add({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;data&quot;:{&quot;skills&quot;:{&quot;__op&quot;:&quot;Add&quot;,&quot;objects&quot;:[&quot;flying&quot;,&quot;kungfu&quot;]}}
+  },function(err,data){
+      //回调函数
+  });
+
+</code></pre>
+
+<p>添加数组对象,只有在元素不存在情况下才添加的实现代码如下：</p>
+<pre><code>  //往GameScore表中字段skills添加的数组
+  arr.addUnique({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;j4w2DDDT&quot;,
+    &quot;data&quot;:{&quot;skills&quot;:{&quot;__op&quot;:&quot;AddUnique&quot;,&quot;objects&quot;:[&quot;flying&quot;,&quot;kungfu&quot;]}}
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_34">删除数组对象<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<pre><code>  //往GameScore表中字段skills删除数组
+  arr.remove({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;objectId&quot;:&quot;j4w2DDDT&quot;,
+    &quot;data&quot;:{&quot;skills&quot;:{&quot;__op&quot;:&quot;Remove&quot;,&quot;objects&quot;:[&quot;flying&quot;,&quot;kungfu&quot;]}}
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_35">查询数组对象<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p>查询数组对象,可以查找skills的数组值中包含有"flying"的对象的实现方法如下:</p>
+<pre><code>  //往GameScore表中字段skills添加的数组
+  arr.query({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;where&quot;:{&quot;skills&quot;:&quot;flying&quot;}
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<p>查询数组对象,可以查找skills的数组值中包含有"flying","kungfu"的对象的实现方法如下：</p>
+<pre><code>  //往GameScore表中字段skills添加的数组
+  arr.query({
+    &quot;table&quot;:&quot;GameScore&quot;,
+    &quot;where&quot;:{&quot;skills&quot;:{&quot;$all&quot;:[&quot;flying&quot;,&quot;kungfu&quot;]}}
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h2 id="_36">消息推送对象<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<p>推送通知是让用户及时被通知、和你的应用保持联系的一种非常棒的方式，你可以快速而有效地通知到所有的用户，下面这个教程将会教会你使用Bmob来推送消息。用下面的方法来获取消息推送对象：</p>
+<pre><code>  var push = modules.oPush;
+
+</code></pre>
+
+<h3 id="_37">安装消息推送服务<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p>每一个Bmob的App安装在用户设备后，如果要使用消息推送功能，Bmob SDK会自动生成一个Installation对象。Installation对象包含了推送所需要的所有信息。举例：一个棒球的App，你可以让用户订阅感兴趣的棒球队，然后及时将这个球队的消息推送给用户 。</p>
+<p>Installation对象有几个系统默认的特殊字段来帮助你的管理和定位到设备：
+- <code>badge</code> : iOS应用中右上角的图标标识
+- <code>channels</code> : 当前这个设备订阅的渠道名称数组
+- <code>timeZone</code> : 设备所在位置的时区， 如Asia/Shanghai，这个会在每个Installation对象更新时同步（只读）
+- <code>deviceType</code> : 设备的的类型, 值为："ios" 或 "android" (只读)
+- <code>installationId</code> : Bmob使用的设备唯一号，Android设备是必须的，iOS可选 (只读)
+- <code>deviceToken</code> : iOS设备由Apple APNS生成的唯一性token标识 (只读)</p>
+<h3 id="installation">保存installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<h4 id="iosdevicetoken">保存iOS设备的deviceToken<a class="headerlink" href="#iosdevicetoken" title="Permanent link">&para;</a></h4>
+<p>iOS设备通常使用deviceToken来惟一标识一台设备。</p>
+<pre><code>  push.add({
+    &quot;data&quot;:{
+        &quot;deviceType&quot;: &quot;ios&quot;,
+        &quot;deviceToken&quot;: &quot;abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789&quot;,
+        &quot;channels&quot;: [
+          &quot;Giants&quot;
+        ]
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h4 id="androidinstallationid">保存Android设备的installationId<a class="headerlink" href="#androidinstallationid" title="Permanent link">&para;</a></h4>
+<p>对于Android设备，SDK会自动生成uuid作为installationId保存到Bmob。 您可以使用以下云函数保存Android设备的installation ID：</p>
+<pre><code>  push.add({
+    &quot;data&quot;:{
+        &quot;deviceType&quot;: &quot;android&quot;,
+        &quot;installationId&quot;: &quot;12345678-4312-1234-1234-1234567890ab&quot;,
+        &quot;channels&quot;: [
+          &quot;Giants&quot;
+        ]
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<p>你还可以更新Installation对象的更多属性，用来查询installationId，定制更通用的推送：</p>
+<pre><code>  push.update({
+    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
+    &quot;data&quot;:{
+        &quot;scores&quot;: true,
+        &quot;gameResults&quot;: true,
+        &quot;injuryReports&quot;: true
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h4 id="windows-phone-notificationuri">保存Windows Phone设备的 notificationUri<a class="headerlink" href="#windows-phone-notificationuri" title="Permanent link">&para;</a></h4>
+<p>对于Windows Phone设备，BmobSDK会自动从Windows Push Center获取到notificationUri并保存到 Bmob。 你可以使用以下REST API保存Windows Phone设备的notificationUri：</p>
+<pre><code>  push.add({
+    &quot;data&quot;:{
+        &quot;deviceType&quot;: &quot;windows phone&quot;,
+        &quot;notificationUri&quot;: &quot;https://hk1.notify.live.net/unthrottledthirdparty/01.00/AQHgHh6EuwNtTa1TbwvaAjnmAgAAAAADEAAAAAQUZm52OkZDM0U5RDkxQzIzREJBNDYFBkFTRUEwMQ&quot;,
+        &quot;channels&quot;: [
+          &quot;Giants&quot;
+        ]
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_38">订阅频道和退订<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<h4 id="_39">订阅频道<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h4>
+<p>覆盖已订阅的频道：</p>
+<pre><code>  push.update({
+    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
+    &quot;data&quot;:{
+        &quot;channels&quot;: [
+          &quot;Giants&quot;,
+          &quot;Mets&quot;
+        ]
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<p>订阅一个新频道，不覆盖已订阅的频道：</p>
+<pre><code>  push.update({
+    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
+    &quot;data&quot;:{
+        &quot;channels&quot;:{&quot;__op&quot;:&quot;AddUnique&quot;,&quot;objects&quot;:[&quot;Giants111&quot;]}
+    }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h4 id="_40">退订频道<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
+<pre><code>  push.update({
+    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
+    &quot;data&quot;:{
+        &quot;channels&quot;:{&quot;__op&quot;:&quot;Remove&quot;,&quot;objects&quot;:[&quot;Giants&quot;,&quot;Mets&quot;]}
+    }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_41">广播推送消息<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_42">组播推送消息<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<p>发送给订阅了Giants频道的用户</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;:{
+          &quot;channels&quot;:[&quot;Giants&quot;]
+        },
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
+        }
+      }
+  },function(err,data){删除数据
+     //回调函数
+  });
+
+</code></pre>
+
+<p>或者更简便的方式</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;channels&quot;:[&quot;Giants&quot;],
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_43">多播推送消息<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<h4 id="_44">推送给不活跃的用户<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;:{
+            &quot;updatedAt&quot;:{
+                &quot;$lt&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2014-01-29 11:33:53&quot;}
+              }
+        },
+        &quot;data&quot;: {
+            &quot;alert&quot;: &quot;Hello From Bmob.&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h4 id="_45">根据查询条件做推送<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;: {
+          &quot;scores&quot;: true
+        },
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Willie Hayes injured by own pop fly.&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<p>请注意，where 条件查询的都是 installations 表。这里是假设 installations 表存储了 scores 的布尔属性，你可以像查询普通对象一样构造where查询</p>
+<h4 id="_46">根据平台做推送<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;: {
+          &quot;deviceType&quot;: &quot;android&quot;
+        },
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Your suitcase has been filled with tiny robots!&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;: {
+          &quot;deviceType&quot;: &quot;ios&quot;
+        },
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Your suitcase has been filled with tiny robots!&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h4 id="_47">根据地理信息位置做推送<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;: {
+          &quot;user&quot;: {
+            &quot;$inQuery&quot;: {
+              &quot;location&quot;: {
+                &quot;$nearSphere&quot;: {
+                  &quot;__type&quot;: &quot;GeoPoint&quot;,
+                  &quot;latitude&quot;: 30.0,
+                  &quot;longitude&quot;: -20.0
+                },
+                &quot;$maxDistanceInMiles&quot;: 1.0
+              }
+            }
+          }
+        },
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Free hotdogs at the bmob concession stand!&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<p>上面的例子假设 installation 有个 user 属性指向_User 表的记录，并且用户有个 location 属性是 GeoPoint 类型，我们就可以根据地理信息位置做推送。</p>
+<h3 id="_48">点播推送消息<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<p>发送给Android单个客户端</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;:{
+            &quot;installationId&quot;:&quot;12345678-4312-1234-1234-1234567890ab&quot;
+            },
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<p>发送给iOS单个客户端</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;where&quot;:{
+            &quot;deviceToken&quot;:&quot;abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789&quot;
+            },
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+
+</code></pre>
+
+<h3 id="_49">发送选项设置<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<p>推送通知不仅仅可以用来发送消息，iOS中，推送内容还可以包含要播放的声音和要显示的badge数字值,还可以定制任何你想发送的内容，对于Android，你甚至可以指定Intent应用于接收消息，对于时间性有要求的消息您还可以设置一个消息过期时间。</p>
+<h4 id="_50">定制您的通知<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
+<p>如果你想发送更多的消息，你可以在data的字典对象中设置其他字段，下面这些保留的字段有其特殊的意义：
+- <code>alert</code> : 通知的消息内容
+- <code>badge</code> : (仅iOS)一个数字值将会高亮显示在应用图标的右上角
+- <code>sound</code> : (仅iOS)应用绑定包中的声音文件
+- <code>content-available</code> : (仅iOS)如果你的应用是新闻类的，或者你的应用正在使用iOS7的Remote Notification Background Mode，设定这个值为1将为触发离线下载功能。
+- <code>action</code> : (仅Android)接收到推送消息时应用Intent，如果没有指定title或alert，Intent将被应用，但是没有通知呈现给用户。
+- <code>title</code> : (仅Android)这个值将显示在系统通知栏</p>
+<p>例如，推送一条通知，将当前的badge值自增1,并且播放iOS设备上定制的音乐，对于Android用户，将在系统通知栏中显示特殊的标题，则请求如下：</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;channels&quot;: [
+          &quot;Giants&quot;
+        ],
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;The Mets scored! The game is now tied 1-1.&quot;,
+          &quot;badge&quot;: 1,
+          &quot;sound&quot;: &quot;cheering.caf&quot;,
+          &quot;title&quot;: &quot;Mets Score!&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<p>当然，你也可以在data字典对象中定制自己的字段，推送消息，但不显示在 Andoid 系统的通知栏中，而是执行应用程序预定义的逻辑，Android或iOS接收消息文档中对此有说明，iOS只有当用户从通知中打开应用，才能访问data的数据，Android将提供这个数据在action Intent应用之后,</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;channels&quot;: [
+          &quot;Giants&quot;
+        ],
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;The Mets scored! The game is now tied 1-1.&quot;,
+          &quot;badge&quot;: &quot;Increment&quot;,
+          &quot;sound&quot;: &quot;cheering.caf&quot;,
+          &quot;title&quot;: &quot;Mets Score!&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<h4 id="_51">设置消息过期时间<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h4>
+<p>过期时间，可以是绝对时间：</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;expiration_time&quot;: &quot;2015-12-04 00:51:13&quot;,
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Season tickets on sale until December  4, 2013&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<p>也可以是相对时间（根据push_time做定期推送，从push_time时间开始算起，直到expiration_interval时间后过期），下面请求表示消息将在2012-01-28 00:51:13这个时间点开始推送，直到7天后过期:</p>
+<pre><code>  push.send({
+    &quot;data&quot;:{
+        &quot;push_time&quot;: &quot;2012-01-28 00:51:13&quot;,
+        &quot;expiration_interval&quot;: 518400,
+        &quot;data&quot;: {
+          &quot;alert&quot;: &quot;Season tickets on sale until December  4, 2013&quot;
+        }
+      }
+  },function(err,data){
+     //回调函数
+  });
+</code></pre>
+
+<h2 id="http_1">HTTP请求对象<a class="headerlink" href="#http_1" title="Permanent link">&para;</a></h2>
+<p>oHttp对象可以模拟实现get、post、put、delete等各种HTTP请求信息，让你在云端实现诸如数据采集、OAuth授权登录等功能。Bmob的HTTP请求模块采用Nodejs提供的request模块，这里提供简单的Get和Post的操作实例。更多的功能详细参考：<a href="https://npmjs.org/package/request">https://npmjs.org/package/request</a></p>
+<pre><code>/**
+*发起Get请求
+*/
+//获取Http模块
+var http = modules.oHttp;
+//发起Get请求
+http('https://www.bmob.cn', function (error, res, body) {
+    response.send(body);
+});
+
+-
+
+/**
+*发起Post请求
+*/
+//获取Http模块
+var http = modules.oHttp;
+
+var options = {
+  &quot;url&quot;: 'https://api2.bmob.cn/1/classes/GameScore',
+  &quot;headers&quot;: {
+    'X-Bmob-Application-Id': 'Your Application ID',
+    'X-Bmob-REST-API-Key': 'Your REST API Key',
+    'Content-Type': 'application/json'
+  },
+  &quot;body&quot;:JSON.stringify({&quot;score&quot;:1337,&quot;playerName&quot;:&quot;Sean Plott&quot;})
+};
+http.post(options, function(error, res, body) {
+    response.send(body);
+});
+
+
+</code></pre>
+
+<h2 id="asyncawait">异步对象Async/Await<a class="headerlink" href="#asyncawait" title="Permanent link">&para;</a></h2>
+<p><strong>Async/Await</strong> 很方便解决nodejs异步网络请求问题，下面是引入对象，如需更多了解，可以查阅Nodejs官方文档</p>
+<pre><code>// 多个函数从上到下依次执行,相互之间没有数据交互
+function onRequest(request, response, modules) {
+    var async = require('async'); 
+    var task1 =function(callback){
+
+        console.log(&quot;task1&quot;);
+        callback(null,&quot;task1&quot;)
+    }
+
+    var task2 =function(callback){
+
+        console.log(&quot;task2&quot;);
+        callback(null,&quot;task2&quot;)
+    }
+
+    var task3 =function(callback){
+
+        console.log(&quot;task3&quot;);
+        callback(null,&quot;task3&quot;)
+    }
+
+    async.series([task1,task2,task3],function(err,result){
+
+        console.log(&quot;series&quot;);
+
+        if (err) {
+            response.send(err);
+        }
+
+        response.send(result);
+    })
+}
+</code></pre>
+
+<h2 id="_52">事件对象<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h2>
+<p>oEvent，也就是eventproxy模块，解决异步回调的问题。</p>
+<p>更多的功能详细参考：<a href="https://github.com/JacksonTian/eventproxy">https://github.com/JacksonTian/eventproxy</a></p>
+<pre><code>function onRequest(request, response, modules) {
+
+    var ep = modules.oEvent;  //eventproxy模块，解决异步回调的问题
+
+    ep.after('got_file', 3, function (list) {
+        response.send(&quot;len:&quot;+list.length);
+
+    });
+
+    //发送3次事件后触发事件，输出list的长度
+    ep.emit(&quot;got_file&quot;, &quot;1&quot;);
+    ep.emit(&quot;got_file&quot;, &quot;1&quot;);
+    ep.emit(&quot;got_file&quot;, &quot;1&quot;);
+
+
+}
+</code></pre>
+
+<h2 id="encode">Encode编码转换对象<a class="headerlink" href="#encode" title="Permanent link">&para;</a></h2>
+<p>Encode对象可以实现字符编码的转换。更多的功能详细参考：<a href="https://www.npmjs.org/package/encoding">https://www.npmjs.org/package/encoding</a></p>
+<p>Encode对象就一个方法convert()，使用方法为：encoding.convert(text, toCharset, fromCharset)。</p>
+<p>text: 需要转换的对象，可以为Buffer或者String对象。</p>
+<p>toCharset: 转换后的编码。</p>
+<p>fromCharset: 转换前的编码，缺省为uft8。</p>
+<p>转换后的输入结果为Buffer对象。</p>
+<pre><code>var encoding = modules.oEncodeing;
+var result = encoding.convert(&quot;禅&quot;,&quot;gbk&quot;,&quot;utf8&quot;);
+response.send(result.toString());
+
+</code></pre>
+
+<h2 id="htmlohtmlparser">html元素解析对象（oHtmlparser）<a class="headerlink" href="#htmlohtmlparser" title="Permanent link">&para;</a></h2>
+<p>html元素解析对象可以实现html的解释。更多的功能详细参考：<a href="https://www.npmjs.org/package/htmlparser">https://www.npmjs.org/package/htmlparser</a></p>
+<p>代码例子</p>
+<pre><code>function onRequest(request, response, modules) {
+    var htmlparser = modules.oHtmlparser;
+    var rawHtml = &quot;&lt;a href='test.html'&gt;xxx&lt;/a&gt;&quot;;
+    var handler = new htmlparser.DefaultHandler(function (error, dom) {});
+    var parser = new htmlparser.Parser(handler);
+    parser.parseComplete(rawHtml);
+    response.send(JSON.stringify(handler.dom, null, 2));
+
+}
+
+</code></pre>
+
+<p>代码的输出：</p>
+<pre><code>[
+  {
+    &quot;raw&quot;: &quot;a href='test.html'&quot;,
+    &quot;data&quot;: &quot;a href='test.html'&quot;,
+    &quot;type&quot;: &quot;tag&quot;,
+    &quot;name&quot;: &quot;a&quot;,
+    &quot;attribs&quot;: {
+      &quot;href&quot;: &quot;test.html&quot;
+    },
+    &quot;children&quot;: [
+      {
+        &quot;raw&quot;: &quot;xxx&quot;,
+        &quot;data&quot;: &quot;xxx&quot;,
+        &quot;type&quot;: &quot;text&quot;
+      }
+    ]
+  }
+]
+
+</code></pre>
+
+<h2 id="bqlobql">bql对象（oBql）<a class="headerlink" href="#bqlobql" title="Permanent link">&para;</a></h2>
+<p>我们提供类 SQL 语法的 BQL 查询语言来查询数据</p>
+<p>下面的代码例子就是查询GameScore表的所有数据</p>
+<pre><code>function onRequest(request, response, modules) {
+    //获得bql的对象
+    var Bql = modules.oBql;
+
+    Bql.exec({
+      &quot;bql&quot;:&quot;select * from GameScore&quot;
+    },function(err,data){
+      response.send(data);
+    });
+
+
+}
+
+</code></pre>
+
+<p>BQL 还支持占位符查询，where 和 limit 子句的条件参数可以使用问号替换，然后通过 values 数组传入：</p>
+<pre><code>function onRequest(request, response, modules) {
+    //获得bql的对象
+    var Bql = modules.oBql;
+
+    Bql.exec({
+      &quot;bql&quot;:&quot;select * from GameScore where name=? limit ?,? &quot;,
+      &quot;values&quot;:&quot;[\&quot;tom\&quot;,0,100]&quot;
+    },function(err,data){
+      response.send(data);
+     //回调函数
+    });
+
+
+}
+</code></pre>
+
+<p>更多请参考 <a href="http://doc.bmob.cn/other/bql/">BQL 详细指南</a> 。</p>
+<h2 id="ocrypto">加密对象（oCrypto）<a class="headerlink" href="#ocrypto" title="Permanent link">&para;</a></h2>
+<p>提供md5和sha1两种加密算法。更多的功能详细参考：<a href="https://www.npmjs.org/package/crypto">https://www.npmjs.org/package/crypto</a></p>
+<p>代码例子</p>
+<pre><code>  function onRequest(request, response, modules) {
+    var crypto = modules.oCrypto;
+    var md5 = crypto.createHash('md5');
+    md5.update(&quot;hello&quot;); //输入要md5的内容
+    response.send(md5.digest('hex'));//以16进制编码
+}
+
+</code></pre>
+
+<h2 id="ocryptojs">新加密对象oCryptoJS<a class="headerlink" href="#ocryptojs" title="Permanent link">&para;</a></h2>
+<p>Gzip</p>
+<pre><code>function onRequest(request, response, modules) {
+    var gzip = modules.oGzip;
+    gzip.gzip('Hello World').then((compressed) =&gt;{
+        return gzip.ungzip(compressed);
+    }).then((decompressed) =&gt;{
+        response.end(decompressed.toString());
+    });
+}
+
+
+</code></pre>
+
+<p>RSA 非对称加密</p>
+<pre><code>//RSA 
+function onRequest(request, response, modules) {
+
+    var NodeRSA = modules.oCryptoRSA;
+
+    var key = new NodeRSA({b: 512}); //生成新的512位长度密钥
+
+    var text = 'Hello RSA!'; // 加密前数据
+    var encrypted = key.encrypt(text, 'base64');  // 加密后数据
+    console.log('encrypted: ', encrypted);
+    var decrypted = key.decrypt(encrypted, 'utf8'); // 解密后数据
+    console.log('decrypted: ', decrypted);
+    response.end(encrypted)
+}
+</code></pre>
+
+<p>AES 加密</p>
+<pre><code>// AES
+function onRequest(request, response, modules) {
+
+    var CryptoJS = modules.oCryptoJS;
+
+    let key = CryptoJS.enc.Utf8.parse('wAqH3oMU*aW4MYUJ'); //密钥必须是16位，且避免使用保留字符
+    let encryptedData = CryptoJS.AES.encrypt(&quot;hello&quot;, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    let hexData = encryptedData.ciphertext.toString();
+    console.log(hexData)
+    // response.end(hexData)
+
+    //================解密================
+    let encryptedHexStr = CryptoJS.enc.Hex.parse(hexData);
+    let encryptedBase64Str = CryptoJS.enc.Base64.stringify(encryptedHexStr);
+    let decryptedData = CryptoJS.AES.decrypt(encryptedBase64Str, key, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+    });
+    let text = decryptedData.toString(CryptoJS.enc.Utf8);
+    console.log(&quot;text&quot;,text)
+    response.end(text)
+}
+</code></pre>
+
+<h2 id="_53">时间格式化类<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<p>获取当前时间，格式化为  <code>2022-11-18 14:36:03</code> 。</p>
+<pre><code>function onRequest(request, response, modules) {
+    let moment = modules.oMoment
+    let time = moment().format('YYYY-MM-DD HH:mm:ss');
+    response.end(time)
+}                                                                                    
+</code></pre>
+
+<h3 id="_54">格式化示例<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<pre><code>moment().format('MMMM Do YYYY, h:mm:ss a'); // 十月 18日 2021, 2:38:27 下午
+moment().format('dddd');                    // 星期一
+moment().format(&quot;MMM Do YY&quot;);               // 10月 18日 21
+moment().format('YYYY [escaped] YYYY');     // 2021 escaped 2021
+moment().format();                          // 2021-10-18T14:38:27+08:00
+</code></pre>
+
+<h3 id="_55">相对时间<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<pre><code class="js">moment(&quot;20111031&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 10 年前
+moment(&quot;20120620&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 9 年前
+moment().startOf('day').fromNow();        // 15 小时前
+moment().endOf('day').fromNow();          // 9 小时内
+moment().startOf('hour').fromNow();       // 39 分钟前
+                                          // undefined
+</code></pre>
+
+<h3 id="_56">日历时间<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<pre><code class="js">moment().subtract(10, 'days').calendar(); // 2021/10/08
+moment().subtract(6, 'days').calendar();  // 上星期二14:38
+moment().subtract(3, 'days').calendar();  // 上星期五14:38
+moment().subtract(1, 'days').calendar();  // 昨天14:38
+moment().calendar();                      // 今天14:38
+moment().add(1, 'days').calendar();       // 明天14:38
+moment().add(3, 'days').calendar();       // 下星期四14:38
+moment().add(10, 'days').calendar();      // 2021/10/28
+                                          // undefined
+</code></pre>
+
+<h2 id="_57">云函数调试工具<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<h3 id="_58">网页在线调试工具<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+</li>
+</ol>
+<p>为方便开发者调试云函数，Bmob为开发者提供了便捷的云端调试工具，你可以直接在云函数的编辑页面下对编写的代码进行调试，如实现从Bar表中查找指定objectId号（SDK中上传参数）的数据，你可以在云函数中实现如下：</p>
+<pre><code>function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.findOne({
+    &quot;table&quot;:&quot;Bar&quot;,
+    &quot;objectId&quot;:request.body.objectId
+  },function(err,data){ //回调函数
+     response.send(&quot;成功 &quot; + data);
+  });
+}
+</code></pre>
+
+<p>调试时，你在云端调试工具中输入参数名为objectId，参数值为你想要查询的信息，如下图，即可查看到调试结果。</p>
+<p><img alt="" src="../image/ydts.png" /></p>
+<ol>
+<li>
+<h3 id="bmobup">命令调试工具 Bmobup<a class="headerlink" href="#bmobup" title="Permanent link">&para;</a></h3>
+</li>
+</ol>
+<p>有时我们开发的云函数，可能上百行代码，在网页不太方便，这时我们可以使用自己习惯的开发工具来编写代码，通过<strong>Bmobup</strong>命令来调试上传，Bmob平台Node、Java云函数本地开发调试工具,增加云函数开发效率，支持<code>Mac</code>,<code>Windows</code>,<code>liunx</code>系统 。它的流程会把你本地写的代码，提交到Bmob应用云函数并返回结果。</p>
+<p>项目地址：</p>
+<p>https://github.com/bmob/bmobup</p>
+<h2 id="_59">错误对象<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h2>
+<p>Bmob提供的官方模块（非第三方）的错误回调中都会有一个<code>err</code>对象，这个<code>err</code>对象包含两个属性：<code>error</code>和<code>code</code>，分别代表错误异常信息和错误代码。调用时可以简单如下使用：</p>
+<pre><code>function onRequest(request, response, modules) {
+    var db = modules.oData;
+    db.findOne({
+        &quot;table&quot;:&quot;YourTableName&quot;,
+        &quot;objectId&quot;:request.body.oid
+    },function(err,data){
+        //对返回结果进行处理
+        if(err)  response.send(&quot;error is  &quot; + err.code  + &quot;error message is &quot; + err.error );
+        else response.send(data);
+    });
+}
+</code></pre>
+
+<h2 id="_60">日志对象<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h2>
+<p><strong> 这个功能已暂时停用 </strong></p>
+<p>oLog 是一个日志对象，当程序调试时，可以把对应变量的值写入日志表。</p>
+<pre><code>function onRequest(request, response, modules) {
+    var oLog = modules.oLog;
+    oLog.log(&quot;Bmob你好，这是一条日志&quot;)
+}
+
+</code></pre>
+
+<p>代码执行后，会在应用生成一个表，名称<strong>oLog</strong>，点击即可查看日志</p>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
