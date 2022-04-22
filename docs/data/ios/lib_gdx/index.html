@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+        
+        <script type="text/javascript" src="//game.bmob.cn/static/doc_union.js"></script>
+            <!--
+            <title>libGDX - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot; iOS – Bmob后端云 </title>        
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../android/">Android</a>
+                                </li>
+                            
+                            
+								<li class="active">
+									<a href="../">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../wechat_app/">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">游戏实时后端</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏实时后端 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../game/unity/quick_start/">Unity</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/cocos_creator/quick_start/">Cocos Creator</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../game/wechat_games/quick_start/">微信小游戏</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../game/cloud_function/develop_doc/">云函数</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../game/classic_case/">经典案例</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmob.cn/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmob.cn/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+					<div class="code-title">iOS</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../example/">示例/功能</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../update_log/">更新日志</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../classdoc/">类库文档</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">libGDX</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">简介</a>
+												
+											</li>
+												
+											<li class=""><a href="#_2">开发环境搭建</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#robovm">RoboVM的搭建</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#libgdx">libGDX环境搭建和工程创建</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#bmobsdkios">使用BmobSDK进行iOS开发</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#_3">总结</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../swift_quick_start/">Swift快速入门</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../swift_develop_doc/">Swift开发文档</a>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>libGDX是一个开源的游戏框架，其优势是兼容性非常好，可兼容多种平台系统（Windows、Linux、Max OS X、Java Applet、Javascript/WebGL），包括移动系统Android和iOS，并且使用的是最为广泛的java语言来进行开发，因此前景相当不错。最近有不少开发者问到关于如何配合使用BmobSDK和libGDX来开发ios游戏，这其中大部分都是只接触过Android的开发者（引擎使用java开发的原因），对于ios不熟悉，因此在使用的过程中会遇到一些问题。因此，本文将详细地讲解如何搭建开发环境，并介绍如何在libGDX如何使用BmobSDK进行iOS游戏的开发。</p>
+<h2 id="_2">开发环境搭建<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>搭建开发主要有以下两大部分</p>
+<ol>
+<li>RoboVM的搭建</li>
+<li>libGDX的环境搭建</li>
+</ol>
+<h3 id="robovm">RoboVM的搭建<a class="headerlink" href="#robovm" title="Permanent link">&para;</a></h3>
+<h4 id="robovm_1">RoboVM简介<a class="headerlink" href="#robovm_1" title="Permanent link">&para;</a></h4>
+<p>以下文字摘自百度百科</p>
+<pre><code>RoboVM 编译器可以将 Java 字节码翻译成 ARM 或者 x86 平台上的原生代码，应用可直接在 CPU 上运行，无需其他解释器或者虚拟机。
+RoboVM 同时包含一个 Java 到 Objective-C 的桥，可像其他 Java 对象一样来使用 Objective-C 对象。大多数 UIKit 已经支持，而且将会支持更多的框架。
+</code></pre>
+
+<p>RoboVM类似于Android的jni，使用它就可以使用Java来调用Object-C对象，用Java进行iOS开发。</p>
+<h4 id="robovm_2">RoboVM搭建<a class="headerlink" href="#robovm_2" title="Permanent link">&para;</a></h4>
+<p>1.安装Java JDK，注意需要1.7以上才支持RoboVM</p>
+<p>2.下载eclipse</p>
+<p>3.安装RoboVM插件，具体步骤如下：</p>
+<p>1)进入 <code>help/install New Software</code></p>
+<p><img alt="" src="../image/libGDX_1.jpg" /></p>
+<p>2)输入 <code>http://download.robovm.org/eclipse/</code> 下载插件，完成后重启即可</p>
+<p><img alt="" src="../image/libGDX_2.jpg" /></p>
+<p><strong>注</strong>：在<a href="http://docs.robovm.com/getting-started/eclipse.html">RoboVM官方搭建文档</a>中也有如何安装RoboVM的教程，具体的安装步骤以及安装参数（如下载链接）请以官方教程为准。</p>
+<p>4.安装完成后，重启eclipse,进入File/New/Project即可看到RoboVM工程的创建图标，如果你真是想用java来开发iOS应用，那么进行到这一步已经大功告成了。</p>
+<p><img alt="" src="../image/libGDX_3.jpg" /></p>
+<h3 id="libgdx">libGDX环境搭建和工程创建<a class="headerlink" href="#libgdx" title="Permanent link">&para;</a></h3>
+<p>1.进入<a href="http://libgdx.badlogicgames.com/download.html">libGDX官网</a>下载libGDX工程生成工具，该工具是一个jar应用。</p>
+<p><img alt="" src="../image/libGDX_4.jpg" /></p>
+<p>2.进入gdx-setup，设置好相应的参数，并选好需要开发的平台的子项目即可。此处选取了ios、desktop及html三个平台，需要开发android平台的还需要在Android子项目处勾选上。</p>
+<p><img alt="" src="../image/libGDX_5.jpg" /></p>
+<p>3.点击生成，第一次生成需要下载一些文件，时间会比较久，当出现 <code>BUILD SUCCESSFUL</code> 提示时，说明项目已经创建好了，如下图所示。</p>
+<p><img alt="" src="../image/libGDX_6.jpg" /></p>
+<p>4.在上图中我们可以看到生成工程后，会提示在不同的IDE要怎么打开，在eclipse中打开是需要以gradle工程来打开，这需要我们安装Gradle插件，我们可以进入 <code>help/Eclipse Marketplace</code> 搜索该插件进入安装（别问我为什么安装RoboVM时为什么不用这个方法，因为搜索不到啊）</p>
+<p><img alt="" src="../image/libGDX_7.jpg" /></p>
+<p>5.安装完成后，进 <code>File/Import/Gradle/Gradle Project</code>，导入刚刚生成的工程，注意提示，导入前需要先点击 <code>Build Model</code> 按键。</p>
+<p><img alt="" src="../image/libGDX_8.jpg" /></p>
+<p>6.导入后的可以看到在 <code>Package Explorer</code> 中生成了以下工程,其中core工程用以编写与平台无关的代码，而以对应平台名结尾的工程则是编写对应平台的逻辑代码，以项目名为名的工程（本文中为test）主要存放一些公共环境的配置代码。</p>
+<p><img alt="" src="../image/libGDX_9.jpg" /></p>
+<p>7.建好工程后可以按下图所示，跑一下工程，查看工种是否搭建成功。模拟器可以选择iPad或者iPhone,第一次运行时由于需要编译一些公共包，时间会比较久。</p>
+<p><img alt="" src="../image/libGDX_10.jpg" /></p>
+<p>运行后的效果图</p>
+<p><img alt="" src="../image/libGDX_11.jpg" /></p>
+<h3 id="bmobsdkios">使用BmobSDK进行iOS开发<a class="headerlink" href="#bmobsdkios" title="Permanent link">&para;</a></h3>
+<p>按照教程完成上述的工程创建后就可以进行开发了。下面将讲述如何使用BmobSDK.framework进行开发。</p>
+<p>1.下载<a href="https://www.bmob.cn/site/sdk">BmobSDK iOS版</a></p>
+<p>2.导入BmobSDK.framework,如下图所示，直接将文件拖动至ios子项目的build目录下。</p>
+<p><img alt="" src="../image/libGDX_12.jpg" /></p>
+<p>3.进入robovm.xml添加以下代码，声明相应的依赖库。</p>
+<p><img alt="" src="../image/libGDX_13.jpg" /></p>
+<p>4.编写绑定文件。如果希望知道如何绑定，可以参考博客<a href="http://blog.csdn.net/qq634416025/article/details/35543715">libgdx与Robovm绑定的坑</a>。当然，为了尽快体验一下效果，我们可以直接使用该博客的作者<code>爱学习的坏蛋</code>写好的一个绑定库<a href="https://github.com/tianqiujie/robovm-ios-bindings">https://github.com/tianqiujie/robovm-ios-bindings</a>，这里面有已经绑定好的BmobSDK库，我们直接将这些文件加入到工程即可。如下图</p>
+<p><img alt="" src="../image/libGDX_14.jpg" /></p>
+<p>5.接下来，我们还需要到<a href="https://www.bmob.cn">Bmob官网</a>注册一个帐号并在后台创建应用，并将App Key复制下来。如下图</p>
+<p><img alt="" src="../image/libGDX_15.jpg" /></p>
+<p>6.至此，准备工作已经全部完成，我们尝试写一段代码以测试项目是否可以工作。在IOSLauncher.java文件中的protected IOSApplication createApplication() 方法中添加以下代码</p>
+<pre><code>    @Override
+    protected IOSApplication createApplication() {
+        IOSApplicationConfiguration config = new IOSApplicationConfiguration();
+        //注册应用
+        Bmob.registerWithAppKey(&quot;4bf74404e49b7b5ff7f23c4496ee2b36&quot;);
+        //构造需要添加的记录
+        final BmobObject gameScore = new BmobObject(&quot;GameScore&quot;);
+        gameScore.setObject(new NSString(&quot;小明&quot;), &quot;playerName&quot;);
+        gameScore.setObject(NSNumber.valueOf(100), &quot;score&quot;);
+        gameScore.setObject(NSNumber.valueOf(true), &quot;cheatMode&quot;);
+        //保存记录
+        gameScore.saveInBackgroundWithResultBlock(new BmobBooleanResultBlock() {
+
+            @Override
+            public void invoke(boolean isSuccessful, NSError error) {
+                // TODO Auto-generated method stub
+                if(isSuccessful){
+                    System.out.println(&quot;success&quot;);
+                    //获取创建成功后的BmobObject的 objectId
+                    System.out.println(gameScore.getObjectId());
+                }else{
+                    System.out.println(error.getCode()+error.getDomain());
+                }
+            }
+        });
+
+        return new IOSApplication(new MyGdxGame(), config);
+    }
+</code></pre>
+
+<p>7.运行工程，可以看到以下log。</p>
+<p><img alt="" src="../image/libGDX_16.jpg" /></p>
+<p>进入Bmob后台，可以看到已经生成了一条数据库记录。</p>
+<p><img alt="" src="../image/libGDX_17.jpg" /></p>
+<h2 id="_3">总结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>本教程主要讲解如何搭建libGDX开发环境，并结合BmobSDK来进行开发。如果在对文章有任何疑问或者发现错误之处，欢迎提出。</p>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
