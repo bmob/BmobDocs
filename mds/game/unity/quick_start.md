@@ -28,7 +28,7 @@ score|int|65535|-|true|false|玩家分数
 
 点击 **发布**
 
-![Attr](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/969d75ac40a48def80e1aaab031db534.jpg)
+![Attr](https://bmob-cdn-14496.bmobpay.com/2018/04/10/969d75ac40a48def80e1aaab031db534.jpg)
 
 ----
 
@@ -39,7 +39,7 @@ score|int|65535|-|true|false|玩家分数
 *此时可能提示`已经被睡眠，不下发更新指令`，也是更新云函数成功的表现*
 
 
-![Cloud](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/f052c8d34011d16c8095bcf9cc6af519.jpg)
+![Cloud](https://bmob-cdn-14496.bmobpay.com/2018/04/10/f052c8d34011d16c8095bcf9cc6af519.jpg)
 
 ----
 
@@ -51,7 +51,7 @@ score|int|65535|-|true|false|玩家分数
 
 *示例图是启用中的服务器，所以显示按钮为睡眠*
 
-![Server](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/e94ef77840c4c89380026a27ed36d695.jpg)
+![Server](https://bmob-cdn-14496.bmobpay.com/2018/04/10/e94ef77840c4c89380026a27ed36d695.jpg)
 
 ----
 
@@ -59,7 +59,7 @@ score|int|65535|-|true|false|玩家分数
 
 游戏设置 > 应用密钥 > AppKey
 
-![AppKey](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/9e583f0140450b708063a0f598bdc99c.jpg)
+![AppKey](https://bmob-cdn-14496.bmobpay.com/2018/04/10/9e583f0140450b708063a0f598bdc99c.jpg)
 
 ## 项目
 
@@ -78,4 +78,4 @@ GameScene|游戏场景
 - 现在就可以运行游戏了，入口为大厅场景。试着创建房间，会返回RoomId和JoinKey，是作为多个玩家加入同一个房间的凭证
 - 打包游戏，测试多设备联网玩
 
-![Unity](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/f5f5576b4045a2d6809e9b693518a6b8.jpg)
+![Unity](https://bmob-cdn-14496.bmobpay.com/2018/04/10/f5f5576b4045a2d6809e9b693518a6b8.jpg)
