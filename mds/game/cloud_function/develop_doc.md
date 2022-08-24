@@ -1,6 +1,6 @@
 
 - BGS的云函数可以完美实现游戏的后端逻辑层，并且有热更新机制，可以随时修改、升级
-- 缝合了Bmob数据服务，可以快速进行Bmob数据库的增删查改，其中 `Bmob.class` 的用法与 [Bmob Java云函数](http://doc.bmob.cn/cloud_function/java/) 的 `modules.oData` 完全一致
+- 缝合了Bmob数据服务，可以快速进行Bmob数据库的增删查改，其中 `Bmob.class` 的用法与 [Bmob Java云函数](http://doc.bmobapp.com/cloud_function/java/) 的 `modules.oData` 完全一致
 
 主要需要开发者实现的有 `Room.java`、`Player.java`
 
@@ -14,7 +14,7 @@
 
 ### Jar文件
 
-[下载地址](//game.bmob.cn/static/BmobGameSDKCloud.jar)
+[下载地址](//game.bmobapp.com/static/BmobGameSDKCloud.jar)
 
 ### 步骤
 
@@ -211,7 +211,7 @@ public class Room extends RoomBase {
 	static {
 		Bmob.init("Bmob AppKey", "Bmob REST API Key");
 	}
-    
+
 	...
 }
 
@@ -220,7 +220,7 @@ public class Room extends RoomBase {
 
 ### 操作数据库
 
-- 请参考 [Bmob Java云函数](http://doc.bmob.cn/cloud_function/java/) 的 `modules.oData` 
+- 请参考 [Bmob Java云函数](http://doc.bmobapp.com/cloud_function/java/) 的 `modules.oData`
 
 - 示例：在房间创建时，自动往数据库添加房间数据
 
@@ -228,7 +228,7 @@ public class Room extends RoomBase {
 ...
 public class Room extends RoomBase {
 	public volatile String mRoomObjectId;
-	
+
 	@Override
 	public void onCreate() {
 		mRoomObjectId = Bmob.getInstance().insert("Room", JSON.toJson(//

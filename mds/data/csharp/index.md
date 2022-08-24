@@ -1,6 +1,6 @@
 ## 注册Bmob帐号
 
-在网址栏输入 www.bmob.cn 或者在百度输入“Bmob后端云”进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
+在网址栏输入 www.bmobapp.com 或者在百度输入“Bmob后端云”进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
 
 ## 网站后台创建应用
 
@@ -110,9 +110,9 @@ class GameObject : BmobTable
         {
             bmob = new BmobWindows();
 
-            //初始化，这个ApplicationId/RestKey需要更改为你自己的ApplicationId/RestKey（ http://www.bmob.cn 上注册登录之后，创建应用可获取到ApplicationId/RestKey）
+            //初始化，这个ApplicationId/RestKey需要更改为你自己的ApplicationId/RestKey（ http://www.bmobapp.com 上注册登录之后，创建应用可获取到ApplicationId/RestKey）
             Bmob.initialize("4414150cb439afdf684d37dc184e0f9f", "e1deb317442129c125b228ddf78e5f22");
-            
+
             //注册调试工具
             BmobDebug.Register(msg => { Debug.WriteLine(msg); });
         }
@@ -155,7 +155,7 @@ private GameObject gameObject = new GameObject(TABLE_NAME);
 
 private void createData_Click(object sender, EventArgs e)
 {
-	//设置值    
+	//设置值
     System.Random rnd = new System.Random();
     gameObject.score = rnd.Next(-50, 170);
     gameObject.playerName = "123";

@@ -3,7 +3,7 @@
 云函数的调用方法非常简单，如下为调用执行云端方法`test`的实现代码：
 
 ```C#
-Bmob.Endpoint<Hashtable>("test", (resp, exception) => 
+Bmob.Endpoint<Hashtable>("test", (resp, exception) =>
 {
 	if (exception != null)
 	{
@@ -20,7 +20,7 @@ Bmob.Endpoint<Hashtable>("test", (resp, exception) =>
 ```C#
 IDictionary<String, Object> parameters ＝  new IDictionary<String, Object>{{"name","jay"}};
 
-Bmob.Endpoint<Hashtable>("test", parameters, (resp, exception) => 
+Bmob.Endpoint<Hashtable>("test", parameters, (resp, exception) =>
     {
         if (exception != null)
         {
@@ -32,5 +32,5 @@ Bmob.Endpoint<Hashtable>("test", parameters, (resp, exception) =>
     });
 ```
 
-相关云函数的编写方式，请参考[云函数开发文档](http://doc.bmob.cn/cloud_function/web/develop_doc/)。
+相关云函数的编写方式，请参考[云函数开发文档](http://doc.bmobapp.com/cloud_function/web/develop_doc/)。
 

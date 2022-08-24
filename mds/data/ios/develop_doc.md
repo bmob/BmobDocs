@@ -52,12 +52,12 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 
 ### 应用安全
 
-请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档 [请点击](https://docs.bmob.cn/other/Other/n_datasafety/doc/index.html);
+请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档 [请点击](https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html);
 
 ## 数据迁移
 从v2.1.8开始，数据SDK新增了能重新设置请求域名的Api，类似数据迁移，调用方式如下：
 ```
-[Bmob resetDomain:@"https://open-vip.bmob.cn"];
+[Bmob resetDomain:@"https://open-vip.bmobapp.com"];
 ```
 其中，参数为开发者的域名，调用后的所有请求都指向新的域名。
 
@@ -485,7 +485,7 @@ NSLog(@"obj.updatedAt = %@", [obj updatedAt]);
 
 **这里需要注意的是：**
 
-1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回100条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](https://docs.bmob.cn/data/iOS/b_developdoc/doc/index.html#查询)一节中的分页查询。
+1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回100条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)一节中的分页查询。
 
 2.当查询的是用户表这种系统表的时候，返回的是BmobUser的数组，设备表，角色表也是这样的。
 
@@ -970,7 +970,7 @@ bquery.maxCacheAge = 10000;
 
 `Bmob Query Language`（简称 BQL）是 Bmob 自 `BmobSDK V1.5.7` 版本开始，为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询 API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。
 
-具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](https://docs.bmob.cn/other/Other/m_bql/doc/index.html)。
+具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](https://docs.bmobapp.com/other/Other/m_bql/doc/index.html)。
 
 #### 基本BQL查询
 可以通过以下方法来进行SQL查询：
@@ -1067,7 +1067,7 @@ NSLog(@"%@",result.resultsAry);
 
 #### 内置函数
 
-对于包含`内置函数`的占位符查询，比较特殊，请使用`Bmob Query Language 详细指南`中的`内置函数`中[占位符查询用到的内置函数](https://docs.bmob.cn/other/Other/m_bql/doc/index.html#内置函数介绍)用到的内置函数列出的形式进行查询操作：
+对于包含`内置函数`的占位符查询，比较特殊，请使用`Bmob Query Language 详细指南`中的`内置函数`中[占位符查询用到的内置函数](https://docs.bmobapp.com/other/Other/m_bql/doc/index.html#内置函数介绍)用到的内置函数列出的形式进行查询操作：
 
 举例：我想查询在 '2015-05-14 14:56:30' 后的创建的记录，可以这样：
 
@@ -1118,11 +1118,11 @@ NSLog(@"actual:%@",result);
 - 使用`- (void)queryBQLCanCacheInBackgroundWithblock:(BmobBQLObjectResultBlock)block;`进行查询时，通过 `-(void)setBQL:(NSString*)bql;` 和 `-(void)setPlaceholder:(NSArray*)ary;` 来设置BQL语句和占位符。
 
 
-缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](https://docs.bmob.cn/data/iOS/b_developdoc/doc/index.html#查询)缓存查询小节。
+缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)缓存查询小节。
 
 ## 数组
 
-为了存储数组型数据，[Bmob](https://www.bmob.cn/ "Bmob移动后端云服务平台")提供了3种操作来原子性地更改一个数组字段:
+为了存储数组型数据，[Bmob](https://www.bmobapp.com/ "Bmob移动后端云服务平台")提供了3种操作来原子性地更改一个数组字段:
 
 **Add** 在一个数组字段的后面添加一些指定的对象(包装在一个数组内)
 
@@ -2131,7 +2131,7 @@ Test *t = [[Test alloc] initFromBmobObject:obj];
 ### 使用方法
          1.后端控制台新建图文信息并编辑后会新增一个_Article表，表中的关键字段有url,title,content，分别代表图文信息网页的url地址如[此例](http://bmob-cdn-782.b0.upaiyun.com/2017/12/07/78d403d140b2c0af80c12b8d9de67a7f.html),标题和网页源码，也能实时编辑。
          2.客户端的使用，可以查询_Article表，既可以拿到url用webview组件加载，也可以用Android SDK中的TextView结合Html类解析html标签并展示。
-      
+
 ## 文件管理
 [文件管理章节Demo](https://github.com/bmob/bmob-ios-demo/tree/master/BmobSDK/BmobFileDemo)
 
@@ -2194,7 +2194,7 @@ NSLog(@"上传进度%.2f",progress);
 ```
 
 ### 以分片的方式上传文件
-分片上传文件和上传整个文件的机制有所不同，是先把整个文件进行分片（256KB一片），然后再进行一片一片的上传（具体实现可查看[RestAPI文档](https://docs.bmob.cn/data/Restful/b_developdoc/doc/index.html#文件管理)）。当文件以分片的方式上传到Bmob服务器时，具有几种优势：
+分片上传文件和上传整个文件的机制有所不同，是先把整个文件进行分片（256KB一片），然后再进行一片一片的上传（具体实现可查看[RestAPI文档](https://docs.bmobapp.com/data/Restful/b_developdoc/doc/index.html#文件管理)）。当文件以分片的方式上传到Bmob服务器时，具有几种优势：
 
 1. 适合于尺寸较大的文件传输，通过切片来避免单个HTTP数据量过大而导致连接超时；
 

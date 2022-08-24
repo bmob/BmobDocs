@@ -10,11 +10,11 @@
 
 **请求描述**
 
-使用特定的模板请求验证码，如果没有在管理后台创建好模板，可使用默认的模板，[Bmob](http://www.bmob.cn/ "Bmob移动后端云服务平台") 默认的模板是: **您的验证码是%smscode%，有效期为%ttl%分钟。您正在使用%appname%的验证码**
+使用特定的模板请求验证码，如果没有在管理后台创建好模板，可使用默认的模板，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 默认的模板是: **您的验证码是%smscode%，有效期为%ttl%分钟。您正在使用%appname%的验证码**
 
 **请求**
 
-- url ：https://api2.bmob.cn/1/requestSmsCode
+- url ：https://api2.bmobapp.com/1/requestSmsCode
 
 - method ：POST
 
@@ -57,7 +57,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx"}' \
-  https://api2.bmob.cn/1/requestSmsCode
+  https://api2.bmobapp.com/1/requestSmsCode
 ```
 
 成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：
@@ -68,7 +68,7 @@ curl -X POST \
 }
 ```
 
-如果你已经在 [Bmob](http://www.bmob.cn/ "Bmob移动后端云服务平台") 后台设置了自己的模板，并已经是审核通过了，则可以使用自己的模板给用户的手机号码发送短信验证码了：
+如果你已经在 [Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 后台设置了自己的模板，并已经是审核通过了，则可以使用自己的模板给用户的手机号码发送短信验证码了：
 
 ```
 curl -X POST \
@@ -76,7 +76,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx", "template":"注册模板"}' \
-  https://api2.bmob.cn/1/requestSmsCode
+  https://api2.bmobapp.com/1/requestSmsCode
 ```
 
 成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：
@@ -95,7 +95,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx", "template":"注册模板", "validate_token":"3fdgfs223"}' \
-  https://api2.bmob.cn/1/requestSmsCode
+  https://api2.bmobapp.com/1/requestSmsCode
 ```
 
 成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：
@@ -114,7 +114,7 @@ curl -X POST \
 
 **请求**
 
-- url ：https://api2.bmob.cn/1/verifySmsCode/smsCode(用户收到的6位短信验证码)
+- url ：https://api2.bmobapp.com/1/verifySmsCode/smsCode(用户收到的6位短信验证码)
 
 - method ：POST
 
@@ -156,7 +156,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx"}' \
-  https://api2.bmob.cn/1/verifySmsCode/876845
+  https://api2.bmobapp.com/1/verifySmsCode/876845
 ```
 
 
@@ -183,7 +183,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"width":85,"height":30,"size":4,"ttl":180}' \
-  https://api2.bmob.cn/1/requestCaptcha
+  https://api2.bmobapp.com/1/requestCaptcha
 ```
 
 其中：
@@ -200,7 +200,7 @@ curl -X POST \
 ```
 {
   "captcha_token": "dtP6cLb3axn0Ho13EvZP",
-  "captcha_url": "https://api2.bmob.cn/1/captchaImage?secretKey=ad1ef6c1eac9b6e7&token=dtP6cLb3axn0Ho13EvZP"
+  "captcha_url": "https://api2.bmobapp.com/1/captchaImage?secretKey=ad1ef6c1eac9b6e7&token=dtP6cLb3axn0Ho13EvZP"
 }
 ```
 
@@ -217,7 +217,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"captcha_code": "1110","captcha_token": "R23423dsfd"}' \
-  https://api2.bmob.cn/1/verifyCaptcha
+  https://api2.bmobapp.com/1/verifyCaptcha
 ```
 
 其中：

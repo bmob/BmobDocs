@@ -52,22 +52,22 @@ PING nm.aicdn.com (58.222.18.2): 56 data bytes
 
 ## API域名绑定教程
 
-API域名也就是restful 域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定API域名与 api2.bmob.cn 内容是否一致，一致则绑定成功。
+API域名也就是restful 域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定API域名与 api2.bmobapp.com 内容是否一致，一致则绑定成功。
 
 
 
 ## SDK域名绑定教程
 
-SDK域名也就是APP SDK使用域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定SDK域名与 open2.bmob.cn 内容是否一致，一致则绑定成功。
+SDK域名也就是APP SDK使用域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定SDK域名与 open2.bmobapp.com 内容是否一致，一致则绑定成功。
 
 SDK要让绑定的域名生效，还需要重置域名：
 
 请直接参考：
 
-[android重置域名设置](http://doc.bmob.cn/data/android/develop_doc/#_71)
+[android重置域名设置](http://doc.bmobapp.com/data/android/develop_doc/#_71)
 
-[iOS重置域名设置](http://doc.bmob.cn/data/ios/develop_doc/#_5)
+[iOS重置域名设置](http://doc.bmobapp.com/data/ios/develop_doc/#_5)
 
 ## 云函数域名绑定教程
 
-云函数域名也就是平时使用的cloud.bmob.cn 域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定SDK域名与 cloud.bmob.cn 内容是否一致，一致则绑定成功。
+云函数域名也就是平时使用的cloud.bmobapp.com 域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定SDK域名与 cloud.bmobapp.com 内容是否一致，一致则绑定成功。

@@ -17,21 +17,21 @@
 
 本案例最终实现的部分界面效果如下：
 
-![](image/flash.jpg) 
+![](image/flash.jpg)
 
 失物招领软件闪图
 
-![](image/lost.jpg) 
+![](image/lost.jpg)
 
  招领列表页
- 
-![](image/add_b.jpg) 
+
+![](image/add_b.jpg)
 
  添加失物信息
 
 ### 数据结构设计
 
-本案例的数据结构非常简单，只需要设计两个表，一个是失物表（Lost表），一个是招领表（Found表），对应的数据结构如下（省略对常用默认字段objectId、createAt、updateAt的描述，对于还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://docs.bmob.cn/data/iOS/a_faststart/doc/index.html "快速入门指南")查看相关教程）：
+本案例的数据结构非常简单，只需要设计两个表，一个是失物表（Lost表），一个是招领表（Found表），对应的数据结构如下（省略对常用默认字段objectId、createAt、updateAt的描述，对于还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://docs.bmobapp.com/data/iOS/a_faststart/doc/index.html "快速入门指南")查看相关教程）：
 
 
 
@@ -54,7 +54,7 @@
     </tr>
 </table>
 
-> 
+>
 
 <table>
 	<tr>
@@ -81,7 +81,7 @@ Bmob为每个应用都提供了一个唯一标识（对应为开发者后台应�
 ```java
 int main(int argc, char * argv[])
 {
-    
+
     @autoreleasepool {
         //registerWithAppKey需要使用Application ID进行初始化
         [Bmob registerWithAppKey:@"e9bbe5f23a1aa1d60d525871e1d7db99"];
@@ -103,11 +103,11 @@ int main(int argc, char * argv[])
         [obj setObject:desTextField.text forKey:@"describe"];
         //执行保存操作
         [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-           
+
             if (!error) {
                 //其他代码
             }
-            
+
         }];
 ```
 
@@ -139,7 +139,7 @@ Bmob提供了复杂和简单的查询方法，可以对查询结果进行排序�
             info.time     = [_dateFormatter stringFromDate:obj.updatedAt];
             [_infoMutableArray addObject:info];
         }
-        
+
         [_tableView reloadData];
     }];
 ```
@@ -147,7 +147,7 @@ Bmob提供了复杂和简单的查询方法，可以对查询结果进行排序�
 
 ### 后记
 
-本案例只是演示如何用Bmob进行快速的数据添加和查询，在真实的应用环境下，你还可能还需要使用到用户系统、文件服务、更复杂的数据结构和服务，这些都可以使用Bmob就可以实现。如果想要获取更多的信息，请各位查看Bmob的[开发文档](http://docs.bmob.cn/data/iOS/b_developdoc/doc/index.html "开发文档")或者联系技术客服。欢迎砸砖，欢迎提出更多的意见和建议帮助Bmob更好的发展。谢谢～
+本案例只是演示如何用Bmob进行快速的数据添加和查询，在真实的应用环境下，你还可能还需要使用到用户系统、文件服务、更复杂的数据结构和服务，这些都可以使用Bmob就可以实现。如果想要获取更多的信息，请各位查看Bmob的[开发文档](http://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html "开发文档")或者联系技术客服。欢迎砸砖，欢迎提出更多的意见和建议帮助Bmob更好的发展。谢谢～
 
 ### 案例下载
 [失物招领案例下载](https://github.com/bmob/bmob-app-demo-show/blob/master/download/Bmob_Sample_lost_found_ios.zip "失物招领案例下载")
@@ -170,11 +170,11 @@ Bmob提供了复杂和简单的查询方法，可以对查询结果进行排序�
 
 本案例最终实现的界面效果如下：
 
-![](image/image001.jpg) 
+![](image/image001.jpg)
 
 发送反馈截图
 
-![](image/image002.jpg) 
+![](image/image002.jpg)
 
  查看反馈意见截图
 
@@ -241,7 +241,7 @@ int main(int argc, char * argv[])
 
     //可更换为您的应用的key
     [Bmob registerWithAppKey:@"3124f50157a5df138aba77a85e1d8909"];
-    
+
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

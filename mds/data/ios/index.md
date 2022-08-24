@@ -1,5 +1,5 @@
 ## 注册Bmob帐号
-在网址栏输入www.bmob.cn或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
+在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
 
 ![](image/rumen_zhuce.png)
 
@@ -56,11 +56,11 @@
 ```
 int main(int argc, char * argv[])
 {
-    
+
     @autoreleasepool {
     	 NSString *appKey = @"申请的Application ID";
    		 [Bmob registerWithAppKey:appKey];
-    
+
        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate     				class]));
 	}
 }
@@ -145,5 +145,5 @@ BmobQuery *bquery = [BmobQuery queryWithClassName:@"GameScore"];
 [快速入门相关源码下载](https://github.com/bmob/bmob-ios-demo "快速入门相关源码下载")
 
 
-案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的[案例教程和源码](http://docs.bmob.cn/ios/example/index.html?menukey=example_teach_doc&key=example_teach_ios)，欢迎大家下载和查看。
+案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的[案例教程和源码](http://docs.bmobapp.com/ios/example/index.html?menukey=example_teach_doc&key=example_teach_ios)，欢迎大家下载和查看。
 

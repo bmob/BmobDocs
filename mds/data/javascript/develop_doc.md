@@ -6,7 +6,7 @@
 
 ## 典型案例
 
-聊天室：[http://chatroom.bmob.cn](http://chatroom.bmob.cn) （采用实时数据同步SDK开发，右击可直接查看源码）
+聊天室：[http://chatroom.bmobapp.com](http://chatroom.bmobapp.com) （采用实时数据同步SDK开发，右击可直接查看源码）
 
 ## 应用程序
 在Bmob平台注册后，每个账户可创建多个应用程序，创建的每个应用程序都有其独自的应用程序ID，此后所有的应用程序将凭其ID进行Bmob SDK的使用。即使只有一个应用程序，也可以以不同的版本进行测试和生产。
@@ -57,7 +57,7 @@ var GameScore = Bmob.Object.extend("GameScore", {
 });
 
 var gameScore = GameScore.spawn(200);
-alert(gameScore.gleaterThanOneHundred()); 
+alert(gameScore.gleaterThanOneHundred());
 ```
 
 ## 添加数据
@@ -154,7 +154,7 @@ query.first({
 ```
 
 **这里需要注意一点的是：**
-默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看分页查询](http://docs.bmob.cn/data/JavaScript/b_developdoc/doc/index.html#分页查询)一节。
+默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看分页查询](http://docs.bmobapp.com/data/JavaScript/b_developdoc/doc/index.html#分页查询)一节。
 
 ### 获取对象的特殊属性
 
@@ -225,7 +225,7 @@ query.greaterThan("score", 100);
 ```
 var GameScore = Bmob.Object.extend("GameScore");
 var query = new Bmob.Query(GameScore);
-query.equalTo("playerName", "bmob"); 
+query.equalTo("playerName", "bmob");
 // 查询所有数据
 query.find({
 	success: function(results) {
@@ -248,7 +248,7 @@ query.find({
 有时，在数据比较多的情况下，你希望查询出的符合要求的所有数据能按照多少条为一页来显示，这时可以使用`limit`方法来限制查询结果的数据条数来进行分页。默认情况下，Limit的值为10，最大有效设置值1000（设置的数值超过1000还是视为1000）。
 ```
 // 返回最多10条数据
-query.limit(10); 
+query.limit(10);
 ```
 在数据较多的情况下，在`limit`的基础上分页显示数据是比较合理的解决办法，`skip`方法可以做到跳过查询的前多少条数据来实现分页查询的功能。默认情况下`skip`的值为10。
 
@@ -403,7 +403,7 @@ query.get('3453453453fdsdf', {
       // The object was retrieved successfully.
     },
     error: function(object, error) {
-     
+
     }
 });
 ```
@@ -526,7 +526,7 @@ query.get("bc5da708dc",{
   error: function(error) {
     alert("Error: " + error.code + " " + error.message);
   }
-}); 
+});
 ```
 
 ## 数据关联
@@ -704,7 +704,7 @@ file.save().then(function(obj) {
         if (fileUploadControl.files.length > 0) {
         var file = fileUploadControl.files[0];
         var name = "logo.jpg";
-        var file = new Bmob.File(name, file);     
+        var file = new Bmob.File(name, file);
         file.save();
 ```
 
@@ -729,7 +729,7 @@ mode:模式 0: 指定宽， 高自适应，等比例缩放
      模式 2: 指定最长边，短边自适应，等比例缩放
      模式 3: 指定最短边，长边自适应，等比例缩放
      模式 4: 指定最大宽高， 等比例缩放
-     模式 5: 固定宽高， 居中裁剪    
+     模式 5: 固定宽高， 居中裁剪
 image:原图片url
 width:宽度，模式 0, 4, 5必填
 height：高度，模式 1, 4, 5必填
@@ -742,7 +742,7 @@ outType：输出类型，0:默认，输出url；1:输出base64编码的字符串
 调用的代码：
 
 ```
-Bmob.Image.thumbnail({"image":"http://file.bmob.cn/M00/01/26/wKgBP1OX9LLVh5gNAAHGYsmKRjk666.jpg","mode":0,"quality":100,"width":100}
+Bmob.Image.thumbnail({"image":"http://file.bmobapp.com/M00/01/26/wKgBP1OX9LLVh5gNAAHGYsmKRjk666.jpg","mode":0,"quality":100,"width":100}
 
   ).then(function(obj) {
 
@@ -1405,7 +1405,7 @@ BmobSocketIo.unsubDeleteRow("GameScore","1256e40e4f");
 tablename为更新的表，data为服务端返回的更新数据。
 
 ```
-   BmobSocketIo.onUpdateTable = function(tablename,data) {    
+   BmobSocketIo.onUpdateTable = function(tablename,data) {
       //业务逻辑的代码
    };
 ```
@@ -1415,7 +1415,7 @@ tablename为更新的表，data为服务端返回的更新数据。
 tablename为更新的表，objectId为更新行的objectId，data为服务端返回的更新数据。
 
 ```
-   BmobSocketIo.onUpdateRow = function(tablename,objectId,data) {    
+   BmobSocketIo.onUpdateRow = function(tablename,objectId,data) {
       //业务逻辑的代码
    };
 ```
@@ -1425,14 +1425,14 @@ tablename为更新的表，objectId为更新行的objectId，data为服务端返
 tablename为更新的表，objectId为更新行的objectId，data为服务端返回的更新数据。
 
 ```
-   BmobSocketIo.onDeleteRow = function(tablename,objectId,data) {    
+   BmobSocketIo.onDeleteRow = function(tablename,objectId,data) {
       //业务逻辑的代码
    };
 ```
 
 ### demo
 
-在线上演示实时数据平台的一个聊天应用的demo：[chat room demo](http://chatroom.bmob.cn) ，演示了如何使用实时数据服务实现聊天的功能。
+在线上演示实时数据平台的一个聊天应用的demo：[chat room demo](http://chatroom.bmobapp.com) ，演示了如何使用实时数据服务实现聊天的功能。
 
 用浏览器打开两个窗口，在其中一个窗口输入`昵称`和`内容`，按`发送`按钮，在另外一个窗口能看到发送的内容。
 
@@ -1440,7 +1440,7 @@ tablename为更新的表，objectId为更新行的objectId，data为服务端返
 
 ## ACL和角色
 
-数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看[Bmob数据与安全页面](http://docs.bmob.cn/other/Other/m_bql/doc/index.html)，了解Bmob如何保护数据安全）。
+数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看[Bmob数据与安全页面](http://docs.bmobapp.com/other/Other/m_bql/doc/index.html)，了解Bmob如何保护数据安全）。
 
 其中，最灵活的方法是通过ACL和角色，它的思路是每一条数据有一个用户和角色的列表，以及这些用户和角色拥有什么样的许可权限。
 
@@ -1607,5 +1607,5 @@ query.find({
 
 ## 错误代码详细说明
 
-[错误码列表](http://docs.bmob.cn/data/Restful/g_errorcode/doc/index.html "错误码列表")
+[错误码列表](http://docs.bmobapp.com/data/Restful/g_errorcode/doc/index.html "错误码列表")
 

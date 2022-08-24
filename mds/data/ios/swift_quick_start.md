@@ -1,7 +1,7 @@
 本文档的目的是为了方便大家在Swift工程中使用BmobSDK，实现应用的快速开发。下面介绍怎么在 Swift 工程中使用 BmobSDK。
 
 ## 在Bmob上创建应用
-关于如何创建应用，具体请参照[快速入门](https://docs.bmob.cn/data/iOS/a_faststart/doc/index.html)
+关于如何创建应用，具体请参照[快速入门](https://docs.bmobapp.com/data/iOS/a_faststart/doc/index.html)
 
 ## 创建Swift项目
 使用Xcode6创建一个新的Single View Application
@@ -13,7 +13,7 @@ Language选择Swift
 ![](image/Swift_BmobSDK_02.png)
 
 ## 设置BmobSDK
-从官网下载最新的[BmobSDK](https://bmob.cn/sdk/Bmob_iOS_SDK_v2.3.0-20180411.zip),解压导入项目。
+从官网下载最新的[BmobSDK](https://bmobapp.com/sdk/Bmob_iOS_SDK_v2.3.0-20180411.zip),解压导入项目。
 
 添加依赖库文件:
 

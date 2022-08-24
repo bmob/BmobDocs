@@ -6,7 +6,7 @@ Android支付SDK接口是Bmob为广大开发人员提供的统一、正规的收
 
 ## 使用需知
 
-使用Bmob支付组件前，请认真阅读[Bmob服务协议](http://www.bmob.cn/service)。
+使用Bmob支付组件前，请认真阅读[Bmob服务协议](http://www.bmobapp.com/service)。
 
 对于以下两种情况，开发者需要特别注意：
 
@@ -65,7 +65,7 @@ Bmob平台有权进行独立判断并采取技术手段予以删除、屏蔽或�
 
 - 添加下免责Activity(注意这个是在运行时加载的类,可以忽略IDE给出的红色标识)
 
-	    <activity android:name="cn.bmob.pay.v3.act.PayAct" /> 
+	    <activity android:name="cn.bmob.pay.v3.act.PayAct" />
 
 - 在您的应用程序主Application的onCreate中调用如下方法：
   （Application ID在后台应用管理的 数据浏览->应用信息->应用密钥->Application ID，如果appKey为空或者混淆规则不正确，会抛出IllegalArgumentException异常,因为init是异步的，越早初始化越好）
@@ -112,7 +112,7 @@ Bmob平台有权进行独立判断并采取技术手段予以删除、屏蔽或�
 |OrderQueryListener|listener|查询结果监听类c.b.QListener<p>有成功、失败等方法|
 
 - ！！！ForceFree方法已经弃用(开发者需自己控制用户多次点击支付产生多个订单的问题)
-- ForceFree() 
+- ForceFree()
 
 	当上一次支付操作尚未完成时,如果BmobPay对象发起再次请求,PayListener会回调fail方法返回并10777错误码,以免生成多个订单<p>
 	如果使用过程中出现了阻塞(比如异常强制关闭支付插件页面,会导致一直不能再发起请求，这是小概率事件),则调用此方法进行BmobPay的重置<p>
@@ -121,7 +121,7 @@ Bmob平台有权进行独立判断并采取技术手段予以删除、屏蔽或�
 **c.b.PListener**
 
 - orderId(String orderId)
-	
+
 	无论支付成功与否,只要成功产生了请求,就返回订单号,请自行保存以便以后查询
 
 - succeed()
@@ -133,7 +133,7 @@ Bmob平台有权进行独立判断并采取技术手段予以删除、屏蔽或�
 	支付失败,有可能是用户中断支付,也有可能是网络问题<p>返回10777时说明上次操作尚未完成,拒绝多次请求以免生成多个订单(可用BP.ForceFree()方法强制取消一次限制)<p>支付宝支付时6001为用户主动中断支付操作</p>微信支付返回-2时为用户主动中断操作,返回-3为未安装Bmob支付插件.apk</p>(如果多次出现异常请向Bmob工作人员反馈)
 
 - unknow()
-	
+
 	因为网络等问题,不能确认是否支付成功,请稍后手动查询(小概率事件)
 
 
@@ -158,7 +158,7 @@ Bmob平台有权进行独立判断并采取技术手段予以删除、屏蔽或�
     curl -X GET \
     -H "X-Bmob-Application-Id: Your Application ID" \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
-    https://api2.bmob.cn/1/pay/Bmob系统生成的订单号
+    https://api2.bmobapp.com/1/pay/Bmob系统生成的订单号
 
 成功返回以下JSON, 失败时返回请看 [支付功能相关错误码](/errorcode/index.html?menukey=otherdoc&key=errorcode#支付功能相关错误码 "支付功能相关错误码")
 
@@ -175,7 +175,7 @@ Bmob平台有权进行独立判断并采取技术手段予以删除、屏蔽或�
 
 返回的信息简单描述如下：
 
-- name           : 订单或商品名称 
+- name           : 订单或商品名称
 - body-商品详情
 - create_time    : 调起支付的时间
 - out_trade_no   : Bmob系统的订单号
@@ -217,14 +217,14 @@ trade_no：支付宝或微信返回的订单号
 	- 将SDK中libs文件夹下，除了/armeabi、/armeabi-v7a、x86以外的文件夹删掉(jar文件需要保留)，然后把libs文件夹放在Plugins/Android/下。也就是最后会有 Plugins/Android/libs/armeabi/bmobwpay.so文件
 
 ## 其他
-- 混淆规则如下: 
+- 混淆规则如下:
 
 		-libraryjars libs/BmobPay_v3.x.x_xxxxxx.jar
 		-keepclasseswithmembers class c.b.** { *; }
 		-keep interface c.b.PListener{ *; }
 		-keep interface c.b.QListener{ *; }
 
-- 在[Bmob财务管理平台](http://www.bmob.cn/finance/info "Bmob财务管理平台")订单管理处，金额从小数点后第三位开始不显示，比如支付了0.01元实收0.00，其实是0.0095
+- 在[Bmob财务管理平台](http://www.bmobapp.com/finance/info "Bmob财务管理平台")订单管理处，金额从小数点后第三位开始不显示，比如支付了0.01元实收0.00，其实是0.0095
 - 如果用户的手机有“应用锁”功能（即点击应用后跳出系统设定的解锁界面，如小米、360、腾讯管家都可能有该功能），则可能会导致支付中断（支付宝返回6001，微信返回-2），这是微信和支付宝SDK出于安全考虑设置的，请建议用户出现该问题时先关掉支付宝钱包或微信的应用锁
 - 由于微信SDK的限制，无法判断微信是否已登陆用户，**如果未登陆用户，监听器的fail方法可能不被调用**，请开发者们提醒自己的用户确保微信已登陆
 - 如果支付宝已经选定了支付用的账户（或银行卡），但是支付失败，用户的支付宝账号会保留该订单，有可能从支付宝官网、支付宝钱包APP再次发起支付，在开发过程中请注意这种事情的处理情况

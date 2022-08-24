@@ -101,7 +101,7 @@ if (true)
 
 ## 关于字面表达式的问题
 
-使用字面表达式，用 '{}' ,'[]' 代替 new Array ，new Object，不要使用 string，bool，number 的对象类型，即不要调用 new String ，new Boolean ，new Number。 
+使用字面表达式，用 '{}' ,'[]' 代替 new Array ，new Object，不要使用 string，bool，number 的对象类型，即不要调用 new String ，new Boolean ，new Number。
 
 ## Object和Array创建时的逗号问题
 
@@ -151,11 +151,11 @@ a['foo'] = 'bar';
 ```
 //正确
 var name = 'bmob';
-var website = 'www.bmob.cn';
+var website = 'www.bmobapp.com';
 
 //错误
 var name = 'bmob'
-  ,website = 'www.bmob.cn'; 
+  ,website = 'www.bmobapp.com';
 ```
 
 ## 注释规范

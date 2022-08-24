@@ -13,7 +13,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     	//sayhello 为云函数的函数名，
     	//num 为参数名，@1为 参数值
-    	
+
         id result = [BmobCloud callFunction:@"sayhello" withParameters:@{@"num":@1}];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"cloudFunction %@",result);
@@ -39,7 +39,7 @@
 ```
 注意，为了确保体验，建议使用异步调用的方法。
 
-关于云函数的编写，详细参考  [云函数开发文档](http://doc.bmob.cn/cloud_function/web/develop_doc/)
+关于云函数的编写，详细参考  [云函数开发文档](http://doc.bmobapp.com/cloud_function/web/develop_doc/)
 
 
 

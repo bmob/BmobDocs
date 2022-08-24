@@ -1,7 +1,7 @@
 
 ## 注册Bmob帐号
 
-在网址栏输入www.bmob.cn或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
+在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
 
 ![](image/rumen_zhuce.png)
 
@@ -22,7 +22,7 @@
 ![](image/rumen_miyue_2.png)
 
 
-获取Application ID后，下载SDK（下载地址：[http://www.bmob.cn/site/sdk#android_sdk](http://www.bmob.cn/site/sdk#android_sdk)）。
+获取Application ID后，下载SDK（下载地址：[http://www.bmobapp.com/site/sdk#android_sdk](http://www.bmobapp.com/site/sdk#android_sdk)）。
 
 ![](image/xiazai.png)
 
@@ -59,7 +59,7 @@ dependencies {
 - `bmob-im:2.0.1--->bmob-sdk:3.4.6-0304`
 - `bmob-im:2.0.2--->bmob-sdk:3.4.6-0304`
 - `bmob-im:2.0.3--->bmob-sdk:3.4.6`
-- `bmob-im:2.0.4--->bmob-sdk:3.4.6` 
+- `bmob-im:2.0.4--->bmob-sdk:3.4.6`
 - `bmob-im:2.0.5--->bmob-sdk:3.4.7-aar`
 - `bmob-im:2.0.6--->bmob-sdk:3.5.0`
 
@@ -69,7 +69,7 @@ dependencies {
 - `bmob-sdk:3.4.6`的相关依赖包可见注释[3]
 
 **[3]、bmob-sdk:3.4.6依赖以下包：**
-	
+
 	implementation 'cn.bmob.android:bmob-sdk:3.4.6'
 	implementation 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
     implementation 'com.squareup.okio:okio:1.4.0'
@@ -81,7 +81,7 @@ dependencies {
 
 #### 手动导入
 
-1. 开发者到[SDK下载中心](http://www.bmob.cn/downloads)下载 `数据服务` 的Android 版本的SDK，并将下载下来的`本地导入SDK`文件夹里面的文件根据需要复制到工程的libs和res相应目录下。
+1. 开发者到[SDK下载中心](http://www.bmobapp.com/downloads)下载 `数据服务` 的Android 版本的SDK，并将下载下来的`本地导入SDK`文件夹里面的文件根据需要复制到工程的libs和res相应目录下。
 
 2. 在`app`的`buid.gradle`文件中添加SO库目录配置：
 
@@ -95,7 +95,7 @@ dependencies {
 
 ### Eclipse导入
 
-开发者到 [SDK下载中心](http://www.bmob.cn/downloads) 下载 `数据服务` 的Android 版本的SDK，在Eclipse工程的项目根目录中新建`libs`文件夹，将下载的jar包添加到此文件夹即可。
+开发者到 [SDK下载中心](http://www.bmobapp.com/downloads) 下载 `数据服务` 的Android 版本的SDK，在Eclipse工程的项目根目录中新建`libs`文件夹，将下载的jar包添加到此文件夹即可。
 
 **注：**
 
@@ -115,17 +115,17 @@ dependencies {
 
 ```xml
 
-<!--允许联网 --> 
-<uses-permission android:name="android.permission.INTERNET" /> 
-<!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  --> 
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
-<!--获取wifi网络状态的信息 --> 
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+<!--允许联网 -->
+<uses-permission android:name="android.permission.INTERNET" />
+<!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<!--获取wifi网络状态的信息 -->
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
-<uses-permission android:name="android.permission.WAKE_LOCK" /> 
+<uses-permission android:name="android.permission.WAKE_LOCK" />
 <!--获取sd卡写的权限，用于文件上传和下载-->
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<!--允许读取手机状态 用于创建BmobInstallation--> 
+<!--允许读取手机状态 用于创建BmobInstallation-->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 ```
@@ -138,10 +138,10 @@ dependencies {
 
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
 
-	<uses-permission android:name="android.permission.INTERNET" /> 
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
-	<uses-permission android:name="android.permission.WAKE_LOCK" /> 
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
@@ -154,11 +154,11 @@ dependencies {
             android:name="cn.bmob.example.MainActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name">
-            
+
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-            
-        
+
+
         <activity
             android:name=".CreateActivity"
             android:screenOrientation="portrait">
@@ -214,7 +214,7 @@ dependencies {
 
 ## 添加一行数据
 
-首先创建JavaBean（对应为Bmob后台的数据表，更详细的解释请[查看Android开发文档](http://docs.bmob.cn/data/Android/b_developdoc/doc/index.html)）
+首先创建JavaBean（对应为Bmob后台的数据表，更详细的解释请[查看Android开发文档](http://docs.bmobapp.com/data/Android/b_developdoc/doc/index.html)）
 
 ```java
 public class Person extends BmobObject {
@@ -282,7 +282,7 @@ bmobQuery.getObject("6b6c11c537", new QueryListener<Person>() {
 Person p2 = new Person();
 p2.setAddress("北京朝阳");
 p2.update("6b6c11c537", new UpdateListener() {
-	
+
 	@Override
 	public void done(BmobException e) {
 		if(e==null){
@@ -300,7 +300,7 @@ p2.update("6b6c11c537", new UpdateListener() {
 Person p2 = new Person();
 p2.setObjectId("6b6c11c537");
 p2.delete(new UpdateListener() {
-	
+
 	@Override
 	public void done(BmobException e) {
 		if(e==null){
@@ -315,9 +315,9 @@ p2.delete(new UpdateListener() {
 
 ## 源码下载
 
-[快速入门相关源码下载](http://www.bmob.cn/static/Bmob_android_quickstart.zip "快速入门相关源码下载")
+[快速入门相关源码下载](http://www.bmobapp.com/static/Bmob_android_quickstart.zip "快速入门相关源码下载")
 
-案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的[案例教程和源码](http://doc.bmob.cn/data/android/example/)，欢迎大家下载和查看。
+案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的[案例教程和源码](http://doc.bmobapp.com/data/android/example/)，欢迎大家下载和查看。
 
 为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，**嵌入Bmob的AppKey**，再打包运行。
 
@@ -335,7 +335,7 @@ p2.delete(new UpdateListener() {
 
 ## 阅读更多的文档
 
-1. 快速入门只是提供了最最基本的介绍，如果你想了解更多的功能，请查看详细的[开发文档](http://doc.bmob.cn/data/android/develop_doc/)
-2. 如果想看下SDK的类库文档，可以移步[这里](http://doc.bmob.cn/data/android/class_doc/)
+1. 快速入门只是提供了最最基本的介绍，如果你想了解更多的功能，请查看详细的[开发文档](http://doc.bmobapp.com/data/android/develop_doc/)
+2. 如果想看下SDK的类库文档，可以移步[这里](http://doc.bmobapp.com/data/android/class_doc/)
 
 

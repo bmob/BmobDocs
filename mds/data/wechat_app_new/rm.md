@@ -1,5 +1,5 @@
 ## 注册Bmob帐号
-在网址栏输入www.bmob.cn或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
+在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
 
 ![](image/rumen_zhuce.png)
 ## 网站后台创建应用
@@ -104,7 +104,7 @@ query.find().then(res => {
 let BmobSocketIo =new Bmob.Socket()
 ```
 
-### 
+###
 
 二、监听表
 
@@ -115,15 +115,15 @@ let BmobSocketIo =new Bmob.Socket()
       //订阅Chat表的数据更新事件
       BmobSocketIo.updateTable("Chat"); //聊天记录表
     };
-    
+
     //监听服务器返回的更新表的数据
     BmobSocketIo.onUpdateTable = function (tablename, data) {
 
       if (tablename == "Chat") {
         console.log(data);
       }
-    };  
-    
+    };
+
 ```
 
 PS:更多请参考Bmob Demo里面的群聊功能。
@@ -135,23 +135,23 @@ PS:更多请参考Bmob Demo里面的群聊功能。
 
 
 1. ### 地道美食地图
-> 点击查看[地道美食地图](https://github.com/LanceCong/gourmet_map) 
+> 点击查看[地道美食地图](https://github.com/LanceCong/gourmet_map)
 
 
 2. ### 出发吧一起
-> 点击查看[出发吧一起](https://github.com/dmego/together) 
+> 点击查看[出发吧一起](https://github.com/dmego/together)
 
 3. ### 心邮
-> 点击查看[心邮](https://github.com/bmob/Bmob-wechatapp-xinyou) 
+> 点击查看[心邮](https://github.com/bmob/Bmob-wechatapp-xinyou)
 
 4. ### 自媒体文章小程序
-> 点击查看[自媒体文章小程序](https://github.com/qfwc258/weapp-bmob-cw) 
+> 点击查看[自媒体文章小程序](https://github.com/qfwc258/weapp-bmob-cw)
 
 5. ### 灵动云课堂小程序端
-> 点击查看[灵动云课堂小程序端](https://gitee.com/laeser/course) 
+> 点击查看[灵动云课堂小程序端](https://gitee.com/laeser/course)
 
 6. ### 灵犀外卖
-> 点击查看[灵犀外卖](https://gitee.com/laeser/dinner) 
+> 点击查看[灵犀外卖](https://gitee.com/laeser/dinner)
 
 
 
@@ -199,7 +199,7 @@ https://github.com/bmob/ithome-lite
 
 11.活动报名表                -------工具类
 
-12.味蕾点餐               -------点餐 
+12.味蕾点餐               -------点餐
 
 13.烟台微拼               -------本地生活
 
@@ -235,77 +235,77 @@ https://github.com/bmob/ithome-lite
 
 29.海南黎家特产
 
-30. 轩宇工具 
+30. 轩宇工具
 
-31.在旅途看世界 
+31.在旅途看世界
 
-32.寻遍美食地图 
+32.寻遍美食地图
 
-33.Bmob示例 
+33.Bmob示例
 
-34. 鲁山拼车 
+34. 鲁山拼车
 
-33.莲馨图书室          图书馆-扫描借书 
+33.莲馨图书室          图书馆-扫描借书
 
-34.灵动云课堂 
+34.灵动云课堂
 
-35.9cam               视频类 
+35.9cam               视频类
 
-36.恋爱迹 
+36.恋爱迹
 
-37.融信品质生活服务 
+37.融信品质生活服务
 
-38.全民摄影秀 
+38.全民摄影秀
 
-39.农电微服务    国家电网公司 
+39.农电微服务    国家电网公司
 
-40.壁纸印象 
+40.壁纸印象
 
-41.跟妆师 
+41.跟妆师
 
-42.高能名片 
+42.高能名片
 
-43.婚纱lite 
+43.婚纱lite
 
-44.张阿姨打扫 
+44.张阿姨打扫
 
-45.吃决策          烟台大学饭堂 
+45.吃决策          烟台大学饭堂
 
-46.比心比价 
+46.比心比价
 
-47.蜂鸟作业               教育 
+47.蜂鸟作业               教育
 
-48.美味面包lite 
+48.美味面包lite
 
-51.幸福的5班 
+51.幸福的5班
 
-52.大武汉公交               交通 
+52.大武汉公交               交通
 
-53.Buy优选 
+53.Buy优选
 
-54.码赚 
+54.码赚
 
-55.附近的圈子 
+55.附近的圈子
 
-56.吴忠意大利冰淇淋          实体店点餐 
+56.吴忠意大利冰淇淋          实体店点餐
 
-57.摩西讲单词     教育 
+57.摩西讲单词     教育
 
-58.贝莱福居 
+58.贝莱福居
 
-59.花间集鲜花 
+59.花间集鲜花
 
-60.柏亚阅读书吧 
+60.柏亚阅读书吧
 
-61.找我跑腿服务 
+61.找我跑腿服务
 
-62.橙色工地圈 
+62.橙色工地圈
 
-63.大学城活动报名 
+63.大学城活动报名
 
-64.聚合助手 
+64.聚合助手
 
-65.圆桌绿色版 
+65.圆桌绿色版
 
 66.我的王者名片
 
@@ -365,7 +365,7 @@ https://github.com/bmob/ithome-lite
 
 94.云餐豹               餐饮
 
-95.拧瓶盖               
+95.拧瓶盖
 
 96.你画我猜世界杯
 

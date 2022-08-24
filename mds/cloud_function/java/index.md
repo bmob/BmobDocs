@@ -18,30 +18,30 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 
 ### Restful API
 
-1. 调用 `api.bmob.cn` ，与调用NodeJS版云函数的方式 **完全相同**。这种方式下，服务器会 **自动判断语言**，但 **限制 `Method` 为 `Post` 且 `Content-Type` 为 `application/json`**
+1. 调用 `api.bmobapp.com` ，与调用NodeJS版云函数的方式 **完全相同**。这种方式下，服务器会 **自动判断语言**，但 **限制 `Method` 为 `Post` 且 `Content-Type` 为 `application/json`**
 
-2. 调用 `javacloud.bmob.cn` ，调用方式基本相同，这种方式 **仅可调用Java云函数**，但 **不限制 `Method` 和 `Content-Type`**
+2. 调用 `javacloud.bmobapp.com` ，调用方式基本相同，这种方式 **仅可调用Java云函数**，但 **不限制 `Method` 和 `Content-Type`**
 
-		// 使用Appid + RestKey请求api.bmob.cn域名(自动判断语言)
+		// 使用Appid + RestKey请求api.bmobapp.com域名(自动判断语言)
 		curl -X POST \
 			-H "X-Bmob-Application-Id: Your Application ID" \
 			-H "X-Bmob-REST-API-Key: Your REST API Key" \
 			-H "Content-Type: application/json" \
 			-d '{"name": "zwr"}' \
-			https://api.bmob.cn/1/functions/[function name]
+			https://api.bmobapp.com/1/functions/[function name]
 
-		// 使用Appid + RestKey请求javacloud.bmob.cn域名(仅支持Java云函数)
+		// 使用Appid + RestKey请求javacloud.bmobapp.com域名(仅支持Java云函数)
 		curl -X [method] \
 		    -H "X-Bmob-Application-Id: Your Application ID" \
 		    -H "X-Bmob-REST-API-Key: Your REST API Key" \
 		    -d '[body]' \
-		    https://javacloud.bmob.cn/1/functions/[function name]
-	
+		    https://javacloud.bmobapp.com/1/functions/[function name]
+
 		// 使用Master Key请求
 		curl -X [method] \
 		    -H "X-Bmob-Master-Key: Your Master Key" \
 		    -d '[body]' \
-		    https://javacloud.bmob.cn/1/functions/[function name]
+		    https://javacloud.bmobapp.com/1/functions/[function name]
 
 ### Http请求
 
@@ -49,12 +49,12 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 		curl -X [method] \
 		    -H "header key: header value" \
 		    -d '[body]' \
-		    https://javacloud.bmob.cn/[secret key]/[function name]
-		
-		// 或者直接用浏览器打开，即GET请求
-	    https://javacloud.bmob.cn/[secret key]/[function name]?k1=v1&k2=v2
+		    https://javacloud.bmobapp.com/[secret key]/[function name]
 
-	    // 当直接进入 https://javacloud.bmob.cn/[secret key] 时，会触发 index 方法
+		// 或者直接用浏览器打开，即GET请求
+	    https://javacloud.bmobapp.com/[secret key]/[function name]?k1=v1&k2=v2
+
+	    // 当直接进入 https://javacloud.bmobapp.com/[secret key] 时，会触发 index 方法
 	    // 当 function name 不存在是，会触发 notfound 方法
 
 
@@ -68,7 +68,7 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 		ace.callEndpoint(Context, String funcName, JSONObject params, new CloudCodeListener() {
 		    @Override
 		    public void done(Object object, BmobException e) {
-		        if (e == null) 
+		        if (e == null)
 		            Log.e(TAG, "Succeed: " + object);
 		        else
 		            Log.e(TAG, "Failed: " + e);
@@ -99,7 +99,7 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 ### C# SDK
 
 		IDictionary<String, Object> parameters ＝  new IDictionary<String, Object>{{"name","zwr"}};
-		Bmob.Endpoint<Hashtable>("test", parameters, (resp, exception) => 
+		Bmob.Endpoint<Hashtable>("test", parameters, (resp, exception) =>
 		{
 		    if (exception == null)
 		    {
@@ -145,7 +145,7 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 		// 这里使用Java编写云函数
 		// 最后一个字符必须是 }
 		}
-	
+
 - 代码不能包含以下关键字：(保存代码时有错误提醒)
 
    Class
@@ -163,7 +163,7 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 
 Github页面如下：
 
-[https://github.com/bmob/BmobJavaCloud](https://github.com/bmob/BmobJavaCloud) 
+[https://github.com/bmob/BmobJavaCloud](https://github.com/bmob/BmobJavaCloud)
 
 - `libs目录` 下提供了 `Bmob-JavaCloud-Apis_xxx.jar` 以供开发者使用IDE(ecplise、as)开发时参考
 - `exec目录` 下提供了 `macos`、`linux`、`windows 64位`等平台的`可执行文件`，以供开发者快速进行代码的上传、修改、同步到本地和删除
@@ -231,8 +231,8 @@ headers|JSONObject|返回的头部信息，采用String-String的格式，例如
 response.setAllowCross(
 	boolean isAllow,
 	String host,
-	String contentType, 
-	String[] methods, 
+	String contentType,
+	String[] methods,
 	String[] allowHeaders,
 	String[] exposeHeaders
 );
@@ -313,41 +313,41 @@ batch(JSONArray requests)|HttpResponse|批量请求
    	// return 是否写入成功(超出授予的内存大小，即返回失败)
    	public native boolean write(byte[] buff, int buffOffset, int memoryOffset,
    			int length);
-   			
+
    	// 把内存当作byte数组使用，读取内存
    	public native boolean read(byte[] buff, int memoryOffset, int buffOffset,
    			int length);
-   			
+
    	// 把内存当作byte数组使用，读取内存
    	// return 越界时返回null，没有写入过返回 new byte[length]
    	public native byte[] read(int memoryOffset, int length);
-   	
+
    	// 清理内存
    	public native void clean();
-   	
+
    	// 把内存当作Map类型操作，写入键值对
    	public native boolean putMap(String key, Serializable value);
-   	
+
    	// 把内存当作Map类型操作，写入追加Map
    	public native boolean putMap(Map<String, Serializable> kvs);
-   	
+
    	// 把内存当作Map类型操作，获取一个值
    	public native <T extends Serializable> T getMap(String key);
-   	
+
    	// 把内存当作Map类型操作，覆盖写入Map
    	public native boolean writeMap(Map<String, Serializable> kvs);
-   	
+
    	// 把内存当作Map类型操作，读取整个Map
    	public native Map<String, Serializable> readMap();
-   	
+
    	// 把内存当作Map类型操作, 写入一个byte
    	public native boolean writeByte(int index, byte b);
-   	
+
    	// 把内存当作Map类型操作, 读取一个byte
    	public native byte readByte(int index);
 
 
-   ​				
+   ​
 
 #### 日志输出
 
@@ -362,7 +362,7 @@ batch(JSONArray requests)|HttpResponse|批量请求
 		modules.oLog.level = modules.oLog.Level_All // 全部都会输出
 		modules.oLog.level = modules.oLog.Level_Warn // 仅输出Warn和Error
 		modules.oLog.level = modules.oLog.Level_Error // 仅Error级别日志
-		
+
 		modules.oLog.d(Object) // 输出Debug级别日志
 		modules.oLog.w(Object) // 输出Warn级别日志
 		modules.oLog.e(Object) // 输出Error级别日志
@@ -370,7 +370,7 @@ batch(JSONArray requests)|HttpResponse|批量请求
 		modules.oLog.warn(String,Object...) // 格式化输出Warn级别日志
 		modules.oLog.error(String,Object...) // 格式化输出Error级别日志
 
-### 持久化 
+### 持久化
 
 *请注意，此处的持久化不同于利用Bmob数据库，是一种非可靠的、利用系统IO实现的数据持久化管理*
 
@@ -395,7 +395,7 @@ PersistenceItem modules.oPersistence.get(...)
 // 获取持久化的结构
 JSONObject modules.oPersistence.getStruct()
 /* 返回值举例：
-	{	
+	{
 		"index.html": 123, // 项对应的是length
 		"web": { // 层级对应的是Object
 			"html": {
@@ -424,7 +424,7 @@ long size();
 boolean write(byte[] data)
 
 // 写入，是否追加
-boolean write(byte[] data, boolean append); 
+boolean write(byte[] data, boolean append);
 
 // 读取
 public final native boolean read(byte[] buff);
@@ -459,16 +459,16 @@ public final native boolean zip(java.io.OutputStream os);
 ```
 // get请求一个网址
 HttpResponse get(String url);
-  
+
 // post发起一次请求
 HttpResponse post(String url, String contentType, byte[] data);
-  
+
 // post发起Json请求
 HttpResponse post(String url, JSONObject jsonData);
-  
+
 // post发起Form请求
 HttpResponse post(String url, Map<String, String> formData);
-  
+
 // 发起任意http请求
 HttpResponse request(String url, String method, JSONObject headers, byte[] data, int timeout);
 ```
@@ -481,7 +481,7 @@ HttpResponse request(String url, String method, JSONObject headers, byte[] data,
 
 ### 游戏平台操作
 
-**该模块用于配合 [Bmob游戏SDK](https://game.bmob.cn) 使用，可执行例如定期清理房间、踢出玩家、获取游戏参数等操作**
+**该模块用于配合 [Bmob游戏SDK](https://game.bmobapp.com) 使用，可执行例如定期清理房间、踢出玩家、获取游戏参数等操作**
 
 以下均为`modules.oGame`对象的方法
 
@@ -489,16 +489,16 @@ HttpResponse request(String url, String method, JSONObject headers, byte[] data,
 ```
 // 初始化
 init(String bgsId, int version);
-  
+
 // 创建房间
 HttpResponse createRoom(String hostUserId, int playerCount);
-  
+
 // 销毁房间
 HttpResponse destroyRoom(String hostUserId, String slaveAddress, int roomId, String roomMasterKey);
-  
+
 // 踢出玩家
 HttpResponse kick(String hostUserId, String slaveAddress, int roomId, String roomMasterKey, int kickingPlayerNo);
-  
+
 // 获取游戏配置
 HttpResponse getConf();
 ```
@@ -511,25 +511,25 @@ HttpResponse getConf();
 
 		// 设置当前的AccessToken
 		setAccessToken(String)
-		
+
 		// 设置小程序的key，不推荐调用，推荐在Bmob后台设置
 		initWechatApp(String appId, String appSecret)
-		
+
 		// 获取当前的AccessToken
 		// 如果通过调用initWechatApp方法设置了小程序参数，则直接从微信接口获取，请注意自行保存并管理有效期，以避免频繁获取
 		// 如果未调用initWechatApp，则从Bmob平台获取
 		getAccessToken()
 		getAccessToken(boolean useCache) // 参数为false时不使用缓存
-		
+
 		// 发送消息给小程序的用户
 		// type可以为text、image、link
 		// msg为String或JSON，请参考Demo和微信官方文档
 		sendWechatAppMsg(String openId, String type, Object msg)
-	
+
 		// 判断是否从微信发送的请求
 		// 实际上就是封装了判断signature是否等于SHA1(sort(timestamp,nonce,token))
 		isWechatRequest(String token, Request request)
-	
+
 
 ## 内置类
 
@@ -629,7 +629,7 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 ### JSON
 
 静态方法：
-		
+
 		String stringify(JSONObject m)
 		String stringify(JSONArray m)
 		JSONObject parse(String s)
@@ -652,14 +652,14 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 		boolean containsKey(Object key)
 		boolean containsValue(Object value)
 		Object get(Object key)
-		Object put(String key, Object value) 
+		Object put(String key, Object value)
 		Object remove(Object key)
 		void clear()
 		Set<String> keySet()
 		BigInteger getBigInteger(String key)
 		BigDecimal getBigDecimal(String key)
 		Boolean getBoolean(String key)
-		boolean getBooleanValue(String key)	
+		boolean getBooleanValue(String key)
 		Byte getByte(String key)
 		byte getByteValue(String key)
 		Date getDate(String key)
@@ -682,40 +682,40 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 
 类方法：
 
-		int size() 
-		boolean isEmpty() 
-		boolean contains(Object o) 
-		boolean add(Object e) 
-		boolean remove(Object o) 
-		boolean containsAll(Collection<?> c) 
-		boolean addAll(Collection<? extends Object> c) 
-		boolean addAll(int index, Collection<? extends Object> c) 
-		boolean removeAll(Collection<?> c) 
-		boolean retainAll(Collection<?> c) 
-		void clear() 
-		Object get(int index) 
-		Object set(int index, Object element) 
-		void add(int index, Object element) 
-		Object remove(int index) 
-		BigInteger getBigInteger(int index) 
-		BigDecimal getBigDecimal(int index) 
-		Boolean getBoolean(int index) 
-		boolean getBooleanValue(int index) 
-		Byte getByte(int index) 
-		byte getByteValue(int index) 
-		Date getDate(int index) 
-		Double getDouble(int index) 
-		double getDoubleValue(int index) 
-		Float getFloat(int index) 
-		float getFloatValue(int index) 
-		Integer getInteger(int index) 
-		int getIntValue(int index) 
-		JSONArray getJSONArray(int index) 
-		JSONObject getJSONObject(int index) 
-		Long getLong(int index) 
-		long getLongValue(int index) 
-		Short getShort(int index) 
-		short getShortValue(int index) 
+		int size()
+		boolean isEmpty()
+		boolean contains(Object o)
+		boolean add(Object e)
+		boolean remove(Object o)
+		boolean containsAll(Collection<?> c)
+		boolean addAll(Collection<? extends Object> c)
+		boolean addAll(int index, Collection<? extends Object> c)
+		boolean removeAll(Collection<?> c)
+		boolean retainAll(Collection<?> c)
+		void clear()
+		Object get(int index)
+		Object set(int index, Object element)
+		void add(int index, Object element)
+		Object remove(int index)
+		BigInteger getBigInteger(int index)
+		BigDecimal getBigDecimal(int index)
+		Boolean getBoolean(int index)
+		boolean getBooleanValue(int index)
+		Byte getByte(int index)
+		byte getByteValue(int index)
+		Date getDate(int index)
+		Double getDouble(int index)
+		double getDoubleValue(int index)
+		Float getFloat(int index)
+		float getFloatValue(int index)
+		Integer getInteger(int index)
+		int getIntValue(int index)
+		JSONArray getJSONArray(int index)
+		JSONObject getJSONObject(int index)
+		Long getLong(int index)
+		long getLongValue(int index)
+		Short getShort(int index)
+		short getShortValue(int index)
 		String getString(int index)
 
 ### BmobPointer
@@ -779,14 +779,14 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 		// email: 用于发送邮件的邮箱地址
 		// password: 邮箱密码，请注意很多邮件服务商不允许直接使用登陆密码，需要另外申请
 		Email(String host, int port, String email, String password)
-		
+
 
 ### 类变量
 
 
 		// 修改邮件的发送方名称
 		String username
-		
+
 
 ### 类方法
 
@@ -833,7 +833,7 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 		java.security.KeyPair GenerateKeys()
 		java.security.PrivateKey ParsePrivateKey(byte[] keyBytes)
 		java.security.PublicKey ParsePublicKey(byte[] keyBytes)
-		
+
 		// 下面4个方法，都可以再添加一个String参数，传入算法
 		// 默认的算法为：加解密[RSA/ECB/PKCS1Padding], 签名[SHA1WithRSA]
 		byte[] Encode(PublicKey pubKey, byte[] content)
@@ -862,7 +862,7 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 		arraycopy(Object from, int fromOffset, Object to, int toOffset, int length) // 复制数组内容
 
 
-​				
+​
 ## 示例
 
 案例主要放在了Github: **[Bmob云函数案例](https://github.com/bmob/BmobJavaCloud/tree/master/samples)**
@@ -878,7 +878,7 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
   	String content = params.getString("content");
   	String userId = params.getString("userObjectId");
   	int type = params.getIntValue("type");
-  	
+
   	JSONObject data = JSON.toJson(
   		"title", title,
   		"content", content,
@@ -889,7 +889,7 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
   		"user",
   		new BmobPointer("_User", userId)
   	);
-  	
+
   	response.send(
   		modules.oData.insert(
   			"Feedback",
@@ -900,7 +900,7 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 - **场景2**:
 
 	查询Feedback表中，type为1、title字段不为空，且创建时间在12小时以内的最新10条数据，并只需要反馈content和对应user的用户名
-	
+
 		Querier q = new Querier("Feedback")
 						.limit(10)
 						.include("user")
@@ -942,7 +942,7 @@ removeRelations(JSONObject data, String key,BmobPointer...pointers)|移除多个
 		1.修改客户端代码，降低请求频率
 		2.修改云函数，提高代码质量和效率，减少网络请求相关的超时时长，尽快结束工作
 		3.购买更高的并发配置
-	
+
 - 如果需要接受更大的请求体，或返回更大的结果，请购买更高的配置
 - 如果你用 `eclipse` 等IDE开发，使用 [同步工具](https://github.com/bmob/BmobJavaCloud/tree/master/exec) 是一个不错的选择
 

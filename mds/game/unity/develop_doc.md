@@ -14,7 +14,7 @@
 ## 更新帧
 
 选一个贯穿全局的对象，在**Update**方法中调用下句。
-    
+
     BmobGame.UpdateFrame ();
 
 注意，没有此句，游戏将无法正常运行。
@@ -23,21 +23,21 @@
 ## 注册房间动态监听器
 
 须在加入房间 JoinRoom **之前**注册，才能保证不遗漏房间信息。
-    
-    // action: 事件编号，见文档最下方常量的房间动态监听器 action 类型 
+
+    // action: 事件编号，见文档最下方常量的房间动态监听器 action 类型
     // no: 事件所属玩家编号
     // data: 相关数据
     void OnRoomAction(int action, int no, string userId, JSONNode data){
         // TODO 对事件做出相应处理
     }
-    
+
     this.mRoomActListener = new BmobGame.RoomActionListener (OnRoomAction);// 保存起来，注销时要用
     BmobGame.RegistRoomActListener(this.mRoomActListener);
 
 ## 注销房间动态监听器
 
 一般在房间场景销毁时注销房间动态监听器，在进入游戏场景时需要再重新注册此监听。
-    
+
     void OnDestroy ()
     {
         BmobGame.UnregistRoomActListener (this.mRoomActListener);
@@ -48,9 +48,9 @@
 
 创建房间之前一定要先设置 UserId ，否则将失败。（关于UserId，建议使用Bmob数据sdk的用户体系）
 playerCount 为需要设定的房间人数。
-    
+
 	BmobGame.UserId = userId;
-	
+
 	// code: 200为成功，否则失败，详见<错误码>
 	// err : 错误原因
 	// address : 服务器ip地址，JoinRoom时需要传入
@@ -61,7 +61,7 @@ playerCount 为需要设定的房间人数。
 	void OnCreateRoom(int code, string err, string address, int port, int roomId, string masterKey, string joinKey){
 	    // TODO 记录返回的信息
 	}
-	
+
 	BmobGame.CreateRoom (this, playerCount, new 					BmobGame.CreateRoomListener (OnCreateRoom));
 
 
@@ -92,7 +92,7 @@ playerCount 为需要设定的房间人数。
 ##加入房间
 
 加入房间时，需传入创建房间时回调的参数。
-    
+
     // code: 200为成功，否则失败，详见<错误码>
     // err : 错误原因
     // data : 房间信息 >
@@ -104,7 +104,7 @@ playerCount 为需要设定的房间人数。
     void OnJoinRoom(int code, string err, JSONNode data){
         // TODO 处理、保存房间数据
     }
-    
+
     // address : 服务器ip地址
     // port : 服务器端口号
     // roomId : 房间号
@@ -139,13 +139,13 @@ playerCount 为需要设定的房间人数。
 
 ## 房主踢人
 建议不调用此接口，而是用通知云函数的方式踢出玩家，这样做的好处是可以在踢出时做一些工作，例如重置被踢玩家的属性。
-    
+
     // code: 200为成功，否则失败，详见<错误码>
     // msg : 详情
     void CallBack(int code, string msg){
         // TODO UI反馈
     }
-     
+
     // masterKey : 房间管理员密钥
     // no: 被踢玩家编号
     BmobGame.KickPlayer (string masterKey,int no, new BmobGame.OperationListener(CallBack));
@@ -176,8 +176,8 @@ playerCount 为需要设定的房间人数。
     BmobGame.SendTransferToAllExceptSelf(byte[] bs);
 
 
-​    
-​    
+​
+​
 ### 通知云函数
 
 调用云函数代码，action 为云函数中的方法名，content 为传入该云函数方法的参数，byte[]类型。
@@ -212,7 +212,7 @@ playerCount 为需要设定的房间人数。
 
 ### 监听我的角色状态
 读取服务器同步的数据，例如可通知我的死活、分数。
-    
+
     // attrNames： 我变化的属性值列表
     // status： 状态值
     void OnMyGameStatus (ArrayList attrNames, Hashtable status)
@@ -229,14 +229,14 @@ playerCount 为需要设定的房间人数。
 
 ### 监听角色状态
  读取服务器同步的数据，例如可渲染其它玩家的位置、角度。
-    
+
     // fromNo：信息所属玩家的编号
     // attrNames： 更改的属性值列表
     // status： 状态值
     void OnOthersGameStatus (int fromNo, ArrayList attrNames, Hashtable status)
     {
         Debug.Log ("Player[" + no + "] game status is changed: " + status.Count);
-    
+
         if(attrNames.Contains("position")){
             float[] position = status ["position"] as float[];
             mOtherPlayers [no].GetComponent<Player2Movement> ().MoveTo (position [0], position [1]) ;
@@ -249,7 +249,7 @@ playerCount 为需要设定的房间人数。
 
 ### 监听瞬时信息
 获取其它玩家发送的瞬时信息，作出相应处理。
-    
+
     // fromNo：信息所属玩家的编号
     // data：发送过来的数据，一般定第一位为flag
     void OnTransfer (int fromNo, byte[] data)
@@ -263,7 +263,7 @@ playerCount 为需要设定的房间人数。
     //对收到云函数通知的处理,notify为byte[]
     void OnCloudNotify(byte[] notify){
         Debug.log('onCloudNotify: ' + notify[0]);
-        // TODO 对相应flag做出相应处理      
+        // TODO 对相应flag做出相应处理
     }
 
 顺便一提，仅当云函数调用以下方法时，客户端才会通过 BmobGame.CloudNotifyListener 收到通知。
@@ -271,7 +271,7 @@ playerCount 为需要设定的房间人数。
     player.send
     player.sendToAll
     player.sendToOthers
-    
+
     room.sendToAll
     room.sendToAllExcept(content, player)
 
@@ -279,10 +279,10 @@ playerCount 为需要设定的房间人数。
 ## 注销游戏运行监听器
 
 一般在游戏场景销毁时，注销游戏运行监听器。
-    
+
     void OnDestroy ()
     {
-        BmobGame.StopGameRuntimeListener (); 
+        BmobGame.StopGameRuntimeListener ();
     }
 
 ---
@@ -301,10 +301,10 @@ playerCount 为需要设定的房间人数。
 ## 注销游戏掉线监听器
 
 一般在游戏场景销毁时，注销游戏掉线监听器。
-    
+
     void OnDestroy ()
     {
-        BmobGame.UnregistOfflineListener (this.mOfflineListener); 
+        BmobGame.UnregistOfflineListener (this.mOfflineListener);
     }
 
 ----
@@ -314,8 +314,8 @@ playerCount 为需要设定的房间人数。
 ### 创建房间
 
 
-- `Url`:  **https://gameapi.bmob.cn/client/room?oper=create**
-- `Headers`: 
+- `Url`:  **https://gameapi.bmobapp.com/client/room?oper=create**
+- `Headers`:
 ```
 	X-BGS-VER = 1
     X-BGS-ID = 官网后台-应用密钥-AppKey
@@ -362,8 +362,8 @@ playerCount 为需要设定的房间人数。
 ### 销毁房间
 
 请求到
-- `Url`:  **https://gameapi.bmob.cn/client/room?oper=destroy**
-- `Headers`: 
+- `Url`:  **https://gameapi.bmobapp.com/client/room?oper=destroy**
+- `Headers`:
 ```
 	X-BGS-VER = 1
     X-BGS-ID = 官网后台-应用密钥-AppKey
@@ -400,8 +400,8 @@ playerCount 为需要设定的房间人数。
 ### 踢出玩家
 
 请求到
-- `Url`:  **https://gameapi.bmob.cn/client/room?oper=kick**
-- `Headers`: 
+- `Url`:  **https://gameapi.bmobapp.com/client/room?oper=kick**
+- `Headers`:
 ```
 	X-BGS-VER = 1
 	X-BGS-ID = 官网后台-应用密钥-AppKey

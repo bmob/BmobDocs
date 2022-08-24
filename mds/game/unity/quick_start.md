@@ -1,12 +1,12 @@
 
 ## 注册
 
-[官网](https://game.bmob.cn)
+[官网](https://game.bmobapp.com)
 
 ## 下载
 
-从 [Demo下载页面](https://game.bmob.cn/download) 中，选择自己所擅长平台，挑选一个感兴趣的Demo
-    
+从 [Demo下载页面](https://game.bmobapp.com/download) 中，选择自己所擅长平台，挑选一个感兴趣的Demo
+
 每个Demo包含以下内容：
 
 - README.md文件，是游戏设定的概述，以及管理后台的相关配置
@@ -14,7 +14,7 @@
 - cloud文件夹，包含了Room.java和Player.java文件
 ## 配置
 
-[管理后台](https://game.bmob.cn/console)
+[管理后台](https://game.bmobapp.com/console)
 
 ### 游戏属性
 
@@ -26,7 +26,7 @@ isdead|boolean|-|-|true|false|玩家是否已被淘汰
 position|int[]|65535|2|true|true|玩家x、y轴位置
 score|int|65535|-|true|false|玩家分数
 
-点击 **发布** 
+点击 **发布**
 
 ![Attr](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/969d75ac40a48def80e1aaab031db534.jpg)
 
@@ -65,7 +65,7 @@ score|int|65535|-|true|false|玩家分数
 
 - 创建一个2D Unity项目，然后双击打开下载的`unitypackage`文件，导入所有资源
 - 在Project视窗，搜索Scene，将这些场景分别打开，在 `Build Setting` 里分别 `Add` 进去
-    
+
 
 名称|备注
 :--:|:--:

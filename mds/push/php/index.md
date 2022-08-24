@@ -23,7 +23,7 @@ iOS设备通常使用deviceToken来对一台设备进行惟一标识。
 
 ```
 $bmobPush = new BmobPush();
-$data=array(	
+$data=array(
 	"deviceType"=>"ios",
 	"deviceToken"=>"abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
 	"channels"=>array("Giants")
@@ -34,11 +34,11 @@ $res = $bmobPush->addInstallations($data);
 
 ### 保存Android设备的 installationId
 
-对于Android设备，[Bmob](http://www.bmob.cn/ "Bmob移动后端云服务平台")SDK会自动生成uuid作为installationId保存到 Bmob。 你可以使用以下REST API保存Android设备的installation ID。
+对于Android设备，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")SDK会自动生成uuid作为installationId保存到 Bmob。 你可以使用以下REST API保存Android设备的installation ID。
 ```
 
 $bmobPush = new BmobPush();
-$data=array(	
+$data=array(
 	"deviceType"=>"android",
 	"installationId"=>"12345678-4312-1234-1234-1234567890ab",
 	"channels"=>array("Giants")
@@ -54,9 +54,9 @@ $res = $bmobPush->updateInstallations("fdcc6a94c6",array("injuryReports"=>true))
 
 ### 保存Windows Phone设备的 notificationUri
 
-对于Windows Phone设备，[Bmob](http://www.bmob.cn/ "Bmob移动后端云服务平台")SDK会自动从Windows Push Center获取到notificationUri并保存到 Bmob。 你可以使用以下php sdk保存Windows Phone设备的notificationUri。
+对于Windows Phone设备，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")SDK会自动从Windows Push Center获取到notificationUri并保存到 Bmob。 你可以使用以下php sdk保存Windows Phone设备的notificationUri。
 ```
-$data=array(	
+$data=array(
 	"deviceType"=>"windows phone",
 	"notificationUri"=>"https://hk1.notify.live.net/unthrottledthirdparty/01.00/AQHgHh6EuwNtTa1TbwvaAjnmAgAAAAADEAAAAAQUZm52OkZDM0U5RDkxQzIzREJBNDYFBkFTRUEwMQ",
 	"channels"=>array("Giants")
@@ -96,18 +96,18 @@ $res = $bmobPush->updateInstallations("fdcc6a94c6", $data);
 
 ## 广播推送消息
 ```
-$res = $bmobPush->push(array("data"=>array("alert"=>"hello"))); 
+$res = $bmobPush->push(array("data"=>array("alert"=>"hello")));
 ```
 
 ## 组播推送消息
 发送给订阅了Giants频道的用户
 ```
- $res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("channels"=>array("Giants")))); 
+ $res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("channels"=>array("Giants"))));
 ```
 
  或者更简便的方式
 ```
-$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"channels"=>array("Giants"))); 
+$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"channels"=>array("Giants")));
 ```
 
 ## 多播推送消息
@@ -120,22 +120,22 @@ $data = array(
 			 )
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 ### 根据查询条件做推送
 
 ```
-$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("scores"=>true))); 
+$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("scores"=>true)));
 ```
 请注意，where 条件查询的都是 installations 表。这里是假设 installations 表存储了 scores 的布尔属性，你可以像查询普通对象一样构造where查询
 
 ### 根据平台做推送
 ```
-$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("deviceType"=>"android"))); 
+$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("deviceType"=>"android")));
 ```
 ```
-$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("deviceType"=>"ios"))); 
+$res = $bmobPush->push(array("data"=>array("alert"=>"hello"),"where"=>array("deviceType"=>"ios")));
 ```
 
 Windows Phone平台的推送分三种格式：
@@ -148,7 +148,7 @@ $data = array(
 	"where"=>array("deviceType"=>"windows phone")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 b.推送Toast通知：
@@ -161,7 +161,7 @@ $data = array(
 	"where"=>array("deviceType"=>"windows phone")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 
 ```
 
@@ -172,7 +172,7 @@ $data = array(
 	"data"=>array("alert"=>"hello",
 				  "backgroundImage"=>"backgroundImage",
 				  "count"=> 2,
-				  "backBackgroundImage"=>"backBackgroundImage",				
+				  "backBackgroundImage"=>"backBackgroundImage",
 				  "backTitle"=>"backTitle",
 				  "backContent"=>"backContent",
 				  "wp"=>1,
@@ -180,7 +180,7 @@ $data = array(
 	"where"=>array("deviceType"=>"windows phone")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 ### 根据地理信息位置做推送
@@ -202,7 +202,7 @@ $data = array(
 			       )
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 
 ```
 
@@ -216,7 +216,7 @@ $data = array(
 	"where"=>array("installationId"=>"57234d4c-752f-4e78-81ad-a6d14048020d")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 
 ```
 发送给iOS单个客户端
@@ -227,7 +227,7 @@ $data = array(
 	"where"=>array("deviceToken"=>"abcdef0123456789abcdef0123456789abcdef0123456789abcdef012345678")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 发送给Windows Phone单个客户端Toast通知
@@ -237,7 +237,7 @@ $data = array(
 	"where"=>array("notificationUri"=>"https://hk1.notify.live.net/unthrottledthirdparty/01.00/AQHgHh6EuwNtTa1TbwvaAjnmAgAAAAADEAAAAAQUZm52OkZDM0U5RDkxQzIzREJBNDYFBkFTRUEwMQ")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 
@@ -267,7 +267,7 @@ $data = array(
 	"channels"=>array("Mets")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 当然，你也可以在data字典对象中定制自己的字段来推送消息，但推送到消息不显示在 Andoid 系统的通知栏中，而是执行应用程序预定义的逻辑，Android或iOS的接收消息文档中对此有说明，iOS只有当用户从通知中打开应用，才能访问data的数据，Android将提供这个数据在action Intent应用之后将提供这个数据,
@@ -277,11 +277,11 @@ $data = array(
 	"channels"=>array("Mets")
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 
 ```
 
-### 设置消息过期时间 
+### 设置消息过期时间
 
 过期时间，可以是绝对时间：
 ```
@@ -290,7 +290,7 @@ $data = array(
 	"expiration_time"=>"2013-12-04 00:51:13"
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 也可以是相对时间（根据push_time做定期推送，从push_time时间开始算起，直到expiration_interval时间后过期），下面的请求表示消息将在2012-01-28 00:51:13这个时间点开始推送，直到7天后过期:
@@ -301,7 +301,7 @@ $data = array(
     "expiration_interval"=>518400,
 );
 
-$res = $bmobPush->push($data); 
+$res = $bmobPush->push($data);
 ```
 
 

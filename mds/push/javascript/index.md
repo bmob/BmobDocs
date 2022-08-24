@@ -12,5 +12,5 @@ Bmob.Push.send({
 });
 ```
 
-大家可以查看文档：[Bmob消息推送](http://docs.bmob.cn/push/Restful/b_developdoc/doc/index.html "Bmob移动后端云服务平台") 获取更详细的信息。
+大家可以查看文档：[Bmob消息推送](http://docs.bmobapp.com/push/Restful/b_developdoc/doc/index.html "Bmob移动后端云服务平台") 获取更详细的信息。
 

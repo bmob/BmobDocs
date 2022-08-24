@@ -22,26 +22,26 @@
 
 本案例最终实现的部分界面效果如下：
 
-![](image/flash.jpg) 
+![](image/flash.jpg)
 
 失物招领软件闪图
 
-![](image/lost.jpg) 
+![](image/lost.jpg)
 
  招领列表页
 
 
-![](image/edit.png) 
+![](image/edit.png)
 
  失物编辑删除功能
- 
-![](image/add_b.jpg) 
+
+![](image/add_b.jpg)
 
  添加失物信息
 
 ### 数据结构设计
 
-本案例的数据结构非常简单，只需要设计两个表，一个是失物表（Lost表），一个是招领表（Found表），对应的数据结构如下（省略对常用默认字段objectId、createAt、updateAt的描述，对于还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://doc.bmob.cn/data/android/)查看相关教程）：
+本案例的数据结构非常简单，只需要设计两个表，一个是失物表（Lost表），一个是招领表（Found表），对应的数据结构如下（省略对常用默认字段objectId、createAt、updateAt的描述，对于还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://doc.bmobapp.com/data/android/)查看相关教程）：
 
 失物表（Lost）
 
@@ -115,13 +115,13 @@ public class Lost extends BmobObject{
 		lost.setPhone(photo);
 		lost.setTitle(title);
 		lost.save(this, new SaveListener() {
-			
+
 			@Override
 			public void onSuccess() {
 				ShowToast("失物信息添加成功!");
 				//其他代码
 			}
-			
+
 			@Override
 			public void onFailure(int code, String arg0) {
 				ShowToast("添加失败:"+arg0);
@@ -181,7 +181,7 @@ Bmob云数据库对每条新增的数据都有一个唯一标识（objectId）�
 
 ### 后记
 
-本案例只是演示如何用Bmob进行快速的数据增删改查，在真实的应用环境下，你还可能还需要使用到用户系统、文件服务、更复杂的数据结构和服务，这些都可以使用Bmob就可以实现。如果想要获取更多的信息，请各位查看Bmob的[开发文档](http://doc.bmob.cn/data/android/develop_doc/)或者联系技术客服。欢迎砸砖，欢迎提出更多的意见和建议帮助Bmob更好的发展。谢谢～
+本案例只是演示如何用Bmob进行快速的数据增删改查，在真实的应用环境下，你还可能还需要使用到用户系统、文件服务、更复杂的数据结构和服务，这些都可以使用Bmob就可以实现。如果想要获取更多的信息，请各位查看Bmob的[开发文档](http://doc.bmobapp.com/data/android/develop_doc/)或者联系技术客服。欢迎砸砖，欢迎提出更多的意见和建议帮助Bmob更好的发展。谢谢～
 
 ### 案例下载
 
@@ -195,11 +195,11 @@ Bmob云数据库对每条新增的数据都有一个唯一标识（objectId）�
 
 案例的界面效果如下：
 
-![](image/uploadfile.png) 
+![](image/uploadfile.png)
 
 ### 上传文件数据结构设计
 
-本案例的数据结构非常简单，只需要设计两个表，一个是电影表（Movie表，只有一个File字段），一个是音乐表（Music表，有两个File字段），对应的数据结构如下（省略对常用默认字段objectId、createAt、updateAt的描述，对于还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://doc.bmob.cn/data/android/develop_doc/)查看相关教程）：
+本案例的数据结构非常简单，只需要设计两个表，一个是电影表（Movie表，只有一个File字段），一个是音乐表（Music表，有两个File字段），对应的数据结构如下（省略对常用默认字段objectId、createAt、updateAt的描述，对于还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://doc.bmobapp.com/data/android/develop_doc/)查看相关教程）：
 
 电影表（Movie表）
 
@@ -310,7 +310,7 @@ filePaths[0] = filePath_mp3;
 filePaths[1] = filePath_lrc;
 //批量上传是会依次上传文件夹里面的文件
 Bmob.uploadBatch(this, filePaths, new UploadBatchListener() {
-	
+
 	@Override
 	public void onSuccess(List<BmobFile> files,List<String> urls) {
 		// TODO Auto-generated method stub
@@ -324,7 +324,7 @@ Bmob.uploadBatch(this, filePaths, new UploadBatchListener() {
 			insertBatch(movies);
 		}
 	}
-	
+
 	@Override
 	public void onError(int statuscode, String errormsg) {
 		// TODO Auto-generated method stub
@@ -338,7 +338,7 @@ Bmob.uploadBatch(this, filePaths, new UploadBatchListener() {
 		Log.i("life","insertBatchDatasWithOne -onProgress :"+curIndex+"---"+curPercent+"---"+total+"----"+totalPercent);
 	}
 });
-	
+
 }
 ```
 
@@ -348,18 +348,18 @@ Bmob.uploadBatch(this, filePaths, new UploadBatchListener() {
 
 public void insertBatch(List<BmobObject> files){
 	new BmobObject().insertBatch(MainActivity.this, files, new SaveListener() {
-		
+
 		@Override
 		public void onSuccess() {
 			// TODO Auto-generated method stub
 			ShowToast("---->批量更新成功");
 		}
-		
+
 		@Override
 		public void onFailure(int arg0, String arg1) {
 			// TODO Auto-generated method stub
 			ShowToast("---->批量更新失败"+arg0);
-			
+
 		}
 	});
 }
@@ -377,7 +377,7 @@ String[] filePaths = new String[2];
 filePaths[0] = filePath_mp3;
 filePaths[1] = filePath_lrc;
 Bmob.uploadBatch(this, filePaths, new UploadBatchListener() {
-	
+
 	@Override
 	public void onSuccess(List<BmobFile> files,List<String> urls) {
 		// TODO Auto-generated method stub
@@ -389,7 +389,7 @@ Bmob.uploadBatch(this, filePaths, new UploadBatchListener() {
 			//有可能上传不完整，中间可能会存在未上传成功的情况，你可以自行处理
 		}
 	}
-	
+
 	@Override
 	public void onError(int statuscode, String errormsg) {
 		// TODO Auto-generated method stub
@@ -411,14 +411,14 @@ Bmob.uploadBatch(this, filePaths, new UploadBatchListener() {
 
 private void insertObject(final BmobObject obj){
 	obj.save(MainActivity.this, new SaveListener() {
-		
+
 		@Override
 		public void onSuccess() {
 			// TODO Auto-generated method stub
 			ShowToast("-->创建数据成功：" + obj.getObjectId());
-			
+
 		}
-		
+
 		@Override
 		public void onFailure(int arg0, String arg1) {
 			// TODO Auto-generated method stub
@@ -457,16 +457,16 @@ private void insertObject(final BmobObject obj){
 本案例最终实现的界面效果如下：
 
 
-![](image/image001.jpg) 
+![](image/image001.jpg)
 
 发送反馈截图
 
-![](image/image002.jpg) 
+![](image/image002.jpg)
 
  查看反馈意见截图
 
 ### 反馈案例数据结构设计
-在Bmob开发者后台创建一个应用（还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://doc.bmob.cn/data/android/develop_doc/)查看相关教程），添加两个表，分别是Feedback（用户反馈信息表，存储用户提交的反馈信息）和Installation（设备安装表，存储需要接收推送信息的设备信息）。以下是对这两个表的数据结构的详细描述（省略对常用默认字段objectId、createAt、updateAt的描述）
+在Bmob开发者后台创建一个应用（还不知道怎么创建应用和添加数据表的开发朋友请先移步[快速入门指南](http://doc.bmobapp.com/data/android/develop_doc/)查看相关教程），添加两个表，分别是Feedback（用户反馈信息表，存储用户提交的反馈信息）和Installation（设备安装表，存储需要接收推送信息的设备信息）。以下是对这两个表的数据结构的详细描述（省略对常用默认字段objectId、createAt、updateAt的描述）
 
 
 Feedback表
@@ -496,15 +496,15 @@ Installation表
 
 ```java
 //这里替换为你的APP Key
-	public static String APPID = "";	
+	public static String APPID = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		Bmob.initialize(this, APPID);
-		BmobPush.startWork(this, APPID);	
+		BmobPush.startWork(this, APPID);
 	}
 ```
 
@@ -545,14 +545,14 @@ public class Feedback extends BmobObject {
 		Feedback feedback = new Feedback();
 		feedback.setContent(msg);
 		feedback.save(this, new SaveListener() {
-			
+
 			@Override
 			public void onSuccess() {
 				Log.i("bmob", "反馈信息已保存到服务器");
 				//发送推送信息
 				saveFeedbackMsg(message);
 			}
-			
+
 			@Override
 			public void onFailure(int code, String arg0) {
 				// TODO Auto-generated method stub
@@ -587,13 +587,13 @@ public class MyMessageReceiver extends BmobPushMessageReceiver {
 		Log.d("bmob", "收到反馈消息 = "+message);
 		//通知栏显示收到的反馈信息
 		NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		Notification n = new Notification();  
-        n.icon = R.drawable.ic_launcher;  
-        n.tickerText = "收到反馈消息";  
-        n.when = System.currentTimeMillis();  
-        Intent intent = new Intent(context, ActFeedbackList.class);  
-        PendingIntent pi = PendingIntent.getActivity(context, 0, intent, 0);  
-        n.setLatestEventInfo(context, "消息", message, pi);  
+		Notification n = new Notification();
+        n.icon = R.drawable.ic_launcher;
+        n.tickerText = "收到反馈消息";
+        n.when = System.currentTimeMillis();
+        Intent intent = new Intent(context, ActFeedbackList.class);
+        PendingIntent pi = PendingIntent.getActivity(context, 0, intent, 0);
+        n.setLatestEventInfo(context, "消息", message, pi);
         n.defaults |= Notification.DEFAULT_SOUND;
         n.flags = Notification.FLAG_AUTO_CANCEL;
         nm.notify(1, n);
@@ -608,14 +608,14 @@ BmobQuery<Feedback> query = new BmobQuery<Feedback>();
 //按createAt降序排列
 query.order("-createdAt");
 query.findObjects(this, new FindListener<Feedback>() {
-			
+
 	@Override
 	public void onSuccess(List<Feedback> arg0) {
 		//显示反馈列表信息
 		adapter = new FeedbackAdapter(ActFeedbackList.this, arg0);
 		listView.setAdapter(adapter);
 	}
-	
+
 	@Override
 	public void onError(int code, String arg0) {
 		emptyView.setText(arg0);
@@ -633,7 +633,7 @@ query.findObjects(this, new FindListener<Feedback>() {
 ## 其它案例
 
 
-快速入门相关源码下载[http://www.bmob.cn/static/Bmob_android_quickstart.zip](http://www.bmob.cn/static/Bmob_android_quickstart.zip)
+快速入门相关源码下载[http://www.bmobapp.com/static/Bmob_android_quickstart.zip](http://www.bmobapp.com/static/Bmob_android_quickstart.zip)
 
 
 即时聊天案例源码[https://github.com/bmob/BmobIMSDK4Android](https://github.com/bmob/BmobIMSDK4Android)
@@ -667,7 +667,7 @@ BmobSDK自动更新实例程序源码：[https://github.com/bmob/bmob-android-de
 
 踢球吧源码[https://github.com/bmob/BmobTiQiuBa](https://github.com/bmob/BmobTiQiuBa)
 
-android云端逻辑案例:[http://www.bmob.cn/static/Bmob_Sample_android_cloud.zip](http://www.bmob.cn/static/Bmob_Sample_android_cloud.zip)
+android云端逻辑案例:[http://www.bmobapp.com/static/Bmob_Sample_android_cloud.zip](http://www.bmobapp.com/static/Bmob_Sample_android_cloud.zip)
 
 基于Bmob的二维码扫描工具:[https://github.com/bmob/FindLook](https://github.com/bmob/FindLook)
 

@@ -53,7 +53,7 @@ BmobSMS.requestSMSCode(phone, "DataSDK", new QueryListener<Integer>() {
 
 - 如果你提交的短信模板无法发送，则有可能包含一些敏感监控词，具体可去Github下载  [短信关键字监控参考文档](https://github.com/bmob/bmob-public-docs/blob/master/%E7%9F%AD%E4%BF%A1%E5%85%B3%E9%94%AE%E5%AD%97%E7%9B%91%E6%8E%A7%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.doc) 来查看提交内容是否合法。
 
-- 一天一个应用给同一手机号发送的短信不能超过10条，否则会报`10010`错误，其他错误码可查看：[短信功能相关错误码](http://docs.bmob.cn/sms/Android/g_errorcode/doc/index.html) 。
+- 一天一个应用给同一手机号发送的短信不能超过10条，否则会报`10010`错误，其他错误码可查看：[短信功能相关错误码](http://docs.bmobapp.com/sms/Android/g_errorcode/doc/index.html) 。
 
 ### 验证验证码
 

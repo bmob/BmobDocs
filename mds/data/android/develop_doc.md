@@ -4,7 +4,7 @@ Bmob平台为您的移动应用提供了一个完整的后端解决方案，我�
 
 ## 快速入门
 
-建议您在阅读本开发文档之前，先阅读我们提供的 [Android快速入门文档](http://doc.bmob.cn/data/android/)，便于您后续的开发。
+建议您在阅读本开发文档之前，先阅读我们提供的 [Android快速入门文档](http://doc.bmobapp.com/data/android/)，便于您后续的开发。
 
 
 
@@ -225,7 +225,7 @@ private void query() {
 
  1. 批量操作每次只支持最大50条记录的操作。
  2. 批量操作不支持对User表的操作。
- 
+
 BmobBatch：
 
 |方法|功能|
@@ -545,7 +545,7 @@ public class User extends BmobUser {
      * 失误个数
      */
     private Integer fault;
-    
+
 
     /**
      * 年龄
@@ -569,8 +569,8 @@ public class User extends BmobUser {
      * 头像
      */
     private BmobFile avatar;
-    
-    
+
+
     /**
      * 别名
      */
@@ -802,7 +802,7 @@ private void fetchUserInfo(final View view) {
             }
         }
     });
-    
+
     // 当继承了BmobUser扩展了自定义属性时，FetchUserInfoListener中请使用自定义的类名
     BmobUser.fetchUserInfo(new FetchUserInfoListener<MyUser>() {
         @Override
@@ -1062,7 +1062,7 @@ private void loginByPhone(){
 
 在手机号码被验证后，用户可以使用该手机号码和短信验证码进行登录操作：
 
-1、先请求登录操作的短信验证码，使用方式详见[短信开发文档](http://doc.bmob.cn/sms/android/)：
+1、先请求登录操作的短信验证码，使用方式详见[短信开发文档](http://doc.bmobapp.com/sms/android/)：
 
 ```java
 /**
@@ -1786,7 +1786,7 @@ BmobQuery<Comment> query = new BmobQuery<Comment>();
 //用此方式可以构造一个BmobPointer对象。只需要设置objectId就行
 Post post = new Post();
 post.setObjectId("ESIt3334");
-query.addWhereEqualTo("post",new BmobPointer(post));		
+query.addWhereEqualTo("post",new BmobPointer(post));
 //希望同时查询该评论的发布者的信息，以及该帖子的作者的信息，这里用到上面`include`的并列对象查询和内嵌对象的查询
 query.include("user,post.author");
 query.findObjects(new FindListener<Comment>() {
@@ -2846,7 +2846,7 @@ query.findObjects(new FindListener<Person>() {
 
 `Bmob Query Language`（简称 BQL） 是 Bmob 自 `BmobSDKV3.3.7` 版本开始，为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。
 
-具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](http://doc.bmob.cn/other/bql/)。
+具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](http://doc.bmobapp.com/other/bql/)。
 
 #### 基本BQL查询
 
@@ -3013,7 +3013,7 @@ query.doSQLQuery(new SQLQueryListener<GameScore>(){
 
 ##### 内置函数
 
-对于包含`内置函数`的占位符查询，比较特殊，请使用[`Bmob Query Language 详细指南`](http://doc.bmob.cn/other/bql/)中的`内置函数`中占位符查询用到的内置函数列出的形式进行查询操作：
+对于包含`内置函数`的占位符查询，比较特殊，请使用[`Bmob Query Language 详细指南`](http://doc.bmobapp.com/other/bql/)中的`内置函数`中占位符查询用到的内置函数列出的形式进行查询操作：
 
 举例：我想查询当前用户在2015年5月12日之后，在特定地理位置附近的游戏记录，可以这样：
 
@@ -3608,7 +3608,7 @@ private void queryArticle() {
 
 **注：**
 
-1、以下均为SDK对文件进行操作的方法，如果你想在Web端对文件进行操作，请查看我们的[帮助文档](http://doc.bmob.cn/other/common_problem/)中的`如何在Web后台上传文件`解答。
+1、以下均为SDK对文件进行操作的方法，如果你想在Web端对文件进行操作，请查看我们的[帮助文档](http://doc.bmobapp.com/other/common_problem/)中的`如何在Web后台上传文件`解答。
 
 2、自 `BmobSDKv3.4.6` 开始，文件服务需要注意以下几个方面：
 
@@ -3786,7 +3786,7 @@ bmobQuery.findObjects(new FindListener<GameScore>() {
 需求：如果你想下载一个远程图片地址，那么就需要使用下面的构造方法构造一个BmobFile对象（其中group可为空）
 
 ```java
-/**  
+/**
  * @param fileName 文件名(必填)
  * @param group 组名（选填）
  * @param url  完整url地址（必填）
@@ -3898,7 +3898,7 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 });
 
 ```
-为方便大家理解文件服务的使用，Bmob提供了一个文件上传的案例和源码，大家可以到[示例和教程中查看和下载](http://doc.bmob.cn/data/android/example/)。
+为方便大家理解文件服务的使用，Bmob提供了一个文件上传的案例和源码，大家可以到[示例和教程中查看和下载](http://doc.bmobapp.com/data/android/example/)。
 
 ### 缩略图
 
@@ -3983,7 +3983,7 @@ rtd.unsubRowDelete(testTableName, objectId);
 
 ## ACL和角色
 
-数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看[Bmob数据与安全页面](http://doc.bmob.cn/other/data_safety/)，了解Bmob如何保护数据安全）。
+数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看[Bmob数据与安全页面](http://doc.bmobapp.com/other/data_safety/)，了解Bmob如何保护数据安全）。
 
 其中，最灵活的方法是通过ACL和角色，它的思路是每一条数据有一个用户和角色的列表，以及这些用户和角色拥有什么样的许可权限。
 
@@ -4274,7 +4274,7 @@ private void removeUserFromRole(BmobRole bmobRole) {
 我们为大家提供一个ACL相关的案例源码，大家可以点击下载：[https://github.com/bmob/bmob-android-demo-acl](https://github.com/bmob/bmob-android-demo-acl)
 ## 应用安全
 
-请大家在使用Bmob开发应用程序之前，仔细阅读[数据与安全](http://doc.bmob.cn/other/data_safety/)的文档。
+请大家在使用Bmob开发应用程序之前，仔细阅读[数据与安全](http://doc.bmobapp.com/other/data_safety/)的文档。
 # 11、地理位置
 
 Bmob允许用户根据地球的经度和纬度坐标进行基于地理位置的信息查询。通过在BmobObject的查询中添加一个BmobGeoPoint的对象查询，你就可以实现轻松查找出离当前用户最接近的信息或地点的功能。
@@ -4485,7 +4485,7 @@ Bmob.getServerTime(new QueryListener<Long>() {
 ### 自动更新组件
 
 Bmob为大家提供了应用的自动更新组件，使用这个组件可以快速方便实现应用的自动升级功能。
-详细的使用操作可以参考文档：[自动更新组件文档](http://doc.bmob.cn/data/android/auto_update/)
+详细的使用操作可以参考文档：[自动更新组件文档](http://doc.bmobapp.com/data/android/auto_update/)
 
 ### 表结构
 
@@ -4576,7 +4576,7 @@ Bmob.getAllTableSchema(context, new QueryListListener<BmobTableSchema>() {
 
 # 13、SDK错误码列表
 
-Android SDK的错误码都是以`9`开头的，其他错误码请点击查看：[错误码文档](http://doc.bmob.cn/other/error_code/)。
+Android SDK的错误码都是以`9`开头的，其他错误码请点击查看：[错误码文档](http://doc.bmobapp.com/other/error_code/)。
 
 
 |错误码|内容|含义|
@@ -4684,11 +4684,11 @@ Android SDK的错误码都是以`9`开头的，其他错误码请点击查看：
 ## 重置域名
 从v3.6.7开始，数据服务SDK新增了能重新设置请求域名的API，需要在初始化SDK前调用：
 ```Java
-Bmob.resetDomain("http://open-vip.bmob.cn/8/");
+Bmob.resetDomain("http://open-vip.bmobapp.com/8/");
 ```
 其中，参数为开发者的域名，调用后的所有请求都指向新的域名。
 ```Java
-http://open-vip.bmob.cn/8/
+http://open-vip.bmobapp.com/8/
 此域名目前仅为企业版用户使用！
 ```
 ## 重置域名
@@ -4703,7 +4703,7 @@ Bmob.resetDomain("http://testopen.xxx.com/8/");
 Bmob.resetDomain("https://testopen.xxx.com/8/");
 ```
 
-请直接参考：[重置域名设置](http://doc.bmob.cn/other/domain/)
+请直接参考：[重置域名设置](http://doc.bmobapp.com/other/domain/)
 
 
 ## 海外加速

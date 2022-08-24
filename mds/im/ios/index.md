@@ -44,7 +44,7 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
 
 ### 配置相关服务
 如果需要用到推送服务，所以需要在管理后台上传对应Bundle ID的p12文件，请勿加密，
-详细详细请参照：http://docs.bmob.cn/iospush/index.html?menukey=otherdoc&key=iospush
+详细详细请参照：http://docs.bmobapp.com/iospush/index.html?menukey=otherdoc&key=iospush
 
 ### 引入相关的库文件
 如果项目中已包含BmobSDK数据服务SDK的话，可以不添加新的框架，如果没有则需添加SystemConfiguration.framework、CoreFoundation.framework、Foundation.framework、CFNetwork.framwork、CoreGraphics.framework、sqlite3.tbd
@@ -59,13 +59,13 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
     // Override point for customization after application launch.
     //这里使用的是BmobSDK提供的用户系统，所以需要初始化BmobSDK
     [Bmob registerWithAppKey:@"Application ID"];
-    
+
     self.sharedIM = [BmobIM sharedBmobIM];
-    
+
     [self.sharedIM registerWithAppKey:@"Application ID"];
-    
+
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
+
     BmobUser *user = [BmobUser getCurrentUser];
     //如果有用户了，不需要推送服务来推送消息的话，可以直接连接服务器
     if (user) {
@@ -76,12 +76,12 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogin:) name:@"Login" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogout:) name:@"Logout" object:nil];
     }
-    
+
     self.sharedIM.delegate = self;
-    
-    
-    
-    
+
+
+
+
     return YES;
 }
 ```
@@ -94,7 +94,7 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
     if (user) {
         [self connectToServer];
     }
-    
+
 }
 ```
 
@@ -105,7 +105,7 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
 		//开发者自己将deviceToken转成字符串
 		NSString *string = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
 		self.token = [[[string stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@"<" withString:@""] stringByReplacingOccurrencesOfString:@">" withString:@""];
-		[self connectToServer];   		
+		[self connectToServer];
 	}
 }
 ```
@@ -145,7 +145,7 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
 ```
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-   
+
     if (self.userId && self.userId.length > 0) {
         [self connectToServer];
     }
@@ -246,8 +246,8 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
 	BmobUser *user = [[BmobUser alloc] init];
 	user.username = self.usernameTextField.text;
 	user.password = self.passwordTextField.text;
-	    
-	    
+
+
 	[user signUpInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
 	    if (isSuccessful) {
 	        [[NSNotificationCenter defaultCenter] postNotificationName:@"Login" object:user.objectId];
@@ -285,7 +285,7 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
             BmobUser *loginUser = [BmobUser getCurrentUser];
             NSMutableArray *result  = [NSMutableArray array];
             for (BmobObject *obj in array) {
-               
+
                 BmobUser *friend = nil;
                 if ([[(BmobUser *)[obj objectForKey:@"user"] objectId] isEqualToString:loginUser.objectId]) {
                     friend = [obj objectForKey:@"friendUser"];
@@ -293,15 +293,15 @@ Bmob即时聊天demo包含了一个完整的即时通讯的App，功能包括：
                     friend = [obj objectForKey:@"user"];
                 }
                 BmobIMUserInfo *info = [BmobIMUserInfo userInfoWithBmobUser:friend];
-                
+
                 [result addObject:info];
             }
             if (result && result.count > 0) {
                 [self.userArray setArray:result];
                 [self.tableView reloadData];
-                
+
             }
-            
+
         }
     }];
 }
@@ -341,7 +341,7 @@ conversation.conversationTitle = self.userInfo.name;
 ```
 -(void)loadMessageRecords{
 	NSArray *array = [self.conversation queryMessagesWithMessage:nil limit:10];
-	    
+
 	if (array && array.count > 0) {
 		//排序
 		NSArray *result = [array sortedArrayUsingComparator:^NSComparisonResult(BmobIMMessage *obj1, BmobIMMessage *obj2) {
@@ -352,11 +352,11 @@ conversation.conversationTitle = self.userInfo.name;
 			}else{
 			    return NSOrderedSame;
 			}
-		    
+
 		}];
 		[self.messagesArray setArray:result];
 		[self.tableView reloadData];
-		    
+
 		[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 	}
 }
@@ -369,15 +369,15 @@ conversation.conversationTitle = self.userInfo.name;
     if (!self.finished) {
         self.page ++;
         [self.freshControl beginRefreshing];
-        
+
         if (self.messagesArray.count <= 0) {
             [self.freshControl endRefreshing];
             return;
         }
         BmobIMMessage *msg = [self.messagesArray firstObject];
-        
+
         NSArray *array = [self.conversation queryMessagesWithMessage:msg limit:10];
-        
+
         if (array && array.count > 0) {
             NSMutableArray *messages = [NSMutableArray arrayWithArray:self.messagesArray];
             [messages addObjectsFromArray:array];
@@ -390,7 +390,7 @@ conversation.conversationTitle = self.userInfo.name;
                 }else{
                     return NSOrderedSame;
                 }
-                
+
             }];
             [self.messagesArray setArray:result];
             [self.tableView reloadData];
@@ -398,11 +398,11 @@ conversation.conversationTitle = self.userInfo.name;
             self.finished = YES;
             [self showInfomation:@"没有更多的历史消息"];
         }
-        
+
     }else{
         [self showInfomation:@"没有更多的历史消息"];
     }
-    
+
     [self.freshControl endRefreshing];
 }
 ```
@@ -429,9 +429,9 @@ conversation.conversationTitle = self.userInfo.name;
         __weak typeof(self)weakSelf = self;
         [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-        
+
         }];
-        
+
     }
 }
 ```
@@ -455,7 +455,7 @@ Demo封装了一个直接传入image就能发送图片的方法
             [self.messagesArray addObject:message];
             [self scrollToBottom];
              __weak typeof(self)weakSelf = self;
-            
+
             [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
                 [weakSelf reloadLastRow];
             }];
@@ -488,7 +488,7 @@ Demo封装了一个直接传入NSData就能发送语音文件的方法
                            duration:duration
                          completion:^(BmobIMAudioMessage *message, NSError *error) {
                              if (!error) {
-                               
+
                                  [self.messagesArray addObject:message];
                                  [self scrollToBottom];
                                  __weak typeof(self)weakSelf = self;
@@ -514,9 +514,9 @@ BmobIMLocationMessage *message = [BmobIMLocationMessage messageWithAddress:@"广
     message.updatedTime = message.createdTime;
     [self.messagesArray addObject:message];
     [self scrollToBottom];
-    
+
     __weak typeof(self)weakSelf = self;
-   
+
     [self.conversation sendMessage:message completion:^(BOOL isSuccessful, NSError *error) {
         [weakSelf reloadLastRow];
     }];
@@ -558,7 +558,7 @@ BmobIMLocationMessage *message = [BmobIMLocationMessage messageWithAddress:@"广
         [self.tableView reloadData];
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
-    
+
 }
 ```
 

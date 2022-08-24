@@ -1,5 +1,5 @@
 ## 注册Bmob帐号
-在网址栏输入www.bmob.cn或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
+在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
 
 ![](image/rumen_zhuce.png)
 ## 网站后台创建应用
@@ -69,7 +69,7 @@ Bmob.initialize("你的Application ID", "你的REST API Key");
         error: function(result, error) {
           // 添加失败
           console.log('创建日记失败');
-          
+
         }
       });
 ```
@@ -168,15 +168,15 @@ BmobSocketIo.init();
       //订阅Chat表的数据更新事件
       BmobSocketIo.updateTable("Chat"); //聊天记录表
     };
-    
+
     //监听服务器返回的更新表的数据
     BmobSocketIo.onUpdateTable = function (tablename, data) {
 
       if (tablename == "Chat") {
         console.log(data);
       }
-    };  
-    
+    };
+
 ```
 
 PS:更多请参考Demo里面的群聊功能。
@@ -187,23 +187,23 @@ PS:更多请参考Demo里面的群聊功能。
 
 
 1. ### 地道美食地图
-> 点击查看[地道美食地图](https://github.com/LanceCong/gourmet_map) 
+> 点击查看[地道美食地图](https://github.com/LanceCong/gourmet_map)
 
 
 2. ### 出发吧一起
-> 点击查看[出发吧一起](https://github.com/dmego/together) 
+> 点击查看[出发吧一起](https://github.com/dmego/together)
 
 3. ### 心邮
-> 点击查看[心邮](https://github.com/bmob/Bmob-wechatapp-xinyou) 
+> 点击查看[心邮](https://github.com/bmob/Bmob-wechatapp-xinyou)
 
 4. ### 自媒体文章小程序
-> 点击查看[自媒体文章小程序](https://github.com/qfwc258/weapp-bmob-cw) 
+> 点击查看[自媒体文章小程序](https://github.com/qfwc258/weapp-bmob-cw)
 
 5. ### 灵动云课堂小程序端
-> 点击查看[灵动云课堂小程序端](https://gitee.com/laeser/course) 
+> 点击查看[灵动云课堂小程序端](https://gitee.com/laeser/course)
 
 6. ### 灵犀外卖
-> 点击查看[灵犀外卖](https://gitee.com/laeser/dinner) 
+> 点击查看[灵犀外卖](https://gitee.com/laeser/dinner)
 
 
 

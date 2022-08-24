@@ -35,13 +35,13 @@ Cocos2d-x SDK是Bmob提供给Cocos2d-x开发者的工具，旨在帮助游戏开
         ---  bmobjsonutil.h       //sdk对json的操作，主要是转换
         ---  bmobblog.h           // sdk日志输出工具（仅实现了控制台输出）
         ---  bmobsdkutil.h        //sdk工具类，主要是进行数据的转换以及获取时间
-        ---  bmobstrutil.h        //字符串操作类（目前没有实现） 
+        ---  bmobstrutil.h        //字符串操作类（目前没有实现）
 
    ---  bmobsdk.cpp
    ---  bmobsdk.h　              //sdk的使用必须包含的头文件
 ```
 
-如图： 
+如图：
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/src0.png)
 
@@ -58,11 +58,11 @@ linux下编译方法多种，这里根据Cocos2d-x 3.x提供的方法使用cmake
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/QQ%E6%88%AA%E5%9B%BE20160321173730.png)
 
-- 添加．so文件路径到CMakeLists.txt文件中 
+- 添加．so文件路径到CMakeLists.txt文件中
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/linux-link2.png)
 
-- 将对应的库在CMakeLists.txt进行连接；如图： 
+- 将对应的库在CMakeLists.txt进行连接；如图：
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/linux-link1.png)
 
@@ -71,7 +71,7 @@ linux下编译方法多种，这里根据Cocos2d-x 3.x提供的方法使用cmake
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/use0.png)
 
 在需要使用的文件中加入上图中的代码．
-编译成功运行输出结果如： 
+编译成功运行输出结果如：
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/init0.png)
 
@@ -122,15 +122,15 @@ windows平台以visual studio2015为环境配置。
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/sdklib1.png)
 
-2. 在程序开始的地方使用#pragma comment( lib,"bmobsafelib.lib")将库链接到项目中。 
+2. 在程序开始的地方使用#pragma comment( lib,"bmobsafelib.lib")将库链接到项目中。
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/sdklib2.png)
 
-3. 将源码添加到项目中,即可完成sdk的导入。 在项目中使用SDK的文件中包含文件bmobsdk\bmobsdk.h，如：#include "bmobsdk\bmobsdk.h"，同时导入命名空间bmobsdk，如：using namespace bmobsdk;完成上的工作就可以使用sdk服务。 
+3. 将源码添加到项目中,即可完成sdk的导入。 在项目中使用SDK的文件中包含文件bmobsdk\bmobsdk.h，如：#include "bmobsdk\bmobsdk.h"，同时导入命名空间bmobsdk，如：using namespace bmobsdk;完成上的工作就可以使用sdk服务。
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/sdklib3.png)
 
-导入cocos2dx-3.x的cpp-empty-test项目后的结构： 
+导入cocos2dx-3.x的cpp-empty-test项目后的结构：
 
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/init-windows.png)
 
@@ -197,7 +197,7 @@ windows平台以visual studio2015为环境配置。
 在 Bmob 平台注册后,每个账户可创建多个应用程序,创建的每个应用程序有各自的Application ID ,应用程序将凭 Application ID 使用 BmobSDK 。
 
 ## 应用安全
-请大家在使用 Bmob 开发应用程序之前,仔细阅读“数据与安全”的文档:[http://docs.bmob.cn/datasafety/index.html?menukey=otherdoc&key=datasafety](http://docs.bmob.cn/datasafety/index.html?menukey=otherdoc&key=datasafety)
+请大家在使用 Bmob 开发应用程序之前,仔细阅读“数据与安全”的文档:[http://docs.bmobapp.com/datasafety/index.html?menukey=otherdoc&key=datasafety](http://docs.bmobapp.com/datasafety/index.html?menukey=otherdoc&key=datasafety)
 
 ## 数据类型
 目前为止,我们支持的数据类型CCString 、 CCInteger 、 CCBool 、 CCArray 、 CCDictionary 、 map 、string 以及 BmobObject 对象类型。
@@ -266,9 +266,9 @@ virtual void save( BmobSaveDelegate * delegate);
 ```
 运行以上代码,如果添加成功,你可以在 Bmob 提供的后台的数据浏览中看到类似这样的结果:
 ```json
-{"data":{"createdAt":"2016-03-10 14:43:16","objectId":"992be5638a"},"result":{"code":200,"message":"ok"}} 
+{"data":{"createdAt":"2016-03-10 14:43:16","objectId":"992be5638a"},"result":{"code":200,"message":"ok"}}
 ```
-这是登录后台，就可以看到： 
+这是登录后台，就可以看到：
 ![](https://shockerjue.gitbooks.io/document-cocos2dx-sdk/content/save1.png)
 **这里需要注意的是:**
 1. 如果服务器端不存在 GameScore 表,系统将自动建表该表,并插入数据。
@@ -315,7 +315,7 @@ void onUpdateError(int code,void* data){
 ```
 返回结果：
 ```json
-{"data":{"updatedAt":"2016-03-10 14:49:05"},"result":{"code":200,"message":"ok"}} 
+{"data":{"updatedAt":"2016-03-10 14:49:05"},"result":{"code":200,"message":"ok"}}
 ```
 更新数据时,如果对更新状态需要监听,需实现 BmobUpdateDelegate 接口,并传递给update 方法。接口 BmobUpdateDelegate 实现如下:
 ```cpp
@@ -1040,7 +1040,7 @@ if(bmobUser != NULL){
 //缓存用户对象为空时, 可打开用户注册界面...
 }
 ```
-在扩展了用户类的情况下获取当前登录用户,可以使用如下的示例代码( MyUser 类可参看 上面): 
+在扩展了用户类的情况下获取当前登录用户,可以使用如下的示例代码( MyUser 类可参看 上面):
 ```cpp
 MyUser userInfo = BmobUser::getCurrentUser();
 ```
@@ -1143,7 +1143,7 @@ virtual void onRequestDone(int code,const void* data){
 // 返回请求状态
 }
 ```
-2、用户收到重置密码的验证码之后,就可以调用 resetPasswordBySMSCode 方法来实现密 码重置,其中传递重置的密码和短信验证码以及监听接口,方法原型是: 
+2、用户收到重置密码的验证码之后,就可以调用 resetPasswordBySMSCode 方法来实现密 码重置,其中传递重置的密码和短信验证码以及监听接口,方法原型是:
 ```cpp
 void resetPasswordBySMSCode(string pw,string code,BmobResetPasswordByCodeDelegate* delegate);
 ```
@@ -1175,7 +1175,7 @@ BmobUser* bu = new BmobUser();
 bu→autorelease();
 bu->updateCurrentUserPassword(“ 旧密码 ” , ” 新密码 ” ,this);
 ```
-需要监听该方法的修改状态,需要实现 BmobUpdateDelegate 监听接口。修改成功的返回是 JSON 数据,如: 
+需要监听该方法的修改状态,需要实现 BmobUpdateDelegate 监听接口。修改成功的返回是 JSON 数据,如:
 ```json
 {
 "msg":"ok"
@@ -1239,7 +1239,7 @@ virtual void onRequestDone(int code,const void* data){
 
 ### 邮箱登录
 
-新增 邮箱+密码 登录方式,可以通过 loginByAccount 方法来操作,使用方法查看账号名加密码 登陆: 
+新增 邮箱+密码 登录方式,可以通过 loginByAccount 方法来操作,使用方法查看账号名加密码 登陆:
 ```cpp
 virtual void loginByAccount(account, password, this);
 ```
@@ -1319,7 +1319,7 @@ void execCloudCode(string cloudName,
                                     std::map<string, CCObject*> param,
                                     BmobCloudDelegate 　*delegate,
                                     BmobHttpUtil::CloudHttpType　type = BmobHttpUtil::CloudHttpType::HttpExec);
-```                                    
+```
 参数：
 - cloudName 云端代码方法名
 - param 云端代码参数

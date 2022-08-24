@@ -1,5 +1,5 @@
 ## 注册Bmob帐号
-在网址栏输入www.bmob.cn或者在百度输入Bmob搜索，打开[Bmob官网](http://www.bmob.cn/ "Bmob移动后端云服务平台")后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活[Bmob](http://www.bmob.cn/ "Bmob移动后端云服务平台")账户，你就可以用Bmob轻松开发应用了。
+在网址栏输入www.bmobapp.com或者在百度输入Bmob搜索，打开[Bmob官网](http://www.bmobapp.com/ "Bmob移动后端云服务平台")后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")账户，你就可以用Bmob轻松开发应用了。
 ![](image/rumen_zhuce.png)
 ## 网站后台创建应用
 
@@ -29,7 +29,7 @@ curl -X POST \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
     -H "Content-Type: application/json" \
     -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
-    https://api2.bmob.cn/1/classes/GameScore
+    https://api2.bmobapp.com/1/classes/GameScore
 ```
 
 ### RestAPI调试工具
@@ -47,7 +47,7 @@ curl -X POST \
 curl -X GET \
     -H "X-Bmob-Application-Id: Your Application ID" \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
-    https://api2.bmob.cn/1/classes/GameScore/e1kXT22L
+    https://api2.bmobapp.com/1/classes/GameScore/e1kXT22L
 
 ```
 
@@ -59,7 +59,7 @@ curl -X PUT \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
     -H "Content-Type: application/json" \
     -d '{"score":73453}' \
-    https://api2.bmob.cn/1/classes/GameScore/e1kXT22L
+    https://api2.bmobapp.com/1/classes/GameScore/e1kXT22L
 ```
 
 ## 删除一行数据
@@ -67,7 +67,7 @@ curl -X PUT \
 curl -X DELETE \
     -H "X-Bmob-Application-Id: Your Application ID" \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
-    https://api2.bmob.cn/1/classes/GameScore/e1kXT22L
+    https://api2.bmobapp.com/1/classes/GameScore/e1kXT22L
 ```
 
 

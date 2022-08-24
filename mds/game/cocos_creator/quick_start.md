@@ -1,12 +1,12 @@
 
 ## 注册
 
-[官网](https://game.bmob.cn)
+[官网](https://game.bmobapp.com)
 
 ## 下载
 
-从 [Demo下载页面](https://game.bmob.cn/download) 中，选择自己所擅长平台，挑选一个感兴趣的Demo
-    
+从 [Demo下载页面](https://game.bmobapp.com/download) 中，选择自己所擅长平台，挑选一个感兴趣的Demo
+
 每个Demo包含以下内容：
 
 - README.md文件，是游戏设定的概述，以及管理后台的相关配置
@@ -15,13 +15,13 @@
 
 ## 配置
 
-[管理后台-游戏选项](https://game.bmob.cn/#/game/options)
+[管理后台-游戏选项](https://game.bmobapp.com/#/game/options)
 
 请根据Demo的READ.md文件内容，在管理后台配置游戏，包括人数、是否中途加入等等
 
 ### 游戏属性
 
-[管理后台-游戏属性](https://game.bmob.cn/#/game/attribute)
+[管理后台-游戏属性](https://game.bmobapp.com/#/game/attribute)
 
 请根据Demo的READ.md文件内容，在管理后台配置玩家在游戏内需要同步的属性
 
@@ -33,7 +33,7 @@ isdead|boolean|-|-|true|false|玩家是否已被淘汰
 position|int[]|65535|2|true|true|玩家x、y轴位置
 score|int|65535|-|true|false|玩家分数
 
-点击 **发布** 
+点击 **发布**
 
 ![Attr](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/969d75ac40a48def80e1aaab031db534.jpg)
 
@@ -41,7 +41,7 @@ score|int|65535|-|true|false|玩家分数
 
 ### 云函数
 
-[管理后台-云函数](https://game.bmob.cn/#/game/code)
+[管理后台-云函数](https://game.bmobapp.com/#/game/code)
 
 在 游戏设置 > 云函数 里，将下载的 **cloud** 文件夹内的 **Player.java**、**Room.java** 文件内容分别复制进去，都复制后再点击 **发布**
 
@@ -66,7 +66,7 @@ score|int|65535|-|true|false|玩家分数
 
 ### AppKey
 
-[管理后台-云函数](https://game.bmob.cn/#/game/key)
+[管理后台-云函数](https://game.bmobapp.com/#/game/key)
 
 游戏设置 > 应用密钥 > AppKey
 

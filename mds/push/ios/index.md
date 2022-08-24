@@ -32,7 +32,7 @@
 
 ![](image/tuisong_6.jpg)
 
-2.点击创建证书（图1）,并根据提示创建证书（图2）， 
+2.点击创建证书（图1）,并根据提示创建证书（图2），
 
 **图1**
 
@@ -89,7 +89,7 @@
 ![](image/tuisong_18.jpg)
 
 ## 推送使用
-使用Bmob的推送服务，需要添加BmobSDK及其依赖库，具体可以参考[BmobSDK iOS快速入门](http://docs.bmob.cn/data/iOS/a_faststart/doc/index.html)
+使用Bmob的推送服务，需要添加BmobSDK及其依赖库，具体可以参考[BmobSDK iOS快速入门](http://docs.bmobapp.com/data/iOS/a_faststart/doc/index.html)
 
 ### 推送消息接收
 接收推送消息需要做两件事情，一是注册远程推送，一是将注册后得到的Token值保存至服务器。
@@ -99,18 +99,18 @@
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Bmob registerWithAppKey:@"your appkey"];
-    
+
     // Override point for customization after application launch.
     //注册推送，iOS 8的推送机制与iOS 7有所不同，这里需要分别设置
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
         UIMutableUserNotificationCategory *categorys = [[UIMutableUserNotificationCategory alloc]init];
         //注意：此处的Bundle ID要与你申请证书时填写的一致。
         categorys.identifier=@"com.bmob.bmobpushdemo";
-        
+
         UIUserNotificationSettings *userNotifiSetting = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound) categories:[NSSet setWithObjects:categorys,nil]];
-        
+
         [[UIApplication sharedApplication] registerUserNotificationSettings:userNotifiSetting];
-        
+
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     }else {
         //注册远程推送
@@ -126,7 +126,7 @@
 
 ```
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    
+
     //注册成功后上传Token至服务器
     BmobInstallation  *currentIntallation = [BmobInstallation installation];
     [currentIntallation setDeviceTokenFromData:deviceToken];
@@ -186,11 +186,11 @@ Domain=NSCocoaErrorDomain Code=3000 "未找到应用程序的“aps-environment�
 ```
 {
 	"aps": {
-	"sound": "cheering.caf", 
-	"alert": "这个是通知栏上显示的内容", 
-	"badge": 0 
-	}, 
-	"xx" : "json的key-value对，你可以根据情况添加更多的，客户端进行解析获取", 
+	"sound": "cheering.caf",
+	"alert": "这个是通知栏上显示的内容",
+	"badge": 0
+	},
+	"xx" : "json的key-value对，你可以根据情况添加更多的，客户端进行解析获取",
 }
 ```
 
@@ -201,7 +201,7 @@ Domain=NSCocoaErrorDomain Code=3000 "未找到应用程序的“aps-environment�
 ```
 {
 	"aps": {
-		"alert": "推送消息测试。。。。", 
+		"alert": "推送消息测试。。。。",
 	}
 }
 ```
@@ -209,7 +209,7 @@ Domain=NSCocoaErrorDomain Code=3000 "未找到应用程序的“aps-environment�
 
 ```
 {
-	"alert" : "推送消息测试。。。。", 
+	"alert" : "推送消息测试。。。。",
 }
 ```
 
@@ -217,7 +217,7 @@ Domain=NSCocoaErrorDomain Code=3000 "未找到应用程序的“aps-environment�
 
 4、由于iOS的APNS的推送的大小是有限制的，默认最多256bytes，因此,如果你需要跨平台互通的话，需注意推送的内容不要太长。
 
-5、想要更多了解Bmob的推送格式的朋友，如即时聊天，可以查看我们在问答社区中的回答：[http://wenda.bmob.cn//?/question/204](http://wenda.bmob.cn//?/question/204)
+5、想要更多了解Bmob的推送格式的朋友，如即时聊天，可以查看我们在问答社区中的回答：[http://wenda.bmobapp.com//?/question/204](http://wenda.bmobapp.com//?/question/204)
 
 #### app端发送
 

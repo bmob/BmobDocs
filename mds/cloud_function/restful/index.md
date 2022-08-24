@@ -1,13 +1,13 @@
 ### 开发文档
 
-相关云函数的编写方式，请参考[云函数开发文档](http://doc.bmob.cn/cloud_function/web/develop_doc/)
+相关云函数的编写方式，请参考[云函数开发文档](http://doc.bmobapp.com/cloud_function/web/develop_doc/)
 
 在REST API中可以调用云函数。例如，想调用云函数的方法hello:
 
 
 **请求**
 
-- url ：https://api2.bmob.cn/1/functions/funcName
+- url ：https://api2.bmobapp.com/1/functions/funcName
 
 - method ：POST
 
@@ -45,7 +45,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"name":1337.23,"playerName":"Sean Plott","cheatMode":false}' \
-  https://api2.bmob.cn/1/functions/hello
+  https://api2.bmobapp.com/1/functions/hello
 ```
 
 如果运行的云函数不需要传入参数，请参考下面的例子。
@@ -57,7 +57,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{}' \
-  https://api2.bmob.cn/1/functions/test
+  https://api2.bmobapp.com/1/functions/test
 ```
 
 

@@ -6,7 +6,7 @@ iOS支付SDK接口是Bmob为广大开发人员提供的统一、正规的收费�
 
 ## 使用需知
 
-使用Bmob支付组件前，请认真阅读[Bmob服务协议](https://www.bmob.cn/service)。
+使用Bmob支付组件前，请认真阅读[Bmob服务协议](https://www.bmobapp.com/service)。
 
 对于以下两种情况，开发者需要特别注意：
 

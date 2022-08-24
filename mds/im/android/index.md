@@ -7,33 +7,33 @@ Android BmobIM SDK v2.0.0开始的版本统称为[BmobNewIM SDK](https://github.
 | BmobNewIM SDK 特点     | 描述          |
 |------------------------------|--------------------------------|
 | 与用户系统解耦| 终端用户聊天的唯一标识是objectId，不再受限于Bmob的用户系统|
-| 支持多账号登录、跨平台  |  支持单个设备多个账号登录，支持与iOS互通聊天      | 
+| 支持多账号登录、跨平台  |  支持单个设备多个账号登录，支持与iOS互通聊天      |
 | 支持多种格式的富媒体消息| 支持文本、图片、音频和地理位置等多种格式的富媒体消息|
-| 允许开发者自定义消息   | 支持开发者自定义消息类型，方便开发者扩展本业务逻辑|                          
-| API设计更加合理规范   | 全新的架构设计，API更加简单易用，较BmobOldIM SDK 进一步降低开发者使用成本|  
+| 允许开发者自定义消息   | 支持开发者自定义消息类型，方便开发者扩展本业务逻辑|
+| API设计更加合理规范   | 全新的架构设计，API更加简单易用，较BmobOldIM SDK 进一步降低开发者使用成本|
 
 ## 1.2、版本关系
 IM SDK 使用Data SDK的BmobFile用于图片、语音等文件消息的发送，因此必须导入特定版本的Data SDK。
 
 | IM SDK 版本     | Data SDK 版本          |
 |------------------------------|--------------------------------|
-| bmob-im:2.0.1 至 2.0.2| bmob-sdk:3.4.6-0304|  
+| bmob-im:2.0.1 至 2.0.2| bmob-sdk:3.4.6-0304|
 | bmob-im:2.0.3 至 2.0.4| bmob-sdk:3.4.6|
 | bmob-im:2.0.5| bmob-sdk:3.4.7-aar|
-| bmob-im:2.0.6 至 2.0.8| bmob-sdk:3.5.5| 
+| bmob-im:2.0.6 至 2.0.8| bmob-sdk:3.5.5|
 | bmob-im:2.0.9| bmob-sdk:3.5.6|
-| bmob-im:2.1.1| bmob-sdk:3.6.3| 
-| bmob-im:2.1.4| bmob-sdk:3.7.3| 
-| bmob-im:2.1.5| bmob-sdk:3.7.8| 
-           
+| bmob-im:2.1.1| bmob-sdk:3.6.3|
+| bmob-im:2.1.4| bmob-sdk:3.7.3|
+| bmob-im:2.1.5| bmob-sdk:3.7.8|
+
 # 2、BmobNewIM SDK 集成
 ## 2.1、手动集成
 ### 2.1.1、下载Android BmobNewIM SDK开发包及其Demo
 | 下载平台     | 下载地址          |
 |------------------------------|--------------------------------|
 | Github基于BmobNewIM SDK v2.1.4 的Demo|[bmob-newim-demo](https://github.com/chaozhouzhang/bmob-newim-demo)|
-| Bmob基于BmobNewIM SDK v2.0.9 的Demo| [bmob-newim-demo](http://www.bmob.cn/site/sdk#android_im_sdk_tab)|
-| Github基于BmobNewIM SDK v2.0.5 的Demo |[bmob-newim-demo ](https://github.com/bodismile/bmob-newim-demo)| 
+| Bmob基于BmobNewIM SDK v2.0.9 的Demo| [bmob-newim-demo](http://www.bmobapp.com/site/sdk#android_im_sdk_tab)|
+| Github基于BmobNewIM SDK v2.0.5 的Demo |[bmob-newim-demo ](https://github.com/bodismile/bmob-newim-demo)|
 
 ### 2.1.2、解压Android BmobNewIM SDK开发包
 | 文件     | 使用          |
@@ -231,8 +231,8 @@ BmobNewIM SDK内部会自动创建本地用户表`BmobIMUserInfo`，并对外提
 | 属性名     | 属性含义          |
 |------------------------------|--------------------------------|
 | id | 本地数据库用户表的id值，开发者无需关心 |
-| userId| 用户唯一id（Demo中用的是BmobUser的objectId）|         
-| name| 用户名 （Demo中是用的是BmobUser的username）|  
+| userId| 用户唯一id（Demo中用的是BmobUser的objectId）|
+| name| 用户名 （Demo中是用的是BmobUser的username）|
 | avatar| 用户头像（Demo中是用的是BmobUser的avatar）|
 
 
@@ -415,11 +415,11 @@ BmobIM.getInstance().updateConversation(conversation);
 | 消息类型     | 消息类名          |
 |------------------------------|--------------------------------|
 | 文本| BmobIMTextMessage|
-| 文件|BmobIMFileMessage|         
-| 图像| BmobIMImageMessage|  
+| 文件|BmobIMFileMessage|
+| 图像| BmobIMImageMessage|
 | 音频| BmobIMAudioMessage|
 | 视频| BmobIMVideoMessage|
-| 地理位置| BmobIMLocationMessage| 
+| 地理位置| BmobIMLocationMessage|
 
 ### 3.5.1、获取消息管理
 BmobNewIM SDK 采用会话（`BmobIMConversation`）管理消息(`BmobIMMessage`)的方式，即消息的发送、查询和删除等操作均在指定会话下进行，因此需要先获取指定会话信息`BmobIMUserInfo`后创建会话入口`(BmobIMConversation)conversationEntrance`。创建会话入口成功后跳转到聊天页面，根据会话入口获取消息管理`(BmobIMConversation)messageManager`，而后使用消息管理在聊天页面进行消息的发送、查询和删除等操作。
@@ -651,19 +651,19 @@ mConversationManager.updateLocalCache();
 ```
   //TODO 自定义消息：7.2、自定义消息类型，用于发送添加好友请求
 	public class AddFriendMessage extends BmobIMExtraMessage{
-	
+
 	    @Override
 	    public String getMsgType() {
 	        return "add";
 	    }
-	
+
 	    @Override
 	    public boolean isTransient() {
 	        return true;
 	    }
-	
+
 	    public AddFriendMessage(){}
-	
+
 	}
 ```
 
@@ -761,7 +761,7 @@ public void onEventMainThread(OfflineMessageEvent event){
 `BmobNotificationManager`类提供展示通知栏的方法，你也可以使用自己的展示通知栏方法。
 
 1、多个用户的多条消息合并成一条通知：有XX个联系人发来了XX条消息。
-                           
+
 ```java
 /**显示通知：多个用户的多条消息合并显示一条通知
  * @param event 某个消息事件：包含消息、会话及发送用户的信息
@@ -879,7 +879,7 @@ public class NewFriend implements java.io.Serializable {
     private Integer status;
 	//请求时间
     private Long time;
-    
+
     //getter setter...
 }
 
@@ -909,7 +909,7 @@ public class AddFriendMessage extends BmobIMExtraMessage{
         //设置为true,表明为暂态消息，那么这条消息并不会保存到本地db中，SDK只负责发送出去
         return true;
     }
-	
+
 	...
 
 }
@@ -1130,11 +1130,11 @@ public class AgreeAddFriendMessage extends BmobIMExtraMessage{
 ## 5.1、OldIM SDK 回顾
 Android BmobIM SDK v2.0.0之前的版本统称为[BmobOldIM SDK](https://github.com/bmob/bmob-android-im-sdk) ，BmobOldIM SDK已经开源但不再进行维护，请开发者集成Android BmobNewIM SDK进行开发。
 
-| BmobOldIM SDK 问题     | 
+| BmobOldIM SDK 问题     |
 |--------------------------------|
-| 无法自定义消息类型		             | 
-| 消息发送受限于BmobPushSDK		    | 
-| API设计不够合理规范且不易扩展	    | 
-| 聊天消息出现接收延迟或丢失         | 
+| 无法自定义消息类型		             |
+| 消息发送受限于BmobPushSDK		    |
+| API设计不够合理规范且不易扩展	    |
+| 聊天消息出现接收延迟或丢失         |
 
 

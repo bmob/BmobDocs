@@ -1,5 +1,5 @@
 ## 注册Bmob帐号
-在网址栏输入www.bmob.cn或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
+在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
 
 ![](image/rumen_zhuce.png)
 ## 网站后台创建应用
@@ -40,14 +40,14 @@ function onRequest(request, response, modules) {
       response.end('欢迎使用Bmob');
     else
       response.end('输入错误，请重新输入');
-}                         
+}
 ```
 
 ## 安装和初始化BmobSDK
 
 云函数的调用执行可以是在云端（通过“定时任务”模块去设置执行，实现定时业务逻辑计算的功能，如排行榜，这个操作非常简单，这里不再一一介绍），但更多的开发者是通过SDK调用的方式来执行云函数。这有点像存储过程，大家可以将更多的业务逻辑放在云端，可以随意改变，不需要更新应用，也不需要上传太多的数据参数。
 
-安装和初始化SDK的过程大家根据各自的平台（[Android](http://docs.bmob.cn/data/Android/a_faststart/doc/index.html "Android快速入门文档") / [iOS](http://docs.bmob.cn/data/iOS/a_faststart/doc/index.html "iOS快速入门文档")等）具体参考快速入门文档即可。
+安装和初始化SDK的过程大家根据各自的平台（[Android](http://docs.bmobapp.com/data/Android/a_faststart/doc/index.html "Android快速入门文档") / [iOS](http://docs.bmobapp.com/data/iOS/a_faststart/doc/index.html "iOS快速入门文档")等）具体参考快速入门文档即可。
 
 ## 调用云函数
 
@@ -59,7 +59,7 @@ function onRequest(request, response, modules) {
 //test对应你刚刚创建的云函数名称
 String cloudCodeName = "test";
 JSONObject params = new JSONObject();
-//name是上传到云端的参数名称，值是bmob，云函数可以通过调用request.body.name获取这个值 
+//name是上传到云端的参数名称，值是bmob，云函数可以通过调用request.body.name获取这个值
 params.put("name", "bmob");
 //创建云函数对象
 AsyncCustomEndpoints cloudCode = new AsyncCustomEndpoints();
@@ -83,7 +83,7 @@ cloudCode.callEndpoint(MainActivity.this, cloudCodeName, params, new CloudCodeLi
 ### iOS调用云函数
 
 ```java
-	//name是上传到云端的参数名称，值是bmob，云函数可以通过调用request.body.name获取这个值 
+	//name是上传到云端的参数名称，值是bmob，云函数可以通过调用request.body.name获取这个值
     NSDictionary  *dic = [NSDictionary  dictionaryWithObject:@"bmob" forKey:@"name"];
     //test对应你刚刚创建的云函数名称
     [BmobCloud callFunctionInBackground:@"test" withParameters:dic block:^(id object, NSError *error) {
@@ -103,7 +103,7 @@ cloudCode.callEndpoint(MainActivity.this, cloudCodeName, params, new CloudCodeLi
 
 [iOS源码下载](https://github.com/bmob/bmob-ios-demo/blob/master/CloudFunction.zip)
 
-[Android源码下载](http://www.bmob.cn/static/Bmob_Sample_android_cloud.zip "Android源码下载")
+[Android源码下载](http://www.bmobapp.com/static/Bmob_Sample_android_cloud.zip "Android源码下载")
 
 
 

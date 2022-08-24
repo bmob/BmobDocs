@@ -3,7 +3,7 @@
 Bmob旨在让移动开发变得更简单。对于一些复杂的应用，您可能希望增加一些特有的业务逻辑，并能灵活掌控，Bmob云函数提供了这种灵活性，可以让您的代码直接在Bmob云上运行。一旦你在云端更新了代码，所有的移动应用都会立即自动更新，新功能的发布将会变得更加简单可控。
 
 
-在开发云函数时，希望大家能够先看看我们提供的编码规范文档：[http://doc.bmob.cn/cloud_function/web/norm/](http://doc.bmob.cn/cloud_function/web/norm/)
+在开发云函数时，希望大家能够先看看我们提供的编码规范文档：[http://doc.bmobapp.com/cloud_function/web/norm/](http://doc.bmobapp.com/cloud_function/web/norm/)
 
 ## 调用云函数的方式
 
@@ -20,7 +20,7 @@ bmob允许以http的方式直接调用云函数。
 
 下面展示了以Get的方式调用云函数：
 ```
-curl -X GET http://cloud.bmob.cn/0348d0c262bc91d9/test?name=jeff
+curl -X GET http://cloud.bmobapp.com/0348d0c262bc91d9/test?name=jeff
 ```
 其中：
 0348d0c262bc91d9：应用的Secret Key。
@@ -34,7 +34,7 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 curl -X POST \
     -H "Content-Type: application/x-www-form-urlencoded" \
     -d 'name=jeff' \
-    http://cloud.bmob.cn/0348d0c262bc91d9/test
+    http://cloud.bmobapp.com/0348d0c262bc91d9/test
 ```
 其中：
 0348d0c262bc91d9：应用的Secret Key。
@@ -56,7 +56,7 @@ request模块用于获取传入的参数。由于现在调用云函数有两种�
 #### get方式
 用get方式调用云函数，例如：
 ```
-curl -X GET http://cloud.bmob.cn/0348d0c262bc91d9/test?name=jeff
+curl -X GET http://cloud.bmobapp.com/0348d0c262bc91d9/test?name=jeff
 ```
 可用下面的方法获取name的值：
 ```
@@ -69,7 +69,7 @@ request.query.name
 curl -X POST \
     -H "Content-Type: application/x-www-form-urlencoded" \
     -d 'name=jeff' \
-    http://cloud.bmob.cn/0348d0c262bc91d9/test
+    http://cloud.bmobapp.com/0348d0c262bc91d9/test
 ```
 可用下面的方法获取name的值：
 ```
@@ -108,7 +108,7 @@ modules是Bmob云函数提供给大家的各种对象处理的模块，包括数
   //下面进行其他操作
 ```
 
-** 这里需要说明一点的是：云函数对数据格式的封装遵循RestApi的规则，如果在查看过程中有什么疑问，请移步到[RestApi开发文档](http://doc.bmob.cn/data/Restful/develop_doc/)。 **
+** 这里需要说明一点的是：云函数对数据格式的封装遵循RestApi的规则，如果在查看过程中有什么疑问，请移步到[RestApi开发文档](http://doc.bmobapp.com/data/Restful/develop_doc/)。 **
 
 ## 数据库对象
 
@@ -224,7 +224,7 @@ function onRequest(request, response, modules) {
 }
 ```
 
-其中，`count`为标识位，具体原因大家可以参考Restapi说明文档：[http://doc.bmob.cn/data/Restful/develop_doc/#_31](http://doc.bmob.cn/data/Restful/develop_doc/#_31)。
+其中，`count`为标识位，具体原因大家可以参考Restapi说明文档：[http://doc.bmobapp.com/data/Restful/develop_doc/#_31](http://doc.bmobapp.com/data/Restful/develop_doc/#_31)。
 
 ### 修改数据
 ```
@@ -1401,7 +1401,7 @@ oHttp对象可以模拟实现get、post、put、delete等各种HTTP请求信息�
 //获取Http模块
 var http = modules.oHttp;
 //发起Get请求
-http('https://www.bmob.cn', function (error, res, body) {
+http('https://www.bmobapp.com', function (error, res, body) {
 	response.send(body);
 });
 
@@ -1414,7 +1414,7 @@ http('https://www.bmob.cn', function (error, res, body) {
 var http = modules.oHttp;
 
 var options = {
-  "url": 'https://api2.bmob.cn/1/classes/GameScore',
+  "url": 'https://api2.bmobapp.com/1/classes/GameScore',
   "headers": {
     'X-Bmob-Application-Id': 'Your Application ID',
 	'X-Bmob-REST-API-Key': 'Your REST API Key',
@@ -1440,33 +1440,33 @@ http.post(options, function(error, res, body) {
 ```
 // 多个函数从上到下依次执行,相互之间没有数据交互
 function onRequest(request, response, modules) {
-    var async = require('async'); 
+    var async = require('async');
     var task1 =function(callback){
- 
+
 		console.log("task1");
 		callback(null,"task1")
 	}
- 
+
 	var task2 =function(callback){
- 
+
 		console.log("task2");
 		callback(null,"task2")
 	}
- 
+
 	var task3 =function(callback){
- 
+
 		console.log("task3");
 		callback(null,"task3")
 	}
- 
+
 	async.series([task1,task2,task3],function(err,result){
- 
+
 		console.log("series");
- 
+
 		if (err) {
 			response.send(err);
 		}
- 
+
 		response.send(result);
 	})
 }
@@ -1605,7 +1605,7 @@ function onRequest(request, response, modules) {
 ```
 
 
-更多请参考 [BQL 详细指南](http://doc.bmob.cn/other/bql/) 。
+更多请参考 [BQL 详细指南](http://doc.bmobapp.com/other/bql/) 。
 
 ## 加密对象（oCrypto）
 提供md5和sha1两种加密算法。更多的功能详细参考：[https://www.npmjs.org/package/crypto](https://www.npmjs.org/package/crypto)
@@ -1644,13 +1644,13 @@ function onRequest(request, response, modules) {
 RSA 非对称加密
 
 ```
-//RSA 
+//RSA
 function onRequest(request, response, modules) {
 
     var NodeRSA = modules.oCryptoRSA;
 
     var key = new NodeRSA({b: 512}); //生成新的512位长度密钥
-    
+
     var text = 'Hello RSA!'; // 加密前数据
     var encrypted = key.encrypt(text, 'base64');  // 加密后数据
     console.log('encrypted: ', encrypted);
@@ -1701,7 +1701,7 @@ function onRequest(request, response, modules) {
     let moment = modules.oMoment
     let time = moment().format('YYYY-MM-DD HH:mm:ss');
     response.end(time)
-}                                                                                    
+}
 ```
 
 ### 格式化示例

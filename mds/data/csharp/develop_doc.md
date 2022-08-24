@@ -183,7 +183,7 @@ public Task<ThumbnailCallbackData> ThumbnailTaskAsync(ThumbnailParameter param);
 Bmob的数据操作是建立在表基础上的，SDK封装了BmobTable来处理，所以任何要操作的数据对象推荐继承自BmobTable类。BmobTable对象包含objectId、createdAt、updatedAt、ACL四个默认的属性，objectId为对象的唯一标识，可以理解为数据表中的主键，createdAt为数据的创建时间，updatedAt为数据的最后修改时间，ACL为数据的操作权限。例如，游戏中可能会用到的分数对象GameScore,它可能包含score、playerName、cheatMode等属性，那么，对应的数据对象模型的示例代码如下：
 
 ```
-public class GameScore : BmobTable 
+public class GameScore : BmobTable
 {
 	/// <summary>
 	/// 玩家名称
@@ -594,7 +594,7 @@ comment.user = new BmobPointer<BmobUser>(user);
 // 设定评论对应的微博
 Weibo weibo = new Weibo();
 weibo.objectId = "ZGwboItm";
-comment.weibo = new BmobPointer<Weibo>(weibo);;    
+comment.weibo = new BmobPointer<Weibo>(weibo);;
 
 bmobUnity.Create(TABLENAME, comment, (resp, exception) =>
 {
@@ -641,7 +641,7 @@ query.OrderByDescending("updatedAt");
 //获取当前用户信息
 GameUser user = BmobUser.CurrentUser();
 //查询当前用户的所有评论
-query.WhereEqualTo("user", new BmobPointer<BmobUser>(user));    
+query.WhereEqualTo("user", new BmobPointer<BmobUser>(user));
 // or use
 // query.WhereMatchesQuery("user", user);
 bmobUnity.Find<Comment>(TABLENAME, query, (resp, exception) =>
@@ -668,7 +668,7 @@ Weibo wb = new Weibo();
 // Weibo对象赋值（条件赋值）
 
 BmobQuery query = new BmobQuery();
-query.WhereMatchesQuery<Weibo>("pic", new BmobPointer<Weibo>(wb)); 
+query.WhereMatchesQuery<Weibo>("pic", new BmobPointer<Weibo>(wb));
 bmobUnity.Find<Comment>(TABLENAME, query, (resp, exception) =>
 {
 	if (exception != null)
@@ -693,9 +693,9 @@ bmobUnity.Find<Comment>(TABLENAME, query, (resp, exception) =>
 ```
 BmobQuery query = new BmobQuery();
 // 限制10条
-query.Limit(10); 
+query.Limit(10);
 //按创建时间排序
-query.Order("createdAt"); 
+query.Order("createdAt");
 //同时将对应的微博信息也查询出来
 query.Include("weibo");
 //执行查询
@@ -732,10 +732,10 @@ BmobUser是BmobTable的一个子类，它继承了BmobTable所有的方法，具
 
 ### 属性
 
-BmobUser除了从BmobTable继承的属性外，还有几个特定的属性： 
+BmobUser除了从BmobTable继承的属性外，还有几个特定的属性：
 
-* username: 用户的用户名（必需）。 
-* password: 用户的密码（必需）。 
+* username: 用户的用户名（必需）。
+* password: 用户的密码（必需）。
 * email: 用户的电子邮件地址（可选）。
 
 ### 创建用户对象
@@ -781,7 +781,7 @@ BmobUser user = new BmobUser();
 user.username = "bmob";
 user.password = "123456";
 //邮箱用于找回密码
-user.email = "partnet@bmob.cn";
+user.email = "partnet@bmobapp.com";
 //如使用了GameUser表的话，以下注册语句需要更改为：bmobUnity.Signup<MyBmobUser>(user,(resp, exception) =>
 bmobUnity.Signup(user,(resp, exception) =>
 {
@@ -811,7 +811,7 @@ bmobUnity.Signup(user,(resp, exception) =>
 当用户注册成功后，您需要让他们以后能够用注册的用户名登录到他们的账户使用应用。要做到这一点，你可以使用BmobUser类的login方法。
 
 ```
-bmobUnity.Login<GameUser>("bmob", "123456", (resp, exception) => 
+bmobUnity.Login<GameUser>("bmob", "123456", (resp, exception) =>
 {
 	if (exception != null)
 	{
@@ -886,7 +886,7 @@ bmobUnity.Find<GameUser>(BmobUser.TABLE, query, (resp, exception) =>
 重置密码的流程很简单，开发者只需要求用户输入注册的电子邮件地址即可，示例代码如下：
 
 ```
-bmobUnity.Reset("support@bmob.cn", (resp, exception) =>
+bmobUnity.Reset("support@bmobapp.com", (resp, exception) =>
 {
 	if (exception != null)
 	{
@@ -920,7 +920,7 @@ emailVerified 字段有 3 种状态可以考虑：
 发送给用户的邮箱验证邮件会在一周内失效，可以通过调用 EmailVerify 来强制重新发送：
 
 ```
-bmobUnity.EmailVerify("support@bmob.cn", (resp, exception) => 
+bmobUnity.EmailVerify("support@bmobapp.com", (resp, exception) =>
 {
 	if (exception != null)
 	{
@@ -967,13 +967,13 @@ acl.ReadAccess("*");
 Weibo weibo = new Weibo();
 weibo.message = "论电影的七个元素";
 //创建一个ACL对象
-BmobACL acl = new BmobACL();    
+BmobACL acl = new BmobACL();
 //设置所有人可读
 acl.ReadAccess("*");
-//参数是用户的objectId，这里设置为当前用户可写    
-acl.WriteAccess(BmobUser.CurrentUser().objectId);   
+//参数是用户的objectId，这里设置为当前用户可写
+acl.WriteAccess(BmobUser.CurrentUser().objectId);
 //设置这条数据的ACL信息
-weibo.ACL = acl;    
+weibo.ACL = acl;
 bmobUnity.Create(TABLENAME, weibo, (resp, exception) =>
 {
 	if(exception != null){
@@ -992,13 +992,13 @@ bmobUnity.Create(TABLENAME, weibo, (resp, exception) =>
 Weibo weibo = new Weibo();
 weibo.message = "论电影的七个元素";
 //创建一个ACL对象
-BmobACL acl = new BmobACL();    
+BmobACL acl = new BmobACL();
 //参数是用户的objectId，这里设置为当前用户可读
 acl.ReadAccess(BmobUser.CurrentUser().objectId);
-//参数是用户的objectId，这里设置为当前用户可写    
-acl.WriteAccess(BmobUser.CurrentUser().objectId);   
+//参数是用户的objectId，这里设置为当前用户可写
+acl.WriteAccess(BmobUser.CurrentUser().objectId);
 //设置这条数据的ACL信息
-weibo.ACL = acl;    
+weibo.ACL = acl;
 bmobUnity.Create(TABLENAME, weibo, (resp, exception) =>
 {
 	if(exception != null){
@@ -1017,7 +1017,7 @@ bmobUnity.Create(TABLENAME, weibo, (resp, exception) =>
 ```
 //创建公司某用户的工资对象
 WageInfo wageinfo = new WageInfo();
-wageinfo.Wage = 100000;   
+wageinfo.Wage = 100000;
 
 //这里创建四个用户对象，分别为老板、人事小张、出纳小谢和自己
 BmobUser boss;
@@ -1029,7 +1029,7 @@ BmobUser me;
 BmobACL acl = new BmobACL();
 
 //设置四个用户读的权限
-acl.ReadAccess(boos.objectId);    
+acl.ReadAccess(boos.objectId);
 acl.ReadAccess(hr_zhang.objectId);
 acl.ReadAccess(cashier_xie.objectId);
 acl.ReadAccess(me.objectId);
@@ -1274,7 +1274,7 @@ public string getPath()
 	}
 
 	var ffuture = Bmob.FileUploadTaskAsync(new BmobLocalFile(data, "21.png"));
-	
+
 	GameUser user = new GameUser();
 	user.email = "1324@qq.com";
 	user.phone = "1234";
@@ -1293,7 +1293,7 @@ public string getPath()
 云端代码的调用方法非常简单，如下为调用执行云端方法test的实现代码：
 
 ```
-Bmob.Endpoint<Hashtable>("test", (resp, exception) => 
+Bmob.Endpoint<Hashtable>("test", (resp, exception) =>
 {
 	if (exception != null)
 	{
@@ -1314,7 +1314,7 @@ C#调用云端代码的返回值为json字符串，即不能只返回一个单�
 ```
 function onRequest(request, response, modules) {
 response.end("just string...");
-}              
+}
 ```
 
 * C#中正确的方式：
@@ -1325,7 +1325,7 @@ response.end("just string...");
 function onRequest(request, response, modules) {
     var res =  {"value": "just string..."} ;
     response.end(JSON.stringify(res));
-}                         
+}
 ```
 
 C#调用代码：
@@ -1356,19 +1356,19 @@ public void EndPointTest()
 --
 
 function onRequest(request, response, modules) {
-    
-    //获取数据库对象 
-    var db = modules.oData; 
+
+    //获取数据库对象
+    var db = modules.oData;
 
     var name = request.body.a;
     //获取
-    db.find({ 
+    db.find({
         table:'StudentScore',
-        "where":{"name":name}  
+        "where":{"name":name}
     },function(err,data){
         response.send(JSON.parse(data).results);
-    }); 
-    
+    });
+
 }
 ```
 
@@ -1382,7 +1382,7 @@ function onRequest(request, response, modules) {
 
 ```
 BmobWindows bmobWindows = new BmobWindows();
-bmobWindows.Timestamp( (resp, exception) => 
+bmobWindows.Timestamp( (resp, exception) =>
 {
 	if (exception != null)
 	{
@@ -1390,8 +1390,8 @@ bmobWindows.Timestamp( (resp, exception) =>
 		return;
 	}
 	//返回服务器时间（单位：秒）
-	print("返回时间戳为： " + resp.timestamp); 
-	print("返回格式化的日期为： " + resp.datetime); 
+	print("返回时间戳为： " + resp.timestamp);
+	print("返回格式化的日期为： " + resp.datetime);
 }
 );
 ```
@@ -1443,7 +1443,7 @@ BmobDebug.level = BmobDebug.Level.TRACE;
 
 如果是开发desktop的应用，还可以等待结果的返回，但是在手机端，系统不允许有长时间等待的，要么使用callback要么使用异步。
 
-使用回调： 
+使用回调：
 
 ```
         private void create_Click(object sender, RoutedEventArgs e)

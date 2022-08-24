@@ -36,7 +36,7 @@ trade_no：支付宝或微信返回的订单号
 
 **请求**
 
-- url ：https://api2.bmob.cn/1/pay/out_trade_no
+- url ：https://api2.bmobapp.com/1/pay/out_trade_no
 
 - method ：GET
 
@@ -57,13 +57,13 @@ Content-Type: application/json
 
 ```
 {
-	name:订单或商品名称 
-	body:商品详情  
-	create_time:调起支付的时间  
-	out_trade_no:Bmob系统的订单号  
+	name:订单或商品名称
+	body:商品详情
+	create_time:调起支付的时间
+	out_trade_no:Bmob系统的订单号
 	transaction_id:微信或支付宝的系统订单号
-	pay_type:WECHATPAY（微信支付）或ALIPAY（支付宝支付） 
-	total_fee:订单总金额  
+	pay_type:WECHATPAY（微信支付）或ALIPAY（支付宝支付）
+	total_fee:订单总金额
 	trade_state:NOTPAY（未支付）或 SUCCESS（支付成功）
 }
 ```
@@ -78,7 +78,7 @@ Content-Type: application/json
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID"          \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
-  https://api2.bmob.cn/1/pay/9f392618f449a71c6fcfdee38d2b29e4
+  https://api2.bmobapp.com/1/pay/9f392618f449a71c6fcfdee38d2b29e4
 ```
 
 其返回值：

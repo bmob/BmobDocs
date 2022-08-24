@@ -92,7 +92,7 @@ code为下表中的错误码，error为下表中的内容
 |102	|Invalid key '%s' for find OR Invalid value for key '%s'. OR %s: invalid geopoint object.|查询中的字段名是大小写敏感的，且必须以英文字母开头，有效的字符仅限在英文字母、数字以及下划线。，或查询对应的字段值不匹配，或提供的地理位置格式不正确|
 |103	|objectId required. OR classname '%s' must start with a letter.|查询单个对象或更新对象时必须提供objectId 或 非法的 class 名称，class 名称是大小写敏感的，并且必须以英文字母开头，有效的字符仅限在英文字母、数字以及下划线.|
 |104	|relation className '%s' not exists.|关联的class名称不存在|
-|105	|invalid field name: %s. OR It is a reserved field: %s.|字段名是大小写敏感的，且必须以英文字母开头，有效的字符仅限在英文字母、数字以及下划线 或 字段名是[Bmob](http://www.bmob.cn/ "Bmob移动后端云服务平台")默认保留的，如objectId,createdAt,updateAt,ACL|
+|105	|invalid field name: %s. OR It is a reserved field: %s.|字段名是大小写敏感的，且必须以英文字母开头，有效的字符仅限在英文字母、数字以及下划线 或 字段名是[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")默认保留的，如objectId,createdAt,updateAt,ACL|
 |106	|%s: is not a valid Pointer.|不是一个正确的指针类型|
 |107	|invalid json: %s.|输入的json不是正确的json格式|
 |107	|This endpoint only supports Content-Type: application/json requests, not %s.|请求只支持Header头部Content-Type值为application/json或application/json; charset=utf-8|
@@ -106,7 +106,7 @@ code为下表中的错误码，error为下表中的内容
 |113	|every request shoud be an object like:{"method": "POST","path": "/1/classes/GameScore","body": {"score": 1337,"playerName": "Sean Plott"}}|requests数组中每个元素应该是一个像这样子的json对象|
 |114	|requests array larger than %d|requests数组大于50|
 |117	|Latitude must be in [-90, 90]: %f. OR Longitude must be in [-180, 180]: %f.|纬度范围在[-90, 90] 或 经度范围在[-180, 180]|
-|120	|Email verify should be opened in your app setup page of bmob|要使用此功能，请在[Bmob](http://www.bmob.cn/ "Bmob移动后端云服务平台")后台应用设置中打开邮箱认证功能开关|
+|120	|Email verify should be opened in your app setup page of bmob|要使用此功能，请在[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")后台应用设置中打开邮箱认证功能开关|
 |131	|Invalid device token:%s|不正确的deviceToken|
 |132	|Invalid installation ID:%s|不正确的installationId|
 |133	|Invalid device type:%s|不正确的deviceType|
@@ -130,9 +130,9 @@ code为下表中的错误码，error为下表中的内容
 |160	|image error|图片错误|
 |161	|image mode error|图片模式错误|
 |162	|image width error|图片宽度错误|
-|163	|image height error|图片高度错误| 
-|164	|image longEdge error|图片长边错误| 
-|165	|image shortgEdge error|图片短边错误| 
+|163	|image height error|图片高度错误|
+|164	|image longEdge error|图片长边错误|
+|165	|image shortgEdge error|图片短边错误|
 |201	|%s missing|缺失数据|
 |202	|username '%s' already taken.|用户名已经存在|
 |203	|email '%s' already taken.|邮箱已经存在|

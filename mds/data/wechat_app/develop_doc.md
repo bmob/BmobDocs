@@ -108,7 +108,7 @@ ps:最近小程序也推出了显示H5页面，如果需要使用，可开通FTP
 微信access_token，业务场景,当其他平台需要使用你小程序的token，并不想与Bmob的平台冲突，可以通过此API实现
 ```
 curl --request GET \
-  --url https://api2.bmob.cn/1/wechatApp/getAccessToken \
+  --url https://api2.bmobapp.com/1/wechatApp/getAccessToken \
   --header 'content-type: application/json' \
   --header 'x-bmob-application-id: ' \
   --header 'x-bmob-rest-api-key: ' \
@@ -130,7 +130,7 @@ curl --request GET \
           var temp = {
             "touser": "Bmob公众号回复，openid 得到",
             "template_id": "-ERkPwp0ntimqH39bggQc_Pj55a18CYLpj-Ert8-c8Y",
-            "url": "https://www.bmob.cn/",
+            "url": "https://www.bmobapp.com/",
             "data": {
               "first": {
                 "value": "您好，REST API 失效，请登录控制台查看。",
@@ -167,14 +167,14 @@ curl --request GET \
 
 ```
 curl --request POST \
-  --url http://api2.bmob.cn/1/wechatApp/notifyMsg \
+  --url http://api2.bmobapp.com/1/wechatApp/notifyMsg \
   --header 'content-type: application/json' \
   --header 'x-bmob-application-id: ' \
   --header 'x-bmob-rest-api-key: ' \
   --data '{
    "touser": "Bmob公众号回复，openid 得到",
    "template_id":"-ERkPwp0ntimqH39bggQc_Pj55a18CYLpj-Ert8-c8Y",
-   "url": "http://www.bmob.cn/",
+   "url": "http://www.bmobapp.com/",
    "data": {
        "first": {
            "value": "您好，REST API 失效，请登录控制台查看。",
@@ -411,7 +411,7 @@ var sessionKey="xTlW5jfSUP3Kx0vC5PJbmw==";
 REST API
 ```
 curl -X POST \
-  http://api2.bmob.cn/1/wechatApp/SendWeAppMessage \
+  http://api2.bmobapp.com/1/wechatApp/SendWeAppMessage \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'x-bmob-application-id: XXX' \
@@ -480,7 +480,7 @@ function(err) {
 
 
 ## 小程序短信验证码
-方法调用与JavaScript一致，查看JavaScript 短信文档 [请求短信验证码](https://docs.bmob.cn/sms/JavaScript/b_developdoc/doc/index.html#请求短信验证码 "请求短信验证码")
+方法调用与JavaScript一致，查看JavaScript 短信文档 [请求短信验证码](https://docs.bmobapp.com/sms/JavaScript/b_developdoc/doc/index.html#请求短信验证码 "请求短信验证码")
 
 
 ## 小程序支付
@@ -674,7 +674,7 @@ query.first({
 ```
 
 **这里需要注意一点的是：**
-默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看分页查询](https://docs.bmob.cn/data/wechatApp/b_developdoc/doc/index.html#分页查询)一节。
+默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看分页查询](https://docs.bmobapp.com/data/wechatApp/b_developdoc/doc/index.html#分页查询)一节。
 
 ### 获取对象的特殊属性
 
@@ -2066,7 +2066,7 @@ post.save(null, {
 
 ## ACL和角色
 
-数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看[Bmob数据与安全页面](http://doc.bmob.cn/other/data_safety/)，了解Bmob如何保护数据安全）。
+数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看[Bmob数据与安全页面](http://doc.bmobapp.com/other/data_safety/)，了解Bmob如何保护数据安全）。
 
 其中，最灵活的方法是通过ACL和角色，它的思路是每一条数据有一个用户和角色的列表，以及这些用户和角色拥有什么样的许可权限。
 

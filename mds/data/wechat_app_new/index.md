@@ -32,7 +32,7 @@ var Bmob = require('./src/lib/app.js');
 
 
 
-### 
+###
 
 
 
@@ -173,7 +173,7 @@ Bmob.debug(true)
 let params = {
 	username: 'bmob2018',
 	password: 'bmob2018',
-	email: 'bmob2018@bmob.cn',
+	email: 'bmob2018@bmobapp.com',
 	phone: '13711166567',
 }
 Bmob.User.register(params).then(res => {
@@ -337,7 +337,7 @@ Bmob.User.users().then(res => {
 {
 	results: [
 		{createdAt: "2018-04-19 17:26:45", objectId: "X43SIIIH", updatedAt: "2018-04-19 17:26:48",…}
-		{createdAt: "2018-04-19 17:42:59", email: "bmob2018@bmob.cn", objectId: "73d4587140",…}
+		{createdAt: "2018-04-19 17:42:59", email: "bmob2018@bmobapp.com", objectId: "73d4587140",…}
 	]
 }
 ```
@@ -382,11 +382,11 @@ Bmob.User.current().then(result => {
 
 **简介：**
 
-设置邮件验证是一个可选的应用设置, 这样可以对已经确认过邮件的用户提供一部分保留的体验，邮件验证功能会在用户(User)对象中加入emailVerified字段, 当一个用户的邮件被新添加或者修改过的话，emailVerified会默认被设为false，如果应用设置中开启了邮箱认证功能，[Bmob](http://www.bmob.cn/)会对用户填写的邮箱发送一个链接, 这个链接可以把emailVerified设置为 true.
+设置邮件验证是一个可选的应用设置, 这样可以对已经确认过邮件的用户提供一部分保留的体验，邮件验证功能会在用户(User)对象中加入emailVerified字段, 当一个用户的邮件被新添加或者修改过的话，emailVerified会默认被设为false，如果应用设置中开启了邮箱认证功能，[Bmob](http://www.bmobapp.com/)会对用户填写的邮箱发送一个链接, 这个链接可以把emailVerified设置为 true.
 
 emailVerified 字段有 3 种状态可以考虑：
 
-**true** : 用户可以点击邮件中的链接通过[Bmob](http://www.bmob.cn/)来验证地址，一个用户永远不会在新创建这个值的时候出现emailVerified为true。
+**true** : 用户可以点击邮件中的链接通过[Bmob](http://www.bmobapp.com/)来验证地址，一个用户永远不会在新创建这个值的时候出现emailVerified为true。
 
 **false** : 用户(User)对象最后一次被刷新的时候, 用户并没有确认过他的邮箱地址, 如果你看到emailVerified为false的话，你可以考虑刷新 用户(User)对象。
 
@@ -403,7 +403,7 @@ emailVerified 字段有 3 种状态可以考虑：
 **请求示例：**
 
 ```
-Bmob.User.requestEmailVerify('bmob2018@bmob.cn').then(res => {
+Bmob.User.requestEmailVerify('bmob2018@bmobapp.com').then(res => {
   console.log(res)
 }).catch(err => {
  console.log(err)
@@ -555,7 +555,7 @@ Bmob.updateUserPassword(objectId,data).then(res => {
     alert: "Hello From Bmob."
       }
     }
-    
+
     Bmob.push(data).then(res => {
       console.log(res)
     }).catch(err => {
@@ -1337,7 +1337,7 @@ Bmob.timestamp().then(res => {
 })
 ```
 
-## 
+##
 
 ## 数据类型
 
@@ -1398,12 +1398,12 @@ Bmob的统计查询，提供以下关键字或其组合的查询操作：
 
 以上关键字可以自由组合并可以与前面查询语句中的where, order, limit, skip等组合使用。
 
-比如，GameScore表是游戏玩家的信息和得分表，有playerName(玩家名称)、score(玩家得分)等你自己创建的列，还有Bmob的默认列objectId, createdAt, updatedAt,那么我们现在举例如何使用以上的查询关键字来作这个表的统计。 
+比如，GameScore表是游戏玩家的信息和得分表，有playerName(玩家名称)、score(玩家得分)等你自己创建的列，还有Bmob的默认列objectId, createdAt, updatedAt,那么我们现在举例如何使用以上的查询关键字来作这个表的统计。
 
 ### 计算总和
 我们要计算GameScore表所有玩家的得分总和，sum后面只能拼接Number类型的列名，即要计算哪个列的值的总和，只对Number类型有效，多个Number列用,分隔，则查询如下：
 
-```    
+```
 const query = Bmob.Query("GameScore");
 query.statTo("sum", "score");
 query.find().then(res => {
@@ -1418,9 +1418,9 @@ query.find().then(res => {
 [
 	{
 		"_sumScore": 2398
-	}   
+	}
 ]
-                  
+
 ```
 
 ### 分组计算总和
@@ -1448,7 +1448,7 @@ query.find().then(res => {
 		"_sumScore": 1208,
 		"createdAt": "2014-01-01"
 	},
-]                 
+]
 ```
 
 ### 多个分组并计算多个列的总和
@@ -1486,7 +1486,7 @@ query.find().then(res => {
 		"playerName": "John"
 		"createdAt": "2014-02-01"
 	},
-]                 
+]
 ```
 
 ### 分组计算总和并只返回满足条件的部分值
@@ -1511,7 +1511,7 @@ query.find().then(res => {
 		"_sumScore": 2398,
 		"createdAt": "2014-02-05"
 	},
-]                 
+]
 ```
 
 ### 分组计算总和并返回每个分组的记录数
@@ -1527,8 +1527,8 @@ query.statTo("groupcount", "true");
 query.statTo("order", "createdAt");
 query.find().then(res => {
   console.log(res)
-});    
-    
+});
+
 ```
 
 返回内容如下：
@@ -1545,7 +1545,7 @@ query.find().then(res => {
 		"_count": 2,
 		"createdAt": "2014-01-01"
 	},
-]                 
+]
 ```
 
 ### 获取不重复的列值
@@ -1557,8 +1557,8 @@ const query = Bmob.Query("GameScore");
 query.statTo("groupby", "score");
 query.find().then(res => {
   console.log(res)
-});    
-    
+});
+
 ```
 
 返回内容如下：
@@ -1571,7 +1571,7 @@ query.find().then(res => {
 	{
 		"score": 89
 	}
-]                 
+]
 ```
 
 ### 其他关键字
@@ -1682,7 +1682,7 @@ Bmob.functions(params.funcName,params.data).then(function (response) {
 	    response.end('欢迎使用Bmob');
 	  else
 	    response.end('输入错误，请重新输入');
-    }  
+    }
 
 ```
 
@@ -1806,12 +1806,12 @@ query.save().then(res => {
 
 ```
 curl -X POST \
-  http://api2.bmob.cn/2/cdnVedioSnapshot \
+  http://api2.bmobapp.com/2/cdnVedioSnapshot \
   -H 'content-type: application/json' \
   -H 'x-bmob-application-id: xxx' \
   -H 'x-bmob-rest-api-key: xxx' \
   -d '{"source": "https://bmob-cdn-80.b0.upaiyun.com/2018/08/17/f4ca5b26305348c88ae70818982c1168.mp4", "save_as": "https://bmob-cdn-80.b0.upaiyun.com/f4ca5b26305348c88ae70818982c1161.jpg", "point": "00:00:05"}'
-  
+
 //{"source": "<视频的存储地址>", "point": "<时间点>", "save_as": "<截图保存地址>"}
 ```
 
@@ -1844,7 +1844,7 @@ del.destroy(val).then(res => {
   console.log(res);
 }).catch(err => {
   console.log(err)
-})  
+})
 ```
 **返回示例:**
 ```
@@ -1978,7 +1978,7 @@ Bmob.User.upInfo(e.detail.userInfo).then(result => {
     wx.Bmob.User.decryption(res).then(res => {
       console.log(res)
   })
-    
+
  // 解密后返回数据格式如下
  // { "phoneNumber":"137xxxx6579", "purePhoneNumber":"137xxxx6579", "countryCode":"86", "watermark":{ "timestamp":1516762168, "appid":"wx094edexxxxx" } }
   }
@@ -2017,7 +2017,7 @@ onShareAppMessage: function (res) {
       }
     }
   }
-  
+
 //解密后返回数据格式如下
 {
  "openGId": "OPENGID"
@@ -2184,7 +2184,7 @@ upload:function(){
 {"code":10007,"error":"CheckMsg errcode:图片违规"}
 ```
 
-###  
+###
 
 
 
@@ -2242,10 +2242,10 @@ uploadCheck:function(){
             extension = extension[1].toLowerCase();
             var name = timestamp + "." +extension;
             var file = wx.Bmob.File(name, tempFilePath);
-            
+
           }
           file.save().then(res => {
-   
+
             console.log(res,99)
 
             for (const key in res) {
@@ -2268,7 +2268,7 @@ uploadCheck:function(){
 
             common.showTip("上传成功", "success");
           })
-          
+
         }else{
           common.showTip("请选择图片","loading");
         }
@@ -2360,7 +2360,7 @@ uploadCheck:function(){
     	}
     	,"emphasis_keyword": ""
     }
-    
+
     Bmob.sendWeAppMessage(modelData).then(function (response) {
     	console.log(response);
     }).catch(function (error) {
@@ -2390,7 +2390,7 @@ uploadCheck:function(){
 
 2. 填写支付商户密匙到Bmob控制台
 
-   
+
 
 
 
@@ -2508,7 +2508,7 @@ var openId = wx.getStorageSync('openid');
     wx.Bmob.User.decryption(res).then(res => {
       console.log(res)
   })
-    
+
  // 解密后返回数据格式如下
  // { "phoneNumber":"137xxxx6579", "purePhoneNumber":"137xxxx6579", "countryCode":"86", "watermark":{ "timestamp":1516762168, "appid":"wx094edexxxxx" } }
   }
@@ -2547,7 +2547,7 @@ onShareAppMessage: function (res) {
       }
     }
   }
-  
+
 //解密后返回数据格式如下
 {
  "openGId": "OPENGID"
@@ -2609,7 +2609,7 @@ wx.getWeRunData({
     let temp = {
       touser: "openid",
       template_id:"template_id",
-      url: "http://www.bmob.cn/",
+      url: "http://www.bmobapp.com/",
       data: {
     		first: {
     			value: "您好，Restful 失效，请登录控制台查看。",
@@ -2629,7 +2629,7 @@ wx.getWeRunData({
     		}
       	}
     }
-    
+
     Bmob.notifyMsg(temp).then(function (response) {
     console.log(response);
     })
@@ -2790,7 +2790,7 @@ BmobSocketIo.unsubDeleteRow("GameScore","1256e40e4f");
 tablename为更新的表，data为服务端返回的更新数据。
 
 ```
-   BmobSocketIo.onUpdateTable = function(tablename,data) {    
+   BmobSocketIo.onUpdateTable = function(tablename,data) {
       //业务逻辑的代码
    };
 
@@ -2801,7 +2801,7 @@ tablename为更新的表，data为服务端返回的更新数据。
 tablename为更新的表，objectId为更新行的objectId，data为服务端返回的更新数据。
 
 ```
-   BmobSocketIo.onUpdateRow = function(tablename,objectId,data) {    
+   BmobSocketIo.onUpdateRow = function(tablename,objectId,data) {
       //业务逻辑的代码
    };
 
@@ -2812,7 +2812,7 @@ tablename为更新的表，objectId为更新行的objectId，data为服务端返
 tablename为更新的表，objectId为更新行的objectId，data为服务端返回的更新数据。
 
 ```
-   BmobSocketIo.onDeleteRow = function(tablename,objectId,data) {    
+   BmobSocketIo.onDeleteRow = function(tablename,objectId,data) {
       //业务逻辑的代码
    };
 
@@ -2820,7 +2820,7 @@ tablename为更新的表，objectId为更新行的objectId，data为服务端返
 
 ### demo
 
-在线上演示实时数据平台的一个聊天应用的demo：[chat room demo](http://chatroom.bmob.cn) ，演示了如何使用实时数据服务实现聊天的功能。
+在线上演示实时数据平台的一个聊天应用的demo：[chat room demo](http://chatroom.bmobapp.com) ，演示了如何使用实时数据服务实现聊天的功能。
 
 用浏览器打开两个窗口，在其中一个窗口输入`昵称`和`内容`，按`发送`按钮，在另外一个窗口能看到发送的内容。
 

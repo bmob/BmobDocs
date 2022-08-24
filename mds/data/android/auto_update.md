@@ -4,7 +4,7 @@
 
 下载SDK提供的res文件夹拷入工程目录下，和工程本身res目录合并。
 
-res文件夹下载地址：[https://www.bmob.cn/static/res.zip](https://www.bmob.cn/static/res.zip)
+res文件夹下载地址：[https://www.bmobapp.com/static/res.zip](https://www.bmobapp.com/static/res.zip)
 
 这里需要注意的是：
 
@@ -29,7 +29,7 @@ res文件夹下载地址：[https://www.bmob.cn/static/res.zip](https://www.bmob
 - android.permission.REQUEST_INSTALL_PACKAGES 权限适配Android8.0的安装权限管理
 
 
-2.添加渠道到<application>标签下： 
+2.添加渠道到<application>标签下：
 
 ```xml
 <meta-data android:value="Channel ID" android:name="BMOB_CHANNEL"/>
@@ -40,7 +40,7 @@ res文件夹下载地址：[https://www.bmob.cn/static/res.zip](https://www.bmob
 3.添加Activity到<application>标签下：
 
 ```xml
-<activity 
+<activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
 		  	android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
@@ -83,7 +83,7 @@ BmobUpdateAgent.setUpdateOnlyWifi(false)
 2. 如果你发现调用update方法无反应，可使用下面`自定义功能`中的`监听检测更新的结果`提到的方法来监听自动更新的结果,具体如下：
 ```java
 BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
-			
+
 	@Override
 	public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
 		// TODO Auto-generated method stub
@@ -152,7 +152,7 @@ SDK中为自动更新方式提供了`忽略版本更新`功能，当用户勾选
 
 **请不要上传apk文件到`path`字段，改为`填写apk文件的url地址`到`android_url`字段。**
 
-具体原因请查看 [常见问题](http://doc.bmob.cn/other/common_problem/)。
+具体原因请查看 [常见问题](http://doc.bmobapp.com/other/common_problem/)。
 
 ### 6、集成检测
 
@@ -163,9 +163,9 @@ SDK中默认开启了集成检测功能，在调用任意的更新接口后，�
 toast的含义如下：
 
 	"Please copy all resources (res/) from SDK to your project!"：请检查是不是把res文件夹下所有的资源文件都放到了工程中。
-	
+
 	"Please add Permission in AndroidManifest!"：请检查上述步骤中的相关权限是否正确添加。
-	
+
 	"Please add Activity in AndroidManifest!"：请检查上述步骤中的Activity是否正确添加。
 
 ## 兼容Android7.0
@@ -212,7 +212,7 @@ toast的含义如下：
 ### 静默下载更新
 
 当用户进入应用首页后如果处于wifi环境检测更新，如果有更新，后台下载新版本，如果下载成功，则进行通知栏展示，用户点击通知栏开始安装。静默下载过程中如果wifi断开，则会停止下载。实现的方法是：在应用程序入口Activity里的`OnCreate()`方法中调用如下代码：
-	
+
 	public void onCreate(Bundle  savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    BmobUpdateAgent.silentUpdate(this);
@@ -236,12 +236,12 @@ BmobUpdateAgent.setUpdateOnlyWifi（boolean updateOnlyWifi）
 
 ```java
 	BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
-			
+
 		@Override
 		public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
 			// TODO Auto-generated method stub
 			if (updateStatus == UpdateStatus.Yes) {//版本有更新
-				
+
 			}else if(updateStatus == UpdateStatus.No){
 				Toast.makeText(ActAutoUpdate.this, "版本无更新", Toast.LENGTH_SHORT).show();
 			}else if(updateStatus==UpdateStatus.EmptyField){//此提示只是提醒开发者关注那些必填项，测试成功后，无需对用户提示
@@ -266,7 +266,7 @@ BmobUpdateAgent.setUpdateOnlyWifi（boolean updateOnlyWifi）
 ```java
 	//设置对对话框按钮的点击事件的监听
 	BmobUpdateAgent.setDialogListener(new BmobDialogButtonListener() {
-		
+
 		@Override
 		public void onClick(int status) {
 			// TODO Auto-generated method stub
@@ -300,21 +300,21 @@ BmobUpdateAgent.setUpdateOnlyWifi（boolean updateOnlyWifi）
 	UpdateStatus.Close      =8： 代表关闭对话框-->只有在强制更新状态下才会在更新对话框的右上方出现close按钮,如果用户不点击”立即更新“按钮，这时候开发者可做些操作，比如直接退出应用等
 
 ## 常见问题
- 
+
 一、**上传新的APK文件之后，为什么使用 `v3.4.6以前版本的SDK开发的旧应用` 的自动更新功能出现`解析包出错`问题？**
- 
+
 1、表现：
-	
+
 	只下载58字节后就弹出安装界面，点击安装出现`解析包出错`的错误。
-	
+
 2、原因：
 
      自4月13日上线CDN文件服务以来，通过Web后台上传的apk文件都会自动上传到CDN服务提供商那里，而`v3.4.6以前版本的SDK`的自动更新功能中得到`用于下载的url地址会将Bmob原有的文件域名拼接到BmobFile的url前面`。
 
-	因此，最终拼接成的用于下载的地址是类似这样的：`http://file.bmob.cn/http://bmob-cdn-82.b0.upaiyun.com/2016/04/20/xxx.apk`，由此导致 `解析包出错`。
+	因此，最终拼接成的用于下载的地址是类似这样的：`http://file.bmobapp.com/http://bmob-cdn-82.b0.upaiyun.com/2016/04/20/xxx.apk`，由此导致 `解析包出错`。
 
 3、解决方法：
-	
+
 	不要上传apk文件到`AppVersion`表的`path`字段，改为填写url地址到`AppVersion`表的`android_url`字段，以此来恢复旧应用的自动更新功能。
 
 其中，`android_url`可以是以下两种之一：

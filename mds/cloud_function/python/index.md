@@ -7,7 +7,7 @@
 
 ## 调用方法
 
-- 前提是需要在 [https://www.bmob.cn](https://www.bmob.cn) 注册账号、创建应用
+- 前提是需要在 [https://www.bmobapp.com](https://www.bmobapp.com) 注册账号、创建应用
 
 Python云函数允许以以下方式调用：
 
@@ -34,31 +34,31 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 
 ### REST API API
 
-1. 调用 `api.bmob.cn` ，与调用Java、NodeJS版云函数的方式 **完全相同**。这种方式下，服务器会 **自动判断语言**，但 **限制 `Method` 为 `Post` 且 `Content-Type` 为 `application/json`**
+1. 调用 `api.bmobapp.com` ，与调用Java、NodeJS版云函数的方式 **完全相同**。这种方式下，服务器会 **自动判断语言**，但 **限制 `Method` 为 `Post` 且 `Content-Type` 为 `application/json`**
 
-2. 调用 `pycloud.bmob.cn` ，调用方式基本相同，这种方式 **仅可调用Python云函数**，但 **不限制 `Method` 和 `Content-Type`**
+2. 调用 `pycloud.bmobapp.com` ，调用方式基本相同，这种方式 **仅可调用Python云函数**，但 **不限制 `Method` 和 `Content-Type`**
 
 ```
-# 使用Appid + RestKey请求api2.bmob.cn域名(自动判断语言)
+# 使用Appid + RestKey请求api2.bmobapp.com域名(自动判断语言)
 curl -X POST \
     -H "X-Bmob-Application-Id: Your Application ID" \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
     -H "Content-Type: application/json" \
     -d '{"name": "zwr"}' \
-    https://api2.bmob.cn/1/functions/[function name]
+    https://api2.bmobapp.com/1/functions/[function name]
 
-# 使用Appid + RestKey请求pycloud.bmob.cn域名(仅支持Python云函数)
+# 使用Appid + RestKey请求pycloud.bmobapp.com域名(仅支持Python云函数)
 curl -X [method] \
     -H "X-Bmob-Application-Id: Your Application ID" \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
     -d '[body]' \
-    https://pycloud.bmob.cn/1/functions/[function name]
+    https://pycloud.bmobapp.com/1/functions/[function name]
 
 # 使用Master Key请求
 curl -X [method] \
     -H "X-Bmob-Master-Key: Your Master Key" \
     -d '[body]' \
-    https://pycloud.bmob.cn/1/functions/[function name]
+    https://pycloud.bmobapp.com/1/functions/[function name]
 ```
 
 ### Http请求
@@ -68,10 +68,10 @@ curl -X [method] \
 curl -X [method] \
     -H "header key: header value" \
     -d '[body]' \
-    https://pycloud.bmob.cn/[sectet key]/[function name]
+    https://pycloud.bmobapp.com/[sectet key]/[function name]
 
 # 或者直接用浏览器打开，即GET请求
-https://pycloud.bmob.cn/[sectet key]/[function name]?k1=v1&k2=v2
+https://pycloud.bmobapp.com/[sectet key]/[function name]?k1=v1&k2=v2
 ```
 
 ---
@@ -85,7 +85,7 @@ AsyncCustomEndpoints ace = new AsyncCustomEndpoints();
 ace.callEndpoint(Context, String funcName, JSONObject params, new CloudCodeListener() {
     @Override
     public void done(Object object, BmobException e) {
-        if (e == null) 
+        if (e == null)
             Log.e(TAG, "Succeed: " + object);
         else
             Log.e(TAG, "Failed: " + e);
@@ -122,7 +122,7 @@ Bmob.Cloud.run('test', {'name': 'zwr'}).then(function (result) {
 
 ```
 IDictionary<String, Object> parameters ＝  new IDictionary<String, Object>{{"name","zwr"}};
-Bmob.Endpoint<Hashtable>("test", parameters, (resp, exception) => 
+Bmob.Endpoint<Hashtable>("test", parameters, (resp, exception) =>
 {
     if (exception == null)
     {
@@ -162,7 +162,7 @@ Bmob.Cloud.run('test', {"name":"tom"}, {
 
 Github页面如下：
 
-[https://github.com/bmob/CloudFunction/tree/master/python/](https://github.com/bmob/CloudFunction/tree/master/python/) 
+[https://github.com/bmob/CloudFunction/tree/master/python/](https://github.com/bmob/CloudFunction/tree/master/python/)
 
 - `exec目录` 下提供了 `macos`、`linux`、`windows 64位`等平台的`可执行文件`，以供开发者快速进行代码的上传、修改、同步到本地和删除
 - `samples目录` 提供了案例
@@ -462,4 +462,4 @@ BmobGeoPoint(longitude, latitude)
 
 - 如果需要接受更大的请求体，或返回更大的结果，请购买更高的配置
 - 如果你不习惯在Web端编辑代码，使用 [同步工具](https://github.com/bmob/CloudFunction/tree/master/python/exec) 是一个不错的选择
-- 
+-

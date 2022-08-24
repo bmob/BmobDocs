@@ -7,8 +7,8 @@
 
 | SDK或Demo     | 下载地址          |
 |------------------------------|--------------------------------|
-| 数据服务 SDK| 使用最新版本v3.7.8，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|
-| 消息推送 SDK| 使用最新版本v1.0.5，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmob.cn/downloads](https://www.bmob.cn/downloads)|  
+| 数据服务 SDK| 使用最新版本v3.7.8，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmobapp.com/downloads](https://www.bmobapp.com/downloads)|
+| 消息推送 SDK| 使用最新版本v1.0.5，集成方式请见下方的自动集成方式。手动集成下载地址：[https://www.bmobapp.com/downloads](https://www.bmobapp.com/downloads)|
 | 消息推送 Demo| [https://github.com/chaozhouzhang/bmob-push-demo](https://github.com/chaozhouzhang/bmob-push-demo)|
 
 自动集成方式：
@@ -64,8 +64,8 @@ dependencies {
 
 ```xml
   <!--TODO 集成：1.2、添加推送所需要的服务和广播-->
-  
- 
+
+
 	<service
 	    android:label="PushService"
 		android:name="cn.bmob.push.lib.service.PushService"
@@ -81,15 +81,15 @@ dependencies {
         android:name="cn.bmob.push.lib.service.PushNotifyService"
         android:process=":bmobpush" >
     </service>
-	
+
 	<receiver android:name="cn.bmob.push.PushReceiver" >
 	    <intent-filter>
 	        <!-- 系统启动完成后会调用 -->
-	        <action android:name="android.intent.action.BOOT_COMPLETED" />               
+	        <action android:name="android.intent.action.BOOT_COMPLETED" />
 	        <!-- 解锁完成后会调用 -->
 	        <action android:name="android.intent.action.USER_PRESENT" />
 	        <!-- 监听网络连通性 -->
-	        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />               
+	        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 	    </intent-filter>
 	</receiver>
 
@@ -99,12 +99,12 @@ dependencies {
 	          <action android:name="cn.bmob.push.action.MESSAGE"/>
 	     </intent-filter>
 	</receiver>
-	
+
 	  <meta-data
             android:name="BMOB_PUSH_CLASS"
             android:value="你自己定义的消息推送广播接收器">
         </meta-data>
-  
+
 
 	<!-- 接收心跳和唤醒的广播，要和PushService运行在同个进程 -->
     <receiver
@@ -136,7 +136,7 @@ public class MyPushMessageReceiver extends BroadcastReceiver{
 			Log.d("bmob", "客户端收到推送内容："+intent.getStringExtra("msg"));
 		}
 	}
-	
+
 }
 ```
 
@@ -162,7 +162,7 @@ BmobInstallationManager.getInstance().initialize(new InstallationListener<BmobIn
 // 启动推送服务
 BmobPush.startWork(this);
 ```
-代码中的"你的Application Id"就是你在Bmob后台中创建的应用程序的Application Id，如果你不知道这是什么，可以参考[快速入门文档](https://docs.bmob.cn/data/Android/a_faststart/doc/index.html)中的注册Bmob账号部分。
+代码中的"你的Application Id"就是你在Bmob后台中创建的应用程序的Application Id，如果你不知道这是什么，可以参考[快速入门文档](https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html)中的注册Bmob账号部分。
 
 ## 3、控制台推送消息给客户端
 ### 3.1、推送设置
@@ -182,11 +182,11 @@ BmobPush.startWork(this);
 ```
 {
 	"aps": {
-	"sound": "cheering.caf", 
-	"alert": "这个是通知栏上显示的内容", 
-	"badge": 0 
-	}, 
-	"xx" : "json的key-value对，你可以根据情况添加更多的，客户端进行解析获取", 
+	"sound": "cheering.caf",
+	"alert": "这个是通知栏上显示的内容",
+	"badge": 0
+	},
+	"xx" : "json的key-value对，你可以根据情况添加更多的，客户端进行解析获取",
 }
 ```
 
@@ -195,7 +195,7 @@ BmobPush.startWork(this);
 ```
 {
 	"aps": {
-		"alert": "推送消息测试", 
+		"alert": "推送消息测试",
 	}
 }
 ```
@@ -203,7 +203,7 @@ BmobPush.startWork(this);
 
 ```
 {
-	"alert" : "推送消息测试", 
+	"alert" : "推送消息测试",
 }
 ```
 
@@ -234,10 +234,10 @@ BmobInstallationManager.getInstance().initialize(new InstallationListener<BmobIn
 
 | 字段名称     | 解释         |
 |------------------------------|--------------------------------|
-| channels| 当前这个设备订阅的渠道名称数组|  
+| channels| 当前这个设备订阅的渠道名称数组|
 | timeZone| 设备所在位置的时区， 如Asia/Shanghai，这个会在每个BmobInstallation对象更新时同步（只读）|
 | deviceType| 设备的的类型, 值为："ios" 或 "android" (只读)|
-| installationId| Bmob使用的设备唯一号 (只读)| 
+| installationId| Bmob使用的设备唯一号 (只读)|
 
 ### 4.1.2、设备信息表管理：BmobInstallationManager
 获取设备唯一标志：

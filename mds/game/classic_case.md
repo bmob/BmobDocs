@@ -91,17 +91,17 @@ knapsack|int[]|65535 / 255|false|false|物品栏
 		案例中的 knapsack(背包)，设计原理是index为物品id，对应数字为物品个数
 		例如游戏中共有3种道具，分别是枪、子弹、手雷，我们定它们的id分别为0、1、2
 		那么knapsack为[1,8,4]意味着这个玩家有 1把枪、8颗子弹、4颗手雷
-		
+
 		这个属性之所以Editable为false，是为了防止客户端外挂可以随意编辑生成道具
 		取而代之的是客户端发送拾取、消耗、丢弃道具的指令到云端代码，经由合法性判断后操作该属性、同步到客户端
-		
----		
+
+---
 
 
 ### 云端代码
 
 - BGS的云端代码可以完美实现游戏的后端逻辑层，并且有热更新机制，可以随时修改、升级
-- 缝合了Bmob数据服务，可以快速进行Bmob数据库的增删查改，其中 `Bmob.class` 的用法与 [Bmob Java云函数](http://doc.bmob.cn/cloud_function/java/) 的 `modules.oData` 完全一致
+- 缝合了Bmob数据服务，可以快速进行Bmob数据库的增删查改，其中 `Bmob.class` 的用法与 [Bmob Java云函数](http://doc.bmobapp.com/cloud_function/java/) 的 `modules.oData` 完全一致
 
 主要需要开发者实现的有 `Room.java`、`Player.java`
 
@@ -197,7 +197,7 @@ onKicked|玩家被踢出房间|-
 
 	@BmobGameSDKHook
 	public native void setHp(int hp);
-	
+
 如果需要获取玩家的position属性，添加方法：
 
 	@BmobGameSDKHook
@@ -209,17 +209,17 @@ onKicked|玩家被踢出房间|-
 	strictfp void onUpdate_Position() {
 		// TODO 与当前安全区进行计算，是否扣除玩家血量
 	}
-	
+
 需要处理客户端的 `Action`, 如客户端上报击中其它玩家，`Action` 为 `Damage`，添加方法
 
 	@BmobGameSDKHook
 	public void onAction_Damage(byte[] damage) {
 		// 使用setHp修改被击中玩家的血量，如果<=0，则判定死亡，通知所有用户
 	}
-	
-	
-	
-	
+
+
+
+
 ### 代码节选
 
 - Room.java的代码很简单，只在房间创建、开始、销毁等时候进行Bmob数据库的操作
@@ -251,11 +251,11 @@ onKicked|玩家被踢出房间|-
 项目导入后的样子：
 ![项目图片](//bmob-cdn-13250.b0.upaiyun.com/2018/03/09/082832c6407fa5778057916ba7ccc6a8.png)
 
- 
+
  绍项目结构简介：
 
  -  场景上的摆设物体都包括在**Environment**上，比如图上的闹钟、柜子等，它们的**Layer**都设置为了**Shootable**字段，代码在玩家开激光枪、激光碰撞检测时检测到Shootable为Layer的物体才会触发碰撞事件。
-    
+
  - 怪物的生成由**EnemyManage**来控制，能够管理何种怪物在哪个出生点按什么时间间隔出生。
 
  - 怪物主要由三个脚本来管理，分别是**EnemyHealth.cs**（管理怪物的hp，被玩家射击到时扣血，血量小于等于0时死掉）、**EnemyMovement.cs**（管理怪物的移动，用UnityEngine.AI.NavMeshAgent，把玩家的坐标设为目的地，这样怪物会按设置的行走速度自动走向玩家位置）和**EnemyAttack.cs**（管理怪物的自动攻击，按一定的时间间隔进行发招）。
@@ -263,7 +263,7 @@ onKicked|玩家被踢出房间|-
  - 玩家也主要由三个脚本来管理，分别是**PlayerHealth.cs**（管理玩家的hp，主要是收到怪物攻击时掉血）、**PlayerMovement.cs**（管理玩家的移动，当键盘按wsad时上下左右的移动）和**PlayerShooting.cs**（管理玩家的射击动作，当鼠标左键点击时对玩家枪口面对的方向发出激光Ray，如果在范围内碰撞检测到了怪物则对怪物进行扣血）。
 
 更详细更完整的细节请看Unity官方的教程
- 
+
 
 ----------
 
@@ -279,8 +279,8 @@ onKicked|玩家被踢出房间|-
    因为Player2Health控制的是其他玩家的血量，所以把玩家收到怪物攻击时减的血量设为0，让其他玩家的血量不受本地控制。
  2. Player2Movement.cs：
     删掉根据键盘的操作引起的移动，加上传入数据时的操作角色移动方法。
-    
-    
+
+
     ```
     //  移动到相应坐标
     public void MoveTo(float x, float z){
@@ -293,8 +293,8 @@ onKicked|玩家被踢出房间|-
         transform.eulerAngles = new Vector3 (0, y, 0);
     }
     ```
-    
-    
+
+
  3. Player2Shooting.cs：
  删掉根据鼠标的操作引起的射击，加上传入射击指令时的方法，考虑到网络延时原因，是否射中怪物的判断不由这里判断，这个射击方法给怪物的伤害要设置为0，仅显示出UI效果。
 
@@ -302,7 +302,7 @@ onKicked|玩家被踢出房间|-
 
  - 更改怪物的移动方式：
 上面我们有提到怪物是根据玩家的位置来自动寻路的，那现在有两个玩家了怎么办呢？根据玩游戏的经验告诉我们，怪物会跟着离他更近的玩家走哟。下面贴出代码：
-   
+
 ```
 // UnityEngine.AI.NavMeshAgent nav;
 // nav = GetComponent <UnityEngine.AI.NavMeshAgent> ();
@@ -311,9 +311,9 @@ void Update ()
     // If the enemy and the player have health left...
     if(enemyHealth.currentHealth > 0)
     {
-        Vector3 enemyPosition = transform.position, 
+        Vector3 enemyPosition = transform.position,
                 tempPosition;
-        float minDist = float.MaxValue, 
+        float minDist = float.MaxValue,
                 tempFloat;
         Vector3 target = Vector3.zero;
         for (int i = 0; i < targetHealths.Length; i++) {
@@ -345,21 +345,21 @@ void Update ()
 
 ### 结合Bmob Game Sdk ###
 
- 1. 访问 [BGS官网](https://game.bmob.cn/)，注册账号并下载 Unity SDK、GameCloud SDK;
+ 1. 访问 [BGS官网](https://game.bmobapp.com/)，注册账号并下载 Unity SDK、GameCloud SDK;
  2. 将 BmobGame_UnitySDK_vx.x.x_xxxxxx.unitypackage Import 到Unity内;
  3. 修改SDK，将游戏开始跳转的 Scene 改为本游戏的场景"_Complete-Game/_Complete-Game";
 
- 
+
  ```
     SceneManager.LoadSceneAsync ("_Complete-Game/_Complete-Game");
  ```
- 
- 
+
+
 
  4. 在 Demo Scene 进行SDK的初始化，绑定 delegate 用于处理各种通知;
  5. 将处理事件转发的脚本绑定给本地角色Player，将Player的移动、旋转、hp等数据，调用SDK接口同步到服务器;
 
- 
+
  ```
     void Update ()
     {
@@ -377,27 +377,27 @@ void Update ()
 
  6. 将 Player 的瞬时动作射击、射中的怪物名通过transfer接口直接发送到其他玩家;
 
- 
+
  ```
     // Game_BmobSDKTest里面SendFireEvent和SendDamageEvent方法，
     // 都是把传来的参数转成byte数组（数组第一位设为事件类别），
     // 通过transfer接口传递数组给其他玩家：BmobGame.SendTransferToAllExceptSelf (notify);
- 
+
     // Game_BmobSDKTest mBGS;
     // mBGS = GetComponentInParent<Game_BmobSDKTest> ();
-    
+
     // 把发射起点、角度、长度，用transfer接口传
     mBGS.SendFireEvent (transform.position.x, transform.position.z, transform.eulerAngles.y, range);
-    
+
     // 把射中的怪物名发送出去，用transfer接口传
     mBGS.SendDamageEvent (shootHit.collider.name);
  ```
- 
- 
+
+
 
  7. 读取服务器同步的数据，渲染其它玩家的位置、角度。获取其它玩家直接发送的瞬时动作，作出射击和射中某个怪物的处理;
 
- 
+
   ```
   //对收到其他玩家信息的处理
   void OnOthersGameStatus (int no, ArrayList attrNames, Hashtable status)
@@ -417,7 +417,7 @@ void Update ()
             mOtherPlayers [no].GetComponent<Player2Health> ().currentHealth = hp;
         }
     }
-    
+
     //对收到transfer接口的信息的处理
     void OnTransfer (int fromNo, byte[] data)
     {
@@ -432,7 +432,7 @@ void Update ()
         }
         Debug.Log ("Player[" + fromNo + "] transfer: " + data [0] + ", len = " + data.Length);
     }
-    
+
     //对收到云端通知的处理
     void OnCloudNotifyJson(string jsonStr){
         Debug.Log ("Handle cloud notify: " + jsonStr);
@@ -458,7 +458,7 @@ void Update ()
 ```
 "player": {                         // 玩家的相关信息
     "attributes": {                 // 玩家在游戏内的属性，下面的都是示例，实际情况由开发者自定义
-        "hp": {                     // 玩家的HP    
+        "hp": {                     // 玩家的HP
             "type": "int",          // HP属性类型为数字
             "max": 101              // HP的上限，int类型的属性，都可以设置其max，设置得越紧密，运行效率越高
         },
@@ -535,12 +535,12 @@ public class Room extends RoomBase{
 
 
 
-### 1.获取 [比目游戏云服务](//game.bmob.cn) (下称 官网)的账号；
+### 1.获取 [比目游戏云服务](//game.bmobapp.com) (下称 官网)的账号；
 
 ### 2. 在官网下载 **微信小游戏SDK**，导入到原有的单机下棋项目中；
 
-### 3. 初始化sdk，第一个参数修改为官网获取的 AppKey，第二个参数可先不填，要做第四个步骤获得。 
-    
+### 3. 初始化sdk，第一个参数修改为官网获取的 AppKey，第二个参数可先不填，要做第四个步骤获得。
+
     import BGS from '../../js/bmobgamesdk/bgsapi';//根据你自己的存放路径更改
     let model = BGS.instance;
 
@@ -552,13 +552,13 @@ public class Room extends RoomBase{
         // 提醒失败，并给重新init的按钮
       }
     });
-        
-        
-### 4. 创建房间，获得Bgs.instance.Init的第二个参数 ### 
-    
+
+
+### 4. 创建房间，获得Bgs.instance.Init的第二个参数 ###
+
     import BGS from '../../js/bmobgamesdk/bgsapi';//根据你自己的存放路径更改
     let model = BGS.instance;
-    
+
     var userId =  Bmob.User.current().id;
     model.CreateRoom(userId, 2, function(isOK, res) {
             console.log("res >", res);
@@ -583,14 +583,14 @@ public class Room extends RoomBase{
             "joinKey": yyy // 房间密匙
         }
     }
-这样，你就获得了初始化sdk的第二个参数，是 **ws://a.b.c.d:efgh** 这样的格式     
+这样，你就获得了初始化sdk的第二个参数，是 **ws://a.b.c.d:efgh** 这样的格式
 
 
 ### 5. 加入房间，初始化监听器
 
     import BGS from '../../js/bmobgamesdk/bgsapi';//根据你自己的存放路径更改
     let model = BGS.instance;
-    
+
     if (this.isConnected)
       return;
     t('连接房间');
@@ -607,30 +607,30 @@ public class Room extends RoomBase{
       this.onTransfer.bind(this),// 玩家间交互信息的监听器
       this.onCloudNotify.bind(this)//云端代码通知的监听器
     );
-    
+
     // 加入房间
     // 这里的roomData就是创建房间时让你保存的roomInfo啦
     model.JoinRoom(that.roomData.rid, that.roomData.joinKey, userId, model.get('seatKey'), function(isOK, data) {
       if (isOK) {
         common.toast('加入房间成功');
         console.log("房间信息:", data);
-        
+
         let
           playerCount = data.playerCount,
           no = data.no,
           isPlaying = data.isPlaying,
           players = data.players,
           masterId = data.master;
-        
+
         // 根据返回的房间信息做些保存或处理，这里不详细写出来，大家根据自己的情况灵活变通...
-        
+
         if (data.seatKey)
           model.set('seatKey', data.seatKey);
         that.isConnected = true;
 
         return;
       }
-        
+
       //加入房间失败
       if (data.indexOf("204") > -1)
         data = "房间已关闭";
@@ -649,7 +649,7 @@ public class Room extends RoomBase{
 
       console.log('加入房间失败:', data);
     }.bind(this));
-    
+
     // 收到客户端的回调
     onTransfer(no, res) {
         console.log("收到客户端的回调:" + no, res)
@@ -661,7 +661,7 @@ public class Room extends RoomBase{
             break;
           case 2: // 被请求悔棋
             // ...
-            
+
         }
     },
     // 收到云端代码服务端的回调
@@ -673,18 +673,18 @@ public class Room extends RoomBase{
 
 
 ### 6. 实现下棋数据的实时交互
-    
+
     // 玩家之间交互数据，上面的onTransfer会收到对方发送的
     // 要以byte数组形式，一般把数组的第一位作为自定义交互类型flag，后面的为要交互的数据
     model.SendTransferToAllExceptSelf([1, ...]);
-    
+
     // sdk特别提供了把string和byte数组互转的方法
     model.stringToBytes('string'); // string转byte[]
     model.model.bytesToString(bs, 0, bs.length); // byte[]转string
-    
+
     // 调用云端代码，参数为云端代码方法名
     model.CloudAction('Ready');
-    
+
 
 ### 7. 实现云端代码逻辑
 
@@ -705,7 +705,7 @@ public class Room extends RoomBase{
           model.QuitRoom();
         }
      ｝
-     
+
 
 
 ----------
@@ -722,7 +722,7 @@ public class Room extends RoomBase{
 
 ### 链接
 
-[Hydra对战](http://game.bmob.cn/static/demo/hydra/index.html)
+[Hydra对战](http://game.bmobapp.com/static/demo/hydra/index.html)
 
 ### 二维码
 

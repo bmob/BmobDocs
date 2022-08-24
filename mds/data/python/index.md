@@ -172,7 +172,7 @@ BmobGeoPoint(longitude, latitude)
 - 需要修改请求协议/域名，直接搜索 `self.domain` 修改即可
 - 需要输出log，可以修改 `httpRequest` 方法
 - 需要兼容python其它版本，或改用其它http库，修改 `httpRequest` 方法
-- SDK只有短短300多行，基本上是对 [Restful API](http://doc.bmob.cn/data/restful/develop_doc/) 的封装，如果需要添加接口，参照该文档即可
+- SDK只有短短300多行，基本上是对 [Restful API](http://doc.bmobapp.com/data/restful/develop_doc/) 的封装，如果需要添加接口，参照该文档即可
 - [Python云函数](https://github.com/bmob/CloudFunction/tree/master/python) 运行于云端，可用于编写更安全、更灵活的服务端逻辑
 
 

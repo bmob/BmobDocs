@@ -9,7 +9,7 @@
  - 不需要购买服务器，不需要懂linux，不需要懂运维知识，零成本地拥有属于自己的后台系统。
  - 不在需要mysql，轻松存储和获取数据，同时提供了一个方便的数据管理后台。
  - 提供灵活的“云函数”，其融合了bmob的数据服务和大量的第三方服务，让你轻松应对复杂的业务逻辑。同时云函数能被第三方平台调用，再也不需要php，java等复杂的web服务。
- 
+
 本教程将引导你完成如下任务：
 
  - 创建bmob应用
@@ -28,7 +28,7 @@
 
 ### 注册bmob账号
 
-在网址栏输入[www.bmob.cn](www.bmob.cn "www.bmob.cn")或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，如下图1所示：
+在网址栏输入[www.bmobapp.com](www.bmobapp.com "www.bmobapp.com")或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，如下图1所示：
 
 ![](image/1.png)
 
@@ -50,7 +50,7 @@
 ![](image/4.png)
 
 ### 数据的基本操作
-												
+
 创建应用成功后，开发者在管理后台点击刚才创建的应用，进入到应用的后台界面，其中最常用的是“数据浏览界面”，在该界面提供了便利的图形化操作，让开发者轻松地对该应用所属的数据库进行表的增删，数据的增删改查等操作，如下图5所示：
 
 ![](image/5.png)
@@ -71,7 +71,7 @@
  - objectId：该行的id，objectId的作用和mysql中的经常使用的id类似，用于唯一标示一行。
  - createdAt：改行数据的创建时间。
  - updatedAt：改行数据的最后修改时间。
- 
+
 当操作一行数据的时候，以上的3个字段的值由bmob后台自动管理。另外这些字段的名字是保留的，你不能自行设置它们。
 
 由于表"message"是需要把订阅者发到微信公众号的信息存储起来，存储信息的两个属性：谁发送这条信息，信息的内容，所以添加下面所需的字段：
@@ -93,7 +93,7 @@ content：发送的内容，String。
 
 对于一些复杂的应用，您可能希望增加一些特有的业务逻辑，并能灵活掌控，Bmob 云函数提供了这种灵活性，可以让您的代码直接在 Bmob云上运行, 通过SDK（Android，iOS），REST API api或者任何http的方式调用，即可获取结果数据。
 
-云函数的编码采用nodejs语法，简单易用。在云函数的编辑器中，系统默认生成了云函数的入口函数function onRequest(request, response, modules)，你可以根据自己的需求实现业务逻辑代码。 
+云函数的编码采用nodejs语法，简单易用。在云函数的编辑器中，系统默认生成了云函数的入口函数function onRequest(request, response, modules)，你可以根据自己的需求实现业务逻辑代码。
 
 在云函数界面，创建一个名为"helloworld"的云函数，如下图9所示：
 
@@ -147,7 +147,7 @@ modules是Bmob云函数提供给大家的各种对象处理的模块，包括数
 ```
 function onRequest(request, response, modules) {
     response.end("this is hello world");  //返回字符串"this is hello world"
-}                         
+}
 ```
 
 在"helloworld"的云函数编辑界面上输入上面的代码，按下“保存”按钮就能把编辑完毕的代码保存在云端，如下图11所示：
@@ -189,7 +189,7 @@ function onRequest(request, response, modules) {
 下面展示了以Get的方式调用云函数，在浏览器中输入下面的url：
 
 ```
-http://cloudweixinopen.bmob.cn/a12af19a1b8bf434/helloworld
+http://cloudweixinopen.bmobapp.com/a12af19a1b8bf434/helloworld
 ```
 
 其中：
@@ -208,14 +208,14 @@ http://cloudweixinopen.bmob.cn/a12af19a1b8bf434/helloworld
 
 ```
 curl -X POST \
-    http://cloudweixinopen.bmob.cn/a12af19a1b8bf434/helloworld
+    http://cloudweixinopen.bmobapp.com/a12af19a1b8bf434/helloworld
 ```
 
 其中：
 
  - a12af19a1b8bf434：应用的Secret Key。
  - helloworld：云函数的名称
- 
+
 #### 云函数操作数据库初步入门
 
 bmob提供了数据库对象（oData）用于操作数据。
@@ -232,7 +232,7 @@ function onRequest(request, response, modules) {
     },function(err,data){         //回调函数
         response.end("success");  //运行完毕后返回“success”
     });
-}                         
+}
 ```
 
 点击保存后在云函数调试区按“发送请求”，返回“success”的值，如下图16所示：
@@ -255,7 +255,7 @@ function onRequest(request, response, modules) {
     },function(err,data){         //回调函数
         response.end(data);       //data为返回的数据，格式为json
     });
-}                                                 
+}
 ```
 
 
@@ -263,7 +263,7 @@ function onRequest(request, response, modules) {
 
 ![](image/18.png)
 
-需要了解更多云函数的操作，可阅读[http://docs.bmob.cn/cloudcode/WEB/a_faststart/doc/index.html](http://docs.bmob.cn/cloudcode/WEB/a_faststart/doc/index.html "云函数开发文档")
+需要了解更多云函数的操作，可阅读[http://docs.bmobapp.com/cloudcode/WEB/a_faststart/doc/index.html](http://docs.bmobapp.com/cloudcode/WEB/a_faststart/doc/index.html "云函数开发文档")
 
 在编写云函数时有个注意事项：云函数是使用异步编程。也就是说，当遇到文件读写请求，网络请求等IO操作时，代码不等待IO操作返回结果就执行后面的语句,当接收到IO操作的返回结果后才调用回调函数。
 
@@ -271,7 +271,7 @@ function onRequest(request, response, modules) {
 
 ```
 	db->insert(xxxxx);
-	db->find(xxxxx);                                                 
+	db->find(xxxxx);
 ```
 
 在同步型的编程语言中，find和insert都是数据库的操作，有文件读写的IO操作，在db->find执行前，能确保db->insert已经执行完毕了。
@@ -282,7 +282,7 @@ function onRequest(request, response, modules) {
 	db.insert({xxx},function(xxx){
 		db.find({xxx},function(xxx){xxxx});
 	});
-	                                         
+
 ```
 
 只有通过在db.insert的回调函数中执行db.find，才能保证执行db.find前db.insert的数据库操作已经完成。
@@ -300,7 +300,7 @@ function onRequest(request, response, modules) {
 在云函数异步编程中“function(xxx){xxxx}”部分称为回调函数，云函数会把IO操作的返回结果封装后传入到function函数执行里面的逻辑。
 
 ```
-	db.insert({xxx},function(xxx){xxxx});                            
+	db.insert({xxx},function(xxx){xxxx});
 ```
 
 
@@ -335,9 +335,9 @@ function onRequest(request, response, modules) {
            //是post,接收定阅者发送过来的消息后返回，把反馈意见存储表“message”中。
             db.insert({
               "table":"message",             //表名
-              "data":{"userId":request.body.xml.FromUserName,"content":request.body.xml.Content}           
-            },function(err,data){                        
-              //构造公众号后台所需要的xml格式，并返回给公众号后台  
+              "data":{"userId":request.body.xml.FromUserName,"content":request.body.xml.Content}
+            },function(err,data){
+              //构造公众号后台所需要的xml格式，并返回给公众号后台
                var result = {
                     xml: {
                       ToUserName: request.body.xml.FromUserName,
@@ -352,12 +352,12 @@ function onRequest(request, response, modules) {
                 response.set('Content-Type', 'text/xml'); //设置返回的http header
                 response.end(xml);
             });
-        
-        
+
+
 
     }
-}                                                                         
-	                                         
+}
+
 ```
 
 这个云函数的内容暂时看不懂没关系，下面会逐渐解释其中的含义。
@@ -382,7 +382,7 @@ function onRequest(request, response, modules) {
 
 ![](image/21.png)
 
-此处的URL（http://cloudweixinopen.bmob.cn/a12af19a1b8bf434/feedback）为上节中生成的云函数“feedback”的调用，按照云函数的调用规格，a12af19a1b8bf434为该应用的Secret Key，标明调用的是哪个应用，feedback为云函数的名称。Token定义为weixin。EncodingAESKey则不用填，点击“随机生成”让自动生成一个，消息加解密方式选择“明文模式”，然后点击“提交”按钮，如图22所示：
+此处的URL（http://cloudweixinopen.bmobapp.com/a12af19a1b8bf434/feedback）为上节中生成的云函数“feedback”的调用，按照云函数的调用规格，a12af19a1b8bf434为该应用的Secret Key，标明调用的是哪个应用，feedback为云函数的名称。Token定义为weixin。EncodingAESKey则不用填，点击“随机生成”让自动生成一个，消息加解密方式选择“明文模式”，然后点击“提交”按钮，如图22所示：
 
 
 ![](image/22.jpg)
@@ -474,9 +474,9 @@ function onRequest(request, response, modules) {
  		   //是post,接收定阅者发送过来的消息后返回，把反馈意见存储表“message”中。
             db.insert({
               "table":"message",             //表名
-              "data":{"userId":request.body.xml.FromUserName,"content":request.body.xml.Content}           
-            },function(err,data){         
-              //构造公众号后台所需要的xml格式，并返回给公众号后台  
+              "data":{"userId":request.body.xml.FromUserName,"content":request.body.xml.Content}
+            },function(err,data){
+              //构造公众号后台所需要的xml格式，并返回给公众号后台
                var result = {
                     xml: {
                       ToUserName: request.body.xml.FromUserName,
@@ -499,7 +499,7 @@ function onRequest(request, response, modules) {
 云函数解析xml对象，根据节点信息，把发送者(request.body.xml.FromUserName)和消息内容（request.body.xml.Content）存储在表“message”后，然后通过一定的规则组装成一个xml文本回复给微信公众号后台，微信公众号后台再回复给用户。在这个收发过程中，发送方和接收方进行了调换(ToUserName和FromUserName值互换)，收发都是以xml格式在后台进行传输的。所以掌握各种消息类型的接收回复是进行微信公众平台开发的基础！
 
 最常见的消息类型为文本的xml格式如下：
-	                                         
+
 ```
 <xml>
 <ToUserName><![CDATA[gh_b36303ca8941]]></ToUserName>
@@ -508,7 +508,7 @@ function onRequest(request, response, modules) {
 <MsgType><![CDATA[text]]></MsgType>
 <Content><![CDATA[这个公众号不错]]></Content>
 <MsgId>6203929742163889773</MsgId>
-</xml>	                                         
+</xml>
 ```
 
 XML格式讲解：
@@ -529,7 +529,7 @@ XML格式讲解：
 - 了解bmob应用和云函数的功能。
 - 在不需要搭建服务器，不需要懂得基本的运维知识下，使用bmob云函数在30分钟内实现微信公众平台的开发，完了消息存储和消息自动回复这两个功能。
 
-阅读本教程后，想了解云后端服务bmob可以实现哪些更酷的功能吗？点击[http://www.bmob.cn](http://www.bmob.cn "这里")，立刻进入bmob了解更多。
+阅读本教程后，想了解云后端服务bmob可以实现哪些更酷的功能吗？点击[http://www.bmobapp.com](http://www.bmobapp.com "这里")，立刻进入bmob了解更多。
 
 
 

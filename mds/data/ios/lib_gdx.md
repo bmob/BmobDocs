@@ -81,7 +81,7 @@ RoboVM类似于Android的jni，使用它就可以使用Java来调用Object-C对�
 
 按照教程完成上述的工程创建后就可以进行开发了。下面将讲述如何使用BmobSDK.framework进行开发。
 
-1.下载[BmobSDK iOS版](https://www.bmob.cn/site/sdk)
+1.下载[BmobSDK iOS版](https://www.bmobapp.com/site/sdk)
 
 2.导入BmobSDK.framework,如下图所示，直接将文件拖动至ios子项目的build目录下。
 
@@ -95,7 +95,7 @@ RoboVM类似于Android的jni，使用它就可以使用Java来调用Object-C对�
 
 ![](image/libGDX_14.jpg)
 
-5.接下来，我们还需要到[Bmob官网](https://www.bmob.cn)注册一个帐号并在后台创建应用，并将App Key复制下来。如下图
+5.接下来，我们还需要到[Bmob官网](https://www.bmobapp.com)注册一个帐号并在后台创建应用，并将App Key复制下来。如下图
 
 ![](image/libGDX_15.jpg)
 
@@ -114,7 +114,7 @@ RoboVM类似于Android的jni，使用它就可以使用Java来调用Object-C对�
         gameScore.setObject(NSNumber.valueOf(true), "cheatMode");
         //保存记录
         gameScore.saveInBackgroundWithResultBlock(new BmobBooleanResultBlock() {
-			
+
 			@Override
 			public void invoke(boolean isSuccessful, NSError error) {
 				// TODO Auto-generated method stub
@@ -127,7 +127,7 @@ RoboVM类似于Android的jni，使用它就可以使用Java来调用Object-C对�
 				}
 			}
 		});
-    	
+
         return new IOSApplication(new MyGdxGame(), config);
     }
 ```

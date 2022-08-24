@@ -15,7 +15,7 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 1. 完全取消http请求限制
 
 ```
-<key>NSAppTransportSecurity</key> 
+<key>NSAppTransportSecurity</key>
 <dict>
 <key>NSAllowsArbitraryLoads</key>
 <true/>
@@ -24,19 +24,19 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 2. 指定部分网址支持http
 
 ```
-<key>NSAppTransportSecurity</key> 
+<key>NSAppTransportSecurity</key>
 <dict>
    <key>NSExceptionDomains</key>
-      <dict>     
-      		<key>yourserver.com</key>    
-       	<dict>      
+      <dict>
+      		<key>yourserver.com</key>
+       	<dict>
        	 	<key>NSIncludesSubdomains</key>
          		<true/>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>             
-			 	<key>NSTemporaryExceptionMinimumTLSVersion</key>       
-			 	<string>TLSv1.1</string>    
-			</dict>   
+				<true/>
+			 	<key>NSTemporaryExceptionMinimumTLSVersion</key>
+			 	<string>TLSv1.1</string>
+			</dict>
 		</dict>
  </dict>
 ```
@@ -51,7 +51,7 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 
 ### 应用安全
 
-请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档的链接地址是：[https://docs.bmob.cn/other/Other/n_datasafety/doc/index.html](https://docs.bmob.cn/other/Other/n_datasafety/doc/index.html)
+请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档的链接地址是：[https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html](https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html)
 
 ## 对象
 
@@ -177,7 +177,7 @@ saveInBackgroundWithResultBlock { (isSuccessful, error) in
 
 ```
     saveAllWithDictionary([NSObject : AnyObject]!);
-```  
+```
 这个函数。
 
 如:
@@ -264,7 +264,7 @@ func  updateObjectJSONField(){
 
 此处要注意一点，就是在上传 `gameScore` 之后，如果要再次进行更新，请重新构造对象，因为此时的 `gameScore` 对象还含有`userAttibute` 的值，下面是错误的代码：
 
-```    
+```
 	//创建一条数据，并上传至服务器
     let gamescore:BmobObject = BmobObject(className: "GameScore")
     let json:Dictionary = ["name":"John","gender":"man"]
@@ -295,7 +295,7 @@ func  updateObjectJSONField(){
 
 ```
 2015-12-14 20:45:55.417 BmobSDKDemo[16867:1430005] 创建成功,以下为对象值
-2015-12-14 20:45:55.418 BmobSDKDemo[16867:1430005] 
+2015-12-14 20:45:55.418 BmobSDKDemo[16867:1430005]
 className = GameScore;
 objectId = 0f3d45dbc5;
 createdAt = 2015-12-14 12:45:55 +0000;
@@ -445,11 +445,11 @@ Bmob提供了批量操作的类BmobObjectsBatch,使用该类，可以批量增�
             print("updatedAt  \(obj.updatedAt)")
         }
     }
-``` 
+```
 
 **这里需要注意的是：**
 
-1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](https://docs.bmob.cn/data/iOS/b_developdoc/doc/index.html#查询)一节中的分页查询。
+1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)一节中的分页查询。
 
 2.当查询的是用户表这种系统表的时候，返回的是BmobUser的数组，设备表，角色表也是这样的。
 
@@ -490,7 +490,7 @@ query.whereKey("age", greaterThanOrEqualTo: 18) //age大于或等于18
 #### 子查询
 
 如果你想查询匹配几个不同值的数据，如要查询“小明”，“小红”，“小白”三个人的信息是，可以使用
-	
+
 ```
 whereKey(key:String!, containedIn: [AnyObject]!)
 ```
@@ -615,10 +615,10 @@ query.addTheConstraintByAndOperationWithArray(array)
 
 支持的条件符号有
 
-|   Key       |  	Operation        
-| ----------  |  --------------      
-|$lt	      |        小于           
-|$lte	      |      小于等于         
+|   Key       |  	Operation
+| ----------  |  --------------
+|$lt	      |        小于
+|$lte	      |      小于等于
 |$gt	      |       大于
 |$gte	      |     大于等于
 |$ne	      |       不等于
@@ -713,7 +713,7 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
 有的时候，一张表的数据列比较多，而我们只想查询返回某些列的数据时，我们可以使用以下方法来只返回需要的列的值
 
 ```
-//设置查询后返回的字段数组	
+//设置查询后返回的字段数组
 selectKeys([AnyObject]!)
 ```
 
@@ -908,13 +908,13 @@ BmobSDK提供几种不同的缓存策略，以使用不同应用场景的需求�
 
 ```
 query.hasCachedResult()
-```	
+```
 存在返回true，否则返回false
 |清除当前查询的缓存数据
 
 ```
 query.clearCachedResult()
-```	
+```
 |清除所有查询结果的缓存数据
 
 ```
@@ -930,7 +930,7 @@ query.maxCacheAge = 10000;
 
 `Bmob Query Language`（简称 BQL）是 Bmob 自 `BmobSDK V1.5.7` 版本开始，为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询 API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。
 
-具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](https://docs.bmob.cn/other/Other/m_bql/doc/index.html)。
+具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](https://docs.bmobapp.com/other/Other/m_bql/doc/index.html)。
 
 #### 基本BQL查询
 可以通过以下方法来进行SQL查询：
@@ -1020,7 +1020,7 @@ query.maxCacheAge = 10000;
 
 #### 内置函数
 
-对于包含`内置函数`的占位符查询，比较特殊，请使用`Bmob Query Language 详细指南`中的`内置函数`中[占位符查询用到的内置函数](https://docs.bmob.cn/other/Other/m_bql/doc/index.html#内置函数介绍)用到的内置函数列出的形式进行查询操作：
+对于包含`内置函数`的占位符查询，比较特殊，请使用`Bmob Query Language 详细指南`中的`内置函数`中[占位符查询用到的内置函数](https://docs.bmobapp.com/other/Other/m_bql/doc/index.html#内置函数介绍)用到的内置函数列出的形式进行查询操作：
 
 举例：我想查询在 '2015-05-14 14:56:30' 后的创建的记录，可以这样：
 
@@ -1068,11 +1068,11 @@ query.maxCacheAge = 10000;
  - 使用`queryBQLCanCacheInBackgroundWithblock{(result, error) in}`进行查询时，通过 `-setBQL(String!);` 和 `setPlaceholder([AnyObject]!);` 来设置BQL语句和占位符。
 
 
-缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](https://docs.bmob.cn/data/iOS/b_developdoc/doc/index.html#查询)缓存查询小节。
+缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)缓存查询小节。
 
 ## 数组
 
-为了存储数组型数据，[Bmob](https://www.bmob.cn/ "Bmob移动后端云服务平台")提供了3种操作来原子性地更改一个数组字段:
+为了存储数组型数据，[Bmob](https://www.bmobapp.com/ "Bmob移动后端云服务平台")提供了3种操作来原子性地更改一个数组字段:
 
 **Add** 在一个数组字段的后面添加一些指定的对象(包装在一个数组内)
 
@@ -1202,7 +1202,7 @@ removeObjectsInArray([AnyObject]!, forKey: String!)
 	let gameScore = BmobObject(outDataWithClassName: "Project", objectId: "xxxx")
     gameScore.setObject("项目名称2", forKey: "projectExperiences.0.name")
     gameScore.updateInBackgroundWithResultBlock { (isSuccessful, error) in
-	
+
     }
 ```
 
@@ -1257,11 +1257,11 @@ Post表
     //设置帖子的标题和内容
     post.setObject("title4", forKey: "title")
     post.setObject("content4", forKey: "content")
-    
+
     //设置帖子关联的作者记录
     let author = BmobUser(outDataWithClassName: "_User", objectId: "vbhGAAAY")
     post.setObject(author, forKey: "author")
-    
+
     //异步保存
     post.saveInBackgroundWithResultBlock { (isSuccessful, error) in
         if isSuccessful {
@@ -1551,7 +1551,7 @@ Relation可以理解为其存储的是一个对象，而这个对象中存储的
 
 ### 属性
 BmobUser除了从BmobObject继承的属性外，还有几个特定的属性：
-	
+
 1. username: 用户的用户名（必需）。
 2. password: 用户的密码（必需）。
 3. email: 用户的电子邮件地址（可选）。
@@ -1598,13 +1598,13 @@ objectForKey(AnyObject!)//得到某个属性的值
 ```
 BmobUser.loginWithUsernameInBackground("小明", password: "123456")
 ```
-	
+
 也可以使用
 ```
 + (void)loginWithUsernameInBackground:(NSString *)username
 							  password:(NSString *)password
 								 block:(BmobUserResultBlock)block;
-```								 
+```
 
 
 Bmob还提供了用户、email、手机号码均可作为账号进行登录的功能。使用以下方法即可
@@ -1735,7 +1735,7 @@ User表是一个特殊的表，专门存储BmobUser对象。在浏览器端，�
 ```
 BmobUser.requestPasswordResetInBackgroundWithEmail("xxxxxxx@qq.com")
 ```
-	
+
 密码重置流程如下：
 
 1. 用户输入他们的电子邮件，请求重置自己的密码。
@@ -1827,7 +1827,7 @@ Bmob提供了非常简单的方法来实现使用第三方账号登陆的功能�
 	let  user = BmobUser.getCurrentUser()
     user.cancelLinkedInBackgroundWithPlatform(BmobSNSPlatformQQ) { (isSuccessful, error) in
         print("error \(error)")
-    }                                                                       
+    }
 ```
 
 ```
@@ -2040,7 +2040,7 @@ BmobFile可以让你的应用程序将文件存储到服务器中，比如常见
 
 ```
 -(void)saveInBackground:(BmobBooleanResultBlock)block;
-```			
+```
 
 可以在block里面把文件添加到gameScore里面，建议使用异步上传的方法，再在block进行操作。如下面的例子：
 
@@ -2458,7 +2458,7 @@ gameScore.setObject(point, forKey: "location")
 ### 地理查询
 
 现在，你的数据表中有了一定的地理坐标对象的数据，这样可以测试找出最接近某个点的信息了。你可以使用Bmoquery对象的whereNear方法来这样做：
-	
+
 ```
 	let point = BmobGeoPoint(longitude: 116.39727786183357, withLatitude: 39.913768382429105)
 
@@ -2470,7 +2470,7 @@ gameScore.setObject(point, forKey: "location")
     }
 ```
 要限制查询指定距离范围的数据可以使用whereWithinKilometers(公里)、whereWithinMiles(英里)或whereWithinRadians(弧度)方法。 要查询一个矩形范围内的信息可以使用whereWithinGeoBox来实现：
-``` 
+```
     let southwestOfSF = BmobGeoPoint(longitude: 116.39727786183357, withLatitude: 39.913768382429105)
     let northeastOfSF = BmobGeoPoint(longitude: 116.39727786183357, withLatitude: 40.913768382429105)
     let query = BmobQuery(className: "GameScore")
@@ -2489,7 +2489,7 @@ gameScore.setObject(point, forKey: "location")
 2. 地理位置的点不能超过规定的范围。`纬度的范围`应该是在`-90.0到90.0`之间。`经度的范围`应该是在`-180.0到180.0`之间。如果您添加的经纬度超出了以上范围，将导致程序错误。
 
 3. 地理位置查询最大的距离根据表数据的不同有不同的限制，使用query.whereKey(String!, nearGeoPoint: BmobGeoPoint!);默认`100KM`。当需要指定距离时，最好指定一下最大距离。
- 
+
 ## 其它功能
 
 ### 获取服务器时间
@@ -2498,7 +2498,7 @@ gameScore.setObject(point, forKey: "location")
 
 ```
 	let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-    dispatch_async(queue) { 
+    dispatch_async(queue) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(name: "Asia/Shanghai")
         dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
@@ -2508,11 +2508,11 @@ gameScore.setObject(point, forKey: "location")
         let dateStr = dateFormatter.stringFromDate(date!)
         print("北京时间\(dateStr)")
     }
-    
+
 ```
 
 ### 设置API网络请求超时时间
- 
+
 使用 `setBmobRequestTimeOut(CGFloat)` 方法可以设置API中网络请求的超时时间，例如，想要设置访问Bmob后台时超过15s就返回超时错误，可以这样写.
 
 ```
