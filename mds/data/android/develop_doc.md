@@ -3913,71 +3913,49 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 
 **数据监听按需收费，请开发者到【应用设置-套餐升级-数据监听】中开通此功能**
 
-SDK可以实现对数据表或行的监听，当这个表或者行的数据发生变化时，Bmob会立即将变化的信息告知SDK。
-这种服务非常适合做游戏开发（如，开发斗地主游戏，三个人同时监听一行数据的变化，任何一个人出牌都会将数据写入到这行数据中，其他人也就立即知道了）、群聊（一群人监听某个表的变化，任何人发言都会将数据写入到这个表中，其他人也可以立即知道了）等实时性要求很高的场景中。
-
-为方便大家快速了解数据的实时同步服务，我们提供了一个简单的应用实例（ [https://github.com/bmob/bmob-android-demo-realtime-data](https://github.com/bmob/bmob-android-demo-realtime-data) ）供大家参考。
-
 ### 开始连接
-使用数据监听功能，首先需要创建`BmobRealTimeData`对象,然后调用`start`方法连接服务器。
 ```java
-BmobRealTimeData rtd = new BmobRealTimeData();
-rtd.start(new ValueEventListener() {
-	@Override
-	public void onDataChange(JSONObject data) {
-		Log.d("bmob", "("+data.optString("action")+")"+"数据："+data);
-	}
-
-	@Override
-	public void onConnectCompleted(Exception ex) {
-		Log.d("bmob", "连接成功:"+rtd.isConnected());
-	}
-});
+RealTimeDataManager.getInstance().start(new RealTimeDataListener() {
+            @Override
+            public void onConnectCompleted(Client client, Exception e) {
+                if (e == null) {
+                    System.out.println("数据监听：已连接");
+                    // 监听表
+                    client.subTableUpdate(tableName);
+                    // 监听表中的某行
+                    // client.subRowUpdate(tableName,objectId);
+                    Toast.makeText(RealTimeDataActivity.this, "已连接", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(RealTimeDataActivity.this, "连接出错：" + e.getMessage() , Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onDataChange(Client client, JSONObject jsonObject) {
+                //更新动作
+                String action = jsonObject.optString("action");
+                if (action.equals(Client.ACTION_UPDATE_TABLE)) {
+                    //更新内容
+                    JSONObject data = jsonObject.optJSONObject("data");
+                    Toast.makeText(RealTimeDataActivity.this, "监听到更新：" + data.optString("name") + "-" + data.optString("content"), Toast.LENGTH_SHORT).show();
+                } else if (Client.ACTION_UPDATE_ROW.equals(action)) {
+                    // 监听的行更新数据
+                    JSONObject data = jsonObject.optJSONObject("data");
+                }
+            }
+            @Override
+            public void onDisconnectCompleted(Client client) {
+                System.out.println(client.toString()+"已断开");
+            }
+        });
 ```
 
-`start`方法中的`ValueEventListener`参数用于监听连接成功和数据变化的回调。当有数据变化时会通过onDataChange回调方法反馈到客户端。开发者只需要处理得到的data就可以了。
+`start`方法中的`RealTimeDataListener`参数用于监听连接成功和数据变化的回调。当有数据变化时会通过onDataChange回调方法反馈到客户端。开发者只需要处理得到的data就可以了。
 
 **注：**
 
 **1、监听器不支持UI线程，在监听回调中请不要直接操作UI；**
 
 **2、如果你要监听User、Installation等系统表的话，表名前需要加上“_”，例如：_User**
-
-
-### 监听数据
-在BmobRealTimeData对象连接成功后，就可以进行数据的监听了。BmobSDK提供了监听表和行的方法如下：
-```java
-// 监听表更新
-rtd.subTableUpdate(tableName);
-// 监听表删除
-rtd.subTableDelete(tableName);
-// 监听行更新
-rtd.subRowUpdate(tableName, objectId);
-// 监听行删除
-rtd.subRowDelete(tableName, objectId);
-```
-其中`tableName`为要监听的数据表名，`objectId`为要监听的数据行Id,
-通常比较保险的做法是在`BmobRealTimeData`对象的连接状态为`true`的情况下进行监听，代码如下：
-```java
-if(rtd.isConnected()){
-	// 监听表更新
-	rtd.subTableUpdate(tableName);
-}
-```
-
-### 取消监听
-当开发者想取消监听某个行为是，可使用下面的方法：
-
-```java
-// 取消监听表更新
-rtd.unsubTableUpdate(testTableName);
-// 取消监听表删除
-rtd.unsubTableDelete(testTableName);
-// 取消监听行更新
-rtd.unsubRowUpdate(testTableName, objectId);
-// 取消监听行删除
-rtd.unsubRowDelete(testTableName, objectId);
-```
 
 # 10、数据安全
 
