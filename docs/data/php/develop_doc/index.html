@@ -1432,7 +1432,7 @@ $res = $bmobUser-&gt;register(array(&quot;username&quot;=&gt;&quot;cooldude117&q
 
 <p>当创建成功时,HTTP响应头的状态码返回为201 Created，Http响应头的Location值包含了该新用户的URL:</p>
 <pre><code>Status: 201 Created
-Location: https://api2.bmobapp.com/1/users/Kc3M222J
+Location: https://自己备案域名/1/users/Kc3M222J
 </code></pre>
 
 <p>返回的主体是包含objectId，表示唯一的用户, createdAt时间戳表示用户注册时间, sessionToken可以被用来认证更新或删除这名用户信息的请求。</p>
@@ -1653,7 +1653,7 @@ $res = $bmobUser-&gt;register($data);
 
 <p>Bmob 会校验提供的 authData 是否有效，并检查是否已经有一个用户连接了这个 authData 服务。如果已经有用户存在并连接了同一个 authData，那么Http响应头将返回 200 OK 和详细信息 (包括用户的 sessionToken):</p>
 <pre><code>Status: 200 OK
-Location: https://api2.bmobapp.com/1/users/Kc3M222J
+Location: https://自己备案域名/1/users/Kc3M222J
 </code></pre>
 
 <p>返回的内容类似</p>
@@ -1730,7 +1730,7 @@ $res = $bmobUser-&gt;update(&quot;415b8fe99a&quot;, &quot;050391db407114d9801c8f
 <p><code>users</code> :一个指向一系列用户的关系, 这些用户会继承角色的权限；</p>
 <p><code>roles</code> : 一个指向一系列子角色的关系, 这些子关系会继承父角色所有的权限。</p>
 <h4 id="_67">创建角色<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h4>
-<p>创建一个新角色的方法如下（固定POST数据到https://api2.bmobapp.com/1/roles中，且必须提供 <code>name</code> 字段）：</p>
+<p>创建一个新角色的方法如下（固定POST数据到https://自己备案域名/1/roles中，且必须提供 <code>name</code> 字段）：</p>
 <pre><code>    $bmobRole = new BmobRole();
     $res = $bmobRole-&gt;createRole(array(&quot;name&quot;=&gt;&quot;Mo1derators&quot;, &quot;ACL&quot;=&gt;array(&quot;*&quot;=&gt;array(&quot;read&quot;=&gt;true,&quot;write&quot;=&gt;true)))); //创建角色
 
@@ -1756,7 +1756,7 @@ $res = $bmobRole-&gt;createRole($data);
 
 <p>当创建成功后返回HTTP如下：</p>
 <pre><code>Status: 201 Created
-Location: https://api2.bmobapp.com/1/roles/51e3812D
+Location: https://自己备案域名/1/roles/51e3812D
 </code></pre>
 
 <h4 id="_68">获取角色<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h4>
@@ -2061,7 +2061,7 @@ $res=$bmobObj-&gt;get(&quot;&quot;,array('sum=score','groupby=createdAt','groupc
     -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot; \
     -G \
     --data-urlencode 'groupby=score' \
-    https://api2.bmobapp.com/1/classes/GameScore
+    https://自己备案域名/1/classes/GameScore
 
 $res=$bmobObj-&gt;get(&quot;&quot;,array('groupby=score'));
 </code></pre>

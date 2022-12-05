@@ -108,7 +108,7 @@ ps:最近小程序也推出了显示H5页面，如果需要使用，可开通FTP
 微信access_token，业务场景,当其他平台需要使用你小程序的token，并不想与Bmob的平台冲突，可以通过此API实现
 ```
 curl --request GET \
-  --url https://api2.bmobapp.com/1/wechatApp/getAccessToken \
+  --url https://自己备案域名/1/wechatApp/getAccessToken \
   --header 'content-type: application/json' \
   --header 'x-bmob-application-id: ' \
   --header 'x-bmob-rest-api-key: ' \
@@ -167,7 +167,7 @@ curl --request GET \
 
 ```
 curl --request POST \
-  --url http://api2.bmobapp.com/1/wechatApp/notifyMsg \
+  --url http://自己备案域名/1/wechatApp/notifyMsg \
   --header 'content-type: application/json' \
   --header 'x-bmob-application-id: ' \
   --header 'x-bmob-rest-api-key: ' \
@@ -411,7 +411,7 @@ var sessionKey="xTlW5jfSUP3Kx0vC5PJbmw==";
 REST API
 ```
 curl -X POST \
-  http://api2.bmobapp.com/1/wechatApp/SendWeAppMessage \
+  http://自己备案域名/1/wechatApp/SendWeAppMessage \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'x-bmob-application-id: XXX' \

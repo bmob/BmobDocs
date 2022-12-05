@@ -39,13 +39,13 @@ Http请求|Secret Key|所有平台适用，可用浏览器打开
 2. 调用 `pycloud.bmobapp.com` ，调用方式基本相同，这种方式 **仅可调用Python云函数**，但 **不限制 `Method` 和 `Content-Type`**
 
 ```
-# 使用Appid + RestKey请求api2.bmobapp.com域名(自动判断语言)
+# 使用Appid + RestKey请求自己备案域名域名(自动判断语言)
 curl -X POST \
     -H "X-Bmob-Application-Id: Your Application ID" \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
     -H "Content-Type: application/json" \
     -d '{"name": "zwr"}' \
-    https://api2.bmobapp.com/1/functions/[function name]
+    https://自己备案域名/1/functions/[function name]
 
 # 使用Appid + RestKey请求pycloud.bmobapp.com域名(仅支持Python云函数)
 curl -X [method] \

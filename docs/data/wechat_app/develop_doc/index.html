@@ -908,7 +908,7 @@
 <h2 id="token">小程序token接口<a class="headerlink" href="#token" title="Permanent link">&para;</a></h2>
 <p>微信access_token，业务场景,当其他平台需要使用你小程序的token，并不想与Bmob的平台冲突，可以通过此API实现</p>
 <pre><code>curl --request GET \
-  --url https://api2.bmobapp.com/1/wechatApp/getAccessToken \
+  --url https://自己备案域名/1/wechatApp/getAccessToken \
   --header 'content-type: application/json' \
   --header 'x-bmob-application-id: ' \
   --header 'x-bmob-rest-api-key: ' \
@@ -957,7 +957,7 @@
 
 <p>2.REST API调用方式</p>
 <pre><code>curl --request POST \
-  --url http://api2.bmobapp.com/1/wechatApp/notifyMsg \
+  --url http://自己备案域名/1/wechatApp/notifyMsg \
   --header 'content-type: application/json' \
   --header 'x-bmob-application-id: ' \
   --header 'x-bmob-rest-api-key: ' \
@@ -1212,7 +1212,7 @@ function onRequest(request, response, modules) {
 </ul>
 <p>REST API</p>
 <pre><code>curl -X POST \
-  http://api2.bmobapp.com/1/wechatApp/SendWeAppMessage \
+  http://自己备案域名/1/wechatApp/SendWeAppMessage \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -H 'x-bmob-application-id: XXX' \

@@ -1414,7 +1414,7 @@ http('https://www.bmobapp.com', function (error, res, body) {
 var http = modules.oHttp;
 
 var options = {
-  "url": 'https://api2.bmobapp.com/1/classes/GameScore',
+  "url": 'https://自己备案域名/1/classes/GameScore',
   "headers": {
     'X-Bmob-Application-Id': 'Your Application ID',
 	'X-Bmob-REST-API-Key': 'Your REST API Key',

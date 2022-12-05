@@ -888,7 +888,7 @@ $res = $bmobUser->register(array("username"=>"cooldude117", "password"=>"p_n7!-e
 
 ```
 Status: 201 Created
-Location: https://api2.bmobapp.com/1/users/Kc3M222J
+Location: https://自己备案域名/1/users/Kc3M222J
 ```
 
 返回的主体是包含objectId，表示唯一的用户, createdAt时间戳表示用户注册时间, sessionToken可以被用来认证更新或删除这名用户信息的请求。
@@ -1171,7 +1171,7 @@ $res = $bmobUser->register($data);
 Bmob 会校验提供的 authData 是否有效，并检查是否已经有一个用户连接了这个 authData 服务。如果已经有用户存在并连接了同一个 authData，那么Http响应头将返回 200 OK 和详细信息 (包括用户的 sessionToken):
 ```
 Status: 200 OK
-Location: https://api2.bmobapp.com/1/users/Kc3M222J
+Location: https://自己备案域名/1/users/Kc3M222J
 ```
 返回的内容类似
 ```
@@ -1271,7 +1271,7 @@ array(
 
 #### 创建角色
 
-创建一个新角色的方法如下（固定POST数据到https://api2.bmobapp.com/1/roles中，且必须提供 `name` 字段）：
+创建一个新角色的方法如下（固定POST数据到https://自己备案域名/1/roles中，且必须提供 `name` 字段）：
 ```
     $bmobRole = new BmobRole();
     $res = $bmobRole->createRole(array("name"=>"Mo1derators", "ACL"=>array("*"=>array("read"=>true,"write"=>true)))); //创建角色
@@ -1302,7 +1302,7 @@ $res = $bmobRole->createRole($data);
 
 ```
 Status: 201 Created
-Location: https://api2.bmobapp.com/1/roles/51e3812D
+Location: https://自己备案域名/1/roles/51e3812D
 ```
 
 #### 获取角色
@@ -1621,7 +1621,7 @@ curl -X GET \
     -H "X-Bmob-REST-API-Key: Your REST API Key" \
     -G \
     --data-urlencode 'groupby=score' \
-    https://api2.bmobapp.com/1/classes/GameScore
+    https://自己备案域名/1/classes/GameScore
 
 $res=$bmobObj->get("",array('groupby=score'));
 ```

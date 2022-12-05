@@ -46,7 +46,7 @@ curl -X POST \
         "deviceType": "ios",
         "deviceToken": "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"
       }' \
-  https://api2.bmobapp.com/1/installations
+  https://自己备案域名/1/installations
 ```
 
 ### 保存Android设备的 installationId
@@ -62,7 +62,7 @@ curl -X POST \
         "deviceType": "android",
         "installationId": "12345678-4312-1234-1234-1234567890ab"
       }' \
-  https://api2.bmobapp.com/1/installations
+  https://自己备案域名/1/installations
 ```
 
 ### 保存Windows Phone设备的 notificationUri
@@ -78,7 +78,7 @@ curl -X POST \
         "deviceType": "windows phone",
         "notificationUri": "https://hk1.notify.live.net/unthrottledthirdparty/01.00/AQHgHh6EuwNtTa1TbwvaAjnmAgAAAAADEAAAAAQUZm52OkZDM0U5RDkxQzIzREJBNDYFBkFTRUEwMQ"
       }' \
-  https://api2.bmobapp.com/1/installations
+  https://自己备案域名/1/installations
 ```
 
 ## 订阅频道和退订
@@ -100,7 +100,7 @@ curl -X PUT \
           "Mets"
         ]
       }' \
-  https://api2.bmobapp.com/1/installations/mrmBZvsErB
+  https://自己备案域名/1/installations/mrmBZvsErB
 ```
 
 订阅一个新频道，不覆盖已订阅的频道：
@@ -111,7 +111,7 @@ curl -X PUT \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"channels":{"__op":"AddUnique","objects":["Giants"]}}' \
-  https://api2.bmobapp.com/1/installations/mrmBZvsErB
+  https://自己备案域名/1/installations/mrmBZvsErB
 ```
 
 ### 退订频道
@@ -122,7 +122,7 @@ curl -X PUT \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"channels":{"__op":"Remove","objects":["Giants"，"Mets"]}}' \
-  https://api2.bmobapp.com/1/installations/mrmBZvsErB
+  https://自己备案域名/1/installations/mrmBZvsErB
 ```
 
 ## 推送消息
@@ -133,7 +133,7 @@ curl -X PUT \
 
 **请求**
 
-- url ： https://api2.bmobapp.com/1/push
+- url ： https://自己备案域名/1/push
 
 - method ：POST
 
@@ -160,7 +160,7 @@ curl -X POST \
           "alert": "Hello From Bmob."
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 ### 组播推送消息
@@ -179,7 +179,7 @@ curl -X POST \
           "alert": "Hello From Bmob."
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
  或者更简便的方式
@@ -195,7 +195,7 @@ curl -X POST \
           "alert": "Hello From Bmob."
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 ### 多播推送消息
@@ -217,7 +217,7 @@ curl -X POST \
             "alert": "Hello From Bmob."
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 #### 根据查询条件做推送
@@ -235,7 +235,7 @@ curl -X POST \
           "alert": "Willie Hayes injured by own pop fly."
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 请注意，where 条件查询的都是 installations 表。这里是假设 installations 表存储了 scores 的布尔属性，你可以像查询普通对象一样构造where查询
@@ -255,7 +255,7 @@ curl -X POST \
           "alert": "Your suitcase has been filled with tiny robots!"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 ```
@@ -271,7 +271,7 @@ curl -X POST \
           "alert": "Your suitcase has been filled with tiny apples!"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 Windows Phone平台的推送分三种格式：
@@ -292,7 +292,7 @@ curl -X POST \
            "wpAlert": "TextBoxValue2"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 b.推送Toast通知：
@@ -312,7 +312,7 @@ curl -X POST \
           "wp": 2
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 c.推送磁贴通知：
@@ -336,7 +336,7 @@ curl -X POST \
           "wp": 1
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 #### 根据地理信息位置做推送
@@ -365,7 +365,7 @@ curl -X POST \
           "alert": "Free hotdogs at the bmob concession stand!"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 上面的例子假设 installation 有个 user 属性指向_User 表的记录，并且用户有个 location 属性是 GeoPoint 类型，我们就可以根据地理信息位置做推送。
@@ -387,7 +387,7 @@ curl -X POST \
           "alert": "Hello From Bmob."
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 发送给iOS单个客户端
@@ -405,7 +405,7 @@ curl -X POST \
           "aps":{"alert":"cashi","badge":1,"sound":"default"}
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 发送给Windows Phone单个客户端Toast通知
@@ -425,7 +425,7 @@ curl -X POST \
           "wp": 2
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 ## 发送选项设置
@@ -467,7 +467,7 @@ curl -X POST \
           "title": "Mets Score!"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 当然，你也可以在data字典对象中定制自己的字段来推送消息，但推送到消息不显示在 Andoid 系统的通知栏中，而是执行应用程序预定义的逻辑，Android或iOS的接收消息文档中对此有说明，iOS只有当用户从通知中打开应用，才能访问data的数据，Android将提供这个数据在action Intent应用之后将提供这个数据,
@@ -488,7 +488,7 @@ curl -X POST \
           "newsItem": "Man bites dog"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 ### 设置消息过期时间
@@ -506,7 +506,7 @@ curl -X POST \
           "alert": "Season tickets on sale until December  4, 2013"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 也可以是相对时间（根据push_time做定期推送，从push_time时间开始算起，直到expiration_interval时间后过期），下面的请求表示消息将在2012-01-28 00:51:13这个时间点开始推送，直到7天后过期:
@@ -523,7 +523,7 @@ curl -X POST \
           "alert": "Season tickets on sale until December  4, 2013"
         }
       }' \
-  https://api2.bmobapp.com/1/push
+  https://自己备案域名/1/push
 ```
 
 

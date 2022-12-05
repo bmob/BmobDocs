@@ -14,7 +14,7 @@
 
 **请求**
 
-- url ：https://api2.bmobapp.com/1/requestSmsCode
+- url ：https://自己备案域名/1/requestSmsCode
 
 - method ：POST
 
@@ -57,7 +57,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx"}' \
-  https://api2.bmobapp.com/1/requestSmsCode
+  https://自己备案域名/1/requestSmsCode
 ```
 
 成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：
@@ -76,7 +76,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx", "template":"注册模板"}' \
-  https://api2.bmobapp.com/1/requestSmsCode
+  https://自己备案域名/1/requestSmsCode
 ```
 
 成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：
@@ -95,7 +95,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx", "template":"注册模板", "validate_token":"3fdgfs223"}' \
-  https://api2.bmobapp.com/1/requestSmsCode
+  https://自己备案域名/1/requestSmsCode
 ```
 
 成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：
@@ -114,7 +114,7 @@ curl -X POST \
 
 **请求**
 
-- url ：https://api2.bmobapp.com/1/verifySmsCode/smsCode(用户收到的6位短信验证码)
+- url ：https://自己备案域名/1/verifySmsCode/smsCode(用户收到的6位短信验证码)
 
 - method ：POST
 
@@ -156,7 +156,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"mobilePhoneNumber": "186xxxxxxxx"}' \
-  https://api2.bmobapp.com/1/verifySmsCode/876845
+  https://自己备案域名/1/verifySmsCode/876845
 ```
 
 
@@ -183,7 +183,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"width":85,"height":30,"size":4,"ttl":180}' \
-  https://api2.bmobapp.com/1/requestCaptcha
+  https://自己备案域名/1/requestCaptcha
 ```
 
 其中：
@@ -200,7 +200,7 @@ curl -X POST \
 ```
 {
   "captcha_token": "dtP6cLb3axn0Ho13EvZP",
-  "captcha_url": "https://api2.bmobapp.com/1/captchaImage?secretKey=ad1ef6c1eac9b6e7&token=dtP6cLb3axn0Ho13EvZP"
+  "captcha_url": "https://自己备案域名/1/captchaImage?secretKey=ad1ef6c1eac9b6e7&token=dtP6cLb3axn0Ho13EvZP"
 }
 ```
 
@@ -217,7 +217,7 @@ curl -X POST \
   -H "X-Bmob-REST-API-Key: Your REST API Key"        \
   -H "Content-Type: application/json" \
   -d '{"captcha_code": "1110","captcha_token": "R23423dsfd"}' \
-  https://api2.bmobapp.com/1/verifyCaptcha
+  https://自己备案域名/1/verifyCaptcha
 ```
 
 其中：

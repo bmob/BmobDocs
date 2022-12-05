@@ -1359,7 +1359,7 @@ CCLOG("%s",(const char*)data);或者是BmobLog::bmob_log()
 
 ---
 ** unity端 查询表，会出现失败情况 **
-失败原因 Failed to connect to api2.bmobapp.com port 443: Timed out, and response content is
+失败原因 Failed to connect to 自己备案域名 port 443: Timed out, and response content is
 UnityEngine.MonoBehaviour:print(Object)
 提示连接超时，先检查一下网络状况。
 
@@ -1769,7 +1769,7 @@ restapi都是通过https协议来进行请求的
 ---
 
 ** restAPI 使用短信验证码进行密码重置问题
-用短信验证码进行密码重置 的接口 https://api2.bmobapp.com/1/resetPasswordBySmsCode ，从接口描述来看，需要上传的信息只有 验证码和新密码，用户的 session 或手机号都不需要上传。
+用短信验证码进行密码重置 的接口 https://自己备案域名/1/resetPasswordBySmsCode ，从接口描述来看，需要上传的信息只有 验证码和新密码，用户的 session 或手机号都不需要上传。
 那后台如何知道这个验证码是哪个手机号发来的呢？ **
 后台是根据你的手机号来生成验证码的，服务端可以知道具体的验证码对应哪个手机号，请放心使用
 
@@ -1872,7 +1872,7 @@ js的调用请使用bmob提供的js sdk，在sdk中已经解决了这个问题
 
 ---
 ** Postman发起数据请求没有反应 **
-首先先检查本地网络，通常是因为本地网络或者Postman没有成功发出数据请求，其次可以打开[https://api2.bmobapp.com/](https://api2.bmobapp.com/)查看是否能打开进行测试。
+首先先检查本地网络，通常是因为本地网络或者Postman没有成功发出数据请求，其次可以打开[https://自己备案域名/](https://自己备案域名/)查看是否能打开进行测试。
 
 ---
 
@@ -1897,7 +1897,7 @@ curl_setopt($c, CURLOPT_SSL_VERIFYHOST, FALSE);
 ---
 
 ** 关于where条件的问题 **
-有开发者提出用PostMan请求的时候没有问题，但是用Java请求构造了where查询条件的时候有错（请求的格式大致如， `https://api2.bmobapp.com/1/classes/Footballer?limit=20&where={"location": {"$nearSphere": {"__type": "GeoPoint","latitude": 32.31735060,"longitude": 118.32457035 }}}` ）。
+有开发者提出用PostMan请求的时候没有问题，但是用Java请求构造了where查询条件的时候有错（请求的格式大致如， `https://自己备案域名/1/classes/Footballer?limit=20&where={"location": {"$nearSphere": {"__type": "GeoPoint","latitude": 32.31735060,"longitude": 118.32457035 }}}` ）。
 
 这个问题是因为特殊字符导致的问题，大家可以参考以下的解决方案：
 
@@ -2229,7 +2229,7 @@ Bmob导入数据，只可以从web后台手动导入。如果你要自动从本�
 
 ** 连上vpn没有数据返回 **
 
-可以在连上VPN时ping https://api2.bmobapp.com/看看能否ping通，有可能是VPN屏蔽了
+可以在连上VPN时ping https://自己备案域名/看看能否ping通，有可能是VPN屏蔽了
 
 ---
 
@@ -2462,7 +2462,7 @@ curl -X GET \
 -H "X-Bmob-REST-API-Key: Your REST API Key" \
 -G \
 --data-urlencode 'keys=username' \
-https://api2.bmobapp.com/1/users/某个用户的objectId
+https://自己备案域名/1/users/某个用户的objectId
 ```
 
 第二步：score降序获取前1000名的用户的用户名：
@@ -2472,7 +2472,7 @@ curl -X GET \
 -H "X-Bmob-REST-API-Key: Your REST API Key" \
 -G \
 --data-urlencode 'keys=username&order=-score&count=true&limit=1000&skip=0' \
-https://api2.bmobapp.com/1/classes/GameScore
+https://自己备案域名/1/classes/GameScore
 ```
 返回前1000名的用户名，判断前一个查询的用户名是否在这个数组的哪个位置，如果没有找到，继续第二步, skip设为1000，直到找到为止。
 

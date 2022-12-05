@@ -437,7 +437,7 @@
 <p><strong>请求</strong></p>
 <ul>
 <li>
-<p>url ：https://api2.bmobapp.com/1/requestSmsCode</p>
+<p>url ：https://自己备案域名/1/requestSmsCode</p>
 </li>
 <li>
 <p>method ：POST</p>
@@ -481,7 +481,7 @@ Content-Type: application/json
   -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
   -H &quot;Content-Type: application/json&quot; \
   -d '{&quot;mobilePhoneNumber&quot;: &quot;186xxxxxxxx&quot;}' \
-  https://api2.bmobapp.com/1/requestSmsCode
+  https://自己备案域名/1/requestSmsCode
 </code></pre>
 
 <p>成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：</p>
@@ -496,7 +496,7 @@ Content-Type: application/json
   -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
   -H &quot;Content-Type: application/json&quot; \
   -d '{&quot;mobilePhoneNumber&quot;: &quot;186xxxxxxxx&quot;, &quot;template&quot;:&quot;注册模板&quot;}' \
-  https://api2.bmobapp.com/1/requestSmsCode
+  https://自己备案域名/1/requestSmsCode
 </code></pre>
 
 <p>成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：</p>
@@ -511,7 +511,7 @@ Content-Type: application/json
   -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
   -H &quot;Content-Type: application/json&quot; \
   -d '{&quot;mobilePhoneNumber&quot;: &quot;186xxxxxxxx&quot;, &quot;template&quot;:&quot;注册模板&quot;, &quot;validate_token&quot;:&quot;3fdgfs223&quot;}' \
-  https://api2.bmobapp.com/1/requestSmsCode
+  https://自己备案域名/1/requestSmsCode
 </code></pre>
 
 <p>成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：</p>
@@ -526,7 +526,7 @@ Content-Type: application/json
 <p><strong>请求</strong></p>
 <ul>
 <li>
-<p>url ：https://api2.bmobapp.com/1/verifySmsCode/smsCode(用户收到的6位短信验证码)</p>
+<p>url ：https://自己备案域名/1/verifySmsCode/smsCode(用户收到的6位短信验证码)</p>
 </li>
 <li>
 <p>method ：POST</p>
@@ -569,7 +569,7 @@ Content-Type: application/json
   -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
   -H &quot;Content-Type: application/json&quot; \
   -d '{&quot;mobilePhoneNumber&quot;: &quot;186xxxxxxxx&quot;}' \
-  https://api2.bmobapp.com/1/verifySmsCode/876845
+  https://自己备案域名/1/verifySmsCode/876845
 </code></pre>
 
 <p><strong>注意事项</strong></p>
@@ -589,7 +589,7 @@ Content-Type: application/json
   -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
   -H &quot;Content-Type: application/json&quot; \
   -d '{&quot;width&quot;:85,&quot;height&quot;:30,&quot;size&quot;:4,&quot;ttl&quot;:180}' \
-  https://api2.bmobapp.com/1/requestCaptcha
+  https://自己备案域名/1/requestCaptcha
 </code></pre>
 
 <p>其中：</p>
@@ -632,7 +632,7 @@ Content-Type: application/json
 <p>返回值如下：</p>
 <pre><code>{
   &quot;captcha_token&quot;: &quot;dtP6cLb3axn0Ho13EvZP&quot;,
-  &quot;captcha_url&quot;: &quot;https://api2.bmobapp.com/1/captchaImage?secretKey=ad1ef6c1eac9b6e7&amp;token=dtP6cLb3axn0Ho13EvZP&quot;
+  &quot;captcha_url&quot;: &quot;https://自己备案域名/1/captchaImage?secretKey=ad1ef6c1eac9b6e7&amp;token=dtP6cLb3axn0Ho13EvZP&quot;
 }
 </code></pre>
 
@@ -660,7 +660,7 @@ Content-Type: application/json
   -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
   -H &quot;Content-Type: application/json&quot; \
   -d '{&quot;captcha_code&quot;: &quot;1110&quot;,&quot;captcha_token&quot;: &quot;R23423dsfd&quot;}' \
-  https://api2.bmobapp.com/1/verifyCaptcha
+  https://自己备案域名/1/verifyCaptcha
 </code></pre>
 
 <p>其中：</p>
