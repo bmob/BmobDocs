@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+            <!--
+            <title>快速入门 - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot; 小程序 – Bmob后端云 </title>  
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+								<li class="active">
+									<a href="./">小程序(旧、弃用)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">小程序(新)</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">即时通讯</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">即时通讯 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../im/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../im/ios/">iOS</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					<div class="code-title">小程序(旧、弃用)</div>
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									<li class="active">
+										<a class="itm-l1" href="./">快速入门</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#bmob">注册Bmob帐号</a>
+												
+											</li>
+												
+											<li class=""><a href="#_1">网站后台创建应用</a>
+												
+											</li>
+												
+											<li class=""><a href="#_2">配置小程序密钥和获取应用密钥</a>
+												
+											</li>
+												
+											<li class=""><a href="#_3">配置安全域名</a>
+												
+											</li>
+												
+											<li class=""><a href="#bmobsdk">下载和安装BmobSDK</a>
+												
+											</li>
+												
+											<li class=""><a href="#_4">添加一行数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_5">获取一行数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_6">修改一行数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#_7">删除一行数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#websocket">WebSocket 通讯（聊天）</a>
+												
+											</li>
+												
+											<li class=""><a href="#_8">优秀开源</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_9">地道美食地图</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_10">出发吧一起</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_11">心邮</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_12">自媒体文章小程序</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_13">灵动云课堂小程序端</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_14">灵犀外卖</a></li>
+												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#bmob_1">Bmob入门示例</a>
+												
+											</li>
+												
+											<li class=""><a href="#_15">典型案例</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="example/">示例/功能</a>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="bmob">注册Bmob帐号<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
+<p>在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。</p>
+<p><img alt="" src="./image/rumen_zhuce.png" /></p>
+<h2 id="_1">网站后台创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。</p>
+<p><img alt="" src="./image/rumen_chuangjian.png" /></p>
+<h2 id="_2">配置小程序密钥和获取应用密钥<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>选择你要开发的应用，进入该应用</p>
+<p><img alt="" src="./image/rumen_miyue_1.png" /></p>
+<p>在跳转页面，进入设置/应用密钥，将你的AppID(小程序ID)和AppSecret(小程序密钥)填写到Bmob中</p>
+<p><img alt="" src="./image/rumen_wxmiyao.png" />
+<img alt="" src="./image/rumen_miyaopeizhi.png" /></p>
+<p>在下图位置点击复制，即可得到Application ID和REST API Key</p>
+<p><img alt="" src="./image/rumen_miyue_2.png" /></p>
+<p>获取Application ID和REST API Key后，下载SDK。</p>
+<h2 id="_3">配置安全域名<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在你的微信小程序后台配置你的服务器域名</p>
+<p>在应用设置-&gt;配置里面把这几个域名填写到上图微信后台，设置https域名
+<img alt="" src="./image/2.png" /></p>
+<h2 id="bmobsdk">下载和安装BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
+<p>一、把"bmob-min.js"和"underscore.js"放到相应的文件，例如放到utils中，在其他页面添加以下代码</p>
+<pre><code>var Bmob = require('../../utils/bmob.js');
+</code></pre>
+
+<p>二、接着是在app.js中加入下面两行代码进行全局初始化</p>
+<pre><code>var Bmob = require('utils/bmob.js');
+Bmob.initialize(&quot;你的Application ID&quot;, &quot;你的REST API Key&quot;);
+
+</code></pre>
+
+<h2 id="_4">添加一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>添加数据</p>
+<pre><code>
+      var Diary = Bmob.Object.extend(&quot;diary&quot;);
+      var diary = new Diary();
+      diary.set(&quot;title&quot;,&quot;hello&quot;);
+      diary.set(&quot;content&quot;,&quot;hello world&quot;);
+      //添加数据，第一个入口参数是null
+      diary.save(null, {
+        success: function(result) {
+          // 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
+            console.log(&quot;日记创建成功, objectId:&quot;+result.id);
+        },
+        error: function(result, error) {
+          // 添加失败
+          console.log('创建日记失败');
+
+        }
+      });
+</code></pre>
+
+<h2 id="_5">获取一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<pre><code>
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+    var query = new Bmob.Query(Diary);
+    query.get(&quot;4edc3f6ee9&quot;, {
+      success: function(result) {
+        // The object was retrieved successfully.
+        console.log(&quot;该日记标题为&quot;+result.get(&quot;title&quot;));
+      },
+      error: function(result, error) {
+        console.log(&quot;查询失败&quot;);
+      }
+    });
+</code></pre>
+
+<h2 id="_6">修改一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<pre><code>
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+    var query = new Bmob.Query(Diary);
+    // 这个 id 是要修改条目的 id，你在生成这个存储并成功时可以获取到，请看前面的文档
+    query.get(&quot;4edc3f6ee9&quot;, {
+        success: function(result) {
+          // 回调中可以取得这个 diary 对象的一个实例，然后就可以修改它了
+          result.set('title',&quot;我是title&quot;);
+          result.set('content',&quot;我是content&quot;);
+          result.save();
+          // The object was retrieved successfully.
+        },
+        error: function(object, error) {
+
+        }
+    });
+</code></pre>
+
+<h2 id="_7">删除一行数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<pre><code>
+    var Diary = Bmob.Object.extend(&quot;diary&quot;);
+    var query = new Bmob.Query(Diary);
+    query.get(objectId, {
+      success: function(object) {
+        // The object was retrieved successfully.
+        object.destroy({
+          success: function(deleteObject) {
+            console.log('删除日记成功');
+          },
+          error: function(object, error) {
+            console.log('删除日记失败');
+          }
+        });
+      },
+      error: function(object, error) {
+        console.log(&quot;query object fail&quot;);
+      }
+    });
+</code></pre>
+
+<h2 id="websocket">WebSocket 通讯（聊天）<a class="headerlink" href="#websocket" title="Permanent link">&para;</a></h2>
+<p>一、把"bmobSocketIo.js"放到相应的文件，例如放到utils中，接着是在app.js中加入下面两行代码进行全局初始化</p>
+<pre><code>var BmobSocketIo = require('utils/bmobSocketIo.js').BmobSocketIo;
+BmobSocketIo.initialize(&quot;你的Application ID&quot;);
+
+</code></pre>
+
+<p>二、对应页面开始引入<code>BmobSocketIo</code></p>
+<pre><code>var BmobSocketIo = require('../../../utils/bmobSocketIo.js').BmobSocketIo;
+</code></pre>
+
+<p>三、在页面进入第一次时初始化<code>BmobSocketIo</code></p>
+<pre><code>BmobSocketIo.init();
+
+</code></pre>
+
+<p>四、监听表</p>
+<pre><code>
+    //初始连接socket.io服务器后，需要监听的事件都写在这个函数内
+    BmobSocketIo.onInitListen = function () {
+      //订阅Chat表的数据更新事件
+      BmobSocketIo.updateTable(&quot;Chat&quot;); //聊天记录表
+    };
+
+    //监听服务器返回的更新表的数据
+    BmobSocketIo.onUpdateTable = function (tablename, data) {
+
+      if (tablename == &quot;Chat&quot;) {
+        console.log(data);
+      }
+    };
+
+</code></pre>
+
+<p>PS:更多请参考Demo里面的群聊功能。
+<img alt="小程序聊天室" src="./image/chat.png" title="Title" /></p>
+<h2 id="_8">优秀开源<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<h3 id="_9">地道美食地图<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>点击查看<a href="https://github.com/LanceCong/gourmet_map">地道美食地图</a></p>
+</blockquote>
+</li>
+<li>
+<h3 id="_10">出发吧一起<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>点击查看<a href="https://github.com/dmego/together">出发吧一起</a></p>
+</blockquote>
+</li>
+<li>
+<h3 id="_11">心邮<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>点击查看<a href="https://github.com/bmob/Bmob-wechatapp-xinyou">心邮</a></p>
+</blockquote>
+</li>
+<li>
+<h3 id="_12">自媒体文章小程序<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>点击查看<a href="https://github.com/qfwc258/weapp-bmob-cw">自媒体文章小程序</a></p>
+</blockquote>
+</li>
+<li>
+<h3 id="_13">灵动云课堂小程序端<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>点击查看<a href="https://gitee.com/laeser/course">灵动云课堂小程序端</a></p>
+</blockquote>
+</li>
+<li>
+<h3 id="_14">灵犀外卖<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>点击查看<a href="https://gitee.com/laeser/dinner">灵犀外卖</a></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="bmob_1">Bmob入门示例<a class="headerlink" href="#bmob_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>源码包含增删改查</li>
+</ul>
+<p><a href="https://github.com/magic007/wechatAppDemo" title="快速入门相关源码下载">快速入门相关源码下载</a></p>
+<h2 id="_15">典型案例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>Bmob示例包含常用接口（学习示例）：<a href="https://github.com/magic007/wechatAppDemo">https://github.com/magic007/wechatAppDemo</a> （采用实时数据同步SDK开发，里面几乎包含了小程序开发常见功能示例代码，右击可直接查看源码）
+扫描二维码查看
+<img alt="" src="./image/code.jpg" />
+<img alt="" src="./image/ui2.1.gif" />
+<img alt="" src="./image/ui2.2.gif" /></p>
+<p>心邮（官方线上项目）：<a href="https://github.com/bmob/Bmob-wechatapp-xinyou">https://github.com/bmob/Bmob-wechatapp-xinyou</a> （采用实时数据同步SDK开发，右击可直接查看源码）</p>
+<hr />
+<ul>
+<li>1.生日工具                    -------工具类</li>
+<li>2.足迹地图</li>
+<li>3.接力喵视频                -------视频类</li>
+<li>4.像素涂鸦</li>
+<li>5.地道美食地图           -------LBS</li>
+<li>6.胖熊圈</li>
+<li>7.有货Hk</li>
+<li>8.厦漳泉生活通               -------本地生活</li>
+<li>9.极简笔记</li>
+<li>10.衣在线                  -------商城</li>
+<li>11.活动报名表                -------工具类</li>
+<li>12.味蕾点餐               -------点餐</li>
+<li>13.烟台微拼               -------本地生活</li>
+<li>14.顺德便利贴</li>
+<li>15.同城生活广告</li>
+<li>16.点点英语学堂</li>
+<li>17.朝露时刻               -------音频类</li>
+<li>18.青岛一起秀科学俱乐部
+     19.纸塘                  -------17年6月最热门的小程序</li>
+<li>20.雷湖古琴艺术</li>
+<li>21.皋城文明随手拍   -----政府</li>
+<li>22.阅后即焚图片分享</li>
+<li>23.猎位共享停车</li>
+<li>24.听写宝</li>
+<li>25.嘿车出行</li>
+<li>26.喵星人宠物社区</li>
+<li>27.标签生成器</li>
+<li>28.视频看房</li>
+<li>29.海南黎家特产</li>
+<li>30.轩宇工具</li>
+<li>31.在旅途看世界</li>
+<li>32.寻遍美食地图</li>
+<li>33.Bmob示例</li>
+<li>34.鲁山拼车</li>
+<li>33.莲馨图书室          图书馆-扫描借书</li>
+<li>34.灵动云课堂</li>
+<li>35.9cam     视频类</li>
+<li>36.恋爱迹</li>
+<li>37.融信品质生活服务</li>
+<li>38.全民摄影秀</li>
+<li>39.农电微服务    国家电网公司</li>
+<li>40.壁纸印象</li>
+<li>41.跟妆师</li>
+<li>42.高能名片</li>
+<li>43.婚纱lite</li>
+<li>44.张阿姨打扫</li>
+<li>45.吃决策</li>
+<li>46.比心比价</li>
+<li>47.蜂鸟作业               教育</li>
+<li>48.美味面包lite</li>
+<li>51.幸福的5班</li>
+<li>52.大武汉公交               交通
+     53.Buy优选                   淘客</li>
+<li>54.码赚</li>
+<li>55.附近的圈子</li>
+<li>56.吴忠意大利冰淇淋          实体店点餐</li>
+<li>57.摩西讲单词     教育</li>
+<li>58.贝莱福居</li>
+<li>59.花间集鲜花</li>
+<li>60.柏亚阅读书吧</li>
+<li>61.找我跑腿服务</li>
+<li>62.橙色工地圈</li>
+<li>63.大学城活动报名</li>
+<li>64.聚合助手</li>
+<li>65.圆桌绿色版</li>
+<li>66.我的王者名片</li>
+<li>67.趣猫</li>
+<li>68.管图智能选座          大学图书馆</li>
+<li>69.呼伦贝尔二手车平台</li>
+<li>70.我的王者名片</li>
+<li>71.万能服           答题应用</li>
+<li>72.国关campus</li>
+<li>73.礼信APP</li>
+<li>74.一起冒险</li>
+<li>75.出发吧一起</li>
+<li>76.闪电速代助手</li>
+<li>77.一锅美味   点餐</li>
+<li>78.月兴米粉面店   批发</li>
+<li>79.电控之家服务</li>
+</ul>
+<blockquote>
+<p>官方交流QQ群：372103594 。欢迎提交给我们</p>
+</blockquote>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
