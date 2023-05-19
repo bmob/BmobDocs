@@ -37,7 +37,7 @@
 
 <div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>重要提示!</strong> 文档所有请求域名，必须修改为自己公司/个人备案域名才可使用。如暂无备案域名，请后台填写工单联系客服寻求解决方案。
+  <strong>重要提示!</strong> 因公司官网域名已更换，部分文档尚未来得及修正，文档中有关bmob.cn域名请改为bmobapp.com，如仍有疑问，请联系客服QQ：2967459363  获取支持。
 </div>
 			<div id="cards-wrapper" class="cards-wrapper row">
 				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
@@ -230,5 +230,4 @@
 	</section>
 	<!--//cards-section-->
 </div>
-
 
