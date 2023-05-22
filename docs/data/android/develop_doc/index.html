@@ -2526,7 +2526,7 @@ private void removePostAuthor() {
 <p><strong>一条评论只能属于某一篇帖子，一篇帖子可以有很多用户对其进行评论，那么帖子和评论之间的关系就是<code>一对多关系</code>，推荐使用<code>pointer</code>类型来表示</strong>。</p>
 <p>因为使用方法和上面的一对一关联基本相同，只是查询一对多关联的时候有些区别，故只举添加和查询两个例子：</p>
 <h4 id="_9">添加一对多关联<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
-<p>将评论和微博进行关联，并同时和当前用户进行关联，表明是当前用户对该帖子进行评论，示例如下：</p>
+<p>将评论和帖子进行关联，并同时和当前用户进行关联，表明是当前用户对该帖子进行评论，示例如下：</p>
 <pre><code class="java">MyUser user = BmobUser.getCurrentUser(MyUser.class);
 Post post = new Post();
 post.setObjectId(&quot;ESIt3334&quot;);
