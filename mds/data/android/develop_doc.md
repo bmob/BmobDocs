@@ -1752,7 +1752,7 @@ private void removePostAuthor() {
 
 
 #### 添加一对多关联
-将评论和微博进行关联，并同时和当前用户进行关联，表明是当前用户对该帖子进行评论，示例如下：
+将评论和帖子进行关联，并同时和当前用户进行关联，表明是当前用户对该帖子进行评论，示例如下：
 
 ```java
 MyUser user = BmobUser.getCurrentUser(MyUser.class);
