@@ -333,9 +333,3 @@ p2.delete(new UpdateListener() {
 
 第三方登录案例源码：[https://github.com/bmob/bmob-android-demo-thirdpartylogin](https://github.com/bmob/bmob-android-demo-thirdpartylogin)  包含第三方登录和登录后获取用户信息的源码
 
-## 阅读更多的文档
-
-1. 快速入门只是提供了最最基本的介绍，如果你想了解更多的功能，请查看详细的[开发文档](http://doc.bmobapp.com/data/android/develop_doc/)
-2. 如果想看下SDK的类库文档，可以移步[这里](http://doc.bmobapp.com/data/android/class_doc/)
-
-
