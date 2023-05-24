@@ -14,8 +14,8 @@ pages:
         - '开发文档': 'data/android/develop_doc.md'
         - '示例/功能': 'data/android/example.md'
         - '自动更新': 'data/android/auto_update.md'
-        - '类库文档': 'data/android/class_doc.md'
-        - '更新日志': 'data/android/update_log.md'
+#        - '类库文档': 'data/android/class_doc.md'
+#        - '更新日志': 'data/android/update_log.md'
     - 'iOS':
         - '快速入门': 'data/ios/index.md'
         - '开发文档': 'data/ios/develop_doc.md'
