@@ -362,14 +362,6 @@
 												<li><a class="itm-l2" href="#_1">请求发送短信验证码</a></li>
 											</ul>
 											
-											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_3">购买事项</a></li>
-											</ul>
-											
-											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_4">发票事宜</a></li>
-											</ul>
-											
 										</li>
 									
 								
@@ -441,7 +433,7 @@ BmobSMS.requestSMSCode(phone, &quot;DataSDK&quot;, new QueryListener&lt;Integer&
 <p>如果你提交的短信模板无法发送，则有可能包含一些敏感监控词，具体可去Github下载  <a href="https://github.com/bmob/bmob-public-docs/blob/master/%E7%9F%AD%E4%BF%A1%E5%85%B3%E9%94%AE%E5%AD%97%E7%9B%91%E6%8E%A7%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.doc">短信关键字监控参考文档</a> 来查看提交内容是否合法。</p>
 </li>
 <li>
-<p>一天一个应用给同一手机号发送的短信不能超过10条，否则会报<code>10010</code>错误，其他错误码可查看：<a href="http://docs.bmobapp.com/sms/Android/g_errorcode/doc/index.html">短信功能相关错误码</a> 。</p>
+<p>一天一个应用给同一手机号发送的短信不能超过10条，否则会报<code>10010</code>错误，其他错误码可查看：<a href="http://doc.bmobapp.com/other/error_code/#_2">短信功能相关错误码</a> 。</p>
 </li>
 </ul>
 <h3 id="_2">验证验证码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -479,13 +471,6 @@ BmobSMS.requestSMSCode(phone, &quot;DataSDK&quot;, new QueryListener&lt;Integer&
 <li>计算得到的短信条数在本条短信发送成功后将会从你的账户剩余的短信条数中扣除。</li>
 <li>短信发送限制规则是1/分钟，5/小时，10/天。即对于一个应用来说，一天给同一手机号发送短信不能超过10条，一小时给同一手机号发送短信不能超过5条，一分钟给同一手机号发送短信不能超过1条。</li>
 </ul>
-<h2 id="_3">购买事项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>短信条数只能输入整数，且不能少于1000条</p>
-<p><img alt="短信计费模式" src="http://bmob-file-service-t.b0.upaiyun.com/Doc_File/jfms.png" /></p>
-<p>进入账号控制台，选择应用--&gt; 短信 --&gt; 点击充值即可。</p>
-<h2 id="_4">发票事宜<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>购买金额满100元可提供发票，1000元以内的到付，1000元以上（含1000元）包邮。</p>
-<p>登录后台，在 <code>财务</code> -&gt; <code>发票管理</code> 页面可点击申请开票。</p>
                 </div>
             </div>
         </div>
