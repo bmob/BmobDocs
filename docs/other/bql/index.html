@@ -546,7 +546,7 @@ select * from GameScore order by -playScore,+name
 
 </code></pre>
 
-<p>date 函数接收的日期格式必须是 <code>yyyy-MM-dd HH:mm:ss</code>。更多内置函数请看最后的 <a href="../../bql/index.html?menukey=otherdoc&amp;key=bql#内置函数">内置函数</a>。</p>
+<p>date 函数接收的日期格式必须是 <code>yyyy-MM-dd HH:mm:ss</code>。更多内置函数请看最后的 <code>内置函数</code>。</p>
 <p>一些常见的查询运算符：</p>
 <table>
 <thead>
@@ -748,7 +748,7 @@ select * from GameScore order by -playScore,+name
 </code></pre>
 
 <h3 id="_16">内置函数<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<p>占位符查询中用到的内置函数，请看最后的 <a href="../../bql/index.html?menukey=otherdoc&amp;key=bql#占位符查询用到的内置函数">占位符查询用到的内置函数</a>。</p>
+<p>占位符查询中用到的内置函数，请看最后的 <code>占位符查询用到的内置函数</code>。</p>
 <p>例如：</p>
 <pre><code class="java">
 select * from GameScore where createdAt &gt; date(?) and player = pointer(?,?) and gps near geopoint(?,?)
@@ -925,10 +925,10 @@ String sql = select * from GameScore where player = pointer('_User', &quot;+&quo
 </code></pre>
 
 <p><strong>注：</strong></p>
-<p><strong>1、如果不使用<code>内置函数</code>，你也使用 <a href="../../Restful/developdoc/index.html?menukey=develop_doc&amp;key=develop_restful#数据类型" title="Rest API文档">Rest API文档</a>定义的 JSON 对象来创建特定类型,不过这样写相对来说比较繁琐。</strong></p>
+<p><strong>1、如果不使用<code>内置函数</code>，你也使用 <a href="http://doc.bmobapp.com/data/restful/develop_doc/">Rest API文档</a>定义的 JSON 对象来创建特定类型,不过这样写相对来说比较繁琐。</strong></p>
 <p><strong>2、占位符查询中如果要用到内置函数，其形式必须为上述列出的，最后的可变参数会自动替换类型中的<code>?</code>。</strong></p>
 <h2 id="_26">性能和建议<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
-<p>BQL 最终还是转换成 <a href="../../Restful/developdoc/index.html?menukey=develop_doc&amp;key=develop_restful" title="Rest API文档">Rest API文档</a> 里查询部分提到的各种 where 条件，因为多了一层转换，理论上会比直接使用 where 查询慢一点。并且 BQL 对长度有所限制，要求在 4096 字节以内。</p>
+<p>BQL 最终还是转换成 <a href="http://doc.bmobapp.com/data/restful/develop_doc/">Rest API文档</a> 里查询部分提到的各种 where 条件，因为多了一层转换，理论上会比直接使用 where 查询慢一点。并且 BQL 对长度有所限制，要求在 4096 字节以内。</p>
 <p>此外，我们推荐查询语句都采用占位符的方式，使用占位符的查询语句将有机会被缓存复用，避免重复解释的开销。</p>
                 </div>
             </div>
