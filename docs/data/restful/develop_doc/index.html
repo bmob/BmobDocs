@@ -742,9 +742,9 @@
 </ul>
 <h2 id="_2">案例源码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>这里提供一些开发者写的其他语言调用RestApi的源码或者核心代码。</p>
-<p>JAVA访问RestApi：<a href="https://github.com/bmob/bmob-java-sdk/tree/v3/javasdkdemo">https://github.com/bmob/bmob-java-sdk/tree/v3/javasdkdemo</a></p>
-<p>PHP访问RestApi：<a href="http://docs.bmobapp.com/data/PHP/a_faststart/doc/index.html">http://docs.bmobapp.com/data/PHP/a_faststart/doc/index.html</a></p>
-<p>AS3.0访问RestApi：<a href="http://wenda.bmobapp.com//?/question/193">http://wenda.bmobapp.com//?/question/193</a></p>
+<p>PHP访问RestApi：<a href="http://doc.bmobapp.com/data/php/">http://doc.bmobapp.com/data/php/</a></p>
+<p>Python访问RestApi：<a href="http://doc.bmobapp.com/data/python/">http://doc.bmobapp.com/data/python/</a></p>
+<p>Unity访问RestApi：<a href="https://github.com/bmob/Bmob-Unity-Demo">https://github.com/bmob/Bmob-Unity-Demo</a></p>
 <h2 id="_3">请求格式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>对于POST和PUT请求，请求的主体必须是JSON格式,而且HTTP请求头的 <strong>Content-Type</strong> 需要设置为 <strong>application/json</strong> 。</p>
 <p>用户验证是通过HTTP请求头来进行的, <strong>X-Bmob-Application-Id</strong> 头表明你正在访问的是哪个App程序, 而 <strong>X-Bmob-REST-API-Key</strong> 头是用来授权的。在下面的例子中，你必须使用正确的key替换Your Application ID和Your REST API Key才能正常地发出Curl请求。</p>
@@ -2924,7 +2924,7 @@ Content-Type: application/json
 }
 </code></pre>
 
-<p>其中 <strong>mobilePhoneNumber</strong> 就是手机号码，而 <strong>smsCode</strong> 是使用 <a href="../../../Restful/developdoc/index.html?menukey=develop_doc&amp;key=develop_restful#请求短信验证码" title="请求短信验证码API">请求短信验证码API</a>发送到用户手机上的 6位验证码字符串。如果是新用户且不传入 username，默认用户名将是手机号码。</p>
+<p>其中 <code>mobilePhoneNumber</code> 就是手机号码，而 <code>smsCode</code> 是使用 <a href="../[/Restful/developdoc/index.html?menukey=develop_doc&amp;key=develop_restful#请求短信验证码](http://doc.bmobapp.com/sms/restful/)" title="请求短信验证码API">请求短信验证码API</a>发送到用户手机上的 6位验证码字符串。如果是新用户且不传入 username，默认用户名将是手机号码。</p>
 <p><strong>成功时响应</strong></p>
 <ul>
 <li>
@@ -2975,7 +2975,7 @@ Content-Type: application/json
 <p><strong>请求描述</strong></p>
 <p>你的用户注册之后，你需要让他们用自己的用户名和密码登录，为了做到这一点，发送一个HTTP GET请求到 <strong>/1/login</strong> ，加上username和password作为URL编码后的参数。</p>
 <p>另外，username 支持传入_User表的username或email或mobilePhoneNumber字段的值，作为登录的扩展功能，以实现邮箱和密码、手机号和密码登录功能。</p>
-<p>除了有用户名或邮箱或手机号码和密码登录的功能，<a href="http://www.bmobapp.com/" title="Bmob移动后端云服务平台">Bmob</a> 还支持使用手机号码和验证码一键快速登录的功能，而 <strong>smsCode</strong> 是使用 <a href="http://docs.bmobapp.com/sms/Restful/b_developdoc/doc/index.html" title="请求短信验证码API">请求短信验证码API</a>发送到用户手机上的 6位验证码字符串：</p>
+<p>除了有用户名或邮箱或手机号码和密码登录的功能，<a href="http://www.bmobapp.com/" title="Bmob移动后端云服务平台">Bmob</a> 还支持使用手机号码和验证码一键快速登录的功能，而 <strong>smsCode</strong> 是使用 <a href="http://doc.bmobapp.com/sms/restful/" title="请求短信验证码API">请求短信验证码API</a>发送到用户手机上的 6位验证码字符串：</p>
 <p><strong>请求</strong></p>
 <ul>
 <li>
