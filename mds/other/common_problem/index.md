@@ -22,7 +22,9 @@ title: My Document
 
 ---
 ** 服务器端运行在什么环境下 **
-北京BGP c机房
+- 北京BGP机房 
+- 杭州BGP机房
+- 香港BGP机房
 
 ---
 ** 你们的平台稳定吗 **
@@ -211,30 +213,6 @@ ie8不支持html5
 ---
 ** API请求数是实时统计更新的吗？ **
 不是的，API请求数一天统计一次，每天凌晨3点进行统计。
-
-## APP官网相关问题
-
-** APP官网的一些案例 **
-[http://bikenavi.bmob.site/](http://bikenavi.bmob.site/)
-[http://drive.bmob.site/](http://drive.bmob.site/)
-[http://qlslylq.bmob.site/](http://qlslylq.bmob.site/)
-
----
-** 不使用SDK也可以创建APP官网吗 **
-是的。APP官网是我们为开发者提供的扩展服务，与SDK、云数据库、文件服务等其他业务没有任何联系，完全是耦合的关系。
-使用APP官网的流程如下：注册进入官网->创建应用->点击“应用官网”->输入你想要的域名->选择模版->编辑保存。
-
----
-** 官网修改后怎么没有立即生效 **
-我们采用生成静态文件的方式，生成和同步到泛域名服务器需要30秒的时间，请耐心等待。
-
----
-** 能使用其他域名吗 **
-可以。但需要提交一些材料给我们（具体材料需要先联系我们的客服QQ），提交到工信部进行备案。
-
----
-** 怎么知道我的域名是否备案 **
-登录网站 [http://www.miitbeian.gov.cn/publish/query/indexFirst.action ](http://www.miitbeian.gov.cn/publish/query/indexFirst.action ) 按操作查询即可
 
 ## 数据服务常见问题
 
@@ -1258,7 +1236,7 @@ BmobACL *acl = [BmobACL ACL];
 ---
 
 ** 请问有对应的swift开发方法吗？ **
-Swift项目中使用BmobSDK可以看这个文档：[Swift项目中使用BmobSDK](http://docs.bmobapp.com/data/iOS/l_swift/doc/index.html)
+Swift项目中使用BmobSDK可以看这个文档：[Swift项目中使用BmobSDK](http://doc.bmobapp.com/data/ios/swift_develop_doc/)
 
 ---
 
@@ -1868,8 +1846,6 @@ js的调用请使用bmob提供的js sdk，在sdk中已经解决了这个问题
 **  如何在线测试RestApi **
 使用Chrome浏览器的Postman插件就可以进行调试了。[点击链接Postman下载地址](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?utm_source=chrome-ntp-icon)。
 
-界面效果[点击这里查看](http://docs.bmobapp.com/Restful/faststart/index.html?menukey=fast_start&key=start_restful#RestAPI调试工具)。
-
 ---
 ** Postman发起数据请求没有反应 **
 首先先检查本地网络，通常是因为本地网络或者Postman没有成功发出数据请求，其次可以打开[https://自己备案域名/](https://自己备案域名/)查看是否能打开进行测试。
@@ -1884,15 +1860,6 @@ js的调用请使用bmob提供的js sdk，在sdk中已经解决了这个问题
 curl_setopt($c, CURLOPT_SSL_VERIFYPEER, FALSE);
 curl_setopt($c, CURLOPT_SSL_VERIFYHOST, FALSE);
 ```
-
----
-
-** 能提供Java调用RestApi的示例代码吗 **
-点击下面的链接可以看到Java调用RestApi的示例代码：
-
-[http://wenda.bmobapp.com//?/question/51](http://wenda.bmobapp.com//?/question/51)
-
-[http://wenda.bmobapp.com/?/question/859](http://wenda.bmobapp.com/?/question/859)
 
 ---
 
@@ -2560,277 +2527,6 @@ NSLog(@"输入的验证码不正确");
 
 ** 注册时需要短信验证， 改怎么实现 **
 注册时让用户填写手机号码，再进行验证即可，有手机注册验证接口
-
-
-## IM服务常见问题
-
-** IM的开源地址是什么？ **
-Android：[bmob-android-im-sdk](https://github.com/bmob/bmob-android-im-sdk)
-iOS : [bmob-iOS-im-sdk](https://github.com/bmob/bmob-iOS-im-sdk)
-
----
-** 为什么我的手机接收不到信息 **
-请先在Web后台配置包名或者证书。
-
----
-** 消息推送的时候我没开启网络，在推送一段时间后再开启网络，会收到消息吗？ **
-在断网开始的一分钟内发的消息是接收不到的，因为心跳包的默认时间是一分钟，这一分钟内，服务器不认为该链接是断开的，所以消息不会保存成离线消息。
-
----
-** Bmob可以做群聊吗？ **
-可以利用[开发文档](http://doc.bmobapp.com/data/android/)数据实时同步功能来实现群聊。
-
-思路可以这样：
-1.创建一个群聊表，包括 群组id信息 发送人信息 聊天信息，这里可以把所有的聊天内容放进去;
-2.创建一个群组信息表，包括 群组用户列表 创建时间 群组名称等;
-3.创建一个群组信息变更表，包括 群组id信息，用一个字段记录有消息新增;
-
-当有人在群组中发起聊天时，首先先往群聊表中新增一条记录，然后往群组信息表更表中更新一下记录。所有群组的人都监听自己群组对应的群组信息表更表的几行。
-
----
-
-** 为什么发送位置的时候定位不了 **
-1.如果你是直接用demo里面的bin目录下的apk的话，是不存在这个问题的。
-2.如果你是下载demo之后直接运行的话，需要去重新去百度地图官网申请key,因为demo里面的可以是和我的eclipse绑定在一起的，相信做过百度地图开发的知道这是为什么。
-
-** 我想实现私信功能 应该用IM来实现吗 **
-有两种方案：
-1.使用IM实现
-2.如果私信功能对实时信要求并不是很高，那么也可以将聊天记录放在表中，并且采用定时拉取的方法。
-
----
-** im sdk支持群聊活着广播消息么？ **
-SDK内部暂时还没有实现群聊部分，只是在内部预留了相关的接口，方便后续开发而已。
-
-
----
-
-** android新版IM不支持好友管理? **
-新版IM不同于旧版IM，不再提供与用户相关的操作了，比如登录、注册、好友管理相关的。开发者可以自行实现
-
----
-
-** 用自己的key运行新版BmobIMDemo，IM通讯的各种消息的数据库表在哪？（IM即使通讯的注册数据是保存在哪里，BmobIM里面的聊天数据储存在哪个数据库） **
-目前新版IM是没有将发送的消息存储到Bmob后台的，开发者可自行选择存储，sdk的聊天消息都是本地存储的
-
----
-** 不论对方是否为我的好友，开启聊天的方式都是BmobIM.getInstance().startPrivateConversation（）吗？
-意思是说好友和陌生人开启聊天的方式都是一样的?只是好友在聊天列表里方便查找？
-那陌生人的好友的区别在哪里？ 可以在聊天界面的标题 设置类似qq的添加好友吗？ **
-
-只有会话的概念，没有好友的概念，新版的IM好友管理需要开发者自行实现。
-
----
-** Unity使用Android和iOS的IM的SDK，可以实现即时通讯么？ **
-Unity支持调用android和iOS和IMSDK，可以实现
-
----
-
-** Bmob Im 是采用什么协议? **
-基于TCP的自定义协议。
-
----
-
-** 新版本IM兼容老版本吗？ **
-不兼容，新版IM采用全新的协议实现。
-
----
-** 利用数据同步功能实现群聊 **
-答：用数据实时同步实现群聊的思路可以这样：
-
-1.创建一个群聊表，包括 群组id信息 发送人信息 聊天信息，这里可以把所有的聊天内容放进去
-2.创建一个群组信息表，包括 群组用户列表 创建时间 群组名称等
-3.创建一个群组信息变更表，包括 群组id信息，用一个字段记录有消息新增
-
-当有人在群组中发起聊天时，首先先往群聊表中新增一条记录，然后往群组信息表更表中更新一下记录。所有群组的人都监听自己群组对应的群组信息表更表的几行。
-
-热心的用户实现了一个[Android基于Bmob群聊功能的实现](http://blog.csdn.net/shangmingchao/article/details/50548898)
-
-
----
-
-** 怎样用邮箱查找用户？ **
-
-参考查找用户那部分的代码：（如果希望邮箱是唯一的话，还需要在Web后台指定email字段是唯一键）
-
-查询用户
-查询用户和查询普通对象一样，只需指定BmobUser类即可，如下：
-
-```
-BmobQuery<BmobUser> query = new BmobQuery<BmobUser>();
-query.addWhereEqualTo("email", "heshaoyue@bmobapp.com");
-query.findObjects(this, new FindListener<BmobUser>() {
-@Override
-public void onSuccess(List<BmobUser> object) {
-// TODO Auto-generated method stub
-//这里得到的就是用户信息
-toast("查询用户邮箱成功："+object.size());
-}
-@Override
-public void onError(int code, String msg) {
-// TODO Auto-generated method stub
-toast("查询用户失败："+msg);
-}
-});
-```
-
----
-
-** 为什么我们离线能接受到消息呢？我们登陆的时候是不是因为服务器知道我们的帐号id再某个地方登陆了，就把消息推送到那个设备上，那么我们离线的时候下次再上线能接受到消息是怎么做到的？ **
-离线消息这个需要服务端支撑的，服务端在向特定用户（设备）下发消息的时候，会去检测下当前用户的客户端连接是否正常，如果连接已经关闭了，表明该设备下线或者处于关机状态，此时服务端会将发给该用户的所有消息凑存在一个数组中，之后在等该用户上线（重新建立连接）的时候，服务器会再将这些离线消息按照时间先后顺序依次下发给该用户。
-
----
-
-** 使用了IM组件，推送怎么搞？ **
-最新版本的IM不需要再使用推送，如果需要在用户离线时使用推送功能，可以直接使用推送sdk推送内容。
-
----
-
-** 为什么IM组件在有的手机上可以接受到聊天推送，有的手机上就接收不到呢？ **
-有一些定制过的机器，比如小米、魅族这些，你根据系统的情况做一下处理。
-
----
-
-** 一个用户发送消息，另一个用户怎么知道他发送消息了。里面的工作原理是什么 **
-首先，两个用户对应的终端都跟Bmob服务器保持了一个心跳长连接服务，这样的话，终端和服务器端就可以双通道通讯了。
-
-接着，一个用户发送消息给另外一个用户，消息首先到Bmob服务器，Bmob服务器根据消息的内容体判断是发给哪个终端，然后再把消息发送下去。
-
-整个的工作原理就是：websocket长连接。
-
----
-
-** 关于 BmobRealTimeData 的几个问题 **
-1.isConnected() 的返回结果是实时更新的吗？比如用户本来连接成功，但是过一会儿没有网络了，再调用该函数是不是会返回false？
-2.失去网络连接，然后又恢复网络连接后，BmobRealTimeData 实例会不会自动重连？
-3.这个是基于长连接的吗？耗电情况如何？
-
-答:
-1.实时的,没有网络返回false.
-2.会自动重连
-3.长连接, websocket,不会怎么耗电,你可以自行测试下
-
----
-
-** 在IMSDK中如何获得用户的状态（在线，或下线，无打扰，等） **
-可以定时（比如5分钟）更新一下用户表，这样就可以通过用户表的updatedAt和当前时间的比较，知道用户是否在线了。
-
----
-
-** BmobI'M2.0 有没有系统消息功能 **
-没有，需要用户自行扩展
-
----
-
-** 发送请求添加好友，BmobIMUserInfo 是发送方，还是接收方的信息啊？ **
-发送方的信息，SDK内部已经弄好了，给别人发送消息，肯定需要接收方的信息
-
----
-
-** 新版本IM是不是没有附近的人这个功能了 **
-新版IM已经不提供这样的功能了，这些功能开发者可以自行封装，新版IM采用的是全新架构，只负责消息的发送和接收，并不再提供与具体业务逻辑相关的API方法
-
-
-### Android
-
-** 我看了官网即时聊天的demo，同样都是继承BombObject的javabean类（数据表）为什么有的是创建在云端，有的保存在本地数据库？这是怎么设置的 **
-
-自己控制的呀，想保存到后台，那你就调用save方法来创建数据，保存到本地就自己创建数据库
-
----
-** BmobIM2.0 发送自定义消息失败 **
-
-```
-SendCommentMessage commentMessage=new SendCommentMessage();
-            User currentUser = BmobUser.getCurrentUser(DynamicDetailActivity.this,User.class);
-            Map<String,Object> map =new HashMap<>();
-            map.put("name", currentUser.getUsername());//发送者姓名，这里只是举个例子，其实可以不需要传发送者的信息过去
-            map.put("avatar",currentUser.getAvatar());//发送者的头像
-            map.put("dynamicId",dynamicid);//发送者的uid
-            //启动一个会话，如果isTransient设置为true,则不会创建在本地会话表中创建记录，
-            //设置isTransient设置为false,则会在本地数据库的会话列表中先创建（如果没有）与该用户的会话信息，且将用户信息存储到本地的用户表中
-            //构造聊天方的用户信息:传入用户id、用户名和用户头像三个参数
-            BmobIMUserInfo info;
-            if (atUser!=null){
-                info = new BmobIMUserInfo(atUser.getObjectId(),atUser.getUsername(),atUser.getAvatar());
-            }else{
-                info = new BmobIMUserInfo(dynamic.getAuthor().getObjectId(),dynamic.getAuthor().getUsername(),dynamic.getAuthor().getAvatar());
-            }
-            BmobIMConversation c = BmobIM.getInstance().startPrivateConversation(info, true,null);
-            c.sendMessage(commentMessage, new MessageSendListener() {
-                @Override
-                public void done(BmobIMMessage bmobIMMessage, BmobException e) {
-                    if (bmobIMMessage!=null){
-
-                    }
-                }
-            });
-```
-
-还少了一个步骤，使用obtain方法创建一个用于控制发送消息的会话实例
-
----
-
-** BmobIMUserInfo info为null
-BmobIMUserInfo info = BmobIM.getInstance().getUserInfo((String) BmobUser.getObjectByKey(mContext, "objectId"));
-info为null是为什么 **
-
-用户信息需要开发者自己调用sdk提供的更新本地用户信息的方法（BmobIM.getInstance().updateUserInfo(BmobIMUserInfo info)）来存储的，然后才能通过getUserInfo方法获取的，因为IMSDK内部维护了一个用户表。
-
----
-
-** 怎么查询别人要请求添加我为好友的信息？就是想加我好友的人的列表。android，即时通讯，我用另外一个小号发送了请求加我大号为好友的请求，但是我怎么查询出谁发送了这个请求，查询出来后我才能点击同意啊。文档上只说加好友和同意加好友，没说怎么查询列举出添加好友的请求的信息。 **
-
-目前的demo里面的好友添加请求是查询本地数据库的（可查看
-NewFriendActivity中的query方法，NewFriendManager.getInstance(this).getAllNewFriend()方法查询好友添加请求），查询出来的就是谁添加我为好友的请求
-
----
-
-** Android Im拖动未阅读的会话数量控件调用conversation.updateLocalCache()不能将会话标记为已经阅读 **
-
-conversation.updateLocalCache();这个方法需要先开启私聊并创建会话后拿到的新会话实例才可以调用的，具体可参考ChatActivity中的用法。
-
----
-
-** Android使用Bmob IM聊天时有离线消息就会闪退 **
-
-android.content.res.Resources$NotFoundException: String resource ID #0x7f060015
-你这个错误是因为没有导入bmob_im_notification_strings.xml这个文件造成的。
-
-请查看官方IM文档中关于下载NewIMSDK及官方Demo的描述：
-values(bmob_im_notification_strings.xml)-用于通知栏显示
-
----
-
-** 想用聊天组件，连接服务器出错误 **
-
-看Android开发文档中SDK导入部分的解释：
-
-每个版本的im依赖特定版本的bmob-sdk：
-
-bmob-im:1.1.8--->bmob-sdk:3.3.5
-bmob-im:1.1.9--->bmob-sdk:3.4.3
-bmob-im:2.0.1--->bmob-sdk:3.4.6-0304
-bmob-im:2.0.2--->bmob-sdk:3.4.6-0304
-bmob-im:2.0.3--->bmob-sdk:3.4.6
-
----
-
-** 发送消息的时候添加的额外参数在接收的时候怎么拿到 **
-
-getExtra返回的是一个字符串，再自行解析。
-
----
-
-** 用android studio打开后，报不是gradle工程，是啥原因？ **
-
-使用as 是需要依赖gradle来下载各种jar包的，因为需要翻墙下载
-
-### iOS
-
-** BmobIm服务器的消息怎么删除，每次删除程序再打开都会有离线消息 **
-
-这些是服务端自动存储的，并不是保存在表中，而是后端以另一种形式保存，无需用户自行维护～
 
 
 ## 推送服务常见问题

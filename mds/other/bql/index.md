@@ -97,7 +97,7 @@ select * from GameScore where createdAt < date('2015-05-20 00:00:00')
 
 ```
 
-date 函数接收的日期格式必须是 `yyyy-MM-dd HH:mm:ss`。更多内置函数请看最后的 [内置函数](/bql/index.html?menukey=otherdoc&key=bql#内置函数)。
+date 函数接收的日期格式必须是 `yyyy-MM-dd HH:mm:ss`。更多内置函数请看最后的 `内置函数`。
 
 一些常见的查询运算符：
 
@@ -346,7 +346,7 @@ select * from GameScore where name=? and playScore>? limit ?,?
 
 ### 内置函数 
 
-占位符查询中用到的内置函数，请看最后的 [占位符查询用到的内置函数](/bql/index.html?menukey=otherdoc&key=bql#占位符查询用到的内置函数)。
+占位符查询中用到的内置函数，请看最后的 `占位符查询用到的内置函数`。
 
 例如：
 
@@ -554,14 +554,14 @@ select * from GameScore where gps = {'__type':'GeoPoint','latitude':24.52065,'lo
 
 **注：**
 
-**1、如果不使用`内置函数`，你也使用 [Rest API文档](/Restful/developdoc/index.html?menukey=develop_doc&key=develop_restful#数据类型 "Rest API文档")定义的 JSON 对象来创建特定类型,不过这样写相对来说比较繁琐。**
+**1、如果不使用`内置函数`，你也使用 [Rest API文档](http://doc.bmobapp.com/data/restful/develop_doc/)定义的 JSON 对象来创建特定类型,不过这样写相对来说比较繁琐。**
 
 **2、占位符查询中如果要用到内置函数，其形式必须为上述列出的，最后的可变参数会自动替换类型中的`?`。**
 
 
 ## 性能和建议
 
-BQL 最终还是转换成 [Rest API文档](/Restful/developdoc/index.html?menukey=develop_doc&key=develop_restful "Rest API文档") 里查询部分提到的各种 where 条件，因为多了一层转换，理论上会比直接使用 where 查询慢一点。并且 BQL 对长度有所限制，要求在 4096 字节以内。
+BQL 最终还是转换成 [Rest API文档](http://doc.bmobapp.com/data/restful/develop_doc/) 里查询部分提到的各种 where 条件，因为多了一层转换，理论上会比直接使用 where 查询慢一点。并且 BQL 对长度有所限制，要求在 4096 字节以内。
 
 此外，我们推荐查询语句都采用占位符的方式，使用占位符的查询语句将有机会被缓存复用，避免重复解释的开销。
 
