@@ -1,41 +1,27 @@
-# bmob-flutter-sdk
-Bmob Flutter SDK
-
-Flutter官方咨询QQ群：788254534
-
+# Flutter开发文档
 
 # 1、集成
 
-## 1.1、依赖
-依赖配置：
+## 1.1、下载源码
+Flutter官方源码：[点击下载](https://github.com/bmob/bmob-flutter-sdk)
+
+## 1.2、修改配置
+修改项目的配置文件 pubspec.yaml文件，在依赖节点 dependencies 中新增项：
 ```
 dependencies:
-  data_plugin: ^0.0.18
+  path: ../data_plugin
 ```
-## 1.2、安装
-安装指令：
-```
-$ flutter packages get
-```
+
 ## 1.3、导入
 导入语句：
 ```
 import 'package:data_plugin/data_plugin.dart';
 ```
-## 1.4、仓库
-可以在dart仓库搜索"data_plugin"查看具体信息：
-```
-https://pub.dartlang.org/
-```
-安装介绍：
 
-https://pub.dartlang.org/packages/data_plugin#-installing-tab-
-
-
-## 1.5、平台
+## 1.4、平台
 目前涉及到特定平台信息处理的方法只适配了Android外，其他方法均兼容Android、iOS。
 
-## 1.6、参考
+## 1.5、参考
 源码：
 ```
 https://github.com/bmob/bmob-flutter-sdk/tree/master/data_plugin

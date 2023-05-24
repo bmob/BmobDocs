@@ -1,4 +1,4 @@
-# bmob-android-data-sdk-kotlin-demo
+# Kotlin开发文档
 
 Kotlin已正式成为Android官方支持开发语言，具体使用可参考：
 
