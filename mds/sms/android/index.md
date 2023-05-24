@@ -53,7 +53,7 @@ BmobSMS.requestSMSCode(phone, "DataSDK", new QueryListener<Integer>() {
 
 - 如果你提交的短信模板无法发送，则有可能包含一些敏感监控词，具体可去Github下载  [短信关键字监控参考文档](https://github.com/bmob/bmob-public-docs/blob/master/%E7%9F%AD%E4%BF%A1%E5%85%B3%E9%94%AE%E5%AD%97%E7%9B%91%E6%8E%A7%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.doc) 来查看提交内容是否合法。
 
-- 一天一个应用给同一手机号发送的短信不能超过10条，否则会报`10010`错误，其他错误码可查看：[短信功能相关错误码](http://docs.bmobapp.com/sms/Android/g_errorcode/doc/index.html) 。
+- 一天一个应用给同一手机号发送的短信不能超过10条，否则会报`10010`错误，其他错误码可查看：[短信功能相关错误码](http://doc.bmobapp.com/other/error_code/#_2) 。
 
 ### 验证验证码
 
@@ -92,23 +92,5 @@ BmobSMS.verifySmsCode(phone, code, new UpdateListener() {
 - 实际计算的短信字数超过70字的以67字为一条来计算的。也就是135个字数是计算为3条的。
 - 计算得到的短信条数在本条短信发送成功后将会从你的账户剩余的短信条数中扣除。
 - 短信发送限制规则是1/分钟，5/小时，10/天。即对于一个应用来说，一天给同一手机号发送短信不能超过10条，一小时给同一手机号发送短信不能超过5条，一分钟给同一手机号发送短信不能超过1条。
-
-## 购买事项
-
-短信条数只能输入整数，且不能少于1000条
-
-![短信计费模式][1]
-
-进入账号控制台，选择应用--> 短信 --> 点击充值即可。
-
-## 发票事宜
-
-购买金额满100元可提供发票，1000元以内的到付，1000元以上（含1000元）包邮。
-
-登录后台，在 `财务` -> `发票管理` 页面可点击申请开票。
-
-
-  [1]: http://bmob-file-service-t.b0.upaiyun.com/Doc_File/jfms.png
-  [2]: http://bmob-file-service-t.b0.upaiyun.com/Doc_File/14703632600603.jpg
 
 

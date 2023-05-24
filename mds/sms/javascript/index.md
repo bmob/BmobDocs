@@ -1,4 +1,4 @@
-短信服务的API集成在BmobSDK中，因此不熟悉的朋友在使用前先可以了解一下BmobSDK的集成[JS 快速入门](http://docs.bmobapp.com/data/JavaScript/a_faststart/doc/index.html)
+短信服务的API集成在BmobSDK中，因此不熟悉的朋友在使用前先可以了解一下BmobSDK的集成[JS 快速入门](http://doc.bmobapp.com/data/wechat_app_new/rm/)
 
 在一些应用场景下，你可能希望用户验证手机号码后才能进行一些操作，例如充值等。这些操作跟用户系统没有关系，可以通过我们提供的的短信验证API来实现。
 
@@ -59,32 +59,3 @@ Bmob.Sms.verifySmsCode("131xxxxxxxx", 125466).then(function(obj) {
 	"msg":"ok"
 }
 ```
-
-
-
-## 购买事项
-
-### 购买方法
-
-短信条数只能输入整数，且不能少于1000条
-
-![短信计费模式][1]
-
-进入账号控制台，选择应用--> 短信 --> 点击充值即可。
-
-### 发票事宜
-
-购买金额满100可提供发票，1000元以内的到付，1000以上（含1000）包邮。
-
-登录后台提交工单，提供购买服务的订单号和开票信息。
-
-**个人**
-
-发票抬头、邮寄地址、联系人及电话
-
-**企业**
-
-公司名称、统一社会信用代码、开户行及账号、邮寄地址、联系人及电话
-
-
-  [1]: http://bmob-file-service-t.b0.upaiyun.com/Doc_File/jfms.png
