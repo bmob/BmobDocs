@@ -99,14 +99,14 @@ pages:
 #         - '开发文档': 'game/wechat_games/develop_doc.md'
 #     - '云函数': 'game/cloud_function/develop_doc.md'
 #     - '经典案例': 'game/classic_case.md'
-- '即时通讯':
-    - 'Android':
-        - '开发文档': 'im/android/index.md'
-        - '类库文档': 'im/android/class_doc.md'
-        - '更新日志': 'im/android/update_log.md'
-    - 'iOS':
-        - '开发文档': 'im/ios/index.md'
-        - '更新日志': 'im/ios/update_log.md'
+#- '即时通讯':
+#    - 'Android':
+#        - '开发文档': 'im/android/index.md'
+#        - '类库文档': 'im/android/class_doc.md'
+#        - '更新日志': 'im/android/update_log.md'
+#    - 'iOS':
+#        - '开发文档': 'im/ios/index.md'
+#        - '更新日志': 'im/ios/update_log.md'
 - '其他':
     - '域名管理': 'other/domain/index.md'
     - '常见问题': 'other/common_problem/index.md'
