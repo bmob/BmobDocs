@@ -1,11 +1,11 @@
 ## 简介
 
 Bmob平台为您的移动应用提供了一个完整的后端解决方案，我们提供轻量级的SDK开发包，让开发者以最小的配置和最简单的方式使用Bmob平台提供的服务，进而完全消除开发者编写服务器代码以及维护服务器的操作。
-Go SDK封装了Bmob REST API API，但并不包含功能封装，如果需要调用具体的功能，请参考官方REST API API开发文档[http://docs.bmobapp.com/data/Restful/b_developdoc/doc/index.html](http://docs.bmobapp.com/data/Restful/b_developdoc/doc/index.html)
+Go SDK封装了Bmob REST API API，但并不包含功能封装，如果需要调用具体的功能，请参考官方REST API API开发文档[http://doc.bmobapp.com/data/restful/](http://doc.bmobapp.com/data/restful/)
 
 ## 快速入门
 
-建议您在阅读本开发文档之前，先阅读我们提供的 [go快速入门文档](https://github.com/bmob/bmob-go-sdk/tree/master/doc_quickstart)，便于您后续的开发。
+建议您在阅读本开发文档之前，先阅读我们提供的 [go快速入门文档](http://doc.bmobapp.com/data/go/)，便于您后续的开发。
 
 
 ## 应用程序
@@ -13,10 +13,10 @@ Go SDK封装了Bmob REST API API，但并不包含功能封装，如果需要调
 
 ## 应用安全
 
-请大家在使用Bmob开发应用程序之前，仔细阅读“数据与安全”的文档：[http://docs.bmobapp.com/other/Other/m_bql/doc/index.html](http://docs.bmobapp.com/other/Other/m_bql/doc/index.html)
+请大家在使用Bmob开发应用程序之前，仔细阅读“数据与安全”的文档：[http://doc.bmobapp.com/other/data_safety/](http://doc.bmobapp.com/other/data_safety/)
 
 ## 数据类型
-除了JSON标准里定义的数据类型外，还支持Bmob自定义的数据类型：[http://docs.bmobapp.com/data/Restful/b_developdoc/doc/index.html#对象](http://docs.bmobapp.com/data/Restful/b_developdoc/doc/index.html#对象)
+除了JSON标准里定义的数据类型外，还支持Bmob自定义的数据类型：[http://doc.bmobapp.com/data/restful/develop_doc/#_13](http://doc.bmobapp.com/data/restful/develop_doc/#_13)
 这些类型操作相关的基本数据结构在types.go中定义，由于JSON是schema-less的，你可以只填充必要的字段来完成操作
 
 ## REST API请求
