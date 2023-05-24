@@ -1,12 +1,4 @@
-# 数据服务SDK
-
 Bmob平台为您的移动应用提供了一个完整的后端解决方案，我们提供轻量级的数据服务SDK开发包，让开发者以最少的配置和最简单的方式使用Bmob后端云平台提供的服务，进而完全消除开发者编写服务器代码以及维护服务器的操作。
-
-## 快速入门
-
-建议您在阅读本开发文档之前，先阅读我们提供的 [Android快速入门文档](http://doc.bmobapp.com/data/android/)，便于您后续的开发。
-
-
 
 # 1、数据类型
 
@@ -1837,10 +1829,7 @@ post.update(new UpdateListener() {
 
 ![图1](image/relation.png)
 
-点击红框中的`关联关系`按钮展开后，可查看刚才所添加的喜欢该帖子的用户A：
-
-![图1](image/likes.png)
-
+点击红框中的`关联关系`按钮后，可查看刚才所添加的喜欢该帖子的用户A：
 
 #### 查询多对多关联
 
@@ -1934,8 +1923,8 @@ post.update(new UpdateListener() {
 ```
 
 **1 例子中的Comment和Post表请大家注意下在后端控制台建表的数据类型是Pointer还是Relation 否则返回类型不匹配的111错误，表的结构和字段类型如下：**
-![Post](http://i.imgur.com/o4giGoy.png)
-![Comment](http://i.imgur.com/RmsP7m8.png)
+![Post](image/Post.png)
+![Comment](image/Comment.png)
 **2 为方便大家了解学习，我们提供了一个关于数据关联的Demo，下载地址是：https://github.com/bmob/RelationDemo**
 
 

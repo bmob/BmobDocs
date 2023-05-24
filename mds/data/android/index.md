@@ -214,7 +214,7 @@ dependencies {
 
 ## 添加一行数据
 
-首先创建JavaBean（对应为Bmob后台的数据表，更详细的解释请[查看Android开发文档](http://docs.bmobapp.com/data/Android/b_developdoc/doc/index.html)）
+首先创建JavaBean（对应为Bmob后台的数据表，更详细的解释请[查看Android开发文档](http://doc.bmobapp.com/data/android/develop_doc/index.html)）
 
 ```java
 public class Person extends BmobObject {
