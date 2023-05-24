@@ -377,19 +377,19 @@
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_12">内置类</a></li>
+												<li><a class="itm-l2" href="#_11">内置类</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_15">内置方法</a></li>
+												<li><a class="itm-l2" href="#_14">内置方法</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_16">示例</a></li>
+												<li><a class="itm-l2" href="#_15">示例</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_17">注意事项</a></li>
+												<li><a class="itm-l2" href="#_16">注意事项</a></li>
 											</ul>
 											
 										</li>
@@ -781,11 +781,6 @@ response.setAllowCross(
 <td align="center">发起http的各种请求，如POST、GET等，详见下文<code>&lt;Http请求&gt;</code></td>
 </tr>
 <tr>
-<td align="center">游戏平台操作</td>
-<td align="center">modules.oGame</td>
-<td align="center">从云函数对Bmob Game SDK进行房间、玩家管理，详见下文<code>&lt;游戏平台操作&gt;</code></td>
-</tr>
-<tr>
 <td align="center">微信接口</td>
 <td align="center">modules.oWechat</td>
 <td align="center">目前提供了几个方法，用于小程序客服交互，详见下文 <code>&lt;微信接口&gt;</code></td>
@@ -1126,26 +1121,7 @@ HttpResponse request(String url, String method, JSONObject headers, byte[] data,
 
 <p><em>目前云函数普通用户有以下限制：每次云函数执行周期内可进行1次请求</em></p>
 <p><em>如需提高以上额度或取消限制，请联系官方客服</em></p>
-<h3 id="_10">游戏平台操作<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p><strong>该模块用于配合 <a href="https://game.bmobapp.com">Bmob游戏SDK</a> 使用，可执行例如定期清理房间、踢出玩家、获取游戏参数等操作</strong></p>
-<p>以下均为<code>modules.oGame</code>对象的方法</p>
-<pre><code>// 初始化
-init(String bgsId, int version);
-
-// 创建房间
-HttpResponse createRoom(String hostUserId, int playerCount);
-
-// 销毁房间
-HttpResponse destroyRoom(String hostUserId, String slaveAddress, int roomId, String roomMasterKey);
-
-// 踢出玩家
-HttpResponse kick(String hostUserId, String slaveAddress, int roomId, String roomMasterKey, int kickingPlayerNo);
-
-// 获取游戏配置
-HttpResponse getConf();
-</code></pre>
-
-<h4 id="_11">微信接口<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<h4 id="_10">微信接口<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>推荐将小程序的appid、app secret在Bmob后台设置，由Bmob进行AccessToken的生命周期管理</li>
 <li>以下均为 <code>modules.oWechat</code> 的方法<pre><code>// 设置当前的AccessToken
@@ -1171,7 +1147,7 @@ isWechatRequest(String token, Request request)
 </code></pre>
 </li>
 </ul>
-<h2 id="_12">内置类<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h2 id="_11">内置类<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <h3 id="httpresponse">HttpResponse<a class="headerlink" href="#httpresponse" title="Permanent link">&para;</a></h3>
 <p><strong>类变量</strong>:</p>
 <table>
@@ -1607,11 +1583,11 @@ isWechatRequest(String token, Request request)
     // password: 邮箱密码，请注意很多邮件服务商不允许直接使用登陆密码，需要另外申请
     Email(String host, int port, String email, String password)
 </code></pre>
-<h3 id="_13">类变量<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h3 id="_12">类变量<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <pre><code>    // 修改邮件的发送方名称
     String username
 </code></pre>
-<h3 id="_14">类方法<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h3 id="_13">类方法<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <pre><code>    // email: 接受方的邮件地址
     // title: 邮件标题
     // body: 邮件内容
@@ -1657,7 +1633,7 @@ isWechatRequest(String token, Request request)
     String Encode(byte[] bytes)
     byte[] EncodeToBytes(byte[] bytes)
 </code></pre>
-<h2 id="_15">内置方法<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h2 id="_14">内置方法<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <pre><code>    long getTime() // 获取当前毫秒
     String fmt(String, Object...) // 格式化
     JSON.toJson(Object...) // Json化
@@ -1667,7 +1643,7 @@ isWechatRequest(String token, Request request)
     arraycopy(Object from, int fromOffset, Object to, int toOffset, int length) // 复制数组内容
 </code></pre>
 <p>​</p>
-<h2 id="_16">示例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h2 id="_15">示例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>案例主要放在了Github: <strong><a href="https://github.com/bmob/BmobJavaCloud/tree/master/samples">Bmob云函数案例</a></strong></p>
 <ul>
 <li><strong>场景1</strong>:</li>
@@ -1733,7 +1709,7 @@ else {
 </code></pre>
 </li>
 </ul>
-<h2 id="_17">注意事项<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h2 id="_16">注意事项<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>如果你编写的Java云函数经常发生运行超时、上下行超流量、滥用内存等现象，官方将会自动封停你的云函数功能，修改后向客服申请方可继续使用</p>
