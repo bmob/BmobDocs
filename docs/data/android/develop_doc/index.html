@@ -549,16 +549,12 @@
 													<li><a class="itm-l2" href="#_51">批量删除文件</a></li>
 												</ul>
 												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_52">缩略图</a></li>
-												</ul>
-												
 											</li>
 												
 											<li class=""><a href="#9">9、数据监听</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_53">开始连接</a></li>
+													<li><a class="itm-l2" href="#_52">开始连接</a></li>
 												</ul>
 												
 											</li>
@@ -570,7 +566,7 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_58">应用安全</a></li>
+													<li><a class="itm-l2" href="#_57">应用安全</a></li>
 												</ul>
 												
 											</li>
@@ -578,11 +574,11 @@
 											<li class=""><a href="#11_1">11、地理位置</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_59">创建地理位置对象</a></li>
+													<li><a class="itm-l2" href="#_58">创建地理位置对象</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_60">查询地理位置信息</a></li>
+													<li><a class="itm-l2" href="#_59">查询地理位置信息</a></li>
 												</ul>
 												
 											</li>
@@ -590,15 +586,15 @@
 											<li class=""><a href="#12_1">12、其他功能</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_61">获取服务器时间</a></li>
+													<li><a class="itm-l2" href="#_60">获取服务器时间</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_62">自动更新组件</a></li>
+													<li><a class="itm-l2" href="#_61">自动更新组件</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_63">表结构</a></li>
+													<li><a class="itm-l2" href="#_62">表结构</a></li>
 												</ul>
 												
 											</li>
@@ -611,31 +607,15 @@
 												
 											</li>
 												
-											<li class=""><a href="#15_1">15、其他功能</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_67">模板代码</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_68">重置域名</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_69">重置域名</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_70">海外加速</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_71">统计功能</a></li>
-												</ul>
+											<li class=""><a href="#15_1">15、域名备案和重置</a>
 												
 											</li>
 												
-											<li class=""><a href="#16_1">16、版本兼容</a>
+											<li class=""><a href="#16_1">16、海外加速</a>
+												
+											</li>
+												
+											<li class=""><a href="#17">17、版本兼容</a>
 												
 												<ul class="nav nav-l2">
 													<li><a class="itm-l2" href="#android-60">Android 6.0</a></li>
@@ -2665,7 +2645,7 @@ post.update(new UpdateListener() {
 
 </code></pre>
 
-<p><strong>1 例子中的Comment和Post表请大家注意下在后端控制台建表的数据类型是Pointer还是Relation 否则返回类型不匹配的111错误，表的结构和字段类型如下：</strong>
+<p><strong>1 例子中的Comment和Post表请大家注意下在后端控制台建表的数据类型是Pointer还是Relation 否则返回类型不匹配的<code>111</code>错误，表的结构和字段类型如下：</strong>
 <img alt="Post" src="../image/Post.png" />
 <img alt="Comment" src="../image/Comment.png" />
 <strong>2 为方便大家了解学习，我们提供了一个关于数据关联的Demo，下载地址是：https://github.com/bmob/RelationDemo</strong></p>
@@ -4151,7 +4131,7 @@ gameScore.update(new UpdateListener() {
 
 <h1 id="7">7、图文消息<a class="headerlink" href="#7" title="Permanent link">&para;</a></h1>
 <p>2017年下半年开始，后端云提供了素材管理模块，控制台文件浏览功能合并到了该模块下；</p>
-<p><img alt="" src="https://i.imgur.com/Unl4dwy.png" /></p>
+<p><img alt="" src="../image/Unl4dwy.png" /></p>
 <h3 id="_43">适用场景<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
 <ol>
 <li>如果您的应用是需要展示很多图文消息或文章，可以用这里编辑来实现富文本信息的存储和编辑管理；</li>
@@ -4159,7 +4139,7 @@ gameScore.update(new UpdateListener() {
 </ol>
 <h3 id="_44">使用方法<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
 <ol>
-<li>后端控制台新建图文信息并编辑后会新增一个_Article表，表中的关键字段有url,title,content，分别代表图文信息网页的url地址如<a href="http://bmob-cdn-782.b0.upaiyun.com/2017/12/07/78d403d140b2c0af80c12b8d9de67a7f.html">此例</a>,标题和网页源码，也能实时编辑。</li>
+<li>后端控制台新建<code>图文信息</code>并编辑后会新增一个_Article表，表中的关键字段有url,title,content，分别代表图文信息网页的url地址,标题和网页源码，也能实时编辑。</li>
 <li>客户端的使用，可以查询_Article表，既可以拿到url用webview组件加载，也可以用Android SDK中的TextView结合Html类解析html标签并展示。</li>
 </ol>
 <pre><code>/**
@@ -4442,14 +4422,12 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 </code></pre>
 
 <p>为方便大家理解文件服务的使用，Bmob提供了一个文件上传的案例和源码，大家可以到<a href="http://doc.bmobapp.com/data/android/example/">示例和教程中查看和下载</a>。</p>
-<h3 id="_52">缩略图<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
-<p>自 <code>BmobSDKv3.4.6</code> 版本，新版文件服务由第三方厂商又拍云提供，只需要在图片上传成功返回的url后面拼接特定参数即可实现缩放，加水印等效果，<a href="http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png!/scale/80/watermark/text/5rC05Y2wCg==">如图</a>，具体可参考<a href="http://docs.upyun.com/cloud/image/">这里</a> 。</p>
 <p><strong>注：</strong></p>
 <p><strong>1、文件的批量上传是BmobSDK_v3.2.7版本才提供的功能，如需使用，请更新版本;</strong>
 <strong>2、文件的下载和批量删除是BmobSDK_v3.4.6才提供的功能，如需使用，请更新版本。</strong></p>
 <h1 id="9">9、数据监听<a class="headerlink" href="#9" title="Permanent link">&para;</a></h1>
 <p><strong>数据监听按需收费，请开发者到【应用设置-套餐升级-数据监听】中开通此功能</strong></p>
-<h3 id="_53">开始连接<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<h3 id="_52">开始连接<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
 <pre><code class="java">RealTimeDataManager.getInstance().start(new RealTimeDataListener() {
             @Override
             public void onConnectCompleted(Client client, Exception e) {
@@ -4573,7 +4551,7 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 </tr>
 </tbody>
 </table>
-<h3 id="_54">默认访问权限<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<h3 id="_53">默认访问权限<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
 <p>在没有显示指定的情况下，每一个BmobObject(表)中的ACL(列)属性的默认值是所有人可读可写的。在客户端想要修改这个权限设置，只需要简单调用BmobACL的setPublicReadAccess方法和setPublicWriteAccess方法，即：</p>
 <pre><code class="java">/**
  * 设置发布的帖子对所有用户的访问控制权限
@@ -4611,7 +4589,7 @@ private void publicAcl() {
 </code></pre>
 
 <p>注意：可读可写是默认的权限，不需要写额外的代码。</p>
-<h3 id="_55">指定用户的访问权限<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<h3 id="_54">指定用户的访问权限<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
 <p>假如你想实现一个分享日志类的应用时，这可能会需要针对不同的日志设定不同的访问权限。比如，公开的日志，发布者有更改和修改的权限，其他用户只有读的权限，那么可用如下代码实现：</p>
 <pre><code class="java">/**
  * 设置发布的帖子对当前用户的访问控制权限
@@ -4667,7 +4645,7 @@ blog.save(new SaveListener&lt;String&gt;() {
 });
 </code></pre>
 
-<h3 id="_56">角色管理<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<h3 id="_55">角色管理<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
 <p>上面的指定用户访问权限虽然很方便，但是对于有些应用可能会有一定的局限性。比如一家公司的工资系统，员工和公司的出纳们只拥有工资的读权限，而公司的人事和老板才拥有全部的读写权限。要实现这种功能，你也可以通过设置每个用户的ACL权限来实现，如下：</p>
 <pre><code class="java">/**
  * 设置发布的帖子对某种角色的访问控制权限
@@ -4702,7 +4680,7 @@ private void roleAcl() {
 
 </code></pre>
 
-<h3 id="_57">角色之间的从属关系<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<h3 id="_56">角色之间的从属关系<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
 <p>下面我们来说一下角色与角色之间的从属关系。用一个例子来说明下：一个互联网企业有移动部门，部门中有不同的小组，如Android开发组和IOS开发组。每个小组只拥有自己小组的代码读写权限，但这两个小组同时拥有核心库代码的读权限。</p>
 <pre><code class="java">/**
  * 查询某角色是否存在
@@ -4812,7 +4790,7 @@ private void removeUserFromRole(BmobRole bmobRole) {
 
 <h3 id="acl_1">ACL案例源码<a class="headerlink" href="#acl_1" title="Permanent link">&para;</a></h3>
 <p>我们为大家提供一个ACL相关的案例源码，大家可以点击下载：<a href="https://github.com/bmob/bmob-android-demo-acl">https://github.com/bmob/bmob-android-demo-acl</a></p>
-<h2 id="_58">应用安全<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<h2 id="_57">应用安全<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
 <p>请大家在使用Bmob开发应用程序之前，仔细阅读<a href="http://doc.bmobapp.com/other/data_safety/">数据与安全</a>的文档。</p>
 <h1 id="11_1">11、地理位置<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h1>
 <p>Bmob允许用户根据地球的经度和纬度坐标进行基于地理位置的信息查询。通过在BmobObject的查询中添加一个BmobGeoPoint的对象查询，你就可以实现轻松查找出离当前用户最接近的信息或地点的功能。</p>
@@ -4824,7 +4802,7 @@ private void removeUserFromRole(BmobRole bmobRole) {
 }
 </code></pre>
 
-<h3 id="_59">创建地理位置对象<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
+<h3 id="_58">创建地理位置对象<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
 <p>首先需要创建一个BmobGeoPoint对象。例如，创建一个东经116.39727786183357度，北纬39.913768382429105度的BmobGeoPoint对象：</p>
 <pre><code class="java">/**
  * 更新当前用户地理位置信息
@@ -4848,7 +4826,7 @@ private void updateLocation() {
 }
 </code></pre>
 
-<h3 id="_60">查询地理位置信息<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
+<h3 id="_59">查询地理位置信息<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
 <pre><code class="java">/**
  * 获取当前用户的地理位置信息
  */
@@ -4986,7 +4964,7 @@ private void queryBox() {
 </li>
 </ol>
 <h1 id="12_1">12、其他功能<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h1>
-<h3 id="_61">获取服务器时间<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<h3 id="_60">获取服务器时间<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
 <p>在Bmob对象中提供了一个静态方法，用于获取服务器时间。</p>
 <pre><code class="java">Bmob.getServerTime(new QueryListener&lt;Long&gt;() {
 
@@ -5004,12 +4982,12 @@ private void queryBox() {
 });
 </code></pre>
 
-<h3 id="_62">自动更新组件<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
+<h3 id="_61">自动更新组件<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
 <p>Bmob为大家提供了应用的自动更新组件，使用这个组件可以快速方便实现应用的自动升级功能。
 详细的使用操作可以参考文档：<a href="http://doc.bmobapp.com/data/android/auto_update/">自动更新组件文档</a></p>
-<h3 id="_63">表结构<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h3>
+<h3 id="_62">表结构<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h3>
 <p>自<code>V3.4.2</code>版本开始，SDK提供了<code>获取表结构信息</code>方法,具体示例如下：</p>
-<h4 id="_64">获取特定表的结构<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h4>
+<h4 id="_63">获取特定表的结构<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h4>
 <pre><code class="java">Bmob.getTableSchema(&quot;待查询的表名&quot;, new QueryListener&lt;BmobTableSchema&gt;() {
 
     @Override
@@ -5024,7 +5002,7 @@ private void queryBox() {
 
 </code></pre>
 
-<h4 id="_65">获取所有表的结构<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h4>
+<h4 id="_64">获取所有表的结构<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h4>
 <pre><code class="java">
 Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 
@@ -5040,7 +5018,7 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 
 </code></pre>
 
-<h4 id="_66">返回数据说明<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h4>
+<h4 id="_65">返回数据说明<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h4>
 <p>注：<code>BmobTableSchema</code>参数说明：</p>
 <p>其中</p>
 <p><code>className</code>：表示表名</p>
@@ -5255,50 +5233,16 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 
 </code></pre>
 
-<h1 id="15_1">15、其他功能<a class="headerlink" href="#15_1" title="Permanent link">&para;</a></h1>
-<h2 id="_67">模板代码<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h2>
-<p>在使用SDK过程中，如果一些Api如查询是高频代码，可以把一些重复的样板代码抽出来，并在AndroidStudio中设置模板，即可实现快速输入，能提高编码效率，效果如下：</p>
-<p><img alt="" src="http://i.imgur.com/zjm4Avx.gif" /></p>
-<h2 id="_68">重置域名<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h2>
+<h1 id="15_1">15、域名备案和重置<a class="headerlink" href="#15_1" title="Permanent link">&para;</a></h1>
 <p>从v3.6.7开始，数据服务SDK新增了能重新设置请求域名的API，需要在初始化SDK前调用：</p>
-<pre><code class="Java">Bmob.resetDomain(&quot;http://open-vip.bmobapp.com/8/&quot;);
+<pre><code class="Java">Bmob.resetDomain(&quot;http://你在Bmob控制台绑定的SDK域名/8/&quot;);
 </code></pre>
 
-<p>其中，参数为开发者的域名，调用后的所有请求都指向新的域名。</p>
-<pre><code class="Java">http://open-vip.bmobapp.com/8/
-此域名目前仅为企业版用户使用！
-</code></pre>
-
-<h2 id="_69">重置域名<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h2>
-<p>文件、Android SDK 、 API 、 云函数自定义域名绑定功能。
-如果使用自定义域名，假设你绑定的sdk域名是testopen.xxx.com，请使用下面的代码，让你的域名在sdk中生效：</p>
-<pre><code class="Java">Bmob.resetDomain(&quot;http://testopen.xxx.com/8/&quot;);
-</code></pre>
-
-<p>如果是自定义域名使用了https，则为：</p>
-<pre><code class="Java">Bmob.resetDomain(&quot;https://testopen.xxx.com/8/&quot;);
-</code></pre>
-
-<p>请直接参考：<a href="http://doc.bmobapp.com/other/domain/">重置域名设置</a></p>
-<h2 id="_70">海外加速<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h2>
+<p>其中，参数为<code>你在Bmob控制台绑定的SDK域名</code>，调用后的所有请求都指向新的域名。</p>
+<p>关于域名重置和备案，请直接参考：<a href="http://doc.bmobapp.com/other/domain/">重置域名设置</a></p>
+<h1 id="16_1">16、海外加速<a class="headerlink" href="#16_1" title="Permanent link">&para;</a></h1>
 <p>在应用设置-套餐升级，购买了海外节点加速功能的用户，可以提高海外访问速度。</p>
-<h2 id="_71">统计功能<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h2>
-<p>从v3.5.2开始，数据服务SDK新增了统计功能。
-从v3.6.0开始，数据服务SDK移除了统计功能。</p>
-<ul>
-<li>
-<p>应用权限</p>
-<pre><code>&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
-&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" /&gt;
-</code></pre>
-</li>
-<li>
-<p>渠道设置</p>
-<pre><code>Bmob.initialize(this,APPID,"BMOB");
-</code></pre>
-</li>
-</ul>
-<h1 id="16_1">16、版本兼容<a class="headerlink" href="#16_1" title="Permanent link">&para;</a></h1>
+<h1 id="17">17、版本兼容<a class="headerlink" href="#17" title="Permanent link">&para;</a></h1>
 <h3 id="android-60">Android 6.0<a class="headerlink" href="#android-60" title="Permanent link">&para;</a></h3>
 <ul>
 <li>添加对Apache的HTTP-client支持
