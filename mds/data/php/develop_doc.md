@@ -5,7 +5,7 @@ Bmob平台为您的移动应用提供了一个完整的后端解决方案，我�
 
 ## 快速入门
 
-建议您在阅读本开发文档之前，先阅读我们提供的 [php快速入门文档](http://docs.bmobapp.com/data/PHP/a_faststart/doc/index.html)，便于您后续的开发。
+建议您在阅读本开发文档之前，先阅读我们提供的 [php快速入门文档](http://doc.bmobapp.com/data/php/index.html)，便于您后续的开发。
 
 
 ## 应用程序
@@ -13,7 +13,7 @@ Bmob平台为您的移动应用提供了一个完整的后端解决方案，我�
 
 ## 应用安全
 
-请大家在使用Bmob开发应用程序之前，仔细阅读“数据与安全”的文档：[http://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html](http://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html)
+请大家在使用Bmob开发应用程序之前，仔细阅读“数据与安全”的文档：[http://doc.bmobapp.com/other/data_safety/](http://doc.bmobapp.com/other/data_safety/)
 
 ## 数据类型
 
@@ -361,7 +361,7 @@ $res=$bmobObj->get("",array('$res=$bmobObj->get("",array("keys=score,playerName"
      $res = $bmobBql->query(array('bql=select * from GameScore where name=? limit ?,? order by name'));
 ```
 
-更多请参考 [BQL 详细指南](http://docs.bmobapp.com/other/Other/m_bql/doc/index.html "BQL 详细指南") 。
+更多请参考 [BQL 详细指南](http://doc.bmobapp.com/other/bql/ "BQL 详细指南") 。
 
 BQL 还支持占位符查询，where 和 limit 子句的条件参数可以使用问号替换，然后通过 `values` 数组传入：
 

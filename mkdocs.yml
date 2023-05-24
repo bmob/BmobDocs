@@ -20,7 +20,7 @@ pages:
         - '快速入门': 'data/ios/index.md'
         - '开发文档': 'data/ios/develop_doc.md'
         - '示例/功能': 'data/ios/example.md'
-        - '更新日志': 'data/ios/update_log.md'
+#        - '更新日志': 'data/ios/update_log.md'
         - '类库文档': 'data/ios/classdoc.md'
         - 'libGDX': 'data/ios/lib_gdx.md'
         - 'Swift快速入门': 'data/ios/swift_quick_start.md'

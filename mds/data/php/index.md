@@ -104,12 +104,3 @@ Bmob异常处理类
 6. BmobCloudCode
 
 Bmob云端代码调用类
-
-## Bmob官方信息
-
-官方网址：[http://www.bmobapp.com](http://www.bmobapp.com)
-
-问答社区：[http://wenda.bmobapp.com](http://wenda.bmobapp.com)
-
-技术邮箱：support@bmobapp.com
-
