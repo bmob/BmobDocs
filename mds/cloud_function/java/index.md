@@ -250,7 +250,6 @@ Bmob数据库操作|modules.oData|封装了Bmob的大多数api，以供开发者
 日志输出|modules.oLog|提供了几个级别的日志输出，以便调试，详见下文 `<日志输出>`
 持久化操作|modules.oPersistence|利用系统IO进行数据持久层操作，可用于静态网页，详见下文`<持久化>`
 Http请求|modules.oHttp|发起http的各种请求，如POST、GET等，详见下文`<Http请求>`
-游戏平台操作|modules.oGame|从云函数对Bmob Game SDK进行房间、玩家管理，详见下文`<游戏平台操作>`
 微信接口|modules.oWechat|目前提供了几个方法，用于小程序客服交互，详见下文 `<微信接口>`
 
 #### Bmob数据操作
@@ -477,31 +476,6 @@ HttpResponse request(String url, String method, JSONObject headers, byte[] data,
 *目前云函数普通用户有以下限制：每次云函数执行周期内可进行1次请求*
 
 *如需提高以上额度或取消限制，请联系官方客服*
-
-
-### 游戏平台操作
-
-**该模块用于配合 [Bmob游戏SDK](https://game.bmobapp.com) 使用，可执行例如定期清理房间、踢出玩家、获取游戏参数等操作**
-
-以下均为`modules.oGame`对象的方法
-
-
-```
-// 初始化
-init(String bgsId, int version);
-
-// 创建房间
-HttpResponse createRoom(String hostUserId, int playerCount);
-
-// 销毁房间
-HttpResponse destroyRoom(String hostUserId, String slaveAddress, int roomId, String roomMasterKey);
-
-// 踢出玩家
-HttpResponse kick(String hostUserId, String slaveAddress, int roomId, String roomMasterKey, int kickingPlayerNo);
-
-// 获取游戏配置
-HttpResponse getConf();
-```
 
 
 #### 微信接口

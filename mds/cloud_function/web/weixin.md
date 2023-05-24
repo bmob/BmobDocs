@@ -263,7 +263,7 @@ function onRequest(request, response, modules) {
 
 ![](image/18.png)
 
-需要了解更多云函数的操作，可阅读[http://docs.bmobapp.com/cloudcode/WEB/a_faststart/doc/index.html](http://docs.bmobapp.com/cloudcode/WEB/a_faststart/doc/index.html "云函数开发文档")
+需要了解更多云函数的操作，可阅读[http://doc.bmobapp.com/cloud_function/web/develop_doc/](http://doc.bmobapp.com/cloud_function/web/develop_doc/ "云函数开发文档")
 
 在编写云函数时有个注意事项：云函数是使用异步编程。也就是说，当遇到文件读写请求，网络请求等IO操作时，代码不等待IO操作返回结果就执行后面的语句,当接收到IO操作的返回结果后才调用回调函数。
 
@@ -520,7 +520,7 @@ XML格式讲解：
 - Content 消息内容
 - MsgId 消息ID号
 
-各种类型的消息详解，请查看微信开发文档：[http://mp.weixin.qq.com/wiki/14/89b871b5466b19b3efa4ada8e577d45e.html](http://mp.weixin.qq.com/wiki/14/89b871b5466b19b3efa4ada8e577d45e.html "公众号的各种消息类型")
+各种类型的消息详解，请查看微信开发文档：[https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html](https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html "公众号的各种消息类型")
 
 ## 总结
 
