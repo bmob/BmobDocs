@@ -1788,10 +1788,6 @@ query.save().then(res => {
 })
 ```
 
-### 图片缩略图
-
-图片文件服务由第三方厂商又拍云提供 ， 只需要在文件上传成功返回的url后面拼接特定参数即可实现缩放，缩略图，加水印等效果，[如图](http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png!/scale/80/watermark/text/5rC05Y2wCg==)，具体可参考[这里](http://docs.upyun.com/cloud/image/) 。
-
 ### 视频缩略图
 
 有时候视频需要动态截取缩略图，可以使用以下接口
