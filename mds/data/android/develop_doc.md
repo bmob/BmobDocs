@@ -1922,7 +1922,7 @@ post.update(new UpdateListener() {
 
 ```
 
-**1 例子中的Comment和Post表请大家注意下在后端控制台建表的数据类型是Pointer还是Relation 否则返回类型不匹配的111错误，表的结构和字段类型如下：**
+**1 例子中的Comment和Post表请大家注意下在后端控制台建表的数据类型是Pointer还是Relation 否则返回类型不匹配的`111`错误，表的结构和字段类型如下：**
 ![Post](image/Post.png)
 ![Comment](image/Comment.png)
 **2 为方便大家了解学习，我们提供了一个关于数据关联的Demo，下载地址是：https://github.com/bmob/RelationDemo**
@@ -3561,13 +3561,13 @@ gameScore.update(new UpdateListener() {
 
 2017年下半年开始，后端云提供了素材管理模块，控制台文件浏览功能合并到了该模块下；
 
-![](https://i.imgur.com/Unl4dwy.png)
+![](image/Unl4dwy.png)
 
 ### 适用场景
 1. 如果您的应用是需要展示很多图文消息或文章，可以用这里编辑来实现富文本信息的存储和编辑管理；
 2. 以往上传文件缺少了一些关联信息如文件描述之类的需要额外建表，来实现文件和描述信息的关联，这里可以一并解决；
 ### 使用方法
-1. 后端控制台新建图文信息并编辑后会新增一个_Article表，表中的关键字段有url,title,content，分别代表图文信息网页的url地址如[此例](http://bmob-cdn-782.b0.upaiyun.com/2017/12/07/78d403d140b2c0af80c12b8d9de67a7f.html),标题和网页源码，也能实时编辑。
+1. 后端控制台新建`图文信息`并编辑后会新增一个_Article表，表中的关键字段有url,title,content，分别代表图文信息网页的url地址,标题和网页源码，也能实时编辑。
 2. 客户端的使用，可以查询_Article表，既可以拿到url用webview组件加载，也可以用Android SDK中的TextView结合Html类解析html标签并展示。
 
 
@@ -3888,10 +3888,6 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 
 ```
 为方便大家理解文件服务的使用，Bmob提供了一个文件上传的案例和源码，大家可以到[示例和教程中查看和下载](http://doc.bmobapp.com/data/android/example/)。
-
-### 缩略图
-
-自 `BmobSDKv3.4.6` 版本，新版文件服务由第三方厂商又拍云提供，只需要在图片上传成功返回的url后面拼接特定参数即可实现缩放，加水印等效果，[如图](http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png!/scale/80/watermark/text/5rC05Y2wCg==)，具体可参考[这里](http://docs.upyun.com/cloud/image/) 。
 
 **注：**
 
@@ -4641,58 +4637,24 @@ Android SDK的错误码都是以`9`开头的，其他错误码请点击查看：
 -keep class org.apache.http.**{*;}
 
 ```
-# 15、其他功能
+# 15、域名备案和重置
 
-## 模板代码
-在使用SDK过程中，如果一些Api如查询是高频代码，可以把一些重复的样板代码抽出来，并在AndroidStudio中设置模板，即可实现快速输入，能提高编码效率，效果如下：
-
-![](http://i.imgur.com/zjm4Avx.gif)
-
-## 重置域名
 从v3.6.7开始，数据服务SDK新增了能重新设置请求域名的API，需要在初始化SDK前调用：
 ```Java
-Bmob.resetDomain("http://open-vip.bmobapp.com/8/");
+Bmob.resetDomain("http://你在Bmob控制台绑定的SDK域名/8/");
 ```
-其中，参数为开发者的域名，调用后的所有请求都指向新的域名。
-```Java
-http://open-vip.bmobapp.com/8/
-此域名目前仅为企业版用户使用！
-```
-## 重置域名
-文件、Android SDK 、 API 、 云函数自定义域名绑定功能。
-如果使用自定义域名，假设你绑定的sdk域名是testopen.xxx.com，请使用下面的代码，让你的域名在sdk中生效：
-```Java
-Bmob.resetDomain("http://testopen.xxx.com/8/");
-```
-
-如果是自定义域名使用了https，则为：
-```Java
-Bmob.resetDomain("https://testopen.xxx.com/8/");
-```
-
-请直接参考：[重置域名设置](http://doc.bmobapp.com/other/domain/)
+其中，参数为`你在Bmob控制台绑定的SDK域名`，调用后的所有请求都指向新的域名。
 
 
-## 海外加速
+关于域名重置和备案，请直接参考：[重置域名设置](http://doc.bmobapp.com/other/domain/)
+
+
+# 16、海外加速
 
 在应用设置-套餐升级，购买了海外节点加速功能的用户，可以提高海外访问速度。
 
 
-## 统计功能
-从v3.5.2开始，数据服务SDK新增了统计功能。
-从v3.6.0开始，数据服务SDK移除了统计功能。
-
-- 应用权限
-
-		<uses-permission android:name="android.permission.INTERNET" />
-		<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-- 渠道设置
-
-		Bmob.initialize(this,APPID,"BMOB");
-
-
-# 16、版本兼容
+# 17、版本兼容
 ### Android 6.0
 - 添加对Apache的HTTP-client支持
 Android6.0版本开始移除了对Apache的HTTP Client的支持，需要在`app`的`build.gradle`文件添加配置:
@@ -4717,7 +4679,3 @@ android {
         android:networkSecurityConfig="@xml/network_security_config">
     </application>
 ```
-
-
-
-
