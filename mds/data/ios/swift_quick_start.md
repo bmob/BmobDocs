@@ -1,7 +1,7 @@
 本文档的目的是为了方便大家在Swift工程中使用BmobSDK，实现应用的快速开发。下面介绍怎么在 Swift 工程中使用 BmobSDK。
 
 ## 在Bmob上创建应用
-关于如何创建应用，具体请参照[快速入门](https://docs.bmobapp.com/data/iOS/a_faststart/doc/index.html)
+关于如何创建应用，具体请参照[快速入门](http://doc.bmobapp.com/data/ios/)
 
 ## 创建Swift项目
 使用Xcode6创建一个新的Single View Application

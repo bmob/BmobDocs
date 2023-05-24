@@ -6,7 +6,7 @@ Bmob平台为您的移动应用提供了一个完整的后端解决方案，我�
 
 ### 使用CocoaPods安装BmobSDK
 
-如何使用CocoaPods安装BmobSDK可查看我们提供的文档: [https://github.com/bmob/bmob-ios-sdk/blob/master/InstallCocoaPods.md](https://github.com/bmob/bmob-ios-sdk/blob/master/InstallCocoaPods.md)
+如何使用CocoaPods安装BmobSDK可查看我们提供的文档: [https://github.com/bmob/bmob-ios-sdk/](https://github.com/bmob/bmob-ios-sdk/)
 
 ### 兼容iOS9
 
@@ -51,7 +51,7 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 
 ### 应用安全
 
-请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档的链接地址是：[https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html](https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html)
+请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档的链接地址是：[http://doc.bmobapp.com/other/data_safety/](http://doc.bmobapp.com/other/data_safety/)
 
 ## 对象
 
@@ -449,7 +449,7 @@ Bmob提供了批量操作的类BmobObjectsBatch,使用该类，可以批量增�
 
 **这里需要注意的是：**
 
-1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)一节中的分页查询。
+1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](http://doc.bmobapp.com/data/ios/develop_doc/#_18)一节中的分页查询。
 
 2.当查询的是用户表这种系统表的时候，返回的是BmobUser的数组，设备表，角色表也是这样的。
 
@@ -930,7 +930,7 @@ query.maxCacheAge = 10000;
 
 `Bmob Query Language`（简称 BQL）是 Bmob 自 `BmobSDK V1.5.7` 版本开始，为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询 API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。
 
-具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](https://docs.bmobapp.com/other/Other/m_bql/doc/index.html)。
+具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](http://doc.bmobapp.com/other/bql/)。
 
 #### 基本BQL查询
 可以通过以下方法来进行SQL查询：
@@ -1020,7 +1020,7 @@ query.maxCacheAge = 10000;
 
 #### 内置函数
 
-对于包含`内置函数`的占位符查询，比较特殊，请使用`Bmob Query Language 详细指南`中的`内置函数`中[占位符查询用到的内置函数](https://docs.bmobapp.com/other/Other/m_bql/doc/index.html#内置函数介绍)用到的内置函数列出的形式进行查询操作：
+对于包含`内置函数`的占位符查询，比较特殊，请使用`Bmob Query Language 详细指南`中的`内置函数`中[占位符查询用到的内置函数](http://doc.bmobapp.com/other/bql/#_24)用到的内置函数列出的形式进行查询操作：
 
 举例：我想查询在 '2015-05-14 14:56:30' 后的创建的记录，可以这样：
 
@@ -1068,7 +1068,7 @@ query.maxCacheAge = 10000;
  - 使用`queryBQLCanCacheInBackgroundWithblock{(result, error) in}`进行查询时，通过 `-setBQL(String!);` 和 `setPlaceholder([AnyObject]!);` 来设置BQL语句和占位符。
 
 
-缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)缓存查询小节。
+缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](http://doc.bmobapp.com/data/ios/swift_develop_doc/#_32)缓存查询小节。
 
 ## 数组
 
