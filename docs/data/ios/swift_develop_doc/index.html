@@ -756,7 +756,7 @@
 <p>Bmob平台为您的移动应用提供了一个完整的后端解决方案，我们提供轻量级的SDK开发包，让开发者以最小的配置和最简单的方式使用Bmob平台提供的服务，进而完全消除开发者编写服务器代码以及维护服务器的操作。</p>
 <h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="cocoapodsbmobsdk">使用CocoaPods安装BmobSDK<a class="headerlink" href="#cocoapodsbmobsdk" title="Permanent link">&para;</a></h3>
-<p>如何使用CocoaPods安装BmobSDK可查看我们提供的文档: <a href="https://github.com/bmob/bmob-ios-sdk/blob/master/InstallCocoaPods.md">https://github.com/bmob/bmob-ios-sdk/blob/master/InstallCocoaPods.md</a></p>
+<p>如何使用CocoaPods安装BmobSDK可查看我们提供的文档: <a href="https://github.com/bmob/bmob-ios-sdk/">https://github.com/bmob/bmob-ios-sdk/</a></p>
 <h3 id="ios9">兼容iOS9<a class="headerlink" href="#ios9" title="Permanent link">&para;</a></h3>
 <p>iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Info.plist添加一些内容，</p>
 <ol>
@@ -794,7 +794,7 @@
 <h3 id="_3">应用程序<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>在Bmob平台注册的每个账户都可以创建多个应用程序，每个应用程序都有其独自的应用程序ID，在后续程序编写中，所有的应用程序将凭其ID来使用Bmob SDK。同一个应用可以分别在测试环境和生产环境中部署不同的版本。</p>
 <h3 id="_4">应用安全<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档的链接地址是：<a href="https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html">https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html</a></p>
+<p>请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档的链接地址是：<a href="http://doc.bmobapp.com/other/data_safety/">http://doc.bmobapp.com/other/data_safety/</a></p>
 <h2 id="_5">对象<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">数据对象<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>Bmob存储的数据是建立在BmobObject基础上的，每个BmobObject包含键(Key)-值(value)对的JSON兼容数据。这个数据是无模式的，这意味着不需要提前指定每个BmobObject存在什么键。你只需要设置你想要的键值对让我们在后端存储。</p>
@@ -1138,7 +1138,7 @@ decrementKey(key: String!, byAmount:Int)
 </code></pre>
 
 <p><strong>这里需要注意的是：</strong></p>
-<p>1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可<a href="https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询">点击查看查询</a>一节中的分页查询。</p>
+<p>1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回10条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可<a href="http://doc.bmobapp.com/data/ios/develop_doc/#_18">点击查看查询</a>一节中的分页查询。</p>
 <p>2.当查询的是用户表这种系统表的时候，返回的是BmobUser的数组，设备表，角色表也是这样的。</p>
 <p><code>3.查询用户表，设备表、角色表为：</code></p>
 <pre><code>let query:Bmoquery = BmobUser.query() //用户表
@@ -1590,7 +1590,7 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
 
 <h3 id="bql">BQL查询<a class="headerlink" href="#bql" title="Permanent link">&para;</a></h3>
 <p><code>Bmob Query Language</code>（简称 BQL）是 Bmob 自 <code>BmobSDK V1.5.7</code> 版本开始，为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询 API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。</p>
-<p>具体的 BQL 语法，请参考 <a href="https://docs.bmobapp.com/other/Other/m_bql/doc/index.html">Bmob Query Language 详细指南</a>。</p>
+<p>具体的 BQL 语法，请参考 <a href="http://doc.bmobapp.com/other/bql/">Bmob Query Language 详细指南</a>。</p>
 <h4 id="bql_1">基本BQL查询<a class="headerlink" href="#bql_1" title="Permanent link">&para;</a></h4>
 <p>可以通过以下方法来进行SQL查询：</p>
 <p>例如：需要查询所有的游戏得分记录</p>
@@ -1689,7 +1689,7 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
 
 <p>数组中的数据会依次替换bql中的问号。</p>
 <h4 id="_35">内置函数<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
-<p>对于包含<code>内置函数</code>的占位符查询，比较特殊，请使用<code>Bmob Query Language 详细指南</code>中的<code>内置函数</code>中<a href="https://docs.bmobapp.com/other/Other/m_bql/doc/index.html#内置函数介绍">占位符查询用到的内置函数</a>用到的内置函数列出的形式进行查询操作：</p>
+<p>对于包含<code>内置函数</code>的占位符查询，比较特殊，请使用<code>Bmob Query Language 详细指南</code>中的<code>内置函数</code>中<a href="http://doc.bmobapp.com/other/bql/#_24">占位符查询用到的内置函数</a>用到的内置函数列出的形式进行查询操作：</p>
 <p>举例：我想查询在 '2015-05-14 14:56:30' 后的创建的记录，可以这样：</p>
 <pre><code>    let query = BmobQuery()
     let bql = &quot;select * from GameScore_BQL where createdAt &gt; date(?)&quot;
@@ -1728,7 +1728,7 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
 <li>BQL查询方法中，只有 <code>queryBQLCanCacheInBackgroundWithblock{(result, error) in}</code> 才能使用缓存策略，其它方法即使设置了缓存策略也无缓存效果；</li>
 <li>使用<code>queryBQLCanCacheInBackgroundWithblock{(result, error) in}</code>进行查询时，通过 <code>-setBQL(String!);</code> 和 <code>setPlaceholder([AnyObject]!);</code> 来设置BQL语句和占位符。</li>
 </ul>
-<p>缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的<a href="https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询">查询</a>缓存查询小节。</p>
+<p>缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的<a href="http://doc.bmobapp.com/data/ios/swift_develop_doc/#_32">查询</a>缓存查询小节。</p>
 <h2 id="_36">数组<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
 <p>为了存储数组型数据，<a href="https://www.bmobapp.com/" title="Bmob移动后端云服务平台">Bmob</a>提供了3种操作来原子性地更改一个数组字段:</p>
 <p><strong>Add</strong> 在一个数组字段的后面添加一些指定的对象(包装在一个数组内)</p>
