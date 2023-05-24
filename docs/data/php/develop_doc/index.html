@@ -773,11 +773,11 @@
 <h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Bmob平台为您的移动应用提供了一个完整的后端解决方案，我们提供轻量级的SDK开发包，让开发者以最小的配置和最简单的方式使用Bmob平台提供的服务，进而完全消除开发者编写服务器代码以及维护服务器的操作。</p>
 <h2 id="_2">快速入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>建议您在阅读本开发文档之前，先阅读我们提供的 <a href="http://docs.bmobapp.com/data/PHP/a_faststart/doc/index.html">php快速入门文档</a>，便于您后续的开发。</p>
+<p>建议您在阅读本开发文档之前，先阅读我们提供的 <a href="http://doc.bmobapp.com/data/php/index.html">php快速入门文档</a>，便于您后续的开发。</p>
 <h2 id="_3">应用程序<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在Bmob平台注册后，每个账户可创建多个应用程序，创建的每个应用程序有各自的Application ID，应用程序将凭其Application ID使用Bmob SDK。</p>
 <h2 id="_4">应用安全<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>请大家在使用Bmob开发应用程序之前，仔细阅读“数据与安全”的文档：<a href="http://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html">http://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html</a></p>
+<p>请大家在使用Bmob开发应用程序之前，仔细阅读“数据与安全”的文档：<a href="http://doc.bmobapp.com/other/data_safety/">http://doc.bmobapp.com/other/data_safety/</a></p>
 <h2 id="_5">数据类型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>目前为止，我们支持的数据类型有String、Integer、Boolean、ArrayList以及BmobObject对象类型。同时Bmob也支持BmobDate、BmobGeoPoint、BmobFile数据类型。</p>
 <h2 id="phpsdk">phpsdk相关类的说明<a class="headerlink" href="#phpsdk" title="Permanent link">&para;</a></h2>
@@ -1084,7 +1084,7 @@ $res=$bmobObj-&gt;get(&quot;a203eba875&quot;);
      $res = $bmobBql-&gt;query(array('bql=select * from GameScore where name=? limit ?,? order by name'));
 </code></pre>
 
-<p>更多请参考 <a href="http://docs.bmobapp.com/other/Other/m_bql/doc/index.html" title="BQL 详细指南">BQL 详细指南</a> 。</p>
+<p>更多请参考 <a href="http://doc.bmobapp.com/other/bql/" title="BQL 详细指南">BQL 详细指南</a> 。</p>
 <p>BQL 还支持占位符查询，where 和 limit 子句的条件参数可以使用问号替换，然后通过 <code>values</code> 数组传入：</p>
 <pre><code class="php">    $bmobBql = new BmobBql();
      $res = $bmobBql-&gt;query(array('bql=select * from GameScore where name=? limit ?,? order by name','values=[&quot;dennis&quot;, 0, 100]'));
