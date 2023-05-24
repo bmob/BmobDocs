@@ -15,11 +15,11 @@
 
 这里提供一些开发者写的其他语言调用RestApi的源码或者核心代码。
 
-JAVA访问RestApi：[https://github.com/bmob/bmob-java-sdk/tree/v3/javasdkdemo](https://github.com/bmob/bmob-java-sdk/tree/v3/javasdkdemo)
+PHP访问RestApi：[http://doc.bmobapp.com/data/php/](http://doc.bmobapp.com/data/php/)
 
-PHP访问RestApi：[http://docs.bmobapp.com/data/PHP/a_faststart/doc/index.html](http://docs.bmobapp.com/data/PHP/a_faststart/doc/index.html)
+Python访问RestApi：[http://doc.bmobapp.com/data/python/](http://doc.bmobapp.com/data/python/)
 
-AS3.0访问RestApi：[http://wenda.bmobapp.com//?/question/193](http://wenda.bmobapp.com//?/question/193)
+Unity访问RestApi：[https://github.com/bmob/Bmob-Unity-Demo](https://github.com/bmob/Bmob-Unity-Demo)
 
 
 ## 请求格式
@@ -2151,7 +2151,7 @@ Content-Type: application/json
 }
 ```
 
-其中 **mobilePhoneNumber** 就是手机号码，而 **smsCode** 是使用 [请求短信验证码API](/Restful/developdoc/index.html?menukey=develop_doc&key=develop_restful#请求短信验证码 "请求短信验证码API")发送到用户手机上的 6位验证码字符串。如果是新用户且不传入 username，默认用户名将是手机号码。
+其中 `mobilePhoneNumber` 就是手机号码，而 `smsCode` 是使用 [请求短信验证码API]([/Restful/developdoc/index.html?menukey=develop_doc&key=develop_restful#请求短信验证码](http://doc.bmobapp.com/sms/restful/) "请求短信验证码API")发送到用户手机上的 6位验证码字符串。如果是新用户且不传入 username，默认用户名将是手机号码。
 
 **成功时响应**
 
@@ -2211,7 +2211,7 @@ curl -X POST \
 
 另外，username 支持传入_User表的username或email或mobilePhoneNumber字段的值，作为登录的扩展功能，以实现邮箱和密码、手机号和密码登录功能。
 
-除了有用户名或邮箱或手机号码和密码登录的功能，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 还支持使用手机号码和验证码一键快速登录的功能，而 **smsCode** 是使用 [请求短信验证码API](http://docs.bmobapp.com/sms/Restful/b_developdoc/doc/index.html "请求短信验证码API")发送到用户手机上的 6位验证码字符串：
+除了有用户名或邮箱或手机号码和密码登录的功能，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 还支持使用手机号码和验证码一键快速登录的功能，而 **smsCode** 是使用 [请求短信验证码API](http://doc.bmobapp.com/sms/restful/ "请求短信验证码API")发送到用户手机上的 6位验证码字符串：
 
 **请求**
 
