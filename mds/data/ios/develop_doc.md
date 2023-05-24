@@ -52,7 +52,7 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 
 ### 应用安全
 
-请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档 [请点击](https://docs.bmobapp.com/other/Other/n_datasafety/doc/index.html);
+请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档 [请点击](http://doc.bmobapp.com/other/data_safety/index.html);
 
 ## 数据迁移
 从v2.1.8开始，数据SDK新增了能重新设置请求域名的Api，类似数据迁移，调用方式如下：
@@ -485,7 +485,7 @@ NSLog(@"obj.updatedAt = %@", [obj updatedAt]);
 
 **这里需要注意的是：**
 
-1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回100条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)一节中的分页查询。
+1.默认情况下，系统实际上并不会返回所有的数据，而是默认返回100条数据记录，你可以通过setLimit方法设置返回的记录数量。更多细节可[点击查看查询](http://doc.bmobapp.com/data/ios/develop_doc/#_18)一节中的分页查询。
 
 2.当查询的是用户表这种系统表的时候，返回的是BmobUser的数组，设备表，角色表也是这样的。
 
@@ -970,7 +970,7 @@ bquery.maxCacheAge = 10000;
 
 `Bmob Query Language`（简称 BQL）是 Bmob 自 `BmobSDK V1.5.7` 版本开始，为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询 API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。
 
-具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](https://docs.bmobapp.com/other/Other/m_bql/doc/index.html)。
+具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](http://doc.bmobapp.com/other/bql/index.html)。
 
 #### 基本BQL查询
 可以通过以下方法来进行SQL查询：
@@ -1118,7 +1118,7 @@ NSLog(@"actual:%@",result);
 - 使用`- (void)queryBQLCanCacheInBackgroundWithblock:(BmobBQLObjectResultBlock)block;`进行查询时，通过 `-(void)setBQL:(NSString*)bql;` 和 `-(void)setPlaceholder:(NSArray*)ary;` 来设置BQL语句和占位符。
 
 
-缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](https://docs.bmobapp.com/data/iOS/b_developdoc/doc/index.html#查询)缓存查询小节。
+缓存策略只对普通查询有效，统计查询只支持从网络进行查询。具体使用可参考iOS开发文档中的[查询](http://doc.bmobapp.com/data/ios/develop_doc/#_33)缓存查询小节。
 
 ## 数组
 
@@ -2194,7 +2194,7 @@ NSLog(@"上传进度%.2f",progress);
 ```
 
 ### 以分片的方式上传文件
-分片上传文件和上传整个文件的机制有所不同，是先把整个文件进行分片（256KB一片），然后再进行一片一片的上传（具体实现可查看[RestAPI文档](https://docs.bmobapp.com/data/Restful/b_developdoc/doc/index.html#文件管理)）。当文件以分片的方式上传到Bmob服务器时，具有几种优势：
+分片上传文件和上传整个文件的机制有所不同，是先把整个文件进行分片（256KB一片），然后再进行一片一片的上传。当文件以分片的方式上传到Bmob服务器时，具有几种优势：
 
 1. 适合于尺寸较大的文件传输，通过切片来避免单个HTTP数据量过大而导致连接超时；
 
@@ -2298,8 +2298,6 @@ NSLog(@"error %@",error.localizedDescription);
 NSLog(@"issuccessful %i",isSuccessful);
 }];
 ```
-### 缩略图
-只需要在图片上传成功返回的url后面拼接特定参数即可实现缩放，加水印等效果，[如图](http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png!/scale/80/watermark/text/5rC05Y2wCg==)，[具体可参考这里 。](http://docs.upyun.com/cloud/image/)
 
 ## 数据实时功能
 Bmob提供了数据实时功能，当开发者监听某个变化事件，例如监听表更新时，表的内容一旦变化，服务器就会通知SDK，SDK提供了相应回调函数来给开发者使用。当然开发者也可以取消相对应的监听，这样就不会收到数据变化的消息了。

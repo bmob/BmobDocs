@@ -142,8 +142,5 @@ BmobQuery *bquery = [BmobQuery queryWithClassName:@"GameScore"];
 
 ## 源码下载
 
-[快速入门相关源码下载](https://github.com/bmob/bmob-ios-demo "快速入门相关源码下载")
-
-
-案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的[案例教程和源码](http://docs.bmobapp.com/ios/example/index.html?menukey=example_teach_doc&key=example_teach_ios)，欢迎大家下载和查看。
+案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的[案例教程和源码](https://github.com/bmob/bmob-ios-demo)，欢迎大家下载和查看。
 
