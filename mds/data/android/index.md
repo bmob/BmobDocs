@@ -199,21 +199,15 @@ p2.delete(new UpdateListener() {
 
 ## 源码下载
 
-[快速入门相关源码下载](http://www.bmobapp.com/static/Bmob_android_quickstart.zip "快速入门相关源码下载")
-
-案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的[案例教程和源码](http://doc.bmobapp.com/data/android/example/)，欢迎大家下载和查看。
+[快速入门相关源码下载](https://github.com/bmob/bmob-android-quickstart "快速入门相关源码下载")
 
 为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，**嵌入Bmob的AppKey**，再打包运行。
 
-**阅读源码是一种良好的习惯！！**
+图文社区案例源码：[https://github.com/bmob/Wonderful](https://github.com/bmob/Wonderful)  这个案例是猿圈媛圈开发团队提供的。
 
-即时聊天案例源码：[https://github.com/bmob/BmobIMSDK4Android](https://github.com/bmob/BmobIMSDK4Android)
-
-图文社区案例源码：[https://git.oschina.net/v7/Wonderful](https://git.oschina.net/v7/Wonderful)  这个案例是猿圈媛圈开发团队提供的。
+短信注册登录案例源码：[https://github.com/bmob/bmob_android_demo_sms](https://github.com/bmob/bmob_android_demo_sms)
 
 校园小菜案例源码：[https://github.com/bmob/Shop](https://github.com/bmob/Shop) 这个案例是湖工大的朋友提供的。
 
-社交分享案例源码：[https://github.com/bmob/bmob-android-social-share](https://github.com/bmob/bmob-android-social-share) 这个是金刚锁开发者提供的
 
-第三方登录案例源码：[https://github.com/bmob/bmob-android-demo-thirdpartylogin](https://github.com/bmob/bmob-android-demo-thirdpartylogin)  包含第三方登录和登录后获取用户信息的源码
 
