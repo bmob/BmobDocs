@@ -633,14 +633,11 @@ query.findObjects(this, new FindListener<Feedback>() {
 ## 其它案例
 
 
-快速入门相关源码下载[http://www.bmobapp.com/static/Bmob_android_quickstart.zip](http://www.bmobapp.com/static/Bmob_android_quickstart.zip)
-
-
-即时聊天案例源码[https://github.com/bmob/BmobIMSDK4Android](https://github.com/bmob/BmobIMSDK4Android)
+快速入门相关源码下载[https://github.com/bmob/bmob-android-quickstart](https://github.com/bmob/bmob-android-quickstart)
 
 图文社区案例源码：[https://git.oschina.net/v7/Wonderful](https://git.oschina.net/v7/Wonderful)  这个案例是猿圈媛圈开发团队提供的。
 
-图文分享案例源码：[https://github.com/smartbetter/AndroidWonderful](https://github.com/smartbetter/AndroidWonderful) 这个案例是一个叫郭朝的开发者提供的。
+图文分享案例源码：[https://github.com/bmob/Wonderful](https://github.com/bmob/Wonderful) 这个案例是一个叫郭朝的开发者提供的。
 
 校园小菜案例源码：[https://github.com/bmob/Shop](https://github.com/bmob/Shop) 这个案例是湖工大的朋友提供的。
 
@@ -659,9 +656,6 @@ query.findObjects(this, new FindListener<Feedback>() {
 数据的实时同步服务应用实例（ [https://github.com/bmob/bmob-android-demo-realtime-data](https://github.com/bmob/bmob-android-demo-realtime-data) ）供大家参考。
 
 ACL相关的案例源码：[https://github.com/bmob/bmob-android-demo-acl](https://github.com/bmob/bmob-android-demo-acl)
-
-
-推送案例Demo:[https://github.com/bmob/bmob-android-demo-push](https://github.com/bmob/bmob-android-demo-push)
 
 BmobSDK自动更新实例程序源码：[https://github.com/bmob/bmob-android-demo-autoupdate](https://github.com/bmob/bmob-android-demo-autoupdate)
 

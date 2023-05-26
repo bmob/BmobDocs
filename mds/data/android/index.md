@@ -208,6 +208,3 @@ p2.delete(new UpdateListener() {
 短信注册登录案例源码：[https://github.com/bmob/bmob_android_demo_sms](https://github.com/bmob/bmob_android_demo_sms)
 
 校园小菜案例源码：[https://github.com/bmob/Shop](https://github.com/bmob/Shop) 这个案例是湖工大的朋友提供的。
-
-
-
