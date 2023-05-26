@@ -360,19 +360,11 @@
 												
 											</li>
 												
-											<li class=""><a href="#sdk">获取应用密钥和下载SDK</a>
+											<li class=""><a href="#_2">获取应用密钥</a>
 												
 											</li>
 												
-											<li class=""><a href="#sdk_1">SDK导入</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#androidstudio">AndroidStudio配置</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_2">导入依赖</a></li>
-												</ul>
+											<li class=""><a href="#_3">导入依赖</a>
 												
 											</li>
 												
@@ -384,23 +376,23 @@
 												
 											</li>
 												
-											<li class=""><a href="#_3">添加一行数据</a>
+											<li class=""><a href="#_4">添加一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_4">获取一行数据</a>
+											<li class=""><a href="#_5">获取一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_5">修改一行数据</a>
+											<li class=""><a href="#_6">修改一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_6">删除一行数据</a>
+											<li class=""><a href="#_7">删除一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_7">源码下载</a>
+											<li class=""><a href="#_8">源码下载</a>
 												
 											</li>
 												
@@ -478,14 +470,12 @@
 <h2 id="_1">网站后台创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。</p>
 <p><img alt="" src="./image/rumen_chuangjian.png" /></p>
-<h2 id="sdk">获取应用密钥和下载SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
+<h2 id="_2">获取应用密钥<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>选择你要开发的应用，进入该应用</p>
 <p><img alt="" src="./image/rumen_miyue_1.png" /></p>
 <p>在跳转页面，进入设置/应用密钥，点击复制，即可得到Application ID</p>
 <p><img alt="" src="./image/rumen_miyue_2.png" /></p>
-<h2 id="sdk_1">SDK导入<a class="headerlink" href="#sdk_1" title="Permanent link">&para;</a></h2>
-<h3 id="androidstudio">AndroidStudio配置<a class="headerlink" href="#androidstudio" title="Permanent link">&para;</a></h3>
-<h3 id="_2">导入依赖<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
     implementation 'io.github.bmob:android-sdk:3.8.22'
@@ -546,7 +536,7 @@
 <pre><code class="java">        Bmob.initialize(this, &quot;Your Application ID&quot;);
 </code></pre>
 
-<h2 id="_3">添加一行数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">添加一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>首先创建JavaBean（对应为Bmob后台的数据表，更详细的解释请<a href="http://doc.bmobapp.com/data/android/develop_doc/index.html">查看Android开发文档</a>）</p>
 <pre><code class="java">public class Person extends BmobObject {
     private String name;
@@ -585,7 +575,7 @@ p2.save(new SaveListener&lt;String&gt;() {
 
 <p>如果toast出添加数据成功的消息，你会在Bmob对应Application Id的数据表中看到有一行新增的数据，如下图所示：</p>
 <p><img alt="" src="./image/newdata.png" /></p>
-<h2 id="_4">获取一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">获取一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <pre><code class="java">//查找Person表里面id为6b6c11c537的数据
 BmobQuery&lt;Person&gt; bmobQuery = new BmobQuery&lt;Person&gt;();
 bmobQuery.getObject(&quot;6b6c11c537&quot;, new QueryListener&lt;Person&gt;() {
@@ -600,7 +590,7 @@ bmobQuery.getObject(&quot;6b6c11c537&quot;, new QueryListener&lt;Person&gt;() {
 });
 </code></pre>
 
-<h2 id="_5">修改一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">修改一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <pre><code class="java">//更新Person表里面id为6b6c11c537的数据，address内容更新为“北京朝阳”
 Person p2 = new Person();
 p2.setAddress(&quot;北京朝阳&quot;);
@@ -618,7 +608,7 @@ p2.update(&quot;6b6c11c537&quot;, new UpdateListener() {
 });
 </code></pre>
 
-<h2 id="_6">删除一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">删除一行数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <pre><code class="java">Person p2 = new Person();
 p2.setObjectId(&quot;6b6c11c537&quot;);
 p2.delete(new UpdateListener() {
@@ -635,7 +625,7 @@ p2.delete(new UpdateListener() {
 });
 </code></pre>
 
-<h2 id="_7">源码下载<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">源码下载<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/bmob/bmob-android-quickstart" title="快速入门相关源码下载">快速入门相关源码下载</a></p>
 <p>为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，<strong>嵌入Bmob的AppKey</strong>，再打包运行。</p>
 <p>图文社区案例源码：<a href="https://github.com/bmob/Wonderful">https://github.com/bmob/Wonderful</a>  这个案例是猿圈媛圈开发团队提供的。</p>
