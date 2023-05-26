@@ -5135,13 +5135,8 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 <p>1、<code>不要混淆BmobSDK的代码</code>，Bmob Android SDK本身进行了代码混淆；</p>
 <p>2、任何继承自<code>BmobObject、BmobUser</code>的JavaBean及<code>在上述JavaBean中定义的Object属性类</code>都不要混淆，否则gson将无法将数据解析成具体对象；</p>
 <p>3、确保<code>rx</code>、<code>okhttp3 okio</code>、<code>gson</code>及<code>org.apache.http.legacy.jar</code>包均不要混淆。</p>
-<p>具体可参考BmobExample中proguard-project.txt的代码：</p>
-<pre><code class="xml">
--ignorewarnings
-
--keepattributes Signature,*Annotation*
-
-# keep BmobSDK
+<p>确保文件 <code>proguard-rules.pro</code> 文件中存在如下的脚本：</p>
+<pre><code class="xml"># keep BmobSDK
 -dontwarn cn.bmob.v3.**
 -keep class cn.bmob.v3.** {*;}
 
@@ -5149,49 +5144,7 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 -keep class * extends cn.bmob.v3.BmobObject {
     *;
 }
--keep class com.example.bmobexample.bean.BankCard{*;}
--keep class com.example.bmobexample.bean.GameScore{*;}
--keep class com.example.bmobexample.bean.MyUser{*;}
--keep class com.example.bmobexample.bean.Person{*;}
--keep class com.example.bmobexample.file.Movie{*;}
--keep class com.example.bmobexample.file.Song{*;}
--keep class com.example.bmobexample.relation.Post{*;}
--keep class com.example.bmobexample.relation.Comment{*;}
 
-# keep BmobPush
--dontwarn  cn.bmob.push.**
--keep class cn.bmob.push.** {*;}
-
-# keep okhttp3、okio
--dontwarn okhttp3.**
--keep class okhttp3.** { *;}
--keep interface okhttp3.** { *; }
--dontwarn okio.**
-
-# keep rx
--dontwarn sun.misc.**
--keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
- long producerIndex;
- long consumerIndex;
-}
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
- rx.internal.util.atomic.LinkedQueueNode producerNode;
-}
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
- rx.internal.util.atomic.LinkedQueueNode consumerNode;
-}
-
-# 如果你需要兼容6.0系统，请不要混淆org.apache.http.legacy.jar
--dontwarn android.net.compatibility.**
--dontwarn android.net.http.**
--dontwarn com.android.internal.http.multipart.**
--dontwarn org.apache.commons.**
--dontwarn org.apache.http.**
--keep class android.net.compatibility.**{*;}
--keep class android.net.http.**{*;}
--keep class com.android.internal.http.multipart.**{*;}
--keep class org.apache.commons.**{*;}
--keep class org.apache.http.**{*;}
 
 </code></pre>
 

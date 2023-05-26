@@ -371,11 +371,7 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_2">自动导入(推荐)</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#eclipse">Eclipse导入</a></li>
+													<li><a class="itm-l2" href="#_2">导入依赖</a></li>
 												</ul>
 												
 											</li>
@@ -384,31 +380,27 @@
 												
 											</li>
 												
-											<li class=""><a href="#contentprovider">配置ContentProvider</a>
-												
-											</li>
-												
 											<li class=""><a href="#bmobsdk">初始化BmobSDK</a>
 												
 											</li>
 												
-											<li class=""><a href="#_4">添加一行数据</a>
+											<li class=""><a href="#_3">添加一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_5">获取一行数据</a>
+											<li class=""><a href="#_4">获取一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_6">修改一行数据</a>
+											<li class=""><a href="#_5">修改一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_7">删除一行数据</a>
+											<li class=""><a href="#_6">删除一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_8">源码下载</a>
+											<li class=""><a href="#_7">源码下载</a>
 												
 											</li>
 												
@@ -495,11 +487,10 @@
 <p><img alt="" src="./image/xiazai.png" /></p>
 <h2 id="sdk_1">SDK导入<a class="headerlink" href="#sdk_1" title="Permanent link">&para;</a></h2>
 <h3 id="androidstudio">AndroidStudio配置<a class="headerlink" href="#androidstudio" title="Permanent link">&para;</a></h3>
-<p>鉴于目前Google官方推荐使用 <code>Android Studio</code> 进行Android项目开发，自 <code>V3.4.2</code> 开始，Bmob Android SDK 可以使用Gradle来进行包依赖管理，如果你使用Android Studio来进行基于BmobSDK的项目开发，有两种方式：</p>
-<h3 id="_2">自动导入(推荐)<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">导入依赖<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:3.8.21'
+    implementation 'io.github.bmob:android-sdk:3.8.22'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -508,75 +499,8 @@
 }
 </code></pre>
 
-<p><strong>注：</strong></p>
-<p><strong>[1]、v3.6.8-rc2开始，远程仓库中数据SDK包含了libbmob.so及自动更新组件所需要的资源文件</strong>。开发者再也不需要配置libbmob.so,不需要添加依赖jar，也不需要复制自动更新组件的资源文件啦，只需要添加以下依赖即可。</p>
-<p><strong>[2]、每个版本的im依赖特定版本的bmob-sdk：</strong></p>
-<ul>
-<li><code>bmob-im:1.1.8---&gt;bmob-sdk:3.3.5</code></li>
-<li><code>bmob-im:1.1.9---&gt;bmob-sdk:3.4.3</code></li>
-<li><code>bmob-im:2.0.1---&gt;bmob-sdk:3.4.6-0304</code></li>
-<li><code>bmob-im:2.0.2---&gt;bmob-sdk:3.4.6-0304</code></li>
-<li><code>bmob-im:2.0.3---&gt;bmob-sdk:3.4.6</code></li>
-<li><code>bmob-im:2.0.4---&gt;bmob-sdk:3.4.6</code></li>
-<li><code>bmob-im:2.0.5---&gt;bmob-sdk:3.4.7-aar</code></li>
-<li><code>bmob-im:2.0.6---&gt;bmob-sdk:3.5.0</code></li>
-</ul>
-<p>其中</p>
-<ul>
-<li><code>bmob-sdk:3.4.6-0304</code>是Bmob Android SDK的过渡版本，主要用于NewIM_v2.0.1及v2.0.2</li>
-<li><code>bmob-sdk:3.4.6</code>的相关依赖包可见注释[3]</li>
-</ul>
-<p><strong>[3]、bmob-sdk:3.4.6依赖以下包：</strong></p>
-<pre><code>implementation 'cn.bmob.android:bmob-sdk:3.4.6'
-implementation 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
-implementation 'com.squareup.okio:okio:1.4.0'
-</code></pre>
-<p><strong>[4]、bmob-sms适用于只需要使用Bmob短信功能的开发者，而bmob-sdk内部包含了bmob-sms的短信功能,请不要重复添加。</strong></p>
-<p><strong>[5]、BmobSDK的官方仓库：<a href="https://github.com/bmob/bmob-android-sdk">bmob-android-sdk</a>，开发者可到此仓库查看最新发布的各版本SDK，我们会尽量与官网发布的SDK保持同步更新。</strong></p>
-<h4 id="_3">手动导入<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<ol>
-<li>
-<p>开发者到<a href="http://www.bmobapp.com/downloads">SDK下载中心</a>下载 <code>数据服务</code> 的Android 版本的SDK，并将下载下来的<code>本地导入SDK</code>文件夹里面的文件根据需要复制到工程的libs和res相应目录下。</p>
-</li>
-<li>
-<p>在<code>app</code>的<code>buid.gradle</code>文件中添加SO库目录配置：</p>
-<pre><code>android {
-    sourceSets {
-        main.jniLibs.srcDirs = ['libs']
-   }
-}
-</code></pre>
-</li>
-<li>
-<p>点击Sync，同步配置。</p>
-</li>
-</ol>
-<h3 id="eclipse">Eclipse导入<a class="headerlink" href="#eclipse" title="Permanent link">&para;</a></h3>
-<p>开发者到 <a href="http://www.bmobapp.com/downloads">SDK下载中心</a> 下载 <code>数据服务</code> 的Android 版本的SDK，在Eclipse工程的项目根目录中新建<code>libs</code>文件夹，将下载的jar包添加到此文件夹即可。</p>
-<p><strong>注：</strong></p>
-<p>1、若配置不成功，则需要额外增加以下步骤：</p>
-<p>右键工程根目录，选择<code>Properties -&gt; Java Build Path -&gt; Libraries</code>，然后点击<code>Add External JARs...</code> 选择指向该libs文件夹下的jar的路径，点击OK即可</p>
-<p>2、BmobSDK_v3.5.0需要依赖<code>rxjava（1.1.6）、rxandroid(1.2.0)、gson(2.6.2)、okhttp3（3.3.1）、okio（1.7.0）</code>及<code>libbmob.so</code>库；</p>
-<p>3、BmobSDK_v3.4.7需要依赖<code>okhttp3（3.2.0）、okio（1.7.0）</code>及<code>libbmob.so</code>库；</p>
-<p>4、BmobSDK_v3.4.6需要依赖<code>okhttp（2.4.0）、okio（1.4.0）</code>，如果需要兼容Android6.0系统，则还需要添加support-v4（23.2.1）及org.apache.http.legacy依赖包。</p>
 <h2 id="androidmanifestxml">配置AndroidManifest.xml<a class="headerlink" href="#androidmanifestxml" title="Permanent link">&para;</a></h2>
-<p>在你的应用程序的<code>AndroidManifest.xml</code>文件中添加相应的权限：</p>
-<pre><code class="xml">
-&lt;!--允许联网 --&gt;
-&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-&lt;!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  --&gt;
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
-&lt;!--获取wifi网络状态的信息 --&gt;
-&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
-&lt;!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 --&gt;
-&lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
-&lt;!--获取sd卡写的权限，用于文件上传和下载--&gt;
-&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
-&lt;!--允许读取手机状态 用于创建BmobInstallation--&gt;
-&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
-
-</code></pre>
-
+<p>在你的应用程序的<code>AndroidManifest.xml</code>文件中添加如下的<code>权限</code>和<code>ContentProvider</code>信息：</p>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
     &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
         package=&quot;cn.bmob.example&quot;
@@ -585,11 +509,15 @@ implementation 'com.squareup.okio:okio:1.4.0'
 
     &lt;uses-sdk android:minSdkVersion=&quot;8&quot; android:targetSdkVersion=&quot;17&quot;/&gt;
 
+    &lt;!--允许联网 --&gt;
     &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+    &lt;!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  --&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+    &lt;!--获取wifi网络状态的信息 --&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
-    &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
+    &lt;!--获取sd卡写的权限，用于文件上传和下载--&gt;
     &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;!--允许读取手机状态 用于创建BmobInstallation--&gt;
     &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
 
     &lt;application
@@ -600,64 +528,27 @@ implementation 'com.squareup.okio:okio:1.4.0'
         &lt;activity
             android:name=&quot;cn.bmob.example.MainActivity&quot;
             android:screenOrientation=&quot;portrait&quot;
-            android:label=&quot;@string/app_name&quot;&gt;
+            android:label=&quot;@string/app_name&quot; &gt;
 
                 &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;
                 &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;
+        &lt;/activity&gt;
 
-
-        &lt;activity
-            android:name=&quot;.CreateActivity&quot;
-            android:screenOrientation=&quot;portrait&quot;&gt;
-        &lt;activity
-            android:name=&quot;.DeleteActivity&quot;
-            android:screenOrientation=&quot;portrait&quot;&gt;
-        &lt;activity
-            android:name=&quot;.UpdateActivity&quot;
-            android:screenOrientation=&quot;portrait&quot;&gt;
-        &lt;activity
-            android:name=&quot;.FindActivity&quot;
-            android:screenOrientation=&quot;portrait&quot;&gt;
+        &lt;!--添加ContentProvider信息 --&gt;
+        &lt;provider
+            android:name=&quot;cn.bmob.v3.util.BmobContentProvider&quot;
+            android:authorities=&quot;你的应用包名.BmobContentProvider&quot;&gt;
+        &lt;/provider&gt;
     &lt;/application&gt;
 &lt;/manifest&gt;
 </code></pre>
 
-<h2 id="contentprovider">配置ContentProvider<a class="headerlink" href="#contentprovider" title="Permanent link">&para;</a></h2>
-<pre><code>&lt;application&gt;
-···
-&lt;provider
-    android:name=&quot;cn.bmob.v3.util.BmobContentProvider&quot;
-    android:authorities=&quot;你的应用包名.BmobContentProvider&quot;&gt;
-&lt;/provider&gt;
-···
-&lt;/application&gt;
-</code></pre>
-
 <h2 id="bmobsdk">初始化BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
 <p>在你应用程序启动的Application的onCreate()方法中初始化Bmob功能。代码如下所示：</p>
-<pre><code class="java">
-       //提供以下两种方式进行初始化操作：
-
-        //第一：默认初始化
-        Bmob.initialize(this, &quot;Your Application ID&quot;);
-        // 注:自v3.5.2开始，数据sdk内部缝合了统计sdk，开发者无需额外集成，传渠道参数即可，不传默认没开启数据统计功能
-        //Bmob.initialize(this, &quot;Your Application ID&quot;,&quot;bmob&quot;);
-
-        //第二：自v3.4.7版本开始,设置BmobConfig,允许设置请求超时时间、文件分片上传时每片的大小、文件的过期时间(单位为秒)，
-        //BmobConfig config =new BmobConfig.Builder(this)
-        ////设置appkey
-        //.setApplicationId(&quot;Your Application ID&quot;)
-        ////请求超时时间（单位为秒）：默认15s
-        //.setConnectTimeout(30)
-        ////文件分片上传时每片的大小（单位字节），默认512*1024
-        //.setUploadBlockSize(1024*1024)
-        ////文件的过期时间(单位为秒)：默认1800s
-        //.setFileExpiration(2500)
-        //.build();
-        //Bmob.initialize(config);
+<pre><code class="java">        Bmob.initialize(this, &quot;Your Application ID&quot;);
 </code></pre>
 
-<h2 id="_4">添加一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">添加一行数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>首先创建JavaBean（对应为Bmob后台的数据表，更详细的解释请<a href="http://doc.bmobapp.com/data/android/develop_doc/index.html">查看Android开发文档</a>）</p>
 <pre><code class="java">public class Person extends BmobObject {
     private String name;
@@ -686,9 +577,9 @@ p2.save(new SaveListener&lt;String&gt;() {
     @Override
     public void done(String objectId,BmobException e) {
         if(e==null){
-            toast(&quot;添加数据成功，返回objectId为：&quot;+objectId);
+            //toast(&quot;添加数据成功，返回objectId为：&quot;+objectId);
         }else{
-            toast(&quot;创建数据失败：&quot; + e.getMessage());
+            //toast(&quot;创建数据失败：&quot; + e.getMessage());
         }
     }
 });
@@ -696,22 +587,22 @@ p2.save(new SaveListener&lt;String&gt;() {
 
 <p>如果toast出添加数据成功的消息，你会在Bmob对应Application Id的数据表中看到有一行新增的数据，如下图所示：</p>
 <p><img alt="" src="./image/newdata.png" /></p>
-<h2 id="_5">获取一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_4">获取一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <pre><code class="java">//查找Person表里面id为6b6c11c537的数据
 BmobQuery&lt;Person&gt; bmobQuery = new BmobQuery&lt;Person&gt;();
 bmobQuery.getObject(&quot;6b6c11c537&quot;, new QueryListener&lt;Person&gt;() {
     @Override
     public void done(Person object,BmobException e) {
         if(e==null){
-            toast(&quot;查询成功&quot;);
+            //toast(&quot;查询成功&quot;);
         }else{
-            toast(&quot;查询失败：&quot; + e.getMessage());
+            //toast(&quot;查询失败：&quot; + e.getMessage());
         }
     }
 });
 </code></pre>
 
-<h2 id="_6">修改一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_5">修改一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <pre><code class="java">//更新Person表里面id为6b6c11c537的数据，address内容更新为“北京朝阳”
 Person p2 = new Person();
 p2.setAddress(&quot;北京朝阳&quot;);
@@ -720,33 +611,33 @@ p2.update(&quot;6b6c11c537&quot;, new UpdateListener() {
     @Override
     public void done(BmobException e) {
         if(e==null){
-            toast(&quot;更新成功:&quot;+p2.getUpdatedAt());
+            //toast(&quot;更新成功:&quot;+p2.getUpdatedAt());
         }else{
-            toast(&quot;更新失败：&quot; + e.getMessage());
+            //toast(&quot;更新失败：&quot; + e.getMessage());
         }
     }
 
 });
 </code></pre>
 
-<h2 id="_7">删除一行数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<pre><code>Person p2 = new Person();
+<h2 id="_6">删除一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<pre><code class="java">Person p2 = new Person();
 p2.setObjectId(&quot;6b6c11c537&quot;);
 p2.delete(new UpdateListener() {
 
     @Override
     public void done(BmobException e) {
         if(e==null){
-            toast(&quot;删除成功:&quot;+p2.getUpdatedAt());
+            //toast(&quot;删除成功:&quot;+p2.getUpdatedAt());
         }else{
-            toast(&quot;删除失败：&quot; + e.getMessage());
+            //toast(&quot;删除失败：&quot; + e.getMessage());
         }
     }
 
 });
 </code></pre>
 
-<h2 id="_8">源码下载<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_7">源码下载<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p><a href="http://www.bmobapp.com/static/Bmob_android_quickstart.zip" title="快速入门相关源码下载">快速入门相关源码下载</a></p>
 <p>案例教程和源码是快速入门的最简单方法，Bmob也为大家准备了相关的<a href="http://doc.bmobapp.com/data/android/example/">案例教程和源码</a>，欢迎大家下载和查看。</p>
 <p>为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，<strong>嵌入Bmob的AppKey</strong>，再打包运行。</p>
