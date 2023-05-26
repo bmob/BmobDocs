@@ -21,11 +21,6 @@
 
 ![](image/rumen_miyue_2.png)
 
-
-获取Application ID后，下载SDK（下载地址：[http://www.bmobapp.com/site/sdk#android_sdk](http://www.bmobapp.com/site/sdk#android_sdk)）。
-
-![](image/xiazai.png)
-
 ## SDK导入
 
 ### AndroidStudio配置
