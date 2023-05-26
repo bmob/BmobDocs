@@ -11,7 +11,7 @@
 
 ![](image/rumen_chuangjian.png)
 
-## 获取应用密钥和下载SDK
+## 获取应用密钥
 
 选择你要开发的应用，进入该应用
 
@@ -21,11 +21,7 @@
 
 ![](image/rumen_miyue_2.png)
 
-## SDK导入
-
-### AndroidStudio配置
-
-### 导入依赖
+##  导入依赖
 
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
