@@ -667,7 +667,7 @@ private fun resetPassword() {
             return
         }
         BmobUser.loginByAccount(email, password, object : LogInListener<User>() {
-            override fun done(user: User?, ex: BmobException) {
+            override fun done(user: User?, ex: BmobException?) {
                 if (ex == null) {
                     Log.e("loginByAccount","登录成功")
                 } else {
