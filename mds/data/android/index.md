@@ -1,11 +1,5 @@
 
-## 注册Bmob帐号
-
-在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
-
-![](image/rumen_zhuce.png)
-
-## 网站后台创建应用
+## 创建应用
 
 登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。
 
@@ -17,7 +11,7 @@
 
 ![](image/rumen_miyue_1.png)
 
-在跳转页面，进入设置/应用密钥，点击复制，即可得到Application ID
+在跳转页面，进入设置/应用密钥，点击复制，即可得到`Application ID`
 
 ![](image/rumen_miyue_2.png)
 
@@ -35,9 +29,22 @@ dependencies {
 }
 ```
 
+## 创建Application子类
+新建一个继承自`Application`的子类`BmobApp`。代码如下：
+
+```java
+public class BmobApp extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Bmob.initialize(this, "你的application id");
+    }
+}
+```
+
 ## 配置AndroidManifest.xml
 
-在你的应用程序的`AndroidManifest.xml`文件中添加如下的`权限`和`ContentProvider`信息：
+在你的应用程序的`AndroidManifest.xml`文件中添加如下的`应用类名`、`权限`和`ContentProvider`信息：
 
 
 ```xml
@@ -61,17 +68,10 @@ dependencies {
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+		android:name=".BmobApp"
+        ....其他信息>
         <activity
-            android:name="cn.bmob.example.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
-
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+            ...其他信息
 		</activity>
 
 		<!--添加ContentProvider信息 -->
@@ -81,14 +81,6 @@ dependencies {
 		</provider>
     </application>
 </manifest>
-```
-
-## 初始化BmobSDK
-
-在你应用程序启动的Application的onCreate()方法中初始化Bmob功能。代码如下所示：
-
-```java
-		Bmob.initialize(this, "Your Application ID");
 ```
 
 ## 添加一行数据
@@ -192,6 +184,9 @@ p2.delete(new UpdateListener() {
 
 });
 ```
+
+## 常见的9015错误如何解决
+[点击查看9015问题如何解决](https://blog.csdn.net/m0_74037076/article/details/131123957)
 
 ## 源码下载
 
