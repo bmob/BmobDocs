@@ -352,11 +352,7 @@
 										
 										<ul class="nav">
 											
-											<li class="active "><a href="#bmob">注册Bmob帐号</a>
-												
-											</li>
-												
-											<li class=""><a href="#_1">网站后台创建应用</a>
+											<li class="active "><a href="#_1">创建应用</a>
 												
 											</li>
 												
@@ -368,11 +364,11 @@
 												
 											</li>
 												
-											<li class=""><a href="#androidmanifestxml">配置AndroidManifest.xml</a>
+											<li class=""><a href="#application">创建Application子类</a>
 												
 											</li>
 												
-											<li class=""><a href="#bmobsdk">初始化BmobSDK</a>
+											<li class=""><a href="#androidmanifestxml">配置AndroidManifest.xml</a>
 												
 											</li>
 												
@@ -389,6 +385,10 @@
 											</li>
 												
 											<li class=""><a href="#_7">删除一行数据</a>
+												
+											</li>
+												
+											<li class=""><a href="#9015">常见的9015错误如何解决</a>
 												
 											</li>
 												
@@ -464,16 +464,13 @@
                 <div class="wrap">
                     
 
-<h2 id="bmob">注册Bmob帐号<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
-<p>在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。</p>
-<p><img alt="" src="./image/rumen_zhuce.png" /></p>
-<h2 id="_1">网站后台创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。</p>
 <p><img alt="" src="./image/rumen_chuangjian.png" /></p>
 <h2 id="_2">获取应用密钥<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>选择你要开发的应用，进入该应用</p>
 <p><img alt="" src="./image/rumen_miyue_1.png" /></p>
-<p>在跳转页面，进入设置/应用密钥，点击复制，即可得到Application ID</p>
+<p>在跳转页面，进入设置/应用密钥，点击复制，即可得到<code>Application ID</code></p>
 <p><img alt="" src="./image/rumen_miyue_2.png" /></p>
 <h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
@@ -487,8 +484,19 @@
 }
 </code></pre>
 
+<h2 id="application">创建Application子类<a class="headerlink" href="#application" title="Permanent link">&para;</a></h2>
+<p>新建一个继承自<code>Application</code>的子类<code>BmobApp</code>。代码如下：</p>
+<pre><code class="java">public class BmobApp extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Bmob.initialize(this, &quot;你的application id&quot;);
+    }
+}
+</code></pre>
+
 <h2 id="androidmanifestxml">配置AndroidManifest.xml<a class="headerlink" href="#androidmanifestxml" title="Permanent link">&para;</a></h2>
-<p>在你的应用程序的<code>AndroidManifest.xml</code>文件中添加如下的<code>权限</code>和<code>ContentProvider</code>信息：</p>
+<p>在你的应用程序的<code>AndroidManifest.xml</code>文件中添加如下的<code>应用类名</code>、<code>权限</code>和<code>ContentProvider</code>信息：</p>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
     &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
         package=&quot;cn.bmob.example&quot;
@@ -509,17 +517,10 @@
     &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
 
     &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@drawable/ic_launcher&quot;
-        android:label=&quot;@string/app_name&quot;
-        android:theme=&quot;@style/AppTheme&quot;&gt;
+        android:name=&quot;.BmobApp&quot;
+        ....其他信息&gt;
         &lt;activity
-            android:name=&quot;cn.bmob.example.MainActivity&quot;
-            android:screenOrientation=&quot;portrait&quot;
-            android:label=&quot;@string/app_name&quot; &gt;
-
-                &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;
-                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;
+            ...其他信息
         &lt;/activity&gt;
 
         &lt;!--添加ContentProvider信息 --&gt;
@@ -529,11 +530,6 @@
         &lt;/provider&gt;
     &lt;/application&gt;
 &lt;/manifest&gt;
-</code></pre>
-
-<h2 id="bmobsdk">初始化BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
-<p>在你应用程序启动的Application的onCreate()方法中初始化Bmob功能。代码如下所示：</p>
-<pre><code class="java">        Bmob.initialize(this, &quot;Your Application ID&quot;);
 </code></pre>
 
 <h2 id="_4">添加一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -625,6 +621,8 @@ p2.delete(new UpdateListener() {
 });
 </code></pre>
 
+<h2 id="9015">常见的9015错误如何解决<a class="headerlink" href="#9015" title="Permanent link">&para;</a></h2>
+<p><a href="https://blog.csdn.net/m0_74037076/article/details/131123957">点击查看9015问题如何解决</a></p>
 <h2 id="_8">源码下载<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/bmob/bmob-android-quickstart" title="快速入门相关源码下载">快速入门相关源码下载</a></p>
 <p>为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，<strong>嵌入Bmob的AppKey</strong>，再打包运行。</p>
