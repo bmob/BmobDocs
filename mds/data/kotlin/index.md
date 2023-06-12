@@ -90,9 +90,9 @@ class BmobApp : Application() {
 
 ```java
 class GameScore : BmobObject() {
-    var name: String? = null
-    var age: Int? = null
-    var sex: Boolean? = null
+    var playerName: String? = null
+    var score: Int? = null
+    var isPay: Boolean? = null
 }
 ```
 
@@ -201,7 +201,9 @@ class GameScore : BmobObject() {
     }
 ```
 
+
 # 开发文档
+
 
 ## 数据类型
 |Web端类型|支持的Kotlin类型|说明|
