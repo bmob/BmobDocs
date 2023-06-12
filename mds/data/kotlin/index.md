@@ -1,90 +1,107 @@
-# Kotlin开发文档
 
-Kotlin已正式成为Android官方支持开发语言，具体使用可参考：
+# 快速入门
 
+## 创建应用
+
+登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。
+
+![](image/rumen_chuangjian.png)
+
+## 获取应用密钥
+
+选择你要开发的应用，进入该应用
+
+![](image/rumen_miyue_1.png)
+
+在跳转页面，进入设置/应用密钥，点击复制，即可得到`Application ID`
+
+![](image/rumen_miyue_2.png)
+
+##  导入依赖
+
+在`app`的`build.gradle`文件中添加`依赖文件`：
+```gradle
+dependencies {
+	implementation 'io.github.bmob:android-sdk:3.8.23'
+	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
+	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
+	implementation 'com.squareup.okio:okio:2.2.2'
+	implementation 'com.google.code.gson:gson:2.8.5'
+}
 ```
-http://kotlinlang.org/docs/reference/android-overview.html
+
+## 创建Application子类
+新建一个继承自`Application`的子类`BmobApp`。代码如下：
+
+```java
+class BmobApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        Bmob.initialize(this, "你的application id")
+    }
+}
 ```
 
-由于Kotlin和Java之间具有可互操作性，为方便广大Bmob的Kotlin开发者，特开发此案例，展示如何使用Kotlin来调用Bmob的Android数据服务SDK。
+## 配置AndroidManifest.xml
 
-案例地址：
+在你的应用程序的`AndroidManifest.xml`文件中添加如下的`应用类名`、`权限`和`ContentProvider`信息：
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    	package="cn.bmob.example"
+    	android:versionCode="1"
+    	android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
+
+	<!--允许联网 -->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<!--获取wifi网络状态的信息 -->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<!--获取sd卡写的权限，用于文件上传和下载-->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<!--允许读取手机状态 用于创建BmobInstallation-->
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+		android:name=".BmobApp"
+        ....其他信息>
+        <activity
+            ...其他信息
+		</activity>
+
+		<!--添加ContentProvider信息 -->
+		<provider
+			android:name="cn.bmob.v3.util.BmobContentProvider"
+			android:authorities="你的应用包名.BmobContentProvider">
+		</provider>
+    </application>
+</manifest>
 ```
-https://github.com/bmob/bmob-android-data-sdk-kotlin-demo
+
+## 创建模型
+
+首先创建模型文件，对应为Bmob后台的数据表。
+
+```java
+class GameScore : BmobObject() {
+    var name: String? = null
+    var age: Int? = null
+    var sex: Boolean? = null
+}
 ```
 
-# 集成
-## 开发工具
-Android Studio，具体使用可参考：
-```
-http://www.android-studio.org/
-```
-## 仓库配置
+注意，大部分模型类都继承自`BmobObject`类。
+但如果你想使用内置的注册、登录、验证码登录这些内置方法，则改为继承自`BmobUser`类。
 
-在项目build.gradle的allprojects-repositories节点下配置：
+## 添加一行数据
 
-    maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
-
-## 依赖配置
-
-在应用build.gradle的dependencies节点下配置，其中x.y.z为数据服务SDK版本号码：
-
-    implementation 'cn.bmob.android:bmob-sdk:x.y.z'
-
-## 权限注册
-
-在清单文件注册所需权限：
-
-    <!-- 允许联网 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 获取wifi网络状态的信息 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- 获取sd卡写的权限，用于文件上传和下载 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 允许读取手机状态 用于创建BmobInstallation -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 请求安装APK，用于版本更新 -->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-
-
-## 初始化
-	
-在应用主进程中进行代码初始化，BMOB_APP_ID请到应用设置中获取：
-
-    Bmob.initialize(this,Constant.BMOB_APP_ID)
-
-
-
-# 数据类型
-|Web端类型|支持的Kotlin类型|说明|
-|---|---|---|
-|Number|Byte、Short、Int、Long、Float、Double |基本数据类型|
-|Array|MutableList|数组类型|
-|File|BmobFile|Bmob特有类型，用来标识文件类型|
-|GeoPoint|BmobGeoPoint|Bmob特有类型，用来标识地理位置|
-|Date|BmobDate|Bmob特有类型，用来标识日期类型|
-|Pointer|特定对象|Bmob特有类型，用来标识指针类型|
-|Relation|BmobRelation|Bmob特有类型，用来标识数据关联|
-
-# 默认表
-|Web端表名|支持的Kotlin类型|说明|
-|---|---|---|
-|_User|BmobUser|用户系统|
-|_Role|BmobRole|用户角色|
-|_Installation|BmobInstallation|用户设备|
-|_Article|用户自定义|图文消息|
-|AppVersion|AppVersion|版本升级|
-# 增删改查
-
-### 添加一行数据
-
-    /**
-     * 新增一条数据
-     */
+```java
     private fun createOne() {
         var gameScore = GameScore()
         gameScore.playerName = "比目"
@@ -96,21 +113,19 @@ http://www.android-studio.org/
         gameScore.save(object : SaveListener<String>() {
             override fun done(objectId: String?, ex: BmobException?) {
                 if (ex == null) {
-                    Toast.makeText(mContext, "新增数据成功：$objectId", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "新增数据成功：$objectId", Toast.LENGTH_LONG).show()
                 } else {
                     Log.e("CREATE", "新增数据失败：" + ex.message)
                 }
             }
         })
     }
-
+```
 
 
 ## 更新一条数据
 
-    /**
-     * bmob更新一条数据
-     */
+```java
     private fun updateObject(objectId: String?) {
         var person = Person()
         person.objectId = objectId
@@ -118,81 +133,100 @@ http://www.android-studio.org/
         person.update(object : UpdateListener() {
             override fun done(ex: BmobException?) {
                 if (ex == null) {
-                    Toast.makeText(mContext, "删除成功", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "删除成功", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(mContext, ex.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, ex.message, Toast.LENGTH_LONG).show()
                 }
             }
 
         })
     }
+```
 
 ## 删除一条数据
 
-    /**
-     * bmob删除一条数据
-     */
+```java
     private fun deleteObject(objectId: String?) {
         var person = Person()
         person.objectId = objectId
         person.delete(object : UpdateListener() {
             override fun done(ex: BmobException?) {
                 if (ex == null) {
-                    Toast.makeText(mContext, "删除成功", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "删除成功", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(mContext, ex.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, ex.message, Toast.LENGTH_LONG).show()
                 }
             }
         })
     }
+```
 
 ## 查询一条数据
 
-    /**
-     * bmob查询单条数据
-     */
+```java
     private fun getObject(objectId: String?) {
         var bmobQuery: BmobQuery<Person> = BmobQuery()
         bmobQuery.getObject(objectId, object : QueryListener<Person>() {
             override fun done(person: Person?, ex: BmobException?) {
                 if (ex == null) {
-                    Toast.makeText(mContext, "查询成功", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "查询成功", Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(mContext, ex.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, ex.message, Toast.LENGTH_LONG).show()
                 }
             }
         })
     }
-
+```
 
 ## 查询多条数据
 
-    /**
-     * bmob 查询数据列表
-     */
+```java
     private fun queryObjects() {
         var bmobQuery: BmobQuery<Person> = BmobQuery()
         bmobQuery.findObjects(object : FindListener<Person>() {
             override fun done(persons: MutableList<Person>?, ex: BmobException?) {
 
                 if (ex == null) {
-                    Toast.makeText(mContext, "查询成功", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "查询成功", Toast.LENGTH_LONG).show()
                     if (persons != null) {
                         for (person: Person in persons) {
                             Log.e("Person", person.name)
                         }
                     }
                 } else {
-                    Toast.makeText(mContext, ex.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, ex.message, Toast.LENGTH_LONG).show()
                 }
             }
         })
     }
+```
+
+# 开发文档
+
+## 数据类型
+|Web端类型|支持的Kotlin类型|说明|
+|---|---|---|
+|Number|Byte、Short、Int、Long、Float、Double |基本数据类型|
+|Array|MutableList|数组类型|
+|File|BmobFile|Bmob特有类型，用来标识文件类型|
+|GeoPoint|BmobGeoPoint|Bmob特有类型，用来标识地理位置|
+|Date|BmobDate|Bmob特有类型，用来标识日期类型|
+|Pointer|特定对象|Bmob特有类型，用来标识指针类型|
+|Relation|BmobRelation|Bmob特有类型，用来标识数据关联|
+
+## 默认表
+|Web端表名|支持的Kotlin类型|说明|
+|---|---|---|
+|_User|BmobUser|用户系统|
+|_Role|BmobRole|用户角色|
+|_Installation|BmobInstallation|用户设备|
+|_Article|用户自定义|图文消息|
+|AppVersion|AppVersion|版本升级|
 
 
-# 批量数据操作
+## 批量数据操作
 
-## 批量新增数据
+### 批量新增数据
 
     /**
      * 批量新增数据
@@ -227,7 +261,7 @@ http://www.android-studio.org/
         })
     }
 
-## 批量更新数据
+### 批量更新数据
 
     /**
      * 批量更新数据
@@ -272,7 +306,7 @@ http://www.android-studio.org/
     }
 
 
-## 批量删除操作
+### 批量删除操作
 
     /**
      * 批量删除数据
@@ -314,7 +348,7 @@ http://www.android-studio.org/
         })
     }
 
-## 批量新增、更新、删除同步操作
+### 批量新增、更新、删除同步操作
 
   /**
      * 批量新增、更新、删除同步操作
@@ -370,9 +404,9 @@ http://www.android-studio.org/
 
 
 
-# 注册登录
+## 注册登录
 
-## 用户名密码注册
+### 用户名密码注册
 
         /**
          * bmob注册方法
@@ -392,7 +426,7 @@ http://www.android-studio.org/
             }
         })
 
-## 用户名密码登录
+### 用户名密码登录
 
         /**
          * bmob登录方法
@@ -411,7 +445,7 @@ http://www.android-studio.org/
                 }
             }
         })
-## 修改密码
+### 修改密码
 ```
 /**
  * 修改密码，必须先登录
@@ -428,9 +462,9 @@ private fun resetPassword() {
     })
 }
 ```
-# 文件管理
+## 文件管理
 
-## 权限
+### 权限
     /**
      * 适配android6.0 动态申请访问文件权限
      */
@@ -457,7 +491,7 @@ private fun resetPassword() {
     }
 
 
-## 上传单个文件
+### 上传单个文件
     /**
      * 通过文件路径上传单个文件
      */
@@ -476,7 +510,7 @@ private fun resetPassword() {
         })
     }
 
-## 关联线上文件和表字段
+### 关联线上文件和表字段
 
     /**
      * 将文件设置到表中
@@ -492,7 +526,7 @@ private fun resetPassword() {
     }
 
 
-## 上传多个文件
+### 上传多个文件
 
 	 /**
      * bmob  上传多个文件
@@ -520,7 +554,7 @@ private fun resetPassword() {
         })
     }
 
-## 删除单个文件
+### 删除单个文件
 
     /**
      * 删除单个文件
@@ -538,7 +572,7 @@ private fun resetPassword() {
     }
 
 
-## 删除多个文件
+### 删除多个文件
 
     /**
      * 删除多个文件
@@ -558,11 +592,11 @@ private fun resetPassword() {
     }
 
 
-# 短信
+## 短信
 
 短信功能目前属于按需付费功能，请到应用设置--付费升级中购买短信量。
 
-## 发送短信验证码
+### 发送短信验证码
 
         /**
          * bmob发送验证码
@@ -577,7 +611,7 @@ private fun resetPassword() {
             }
         })
 
-## 验证短信验证码
+### 验证短信验证码
 
         /**
          * bmob验证验证码
@@ -593,11 +627,11 @@ private fun resetPassword() {
         })
 
 
-# 邮箱
+## 邮箱
 
 邮箱功能目前属于按需付费功能，请到应用设置--付费升级中购买邮件量。
 
-## 验证激活
+### 验证激活
 
 发送验证激活邮箱后，如果用户登录了邮箱并且点击了邮件中的激活链接，则可以使用邮箱+密码的方式进行登录。
 
@@ -621,7 +655,7 @@ private fun resetPassword() {
         })
     }
 
-## 重置密码
+### 重置密码
 
 发送重置密码邮箱后，如果用户登录了邮箱并且点击邮件中的链接进行密码重置，则可以使用邮箱+新密码方式进行登录。
 
@@ -646,7 +680,7 @@ private fun resetPassword() {
         })
     }
 
-## 邮箱+密码登录
+### 邮箱+密码登录
 
 
 当邮箱通过验证激活后，即可使用邮箱+密码的方式进行登录。
@@ -678,13 +712,13 @@ private fun resetPassword() {
     }
 
 
-# 第三方账号
+## 第三方账号
 
 
 目前第三方账号功能只支持微博、QQ、微信三种社交账号。
 
 
-## 注册登录
+### 注册登录
 
 在第三方账号授权成功之后调用。
 
@@ -710,7 +744,7 @@ private fun resetPassword() {
 
 
 
-## 账号关联
+### 账号关联
 
 在第三方账号授权成功之后调用。
 
@@ -733,7 +767,7 @@ private fun resetPassword() {
 
 
 
-## 取消关联
+### 取消关联
 
     /**
      * 取消关联
@@ -754,10 +788,10 @@ private fun resetPassword() {
 
 
 
-# 版本更新
+## 版本更新
 
 
-## 版本更新设置
+### 版本更新设置
 
         //TODO 初始化，当控制台表出现后，注释掉此句
         BmobUpdateAgent.initAppVersion();
@@ -801,7 +835,7 @@ private fun resetPassword() {
 
 
 
-## 动态访问权限
+### 动态访问权限
 
     /**
      * 检查权限
@@ -890,28 +924,7 @@ private fun resetPassword() {
     }
 
 
-
-## 清单文件设置
-
-        <!--数据共享-->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="cn.bmob.kotlin.data"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
-        </provider>
-
-        <activity
-            android:name="cn.bmob.v3.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
-
-
-
-# 数据监听
+## 数据监听
 
 1、start方法开始连接；
 
@@ -949,7 +962,7 @@ private fun resetPassword() {
     }
 
 
-# ACL
+## ACL
 
 新增一条帖子数据，并且置当前用户可写，设置所有人可读。
 
@@ -982,7 +995,7 @@ private fun resetPassword() {
 
 
 
-# 角色
+## 角色
 
 
 
@@ -1056,7 +1069,7 @@ private fun resetPassword() {
     }
 
 
-# 数组
+## 数组
 
 ### 添加数组
 ```
@@ -1136,7 +1149,7 @@ private fun deleteArray() {
 ```
 
 
-# 位置
+## 位置
 
     /**
      * 查询矩形范围内的用户
@@ -1198,11 +1211,11 @@ private fun deleteArray() {
     }
 
 
-# 关联关系
+## 关联关系
 
-## 一对一关联
+### 一对一关联
 
-### 添加一对一关系
+#### 添加一对一关系
 ```
 /**
  * 发布帖子
@@ -1235,7 +1248,7 @@ private fun publishPost() {
 }
 
 ```
-### 查询一对一关系
+#### 查询一对一关系
 
         val user = BmobUser.getCurrentUser<User>(User::class.java)
         val query = BmobQuery<Post>()
@@ -1255,9 +1268,9 @@ private fun publishPost() {
 
 
 
-## 一对多关联
+### 一对多关联
 
-### 添加一对多关系
+#### 添加一对多关系
 
 ```
 /**
@@ -1286,7 +1299,7 @@ private fun addComment(objectId: String?) {
 }
 
 ```
-### 查询一对多关系
+#### 查询一对多关系
 
 ```
 /**
@@ -1314,9 +1327,9 @@ private fun queryComment(objectId: String?) {
 }
 ```
 
-## 多对多关联
+### 多对多关联
 
-### 添加多对多关系
+#### 添加多对多关系
 
 ```
 /**
@@ -1348,7 +1361,7 @@ private fun like(objectId: String?) {
 }
 ```
 
-### 查询多对多关系
+#### 查询多对多关系
 
 ```
 /**
@@ -1374,7 +1387,7 @@ private fun likes(objectId: String?) {
 
 ```
 
-### 删除多对多关系
+#### 删除多对多关系
 
 ```
 /**
@@ -1402,7 +1415,7 @@ private fun unlike(objectId: String?) {
 
 ```
 
-# 服务器时间
+## 服务器时间
 考虑到安全问题，要求客户端的时间必须是正常时间，否则会返回"sdk time error"错误，如果出现此问题，可以先获取服务器时间，再设置好客户端时间后重新请求。
 ```
 /**
@@ -1422,9 +1435,9 @@ private fun getBmobServerTime() {
     })
 }
 ```
-# 表结构
+## 表结构
 
-## 获取单表结构
+### 获取单表结构
 ```
 /**
  * 获取某张表的表结构
@@ -1443,7 +1456,7 @@ private fun getTable(table: String?) {
 }
 
 ```
-## 获取所有表结构
+### 获取所有表结构
 ```
 /**
  * 获取所有表结构
