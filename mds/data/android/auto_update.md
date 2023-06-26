@@ -4,7 +4,7 @@
 
 下载SDK提供的res文件夹拷入工程目录下，和工程本身res目录合并。
 
-res文件夹下载地址：[https://www.bmobapp.com/static/res.zip](https://www.bmobapp.com/static/res.zip)
+res文件夹下载地址：[https://www.bmobapp.com/static1/res.zip](https://www.bmobapp.com/static1/res.zip)
 
 这里需要注意的是：
 
