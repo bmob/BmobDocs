@@ -733,6 +733,10 @@
 												
 											</li>
 												
+											<li class=""><a href="#ai">接入AI能力</a>
+												
+											</li>
+												
 											<li class=""><a href="#websocket">小程序WebSocket</a>
 												
 												<ul class="nav nav-l2">
@@ -3545,6 +3549,64 @@ console.log(error);
 <p>由于最近微信封了~~*.upaiyun.com~~ 域名，如果你没做文件下载功能，只是显示图片，可以不填写。如果你需要做下载功能，在应用设置里面，可以开启独立域名， 开启后，填写到微信平台就好了，当然有时候你想用自己的域名，也是可以的，可以工单联系我们。</p>
 <h3 id="_79">小程序客服消息<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h3>
 <p>经常有人有需求，希望手机端回复客户消息。这时，可以基于微信客服接口函数使用云函数开发相关功能， 如果你不想开发，希望自己小程序直接可用客服消息，可以使用Bmob官方提供的服务消息解决方案，主动提醒、自动回复、手机一键处理客服。如需使用请应用升级页面操作</p>
+<h2 id="ai">接入AI能力<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<p>从2.5版本开始支持ChatGPT,为方便开发者快速开发AI产品，我们接入了ChatGPT能力，让你可以不用考虑配额、网络、上下文均衡等问题，简单灵活地使用这些能力。</p>
+<ul>
+<li>初始化BmobAI</li>
+</ul>
+<pre><code class="java">let ChatAi = Bmob.ChatAI()
+</code></pre>
+
+<ul>
+<li>调用对话能力</li>
+</ul>
+<pre><code class="java">  // session 会话id，可以传用户objectId，或者随机数
+  // content 内容，提问的内容，如果希望上下文，可以这样传入
+  // {&quot;model&quot;:&quot;gpt-3.5-turbo&quot;,&quot;messages&quot;:[{&quot;content&quot;:&quot;你好&quot;,&quot;role&quot;:&quot;user&quot;},{&quot;content&quot;:&quot;你好，有什么我可以为你提供的帮助吗？&quot;,&quot;role&quot;:&quot;assistant&quot;},{&quot;content&quot;:&quot;请问Bmob是什么产品&quot;,&quot;role&quot;:&quot;user&quot;}],&quot;stream&quot;:true}
+
+let data = {&quot;messages&quot;:[{&quot;content&quot;:&quot;你好&quot;,&quot;role&quot;:&quot;user&quot;}],&quot;session&quot;:&quot;b1&quot;}
+ChatAi.send(JSON.stringify(data))
+</code></pre>
+
+<p>其中，<code>session_id</code>是会话Id信息，你可以传入用户的<code>objectId</code>，也可以是其他固定的信息，如用户的<code>手机号码</code>、<code>注册账号</code>等等。后端根据会话Id信息，自动拼接相应的上下文信息，发送给GPT进行处理。</p>
+<pre><code>// 返回消息处理
+let msg = ''
+ChatAi.onMessage((res)=&gt;{
+  if(res==&quot;done&quot;){
+    console.log(msg);
+  }else{
+    msg = msg+res
+  }
+})
+</code></pre>
+
+<p><code>onMessage</code>方法是以流的形式，不断回传<code>message</code>信息给你，呈现在UI界面上。通过这种方法，你可以实现更好的用户体验。
+res=="done 是等待GPT完全请求完毕，才回传最终内容<code>message</code>给你。</p>
+<p><code>onError</code>和<code>onClose</code>方法是请求连接发生错误时调用，如网络关闭等。</p>
+<p>例如断开了重新链接</p>
+<pre><code>ChatAi.onClose((c) =&gt; {
+    console.log(&quot;连接被关闭&quot;);
+    //重新连接
+    ChatAi.connect()
+})
+</code></pre>
+
+<ul>
+<li>BmobAI的其他方法</li>
+</ul>
+<p><code>BmobAI</code>类还有断开websocke重连<code>ChatAi.connect</code>方法。</p>
+<p><code>ChatAi.connected</code>属性返回布尔值，表示是否和服务器保持着连接状态。</p>
+<p><code>ChatAi.connect()</code>属性是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。</p>
+<ul>
+<li>其他重要问题</li>
+</ul>
+<p>如果你没有OpenAI的密钥，你可以联系我们购买。
+如果你有OpenAI的密钥，可以进入到应用之后，依次点击 <code>设置</code> -&gt; <code>AI设置</code> -&gt; <code>添加配置</code>，将你的密钥信息填上去即可。</p>
+<p>小程序接入demo </p>
+<p>项目地址：</p>
+<p>https://github.com/bmob/wechatapp-demo</p>
+<p>页面</p>
+<p>pages/interface/chatai/index</p>
 <h2 id="websocket">小程序WebSocket<a class="headerlink" href="#websocket" title="Permanent link">&para;</a></h2>
 <p><strong>简介：</strong></p>
 <p>小程序WebSocket主要用来做实时数据处理，例如实时监听订单表变化，聊天室等场景。（此业务每月99）</p>
