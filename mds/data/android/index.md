@@ -240,6 +240,8 @@ bmobAI.Chat("帮我用写一段android访问Bmob后端云的代码", "session_id
 
 `Connect`方法是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。
 
+`setPrompt`方法是设置提示词，你要在调用Chat方法之前设置。
+
 
 - 其他重要问题
   
