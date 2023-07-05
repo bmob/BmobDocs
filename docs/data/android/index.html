@@ -388,6 +388,10 @@
 												
 											</li>
 												
+											<li class=""><a href="#ai">接入AI能力</a>
+												
+											</li>
+												
 											<li class=""><a href="#9015">常见的9015错误如何解决</a>
 												
 											</li>
@@ -475,7 +479,7 @@
 <h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:3.8.23'
+    implementation 'io.github.bmob:android-sdk:3.9.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -621,9 +625,66 @@ p2.delete(new UpdateListener() {
 });
 </code></pre>
 
+<h2 id="ai">接入AI能力<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<p>为方便开发者快速开发AI产品，我们接入了ChatGPT能力，让你可以不用考虑配额、网络、上下文均衡等问题，简单灵活地使用这些能力。
+AI能力仅在最新版的V3.9.1中才有。</p>
+<ul>
+<li>初始化BmobAI</li>
+</ul>
+<pre><code class="java">BmobAI bmobAI = new BmobAI();
+</code></pre>
+
+<ul>
+<li>调用对话能力</li>
+</ul>
+<pre><code class="java">
+
+bmobAI.Chat(&quot;帮我用写一段android访问Bmob后端云的代码&quot;, &quot;session_id&quot;, new ChatMessageListener() {
+    @Override
+    public void onMessage(String message) {
+        //消息流的形式返回AI的结果
+        Log.d(&quot;Bmob&quot;, message);
+    }
+
+    @Override
+    public void onFinish(String message) {
+        //一次性返回全部结果，这个方法需要等待一段时间，友好性较差
+        Log.d(&quot;Bmob&quot;, message);
+    }
+
+    @Override
+    public void onError(String error) {
+        //OpenAI的密钥错误或者超过OpenAI并发时，会返回这个错误
+        Log.d(&quot;Bmob&quot;, &quot;连接发生异常了&quot;+error);
+    }
+
+    @Override
+    public void onClose() {
+        Log.d(&quot;Bmob&quot;, &quot;连接被关闭了&quot;);
+    }
+});
+</code></pre>
+
+<p>其中，<code>session_id</code>是会话Id信息，你可以传入用户的<code>objectId</code>，也可以是其他固定的信息，如用户的<code>手机号码</code>、<code>注册账号</code>等等。后端根据会话Id信息，自动拼接相应的上下文信息，发送给GPT进行处理。
+<code>onMessage</code>方法是以流的形式，不断回传<code>message</code>信息给你，呈现在UI界面上。通过这种方法，你可以实现更好的用户体验。
+<code>onFinish</code>方法是等待GPT完全请求完毕，才回传最终内容<code>message</code>给你。
+<code>onError</code>和<code>onClose</code>方法是请求连接发生错误时调用，如网络关闭等。</p>
+<ul>
+<li>BmobAI的其他方法</li>
+</ul>
+<p><code>BmobAI</code>类还有<code>isConnect</code>方法和<code>Connect</code>方法。</p>
+<p><code>isConnect</code>方法返回布尔值，表示是否和服务器保持着连接状态。</p>
+<p><code>Connect</code>方法是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。</p>
+<ul>
+<li>其他重要问题</li>
+</ul>
+<p>如果你没有OpenAI的密钥，你可以联系我们购买。
+如果你有OpenAI的密钥，可以进入到应用之后，依次点击 <code>设置</code> -&gt; <code>AI设置</code> -&gt; <code>添加配置</code>，将你的密钥信息填上去即可。
+<img alt="" src="./image/aiconfig.png" /></p>
 <h2 id="9015">常见的9015错误如何解决<a class="headerlink" href="#9015" title="Permanent link">&para;</a></h2>
 <p><a href="https://blog.csdn.net/m0_74037076/article/details/131123957">点击查看9015问题如何解决</a></p>
 <h2 id="_8">源码下载<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/bmob/Bmob-Android-AI">AI快速入门源码下载</a></p>
 <p><a href="https://github.com/bmob/bmob-android-quickstart" title="快速入门相关源码下载">快速入门相关源码下载</a></p>
 <p>为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，<strong>嵌入Bmob的AppKey</strong>，再打包运行。</p>
 <p>图文社区案例源码：<a href="https://github.com/bmob/Wonderful">https://github.com/bmob/Wonderful</a>  这个案例是猿圈媛圈开发团队提供的。</p>
