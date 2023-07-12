@@ -20,7 +20,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.1'
+	implementation 'io.github.bmob:android-sdk:3.9.3'
 	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -187,7 +187,7 @@ p2.delete(new UpdateListener() {
 
 ## 接入AI能力
 为方便开发者快速开发AI产品，我们接入了ChatGPT能力，让你可以不用考虑配额、网络、上下文均衡等问题，简单灵活地使用这些能力。
-AI能力仅在最新版的V3.9.1中才有。
+AI能力仅在最新版的V3.9.3中才有。
 
 - 初始化BmobAI
 
