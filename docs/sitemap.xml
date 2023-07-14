@@ -204,6 +204,34 @@
     
         
     <url>
+     <loc>/ai/android/</loc>
+     <lastmod>2023-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/ios/</loc>
+     <lastmod>2023-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/wechat/</loc>
+     <lastmod>2023-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/html5/</loc>
+     <lastmod>2023-07-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
      <loc>/other/domain/</loc>
      <lastmod>2023-07-14</lastmod>
      <changefreq>daily</changefreq>
