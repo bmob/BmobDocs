@@ -79,7 +79,13 @@ chatAI.onReceiveMessage = { message in
 
 ## Send方法内容说明
 
-// session 会话id，可以传用户objectId，或者随机数 // content 内容，提问的内容，如果希望上下文，可以这样传入 // {"model":"gpt-3.5-turbo","messages":[{"content":"你好","role":"user"},{"content":"你好，有什么我可以为你提供的帮助吗？","role":"assistant"},{"content":"请问Bmob是什么产品","role":"user"}]}
+// session 会话id，可以传用户objectId，或者随机数 
+
+// content 内容，提问的内容，如果希望上下文，可以这样传入 
+
+// {"model":"gpt-3.5-turbo","messages":[{"content":"你好","role":"user"},{"content":"你好，有什么我可以为你提供的帮助吗？","role":"assistant"},{"content":"请问Bmob是什么产品","role":"user"}]}
+
+
 
 为了实现场景化答复，可以传入prompt 参数
 
@@ -119,6 +125,6 @@ chatAI.setPrompt("从现在开始，你将扮演一个18禁成人恋爱游戏中
 ![](image/aiconfig.png)
 
 ## 源码下载
-[AI快速入门源码下载](https://github.com/bmob/Bmob-Android-AI)
+[AI快速入门源码下载](https://github.com/bmob/BmobChatAi)
 
-[AI角色案例](https://github.com/bmob/Bmob-Android-AI-Prompt)
+[AI角色案例](https://github.com/bmob/Bmob-IOS-AI-Prompt)
