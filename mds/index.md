@@ -207,6 +207,26 @@
 							<i class="icon o7"></i>
 						</div>
 						<!--//icon-holder-->
+						<h3 class="title">AI人工智能</h3>
+						<div class="text-left">
+							<ul class="links else">
+							<li><a href="./ai/android/index.html" class="intro" >Android</a></li>
+								<li><a href="./ai/ios/index.html" class="intro" >iOS</a></li>
+								<li><a href="./ai/wechat/index.html" class="intro" >小程序</a></li>
+								<li><a href="./ai/html5/index.html" class="intro" >Html5</a></li>
+							</ul>
+						</div>
+					</div>
+					<!--//item-inner-->
+				</div>
+				<!--//item-->
+				<!--//item-->
+				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
+					<div class="item-inner">
+						<div class="icon-holder">
+							<i class="icon o7"></i>
+						</div>
+						<!--//icon-holder-->
 						<h3 class="title">其他</h3>
 						<div class="text-left">
 							<ul class="links else">

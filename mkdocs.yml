@@ -107,6 +107,11 @@ pages:
 #    - 'iOS':
 #        - '开发文档': 'im/ios/index.md'
 #        - '更新日志': 'im/ios/update_log.md'
+- 'AI人工智能':
+    - 'Android': 'ai/android/index.md'
+    - 'iOS': 'ai/ios/index.md'
+    - '小程序': 'ai/wechat/index.md'
+    - 'Html5': 'ai/html5/index.md'
 - '其他':
     - '域名管理': 'other/domain/index.md'
     - '常见问题': 'other/common_problem/index.md'
