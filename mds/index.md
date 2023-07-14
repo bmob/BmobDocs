@@ -72,12 +72,12 @@
 				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
 					<div class="item-inner">
 						<div class="icon-holder">
-							<i class="icon o9"></i>
+							<i class="icon o8"></i>
 						</div>
 						<!--//icon-holder-->
 						<h3 class="title">AI人工智能</h3>
 						<div class="text-left">
-							<ul class="links else">
+							<ul class="links">
 							<li><s class="languageType"></s><a href="./ai/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./ai/ios/index.html" class="intro" >iOS</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"><a href="./ai/wechat/index.html" class="intro" >小程序</a></li>
