@@ -80,7 +80,7 @@
 							<ul class="links else">
 							<li><s class="languageType"></s><a href="./ai/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./ai/ios/index.html" class="intro" >   iOS</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./ai/wechat/index.html" class="intro" >   小程序</a></li>
+								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./ai/html5/index.html" class="intro" >   小程序</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./ai/html5/index.html" class="intro" >   Html5</a></li>
 							</ul>
 						</div>
