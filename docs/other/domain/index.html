@@ -13,9 +13,9 @@
 
         <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
             <!--
-            <title>iOS - Bmob文档中心</title>
+            <title>域名管理 - Bmob文档中心</title>
             -->
-            <title>Bmob后端云 </title>  
+            <title> – Bmob后端云 </title>  
             
             <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
             <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -231,30 +231,30 @@
                 
               </li>
             
-              <li class="pull-left active">
+              <li class="pull-left">
                 
-					<!--<a href="../android/">AI人工智能</a>-->
-					<li class="dropdown active">
+					<!--<a href="../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
                                 <li >
-                                    <a href="../android/">Android</a>
-                                </li>
-							
-                            
-                                <li class="active">
-                                    <a href="./">iOS</a>
+                                    <a href="../../ai/android/">Android</a>
                                 </li>
 							
                             
                                 <li >
-                                    <a href="../html5/">小程序</a>
+                                    <a href="../../ai/ios/">iOS</a>
                                 </li>
 							
                             
                                 <li >
-                                    <a href="../html5/">Html5</a>
+                                    <a href="../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">Html5</a>
                                 </li>
 							
                         </ul>
@@ -262,35 +262,35 @@
                 
               </li>
             
-              <li class="pull-left">
+              <li class="pull-left active">
                 
-					<!--<a href="../../other/domain/">其他</a>-->
-					<li class="dropdown">
+					<!--<a href="./">其他</a>-->
+					<li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             
-                                <li >
-                                    <a href="../../other/domain/">域名管理</a>
+                                <li class="active">
+                                    <a href="./">域名管理</a>
                                 </li>
 							
                             
                                 <li >
-                                    <a href="../../other/common_problem/">常见问题</a>
+                                    <a href="../common_problem/">常见问题</a>
                                 </li>
 							
                             
                                 <li >
-                                    <a href="../../other/error_code/">错误码</a>
+                                    <a href="../error_code/">错误码</a>
                                 </li>
 							
                             
                                 <li >
-                                    <a href="../../other/data_safety/">数据安全</a>
+                                    <a href="../data_safety/">数据安全</a>
                                 </li>
 							
                             
                                 <li >
-                                    <a href="../../other/bql/">BQL</a>
+                                    <a href="../bql/">BQL</a>
                                 </li>
 							
                         </ul>
@@ -359,13 +359,13 @@
 		
 				
 				
-					<div class="code-title">iOS</div>
-				
 				
 				
 		
 	
 		
+				
+					<div class="code-title">域名管理</div>
 				
 				
 				
@@ -386,50 +386,58 @@
 			
 		
 			
+		
+			
 				
-					
-						
 					
 						
 							
 								
 									
-										<li class="active "><a href="#_1">创建应用</a>
+										<li class="active "><a href="#_1">独立域名绑定教程</a>
 											
 										</li>
 									
-										<li class=""><a href="#_2">获取应用密钥</a>
+										<li class=""><a href="#_2">备案说明</a>
 											
 										</li>
 									
-										<li class=""><a href="#_3">导入依赖</a>
+										<li class=""><a href="#_3">文件域名绑定教程</a>
 											
 										</li>
 									
-										<li class=""><a href="#_4">使用</a>
+										<li class=""><a href="#api">API域名绑定教程</a>
 											
 										</li>
 									
-										<li class=""><a href="#_5">错误处理</a>
+										<li class=""><a href="#sdk">SDK域名绑定教程</a>
 											
 										</li>
 									
-										<li class=""><a href="#send">Send方法内容说明</a>
+										<li class=""><a href="#_4">云函数域名绑定教程</a>
+											
+										</li>
+									
+										<li class=""><a href="#_5">域名备案教程</a>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#prompt">设置prompt</a></li>
+												<li><a class="itm-l2" href="#_6">一、备前前提</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_7">二、具体备案过程（以阿里云为例）</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_8">三、等待审核</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_9">四、总结</a></li>
 											</ul>
 											
 										</li>
 									
-										<li class=""><a href="#_6">接口费用</a>
-											
-										</li>
-									
-										<li class=""><a href="#_7">源码下载</a>
-											
-										</li>
-									
 								
 							
 						
@@ -438,9 +446,11 @@
 					
 						
 					
+						
+					
+						
+					
 				
-			
-		
 			
 		
 	</ul>
@@ -450,95 +460,86 @@
                 <div class="wrap">
                     
 
-<h2 id="_1">创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。</p>
-<p><img alt="" src="./image/rumen_chuangjian.png" /></p>
-<h2 id="_2">获取应用密钥<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>选择你要开发的应用，进入该应用</p>
-<p><img alt="" src="./image/rumen_miyue_1.png" /></p>
-<p>在跳转页面，进入设置/应用密钥，点击复制，即可得到<code>Application ID</code></p>
-<p><img alt="" src="./image/rumen_miyue_2.png" /></p>
-<h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在<code>app</code>的添加<code>依赖文件</code>：</p>
-<pre><code class="gradle">dependencies: [
-    .package(url: &quot;https://github.com/bmob/BmobChatAi&quot;, from: &quot;1.0.0&quot;)
-]
-</code></pre>
-
-<h2 id="_4">使用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>要使用这个包，首先在 Swift 文件中导入它：</p>
-<pre><code>import BmobChatAi
-</code></pre>
-
-<p>然后，创建一个 <code>BmobChatAi</code> 实例，并开始使用其 chatgpt ai 功能：</p>
-<pre><code>// 实例化AI类
-let chatAI = BmobChatAi(SecretKey: &quot;xxxxx&quot;)
-
-// 连接AI
-chatAI.connect()
-//连接websock 域名参数可不传
-chatAI.connect(&quot;https://api.xxxxx.com&quot;)
-
-// 发送一条消息给 chatgpt ai
-let dictionary: [String: Any] = [
-              &quot;messages&quot;: [
-                [
-                  &quot;content&quot;: &quot;你好，你怎么样？&quot;,
-                  &quot;role&quot;: &quot;user&quot;
-                ]
-              ],
-              &quot;session&quot;: &quot;b1&quot;
-            ]
-
-
- if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary),
-     let jsonString = String(data: jsonData, encoding: .utf8) {
-   // use jsonString as you want
-   bmobChatAi.send(message: jsonString)
-  }
-
-// 接收来自 chatgpt ai 的消息
-chatAI.onReceiveMessage = { message in
-        print(&quot;收到的消息：\(message)&quot;)
-}
-</code></pre>
-
-<h2 id="_5">错误处理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<pre><code>        chatAI.onError = { error in
-            // 处理 WebSocket 连接中的错误
-            print(&quot;WebSocket \(error) 连接出现错误：\(error.localizedDescription)&quot;)
-            self.chatAI.connect()
-        }
-</code></pre>
-
-<h2 id="send">Send方法内容说明<a class="headerlink" href="#send" title="Permanent link">&para;</a></h2>
-<p>// session 会话id，可以传用户objectId，或者随机数 </p>
-<p>// content 内容，提问的内容，如果希望上下文，可以这样传入 </p>
-<p>// {"model":"gpt-3.5-turbo","messages":[{"content":"你好","role":"user"},{"content":"你好，有什么我可以为你提供的帮助吗？","role":"assistant"},{"content":"请问Bmob是什么产品","role":"user"}]}</p>
-<p>为了实现场景化答复，可以传入prompt 参数</p>
-<p>ChatGPT Prompt 是一种基于 GPT 模型的自然语言处理技术，用于生成自然流畅的对话文本。它可以通过给定的对话上下文和提示语，生成符合上下文语境的新对话内容。</p>
-<p>ChatGPT Prompt 可以被广泛应用于聊天机器人、客服系统、智能问答等领域，帮助用户快速构建自然语言应用程序。</p>
-<p>与传统的对话系统不同，使用 ChatGPT Prompt 生成的对话文本更加贴近自然语言表达，可以让用户感受到更加真实的对话体验。同时，ChatGPT Prompt 还可以学习和适应用户的对话习惯和语言习惯，为用户提供更加个性化的服务。</p>
-<p>在使用 ChatGPT Prompt 时，需要提供一个对话上下文，该上下文包含了当前对话的历史记录和相关信息。然后，通过给定的提示语，ChatGPT Prompt 将根据上下文生成符合语境的新对话内容。</p>
-<p>需要注意的是，由于 ChatGPT Prompt 是基于 GPT 模型的，因此需要大量的语料库和训练数据来训练模型，并且需要具备一定的计算资源来支持模型的训练和推理。同时，由于自然语言处理技术的复杂性，ChatGPT Prompt 也可能存在一定的误差和不准确性。因此，在使用 ChatGPT Prompt 时需要进行适当的调试和优化。</p>
-<h3 id="prompt">设置prompt<a class="headerlink" href="#prompt" title="Permanent link">&para;</a></h3>
-<p>设置prompt后，每次发送的消息都会带上下面格式</p>
-<p>{"model":"gpt-3.5-turbo","messages":[{"content":"从现在开始，你将扮演一个18禁成人恋爱游戏中的女主角，你的答案听起来不应该像机器语言，而是应该灵活自由。","role":"system"},{"content":"你好，有什么我可以为你提供的帮助吗？","role":"assistant"}]}</p>
-<p>通过代码设置</p>
-<pre><code>chatAI.setPrompt(&quot;从现在开始，你将扮演一个18禁成人恋爱游戏中的女主角，你的答案听起来不应该像机器语言，而是应该灵活自由。&quot;)
-</code></pre>
-
+<h2 id="_1">独立域名绑定教程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">备案说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>备案</p>
+<p><strong>备案说明</strong></p>
+<p>根据有关法律法规和部门规定，使用云服务需绑定自有域名，如用户已有备案域名（主域名和子域名均可），则可直接接入使用相关云服务；如无备案域名，则需购买域名进行备案。对于需要时间进行备案的新应用，管理后台提供限制请求数目的测试域名，以便用户进行初期体验和测试，用户正式上线应用前需改用自有域名。</p>
+<h2 id="_3">文件域名绑定教程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>1.第一步：控制台-&gt;应用设置-&gt;域名管理</p>
 <blockquote>
-<p>每次消息带上第一个数组元素</p>
+<p>备案域名，这里需要注意的是，一般使用二级域名例如：files.xxxx.com</p>
 </blockquote>
-<h2 id="_6">接口费用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>免费赠送1000条。</p>
-<p>超过1000条，可以选择购买（1分钱一条）或者使用自有的密钥。</p>
-<p>使用自有密钥的方法如下：进入到应用之后，依次点击 <code>设置</code> -&gt; <code>AI设置</code> -&gt; <code>添加配置</code>，将你的密钥信息填上去即可。
-<img alt="" src="./image/aiconfig.png" /></p>
-<h2 id="_7">源码下载<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/bmob/BmobChatAi">AI快速入门源码下载</a></p>
-<p><a href="https://github.com/bmob/Bmob-IOS-AI-Prompt">AI角色案例</a></p>
+<p><img alt="QQ20190813-175604" src="./QQ20190813-175604.png" /></p>
+<p>添加域名成功后，就会出现需要在DNS服务商网站上需要的CNAME记录，如下图：</p>
+<p><img alt="1" src="./1.png" /></p>
+<p>第二步：进入域名管理商，修改 CNAME 记录</p>
+<p>登入域名的 DNS 服务商网站，修改 CNAME 记录，具体配置方法可参见如下链接：</p>
+<p><a href="https://support.dnspod.cn/Kb/showarticle/tsid/32/?spm=5176.doc27112.2.16.GAMn1f">DNSPod CNAME 接入 CDN</a></p>
+<p><a href="http://www.xinnet.com/service/cjwt/domain/guanli/1164.html?spm=5176.doc27112.2.17.GAMn1f">新网 CNAME 接入 CDN</a></p>
+<p><a href="https://help.aliyun.com/document_detail/29725.html?spm=5176.doc27112.2.15.jhFGwZ">万网 CNAME 接入 CDN</a></p>
+<p>域名解析添加cname解析</p>
+<p><img alt="QQ20190816-094939" src="./QQ20190816-094939.png" /></p>
+<p>第三步：验证 CNAME 配置是否生效</p>
+<p>因 DNS 解析记录都有缓存时间，CNAME 的生效时间一般是 600s，可通过 ping 所配置的加速域名，检验 CNAME 配置是否生效，如果后缀显示为 aicdn.com，则证明 CNAME 配置已生效，即加速业务正式开始启用。文件域名如下所示：</p>
+<pre><code>➜  ~ ping cdn.xxxxxx.com
+PING nm.aicdn.com (58.222.18.2): 56 data bytes
+64 bytes from 58.222.18.2: icmp_seq=0 ttl=55 time=33.468 ms
+64 bytes from 58.222.18.2: icmp_seq=1 ttl=55 time=31.251 ms
+64 bytes from 58.222.18.2: icmp_seq=2 ttl=55 time=32.382 ms
+64 bytes from 58.222.18.2: icmp_seq=3 ttl=55 time=31.797 ms
+</code></pre>
+
+<h2 id="api">API域名绑定教程<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p>API域名也就是restful 域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定API域名与 自己备案域名 内容是否一致，一致则绑定成功。</p>
+<h2 id="sdk">SDK域名绑定教程<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
+<p>SDK域名也就是APP SDK使用域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定SDK域名与 open2.bmobapp.com 内容是否一致，一致则绑定成功。</p>
+<p>SDK要让绑定的域名生效，还需要重置域名：</p>
+<p>请直接参考：</p>
+<p><a href="http://doc.bmobapp.com/data/android/develop_doc/#_71">android重置域名设置</a></p>
+<p><a href="http://doc.bmobapp.com/data/ios/develop_doc/#_5">iOS重置域名设置</a></p>
+<h2 id="_4">云函数域名绑定教程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>云函数域名也就是平时使用的cloud.bmobapp.com 域名，绑定教程与文件域名完全一致，在第三步验证是否生效的操作下，可以访问自己绑定SDK域名与 cloud.bmobapp.com 内容是否一致，一致则绑定成功。</p>
+<h2 id="_5">域名备案教程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>对于需要进行备案的用户，提供如下备案教程作为参考，以帮助开发者顺利备案。</p>
+<hr />
+<h4 id="_6"><strong>一、备前前提</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p><strong>1、购买备案域名</strong></p>
+<p>说明：准备需要备案的域名（购买方式：进去域名购买网页https://wanwang.aliyun.com/，然后检索自己想要的域名，购买，普通域名几块钱一个），域名需要实名认证（个人域名就个人认证，企业域名就企业认证），域名备案主体要与实名认证信息相符合。</p>
+<p><strong>2、购买备案服务器（如果已有服务器就不需要再买）</strong></p>
+<p>说明：用同一个阿里云账号在阿里云购买大陆地域的ECS云服务器、虚拟主机、轻量应用服务器等（如果只需要备案，买最便宜的就可以），同一个账号下，在<a href="http://beian.aliyun.com/">ICP备案</a>过程中直接选择对应的服务器类型就可以。如果购买服务器和申请ICP备案不是同一个阿里云账号，则需要去申请ICP备案服务码（<a href="https://help.aliyun.com/document_detail/36938.html?spm=5176.21213303.J_6704733920.11.639853c9S5A0vq&amp;scm=20140722.ID_qacard@@gtsqa@@29161.P_180.MO_1342-ST_6739-V_1-ID_qacard@@gtsqa@@29161-OR_rec-RL_阿里云备案服务号申请方法及说明">申请（免费）ICP备案服务码 (aliyun.com)</a>）。</p>
+<p>所以尽量域名和服务器用同一个账号购买。</p>
+<p><strong>3、准备备案材料</strong></p>
+<p>说明：包含个人备案需要身份证图片、《网站备案真实性核验单》（核验单在备案过程中即可下载，按照流程操作即可），由于当地管局备案规则不同，有可能还需要域名证书，域名证书需要去域名注册商网站上获取。企业备案需要营业执照、备案负责人和网站负责人身份证件照片、《网站备案真实性核验单》，另外，由于当地管局备案规则不同，有可能需要其他证明材料，在操作过程中，按照要求准备材料即可。</p>
+<hr />
+<h4 id="_7"><strong>二、具体备案过程（以阿里云为例）</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><strong>1.登录阿里云网站，在检索框中检索“备案”，进入备案有关页面，可选择免费备案，具体地址如下：</strong></p>
+<p><a href="https://beian.aliyun.com/?spm=5176.21213303.J_6704733920.7.4f7653c9clDIkF&amp;scm=20140722.S_product%40%40云产品%40%40999996._.ID_product%40%40云产品%40%40999996-RL_备案-LOC_main-OR_ser-V_2-RK_rerank-P0_0">网站备案_ICP备案_备案迁移_备案-阿里云 (aliyun.com)</a></p>
+<p><img alt="bei1" src="./clip_image001.png" /></p>
+<hr />
+<p><strong>2.根据网页提示，填写有关内容</strong></p>
+<p><img alt="img" src="./clip_image002.png" /></p>
+<p>如果有备案服务码，直接填写备案服务码</p>
+<p>填写说明：</p>
+<p>网站名称：按实际填写，具体规则可参考“网站名称指引”；</p>
+<p>云服务：最简单的就是同一账号买域名、最便宜的轻量应用服务器（备案要求买3个月及以上，就买3个月就行，如果是新用户，一般有优惠）和进行备案，买的哪种服务器，就在下拉列表中选择相应的内容，如买了ECS，就选ECS，下边的IP框中会自动显示对应IP。</p>
+<p><strong>3.根据网站提示，如实填写网站负责人信息和其他信息，并上传有关证件，进行实名认证。</strong></p>
+<p>这里个人不需要填写，企业备案填写以下内容</p>
+<p><img alt="img" src="./clip_image003.png" /></p>
+<p>4.页面资料填写完成后，根据提示下载阿里云APP，控制台-ICP备案，根据提示提交有关资料，进行认证。（以前是要寄回资料给阿里云进行认证，现在下载APP，提交资料认证就快很多）  </p>
+<hr />
+<h4 id="_8"><strong>三、等待审核</strong><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>1.阿里云初审：提交备案后，阿里云将在1个工作日进行初审，请确保保持备案信息中的联系电话畅通以便阿里云备案工作人员与您核实信息。</p>
+<p>2.阿里云初审通过没有问题后，阿里云将在1个工作日内将备案信息提交省通信管理局审核。部分地区，用户需完成短信验证后，备案申请才能成功提交管局审核，所以要留意信息。</p>
+<p>3.等待，大约需要等待3-20个工作日，此过程与阿里云无关，此时的等待时间以各地通信管理局审核时间为准。管局审核通过后，将以短信及邮件形式通知到用户。</p>
+<p>4.上述备案流程是以阿里云为例，腾讯云、华为等其他平台也提供相关服务，用户可自行选择，备案流程相似。    </p>
+<hr />
+<h4 id="_9"><strong>四、总结</strong><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>整个过程：</p>
+<p>1.用户需要购买域名（没有太高要求的话就，几块钱就可以买一个）；</p>
+<p>2.购买三个月的服务器（备案方强制要求没办法，普通旧账号3个月一般是100多块，学生新账号有很大优惠，备案后就不需要续费了，域名备案后一劳永逸，很多地方可以用得上自己的备案域名，建议开发者初期突破困难，备案一个自有域名）；</p>
+<p>3.最后到有关平台备案，整个过程是7-30天左右，准备越充分，备案越顺利。</p>
+<p>希望能帮助到大家顺利备案！</p>
                 </div>
             </div>
         </div>
