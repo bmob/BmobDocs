@@ -17,135 +17,97 @@
 
 ##  导入依赖
 
-在`app`的`build.gradle`文件中添加`依赖文件`：
+在`app`的添加`依赖文件`：
 ```gradle
-dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.4'
-	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
-	implementation 'com.squareup.okio:okio:2.2.2'
-	implementation 'com.google.code.gson:gson:2.8.5'
+dependencies: [
+    .package(url: "https://github.com/bmob/BmobChatAi", from: "1.0.0")
+]
+```
+
+## 使用
+
+要使用这个包，首先在 Swift 文件中导入它：
+
+```
+import BmobChatAi
+```
+
+然后，创建一个 `BmobChatAi` 实例，并开始使用其 chatgpt ai 功能：
+
+```
+// 实例化AI类
+let chatAI = BmobChatAi(SecretKey: "xxxxx")
+
+// 连接AI
+chatAI.connect()
+//连接websock 域名参数可不传
+chatAI.connect("https://api.xxxxx.com")
+
+// 发送一条消息给 chatgpt ai
+let dictionary: [String: Any] = [
+              "messages": [
+                [
+                  "content": "你好，你怎么样？",
+                  "role": "user"
+                ]
+              ],
+              "session": "b1"
+            ]
+
+
+ if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary),
+	 let jsonString = String(data: jsonData, encoding: .utf8) {
+   // use jsonString as you want
+   bmobChatAi.send(message: jsonString)
+  }
+
+// 接收来自 chatgpt ai 的消息
+chatAI.onReceiveMessage = { message in
+		print("收到的消息：\(message)")
 }
 ```
 
-## 创建Application子类
-新建一个继承自`Application`的子类`BmobApp`。代码如下：
-
-```java
-public class BmobApp extends Application {
-    public static BmobAI bmobAI;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        //初始化
-        Bmob.initialize(this,"你的application id");
-		//初始化AI（初始化时，会自动创建一个websocket，保持心跳连接，确保实时回复）
-        bmobAI = new BmobAI();
-    }
-}
-```
-
-## 配置AndroidManifest.xml
-
-在你的应用程序的`AndroidManifest.xml`文件中添加如下的`应用类名`、`权限`和`ContentProvider`信息：
-
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    	package="cn.bmob.example"
-    	android:versionCode="1"
-    	android:versionName="1.0">
-
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
-
-	<!--允许联网 -->
-	<uses-permission android:name="android.permission.INTERNET" />
-	<!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<!--获取wifi网络状态的信息 -->
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <application
-		android:name=".BmobApp"
-        ....其他信息>
-        <activity
-            ...其他信息
-		</activity>
-
-		<!--添加ContentProvider信息 -->
-		<provider
-			android:name="cn.bmob.v3.util.BmobContentProvider"
-			android:authorities="你的应用包名.BmobContentProvider">
-		</provider>
-    </application>
-</manifest>
-```
-
-## 调用AI对话
-
-```java
-
-//连接AI服务器（这个代码为了防止AI连接中断，因为可能会存在某些情况下，比如网络切换、中断等，导致心跳连接失败）
-BmobApp.bmobAI.Connect();
-//发送对话信息
-BmobApp.bmobAI.Chat("帮我用写一段android访问Bmob后端云的代码", "session_id", new ChatMessageListener() {
-    @Override
-    public void onMessage(String message) {
-		//消息流的形式返回AI的结果
-        Log.d("Bmob", message);
-    }
-
-    @Override
-    public void onFinish(String message) {
-		//一次性返回全部结果，这个方法需要等待一段时间，友好性较差
-        Log.d("Bmob", message);
-    }
-
-    @Override
-    public void onError(String error) {
-		//OpenAI的密钥错误或者超过OpenAI并发时，会返回这个错误
-        Log.d("Bmob", "连接发生异常了"+error);
-    }
-
-    @Override
-    public void onClose() {
-        Log.d("Bmob", "连接被关闭了");
-    }
-});
-```
-
-其中，`session_id`是会话Id信息，你可以传入用户的`objectId`，也可以是其他固定的信息，如用户的`手机号码`、`注册账号`等等。后端根据会话Id信息，自动拼接相应的上下文信息，发送给GPT进行处理。
-`onMessage`方法是以流的形式，不断回传`message`信息给你，呈现在UI界面上。通过这种方法，你可以实现更好的用户体验。
-`onFinish`方法是等待GPT完全请求完毕，才回传最终内容`message`给你。
-`onError`和`onClose`方法是请求连接发生错误时调用，如网络关闭等。
-
-
-- BmobAI的其他方法
-  
-`BmobAI`类还有`isConnect`方法和`Connect`方法。
-
-`isConnect`方法返回布尔值，表示是否和服务器保持着连接状态。
-
-`Connect`方法是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。
-
-## 自定义AI机器人
-
-如果需要设置AI的角色，你可以在调用 `BmobApp.bmobAI.Chat` 方法前，调用  `BmobApp.bmobAI.setPrompt` 方法，如：
-
-```java
-
-BmobApp.bmobAI.setPrompt("接下来的每个回复都要叫我宝贝");
+## 错误处理
 
 ```
+        chatAI.onError = { error in
+            // 处理 WebSocket 连接中的错误
+            print("WebSocket \(error) 连接出现错误：\(error.localizedDescription)")
+            self.chatAI.connect()
+        }
+```
 
-## 清除Session
+## Send方法内容说明
 
-SDK会在 `内存` 中保存会话(session)信息，每次执行 `BmobAI.Chat` 方法时，会自动找到最近的 `7对` 上下文（17条对话），组装好内容，和最终的AI服务商交互。
+// session 会话id，可以传用户objectId，或者随机数 // content 内容，提问的内容，如果希望上下文，可以这样传入 // {"model":"gpt-3.5-turbo","messages":[{"content":"你好","role":"user"},{"content":"你好，有什么我可以为你提供的帮助吗？","role":"assistant"},{"content":"请问Bmob是什么产品","role":"user"}]}
 
-如果你不想携带以往的会话(session)信息，可以在执行 `BmobAI.Chat` 方法之前，先执行  `BmobAI.Clear("你的session名称")` 方法，将session信息从内存中清除。
+为了实现场景化答复，可以传入prompt 参数
+
+ChatGPT Prompt 是一种基于 GPT 模型的自然语言处理技术，用于生成自然流畅的对话文本。它可以通过给定的对话上下文和提示语，生成符合上下文语境的新对话内容。
+
+ChatGPT Prompt 可以被广泛应用于聊天机器人、客服系统、智能问答等领域，帮助用户快速构建自然语言应用程序。
+
+与传统的对话系统不同，使用 ChatGPT Prompt 生成的对话文本更加贴近自然语言表达，可以让用户感受到更加真实的对话体验。同时，ChatGPT Prompt 还可以学习和适应用户的对话习惯和语言习惯，为用户提供更加个性化的服务。
+
+在使用 ChatGPT Prompt 时，需要提供一个对话上下文，该上下文包含了当前对话的历史记录和相关信息。然后，通过给定的提示语，ChatGPT Prompt 将根据上下文生成符合语境的新对话内容。
+
+需要注意的是，由于 ChatGPT Prompt 是基于 GPT 模型的，因此需要大量的语料库和训练数据来训练模型，并且需要具备一定的计算资源来支持模型的训练和推理。同时，由于自然语言处理技术的复杂性，ChatGPT Prompt 也可能存在一定的误差和不准确性。因此，在使用 ChatGPT Prompt 时需要进行适当的调试和优化。
+
+### 设置prompt
+
+设置prompt后，每次发送的消息都会带上下面格式
+
+{"model":"gpt-3.5-turbo","messages":[{"content":"从现在开始，你将扮演一个18禁成人恋爱游戏中的女主角，你的答案听起来不应该像机器语言，而是应该灵活自由。","role":"system"},{"content":"你好，有什么我可以为你提供的帮助吗？","role":"assistant"}]}
+
+通过代码设置
+
+```
+chatAI.setPrompt("从现在开始，你将扮演一个18禁成人恋爱游戏中的女主角，你的答案听起来不应该像机器语言，而是应该灵活自由。")
+```
+
+
+
+> 每次消息带上第一个数组元素
 
 ## 接口费用
 
