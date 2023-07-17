@@ -737,9 +737,9 @@
 <h2 id="12">1.2、自定义数据类型<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
 <p>所有自定义的数据类型都继承于基本对象类型BmobObject，一个数据对象对应于Bmob控制台一张数据表中的一条数据。</p>
 <pre><code>/**
- * Created on 2018/11/22 10:41
+ * Created on 2023/07/08 10:41
  *
- * @author zhangchaozhou
+ * @author Bmob后端云
  */
 public class Category extends BmobObject {
 
@@ -1257,6 +1257,29 @@ private void query() {
 }
 </code></pre>
 
+<h3 id="166">1.6.6 同步查询数据<a class="headerlink" href="#166" title="Permanent link">&para;</a></h3>
+<p>如果希望同步获取数据，即发起请求数据之后，线程一直在等待云端返回数据，那么你的代码应该写成这样：  </p>
+<pre><code class="java">
+new Thread(new Runnable() {
+    public void run() {
+        //以下是同步操作的过程
+        Class&lt;Category&gt; clzz = Category.class;
+        BmobQuery&lt;Category&gt; query = new BmobQuery&lt;&gt;();
+        try {
+            //同步获取Category表的数据
+            List&lt;Category&gt; resultList =  query.findObjectsSync(clzz);
+            for (int i=0;i&lt;resultList.size();i++){
+                // 这里可以遍历返回的数据
+            }
+        } catch (BmobException e) {
+            System.out.print(e.getMessage());
+        }
+    }
+}).start();
+
+</code></pre>
+
+<p>这里需要注意的是，因为网络请求会阻塞主线程，所以同步获取数据的方法也要放在子线程中运行，否则会发生异常。</p>
 <h1 id="2">2、用户系统<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <p>用户基类BmobUser，拥有注册、登录、修改密码、重置密码、短信操作、邮箱操作、第三方操作等功能。</p>
 <h2 id="21">2.1、用户基类<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
