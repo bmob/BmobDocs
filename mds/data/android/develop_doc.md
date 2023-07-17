@@ -18,9 +18,9 @@ BmobObject
 
 ```
 /**
- * Created on 2018/11/22 10:41
+ * Created on 2023/07/08 10:41
  *
- * @author zhangchaozhou
+ * @author Bmob后端云
  */
 public class Category extends BmobObject {
 
@@ -471,6 +471,33 @@ private void query() {
     });
 }
 ```
+
+### 1.6.6 同步查询数据
+
+如果希望同步获取数据，即发起请求数据之后，线程一直在等待云端返回数据，那么你的代码应该写成这样：  
+
+```java
+
+new Thread(new Runnable() {
+    public void run() {
+        //以下是同步操作的过程
+        Class<Category> clzz = Category.class;
+        BmobQuery<Category> query = new BmobQuery<>();
+        try {
+            //同步获取Category表的数据
+            List<Category> resultList =  query.findObjectsSync(clzz);
+            for (int i=0;i<resultList.size();i++){
+                // 这里可以遍历返回的数据
+            }
+        } catch (BmobException e) {
+            System.out.print(e.getMessage());
+        }
+    }
+}).start();
+
+```
+
+这里需要注意的是，因为网络请求会阻塞主线程，所以同步获取数据的方法也要放在子线程中运行，否则会发生异常。
 
 # 2、用户系统
 
