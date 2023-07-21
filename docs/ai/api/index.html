@@ -453,17 +453,21 @@
 <h2 id="_1">技术方案<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Bmob AI为了兼容国内所有的平台，抛弃了Chatgpt采用的EventSource协议方案，仍然采用传统的WebSocket协议进行网络数据的实时传输。</p>
 <p><code>WebSocket</code>和<code>EventSource</code>协议的优劣势及Bmob采用WebSocket协议的具体原因大家可以查看技术文档：<a href="https://juejin.cn/post/7256975111563214905">为什么建议国内的AI对话服务不采用EventSource协议？</a>。</p>
-<p>接下来的文档按WebSocket通讯的几个环节进行：
-- 连接WebSocket服务器
-- 发送对话信息
-- 接收AI回复信息
-- 保持心跳连接</p>
+<p>接下来的文档按WebSocket通讯的几个环节进行：  </p>
+<ul>
+<li>连接WebSocket服务器</li>
+<li>发送对话信息</li>
+<li>接收AI回复信息</li>
+<li>保持心跳连接</li>
+</ul>
 <h2 id="websocket">连接WebSocket服务器<a class="headerlink" href="#websocket" title="Permanent link">&para;</a></h2>
 <p>WebSocket服务器的连接地址是：<code>wss://api.codenow.cn/1/ai/&lt;secret key&gt;</code></p>
-<p>这里需要注意的地方是：
-- 请求协议是<code>wss</code>安全协议
-- 如果你有自己的备案域名，建议将 <code>api.codenow.cn</code> 域名变更为你自己的api备案域名。 
-- <code>&lt;secret key&gt;</code> 要替换为你在控制台中创建的应用的<code>Secret Key</code>，如下图：</p>
+<p>这里需要注意的地方是：  </p>
+<ul>
+<li>请求协议是<code>wss</code>安全协议</li>
+<li>如果你有自己的备案域名，建议将 <code>api.codenow.cn</code> 域名变更为你自己的api备案域名。 </li>
+<li><code>&lt;secret key&gt;</code> 要替换为你在控制台中创建的应用的<code>Secret Key</code>，如下图：</li>
+</ul>
 <p><img alt="" src="./image/secretkey.png" /></p>
 <h2 id="_2">发送对话消息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>连接成功之后，即可发送对话消息。</p>
@@ -476,7 +480,8 @@
             {&quot;content&quot;:&quot;你好宝贝！今天过得怎么样？有什么开心的事情要和我分享吗？&quot;,&quot;role&quot;:&quot;assistant&quot;},
             {&quot;content&quot;:&quot;没有&quot;,&quot;role&quot;:&quot;user&quot;}
         ],
-    &quot;session&quot;:&quot;test_user&quot;}
+    &quot;session&quot;:&quot;test_user&quot;
+}
 </code></pre>
 
 <p>其中，<code>messages</code>是聊天的上下文信息，<code>content</code>是内容，<code>role</code>是角色。角色包含三种：</p>
@@ -492,7 +497,8 @@
         [
             {&quot;content&quot;:&quot;你好&quot;,&quot;role&quot;:&quot;user&quot;}
         ],
-    &quot;session&quot;:&quot;test_user&quot;}
+    &quot;session&quot;:&quot;test_user&quot;
+}
 </code></pre>
 
 <h2 id="ai">接收AI回复信息<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
