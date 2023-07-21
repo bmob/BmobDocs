@@ -5,7 +5,8 @@ Bmob AI为了兼容国内所有的平台，抛弃了Chatgpt采用的EventSource�
 
 `WebSocket`和`EventSource`协议的优劣势及Bmob采用WebSocket协议的具体原因大家可以查看技术文档：[为什么建议国内的AI对话服务不采用EventSource协议？](https://juejin.cn/post/7256975111563214905)。
 
-接下来的文档按WebSocket通讯的几个环节进行：
+接下来的文档按WebSocket通讯的几个环节进行：  
+
 - 连接WebSocket服务器
 - 发送对话信息
 - 接收AI回复信息
@@ -15,7 +16,8 @@ Bmob AI为了兼容国内所有的平台，抛弃了Chatgpt采用的EventSource�
 
 WebSocket服务器的连接地址是：` wss://api.codenow.cn/1/ai/<secret key> `
 
-这里需要注意的地方是：
+这里需要注意的地方是：  
+
 - 请求协议是` wss `安全协议
 - 如果你有自己的备案域名，建议将 `api.codenow.cn` 域名变更为你自己的api备案域名。 
 - `<secret key>` 要替换为你在控制台中创建的应用的`Secret Key`，如下图：
@@ -37,7 +39,8 @@ WebSocket服务器的连接地址是：` wss://api.codenow.cn/1/ai/<secret key> 
             {"content":"你好宝贝！今天过得怎么样？有什么开心的事情要和我分享吗？","role":"assistant"},
             {"content":"没有","role":"user"}
         ],
-    "session":"test_user"}
+    "session":"test_user"
+}
 ```
 
 其中，`messages`是聊天的上下文信息，`content`是内容，`role`是角色。角色包含三种：
@@ -56,7 +59,8 @@ WebSocket服务器的连接地址是：` wss://api.codenow.cn/1/ai/<secret key> 
         [
             {"content":"你好","role":"user"}
         ],
-    "session":"test_user"}
+    "session":"test_user"
+}
 ```
 
 ## 接收AI回复信息
