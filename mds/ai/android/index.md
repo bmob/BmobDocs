@@ -158,7 +158,7 @@ SDK会在 `内存` 中保存会话(session)信息，每次执行 `BmobAI.Chat` �
 
 ## 视频教程
 
-<iframe src="//player.bilibili.com/player.html?aid=998743296&bvid=BV11x4y1d7Nk&cid=1202328961&page=1" width="800" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=998743296&bvid=BV11x4y1d7Nk&cid=1202328961&page=1" width="1024" height="768" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 源码下载
 [AI快速入门源码下载](https://github.com/bmob/Bmob-Android-AI)
