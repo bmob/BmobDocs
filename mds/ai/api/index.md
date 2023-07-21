@@ -39,7 +39,8 @@ WebSocket服务器的连接地址是：` wss://api.codenow.cn/1/ai/<secret key> 
             {"content":"你好宝贝！今天过得怎么样？有什么开心的事情要和我分享吗？","role":"assistant"},
             {"content":"没有","role":"user"}
         ],
-    "session":"test_user"}
+    "session":"test_user"
+}
 ```
 
 其中，`messages`是聊天的上下文信息，`content`是内容，`role`是角色。角色包含三种：
@@ -58,7 +59,8 @@ WebSocket服务器的连接地址是：` wss://api.codenow.cn/1/ai/<secret key> 
         [
             {"content":"你好","role":"user"}
         ],
-    "session":"test_user"}
+    "session":"test_user"
+}
 ```
 
 ## 接收AI回复信息
