@@ -227,6 +227,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/ai/api/</loc>
+     <lastmod>2023-07-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
