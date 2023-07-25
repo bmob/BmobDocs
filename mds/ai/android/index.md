@@ -20,7 +20,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.4'
+	implementation 'io.github.bmob:android-sdk:3.9.5'
 	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -130,6 +130,16 @@ BmobApp.bmobAI.Chat("帮我用写一段android访问Bmob后端云的代码", "se
 `isConnect`方法返回布尔值，表示是否和服务器保持着连接状态。
 
 `Connect`方法是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。
+
+## 停止输出内容
+
+如果你想中断AI的内容输出，还可以调用如下的代码：
+
+```java
+
+BmobApp.bmobAI.Stop();
+
+```
 
 ## 自定义AI机器人
 
