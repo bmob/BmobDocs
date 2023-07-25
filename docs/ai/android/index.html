@@ -422,6 +422,10 @@
 											
 										</li>
 									
+										<li class=""><a href="#_4">停止输出内容</a>
+											
+										</li>
+									
 										<li class=""><a href="#ai_1">自定义AI机器人</a>
 											
 										</li>
@@ -430,15 +434,15 @@
 											
 										</li>
 									
-										<li class=""><a href="#_4">接口费用</a>
+										<li class=""><a href="#_5">接口费用</a>
 											
 										</li>
 									
-										<li class=""><a href="#_5">视频教程</a>
+										<li class=""><a href="#_6">视频教程</a>
 											
 										</li>
 									
-										<li class=""><a href="#_6">源码下载</a>
+										<li class=""><a href="#_7">源码下载</a>
 											
 										</li>
 									
@@ -477,7 +481,7 @@
 <h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:3.9.4'
+    implementation 'io.github.bmob:android-sdk:3.9.5'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -576,6 +580,13 @@ BmobApp.bmobAI.Chat(&quot;帮我用写一段android访问Bmob后端云的代码&
 <p><code>BmobAI</code>类还有<code>isConnect</code>方法和<code>Connect</code>方法。</p>
 <p><code>isConnect</code>方法返回布尔值，表示是否和服务器保持着连接状态。</p>
 <p><code>Connect</code>方法是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。</p>
+<h2 id="_4">停止输出内容<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>如果你想中断AI的内容输出，还可以调用如下的代码：</p>
+<pre><code class="java">
+BmobApp.bmobAI.Stop();
+
+</code></pre>
+
 <h2 id="ai_1">自定义AI机器人<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h2>
 <p>如果需要设置AI的角色，你可以在调用 <code>BmobApp.bmobAI.Chat</code> 方法前，调用  <code>BmobApp.bmobAI.setPrompt</code> 方法，如：</p>
 <pre><code class="java">
@@ -586,15 +597,15 @@ BmobApp.bmobAI.setPrompt(&quot;接下来的每个回复都要叫我宝贝&quot;)
 <h2 id="session">清除Session<a class="headerlink" href="#session" title="Permanent link">&para;</a></h2>
 <p>SDK会在 <code>内存</code> 中保存会话(session)信息，每次执行 <code>BmobAI.Chat</code> 方法时，会自动找到最近的 <code>7对</code> 上下文（17条对话），组装好内容，和最终的AI服务商交互。</p>
 <p>如果你不想携带以往的会话(session)信息，可以在执行 <code>BmobAI.Chat</code> 方法之前，先执行  <code>BmobAI.Clear("你的session名称")</code> 方法，将session信息从内存中清除。</p>
-<h2 id="_4">接口费用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">接口费用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>免费赠送1000条。</p>
 <p>超过1000条，可以选择购买（1分钱一条）或者使用自有的密钥。</p>
 <p>使用自有密钥的方法如下：进入到应用之后，依次点击 <code>设置</code> -&gt; <code>AI设置</code> -&gt; <code>添加配置</code>，将你的密钥信息填上去即可。
 <img alt="" src="./image/aiconfig.png" /></p>
-<h2 id="_5">视频教程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">视频教程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <iframe src="//player.bilibili.com/player.html?aid=998743296&bvid=BV11x4y1d7Nk&cid=1202328961&page=1" width="1024" height="768" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-<h2 id="_6">源码下载<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">源码下载<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/bmob/Bmob-Android-AI">AI快速入门源码下载</a></p>
 <p><a href="https://github.com/bmob/Bmob-Android-AI-Prompt">AI角色案例</a></p>
                 </div>
