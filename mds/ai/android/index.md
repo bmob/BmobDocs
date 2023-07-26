@@ -167,10 +167,10 @@ SDK会在 `内存` 中保存会话(session)信息，每次执行 `BmobAI.Chat` �
 
 ```java
 //模拟用户的问  
-bmobAI.setUserChatMessage("模拟用户的问题","你的session名称");  
+BmobApp.bmobAI.setUserChatMessage("模拟用户的问题","你的session名称");  
 
 //模拟Chatgpt的答  
-bmobAI.setAssistantChatMessage("模拟Chatgpt的回答","你的session名称");  
+BmobApp.bmobAI.setAssistantChatMessage("模拟Chatgpt的回答","你的session名称");  
 
 ```
 
