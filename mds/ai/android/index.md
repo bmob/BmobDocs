@@ -20,7 +20,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.5'
+	implementation 'io.github.bmob:android-sdk:3.9.6'
 	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -153,11 +153,26 @@ BmobApp.bmobAI.setPrompt("接下来的每个回复都要叫我宝贝");
  
 启用这个方法之后，我们会在每次给AI发起内容生成的时候，都在最开始的地方附带上 `"接下来的每个回复都要叫我宝贝"` 这句话，确保内容按你的要求生成。
 
-## 清除Session
+## 清除对话
 
 SDK会在 `内存` 中保存会话(session)信息，每次执行 `BmobAI.Chat` 方法时，会自动找到最近的 `7对` 上下文（17条对话），组装好内容，和最终的AI服务商交互。
 
 如果你不想携带以往的会话(session)信息，可以在执行 `BmobAI.Chat` 方法之前，先执行  `BmobAI.Clear("你的session名称")` 方法，将session信息从内存中清除。
+
+## 模拟对话内容
+
+你还可以自由地在调用BmobAI.Chat方法前，模拟添加用户的问和ChatGPT的答。
+
+方法如下：
+
+```java
+//模拟用户的问  
+bmobAI.setUserChatMessage("模拟用户的问题","你的session名称");  
+
+//模拟Chatgpt的答  
+bmobAI.setAssistantChatMessage("模拟Chatgpt的回答","你的session名称");  
+
+```
 
 ## 接口费用
 
