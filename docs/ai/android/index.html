@@ -430,19 +430,23 @@
 											
 										</li>
 									
-										<li class=""><a href="#session">清除Session</a>
+										<li class=""><a href="#_5">清除对话</a>
 											
 										</li>
 									
-										<li class=""><a href="#_5">接口费用</a>
+										<li class=""><a href="#_6">模拟对话内容</a>
 											
 										</li>
 									
-										<li class=""><a href="#_6">视频教程</a>
+										<li class=""><a href="#_7">接口费用</a>
 											
 										</li>
 									
-										<li class=""><a href="#_7">源码下载</a>
+										<li class=""><a href="#_8">视频教程</a>
+											
+										</li>
+									
+										<li class=""><a href="#_9">源码下载</a>
 											
 										</li>
 									
@@ -481,7 +485,7 @@
 <h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:3.9.5'
+    implementation 'io.github.bmob:android-sdk:3.9.6'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -595,18 +599,29 @@ BmobApp.bmobAI.setPrompt(&quot;接下来的每个回复都要叫我宝贝&quot;)
 </code></pre>
 
 <p>启用这个方法之后，我们会在每次给AI发起内容生成的时候，都在最开始的地方附带上 <code>"接下来的每个回复都要叫我宝贝"</code> 这句话，确保内容按你的要求生成。</p>
-<h2 id="session">清除Session<a class="headerlink" href="#session" title="Permanent link">&para;</a></h2>
+<h2 id="_5">清除对话<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>SDK会在 <code>内存</code> 中保存会话(session)信息，每次执行 <code>BmobAI.Chat</code> 方法时，会自动找到最近的 <code>7对</code> 上下文（17条对话），组装好内容，和最终的AI服务商交互。</p>
 <p>如果你不想携带以往的会话(session)信息，可以在执行 <code>BmobAI.Chat</code> 方法之前，先执行  <code>BmobAI.Clear("你的session名称")</code> 方法，将session信息从内存中清除。</p>
-<h2 id="_5">接口费用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">模拟对话内容<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>你还可以自由地在调用BmobAI.Chat方法前，模拟添加用户的问和ChatGPT的答。</p>
+<p>方法如下：</p>
+<pre><code class="java">//模拟用户的问  
+bmobAI.setUserChatMessage(&quot;模拟用户的问题&quot;,&quot;你的session名称&quot;);  
+
+//模拟Chatgpt的答  
+bmobAI.setAssistantChatMessage(&quot;模拟Chatgpt的回答&quot;,&quot;你的session名称&quot;);  
+
+</code></pre>
+
+<h2 id="_7">接口费用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>免费赠送1000条。</p>
 <p>超过1000条，可以选择购买（1分钱一条）或者使用自有的密钥。</p>
 <p>使用自有密钥的方法如下：进入到应用之后，依次点击 <code>设置</code> -&gt; <code>AI设置</code> -&gt; <code>添加配置</code>，将你的密钥信息填上去即可。
 <img alt="" src="./image/aiconfig.png" /></p>
-<h2 id="_6">视频教程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_8">视频教程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <iframe src="//player.bilibili.com/player.html?aid=998743296&bvid=BV11x4y1d7Nk&cid=1202328961&page=1" width="1024" height="768" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-<h2 id="_7">源码下载<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_9">源码下载<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/bmob/Bmob-Android-AI">AI快速入门源码下载</a></p>
 <p><a href="https://github.com/bmob/Bmob-Android-AI-Prompt">AI角色案例</a></p>
                 </div>
