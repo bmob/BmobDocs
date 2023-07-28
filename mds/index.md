@@ -56,7 +56,7 @@
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./data/php/index.html" class="intro" >PHP</a></li>
 								<li><s class="languageType" style="background-position:left -214px;"></s><a href="./data/cocos2d_x/index.html" class="intro" >Cocos2d-x</a></li>
 								<li><s class="languageType" style="background-position:left -132px;"></s><a href="./data/go/index.html" class="intro" >Go</a></li>
-								<li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app/index.html" class="intro" >小程序（旧）</a></li>
+								<!--li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app/index.html" class="intro" >小程序（旧）</a></li-->
 								<li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >JavaScript</a></li>
 								<li><s class="languageType" style="background-position:left -375px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >快应用</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >Nodejs</a></li>
