@@ -897,12 +897,14 @@ query.equalTo("title","==", { "$regex": "" + k + ".*" });
 
 // 查询大于某个日期的数据（只针对createdAt、updatedAt字段），示例代码如下
 query.equalTo("createdAt", ">" "2018-08-21 18:02:52");
+```
 
 
 // 非createdAt和updatedAt字段类型，查询大于某个日期的数据，示例代码如下
 ```
 query.equalTo("your_datetime_column", {"$gte":{"__type":"Date","iso":"2011-08-21 18:02:52"}});
 
+```
 
 /**
 * equalTo 方法支持 "==","!=",">",">=","<","<="
