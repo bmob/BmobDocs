@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+            <!--
+            <title>Android - Bmob文档中心</title>
+            -->
+            <title>短信服务 &middot; Android – Bmob后端云 </title>  
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../cloud_function/android/">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../cloud_function/web/">Web</a>
+                                </li>
+                            
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="./">短信服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="active">
+                                    <a href="./">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/api/">API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+					<div class="code-title">Android</div>
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+		
+			
+				
+					
+						
+							
+								
+									
+										<li class="active "><a href="#android">短信服务 Android 开发文档</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#sms">SMS初始化</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_1">请求发送短信验证码</a></li>
+											</ul>
+											
+										</li>
+									
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h1 id="android">短信服务 Android 开发文档<a class="headerlink" href="#android" title="Permanent link">&para;</a></h1>
+<hr />
+<p>除了与用户相关的包括一键注册，手机号码登录等操作外，Bmob 还推出了单独的短信验证码服务。 在实际的应用中，开发者希望能够通过短信验证的方式来与用户进行某些重要操作的确认，你就可以在用户验证过手机号码的前提下，使用 Bmob 提供的短信验证码服务。</p>
+<p>每个 Bmob 帐户有 30 条免费 (分别为SDK短信 15 条、RestApi短信 15 条) 的短信用于测试。超出免费条数后，需要购买短信条数才能继续使用。</p>
+<p>默认使用 【比目科技】 作为签名，可以在控制台创建自定义短信模板进行修改。</p>
+<p>下面是使用方法：</p>
+<h2 id="sms">SMS初始化<a class="headerlink" href="#sms" title="Permanent link">&para;</a></h2>
+<p>SMS功能位于Bmob Data SDK，请参考数据服务文档导入即可。</p>
+<h2 id="_1">请求发送短信验证码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>通过 <code>requestSMSCode</code> 方式给绑定手机号的该用户发送指定短信模板的短信验证码：</p>
+<pre><code class="java">/**
+ * TODO template 如果是自定义短信模板，此处替换为你在控制台设置的自定义短信模板名称；如果没有对应的自定义短信模板，则使用默认短信模板。
+ */
+BmobSMS.requestSMSCode(phone, &quot;DataSDK&quot;, new QueryListener&lt;Integer&gt;() {
+    @Override
+    public void done(Integer smsId, BmobException e) {
+        if (e == null) {
+            mTvInfo.append(&quot;发送验证码成功，短信ID：&quot; + smsId + &quot;\n&quot;);
+        } else {
+            mTvInfo.append(&quot;发送验证码失败：&quot; + e.getErrorCode() + &quot;-&quot; + e.getMessage() + &quot;\n&quot;);
+        }
+    }
+});
+
+</code></pre>
+
+<p>短信默认模板：</p>
+<pre><code>您的验证码是`%smscode%`，有效期为`%ttl%`分钟。您正在使用`%appname%`的验证码。【比目科技】
+</code></pre>
+<p><strong>注意：</strong></p>
+<ul>
+<li><code>模板名称</code>：模板名称需要开发者在应用的管理后台进行短信模板的添加工作，具体：<code>短信服务</code>-&gt;<code>短信模板</code>,之后点击创建即可,具体请看下图：</li>
+</ul>
+<p><img alt="" src="./image/sms.png" /></p>
+<ul>
+<li>
+<p>只有审核通过之后的自定义短信模板才可以被使用，如果自定义的短信模板其状态显示<code>审核中</code>或者<code>审核失败</code>,再调用该方法则会以<code>默认模板</code>来发送验证码。</p>
+</li>
+<li>
+<p>模板中不能有【】和 [] ，否则审核不通过；</p>
+</li>
+<li>
+<p>如果你提交的短信模板无法发送，则有可能包含一些敏感监控词，具体可去Github下载  <a href="https://github.com/bmob/bmob-public-docs/blob/master/%E7%9F%AD%E4%BF%A1%E5%85%B3%E9%94%AE%E5%AD%97%E7%9B%91%E6%8E%A7%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.doc">短信关键字监控参考文档</a> 来查看提交内容是否合法。</p>
+</li>
+<li>
+<p>一天一个应用给同一手机号发送的短信不能超过10条，否则会报<code>10010</code>错误，其他错误码可查看：<a href="http://doc.bmobapp.com/other/error_code/#_2">短信功能相关错误码</a> 。</p>
+</li>
+</ul>
+<h3 id="_2">验证验证码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>通过<code>verifySmsCode</code>方式可验证该短信验证码：</p>
+<pre><code class="java">BmobSMS.verifySmsCode(phone, code, new UpdateListener() {
+    @Override
+    public void done(BmobException e) {
+        if (e == null) {
+            mTvInfo.append(&quot;验证码验证成功，您可以在此时进行绑定操作！\n&quot;);
+            User user = BmobUser.getCurrentUser(User.class);
+            user.setMobilePhoneNumber(phone);
+            user.setMobilePhoneNumberVerified(true);
+            user.update(new UpdateListener() {
+                @Override
+                public void done(BmobException e) {
+                    if (e == null) {
+                        mTvInfo.append(&quot;绑定手机号码成功&quot;);
+                    } else {
+                        mTvInfo.append(&quot;绑定手机号码失败：&quot; + e.getErrorCode() + &quot;-&quot; + e.getMessage());
+                    }
+                }
+            });
+        } else {
+            mTvInfo.append(&quot;验证码验证失败：&quot; + e.getErrorCode() + &quot;-&quot; + e.getMessage() + &quot;\n&quot;);
+        }
+    }
+});
+</code></pre>
+
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>实际计算的短信字数 = 模板的内容或自定义短信的内容字数 + 6。加上6是因为默认的签名【比目科技】占了6个字。</li>
+<li>实际计算的短信字数在70个字以下算1条。</li>
+<li>实际计算的短信字数超过70字的以67字为一条来计算的。也就是135个字数是计算为3条的。</li>
+<li>计算得到的短信条数在本条短信发送成功后将会从你的账户剩余的短信条数中扣除。</li>
+<li>短信发送限制规则是1/分钟，5/小时，10/天。即对于一个应用来说，一天给同一手机号发送短信不能超过10条，一小时给同一手机号发送短信不能超过5条，一分钟给同一手机号发送短信不能超过1条。</li>
+</ul>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
