@@ -494,6 +494,7 @@ b = Bmob(&quot;你的application id&quot;, &quot;你的rest api key&quot;)
 </code></pre>
 
 <p>其中，<code>application id</code>和<code>rest api key</code>是你在Bmob控制台上创建的应用密钥信息。</p>
+<p>我们对数据的所有操作，都围绕着Bmob类进行。</p>
 <h2 id="_3">快速入门<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="_4">新增数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <pre><code class="python">result = b.save('mytable',data={
@@ -590,13 +591,13 @@ for r in rs:
 <p>其中，<code>mytable</code>是数据表的名称。<code>findObjects</code>方法可以实现非常复杂的查询功能，包括排序、分页、包含、指定返回列等等。更多的用法请查看复杂数据查询文档。</p>
 <h2 id="_9">文件操作<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <h3 id="_10">上传文件<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>执行Bmob类的upload方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：</p>
+<p>执行Bmob类的<code>upload</code>方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：</p>
 <pre><code class="python">bmobFile = b.upload('d:/abc.pdf')
 print(bmobFile.url)
 print(bmobFile.filename)
 </code></pre>
 
-<p>成功之后，会直接返回BmobFile类的实例，你可以用如下的代码，新增一条记录到Bmob数据库中。</p>
+<p>成功之后，会直接返回<code>BmobFile</code>类的实例，你可以用如下的代码，新增一条记录到Bmob数据库中。</p>
 <pre><code class="python">isOK = b.save('mytable',data={
     'myfile':bmobFile
 })
@@ -607,7 +608,7 @@ print(isOK)
 - 如果你想查看上传后的文件（即：下载文件），需要购买开通文件的二级域名服务，或者用自己的备案域名接入文件域名服务。
 - 你也可以不用<code>BmobFile</code>这种数据类型进行存储，而是直接获取<code>url</code>，作为字符串存储在Bmob的数据表中。</p>
 <h3 id="_11">删除文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>执行Bmob类的delFile方法，将本地上传到Bmob CDN上的url作为唯一的参数，即可删除，代码如下：</p>
+<p>执行Bmob类的<code>delFile</code>方法，将本地上传到Bmob CDN上的<code>url</code>作为唯一的参数，即可删除，代码如下：</p>
 <pre><code class="python">isOK = b.delFile('https://bmob-cdn-31082.bmobpay.com/2024/04/13/d79f988a409b4678803e7093e6c78aa8.png')
 </code></pre>
 
@@ -649,7 +650,7 @@ for r in rs:
 </code></pre>
 
 <h3 id="_18">查询数组列中的某个列的值等于某个值<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<p>下面的代码可以查询tags列中有Android或者good值的所有数据。</p>
+<p>下面的代码可以查询<code>tags</code>列中有<code>Android</code>或者<code>good</code>值的所有数据。</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query)
 for r in rs:
