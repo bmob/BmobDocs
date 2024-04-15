@@ -2860,7 +2860,7 @@ query.findObjects(new FindListener<Person>() {
 
 ### BQL查询
 
-`Bmob Query Language`（简称 BQL） 是 Bmob 自 `BmobSDKV3.3.7` 版本开始，为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。
+`Bmob Query Language`（简称 BQL） 是 Bmob为查询 API 定制的一套类似 SQL 查询语法的子集和变种，主要目的是降低大家学习 Bmob 查询API 的成本，可以使用传统的 SQL 语法来查询 Bmob 应用内的数据。
 
 具体的 BQL 语法，请参考 [Bmob Query Language 详细指南](http://doc.bmobapp.com/other/bql/)。
 
@@ -2888,33 +2888,6 @@ new BmobQuery<GameScore>().doSQLQuery(bql,new SQLQueryListener<GameScore>(){
 	}
 });
 ```
-
-上面的示例也等价于(`此方法自BmobV3.3.8版本提供`)：
-
-```java
-//查询所有的游戏得分记录
-String bql ="select * from GameScore";
-BmobQuery<GameScore> query=new BmobQuery<GameScore>();
-//设置查询的SQL语句
-query.setSQL(bql);
-query.doSQLQuery(new SQLQueryListener<GameScore>(){
-
-	@Override
-	public void done(BmobQueryResult<GameScore> result, BmobException e) {
-		if(e ==null){
-			List<GameScore> list = (List<GameScore>) result.getResults();
-			if(list!=null && list.size()>0){
-				...
-			}else{
-				Log.i("smile", "查询成功，无数据返回");
-			}
-		}else{
-			Log.i("smile", "错误码："+e.getErrorCode()+"，错误描述："+e.getMessage());
-		}
-	}
-});
-```
-
 
 如果需要查询个数，则可以这样：
 
@@ -3000,32 +2973,6 @@ new BmobQuery<GameScore>().doSQLQuery(bql,new SQLQueryListener<GameScore>(){
 
 最后的可变参数 `玩家1` 和 `地铁跑酷` 会自动替换查询语句中的问号位置（按照问号的先后出现顺序）。
 
-上面的示例也等价于如下代码（`此方法自BmobV3.3.8版本提供`）：
-
-```java
-String bql="select * from GameScore where player = ? and game = ?";
-BmobQuery<GameScore> query=new BmobQuery<GameScore>();
-//设置SQL语句
-query.setSQL(bql);
-//设置占位符参数
-query.setPreparedParams(new Object[]{"玩家1","地铁跑酷"});
-query.doSQLQuery(new SQLQueryListener<GameScore>(){
-
-	@Override
-	public void done(BmobQueryResult<GameScore> result, BmobException e) {
-		if(e ==null){
-			List<GameScore> list = (List<GameScore>) result.getResults();
-			if(list!=null && list.size()>0){
-				...
-			}else{
-				Log.i("smile", "查询成功，无数据返回");
-			}
-		}else{
-			Log.i("smile", "错误码："+e.getErrorCode()+"，错误描述："+e.getMessage());
-		}
-	}
-});
-```
 
 ##### 内置函数
 
@@ -3471,7 +3418,7 @@ public void queryData(){
 
 
 
-**自`V3.4.4`版本开始，SDK提供了另一种方法来更新数据，通过调用`Bmobobject`类中的`setValue（key，value）`方法，只需要传入key及想要更新的值即可**
+SDK还提供了另一种方法来更新数据，通过调用`Bmobobject`类中的`setValue（key，value）`方法，只需要传入key及想要更新的值即可**
 
 举例，说明如下：
 
@@ -3548,9 +3495,6 @@ gameScore.increment("score", 5); // 分数递增5
 gameScore.update(updateListener);
 ```
 
-
-
-
 ### 删除字段的值
 
 你可以在一个对象中删除一个字段的值，通过`remove`操作：
@@ -3571,54 +3515,7 @@ gameScore.update(new UpdateListener() {
 });
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 7、图文消息
-
-2017年下半年开始，后端云提供了素材管理模块，控制台文件浏览功能合并到了该模块下；
-
-![](image/Unl4dwy.png)
-
-### 适用场景
-1. 如果您的应用是需要展示很多图文消息或文章，可以用这里编辑来实现富文本信息的存储和编辑管理；
-2. 以往上传文件缺少了一些关联信息如文件描述之类的需要额外建表，来实现文件和描述信息的关联，这里可以一并解决；
-### 使用方法
-1. 后端控制台新建`图文信息`并编辑后会新增一个_Article表，表中的关键字段有url,title,content，分别代表图文信息网页的url地址,标题和网页源码，也能实时编辑。
-2. 客户端的使用，可以查询_Article表，既可以拿到url用webview组件加载，也可以用Android SDK中的TextView结合Html类解析html标签并展示。
-
-
-```
-/**
- * 查询图文消息
- */
-private void queryArticle() {
-    BmobQuery<BmobArticle> bmobArticleBmobQuery = new BmobQuery<>();
-    bmobArticleBmobQuery.findObjects(new FindListener<BmobArticle>() {
-        @Override
-        public void done(List<BmobArticle> object, BmobException e) {
-            if (e == null) {
-                Snackbar.make(mBtnQueryArticle, "查询成功：" + object.size(), Snackbar.LENGTH_LONG).show();
-            } else {
-                Snackbar.make(mBtnQueryArticle, "查询失败：" + e.getMessage(), Snackbar.LENGTH_LONG).show();
-            }
-        }
-    });
-}
-```
-
-
-# 8、文件管理
+# 7、文件管理
 
 `BmobFile`可以让你的应用程序将文件存储到服务器中，常见的文件类型都可以实现存储：比如图像文件、影像文件、音乐文件和任何其他二进制数据。
 
@@ -3626,28 +3523,7 @@ private void queryArticle() {
 
 1、以下均为SDK对文件进行操作的方法，如果你想在Web端对文件进行操作，请查看我们的[帮助文档](http://doc.bmobapp.com/other/common_problem/)中的`如何在Web后台上传文件`解答。
 
-2、自 `BmobSDKv3.4.6` 开始，文件服务需要注意以下几个方面：
-
-- **SDK内部集成CDN文件服务，删除`BmobProFile`的相关代码，并不再提供新旧文件管理的功能，但上传的方法名不变**；
-
-- **新增了文件下载`(download)`和批量删除CDN文件`(deleteBatch)`的方法**；
-
-- **2016年7月,旧版SDK中的新旧文件管理的上传方法将停止服务，之前通过旧版SDK中的新旧文件管理上传的文件仍可下载，请大家及时更新SDK**；
-
-- **之前使用了`BmobProFile中`的`upload`方法上传的文件，开发者可以直接在文件的url地址后面增加："?t=2&a="+ 你的accessKey，那么拼接后的文件是可以直接用来访问并下载的。**；
-
-```xml
-	举个例子：
-
-	如果之前通过新版文件管理的上传方法得到的文件url地址：
-	http://newfile.codenow.cn:8080/a272a1aac5274f7085f140de9db94635.png，
-
-	那么签名后的可访问的文件地址为：
-	http://newfile.codenow.cn:8080/a272a1aac5274f7085f140de9db94635.png?t=2&a=你的accessKey。
-```
-- **无法查看accessKey**。因为已经废除新旧文件管理功能，所以在开发者管理后台的设置-->应用密钥中已无法查看accessKey，而之前开发者所使用的accessKey继续有效。
-
-3、CDN文件服务需要`okhttp-2.4.0、okio-1.4.0`及`WAKE_LOCK`权限，请导入okhttp相关jar包并在`AndroidManifest.xml`类的`manifest`标签下添加如下权限，否则会造成调用上传/下载文件的方法无反应。
+2、CDN文件服务需要`okhttp-2.4.0、okio-1.4.0`及`WAKE_LOCK`权限，请导入okhttp相关jar包并在`AndroidManifest.xml`类的`manifest`标签下添加如下权限，否则会造成调用上传/下载文件的方法无反应。
 
 ```xml
 	<!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
@@ -3693,7 +3569,7 @@ bmobFile.uploadblock(new UploadFileListener() {
 
 #### 设置文件分片上传时每片大小
 
-自`BmobSDKv3.4.6`开始,新增`BmobConfig`类，允许开发者设置`查询超时时间`及`文件分片上传时的每片大小`。建议在`Application`类的`onCreate`方法中调用。
+允许开发者设置`查询超时时间`及`文件分片上传时的每片大小`。建议在`Application`类的`onCreate`方法中调用。
 
 示例代码如下:
 
@@ -3719,11 +3595,7 @@ public class BmobApplication extends Application {
 
 ### 批量上传文件
 
-自`BmobSDKv3.2.7`开始,新增批量上传文件的方法；
-
-自`BmobSDKv3.4.6`开始,文件批量上传的静态方法由`Bmob`转移至`BmobFile`类,建议调用`BmobFile.uploadBatch`方法。
-
-示例代码如下：
+批量上传文件的示例代码如下：
 
 ```java
 //详细示例可查看BmobExample工程中BmobFileActivity类
@@ -3764,10 +3636,9 @@ BmobFile.uploadBatch(filePaths, new UploadBatchListener() {
 
 **2、通过onSuccess回调方法中的files或urls集合的大小与上传的总文件个数比较，如果一样，则表示全部文件上传成功。**
 
-
 ### 下载文件
 
-自`BmobSDKv3.4.6`版本,SDK提供了文件的下载方法`download`，并且允许开发者设置下载文件的存储路径。
+SDK提供了文件的下载方法`download`，并且允许开发者设置下载文件的存储路径。
 
 **注：下载方法并不局限于下载通过BmobSDK上传的文件，也就是说只要提供一个文件url地址，也可以调用下载方法的。**
 
@@ -3867,9 +3738,7 @@ private void downloadFile(BmobFile file){
 ```
 ### 删除文件
 
-`BmobSDKv3.4.6`中删除文件的接口，`只能删除通过CDN文件服务（v3.4.6开始采用CDN文件服务）上传的文件`。不兼容之前的新旧文件管理，但使用方法不变。
-
-示例代码如下：
+删除文件的示例代码如下：
 
 ```java
 BmobFile file = new BmobFile();
@@ -3890,9 +3759,7 @@ file.delete(new UpdateListener() {
 
 ### 批量删除文件
 
-自 `BmobSDKv3.4.6` 版本，SDK提供了文件的批量删除接口`deleteBatch，且只能删除通过CDN文件服务（v3.4.6开始采用CDN文件服务）上传的文件`。
-
-示例代码如下：
+批量删除文件的示例代码如下：
 
 ```java
 //此url必须是上传文件成功之后通过bmobFile.getUrl()方法获取的。
@@ -3915,11 +3782,6 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 
 ```
 为方便大家理解文件服务的使用，Bmob提供了一个文件上传的案例和源码，大家可以到[示例和教程中查看和下载](http://doc.bmobapp.com/data/android/example/)。
-
-**注：**
-
-**1、文件的批量上传是BmobSDK_v3.2.7版本才提供的功能，如需使用，请更新版本;**
-**2、文件的下载和批量删除是BmobSDK_v3.4.6才提供的功能，如需使用，请更新版本。**
 
 # 9、数据监听
 
@@ -4113,6 +3975,7 @@ blog.save(new SaveListener<String>() {
 
 ### 角色管理
 上面的指定用户访问权限虽然很方便，但是对于有些应用可能会有一定的局限性。比如一家公司的工资系统，员工和公司的出纳们只拥有工资的读权限，而公司的人事和老板才拥有全部的读写权限。要实现这种功能，你也可以通过设置每个用户的ACL权限来实现，如下：
+
 ```java
 /**
  * 设置发布的帖子对某种角色的访问控制权限
@@ -4146,7 +4009,6 @@ private void roleAcl() {
 }
 
 ```
-
 
 ### 角色之间的从属关系
 下面我们来说一下角色与角色之间的从属关系。用一个例子来说明下：一个互联网企业有移动部门，部门中有不同的小组，如Android开发组和IOS开发组。每个小组只拥有自己小组的代码读写权限，但这两个小组同时拥有核心库代码的读权限。
@@ -4445,11 +4307,6 @@ private void queryBox() {
 
 2. 地理位置的点不能超过规定的范围。`纬度的范围`应该是在`-90.0到90.0`之间。`经度的范围`应该是在`-180.0到180.0`之间。如果您添加的经纬度超出了以上范围，将导致程序错误。
 
-
-
-
-
-
 # 12、其他功能
 
 ### 获取服务器时间
@@ -4476,27 +4333,6 @@ Bmob.getServerTime(new QueryListener<Long>() {
 
 Bmob为大家提供了应用的自动更新组件，使用这个组件可以快速方便实现应用的自动升级功能。
 详细的使用操作可以参考文档：[自动更新组件文档](http://doc.bmobapp.com/data/android/auto_update/)
-
-### 表结构
-
-自`V3.4.2`版本开始，SDK提供了`获取表结构信息`方法,具体示例如下：
-
-#### 获取特定表的结构
-
-```java
-Bmob.getTableSchema("待查询的表名", new QueryListener<BmobTableSchema>() {
-
-	@Override
-	public void done(BmobTableSchema schema, BmobException ex) {
-		if(ex==null){
-			Log.i("bmob", "获取指定表的表结构信息成功："+schema.getClassName()+"-"+schema.getFields().toString());
-		}else{
-			Log.i("bmob", "获取指定表的表结构信息失败:" + ex.getLocalizedMessage()+"("+ex.getErrorCode()+")");
-		}
-	}
-});
-
-```
 
 #### 获取所有表的结构
 ```java
@@ -4619,9 +4455,20 @@ Android SDK的错误码都是以`9`开头的，其他错误码请点击查看：
 ```
 # 15、域名备案和重置
 
-从v3.6.7开始，数据服务SDK新增了能重新设置请求域名的API，需要在初始化SDK前调用：
+接工信部要求，Bmob提供了一定量的API请求数，供开发者开发阶段使用。当你的应用正式上线之后，请确保一定要使用你的备案域名。在域名备案过程中遇到任何问题，可联系我们的官方客服协助。
+
+使用你自己备案域名的操作方法如下：
+
+1、在Bmob控制台（设置 -> 域名管理），新增一个SDK类型的域名。注意，一定不要使用你的备案主域名，这容易让工信部撤销你的备案。比如你购买的域名是 abc.com ，添加的SDK域名建议是 sdk.abc.com ,而不是 abc.com。
+
+2、在初始化SDK前调用如下代码：
+
 ```Java
+//采用你自己的备案域名
 Bmob.resetDomain("http://你在Bmob控制台绑定的SDK域名/8/");
+//初始化Bmob
+Bmob.initialize(this, "你的application id");
+
 ```
 其中，参数为`你在Bmob控制台绑定的SDK域名`，调用后的所有请求都指向新的域名。
 
