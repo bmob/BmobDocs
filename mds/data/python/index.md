@@ -26,6 +26,8 @@ b = Bmob("你的application id", "你的rest api key")
 
 其中，`application id`和`rest api key`是你在Bmob控制台上创建的应用密钥信息。
 
+我们对数据的所有操作，都围绕着Bmob类进行。
+
 ## 快速入门
 
 ### 新增数据
@@ -147,7 +149,7 @@ for r in rs:
 
 ### 上传文件
 
-执行Bmob类的upload方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：
+执行Bmob类的`upload`方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：
 
 ```python
 bmobFile = b.upload('d:/abc.pdf')
@@ -155,7 +157,7 @@ print(bmobFile.url)
 print(bmobFile.filename)
 ```
 
-成功之后，会直接返回BmobFile类的实例，你可以用如下的代码，新增一条记录到Bmob数据库中。
+成功之后，会直接返回`BmobFile`类的实例，你可以用如下的代码，新增一条记录到Bmob数据库中。
 
 ```python
 isOK = b.save('mytable',data={
@@ -170,7 +172,7 @@ print(isOK)
 
 ### 删除文件
 
-执行Bmob类的delFile方法，将本地上传到Bmob CDN上的url作为唯一的参数，即可删除，代码如下：
+执行Bmob类的`delFile`方法，将本地上传到Bmob CDN上的`url`作为唯一的参数，即可删除，代码如下：
 
 ```python
 isOK = b.delFile('https://bmob-cdn-31082.bmobpay.com/2024/04/13/d79f988a409b4678803e7093e6c78aa8.png')
@@ -235,7 +237,7 @@ for r in rs:
 
 ### 查询数组列中的某个列的值等于某个值
 
-下面的代码可以查询tags列中有Android或者good值的所有数据。
+下面的代码可以查询`tags`列中有`Android`或者`good`值的所有数据。
 
 ```python
 query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
