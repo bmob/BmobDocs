@@ -412,18 +412,22 @@
 							
 								
 									
-										<li class="active "><a href="#pythonsdk">Python客户端SDK</a>
+										<li class="active "><a href="#python-bmob">Python Bmob开发文档</a>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_1">接入</a></li>
+												<li><a class="itm-l2" href="#_1">安装</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_2">接口</a></li>
+												<li><a class="itm-l2" href="#_2">初始化</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_3">内置类</a></li>
+												<li><a class="itm-l2" href="#_3">接口</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_4">内置类</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
@@ -460,16 +464,21 @@
                 <div class="wrap">
                     
 
-<h1 id="pythonsdk">Python客户端SDK<a class="headerlink" href="#pythonsdk" title="Permanent link">&para;</a></h1>
-<p><em>该SDK从 <a href="https://github.com/bmob/CloudFunction/tree/master/python">Python云函数</a> 中剥离出来，用于客户端</em></p>
-<p><em>如果部分接口描述不完整，可参考云函数api文档，两者保持高度一致</em></p>
-<h2 id="_1">接入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="python-bmob">Python Bmob开发文档<a class="headerlink" href="#python-bmob" title="Permanent link">&para;</a></h1>
+<h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在命令行中执行下面的代码安装Python-bmob包：</p>
+<pre><code class="pip">
+pip install python-bmob
+
+</code></pre>
+
+<h2 id="_2">初始化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
 <li>将 <a href="https://github.com/bmob/CloudFunction/tree/master/python/sdk/bmob.py">Python SDK文件</a> 下载并添加到项目中</li>
 <li>在需要调用bmob的地方，调用 <code>import bmob</code> 或 <code>from bmob import *</code></li>
 <li>初始化 <code>Bmob</code> 对象，如 <code>b = Bmob("appid", "restkey")</code></li>
 </ol>
-<h2 id="_2">接口<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">接口<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>以下均为 <code>Bmob</code> 对象的方法：</p>
 <table>
 <thead>
@@ -605,7 +614,7 @@ b.find(
 )
 </code></pre>
 
-<h2 id="_3">内置类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">内置类<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="httpresponse">HttpResponse<a class="headerlink" href="#httpresponse" title="Permanent link">&para;</a></h3>
 <p><strong>类变量</strong>:</p>
 <table>
