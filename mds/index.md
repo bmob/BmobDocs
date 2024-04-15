@@ -212,9 +212,9 @@
 								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./cloud_function/csharp/index.html" class="intro" >C#</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/javascript/index.html" class="intro" >JavaScript</a></li>
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./cloud_function/php/index.html" class="intro" >PHP</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/index.html" class="intro" >WEB(Node)</a></li>
-								<li><s class="languageType" style="background-position:left -187px;"></s><a href="./cloud_function/java/index.html" class="intro" >WEB(Java)</a></li>
-								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./cloud_function/python/index.html" class="intro" >Python</a></li>
+								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/index.html" class="intro" >NodeJs</a></li>
+								<!--li><s class="languageType" style="background-position:left -187px;"></s><a href="./cloud_function/java/index.html" class="intro" >WEB(Java)</a></li>
+								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./cloud_function/python/index.html" class="intro" >Python</a></li-->
 							</ul>
 						</div>
 					</div>

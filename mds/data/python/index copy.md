@@ -1,18 +1,10 @@
-# Python Bmob开发文档
+# Python客户端SDK
 
-## 安装
+*该SDK从 [Python云函数](https://github.com/bmob/CloudFunction/tree/master/python) 中剥离出来，用于客户端*
 
-在命令行中执行下面的代码安装Python-bmob包：
+*如果部分接口描述不完整，可参考云函数api文档，两者保持高度一致*
 
-```pip
-
-pip install python-bmob
-
-```
-
-## 初始化
-
-
+## 接入
 
 1. 将 [Python SDK文件](https://github.com/bmob/CloudFunction/tree/master/python/sdk/bmob.py) 下载并添加到项目中
 2. 在需要调用bmob的地方，调用 `import bmob` 或 `from bmob import *`
