@@ -1,4 +1,4 @@
-短信服务的API集成在BmobSDK中，因此不熟悉的朋友在使用前先可以了解一下BmobSDK的集成[PHP 快速入门](http://doc.bmobapp.com/data/php/)
+短信服务的API集成在BmobSDK中，因此不熟悉的朋友在使用前先可以了解一下BmobSDK的集成[python 快速入门](https://doc.bmobapp.com/data/python/)
 
 在一些应用场景下，你可能希望用户验证手机号码后才能进行一些操作，例如充值等。这些操作跟用户系统没有关系，可以通过我们提供的的短信验证API来实现。
 
