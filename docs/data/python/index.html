@@ -427,27 +427,27 @@
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_9">文件操作</a></li>
+												<li><a class="itm-l2" href="#_10">文件操作</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_12">调用云函数</a></li>
+												<li><a class="itm-l2" href="#_13">调用云函数</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_13">短信服务</a></li>
+												<li><a class="itm-l2" href="#_14">短信服务</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_16">复杂查询</a></li>
+												<li><a class="itm-l2" href="#_17">复杂查询</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_23">统计查询</a></li>
+												<li><a class="itm-l2" href="#_31">统计查询</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_29">用户操作</a></li>
+												<li><a class="itm-l2" href="#_37">用户操作</a></li>
 											</ul>
 											
 										</li>
@@ -483,7 +483,7 @@
 </code></pre>
 
 <h2 id="_2">初始化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>注册Bmob后端云开发者账号，并创建应用，获取这个应用的<code>application id</code>和 <code>rest api key</code>，如下图。</p>
+<p>注册Bmob后端云开发者账号，并创建应用，获取这个应用的 <code>application id</code> 和 <code>rest api key</code> ，如下图。</p>
 <p><img alt="" src="./1.png" /></p>
 <p>创建python脚本文件，引入Bmob和创建Bmob对象进行初始化，代码如下：</p>
 <pre><code class="python"># 引入Bmob
@@ -494,7 +494,7 @@ b = Bmob(&quot;你的application id&quot;, &quot;你的rest api key&quot;)
 </code></pre>
 
 <p>其中，<code>application id</code>和<code>rest api key</code>是你在Bmob控制台上创建的应用密钥信息。</p>
-<p>我们对数据的所有操作，都围绕着Bmob类进行。</p>
+<p>我们对数据的所有操作，都围绕着 <code>Bmob类</code> 进行。</p>
 <h2 id="_3">快速入门<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="_4">新增数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <pre><code class="python">result = b.save('mytable',data={
@@ -505,20 +505,20 @@ b = Bmob(&quot;你的application id&quot;, &quot;你的rest api key&quot;)
 })
 </code></pre>
 
-<p>其中，<code>mytable</code>是你的数据表的名称，<code>data</code>是你要保存的数据的dict数据类型。
-本示例中，<code>name</code>是字符串类型，<code>age</code>数字类型，<code>tags</code>是数组类型，<code>good</code>是布尔型。</p>
+<p>其中， <code>mytable</code> 是你的数据表的名称，<code>data</code> 是你要保存的数据的dict数据类型。
+本示例中， <code>name</code> 是字符串类型，<code>age</code> 数字类型，<code>tags</code> 是数组类型，<code>good</code> 是布尔型。</p>
 <p>除此之外，Bmob还支持更多的数据类型：</p>
 <ul>
-<li>文件类型：<code>BmobFile(url, filename)</code>，其中，<code>url</code>是文件的网络路径，<code>filename</code>是文件的名称。</li>
-<li>日期类型：<code>BmbDate(timestamp)</code> ，其中<code>timestamp</code>为到毫秒的时间戳。</li>
-<li>地理位置类型：<code>BmobGeoPoint(latitude, longitude)</code> ，其中，<code>latitude</code>是纬度，<code>longitude</code>是经度。</li>
-<li>指针类型：<code>BmobPointer(className, objectId)</code>，其中<code>className</code>是指向的数据表名称，<code>objectId</code>是指向的那条数据的<code>objectId</code>。</li>
+<li>文件类型：<code>BmobFile(url, filename)</code> ，其中， <code>url</code> 是文件的网络路径， <code>filename</code> 是文件的名称。</li>
+<li>日期类型：<code>BmbDate(timestamp)</code> ，其中 <code>timestamp</code> 为到毫秒的时间戳。</li>
+<li>地理位置类型：<code>BmobGeoPoint(latitude, longitude)</code> ，其中， <code>latitude</code> 是纬度， <code>longitude</code> 是经度。</li>
+<li>指针类型：<code>BmobPointer(className, objectId)</code>，其中 <code>className</code> 是指向的数据表名称，<code>objectId</code> 参数是指向的那条数据的 <code>objectId</code> 标记。</li>
 </ul>
 <p>下面用代码举例说明：</p>
 <ul>
 <li>文件类型的操作</li>
 </ul>
-<p>如果你有文件的网络地址，如： https://www.bmobapp.com/static/img/footer-QR.585dbdf0.png ，你可以用下面的代码添加文件类型的数据：</p>
+<p>如果你有文件的网络地址，如： <code>https://www.bmobapp.com/static/img/footer-QR.585dbdf0.png</code>  ，你可以用下面的代码添加文件类型的数据：</p>
 <pre><code class="python">result = b.save('mytable',data={
     'name':'Bmob后端云',
     'myfile':BmobFile('https://www.bmobapp.com/static/img/footer-QR.585dbdf0.png','客服二维码')
@@ -536,6 +536,7 @@ b = Bmob(&quot;你的application id&quot;, &quot;你的rest api key&quot;)
 })
 </code></pre>
 
+<p>注意：时间戳是到毫秒。</p>
 <ul>
 <li>地理位置类型的操作</li>
 </ul>
@@ -555,15 +556,15 @@ b = Bmob(&quot;你的application id&quot;, &quot;你的rest api key&quot;)
 })
 </code></pre>
 
-<p>这里需要注意的是，执行这个代码前，你需要先在Bmob控制台上创建<code>infoTable</code>表，并且里面有一行数据的<code>objectId</code>为<code>ce5814f96c</code>。
-如果一切正常，你会在控制台的<code>mytable</code>中看到下图这样的一行数据。</p>
+<p>这里需要注意的是，执行这个代码前，你需要先在Bmob控制台上创建 <code>infoTable</code> 表，并且里面有一行数据的 <code>objectId</code> 为 <code>ce5814f96c</code> 。
+如果一切正常，你会在控制台的 <code>mytable</code> 中看到下图这样的一行数据。</p>
 <p><img alt="" src="./2.png" /></p>
 <h3 id="_5">删除数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <pre><code class="python">isOK = b.delete('mytable','93a9b6847f')
 print(isOK)
 </code></pre>
 
-<p>其中，<code>mytable</code>是数据表的名称，<code>93a9b6847f</code>是要删除的那条数据对应的<code>objectId</code>。
+<p>其中，<code>mytable</code> 是数据表的名称，<code>93a9b6847f</code> 是要删除的那条数据对应的 <code>objectId</code> 。
 如果删除成功，isOK返回True.</p>
 <h3 id="_6">修改数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <pre><code class="python">isOK = b.update('mytable','93a9b6847f',data={
@@ -572,7 +573,7 @@ print(isOK)
 print(isOK)
 </code></pre>
 
-<p>其中，<code>mytable</code>是数据表的名称，<code>93a9b6847f</code>是要修改的那条数据对应的<code>objectId</code>，<code>data</code>存放要修改的数据的内容。
+<p>其中，<code>mytable</code> 是数据表的名称，<code>93a9b6847f</code> 是要修改的那条数据对应的 <code>objectId</code> ， <code>data</code> 存放要修改的数据的内容。
 如果修改成功，isOK返回True.</p>
 <h3 id="_7">获取单条数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <pre><code class="python">r = b.getObject(&quot;mytable&quot;, &quot;93a9b6847f&quot;)
@@ -580,7 +581,7 @@ print(r)
 print(r.name)
 </code></pre>
 
-<p>其中，<code>mytable</code>是数据表的名称，<code>93a9b6847f</code>是要获取的那条数据的<code>objectId</code>。
+<p>其中， <code>mytable</code> 是数据表的名称，<code>93a9b6847f</code> 是要获取的那条数据的 <code>objectId</code> 。
 如果成功，r返回这条数据的对象信息。</p>
 <h3 id="_8">获取多条数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <pre><code class="python">rs = b.findObjects('mytable')
@@ -588,16 +589,22 @@ for r in rs:
     print(r.name)
 </code></pre>
 
-<p>其中，<code>mytable</code>是数据表的名称。<code>findObjects</code>方法可以实现非常复杂的查询功能，包括排序、分页、包含、指定返回列等等。更多的用法请查看复杂数据查询文档。</p>
-<h2 id="_9">文件操作<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<h3 id="_10">上传文件<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>执行Bmob类的<code>upload</code>方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：</p>
+<p>其中，<code>mytable</code> 是数据表的名称。 <code>findObjects</code> 方法可以实现非常复杂的查询功能，包括排序、分页、包含、指定返回列等等。更多的用法请查看复杂数据查询文档。</p>
+<h3 id="_9">获取错误信息<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>我们把所有的错误信息都封装在 <code>Bmob类</code> 的 <code>getError</code> 方法中，获取错误信息的代码如下：</p>
+<pre><code class="python">e = b.getError()
+</code></pre>
+
+<p>如果 <code>e.error</code> 是 <code>None</code> ，说明一切正常。</p>
+<h2 id="_10">文件操作<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">上传文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>执行Bmob类的 <code>upload</code> 方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：</p>
 <pre><code class="python">bmobFile = b.upload('d:/abc.pdf')
 print(bmobFile.url)
 print(bmobFile.filename)
 </code></pre>
 
-<p>成功之后，会直接返回<code>BmobFile</code>类的实例，你可以用如下的代码，新增一条记录到Bmob数据库中。</p>
+<p>成功之后，会直接返回 <code>BmobFile</code> 类的实例，你可以用如下的代码，新增一条记录到Bmob数据库中。</p>
 <pre><code class="python">isOK = b.save('mytable',data={
     'myfile':bmobFile
 })
@@ -606,84 +613,138 @@ print(isOK)
 
 <p>需要注意的是：
 - 如果你想查看上传后的文件（即：下载文件），需要购买开通文件的二级域名服务，或者用自己的备案域名接入文件域名服务。
-- 你也可以不用<code>BmobFile</code>这种数据类型进行存储，而是直接获取<code>url</code>，作为字符串存储在Bmob的数据表中。</p>
-<h3 id="_11">删除文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>执行Bmob类的<code>delFile</code>方法，将本地上传到Bmob CDN上的<code>url</code>作为唯一的参数，即可删除，代码如下：</p>
+- 你也可以不用 <code>BmobFile</code> 这种数据类型进行存储，而是直接获取 <code>url</code> ，作为字符串存储在Bmob的数据表中。</p>
+<h3 id="_12">删除文件<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>执行Bmob类的 <code>delFile</code> 方法，将本地上传到Bmob CDN上的 <code>url</code> 作为唯一的参数，即可删除，代码如下：</p>
 <pre><code class="python">isOK = b.delFile('https://bmob-cdn-31082.bmobpay.com/2024/04/13/d79f988a409b4678803e7093e6c78aa8.png')
 </code></pre>
 
 <p>删除成功，返回是否成功的bool类型。</p>
-<h2 id="_12">调用云函数<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
-<p>在本示例中，我们需要先创建一个名为<code>good</code>的云函数，这个云函数的代码的功能非常简单，直接返回从post上来的数据，如下图：</p>
+<h2 id="_13">调用云函数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>在本示例中，我们需要先创建一个名为 <code>good</code> 的云函数，这个云函数的代码的功能非常简单，直接返回从post上来的数据，如下图：</p>
 <p><img alt="" src="./3.png" /></p>
 <p>在python中调用这个云函数的代码如下：</p>
 <pre><code class="python">rs = b.functions('good',body={'name':'Bmob'})
 print(rs)
 </code></pre>
 
-<h2 id="_13">短信服务<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
-<h3 id="_14">发送短信验证码<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<p>使用Bmob类的<code>requestSMSCode</code>方法，提供<code>手机号码</code>作为参数，可以快速调用发送短信验证码的功能,代码如下:</p>
+<h2 id="_14">短信服务<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="_15">发送短信验证码<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>使用Bmob类的 <code>requestSMSCode</code> 方法，提供 <code>手机号码</code> 作为参数，可以快速调用发送短信验证码的功能,代码如下:</p>
 <pre><code class="python">rs = b.requestSMSCode('13800138001')
 print(rs)
 </code></pre>
 
 <p>发送成功的话，会返回这条短信验证码的标记信息。</p>
-<p>如果你想修改默认的短信验证码模板，你可以先在Bmob控制台创建验证码模板，待审核通过之后，再修改<code>requestSMSCode</code>方法，代码如下：</p>
+<p>如果你想修改默认的短信验证码模板，你可以先在Bmob控制台创建验证码模板，待审核通过之后，再修改 <code>requestSMSCode</code> 方法，代码如下：</p>
 <pre><code class="python">rs = b.requestSMSCode('13800138001','你的短信验证码模板名称')
 print(rs)
 </code></pre>
 
-<h3 id="_15">检查短信验证码是否正确<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h3 id="_16">检查短信验证码是否正确<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <pre><code class="python">rs = b.verifySmsCode('13800138001','785871')
 print(rs)
 </code></pre>
 
-<p>其中，<code>785871</code>是用户收到的短信验证码。如果验证成功，返回True。</p>
-<h2 id="_16">复杂查询<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
-<p>针对复杂的数据查询，我们提供了支持链式调用的<code>BmobQuery</code>类，配合Bmob类的<code>findObjects</code>方法一起使用，下面举一些例子进行说明：</p>
-<h3 id="_17">获取某个字段值等于某个值的所有记录<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>其中，<code>785871</code> 是用户收到的短信验证码。如果验证成功，返回True。</p>
+<h2 id="_17">复杂查询<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>针对复杂的数据查询，我们提供了支持链式调用的 <code>BmobQuery</code> 类，配合Bmob类的 <code>findObjects</code> 方法一起使用，下面举一些例子进行说明：</p>
+<h3 id="_18">获取某个字段值等于某个值的所有记录<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('name','Bmob后端云')
 rs = b.findObjects('mytable',where=query)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_18">查询数组列中的某个列的值等于某个值<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<p>下面的代码可以查询<code>tags</code>列中有<code>Android</code>或者<code>good</code>值的所有数据。</p>
+<h3 id="_19">获取某个字段值大于某个值的所有记录<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereGreaterThan('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_20">获取某个字段值大于等于某个值的所有记录<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereGreaterThanOrEqualTo('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_21">获取某个字段值小于某个值的所有记录<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereLessThan('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_22">获取某个字段值小于等于某个值的所有记录<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereLessThanOrEqualTo('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_23">查找某个字符串是否在某列中出现过<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>有时候。你需要进行模糊查找，即：判定某个字符串是否在另外的字符串中出现过。对应Python中的 <code>in</code> 关键字。</p>
+<p>示例代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereStrContains('name','后端云')
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<p>注意：这个方法非常损耗性能，需要开通专业版以上（含）才能使用。</p>
+<h3 id="_24">查询数组列中的某个列的值等于某个值<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>下面的代码可以查询 <code>tags</code> 列中有 <code>Android</code> 或者 <code>good</code> 值的所有数据。</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query)
 for r in rs:
     print(r)
 </code></pre>
 
+<h3 id="_25">查询数组列中的某个列的值同时包含指定的几个值<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>下面的代码可以查询 <code>tags</code> 列中有同时包含了 <code>Android</code> 和 <code>good</code> 值的所有数据。</p>
+<pre><code class="python">query = BmobQuery().addWhereContainsAll('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_26">链式查询<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>很多时候，我们的查询条件不会只有一个，这就需要用到 <code>BmobQuery</code> 的链式查询了。比如，我们要查询 <code>name等于Bmob后端云，而且age大于10</code> 的所有列，示例代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereEqualTo('name','Bmob后端云').addWhereGreaterThan('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
 <h3 id="include">用include参数来获取指针指向的那行数据<a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
-<p>如果你还想获取到<code>info</code>列（指针类型的类）对应的那行数据的详细信息，你就需要在调用<code>findObjects</code>时，指定<code>include</code>参数，代码如下：</p>
+<p>如果你还想获取到 <code>info</code> 列（指针类型的类）对应的那行数据的详细信息，你就需要在调用 <code>findObjects</code> 时，指定 <code>include</code> 参数，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,include=['info'])
 for r in rs:
     print(r)
 </code></pre>
 
-<p>其中，<code>info</code>是指针类型的列。</p>
-<h3 id="_19">获取指定条数的数据<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
-<p>默认情况下，<code>findObjects</code>方法返回查询到的 <code>最多100条</code> 记录，这通常很消耗网络带宽。为解决这个问题，你可以使用<code>limit</code>参数，代码如下:</p>
+<p>其中，<code>info</code> 是指针类型的列。</p>
+<h3 id="_27">获取指定条数的数据<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>默认情况下， <code>findObjects</code> 方法返回查询到的 <code>最多100条</code> 记录，这通常很消耗网络带宽。为解决这个问题，你可以使用 <code>limit</code> 参数，代码如下:</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,limit=50)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_20">跳过前面的一些数据<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
-<p>在进行分页开发的时候，你通常还需要<code>skip</code>参数，配合<code>limit</code>参数一起使用。<code>skip</code>参数可以跳过查询结果中的一定条数，代码如下：</p>
+<h3 id="_28">跳过前面的一些数据<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>在进行分页开发的时候，你通常还需要 <code>skip</code> 参数，配合 <code>limit</code> 参数一起使用。<code>skip</code> 参数可以跳过查询结果中的一定条数，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,skip=5)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_21">对查询结果进行排序<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
-<p>你可以用<code>findObjects</code>方法的<code>order</code>参数对查询结果进行排序，代码如下：</p>
+<h3 id="_29">对查询结果进行排序<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>你可以用 <code>findObjects</code> 方法的 <code>order</code> 参数对查询结果进行排序，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,order='createdAt')
 for r in rs:
@@ -694,54 +755,54 @@ for r in rs:
 <pre><code class="python">rs = b.findObjects('mytable',where=query,order='-createdAt')
 </code></pre>
 
-<h3 id="_22">返回指定的列<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
-<p>默认情况下，<code>findObjects</code>会返回表中的所有列的数据，但很多时候，这会浪费带宽和影响相应速度，为此，我们可以用<code>keys</code>参数来指定返回需要的列，代码如下：</p>
+<h3 id="_30">返回指定的列<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<p>默认情况下，<code>findObjects</code> 会返回表中的所有列的数据，但很多时候，这会浪费带宽和影响相应速度，为此，我们可以用 <code>keys</code> 参数来指定返回需要的列，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,keys=['name','address'])
 for r in rs:
     print(r)
 </code></pre>
 
-<h2 id="_23">统计查询<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
-<h3 id="_24">计数<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
-<p>如果你想知道你的数据有多少条，你就可以用<code>count</code>方法，进行计数查询，代码如下：</p>
+<h2 id="_31">统计查询<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h3 id="_32">计数<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p>如果你想知道你的数据有多少条，你就可以用 <code>count</code> 方法，进行计数查询，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 num = b.count('mytable',where=query)
 print(num)
 </code></pre>
 
-<h3 id="_25">求和<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
-<p>有时候，你想知道总和的数据，比如了解一个月的收入，那就可以用<code>sum</code>方法，进行求和查询，代码如下：</p>
+<h3 id="_33">求和<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p>有时候，你想知道总和的数据，比如了解一个月的收入，那就可以用 <code>sum</code> 方法，进行求和查询，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
-rs = b.sum('mytable', ['count','money'], where=None)
+rs = b.sum('mytable', ['count','money'], where=query)
 print('求和结果',rs)
 </code></pre>
 
-<p>上面的代码中，我们对<code>count</code>列和<code>money</code>列同时进行求和。</p>
-<h3 id="_26">最大值<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
-<p>用<code>max</code>方法，可以查到对应列的最大值，代码如下：</p>
+<p>上面的代码中，我们对 <code>count</code> 列和 <code>money</code> 列同时进行求和。</p>
+<h3 id="_34">最大值<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<p>用 <code>max</code> 方法，可以查到对应列的最大值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
-rs = b.max('mytable', ['money'], where=None)
+rs = b.max('mytable', ['money'], where=query)
 print('最大值结果',rs)
 </code></pre>
 
-<h3 id="_27">最小值<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
-<p>用<code>min</code>方法，可以查到对应列的最小值，代码如下：</p>
+<h3 id="_35">最小值<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p>用 <code>min</code> 方法，可以查到对应列的最小值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
-rs = b.min('mytable', ['money']', where=None)
+rs = b.min('mytable', ['money'], where=query)
 print('最小值结果',rs)
 </code></pre>
 
-<h3 id="_28">平均值<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
-<p>用<code>mean</code>方法，可以查到对应列的平均值，代码如下：</p>
+<h3 id="_36">平均值<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<p>用 <code>mean</code> 方法，可以查到对应列的平均值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
-rs = b.mean('mytable', ['money'], where=None)
+rs = b.mean('mytable', ['money'], where=query)
 print('最大值结果',rs)
 </code></pre>
 
-<h2 id="_29">用户操作<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
-<p><strong><em>以下操作针对Bmob控制台中默认创建的<code>_User</code>表进行。</em></strong></p>
-<h3 id="_30">账号密码注册<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<h2 id="_37">用户操作<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<p><strong><em>以下操作针对Bmob控制台中默认创建的 <code>_User</code> 表进行。</em></strong></p>
+<h3 id="_38">账号密码注册<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.signUp('注册账号','注册密码', userInfo={
     'sex':True,
@@ -750,27 +811,27 @@ print('最大值结果',rs)
 print(rs)
 </code></pre>
 
-<h3 id="_31">账号密码登录<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<h3 id="_39">账号密码登录<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.login('13512707963','123456')
 print(rs)
 </code></pre>
 
 <p>登录成功，返回这条用户记录的信息。</p>
-<h3 id="_32">邮件重置密码<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<h3 id="_40">邮件重置密码<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.resetPasswordByEmail('这条记录对应的邮箱地址')
 print(rs)
 </code></pre>
 
 <p>发送成功，返回True。如果查不到对应的邮箱地址或者其他错误，返回False。</p>
-<h3 id="_33">旧密码方式修改用户密码<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<h3 id="_41">旧密码方式修改用户密码<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.updatePassword('这个用户数据对应的objectId', '旧密码', '新密码')
 print(rs)
 </code></pre>
 
-<h3 id="_34">短信验证码重置密码<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<h3 id="_42">短信验证码重置密码<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.resetPasswordBySMSCode('收到的短信验证码','新密码')
 print(rs)
