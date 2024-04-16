@@ -87,6 +87,7 @@ pages:
     - 'PHP': 'sms/php/index.md'
     - 'JavaScript': 'sms/javascript/index.md'
     - 'REST API': 'sms/restful/index.md'
+    - 'python': 'sms/python/index.md'
 # - '游戏实时后端':
 #     - 'Unity':
 #         - '快速入门': 'game/unity/quick_start.md'
