@@ -427,27 +427,31 @@
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_10">文件操作</a></li>
+												<li><a class="itm-l2" href="#ai">AI服务</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_13">调用云函数</a></li>
+												<li><a class="itm-l2" href="#_12">文件操作</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_14">短信服务</a></li>
+												<li><a class="itm-l2" href="#_15">调用云函数</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_17">复杂查询</a></li>
+												<li><a class="itm-l2" href="#_16">短信服务</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_31">统计查询</a></li>
+												<li><a class="itm-l2" href="#_19">复杂查询</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_37">用户操作</a></li>
+												<li><a class="itm-l2" href="#_33">统计查询</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_39">用户操作</a></li>
 											</ul>
 											
 										</li>
@@ -596,8 +600,44 @@ for r in rs:
 </code></pre>
 
 <p>如果 <code>e.error</code> 是 <code>None</code> ，说明一切正常。</p>
-<h2 id="_10">文件操作<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<h3 id="_11">上传文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h2 id="ai">AI服务<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<p>Bmob为开发者提供了AI对话接口，支持上下文记忆存储，支持多会话模式，可供大家开发丰富有趣的产品，调用方式非常简单。</p>
+<h3 id="ai_1">连接AI服务<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h3>
+<p>在正式发送对话给AI服务之前，首先要先连接AI服务，代码如下：</p>
+<pre><code class="python">b.connectAI()
+</code></pre>
+
+<h3 id="_10">发送对话<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<pre><code class="python">b.chat('1+1等于多少？')
+</code></pre>
+
+<p>Bmob.chat方法还支持多会话模式，比如，多人模式的情况下，我们还可以通过第二个参数session进行区分，示例代码如下：</p>
+<pre><code class="python">b.chat('1+1等于多少？',session='firstman')
+</code></pre>
+
+<p>其中，session可以是用户的昵称\ID等等。</p>
+<h3 id="ai_2">关闭AI服务<a class="headerlink" href="#ai_2" title="Permanent link">&para;</a></h3>
+<pre><code class="python">b.closeAI()
+</code></pre>
+
+<h3 id="_11">完整示例代码<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>示例代码效果如下：</p>
+<p><img alt="" src="./4.png" /></p>
+<pre><code class="python">from bmob import *
+
+b = Bmob(&quot;application id&quot;, &quot;rest api key&quot;)
+b.connectAI()
+
+for i in range(10):
+    txt = input('请提问：')
+    print(b.chat(txt))
+
+b.closeAI()
+
+</code></pre>
+
+<h2 id="_12">文件操作<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">上传文件<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>执行Bmob类的 <code>upload</code> 方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：</p>
 <pre><code class="python">bmobFile = b.upload('d:/abc.pdf')
 print(bmobFile.url)
@@ -614,13 +654,13 @@ print(isOK)
 <p>需要注意的是：
 - 如果你想查看上传后的文件（即：下载文件），需要购买开通文件的二级域名服务，或者用自己的备案域名接入文件域名服务。
 - 你也可以不用 <code>BmobFile</code> 这种数据类型进行存储，而是直接获取 <code>url</code> ，作为字符串存储在Bmob的数据表中。</p>
-<h3 id="_12">删除文件<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_14">删除文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>执行Bmob类的 <code>delFile</code> 方法，将本地上传到Bmob CDN上的 <code>url</code> 作为唯一的参数，即可删除，代码如下：</p>
 <pre><code class="python">isOK = b.delFile('https://bmob-cdn-31082.bmobpay.com/2024/04/13/d79f988a409b4678803e7093e6c78aa8.png')
 </code></pre>
 
 <p>删除成功，返回是否成功的bool类型。</p>
-<h2 id="_13">调用云函数<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h2 id="_15">调用云函数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>在本示例中，我们需要先创建一个名为 <code>good</code> 的云函数，这个云函数的代码的功能非常简单，直接返回从post上来的数据，如下图：</p>
 <p><img alt="" src="./3.png" /></p>
 <p>在python中调用这个云函数的代码如下：</p>
@@ -628,8 +668,8 @@ print(isOK)
 print(rs)
 </code></pre>
 
-<h2 id="_14">短信服务<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
-<h3 id="_15">发送短信验证码<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h2 id="_16">短信服务<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="_17">发送短信验证码<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <p>使用Bmob类的 <code>requestSMSCode</code> 方法，提供 <code>手机号码</code> 作为参数，可以快速调用发送短信验证码的功能,代码如下:</p>
 <pre><code class="python">rs = b.requestSMSCode('13800138001')
 print(rs)
@@ -641,50 +681,50 @@ print(rs)
 print(rs)
 </code></pre>
 
-<h3 id="_16">检查短信验证码是否正确<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<h3 id="_18">检查短信验证码是否正确<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <pre><code class="python">rs = b.verifySmsCode('13800138001','785871')
 print(rs)
 </code></pre>
 
 <p>其中，<code>785871</code> 是用户收到的短信验证码。如果验证成功，返回True。</p>
-<h2 id="_17">复杂查询<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h2 id="_19">复杂查询<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <p>针对复杂的数据查询，我们提供了支持链式调用的 <code>BmobQuery</code> 类，配合Bmob类的 <code>findObjects</code> 方法一起使用，下面举一些例子进行说明：</p>
-<h3 id="_18">获取某个字段值等于某个值的所有记录<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<h3 id="_20">获取某个字段值等于某个值的所有记录<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('name','Bmob后端云')
 rs = b.findObjects('mytable',where=query)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_19">获取某个字段值大于某个值的所有记录<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<h3 id="_21">获取某个字段值大于某个值的所有记录<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <pre><code class="python">query = BmobQuery().addWhereGreaterThan('age',10)
 rs = b.findObjects('mytable',where=query)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_20">获取某个字段值大于等于某个值的所有记录<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="_22">获取某个字段值大于等于某个值的所有记录<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <pre><code class="python">query = BmobQuery().addWhereGreaterThanOrEqualTo('age',10)
 rs = b.findObjects('mytable',where=query)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_21">获取某个字段值小于某个值的所有记录<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<h3 id="_23">获取某个字段值小于某个值的所有记录<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <pre><code class="python">query = BmobQuery().addWhereLessThan('age',10)
 rs = b.findObjects('mytable',where=query)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_22">获取某个字段值小于等于某个值的所有记录<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<h3 id="_24">获取某个字段值小于等于某个值的所有记录<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
 <pre><code class="python">query = BmobQuery().addWhereLessThanOrEqualTo('age',10)
 rs = b.findObjects('mytable',where=query)
 for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_23">查找某个字符串是否在某列中出现过<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<h3 id="_25">查找某个字符串是否在某列中出现过<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <p>有时候。你需要进行模糊查找，即：判定某个字符串是否在另外的字符串中出现过。对应Python中的 <code>in</code> 关键字。</p>
 <p>示例代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereStrContains('name','后端云')
@@ -694,7 +734,7 @@ for r in rs:
 </code></pre>
 
 <p>注意：这个方法非常损耗性能，需要开通专业版以上（含）才能使用。</p>
-<h3 id="_24">查询数组列中的某个列的值等于某个值<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<h3 id="_26">查询数组列中的某个列的值等于某个值<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
 <p>下面的代码可以查询 <code>tags</code> 列中有 <code>Android</code> 或者 <code>good</code> 值的所有数据。</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query)
@@ -702,7 +742,7 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_25">查询数组列中的某个列的值同时包含指定的几个值<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<h3 id="_27">查询数组列中的某个列的值同时包含指定的几个值<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
 <p>下面的代码可以查询 <code>tags</code> 列中有同时包含了 <code>Android</code> 和 <code>good</code> 值的所有数据。</p>
 <pre><code class="python">query = BmobQuery().addWhereContainsAll('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query)
@@ -710,7 +750,7 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_26">链式查询<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<h3 id="_28">链式查询<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <p>很多时候，我们的查询条件不会只有一个，这就需要用到 <code>BmobQuery</code> 的链式查询了。比如，我们要查询 <code>name等于Bmob后端云，而且age大于10</code> 的所有列，示例代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('name','Bmob后端云').addWhereGreaterThan('age',10)
 rs = b.findObjects('mytable',where=query)
@@ -727,7 +767,7 @@ for r in rs:
 </code></pre>
 
 <p>其中，<code>info</code> 是指针类型的列。</p>
-<h3 id="_27">获取指定条数的数据<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<h3 id="_29">获取指定条数的数据<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <p>默认情况下， <code>findObjects</code> 方法返回查询到的 <code>最多100条</code> 记录，这通常很消耗网络带宽。为解决这个问题，你可以使用 <code>limit</code> 参数，代码如下:</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,limit=50)
@@ -735,7 +775,7 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_28">跳过前面的一些数据<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h3 id="_30">跳过前面的一些数据<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
 <p>在进行分页开发的时候，你通常还需要 <code>skip</code> 参数，配合 <code>limit</code> 参数一起使用。<code>skip</code> 参数可以跳过查询结果中的一定条数，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,skip=5)
@@ -743,7 +783,7 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_29">对查询结果进行排序<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<h3 id="_31">对查询结果进行排序<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
 <p>你可以用 <code>findObjects</code> 方法的 <code>order</code> 参数对查询结果进行排序，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,order='createdAt')
@@ -755,7 +795,7 @@ for r in rs:
 <pre><code class="python">rs = b.findObjects('mytable',where=query,order='-createdAt')
 </code></pre>
 
-<h3 id="_30">返回指定的列<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<h3 id="_32">返回指定的列<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
 <p>默认情况下，<code>findObjects</code> 会返回表中的所有列的数据，但很多时候，这会浪费带宽和影响相应速度，为此，我们可以用 <code>keys</code> 参数来指定返回需要的列，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,keys=['name','address'])
@@ -763,15 +803,15 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h2 id="_31">统计查询<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
-<h3 id="_32">计数<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<h2 id="_33">统计查询<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<h3 id="_34">计数<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
 <p>如果你想知道你的数据有多少条，你就可以用 <code>count</code> 方法，进行计数查询，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 num = b.count('mytable',where=query)
 print(num)
 </code></pre>
 
-<h3 id="_33">求和<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<h3 id="_35">求和<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
 <p>有时候，你想知道总和的数据，比如了解一个月的收入，那就可以用 <code>sum</code> 方法，进行求和查询，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.sum('mytable', ['count','money'], where=query)
@@ -779,30 +819,30 @@ print('求和结果',rs)
 </code></pre>
 
 <p>上面的代码中，我们对 <code>count</code> 列和 <code>money</code> 列同时进行求和。</p>
-<h3 id="_34">最大值<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<h3 id="_36">最大值<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
 <p>用 <code>max</code> 方法，可以查到对应列的最大值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.max('mytable', ['money'], where=query)
 print('最大值结果',rs)
 </code></pre>
 
-<h3 id="_35">最小值<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<h3 id="_37">最小值<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <p>用 <code>min</code> 方法，可以查到对应列的最小值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.min('mytable', ['money'], where=query)
 print('最小值结果',rs)
 </code></pre>
 
-<h3 id="_36">平均值<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<h3 id="_38">平均值<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
 <p>用 <code>mean</code> 方法，可以查到对应列的平均值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.mean('mytable', ['money'], where=query)
 print('最大值结果',rs)
 </code></pre>
 
-<h2 id="_37">用户操作<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<h2 id="_39">用户操作<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
 <p><strong><em>以下操作针对Bmob控制台中默认创建的 <code>_User</code> 表进行。</em></strong></p>
-<h3 id="_38">账号密码注册<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<h3 id="_40">账号密码注册<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.signUp('注册账号','注册密码', userInfo={
     'sex':True,
@@ -811,27 +851,27 @@ print('最大值结果',rs)
 print(rs)
 </code></pre>
 
-<h3 id="_39">账号密码登录<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<h3 id="_41">账号密码登录<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.login('13512707963','123456')
 print(rs)
 </code></pre>
 
 <p>登录成功，返回这条用户记录的信息。</p>
-<h3 id="_40">邮件重置密码<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<h3 id="_42">邮件重置密码<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.resetPasswordByEmail('这条记录对应的邮箱地址')
 print(rs)
 </code></pre>
 
 <p>发送成功，返回True。如果查不到对应的邮箱地址或者其他错误，返回False。</p>
-<h3 id="_41">旧密码方式修改用户密码<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<h3 id="_43">旧密码方式修改用户密码<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.updatePassword('这个用户数据对应的objectId', '旧密码', '新密码')
 print(rs)
 </code></pre>
 
-<h3 id="_42">短信验证码重置密码<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<h3 id="_44">短信验证码重置密码<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.resetPasswordBySMSCode('收到的短信验证码','新密码')
 print(rs)
