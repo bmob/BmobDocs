@@ -113,6 +113,7 @@ pages:
     - '小程序': 'ai/html5/index.md'
     - 'Html5': 'ai/html5/index.md'
     - 'API': 'ai/api/index.md'
+    - 'python': 'ai/python/index.md'
 - '其他':
     - '域名管理': 'other/domain/index.md'
     - '常见问题': 'other/common_problem/index.md'
