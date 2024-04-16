@@ -157,6 +157,58 @@ e = b.getError()
 
 如果 `e.error` 是 `None` ，说明一切正常。
 
+## AI服务
+
+Bmob为开发者提供了AI对话接口，支持上下文记忆存储，支持多会话模式，可供大家开发丰富有趣的产品，调用方式非常简单。
+
+### 连接AI服务
+
+在正式发送对话给AI服务之前，首先要先连接AI服务，代码如下：
+
+```python
+b.connectAI()
+```
+
+### 发送对话
+
+```python
+b.chat('1+1等于多少？')
+```
+
+Bmob.chat方法还支持多会话模式，比如，多人模式的情况下，我们还可以通过第二个参数session进行区分，示例代码如下：
+
+```python
+b.chat('1+1等于多少？',session='firstman')
+```
+
+其中，session可以是用户的昵称\ID等等。
+
+### 关闭AI服务
+
+```python
+b.closeAI()
+```
+
+### 完整示例代码
+
+示例代码效果如下：
+
+![](4.png)
+
+```python
+from bmob import *
+
+b = Bmob("application id", "rest api key")
+b.connectAI()
+
+for i in range(10):
+    txt = input('请提问：')
+    print(b.chat(txt))
+
+b.closeAI()
+
+```
+
 ## 文件操作
 
 ### 上传文件
