@@ -428,7 +428,7 @@
 												
 											</li>
 												
-											<li class=""><a href="#_1">配置小程序密钥和获取应用密钥</a>
+											<li class=""><a href="#_1">配置小程序密钥</a>
 												
 											</li>
 												
@@ -543,7 +543,7 @@
 <h2 id="bmob">创建你的Bmob应用<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
 <p>登录Bmob后端云控制台，点击后台界面左上角“<code>创建应用</code>”，在弹出框输入你应用的名称，然后确认，你就拥有了一个待开发的应用。</p>
 <p><img alt="" src="../image/rumen_chuangjian.png" /></p>
-<h2 id="_1">配置小程序密钥和获取应用密钥<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">配置小程序密钥<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>登录微信的<a href="https://mp.weixin.qq.com/">小程序开发者后台</a>，依次点击<code>开发管理 -&gt; 开发设置</code>，在<code>开发者ID</code>一栏中，获取<code>AppID(小程序ID)</code>和<code>AppSecret(小程序密钥)</code>。</p>
 <p><img alt="" src="../image/w1.png" /></p>
 <p>回到Bmob后端云控制台，进入到你刚刚创建的应用中，依次点击<code>设置 -&gt; 应用配置</code>，在 <code>微信小程序帐号服务配置</code> 一栏中，将刚刚获取到的 <code>AppID</code> 和 <code>AppSecret</code> 对应填写上去。</p>
@@ -566,8 +566,8 @@ Bmob.initialize(&quot;你的Secret Key&quot;, &quot;你的API 安全码&quot;);
 
 <p>其中，<code>Secret Key</code>在Bmob控制台<code>你创建的应用 -&gt; 设置 -&gt; 应用密钥-&gt; Secret Key</code> 中找到。
 <code>API 安全码</code>在Bmob控制台<code>你创建的应用 -&gt; 设置 -&gt; 安全验证-&gt; API安全码</code> 中进行设置。</p>
-<p><img alt="" src="../image/w5.png" />
-<img alt="" src="../image/w6.png" /></p>
+<p><img alt="" src="../image/w5.png" /></p>
+<p><img alt="" src="../image/w6.png" /></p>
 <h3 id="_5">查询表中数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>示例代码如下：</p>
 <pre><code>const query = Bmob.Query(&quot;tableName&quot;);
