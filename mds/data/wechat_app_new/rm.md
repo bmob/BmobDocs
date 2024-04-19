@@ -106,7 +106,6 @@ PS:更多请参考Bmob Demo里面的群聊功能。
 1. ### 地道美食地图
 > 点击查看[地道美食地图](https://github.com/LanceCong/gourmet_map)
 
-
 2. ### 出发吧一起
 > 点击查看[出发吧一起](https://github.com/dmego/together)
 
@@ -119,22 +118,14 @@ PS:更多请参考Bmob Demo里面的群聊功能。
 5. ### 灵动云课堂小程序端
 > 点击查看[灵动云课堂小程序端](https://gitee.com/laeser/course)
 
-6. ### 灵犀外卖
-> 点击查看[灵犀外卖](https://gitee.com/laeser/dinner)
-
-
-
 ## Bmob入门示例
 * 源码包含增删改查
 
 [快速入门相关源码下载](https://github.com/magic007/wechatAppDemo "快速入门相关源码下载")
 
-
 ## 混合开发示例
 
-地址：
-
-https://github.com/bmob/ithome-lite
+点击查看[混合开发实例下载](https://github.com/bmob/ithome-lite)
 
 源码基于`MPVUE` 框架发布时，可以生成小程序源码、H5源码
 
@@ -202,15 +193,13 @@ https://github.com/bmob/ithome-lite
 
 29.海南黎家特产
 
-30. 轩宇工具
+30.轩宇工具
 
 31.在旅途看世界
 
 32.寻遍美食地图
 
-33.Bmob示例
-
-34. 鲁山拼车
+33.鲁山拼车
 
 33.莲馨图书室          图书馆-扫描借书
 
@@ -371,6 +360,5 @@ https://github.com/bmob/ithome-lite
 3.棋头并进		多人实时数据对战
 
 4.最强钓鱼人
-
 
 >官方交流QQ群：372103594 。欢迎提交给我们
