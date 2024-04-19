@@ -50,7 +50,7 @@ Bmob.initialize("你的Secret Key", "你的API 安全码");
 
 ![](image/w6.png)
 
-### 查询表中数据
+## 查询表中数据
 
 示例代码如下：
 
