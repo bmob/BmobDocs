@@ -4,7 +4,7 @@
 
 ![](image/rumen_chuangjian.png)
 
-## 配置小程序密钥和获取应用密钥
+## 配置小程序密钥
 
 登录微信的[小程序开发者后台](https://mp.weixin.qq.com/)，依次点击` 开发管理 -> 开发设置`，在`开发者ID`一栏中，获取`AppID(小程序ID)`和`AppSecret(小程序密钥)`。
 
