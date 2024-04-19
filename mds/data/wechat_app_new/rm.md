@@ -1,88 +1,56 @@
-## 注册Bmob帐号
-在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。
+## 创建你的Bmob应用
 
-![](image/rumen_zhuce.png)
-## 网站后台创建应用
-
-登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。
+登录Bmob后端云控制台，点击后台界面左上角“`创建应用`”，在弹出框输入你应用的名称，然后确认，你就拥有了一个待开发的应用。
 
 ![](image/rumen_chuangjian.png)
+
 ## 配置小程序密钥和获取应用密钥
 
-选择你要开发的应用，进入该应用
+登录微信的[小程序开发者后台](https://mp.weixin.qq.com/)，依次点击` 开发管理 -> 开发设置`，在`开发者ID`一栏中，获取`AppID(小程序ID)`和`AppSecret(小程序密钥)`。
 
-![](image/rumen_miyue_1.png)
+![](image/w1.png)
 
-在跳转页面，进入设置/应用密钥，将你的AppID(小程序ID)和AppSecret(小程序密钥)填写到Bmob中
+回到Bmob后端云控制台，进入到你刚刚创建的应用中，依次点击` 设置 -> 应用配置`，在 `微信小程序帐号服务配置` 一栏中，将刚刚获取到的 `AppID` 和 `AppSecret` 对应填写上去。
 
-![](image/rumen_wxmiyao.png)
-![](image/rumen_miyaopeizhi.png)
+![](image/w2.png)
 
+## 配置小程序服务器域名
 
-在下图位置点击复制，即可得到Application ID和REST API Key
+在Bmob后端云控制台，你刚刚创建的应用中，依次点击 `设置 -> 应用配置`，在`微信小程序服务器域名配置` 一栏中，你可以看到 `request合法域名`、`socket合法域名`、`uploadFile合法域名`和 `downloadFile合法域名` ，如下图所示。
 
-![](image/rumen_miyue_2.png)
+![](image/w3.png)
 
-获取Application ID和REST API Key后，下载SDK。
+将这些合法域名对应填写到 微信的小程序开发者后台中（依次点击 `开发管理 -> 开发设置`，在 `服务器域名` 一栏中）。这里需要注意的是，你只需要填写你用到的服务域名。比如，你只用到了数据访问，那就只需要填入Bmob控制台中提供的 `request合法域名` 。如下图所示：
 
-## 配置安全域名
-
-在你的微信小程序后台配置你的服务器域名
-
-在应用设置->配置里面把这几个域名填写到上图微信后台，设置https域名
-![](image/2.png)
-
-## 安装使用
-
-### 下载
-
-> https://github.com/bmob/hydrogen-js-sdk/
-
-### 安装使用
-
- **简介：**
-
-1. 整个SDK，就dist目录下Bmob.*.js 这个文件即可使用全部功能
-2. 目前支持微信小程序、H5、快应用、游戏Cocos、混合App等
+![](image/w4.png)
 
 
-
-**引入：**
+## 安装
 
 ```
-var Bmob = require('../dist/Bmob-1.0.1.min.js');
+npm install hydrogen-js-sdk
 ```
 
+以上方式仅支持在 `nodejs` 环境下的安装，更多的安装和引用方式可查看我们详细的[开发文档](https://doc.bmobapp.com/data/wechat_app_new/)。
 
+## 引入和初始化
 
-### **初始化**
-
-```
-Bmob.initialize("你的Application ID", "你的REST API Key");
-```
-
-> 接下来就可参照下面的文档使用,
->
->  `nodejs`请使用源码引入 app.js ，初始化与其他一样
+引入和初始化代码如下：
 
 ```
-var Bmob = require('./src/lib/app.js');
+import Bmob from "hydrogen-js-sdk";
+Bmob.initialize("你的Secret Key", "你的API 安全码");
 ```
+
+其中，`Secret Key`在Bmob控制台`你创建的应用 -> 设置 -> 应用密钥-> Secret Key` 中找到。
+`API 安全码`在Bmob控制台`你创建的应用 -> 设置 -> 安全验证-> API安全码` 中进行设置。
+
+![](image/w5.png)
+![](image/w6.png)
 
 ### 查询表中数据
 
- **简介：**
-
-返回你表的数据列表，默认创建时间排序，默认取100条数据，下面文档可以增加条件。
-
- **参数说明：**
-
-| 参数      | 类型   | 必填 | 说明           |
-| --------- | ------ | ---- | -------------- |
-| tableName | string | 是   | 数据表名       |
-| res       | string | 是   | 返回的数据集合 |
-
-**请求示例：**
+示例代码如下：
 
 ```
 const query = Bmob.Query("tableName");
@@ -91,14 +59,15 @@ query.find().then(res => {
 });
 ```
 
-**返回： **
+`tableName`是你在Bmob控制台你的应用中创建的表的名称，`res`返回这个表的数据集合，默认是按`创建时间`排序的`100`条记录。
 
-表中数据
+更多增删改查的例子，请查看我们详细的[开发文档](https://doc.bmobapp.com/data/wechat_app_new/)。
+
 
 ## WebSocket 通讯（聊天）
 ### 使用实时数据平台的js
 
-一、对实时数据对象进行初始化
+1、对实时数据对象进行初始化
 
 ```
 let BmobSocketIo =new Bmob.Socket()
@@ -106,7 +75,7 @@ let BmobSocketIo =new Bmob.Socket()
 
 ###
 
-二、监听表
+2、监听表
 
 ```
 
@@ -131,8 +100,6 @@ PS:更多请参考Bmob Demo里面的群聊功能。
 ![小程序聊天室](image/chat.png "Title")
 
 ## 优秀开源
-
-
 
 1. ### 地道美食地图
 > 点击查看[地道美食地图](https://github.com/LanceCong/gourmet_map)
@@ -168,8 +135,6 @@ PS:更多请参考Bmob Demo里面的群聊功能。
 https://github.com/bmob/ithome-lite
 
 源码基于`MPVUE` 框架发布时，可以生成小程序源码、H5源码
-
-
 
 ## 部分小程序案例
 
@@ -404,8 +369,6 @@ https://github.com/bmob/ithome-lite
 3.棋头并进		多人实时数据对战
 
 4.最强钓鱼人
-
-
 
 
 >官方交流QQ群：372103594 。欢迎提交给我们
