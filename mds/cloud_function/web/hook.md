@@ -15,6 +15,7 @@
 
 ## 设置数据钩子
 
+在应用设置中添加数据钩子设置。
 
 ## 限制或者允许某些表的增删改查
 
@@ -105,8 +106,9 @@ function onRequest(request, response, modules) {
     let backData = {
         "success": "ok",
         "data": JSON.stringify(data)
-    }
-    response.send(backData)
+    };
+
+    response.send(backData);
 }
 
 ```

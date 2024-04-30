@@ -59,6 +59,7 @@ pages:
     - '云函数开发文档':
         - '快速入门': 'cloud_function/web/index.md'
         - '开发文档': 'cloud_function/web/develop_doc.md'
+        - '数据钩子': 'cloud_function/web/hook.md'
         - '定时任务': 'cloud_function/web/timing_tasks.md'
         - '微信云函数': 'cloud_function/web/weixin.md'
         - '编码规范': 'cloud_function/web/norm.md'
