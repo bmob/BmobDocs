@@ -34,6 +34,8 @@ function onRequest(request, response, modules) {
 }
 ```
 
+其中，`request.body`会携带客户端上传上来的参数列表。
+
 ## 云函数的调用
 
 以下提供Android和iOS平台调用云函数的示例代码，更多语言请查看我们的开发文档。
