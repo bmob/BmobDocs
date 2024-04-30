@@ -585,42 +585,6 @@
 												
 											</li>
 												
-											<li class=""><a href="#_35">消息推送对象</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_36">安装消息推送服务</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#installation">保存installation</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_37">订阅频道和退订</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_40">广播推送消息</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_41">组播推送消息</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_42">多播推送消息</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_47">点播推送消息</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_48">发送选项设置</a></li>
-												</ul>
-												
-											</li>
-												
 											<li class=""><a href="#http_1">HTTP请求对象</a>
 												
 											</li>
@@ -629,7 +593,7 @@
 												
 											</li>
 												
-											<li class=""><a href="#_51">事件对象</a>
+											<li class=""><a href="#_35">事件对象</a>
 												
 											</li>
 												
@@ -653,26 +617,26 @@
 												
 											</li>
 												
-											<li class=""><a href="#_52">时间格式化类</a>
+											<li class=""><a href="#_36">时间格式化类</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_53">格式化示例</a></li>
+													<li><a class="itm-l2" href="#_37">格式化示例</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_54">相对时间</a></li>
+													<li><a class="itm-l2" href="#_38">相对时间</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_55">日历时间</a></li>
+													<li><a class="itm-l2" href="#_39">日历时间</a></li>
 												</ul>
 												
 											</li>
 												
-											<li class=""><a href="#_56">云函数调试工具</a>
+											<li class=""><a href="#_40">云函数调试工具</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_57">网页在线调试工具</a></li>
+													<li><a class="itm-l2" href="#_41">网页在线调试工具</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
@@ -681,11 +645,11 @@
 												
 											</li>
 												
-											<li class=""><a href="#_58">错误对象</a>
+											<li class=""><a href="#_42">错误对象</a>
 												
 											</li>
 												
-											<li class=""><a href="#_59">日志对象</a>
+											<li class=""><a href="#_43">日志对象</a>
 												
 											</li>
 												
@@ -1553,371 +1517,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 
 </code></pre>
 
-<h2 id="_35">消息推送对象<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
-<p>推送通知是让用户及时被通知、和你的应用保持联系的一种非常棒的方式，你可以快速而有效地通知到所有的用户，下面这个教程将会教会你使用Bmob来推送消息。用下面的方法来获取消息推送对象：</p>
-<pre><code>  var push = modules.oPush;
-
-</code></pre>
-
-<h3 id="_36">安装消息推送服务<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
-<p>每一个Bmob的App安装在用户设备后，如果要使用消息推送功能，Bmob SDK会自动生成一个Installation对象。Installation对象包含了推送所需要的所有信息。举例：一个棒球的App，你可以让用户订阅感兴趣的棒球队，然后及时将这个球队的消息推送给用户 。</p>
-<p>Installation对象有几个系统默认的特殊字段来帮助你的管理和定位到设备：
-- <code>badge</code> : iOS应用中右上角的图标标识
-- <code>channels</code> : 当前这个设备订阅的渠道名称数组
-- <code>timeZone</code> : 设备所在位置的时区， 如Asia/Shanghai，这个会在每个Installation对象更新时同步（只读）
-- <code>deviceType</code> : 设备的的类型, 值为："ios" 或 "android" (只读)
-- <code>installationId</code> : Bmob使用的设备唯一号，Android设备是必须的，iOS可选 (只读)
-- <code>deviceToken</code> : iOS设备由Apple APNS生成的唯一性token标识 (只读)</p>
-<h3 id="installation">保存installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
-<h4 id="iosdevicetoken">保存iOS设备的deviceToken<a class="headerlink" href="#iosdevicetoken" title="Permanent link">&para;</a></h4>
-<p>iOS设备通常使用deviceToken来惟一标识一台设备。</p>
-<pre><code>  push.add({
-    &quot;data&quot;:{
-        &quot;deviceType&quot;: &quot;ios&quot;,
-        &quot;deviceToken&quot;: &quot;abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789&quot;,
-        &quot;channels&quot;: [
-          &quot;Giants&quot;
-        ]
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h4 id="androidinstallationid">保存Android设备的installationId<a class="headerlink" href="#androidinstallationid" title="Permanent link">&para;</a></h4>
-<p>对于Android设备，SDK会自动生成uuid作为installationId保存到Bmob。 您可以使用以下云函数保存Android设备的installation ID：</p>
-<pre><code>  push.add({
-    &quot;data&quot;:{
-        &quot;deviceType&quot;: &quot;android&quot;,
-        &quot;installationId&quot;: &quot;12345678-4312-1234-1234-1234567890ab&quot;,
-        &quot;channels&quot;: [
-          &quot;Giants&quot;
-        ]
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<p>你还可以更新Installation对象的更多属性，用来查询installationId，定制更通用的推送：</p>
-<pre><code>  push.update({
-    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
-    &quot;data&quot;:{
-        &quot;scores&quot;: true,
-        &quot;gameResults&quot;: true,
-        &quot;injuryReports&quot;: true
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h4 id="windows-phone-notificationuri">保存Windows Phone设备的 notificationUri<a class="headerlink" href="#windows-phone-notificationuri" title="Permanent link">&para;</a></h4>
-<p>对于Windows Phone设备，BmobSDK会自动从Windows Push Center获取到notificationUri并保存到 Bmob。 你可以使用以下REST API保存Windows Phone设备的notificationUri：</p>
-<pre><code>  push.add({
-    &quot;data&quot;:{
-        &quot;deviceType&quot;: &quot;windows phone&quot;,
-        &quot;notificationUri&quot;: &quot;https://hk1.notify.live.net/unthrottledthirdparty/01.00/AQHgHh6EuwNtTa1TbwvaAjnmAgAAAAADEAAAAAQUZm52OkZDM0U5RDkxQzIzREJBNDYFBkFTRUEwMQ&quot;,
-        &quot;channels&quot;: [
-          &quot;Giants&quot;
-        ]
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h3 id="_37">订阅频道和退订<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
-<h4 id="_38">订阅频道<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
-<p>覆盖已订阅的频道：</p>
-<pre><code>  push.update({
-    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
-    &quot;data&quot;:{
-        &quot;channels&quot;: [
-          &quot;Giants&quot;,
-          &quot;Mets&quot;
-        ]
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<p>订阅一个新频道，不覆盖已订阅的频道：</p>
-<pre><code>  push.update({
-    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
-    &quot;data&quot;:{
-        &quot;channels&quot;:{&quot;__op&quot;:&quot;AddUnique&quot;,&quot;objects&quot;:[&quot;Giants111&quot;]}
-    }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h4 id="_39">退订频道<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h4>
-<pre><code>  push.update({
-    &quot;objectId&quot;:&quot;400a12ed3a&quot;,
-    &quot;data&quot;:{
-        &quot;channels&quot;:{&quot;__op&quot;:&quot;Remove&quot;,&quot;objects&quot;:[&quot;Giants&quot;,&quot;Mets&quot;]}
-    }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h3 id="_40">广播推送消息<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h3 id="_41">组播推送消息<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
-<p>发送给订阅了Giants频道的用户</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;:{
-          &quot;channels&quot;:[&quot;Giants&quot;]
-        },
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
-        }
-      }
-  },function(err,data){删除数据
-     //回调函数
-  });
-
-</code></pre>
-
-<p>或者更简便的方式</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;channels&quot;:[&quot;Giants&quot;],
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h3 id="_42">多播推送消息<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
-<h4 id="_43">推送给不活跃的用户<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;:{
-            &quot;updatedAt&quot;:{
-                &quot;$lt&quot;:{&quot;__type&quot;:&quot;Date&quot;,&quot;iso&quot;:&quot;2014-01-29 11:33:53&quot;}
-              }
-        },
-        &quot;data&quot;: {
-            &quot;alert&quot;: &quot;Hello From Bmob.&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h4 id="_44">根据查询条件做推送<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;: {
-          &quot;scores&quot;: true
-        },
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Willie Hayes injured by own pop fly.&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<p>请注意，where 条件查询的都是 installations 表。这里是假设 installations 表存储了 scores 的布尔属性，你可以像查询普通对象一样构造where查询</p>
-<h4 id="_45">根据平台做推送<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;: {
-          &quot;deviceType&quot;: &quot;android&quot;
-        },
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Your suitcase has been filled with tiny robots!&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;: {
-          &quot;deviceType&quot;: &quot;ios&quot;
-        },
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Your suitcase has been filled with tiny robots!&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h4 id="_46">根据地理信息位置做推送<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;: {
-          &quot;user&quot;: {
-            &quot;$inQuery&quot;: {
-              &quot;location&quot;: {
-                &quot;$nearSphere&quot;: {
-                  &quot;__type&quot;: &quot;GeoPoint&quot;,
-                  &quot;latitude&quot;: 30.0,
-                  &quot;longitude&quot;: -20.0
-                },
-                &quot;$maxDistanceInMiles&quot;: 1.0
-              }
-            }
-          }
-        },
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Free hotdogs at the bmob concession stand!&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<p>上面的例子假设 installation 有个 user 属性指向_User 表的记录，并且用户有个 location 属性是 GeoPoint 类型，我们就可以根据地理信息位置做推送。</p>
-<h3 id="_47">点播推送消息<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
-<p>发送给Android单个客户端</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;:{
-            &quot;installationId&quot;:&quot;12345678-4312-1234-1234-1234567890ab&quot;
-            },
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<p>发送给iOS单个客户端</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;where&quot;:{
-            &quot;deviceToken&quot;:&quot;abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789&quot;
-            },
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Hello From Bmob.&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-
-</code></pre>
-
-<h3 id="_48">发送选项设置<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
-<p>推送通知不仅仅可以用来发送消息，iOS中，推送内容还可以包含要播放的声音和要显示的badge数字值,还可以定制任何你想发送的内容，对于Android，你甚至可以指定Intent应用于接收消息，对于时间性有要求的消息您还可以设置一个消息过期时间。</p>
-<h4 id="_49">定制您的通知<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h4>
-<p>如果你想发送更多的消息，你可以在data的字典对象中设置其他字段，下面这些保留的字段有其特殊的意义：
-- <code>alert</code> : 通知的消息内容
-- <code>badge</code> : (仅iOS)一个数字值将会高亮显示在应用图标的右上角
-- <code>sound</code> : (仅iOS)应用绑定包中的声音文件
-- <code>content-available</code> : (仅iOS)如果你的应用是新闻类的，或者你的应用正在使用iOS7的Remote Notification Background Mode，设定这个值为1将为触发离线下载功能。
-- <code>action</code> : (仅Android)接收到推送消息时应用Intent，如果没有指定title或alert，Intent将被应用，但是没有通知呈现给用户。
-- <code>title</code> : (仅Android)这个值将显示在系统通知栏</p>
-<p>例如，推送一条通知，将当前的badge值自增1,并且播放iOS设备上定制的音乐，对于Android用户，将在系统通知栏中显示特殊的标题，则请求如下：</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;channels&quot;: [
-          &quot;Giants&quot;
-        ],
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;The Mets scored! The game is now tied 1-1.&quot;,
-          &quot;badge&quot;: 1,
-          &quot;sound&quot;: &quot;cheering.caf&quot;,
-          &quot;title&quot;: &quot;Mets Score!&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-</code></pre>
-
-<p>当然，你也可以在data字典对象中定制自己的字段，推送消息，但不显示在 Andoid 系统的通知栏中，而是执行应用程序预定义的逻辑，Android或iOS接收消息文档中对此有说明，iOS只有当用户从通知中打开应用，才能访问data的数据，Android将提供这个数据在action Intent应用之后,</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;channels&quot;: [
-          &quot;Giants&quot;
-        ],
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;The Mets scored! The game is now tied 1-1.&quot;,
-          &quot;badge&quot;: &quot;Increment&quot;,
-          &quot;sound&quot;: &quot;cheering.caf&quot;,
-          &quot;title&quot;: &quot;Mets Score!&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-</code></pre>
-
-<h4 id="_50">设置消息过期时间<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
-<p>过期时间，可以是绝对时间：</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;expiration_time&quot;: &quot;2015-12-04 00:51:13&quot;,
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Season tickets on sale until December  4, 2013&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-</code></pre>
-
-<p>也可以是相对时间（根据push_time做定期推送，从push_time时间开始算起，直到expiration_interval时间后过期），下面请求表示消息将在2012-01-28 00:51:13这个时间点开始推送，直到7天后过期:</p>
-<pre><code>  push.send({
-    &quot;data&quot;:{
-        &quot;push_time&quot;: &quot;2012-01-28 00:51:13&quot;,
-        &quot;expiration_interval&quot;: 518400,
-        &quot;data&quot;: {
-          &quot;alert&quot;: &quot;Season tickets on sale until December  4, 2013&quot;
-        }
-      }
-  },function(err,data){
-     //回调函数
-  });
-</code></pre>
-
 <h2 id="http_1">HTTP请求对象<a class="headerlink" href="#http_1" title="Permanent link">&para;</a></h2>
 <p>oHttp对象可以模拟实现get、post、put、delete等各种HTTP请求信息，让你在云端实现诸如数据采集、OAuth授权登录等功能。Bmob的HTTP请求模块采用Nodejs提供的request模块，这里提供简单的Get和Post的操作实例。更多的功能详细参考：<a href="https://npmjs.org/package/request">https://npmjs.org/package/request</a></p>
 <pre><code>/**
@@ -1990,7 +1589,7 @@ function onRequest(request, response, modules) {
 }
 </code></pre>
 
-<h2 id="_51">事件对象<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h2>
+<h2 id="_35">事件对象<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
 <p>oEvent，也就是eventproxy模块，解决异步回调的问题。</p>
 <p>更多的功能详细参考：<a href="https://github.com/JacksonTian/eventproxy">https://github.com/JacksonTian/eventproxy</a></p>
 <pre><code>function onRequest(request, response, modules) {
@@ -2168,7 +1767,7 @@ function onRequest(request, response, modules) {
 }
 </code></pre>
 
-<h2 id="_52">时间格式化类<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h2>
+<h2 id="_36">时间格式化类<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
 <p>获取当前时间，格式化为  <code>2022-11-18 14:36:03</code> 。</p>
 <pre><code>function onRequest(request, response, modules) {
     let moment = modules.oMoment
@@ -2177,7 +1776,7 @@ function onRequest(request, response, modules) {
 }
 </code></pre>
 
-<h3 id="_53">格式化示例<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<h3 id="_37">格式化示例<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <pre><code>moment().format('MMMM Do YYYY, h:mm:ss a'); // 十月 18日 2021, 2:38:27 下午
 moment().format('dddd');                    // 星期一
 moment().format(&quot;MMM Do YY&quot;);               // 10月 18日 21
@@ -2185,7 +1784,7 @@ moment().format('YYYY [escaped] YYYY');     // 2021 escaped 2021
 moment().format();                          // 2021-10-18T14:38:27+08:00
 </code></pre>
 
-<h3 id="_54">相对时间<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<h3 id="_38">相对时间<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
 <pre><code class="js">moment(&quot;20111031&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 10 年前
 moment(&quot;20120620&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 9 年前
 moment().startOf('day').fromNow();        // 15 小时前
@@ -2194,7 +1793,7 @@ moment().startOf('hour').fromNow();       // 39 分钟前
                                           // undefined
 </code></pre>
 
-<h3 id="_55">日历时间<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<h3 id="_39">日历时间<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
 <pre><code class="js">moment().subtract(10, 'days').calendar(); // 2021/10/08
 moment().subtract(6, 'days').calendar();  // 上星期二14:38
 moment().subtract(3, 'days').calendar();  // 上星期五14:38
@@ -2206,10 +1805,10 @@ moment().add(10, 'days').calendar();      // 2021/10/28
                                           // undefined
 </code></pre>
 
-<h2 id="_56">云函数调试工具<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h2>
+<h2 id="_40">云函数调试工具<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<h3 id="_57">网页在线调试工具<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<h3 id="_41">网页在线调试工具<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
 </li>
 </ol>
 <p>为方便开发者调试云函数，Bmob为开发者提供了便捷的云端调试工具，你可以直接在云函数的编辑页面下对编写的代码进行调试，如实现从Bar表中查找指定objectId号（SDK中上传参数）的数据，你可以在云函数中实现如下：</p>
@@ -2234,7 +1833,7 @@ moment().add(10, 'days').calendar();      // 2021/10/28
 <p>有时我们开发的云函数，可能上百行代码，在网页不太方便，这时我们可以使用自己习惯的开发工具来编写代码，通过<strong>Bmobup</strong>命令来调试上传，Bmob平台Node、Java云函数本地开发调试工具,增加云函数开发效率，支持<code>Mac</code>,<code>Windows</code>,<code>liunx</code>系统 。它的流程会把你本地写的代码，提交到Bmob应用云函数并返回结果。</p>
 <p>项目地址：</p>
 <p>https://github.com/bmob/bmobup</p>
-<h2 id="_58">错误对象<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<h2 id="_42">错误对象<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
 <p>Bmob提供的官方模块（非第三方）的错误回调中都会有一个<code>err</code>对象，这个<code>err</code>对象包含两个属性：<code>error</code>和<code>code</code>，分别代表错误异常信息和错误代码。调用时可以简单如下使用：</p>
 <pre><code>function onRequest(request, response, modules) {
     var db = modules.oData;
@@ -2249,7 +1848,7 @@ moment().add(10, 'days').calendar();      // 2021/10/28
 }
 </code></pre>
 
-<h2 id="_59">日志对象<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h2>
+<h2 id="_43">日志对象<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
 <p><strong> 这个功能已暂时停用 </strong></p>
 <p>oLog 是一个日志对象，当程序调试时，可以把对应变量的值写入日志表。</p>
 <pre><code>function onRequest(request, response, modules) {
