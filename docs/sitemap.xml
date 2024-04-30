@@ -106,6 +106,12 @@
     
         
     <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/cloud_function/android/</loc>
      <lastmod>2024-04-30</lastmod>
      <changefreq>daily</changefreq>
@@ -150,12 +156,6 @@
     <url>
      <loc>/cloud_function/restful/</loc>
      <lastmod>2024-04-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc></loc>
-     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
