@@ -420,14 +420,18 @@
 										
 										<ul class="nav">
 											
-											<li class="active "><a href="#_1">云函数开发快速入门</a>
+											<li class="active "><a href="#_1">创建云函数</a>
+												
+											</li>
+												
+											<li class=""><a href="#_2">云函数的调用</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_2">创建云函数</a></li>
+													<li><a class="itm-l2" href="#android">Android调用云函数</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_3">云函数的调用</a></li>
+													<li><a class="itm-l2" href="#ios">iOS调用云函数</a></li>
 												</ul>
 												
 											</li>
@@ -475,9 +479,8 @@
                 <div class="wrap">
                     
 
-<h1 id="_1">云函数开发快速入门<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Bmob的云函数是一个非常强大的模块，提供了云端代码的直接编写、数据钩子、定时任务等子模块，可以实现定时计算游戏的排行榜、拦截非法请求、处理复杂逻辑、动态调整等功能。</p>
-<h2 id="_2">创建云函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">创建云函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在Bmob后台中，进入应用，依次点击“云函数-&gt;添加方法”，在弹出窗口中输入云函数的方法名。如下图所示：</p>
 <p>注意：<code>方法名会在SDK调用时使用到</code>。</p>
 <p><img alt="" src="./image/create.png" /></p>
@@ -508,7 +511,7 @@
 </code></pre>
 
 <p>其中，<code>request.body</code>会携带客户端上传上来的参数列表。</p>
-<h2 id="_3">云函数的调用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">云函数的调用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>以下提供Android和iOS平台调用云函数的示例代码，更多语言请查看我们的开发文档。</p>
 <h3 id="android">Android调用云函数<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
 <pre><code class="java">//test对应你刚刚创建的云函数方法名
