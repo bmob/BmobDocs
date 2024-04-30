@@ -212,16 +212,6 @@ XML格式讲解：
 
 各种类型的消息详解，请查看微信开发文档：[https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html](https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html "公众号的各种消息类型")
 
-## 总结
-
-通过本教程，你得到了以下收获：
-
-- 了解bmob应用和云函数的功能。
-- 在不需要搭建服务器，不需要懂得基本的运维知识下，使用bmob云函数在30分钟内实现微信公众平台的开发，完了消息存储和消息自动回复这两个功能。
-
-阅读本教程后，想了解云后端服务bmob可以实现哪些更酷的功能吗？点击[http://www.bmobapp.com](http://www.bmobapp.com "这里")，立刻进入bmob了解更多。
-
-
 
 
 
