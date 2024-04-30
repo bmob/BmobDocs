@@ -484,10 +484,18 @@
 <p><img alt="" src="./image/create1.png" /></p>
 <p>接着，你就可以在云函数的编辑器中撰写云函数了。</p>
 <p>云函数支持<code>NodeJs</code>语言，编写非常简单，你只需要在<code>onRequest</code>方法中编写你的业务逻辑代码就可以了。</p>
-<p><code>onRequest</code>方法包含3个参数，分别是：
-- <code>request</code>（请求对象，可以从中获取SDK上传的参数）
-- <code>response</code>（回应对象，可以将云函数的执行结果返回到SDK中）,
-- <code>modules</code>（可调用的模块，包含数据库对象、HTTP对象等）。</p>
+<p><code>onRequest</code>方法包含3个参数，分别是：</p>
+<ul>
+<li>
+<p><code>request</code>（请求对象，可以从中获取SDK上传的参数）</p>
+</li>
+<li>
+<p><code>response</code>（回应对象，可以将云函数的执行结果返回到SDK中）,</p>
+</li>
+<li>
+<p><code>modules</code>（可调用的模块，包含数据库对象、HTTP对象等）。</p>
+</li>
+</ul>
 <p>为方便演示，这里简单实现一个功能：接收客户端传上来的<code>name</code>参数，根据<code>name</code>的值返回不同的结果。示例代码如下：</p>
 <pre><code class="java">function onRequest(request, response, modules) {
   //获取SDK客户端上传的name参数
