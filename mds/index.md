@@ -207,7 +207,7 @@
 						</div>
 						<h3 class="title">云函数</h3>
 						<div class="text-left">
-							<ul class="links">
+							<ul class="links else">
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/index.html" class="intro" >云函数编写文档</a></li>
 								<li><s class="languageType"></s><a href="./cloud_function/android/index.html" class="intro" >Android调用</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./cloud_function/ios/index.html" class="intro" >iOS调用</a></li>
