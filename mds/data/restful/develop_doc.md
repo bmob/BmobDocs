@@ -23,52 +23,68 @@ Unity访问RestApi：[https://github.com/bmob/Bmob-Unity-Demo](https://github.co
 
 
 ## 请求格式
+
 对于POST和PUT请求，请求的主体必须是JSON格式,而且HTTP请求头的 **Content-Type** 需要设置为 **application/json** 。
 
 用户验证是通过HTTP请求头来进行的, **X-Bmob-Application-Id** 头表明你正在访问的是哪个App程序, 而 **X-Bmob-REST-API-Key** 头是用来授权的。在下面的例子中，你必须使用正确的key替换Your Application ID和Your REST API Key才能正常地发出Curl请求。
 
 
 
-## 加密请求格式
+## 请求header
+
+Bmob后端云支持两种Restful API的header的授权方式。
+
+- 简易授权方式
+
+简易授权方式只需要在header中提供 `X-Bmob-Application-Id` 和 `X-Bmob-REST-API-Key` 其中，`X-Bmob-Application-Id` 头表明你正在访问的是哪个App程序, 而 `X-Bmob-REST-API-Key` 头是用来授权的。
+
+```
+curl -X GET \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    https://自己备案域名/1/classes/GameScore/e1kXT22L
+
+```
+
+- 加密授权方式
 
 17年之前，Restful API 一直是沿用 **X-Bmob-Application-Id** 与 **X-Bmob-REST-API-Key** 头是用来授权的，由于17年Bmob推出微信小程序SDK，进而推出了新的加密请求头方式在小程序端使用，经过1年多的客户良好反馈，现在加密方式开放给API模块使用。
 
-
+简易授权方式适合服务端或者不公开对外运行的那些应用，不需要担心抓包破解的问题。加密授权方式更适合公开客户端模式的应用，header头的格式如下：
 
 ```
 curl -X GET \
     -H 'content-type: application/json'
-    -H 'X-Bmob-SDK-Type: API'
-    -H 'X-Bmob-Safe-Sign: abf91342a4103732cbcf8d8a727065da'
-    -H 'X-Bmob-Safe-Timestamp: 1583920308'
-    -H 'X-Bmob-Noncestr-Key: mI7dRHI4gbai0KaU'
+    -H 'X-Bmob-SDK-Type: wechatApp'
     -H 'X-Bmob-Secret-Key: bc7814ffb203da9f'
+    -H 'X-Bmob-Noncestr-Key: mI7dRHI4gbai0KaU'
+    -H 'X-Bmob-Safe-Timestamp: 1583920308'
+    -H 'X-Bmob-Safe-Sign: abf91342a4103732cbcf8d8a727065da'
+    -H 'X-Bmob-SDK-Version: 10'
     https://自己备案域名/1/classes/GameScore/e1kXT22L
 ```
 
-
-
 | 参数                  | 类型   | 参数说明                                                     |
 | --------------------- | ------ | ------------------------------------------------------------ |
-| X-Bmob-SDK-Type       | string | SDK类型，这里固定API                                         |
-| X-Bmob-Safe-Timestamp | int    | 客户端请求的 unix 时间戳（UTC），精确到毫秒                  |
+| X-Bmob-SDK-Type       | string | SDK类型，目前固定为 `wechatApp`                                         |
+| X-Bmob-Safe-Timestamp | string | 客户端请求的 unix 时间戳（UTC），精确到毫秒，长度13位字符      |
 | X-Bmob-Noncestr-Key   | string | 客户端请求产生的一个随机码，长度16个字符                     |
 | X-Bmob-Secret-Key     | string | Bmob控制台应用密匙 **Secret Key**                            |
-| X-Bmob-Safe-Sign      | string | md5 签名，签名规则 md5(url + timeStamp + safeToken + noncestr) ，具体 看下面介绍 |
+| X-Bmob-SDK-Version       | string | SDK版本，当前固定为 `10`                                         |
+| X-Bmob-Safe-Sign      | string | md5 签名，签名规则 md5(url + timeStamp + SecurityCode + noncestr + body + SDKVersion) ，具体 看下面介绍 |
 
 > 以上所有参数必填，请求时间客户端到服务器请求必须10s内，如果客户端手机时间不对，则无法请求。
 
-MD5加密规则说明
+MD5加密规则说明：
 
 | 参数      | 参数说明                                                     |
 | --------- | ------------------------------------------------------------ |
 | url       | 例如请求 https://自己备案域名/1/classes/GameScore/e1kXT22L 他的url则为『**/1/classes/GameScore/e1kXT22L** 』如果get请求后面带?aa=1 则不算url加密参数之中 |
 | timeStamp | 客户端请求的 unix 时间戳（UTC），精确到毫秒                  |
-| safeToken | 自定义API安全码，不通过网络传输。设置 **API 安全码**: 在应用功能设置，安全验证，API安全码自己设置长度为6个字符 |
+| SecurityCode | 自定义API安全码，不通过网络传输。设置 **API 安全码**: 在应用功能设置，安全验证，API安全码，可自行设置|
 | noncestr  | 客户端请求产生的一个随机码，长度16个字符                     |
-
-由于部分客户担心之前密匙已经泄露，控制台给新方法方式加了一个设置，关闭原有 **X-Bmob-Application-Id** 访问方式，具体设置请进入在应用功能设置，安全验证里面关闭。
-
+| body | 客户端请求的json内容，仅`POST`和`PUT`请求类型需要，其他类型均为空值                  |
+| SDKVersion | 目前固定为 `10` |
 
 
 ## 响应格式
