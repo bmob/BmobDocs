@@ -26,9 +26,6 @@ Unity访问RestApi：[https://github.com/bmob/Bmob-Unity-Demo](https://github.co
 
 对于POST和PUT请求，请求的主体必须是JSON格式,而且HTTP请求头的 **Content-Type** 需要设置为 **application/json** 。
 
-用户验证是通过HTTP请求头来进行的, **X-Bmob-Application-Id** 头表明你正在访问的是哪个App程序, 而 **X-Bmob-REST-API-Key** 头是用来授权的。在下面的例子中，你必须使用正确的key替换Your Application ID和Your REST API Key才能正常地发出Curl请求。
-
-
 
 ## 请求header
 
