@@ -729,7 +729,6 @@
 <p>Unity访问RestApi：<a href="https://github.com/bmob/Bmob-Unity-Demo">https://github.com/bmob/Bmob-Unity-Demo</a></p>
 <h2 id="_3">请求格式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>对于POST和PUT请求，请求的主体必须是JSON格式,而且HTTP请求头的 <strong>Content-Type</strong> 需要设置为 <strong>application/json</strong> 。</p>
-<p>用户验证是通过HTTP请求头来进行的, <strong>X-Bmob-Application-Id</strong> 头表明你正在访问的是哪个App程序, 而 <strong>X-Bmob-REST-API-Key</strong> 头是用来授权的。在下面的例子中，你必须使用正确的key替换Your Application ID和Your REST API Key才能正常地发出Curl请求。</p>
 <h2 id="header">请求header<a class="headerlink" href="#header" title="Permanent link">&para;</a></h2>
 <p>Bmob后端云支持两种Restful API的header的授权方式。</p>
 <ul>
@@ -746,7 +745,6 @@
 <ul>
 <li>加密授权方式</li>
 </ul>
-<p>17年之前，Restful API 一直是沿用 <strong>X-Bmob-Application-Id</strong> 与 <strong>X-Bmob-REST-API-Key</strong> 头是用来授权的，由于17年Bmob推出微信小程序SDK，进而推出了新的加密请求头方式在小程序端使用，经过1年多的客户良好反馈，现在加密方式开放给API模块使用。</p>
 <p>简易授权方式适合服务端或者不公开对外运行的那些应用，不需要担心抓包破解的问题。加密授权方式更适合公开客户端模式的应用，header头的格式如下：</p>
 <pre><code>curl -X GET \
     -H 'content-type: application/json'
