@@ -420,7 +420,7 @@
 										
 										<ul class="nav">
 											
-											<li class="active "><a href="#_1">设置数据钩子</a>
+											<li class="active "><a href="#_1">开启和设置数据钩子</a>
 												
 											</li>
 												
@@ -510,9 +510,15 @@
 <li>
 <p>对客户端上传的数据进行二次校验和处理。</p>
 </li>
+<li>
+<p>对查询的数据进行二次处理。</p>
+</li>
 </ul>
-<h2 id="_1">设置数据钩子<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>在应用设置中添加数据钩子设置。</p>
+<h2 id="_1">开启和设置数据钩子<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在 <code>应用</code> -&gt; <code>设置</code> -&gt; <code>钩子配置</code> 中开启钩子和设置对应的云函数，如下图所示。</p>
+<p><img alt="" src="../image/hookset.png" /></p>
+<p>上面的例子中，针对这个应用的所有新增数据的请求，都会先转到 <code>test</code> 这个云函数先进行处理。</p>
+<p>这里需要注意的是，<strong><font color="red">钩子服务是针对所有表的处理</font></strong>，如果你设置了钩子，建议一定要加上对表名的判定，以免造成错误。</p>
 <h2 id="_2">限制或者允许某些表的增删改查<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>如果我们要设置限制对 <code>Order</code> 订单表的数据请求，可以编写云函数如下：</p>
 <pre><code class="java">
@@ -520,10 +526,10 @@ function onRequest(request, response, modules) {
 
     let tableName = request.body.table;
     if(tableName==&quot;Order&quot;) {
-      return response.end({&quot;msg&quot;: tableName + &quot;表禁止操作&quot;});
+      response.end({&quot;msg&quot;: tableName + &quot;表禁止操作&quot;});
     }
     else{
-      return response.end({&quot;msg&quot;: &quot;ok&quot;});
+      response.end({&quot;msg&quot;: &quot;ok&quot;});
     }
 }
 
@@ -558,10 +564,10 @@ function onRequest(request, response, modules) {
     // 获取请求类型
     let operation = request.body.operation;
     if(operation==&quot;query&quot; ||  (ip==&quot;112.112.112.112&quot; &amp;&amp; operation!=&quot;query&quot;)){
-      return response.end({&quot;msg&quot;:&quot;ok&quot;});
+      response.end({&quot;msg&quot;:&quot;ok&quot;});
     }
     else{
-      return response.end({&quot;msg&quot;:&quot;禁止操作&quot;});
+      response.end({&quot;msg&quot;:&quot;禁止操作&quot;});
 }
 
 </code></pre>
@@ -573,10 +579,10 @@ function onRequest(request, response, modules) {
     // 获取请求平台
     let caller = request.body.caller;
     if(caller==&quot;IOS&quot;)){
-      return response.end({&quot;msg&quot;:&quot;禁止IOS访问&quot;});
+      response.end({&quot;msg&quot;:&quot;禁止IOS访问&quot;});
     }
     else{
-      return response.end({&quot;msg&quot;:&quot;ok&quot;});
+      response.end({&quot;msg&quot;:&quot;ok&quot;});
 }
 
 </code></pre>
