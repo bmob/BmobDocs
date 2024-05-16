@@ -15,9 +15,9 @@
 
 ![](image/rumen_miyue_2.png)
 
-##  导入依赖
+##  下载导入SDK包
 
-在`app`的`build.gradle`文件中添加`依赖文件`：
+打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
 	implementation 'io.github.bmob:android-sdk:3.9.4'
@@ -28,6 +28,12 @@ dependencies {
 	implementation 'com.google.code.gson:gson:2.8.5'
 }
 ```
+
+然后点击这个文件右上角的Sync Now按钮，如下图所示：
+
+![](./image/daoru.png)
+
+这时候，Gradle会自动下载Bmob SDK和需要的包，在Android Studio开发工具的右下角可以看到下载安装的进度（正常网络情况下，这个过程需要三分钟左右）。
 
 ## 创建Application子类
 新建一个继承自`Application`的子类`BmobApp`。代码如下：
