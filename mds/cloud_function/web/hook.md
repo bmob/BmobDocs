@@ -12,13 +12,20 @@
   
 - 对客户端上传的数据进行二次校验和处理。
   
+- 对查询的数据进行二次处理。
+  
 
 
-## 设置数据钩子
+## 开启和设置数据钩子
 
 
-在应用设置中添加数据钩子设置。
+在 `应用` -> `设置` -> `钩子配置` 中开启钩子和设置对应的云函数，如下图所示。
 
+![](./image/hookset.png)
+
+上面的例子中，针对这个应用的所有新增数据的请求，都会先转到 `test` 这个云函数先进行处理。
+
+这里需要注意的是，**<font color="red">钩子服务是针对所有表的处理</font>**，如果你设置了钩子，建议一定要加上对表名的判定，以免造成错误。
 
 ## 限制或者允许某些表的增删改查
 
@@ -30,10 +37,10 @@ function onRequest(request, response, modules) {
 
     let tableName = request.body.table;
     if(tableName=="Order") {
-      return response.end({"msg": tableName + "表禁止操作"});
+      response.end({"msg": tableName + "表禁止操作"});
     }
     else{
-      return response.end({"msg": "ok"});
+      response.end({"msg": "ok"});
     }
 }
 
@@ -68,10 +75,10 @@ function onRequest(request, response, modules) {
     // 获取请求类型
     let operation = request.body.operation;
     if(operation=="query" ||  (ip=="112.112.112.112" && operation!="query")){
-      return response.end({"msg":"ok"});
+      response.end({"msg":"ok"});
     }
     else{
-      return response.end({"msg":"禁止操作"});
+      response.end({"msg":"禁止操作"});
 }
 
 ```
@@ -86,10 +93,10 @@ function onRequest(request, response, modules) {
     // 获取请求平台
     let caller = request.body.caller;
     if(caller=="IOS")){
-      return response.end({"msg":"禁止IOS访问"});
+      response.end({"msg":"禁止IOS访问"});
     }
     else{
-      return response.end({"msg":"ok"});
+      response.end({"msg":"ok"});
 }
 
 ```
