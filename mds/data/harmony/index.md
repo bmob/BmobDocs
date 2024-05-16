@@ -8,7 +8,7 @@ bmob harmony sdk是Bmob后端云专门为鸿蒙系统开发的原生SDK，完全
 
 在 DevEco Studio 开发工具的命令行（Terminal）中执行下面的命令，安装Bmob Harmony SDK：
 
-```shell
+```javascript
 ohpm install @bmob/bmob 
 ```
 
