@@ -50,6 +50,7 @@
 							<ul class="links">
 								<li><s class="languageType"></s><a href="./data/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./data/ios/index.html" class="intro" >iOS</a></li>
+								<li><s class="languageType"></s><a href="./data/harmony/index.html" class="intro" >harmony鸿蒙</a></li>
 								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./data/restful/index.html" class="intro" >API 文档</a></li>
 								<li><s class="languageType" style="background-position:left -483px;"></s><a href="./data/kotlin/index.html" class="intro" >Kotlin</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >小程序</a></li>

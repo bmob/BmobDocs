@@ -25,6 +25,7 @@ pages:
         - 'libGDX': 'data/ios/lib_gdx.md'
         - 'Swift快速入门': 'data/ios/swift_quick_start.md'
         - 'Swift开发文档': 'data/ios/swift_develop_doc.md'
+    - 'harmony鸿蒙': 'data/harmony/index.md'
     - 'C#':
         - '快速入门': 'data/csharp/index.md'
         - '开发文档': 'data/csharp/develop_doc.md'
