@@ -1,5 +1,11 @@
 bmob harmony sdk是Bmob后端云专门为鸿蒙系统开发的原生SDK，完全采用ArkTS语言开发，支持云数据库、云函数、文件服务、短信服务等，帮助开发者专注前端交互，快速开发应用。
 
+## 开发案例
+
+为了方便大家更好的使用Bmob鸿蒙SDK，我们提供了一个持续更新的开发案例文档，查看地址：
+
+[https://juejin.cn/column/7369897767182352384](https://juejin.cn/column/7369897767182352384)
+
 ## 安装SDK
 
 打开 DevEco Studio 开发工具，新建一个Project。Model选择Stage，开发语言选择ArkTS，如下图所示：。
