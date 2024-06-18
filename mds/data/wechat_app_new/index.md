@@ -2124,6 +2124,73 @@ Bmob.checkMsg(content).then(res => {
 {"code":10007,"error":"CheckMsg errcode:87014, err:risky content hint: [zLf1lA01758931]"}
 ```
 
+**2024年微信新接口**
+
+```
+let userData = wx.Bmob.User.current()
+var open_Id = userData.openid;
+let data = {
+      openid: open_Id,
+      scene: 2,
+      content:content
+}
+Bmob.checkMsg2(data).then(res => {
+	console.log(res)
+}).catch(err => {
+	console.log(err)
+})
+```
+
+| 参数    | 类型   | 必填 | 说明             |
+| ------- | ------ | ---- | ---------------- |
+| openid  | string | 是   | 用户的openid参数 |
+| scene   | int    | 是   | 微信官方默认是2  |
+| content | string | 是   | 检测的内容       |
+
+```
+正常：
+{"msg":"ok"}
+违规：
+{
+   "errcode": 0,
+   "errmsg": "ok",
+   "result": {
+       "suggest": "risky",
+       "label": 20001
+   },
+   "detail": [
+       {
+           "strategy": "content_model",
+           "errcode": 0,
+           "suggest": "risky",
+           "label": 20006,
+           "prob": 90
+       },
+       {
+           "strategy": "keyword",
+           "errcode": 0,
+           "suggest": "pass",
+           "label": 20006,
+           "level": 20,
+           "keyword": "命中的关键词1"
+       },
+       {
+           "strategy": "keyword",
+           "errcode": 0,
+           "suggest": "risky",
+           "label": 20006,
+           "level": 90,
+           "keyword": "命中的关键词2"
+       }
+   ],
+   "trace_id": "60ae120f-371d5872-7941a05b"
+}
+具体字段看微信文档：
+https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/sec-center/sec-check/msgSecCheck.html
+```
+
+
+
 ####  图片检测：
 
 **简介：**
