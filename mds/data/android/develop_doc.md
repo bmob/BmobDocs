@@ -3117,14 +3117,19 @@ query.include("post[likes].author[username|email]");
 **注：include的查询对象只能为BmobPointer类型，而不能是BmobRelation类型。**
 
 
-### 内部查询
+### 关联表条件查询
 
 
-如果你在查询某个对象列表时，它们的某个字段是BmobObject类型，并且这个BmobObject匹配一个不同的查询，这种情况下可使用`addWhereMatchesQuery`方法。
+如果`A`表中有一个`Pointer`类型，指向`B`表。你现在想查询出`A`表的结果，但是需要对指向的`B`表内容`指定查询条件`，那么，就可以用 `addWhereMatchesQuery`方法。
 
-请注意，默认的 limit 限制 100 也同样作用在内部查询上。因此如果是大规模的数据查询，你可能需要仔细构造你的查询对象来获取想要的行为。
 
-例如：**查询带有图片的帖子的评论列表**:
+**请注意，默认的 limit 限制 100 也同样作用在关联表条件查询上。因此如果是大规模的数据查询，你可能需要仔细构造你的查询对象来获取想要的行为，不然会很卡。**
+
+例如：**查询评论列表，条件要求是：查询出来的评论对应的帖子是有图片的**:
+
+表结构解释如下：
+
+帖子表的名字为`Post`，评论表的名字为`Comment`。`image`是帖子表中的字段，评论表有一个字段名字为`post`（`Post`表的`Pointer`），指向这条评论对应的帖子。
 
 ```java
 BmobQuery<Comment> query = new BmobQuery<Comment>();
@@ -3132,7 +3137,7 @@ BmobQuery<Post> innerQuery = new BmobQuery<Post>();
 innerQuery.addWhereExists("image", true);
 // 第一个参数为评论表中的帖子字段名post
 // 第二个参数为Post字段的表名，也可以直接用"Post"字符串的形式
-// 第三个参数为内部查询条件
+// 第三个参数为关联表条件查询的条件
 query.addWhereMatchesQuery("post", "Post", innerQuery);
 query.findObjects(new FindListener<Comment>() {
 
@@ -3149,7 +3154,7 @@ query.findObjects(new FindListener<Comment>() {
 
 反之，不想匹配某个子查询，你可以使用`addWhereDoesNotMatchQuery`方法。
 
-比如**查询不带图片的帖子的评论列表**：
+比如**查询评论列表，条件要求是：查询出来的评论对应的帖子是不有图片**：
 
 ```java
 BmobQuery<Comment> query = new BmobQuery<Comment>();
@@ -3157,7 +3162,7 @@ BmobQuery<Post> innerQuery = new BmobQuery<Post>();
 innerQuery.addWhereExists("image", true);
 // 第一个参数为评论表中的帖子字段名post
 // 第二个参数为Post字段的表名，也可以直接用"Post"字符串的形式
-// 第三个参数为内部查询条件
+// 第三个参数为关联表条件查询的条件
 query.addWhereDoesNotMatchQuery("post", "Post", innerQuery);
 query.findObjects(new FindListener<Comment>() {
 	@Override
