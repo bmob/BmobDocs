@@ -512,7 +512,7 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_34">内部查询</a></li>
+													<li><a class="itm-l2" href="#_34">关联表条件查询</a></li>
 												</ul>
 												
 											</li>
@@ -3763,16 +3763,18 @@ query.include(&quot;post&quot;);
 
 <p>其中，post和author都是Pointer类型，post指向的表只返回likes字段，author指向的表只返回username和email字段。</p>
 <p><strong>注：include的查询对象只能为BmobPointer类型，而不能是BmobRelation类型。</strong></p>
-<h3 id="_34">内部查询<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
-<p>如果你在查询某个对象列表时，它们的某个字段是BmobObject类型，并且这个BmobObject匹配一个不同的查询，这种情况下可使用<code>addWhereMatchesQuery</code>方法。</p>
-<p>请注意，默认的 limit 限制 100 也同样作用在内部查询上。因此如果是大规模的数据查询，你可能需要仔细构造你的查询对象来获取想要的行为。</p>
-<p>例如：<strong>查询带有图片的帖子的评论列表</strong>:</p>
+<h3 id="_34">关联表条件查询<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<p>如果<code>A</code>表中有一个<code>Pointer</code>类型，指向<code>B</code>表。你现在想查询出<code>A</code>表的结果，但是需要对指向的<code>B</code>表内容<code>指定查询条件</code>，那么，就可以用 <code>addWhereMatchesQuery</code>方法。</p>
+<p><strong>请注意，默认的 limit 限制 100 也同样作用在关联表条件查询上。因此如果是大规模的数据查询，你可能需要仔细构造你的查询对象来获取想要的行为，不然会很卡。</strong></p>
+<p>例如：<strong>查询评论列表，条件要求是：查询出来的评论对应的帖子是有图片的</strong>:</p>
+<p>表结构解释如下：</p>
+<p>帖子表的名字为<code>Post</code>，评论表的名字为<code>Comment</code>。<code>image</code>是帖子表中的字段，评论表有一个字段名字为<code>post</code>（<code>Post</code>表的<code>Pointer</code>），指向这条评论对应的帖子。</p>
 <pre><code class="java">BmobQuery&lt;Comment&gt; query = new BmobQuery&lt;Comment&gt;();
 BmobQuery&lt;Post&gt; innerQuery = new BmobQuery&lt;Post&gt;();
 innerQuery.addWhereExists(&quot;image&quot;, true);
 // 第一个参数为评论表中的帖子字段名post
 // 第二个参数为Post字段的表名，也可以直接用&quot;Post&quot;字符串的形式
-// 第三个参数为内部查询条件
+// 第三个参数为关联表条件查询的条件
 query.addWhereMatchesQuery(&quot;post&quot;, &quot;Post&quot;, innerQuery);
 query.findObjects(new FindListener&lt;Comment&gt;() {
 
@@ -3788,13 +3790,13 @@ query.findObjects(new FindListener&lt;Comment&gt;() {
 </code></pre>
 
 <p>反之，不想匹配某个子查询，你可以使用<code>addWhereDoesNotMatchQuery</code>方法。</p>
-<p>比如<strong>查询不带图片的帖子的评论列表</strong>：</p>
+<p>比如<strong>查询评论列表，条件要求是：查询出来的评论对应的帖子是不有图片</strong>：</p>
 <pre><code class="java">BmobQuery&lt;Comment&gt; query = new BmobQuery&lt;Comment&gt;();
 BmobQuery&lt;Post&gt; innerQuery = new BmobQuery&lt;Post&gt;();
 innerQuery.addWhereExists(&quot;image&quot;, true);
 // 第一个参数为评论表中的帖子字段名post
 // 第二个参数为Post字段的表名，也可以直接用&quot;Post&quot;字符串的形式
-// 第三个参数为内部查询条件
+// 第三个参数为关联表条件查询的条件
 query.addWhereDoesNotMatchQuery(&quot;post&quot;, &quot;Post&quot;, innerQuery);
 query.findObjects(new FindListener&lt;Comment&gt;() {
     @Override
