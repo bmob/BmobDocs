@@ -5,9 +5,7 @@
 由此可见，数据钩子可以帮我们实现包含但不限于如下场景：
 
 - 限制或者允许某些表的增加、更新、删除或者查询。
-  
-- 限制或者允许某个IP的操作。
-  
+    
 - 限制或者允许某个平台（Android、iOS或者API）的访问。
   
 - 对客户端上传的数据进行二次校验和处理。
@@ -37,10 +35,10 @@ function onRequest(request, response, modules) {
 
     let tableName = request.body.table;
     if(tableName=="Order") {
-      response.end({"msg": tableName + "表禁止操作"});
+      response.send({"msg": tableName + "表禁止操作"});
     }
     else{
-      response.end({"msg": "ok"});
+      response.send({"msg": "ok"});
     }
 }
 
@@ -53,35 +51,13 @@ function onRequest(request, response, modules) {
 除了`table`标记之外，Bmob收到前端请求后，会自动给 `request.body` 添加如下标记：
 
 - `request.body.caller` ：表示请求的客户端，值分别为：Android、IOS或者空。
-  
-- `request.body.ip` ：表示请求的IP地址。
-  
+    
 - `request.body.ua` ：表示请求的user_agent信息。
   
 - `request.body.token` ：表示请求的登录用户的sessionToken信息。
   
 - `request.body.operation` ：表示请求类型，值分别是：`create`、`update`、`delete`、`query`。
 
-
-## 限制或者允许某个IP的操作
-
-如果我们要设置`112.112.112.112`这个IP才能对各种表进行编辑、删除和修改操作，可以编写云函数如下：
-
-```java
-
-function onRequest(request, response, modules) {
-    // 获取请求ip
-    let ip = request.body.ip;
-    // 获取请求类型
-    let operation = request.body.operation;
-    if(operation=="query" ||  (ip=="112.112.112.112" && operation!="query")){
-      response.end({"msg":"ok"});
-    }
-    else{
-      response.end({"msg":"禁止操作"});
-}
-
-```
 
 ## 限制或者允许某个平台（Android、iOS或者API）的访问
 
@@ -93,10 +69,10 @@ function onRequest(request, response, modules) {
     // 获取请求平台
     let caller = request.body.caller;
     if(caller=="IOS")){
-      response.end({"msg":"禁止IOS访问"});
+      response.send({"msg":"禁止IOS访问"});
     }
     else{
-      response.end({"msg":"ok"});
+      response.send({"msg":"ok"});
 }
 
 ```
@@ -118,7 +94,7 @@ function onRequest(request, response, modules) {
         "data": JSON.stringify(data)
     };
 
-    response.send(backData);
+    response.end(backData);
 }
 
 ```
