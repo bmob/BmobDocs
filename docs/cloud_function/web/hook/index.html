@@ -428,10 +428,6 @@
 												
 											</li>
 												
-											<li class=""><a href="#ip">限制或者允许某个IP的操作</a>
-												
-											</li>
-												
 											<li class=""><a href="#androidiosapi">限制或者允许某个平台（Android、iOS或者API）的访问</a>
 												
 											</li>
@@ -502,9 +498,6 @@
 <p>限制或者允许某些表的增加、更新、删除或者查询。</p>
 </li>
 <li>
-<p>限制或者允许某个IP的操作。</p>
-</li>
-<li>
 <p>限制或者允许某个平台（Android、iOS或者API）的访问。</p>
 </li>
 <li>
@@ -526,10 +519,10 @@ function onRequest(request, response, modules) {
 
     let tableName = request.body.table;
     if(tableName==&quot;Order&quot;) {
-      response.end({&quot;msg&quot;: tableName + &quot;表禁止操作&quot;});
+      response.send({&quot;msg&quot;: tableName + &quot;表禁止操作&quot;});
     }
     else{
-      response.end({&quot;msg&quot;: &quot;ok&quot;});
+      response.send({&quot;msg&quot;: &quot;ok&quot;});
     }
 }
 
@@ -543,9 +536,6 @@ function onRequest(request, response, modules) {
 <p><code>request.body.caller</code> ：表示请求的客户端，值分别为：Android、IOS或者空。</p>
 </li>
 <li>
-<p><code>request.body.ip</code> ：表示请求的IP地址。</p>
-</li>
-<li>
 <p><code>request.body.ua</code> ：表示请求的user_agent信息。</p>
 </li>
 <li>
@@ -555,23 +545,6 @@ function onRequest(request, response, modules) {
 <p><code>request.body.operation</code> ：表示请求类型，值分别是：<code>create</code>、<code>update</code>、<code>delete</code>、<code>query</code>。</p>
 </li>
 </ul>
-<h2 id="ip">限制或者允许某个IP的操作<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h2>
-<p>如果我们要设置<code>112.112.112.112</code>这个IP才能对各种表进行编辑、删除和修改操作，可以编写云函数如下：</p>
-<pre><code class="java">
-function onRequest(request, response, modules) {
-    // 获取请求ip
-    let ip = request.body.ip;
-    // 获取请求类型
-    let operation = request.body.operation;
-    if(operation==&quot;query&quot; ||  (ip==&quot;112.112.112.112&quot; &amp;&amp; operation!=&quot;query&quot;)){
-      response.end({&quot;msg&quot;:&quot;ok&quot;});
-    }
-    else{
-      response.end({&quot;msg&quot;:&quot;禁止操作&quot;});
-}
-
-</code></pre>
-
 <h2 id="androidiosapi">限制或者允许某个平台（Android、iOS或者API）的访问<a class="headerlink" href="#androidiosapi" title="Permanent link">&para;</a></h2>
 <p>如果我们要限制IOS平台的访问，可以编写云函数如下：</p>
 <pre><code class="java">
@@ -579,10 +552,10 @@ function onRequest(request, response, modules) {
     // 获取请求平台
     let caller = request.body.caller;
     if(caller==&quot;IOS&quot;)){
-      response.end({&quot;msg&quot;:&quot;禁止IOS访问&quot;});
+      response.send({&quot;msg&quot;:&quot;禁止IOS访问&quot;});
     }
     else{
-      response.end({&quot;msg&quot;:&quot;ok&quot;});
+      response.send({&quot;msg&quot;:&quot;ok&quot;});
 }
 
 </code></pre>
@@ -600,7 +573,7 @@ function onRequest(request, response, modules) {
         &quot;data&quot;: JSON.stringify(data)
     };
 
-    response.send(backData);
+    response.end(backData);
 }
 
 </code></pre>
