@@ -20,9 +20,9 @@
 打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.4'
-	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+	implementation 'io.github.bmob:android-sdk:4.0.1'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
 	implementation 'com.squareup.okio:okio:2.2.2'
 	implementation 'com.google.code.gson:gson:2.8.5'
