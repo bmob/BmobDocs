@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+            <!--
+            <title>Python - Bmob文档中心</title>
+            -->
+            <title>数据存储 &middot;  – Bmob后端云 </title>  
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../ios/">iOS</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../wechat_app_new/rm/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li class="active">
+                                    <a href="./">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../cloud_function/web/">云函数开发文档</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					<div class="code-title">Python</div>
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+				
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+							
+								
+									
+										<li class="active "><a href="#_1">安装</a>
+											
+										</li>
+									
+										<li class=""><a href="#_2">初始化</a>
+											
+										</li>
+									
+										<li class=""><a href="#_3">快速入门</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_4">新增数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_5">删除数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_6">修改数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_7">获取单条数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_8">获取多条数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_9">获取错误信息</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#ai">AI服务</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#ai_1">连接AI服务</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_10">发送对话</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#ai_2">关闭AI服务</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_11">完整示例代码</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#_12">文件操作</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_13">上传文件</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_14">删除文件</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#_15">调用云函数</a>
+											
+										</li>
+									
+										<li class=""><a href="#_16">短信服务</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_17">发送短信验证码</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_18">检查短信验证码是否正确</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#_19">复杂查询</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_20">获取某个字段值等于某个值的所有记录</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_21">获取某个字段值大于某个值的所有记录</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_22">获取某个字段值大于等于某个值的所有记录</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_23">获取某个字段值小于某个值的所有记录</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_24">获取某个字段值小于等于某个值的所有记录</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_25">查找某个字符串是否在某列中出现过</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_26">查询数组列中的某个列的值等于某个值</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_27">查询数组列中的某个列的值同时包含指定的几个值</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_28">链式查询</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#include">用include参数来获取指针指向的那行数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_29">获取指定条数的数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_30">跳过前面的一些数据</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_31">对查询结果进行排序</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_32">返回指定的列</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#_33">统计查询</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_34">计数</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_35">求和</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_36">最大值</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_37">最小值</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_38">平均值</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#_39">用户操作</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_40">账号密码注册</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_41">账号密码登录</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_42">邮件重置密码</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_43">旧密码方式修改用户密码</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_44">短信验证码重置密码</a></li>
+											</ul>
+											
+										</li>
+									
+								
+							
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在命令行中执行下面的代码安装Python-bmob包：</p>
+<pre><code class="pip">pip install python-bmob
+</code></pre>
+
+<h2 id="_2">初始化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>注册Bmob后端云开发者账号，并创建应用，获取这个应用的 <code>application id</code> 和 <code>rest api key</code> ，如下图。</p>
+<p><img alt="" src="./1.png" /></p>
+<p>创建python脚本文件，引入Bmob和创建Bmob对象进行初始化，代码如下：</p>
+<pre><code class="python"># 引入Bmob
+from bmobpy import *
+
+# 新建Bmob对象
+b = Bmob(&quot;你的application id&quot;, &quot;你的rest api key&quot;) 
+</code></pre>
+
+<p>其中，<code>application id</code>和<code>rest api key</code>是你在Bmob控制台上创建的应用密钥信息。</p>
+<p>我们对数据的所有操作，都围绕着 <code>Bmob类</code> 进行。</p>
+<h2 id="_3">快速入门<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">新增数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<pre><code class="python">result = b.save('mytable',data={
+    'name':'Bmob后端云',
+    'age':11,
+    'tags':['Bmob','Android','python'],
+    'good':True
+})
+</code></pre>
+
+<p>其中， <code>mytable</code> 是你的数据表的名称，<code>data</code> 是你要保存的数据的dict数据类型。
+本示例中， <code>name</code> 是字符串类型，<code>age</code> 数字类型，<code>tags</code> 是数组类型，<code>good</code> 是布尔型。</p>
+<p>除此之外，Bmob还支持更多的数据类型：</p>
+<ul>
+<li>文件类型：<code>BmobFile(url, filename)</code> ，其中， <code>url</code> 是文件的网络路径， <code>filename</code> 是文件的名称。</li>
+<li>日期类型：<code>BmbDate(timestamp)</code> ，其中 <code>timestamp</code> 为到毫秒的时间戳。</li>
+<li>地理位置类型：<code>BmobGeoPoint(latitude, longitude)</code> ，其中， <code>latitude</code> 是纬度， <code>longitude</code> 是经度。</li>
+<li>指针类型：<code>BmobPointer(className, objectId)</code>，其中 <code>className</code> 是指向的数据表名称，<code>objectId</code> 参数是指向的那条数据的 <code>objectId</code> 标记。</li>
+</ul>
+<p>下面用代码举例说明：</p>
+<ul>
+<li>文件类型的操作</li>
+</ul>
+<p>如果你有文件的网络地址，如： <code>https://www.bmobapp.com/static/img/footer-QR.585dbdf0.png</code>  ，你可以用下面的代码添加文件类型的数据：</p>
+<pre><code class="python">result = b.save('mytable',data={
+    'name':'Bmob后端云',
+    'myfile':BmobFile('https://www.bmobapp.com/static/img/footer-QR.585dbdf0.png','客服二维码')
+})
+</code></pre>
+
+<p>如果你的文件是在本地，请查看文件服务一节。</p>
+<ul>
+<li>日期类型的操作</li>
+</ul>
+<p>示例代码如下：</p>
+<pre><code class="python">result = b.save('mytable',data={
+    'name':'Bmob后端云',
+    'date':BmobDate(datetime.datetime.now().timestamp()*1000)
+})
+</code></pre>
+
+<p>注意：时间戳是到毫秒。</p>
+<ul>
+<li>地理位置类型的操作</li>
+</ul>
+<p>示例代码如下：</p>
+<pre><code class="python">result = b.save('mytable',data={
+    'name':'Bmob后端云',
+    'address':BmobGeoPoint(23.12, 113.33)
+})
+</code></pre>
+
+<ul>
+<li>指针类型的操作</li>
+</ul>
+<pre><code class="python">result = b.save('mytable',data={
+    'name':'Bmob后端云',
+    'info':BmobPointer('infoTable','ce5814f96c')
+})
+</code></pre>
+
+<p>这里需要注意的是，执行这个代码前，你需要先在Bmob控制台上创建 <code>infoTable</code> 表，并且里面有一行数据的 <code>objectId</code> 为 <code>ce5814f96c</code> 。
+如果一切正常，你会在控制台的 <code>mytable</code> 中看到下图这样的一行数据。</p>
+<p><img alt="" src="./2.png" /></p>
+<h3 id="_5">删除数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<pre><code class="python">isOK = b.delete('mytable','93a9b6847f')
+print(isOK)
+</code></pre>
+
+<p>其中，<code>mytable</code> 是数据表的名称，<code>93a9b6847f</code> 是要删除的那条数据对应的 <code>objectId</code> 。
+如果删除成功，isOK返回True.</p>
+<h3 id="_6">修改数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<pre><code class="python">isOK = b.update('mytable','93a9b6847f',data={
+    'name':'我爱Bmob后端云'
+})
+print(isOK)
+</code></pre>
+
+<p>其中，<code>mytable</code> 是数据表的名称，<code>93a9b6847f</code> 是要修改的那条数据对应的 <code>objectId</code> ， <code>data</code> 存放要修改的数据的内容。
+如果修改成功，isOK返回True.</p>
+<h3 id="_7">获取单条数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<pre><code class="python">r = b.getObject(&quot;mytable&quot;, &quot;93a9b6847f&quot;)
+print(r)
+print(r.name)
+</code></pre>
+
+<p>其中， <code>mytable</code> 是数据表的名称，<code>93a9b6847f</code> 是要获取的那条数据的 <code>objectId</code> 。
+如果成功，r返回这条数据的对象信息。</p>
+<h3 id="_8">获取多条数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<pre><code class="python">rs = b.findObjects('mytable')
+for r in rs:
+    print(r.name)
+</code></pre>
+
+<p>其中，<code>mytable</code> 是数据表的名称。 <code>findObjects</code> 方法可以实现非常复杂的查询功能，包括排序、分页、包含、指定返回列等等。更多的用法请查看复杂数据查询文档。</p>
+<h3 id="_9">获取错误信息<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>我们把所有的错误信息都封装在 <code>Bmob类</code> 的 <code>getError</code> 方法中，获取错误信息的代码如下：</p>
+<pre><code class="python">e = b.getError()
+</code></pre>
+
+<p>如果 <code>e.error</code> 是 <code>None</code> ，说明一切正常。</p>
+<h2 id="ai">AI服务<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<p>Bmob为开发者提供了AI对话接口，支持上下文记忆存储，支持多会话模式，可供大家开发丰富有趣的产品，调用方式非常简单。</p>
+<h3 id="ai_1">连接AI服务<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h3>
+<p>在正式发送对话给AI服务之前，首先要先连接AI服务，代码如下：</p>
+<pre><code class="python">b.connectAI()
+</code></pre>
+
+<h3 id="_10">发送对话<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<pre><code class="python">b.chat('1+1等于多少？')
+</code></pre>
+
+<p>Bmob.chat方法还支持多会话模式，比如，多人模式的情况下，我们还可以通过第二个参数session进行区分，示例代码如下：</p>
+<pre><code class="python">b.chat('1+1等于多少？',session='firstman')
+</code></pre>
+
+<p>其中，session可以是用户的昵称\ID等等。</p>
+<h3 id="ai_2">关闭AI服务<a class="headerlink" href="#ai_2" title="Permanent link">&para;</a></h3>
+<pre><code class="python">b.closeAI()
+</code></pre>
+
+<h3 id="_11">完整示例代码<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>示例代码效果如下：</p>
+<p><img alt="" src="./4.png" /></p>
+<pre><code class="python">from bmob import *
+
+b = Bmob(&quot;application id&quot;, &quot;rest api key&quot;)
+b.connectAI()
+
+for i in range(10):
+    txt = input('请提问：')
+    print(b.chat(txt))
+
+b.closeAI()
+
+</code></pre>
+
+<h2 id="_12">文件操作<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">上传文件<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>执行Bmob类的 <code>upload</code> 方法，传本地文件的路径作为唯一的参数，可以将本地文件上传到Bmob后端云的CDN上面去，代码如下：</p>
+<pre><code class="python">bmobFile = b.upload('d:/abc.pdf')
+print(bmobFile.url)
+print(bmobFile.filename)
+</code></pre>
+
+<p>成功之后，会直接返回 <code>BmobFile</code> 类的实例，你可以用如下的代码，新增一条记录到Bmob数据库中。</p>
+<pre><code class="python">isOK = b.save('mytable',data={
+    'myfile':bmobFile
+})
+print(isOK)
+</code></pre>
+
+<p>需要注意的是：
+- 如果你想查看上传后的文件（即：下载文件），需要购买开通文件的二级域名服务，或者用自己的备案域名接入文件域名服务。
+- 你也可以不用 <code>BmobFile</code> 这种数据类型进行存储，而是直接获取 <code>url</code> ，作为字符串存储在Bmob的数据表中。</p>
+<h3 id="_14">删除文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>执行Bmob类的 <code>delFile</code> 方法，将本地上传到Bmob CDN上的 <code>url</code> 作为唯一的参数，即可删除，代码如下：</p>
+<pre><code class="python">isOK = b.delFile('https://bmob-cdn-31082.bmobpay.com/2024/04/13/d79f988a409b4678803e7093e6c78aa8.png')
+</code></pre>
+
+<p>删除成功，返回是否成功的bool类型。</p>
+<h2 id="_15">调用云函数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>在本示例中，我们需要先创建一个名为 <code>good</code> 的云函数，这个云函数的代码的功能非常简单，直接返回从post上来的数据，如下图：</p>
+<p><img alt="" src="./3.png" /></p>
+<p>在python中调用这个云函数的代码如下：</p>
+<pre><code class="python">rs = b.functions('good',body={'name':'Bmob'})
+print(rs)
+</code></pre>
+
+<h2 id="_16">短信服务<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="_17">发送短信验证码<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>使用Bmob类的 <code>requestSMSCode</code> 方法，提供 <code>手机号码</code> 作为参数，可以快速调用发送短信验证码的功能,代码如下:</p>
+<pre><code class="python">rs = b.requestSMSCode('13800138001')
+print(rs)
+</code></pre>
+
+<p>发送成功的话，会返回这条短信验证码的标记信息。</p>
+<p>如果你想修改默认的短信验证码模板，你可以先在Bmob控制台创建验证码模板，待审核通过之后，再修改 <code>requestSMSCode</code> 方法，代码如下：</p>
+<pre><code class="python">rs = b.requestSMSCode('13800138001','你的短信验证码模板名称')
+print(rs)
+</code></pre>
+
+<h3 id="_18">检查短信验证码是否正确<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<pre><code class="python">rs = b.verifySmsCode('13800138001','785871')
+print(rs)
+</code></pre>
+
+<p>其中，<code>785871</code> 是用户收到的短信验证码。如果验证成功，返回True。</p>
+<h2 id="_19">复杂查询<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>针对复杂的数据查询，我们提供了支持链式调用的 <code>BmobQuery</code> 类，配合Bmob类的 <code>findObjects</code> 方法一起使用，下面举一些例子进行说明：</p>
+<h3 id="_20">获取某个字段值等于某个值的所有记录<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereEqualTo('name','Bmob后端云')
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_21">获取某个字段值大于某个值的所有记录<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereGreaterThan('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_22">获取某个字段值大于等于某个值的所有记录<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereGreaterThanOrEqualTo('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_23">获取某个字段值小于某个值的所有记录<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereLessThan('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_24">获取某个字段值小于等于某个值的所有记录<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<pre><code class="python">query = BmobQuery().addWhereLessThanOrEqualTo('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_25">查找某个字符串是否在某列中出现过<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>有时候。你需要进行模糊查找，即：判定某个字符串是否在另外的字符串中出现过。对应Python中的 <code>in</code> 关键字。</p>
+<p>示例代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereStrContains('name','后端云')
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<p>注意：这个方法非常损耗性能，需要开通专业版以上（含）才能使用。</p>
+<h3 id="_26">查询数组列中的某个列的值等于某个值<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>下面的代码可以查询 <code>tags</code> 列中有 <code>Android</code> 或者 <code>good</code> 值的所有数据。</p>
+<pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_27">查询数组列中的某个列的值同时包含指定的几个值<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>下面的代码可以查询 <code>tags</code> 列中有同时包含了 <code>Android</code> 和 <code>good</code> 值的所有数据。</p>
+<pre><code class="python">query = BmobQuery().addWhereContainsAll('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_28">链式查询<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>很多时候，我们的查询条件不会只有一个，这就需要用到 <code>BmobQuery</code> 的链式查询了。比如，我们要查询 <code>name等于Bmob后端云，而且age大于10</code> 的所有列，示例代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereEqualTo('name','Bmob后端云').addWhereGreaterThan('age',10)
+rs = b.findObjects('mytable',where=query)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="include">用include参数来获取指针指向的那行数据<a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
+<p>如果你还想获取到 <code>info</code> 列（指针类型的类）对应的那行数据的详细信息，你就需要在调用 <code>findObjects</code> 时，指定 <code>include</code> 参数，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query,include=['info'])
+for r in rs:
+    print(r)
+</code></pre>
+
+<p>其中，<code>info</code> 是指针类型的列。</p>
+<h3 id="_29">获取指定条数的数据<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>默认情况下， <code>findObjects</code> 方法返回查询到的 <code>最多100条</code> 记录，这通常很消耗网络带宽。为解决这个问题，你可以使用 <code>limit</code> 参数，代码如下:</p>
+<pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query,limit=50)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_30">跳过前面的一些数据<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<p>在进行分页开发的时候，你通常还需要 <code>skip</code> 参数，配合 <code>limit</code> 参数一起使用。<code>skip</code> 参数可以跳过查询结果中的一定条数，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query,skip=5)
+for r in rs:
+    print(r)
+</code></pre>
+
+<h3 id="_31">对查询结果进行排序<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p>你可以用 <code>findObjects</code> 方法的 <code>order</code> 参数对查询结果进行排序，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query,order='createdAt')
+for r in rs:
+    print(r)
+</code></pre>
+
+<p>上述代码表示按创建时间进行升序排列，如果你想按创建时间进行降序排列，只需要在 <code>createdAt</code> 的前面加上 <code>-</code> 号，即修改代码如下：</p>
+<pre><code class="python">rs = b.findObjects('mytable',where=query,order='-createdAt')
+</code></pre>
+
+<h3 id="_32">返回指定的列<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p>默认情况下，<code>findObjects</code> 会返回表中的所有列的数据，但很多时候，这会浪费带宽和影响相应速度，为此，我们可以用 <code>keys</code> 参数来指定返回需要的列，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
+rs = b.findObjects('mytable',where=query,keys=['name','address'])
+for r in rs:
+    print(r)
+</code></pre>
+
+<h2 id="_33">统计查询<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<h3 id="_34">计数<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<p>如果你想知道你的数据有多少条，你就可以用 <code>count</code> 方法，进行计数查询，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
+num = b.count('mytable',where=query)
+print(num)
+</code></pre>
+
+<h3 id="_35">求和<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p>有时候，你想知道总和的数据，比如了解一个月的收入，那就可以用 <code>sum</code> 方法，进行求和查询，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
+rs = b.sum('mytable', ['count','money'], where=query)
+print('求和结果',rs)
+</code></pre>
+
+<p>上面的代码中，我们对 <code>count</code> 列和 <code>money</code> 列同时进行求和。</p>
+<h3 id="_36">最大值<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<p>用 <code>max</code> 方法，可以查到对应列的最大值，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
+rs = b.max('mytable', ['money'], where=query)
+print('最大值结果',rs)
+</code></pre>
+
+<h3 id="_37">最小值<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p>用 <code>min</code> 方法，可以查到对应列的最小值，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
+rs = b.min('mytable', ['money'], where=query)
+print('最小值结果',rs)
+</code></pre>
+
+<h3 id="_38">平均值<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<p>用 <code>mean</code> 方法，可以查到对应列的平均值，代码如下：</p>
+<pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
+rs = b.mean('mytable', ['money'], where=query)
+print('最大值结果',rs)
+</code></pre>
+
+<h2 id="_39">用户操作<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<p><strong><em>以下操作针对Bmob控制台中默认创建的 <code>_User</code> 表进行。</em></strong></p>
+<h3 id="_40">账号密码注册<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<p>示例代码如下:</p>
+<pre><code class="python">rs = b.signUp('注册账号','注册密码', userInfo={
+    'sex':True,
+    'age':100
+})
+print(rs)
+</code></pre>
+
+<h3 id="_41">账号密码登录<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<p>示例代码如下:</p>
+<pre><code class="python">rs = b.login('13512707963','123456')
+print(rs)
+</code></pre>
+
+<p>登录成功，返回这条用户记录的信息。</p>
+<h3 id="_42">邮件重置密码<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<p>示例代码如下:</p>
+<pre><code class="python">rs = b.resetPasswordByEmail('这条记录对应的邮箱地址')
+print(rs)
+</code></pre>
+
+<p>发送成功，返回True。如果查不到对应的邮箱地址或者其他错误，返回False。</p>
+<h3 id="_43">旧密码方式修改用户密码<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<p>示例代码如下:</p>
+<pre><code class="python">rs = b.updatePassword('这个用户数据对应的objectId', '旧密码', '新密码')
+print(rs)
+</code></pre>
+
+<h3 id="_44">短信验证码重置密码<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<p>示例代码如下:</p>
+<pre><code class="python">rs = b.resetPasswordBySMSCode('收到的短信验证码','新密码')
+print(rs)
+
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
