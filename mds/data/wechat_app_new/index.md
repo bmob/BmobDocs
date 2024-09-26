@@ -74,7 +74,7 @@ import Bmob from "hydrogen-js-sdk";
 
 
 
-Vue示例
+Vue2示例
 
 ```
 // 安装
@@ -82,9 +82,8 @@ npm install hydrogen-js-sdk
 
 // 打开 main.js
 import Bmob from "hydrogen-js-sdk";
-
-// 初始化 SDK版本 2.0.0 以下保留之前的初始化方法
-Bmob.initialize("你的Application ID", "你的REST API Key");
+//初始化
+Bmob.initialize("你的Secret Key", "你的API 安全码");
 
 // 挂载到全局使用
 Vue.prototype.Bmob = Bmob
@@ -96,6 +95,32 @@ Bmob.User.login('username','password').then(res => {
   console.log(err)
 });
 
+```
+
+Vu3  typescript示例
+
+```
+// 安装
+npm install hydrogen-js-sdk
+
+// 打开 main.js
+import Bmob from "hydrogen-js-sdk";
+
+// 初始化 SDK版本 
+Bmob.initialize("你的Secret Key", "你的API 安全码");
+
+其他页面,例如list.vue
+<script lang="ts" setup>
+import Bmob from 'hydrogen-js-sdk'
+
+// 项目其他页面使用跟小程序一样使用Bmob对象即可，例如：
+Bmob.User.login('username','password').then(res => {
+   console.log(res)
+ }).catch(err => {
+  console.log(err)
+});
+
+</script>
 ```
 
 
@@ -1734,6 +1759,30 @@ fileUploadControl.onchange = () => {
 ["{"cdn":"upyun","filename":"abc.jpg","url":"http://…2018/05/07/e65172f540195fe880043cc74236e397.jpg"}", "{"cdn":"upyun","filename":"abc.jpg","url":"http://…2018/05/07/5670bf6740385bca802f9c33beb69ab9.jpg"}"]
 
 ```
+
+### VUE 组件文件上次
+
+调用自定义请求方法 http-request
+
+```
+  <el-upload v-model:file-list="fileList" action="" :http-request="customUpload">
+    <el-icon>
+      <Plus />
+    </el-icon>
+  </el-upload>
+```
+
+customUpload 文件上传
+
+```
+const customUpload = async (options) => {
+  const file = Bmob.File(options.file.name, options.file);
+  const res = await file.save();
+  console.log("File saved successfully:", res);
+}
+```
+
+如果多文件上传，就把`const file = Bmob.File(options.file.name, options.file);`放在for里面即可
 
 ### 小程序文件上传
 
