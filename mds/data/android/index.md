@@ -20,7 +20,7 @@
 打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.0.1'
+	implementation 'io.github.bmob:android-sdk:4.0.4'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -190,6 +190,15 @@ p2.delete(new UpdateListener() {
 
 });
 ```
+
+## 更新日志
+
+  **v4.0.4 2024-09-26**
+  
+  **Features**
+  - 自动更新组件新增`BmobUpdateAgent.setUpdateDownloadListener`方法，点击下载安装后返回成功或者失败的回调结果。
+
+
 
 ## 常见的9015错误如何解决
 [点击查看9015问题如何解决](https://blog.csdn.net/m0_74037076/article/details/131123957)
