@@ -21,6 +21,7 @@
 			</h1>
 			</div>
 			<div class="tagline">
+				<p></p>
 				<p>Bmob 后端云专注于为移动应用提供一整套后端云服务</p>
 				<p>帮助开发者免去几乎所有的服务器端编码的工作量，成倍降低开发成本和开发时间。</p>
 			</div>
@@ -35,10 +36,10 @@
 	<section class="cards-section text-center">
 		<div class="container">
 
-<div class="alert alert-danger alert-dismissible" role="alert">
+<!--div class="alert alert-danger alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong>重要提示!</strong> 因公司官网域名已更换，部分文档尚未来得及修正，文档中有关bmob.cn域名请改为bmobapp.com，如仍有疑问，请联系客服QQ：2967459363  获取支持。
-</div>
+</div-->
 			<div id="cards-wrapper" class="cards-wrapper row">
 				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
 					<div class="item-inner">
@@ -50,18 +51,19 @@
 							<ul class="links">
 								<li><s class="languageType"></s><a href="./data/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./data/ios/index.html" class="intro" >iOS</a></li>
+								<li><s class="languageType"></s><a href="./data/harmony/index.html" class="intro" >harmony鸿蒙</a></li>
 								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./data/restful/index.html" class="intro" >API 文档</a></li>
 								<li><s class="languageType" style="background-position:left -483px;"></s><a href="./data/kotlin/index.html" class="intro" >Kotlin</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >小程序</a></li>
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./data/php/index.html" class="intro" >PHP</a></li>
 								<li><s class="languageType" style="background-position:left -214px;"></s><a href="./data/cocos2d_x/index.html" class="intro" >Cocos2d-x</a></li>
 								<li><s class="languageType" style="background-position:left -132px;"></s><a href="./data/go/index.html" class="intro" >Go</a></li>
-								<li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app/index.html" class="intro" >小程序（旧）</a></li>
+								<!--li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app/index.html" class="intro" >小程序（旧）</a></li-->
 								<li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >JavaScript</a></li>
 								<li><s class="languageType" style="background-position:left -375px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >快应用</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >Nodejs</a></li>
 								<li><s class="languageType" style="background-position:left -214px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >Cocos Creator</a></li>
-								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./data/csharp/index.html" class="intro" >C#</a></li>
+								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./data/csharp/index.html" class="intro" >Unity/C#</a></li>
 								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./data/python/index.html" class="intro" >Python</a></li>
 								<li><s class="languageType" style="background-position:left -536px;"></s><a href="./data/flutter/index.html" class="intro" >Flutter</a></li>
 							</ul>
@@ -82,6 +84,8 @@
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./ai/ios/index.html" class="intro" >   iOS</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./ai/html5/index.html" class="intro" >   小程序</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./ai/html5/index.html" class="intro" >   Html5</a></li>
+								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./ai/api/index.html" class="intro" >API 文档</a></li>
+								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./ai/python/index.html" class="intro" >python</a></li>
 							</ul>
 						</div>
 					</div>
@@ -99,9 +103,10 @@
 							<ul class="links">
 								<li><s class="languageType"></s><a href="./sms/android/index.html" class="intro" >Android</a></li>
 								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./sms/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./sms/restful/index.html" class="intro" >API 文档</a></li>
+								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./sms/restful/index.html" class="intro" >API文档</a></li>
 								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./sms/php/index.html" class="intro" >PHP</a></li>
 								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./sms/javascript/index.html" class="intro" >JavaScript</a></li>
+								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./sms/python/index.html" class="intro" >python</a></li>
 								<li></li>
 							</ul>
 						</div>
@@ -204,16 +209,18 @@
 						</div>
 						<h3 class="title">云函数</h3>
 						<div class="text-left">
-							<ul class="links">
-								<li><s class="languageType"></s><a href="./cloud_function/android/index.html" class="intro" >Android</a></li>
-								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./cloud_function/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./cloud_function/restful/index.html" class="intro" >API 文档</a></li>
-								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./cloud_function/csharp/index.html" class="intro" >C#</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/javascript/index.html" class="intro" >JavaScript</a></li>
-								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./cloud_function/php/index.html" class="intro" >PHP</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/index.html" class="intro" >WEB(Node)</a></li>
-								<li><s class="languageType" style="background-position:left -187px;"></s><a href="./cloud_function/java/index.html" class="intro" >WEB(Java)</a></li>
-								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./cloud_function/python/index.html" class="intro" >Python</a></li>
+							<ul class="links else">
+								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/index.html" class="intro" >云函数开发文档</a></li>
+								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/hook/index.html" class="intro" >数据钩子文档</a></li>
+								<li><s class="languageType"></s><a href="./cloud_function/android/index.html" class="intro" >Android调用</a></li>
+								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./cloud_function/ios/index.html" class="intro" >iOS调用</a></li>
+								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./cloud_function/restful/index.html" class="intro" >API调用</a></li>
+								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./cloud_function/csharp/index.html" class="intro" >C#调用</a></li>
+								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/javascript/index.html" class="intro" >Js调用</a></li>
+								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./cloud_function/php/index.html" class="intro" >PHP调用</a></li>
+								
+								<!--li><s class="languageType" style="background-position:left -187px;"></s><a href="./cloud_function/java/index.html" class="intro" >WEB(Java)</a></li>
+								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./cloud_function/python/index.html" class="intro" >Python调用</a></li-->
 							</ul>
 						</div>
 					</div>

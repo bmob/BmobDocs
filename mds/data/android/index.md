@@ -15,19 +15,25 @@
 
 ![](image/rumen_miyue_2.png)
 
-##  导入依赖
+##  下载导入SDK包
 
-在`app`的`build.gradle`文件中添加`依赖文件`：
+打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.4'
-	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+	implementation 'io.github.bmob:android-sdk:4.0.4'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
 	implementation 'com.squareup.okio:okio:2.2.2'
 	implementation 'com.google.code.gson:gson:2.8.5'
 }
 ```
+
+然后点击这个文件右上角的Sync Now按钮，如下图所示：
+
+![](./image/daoru.png)
+
+这时候，Gradle会自动下载Bmob SDK和需要的包，在Android Studio开发工具的右下角可以看到下载安装的进度（正常网络情况下，这个过程需要三分钟左右）。
 
 ## 创建Application子类
 新建一个继承自`Application`的子类`BmobApp`。代码如下：
@@ -184,6 +190,16 @@ p2.delete(new UpdateListener() {
 
 });
 ```
+
+## 更新日志
+
+  **v4.0.4 2024-09-26**
+  
+  **Features**
+  
+  - 自动更新组件新增`BmobUpdateAgent.setUpdateDownloadListener`方法，点击下载安装后返回成功或者失败的回调结果。
+
+
 
 ## 常见的9015错误如何解决
 [点击查看9015问题如何解决](https://blog.csdn.net/m0_74037076/article/details/131123957)

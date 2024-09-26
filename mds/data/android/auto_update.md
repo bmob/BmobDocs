@@ -259,6 +259,24 @@ BmobUpdateAgent.setUpdateOnlyWifi（boolean updateOnlyWifi）
 	BmobUpdateAgent.update(this);
 ```
 
+### 监听安装包下载是否成功
+
+如果想要监听安装包是否下载成功，可以用下面的方法：
+
+```java
+BmobUpdateAgent.setUpdateDownloadListener(new BmobUpdateDownloadListener() {
+            @Override
+            public void onDownloadReturned(Status downloadStatus) {
+                if(downloadStatus==Status.ERROR){
+                    Log.d("bmobdownlaod","下载异常");
+                }else{
+                    Log.d("bmobdownlaod","下载完成");
+                }
+            }
+        });
+
+```
+
 ### 监听对话框按键操作
 
 有时候开发者需要知道用户点击了哪个按钮，开发者可设置监听对话框的按钮点击事件。

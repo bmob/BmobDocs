@@ -20,7 +20,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.4'
+	implementation 'io.github.bmob:android-sdk:3.9.6'
 	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -131,6 +131,16 @@ BmobApp.bmobAI.Chat("帮我用写一段android访问Bmob后端云的代码", "se
 
 `Connect`方法是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。
 
+## 停止输出内容
+
+如果你想中断AI的内容输出，还可以调用如下的代码：
+
+```java
+
+BmobApp.bmobAI.Stop();
+
+```
+
 ## 自定义AI机器人
 
 如果需要设置AI的角色，你可以在调用 `BmobApp.bmobAI.Chat` 方法前，调用  `BmobApp.bmobAI.setPrompt` 方法，如：
@@ -140,12 +150,29 @@ BmobApp.bmobAI.Chat("帮我用写一段android访问Bmob后端云的代码", "se
 BmobApp.bmobAI.setPrompt("接下来的每个回复都要叫我宝贝");
 
 ```
+ 
+启用这个方法之后，我们会在每次给AI发起内容生成的时候，都在最开始的地方附带上 `"接下来的每个回复都要叫我宝贝"` 这句话，确保内容按你的要求生成。
 
-## 清除Session
+## 清除对话
 
 SDK会在 `内存` 中保存会话(session)信息，每次执行 `BmobAI.Chat` 方法时，会自动找到最近的 `7对` 上下文（17条对话），组装好内容，和最终的AI服务商交互。
 
 如果你不想携带以往的会话(session)信息，可以在执行 `BmobAI.Chat` 方法之前，先执行  `BmobAI.Clear("你的session名称")` 方法，将session信息从内存中清除。
+
+## 模拟对话内容
+
+你还可以自由地在调用BmobAI.Chat方法前，模拟添加用户的问和ChatGPT的答。
+
+方法如下：
+
+```java
+//模拟用户的问  
+BmobApp.bmobAI.setUserChatMessage("模拟用户的问题","你的session名称");  
+
+//模拟Chatgpt的答  
+BmobApp.bmobAI.setAssistantChatMessage("模拟Chatgpt的回答","你的session名称");  
+
+```
 
 ## 接口费用
 
@@ -155,6 +182,10 @@ SDK会在 `内存` 中保存会话(session)信息，每次执行 `BmobAI.Chat` �
 
 使用自有密钥的方法如下：进入到应用之后，依次点击 `设置` -> `AI设置` -> `添加配置`，将你的密钥信息填上去即可。
 ![](image/aiconfig.png)
+
+## 视频教程
+
+<iframe src="//player.bilibili.com/player.html?aid=998743296&bvid=BV11x4y1d7Nk&cid=1202328961&page=1" width="1024" height="768" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 源码下载
 [AI快速入门源码下载](https://github.com/bmob/Bmob-Android-AI)

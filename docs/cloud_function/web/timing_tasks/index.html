@@ -65,6 +65,11 @@
                                 </li>
                             
                             
+                                <li >
+                                    <a href="../../../data/harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
 								<li >
 									<a href="../../../data/csharp/">C#</a>
                                 </li>
@@ -95,11 +100,6 @@
                                 </li>
 							
                             
-								<li >
-									<a href="../../../data/wechat_app/">小程序(旧、弃用)</a>
-                                </li>
-                            
-                            
                                 <li >
                                     <a href="../../../data/wechat_app_new/">快应用</a>
                                 </li>
@@ -116,7 +116,7 @@
 							
                             
 								<li >
-									<a href="../../../data/wechat_app_new/rm/">小程序(新)</a>
+									<a href="../../../data/wechat_app_new/rm/">小程序</a>
                                 </li>
                             
                             
@@ -141,10 +141,15 @@
             
               <li class="pull-left active">
                 
-					<!--<a href="../../android/">云函数</a>-->
+					<!--<a href="">云函数</a>-->
 					<li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
+								<li class="active">
+									<a href="../">云函数开发文档</a>
+                                </li>
+                            
                             
                                 <li >
                                     <a href="../../android/">Android</a>
@@ -185,11 +190,6 @@
                                     <a href="../../restful/">REST API</a>
                                 </li>
 							
-                            
-								<li class="active">
-									<a href="../">Web</a>
-                                </li>
-                            
                         </ul>
                     </li>
                 
@@ -224,6 +224,52 @@
                             
                                 <li >
                                     <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/python/">python</a>
                                 </li>
 							
                         </ul>
@@ -307,6 +353,7 @@
 	
 		
 				
+					<div class="code-title">云函数开发文档</div>
 				
 				
 				
@@ -315,11 +362,20 @@
 				
 				
 				
-					<div class="code-title">Web</div>
 				
 		
 	
 		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
 				
 				
 				
@@ -347,22 +403,6 @@
 				
 					
 						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
 							
 								
 									<li class="">
@@ -372,6 +412,11 @@
 								
 									<li class="">
 										<a class="itm-l1" href="../develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../hook/">数据钩子</a>
 										
 									</li>
 								
@@ -401,7 +446,25 @@
 							
 						
 					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
 				
+			
+		
 			
 		
 			
@@ -415,8 +478,7 @@
                 <div class="wrap">
                     
 
-<h3 id="_1">定时任务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<hr />
+<h2 id="_1">定时任务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>定时任务是专门为云函数提供定时服务，用来定时触发云函数的特定操作，满足比如定时计算排行榜等需求。规则如下：</p>
 <p><strong>注意：免费版用户最短间隔时间须大于1小时，否则规则无法保存，只有企业版以上的用户能每秒执行一次。</strong></p>
 <p>具体规则写法如下：</p>

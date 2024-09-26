@@ -65,6 +65,11 @@
                                 </li>
                             
                             
+                                <li >
+                                    <a href="../harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
 								<li >
 									<a href="../csharp/">C#</a>
                                 </li>
@@ -95,11 +100,6 @@
                                 </li>
 							
                             
-								<li >
-									<a href="../wechat_app/">小程序(旧、弃用)</a>
-                                </li>
-                            
-                            
                                 <li >
                                     <a href="../wechat_app_new/">快应用</a>
                                 </li>
@@ -116,7 +116,7 @@
 							
                             
 								<li >
-									<a href="../wechat_app_new/rm/">小程序(新)</a>
+									<a href="../wechat_app_new/rm/">小程序</a>
                                 </li>
                             
                             
@@ -141,10 +141,15 @@
             
               <li class="pull-left">
                 
-					<!--<a href="../../cloud_function/android/">云函数</a>-->
+					<!--<a href="">云函数</a>-->
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../cloud_function/web/">云函数开发文档</a>
+                                </li>
+                            
                             
                                 <li >
                                     <a href="../../cloud_function/android/">Android</a>
@@ -185,11 +190,6 @@
                                     <a href="../../cloud_function/restful/">REST API</a>
                                 </li>
 							
-                            
-								<li >
-									<a href="../../cloud_function/web/">Web</a>
-                                </li>
-                            
                         </ul>
                     </li>
                 
@@ -224,6 +224,52 @@
                             
                                 <li >
                                     <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/python/">python</a>
                                 </li>
 							
                         </ul>
@@ -325,6 +371,16 @@
 				
 				
 				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
 		
 	
 		
@@ -352,11 +408,7 @@
 										
 										<ul class="nav">
 											
-											<li class="active "><a href="#bmob">注册Bmob帐号</a>
-												
-											</li>
-												
-											<li class=""><a href="#_1">网站后台创建应用</a>
+											<li class="active "><a href="#_1">创建应用</a>
 												
 											</li>
 												
@@ -364,7 +416,11 @@
 												
 											</li>
 												
-											<li class=""><a href="#_3">导入依赖</a>
+											<li class=""><a href="#sdk">下载导入SDK包</a>
+												
+											</li>
+												
+											<li class=""><a href="#application">创建Application子类</a>
 												
 											</li>
 												
@@ -372,23 +428,27 @@
 												
 											</li>
 												
-											<li class=""><a href="#bmobsdk">初始化BmobSDK</a>
+											<li class=""><a href="#_3">添加一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_4">添加一行数据</a>
+											<li class=""><a href="#_4">获取一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_5">获取一行数据</a>
+											<li class=""><a href="#_5">修改一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_6">修改一行数据</a>
+											<li class=""><a href="#_6">删除一行数据</a>
 												
 											</li>
 												
-											<li class=""><a href="#_7">删除一行数据</a>
+											<li class=""><a href="#_7">更新日志</a>
+												
+											</li>
+												
+											<li class=""><a href="#9015">常见的9015错误如何解决</a>
 												
 											</li>
 												
@@ -457,6 +517,8 @@
 		
 			
 		
+			
+		
 	</ul>
 </div>
             </div>
@@ -464,31 +526,42 @@
                 <div class="wrap">
                     
 
-<h2 id="bmob">注册Bmob帐号<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
-<p>在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。</p>
-<p><img alt="" src="./image/rumen_zhuce.png" /></p>
-<h2 id="_1">网站后台创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。</p>
 <p><img alt="" src="./image/rumen_chuangjian.png" /></p>
 <h2 id="_2">获取应用密钥<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>选择你要开发的应用，进入该应用</p>
 <p><img alt="" src="./image/rumen_miyue_1.png" /></p>
-<p>在跳转页面，进入设置/应用密钥，点击复制，即可得到Application ID</p>
+<p>在跳转页面，进入设置/应用密钥，点击复制，即可得到<code>Application ID</code></p>
 <p><img alt="" src="./image/rumen_miyue_2.png" /></p>
-<h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
+<h2 id="sdk">下载导入SDK包<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
+<p>打开 Android Studio 应用 <code>Gradle Scripts</code> 下的 <code>build.gradle(Module :你的应用名称)</code> 文件，在 <code>dependencies</code> 节点中，新增如下的 <code>依赖包</code> 信息：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:3.8.22'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.github.bmob:android-sdk:4.0.4'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
     implementation 'com.squareup.okio:okio:2.2.2'
     implementation 'com.google.code.gson:gson:2.8.5'
 }
 </code></pre>
 
+<p>然后点击这个文件右上角的Sync Now按钮，如下图所示：</p>
+<p><img alt="" src="./image/daoru.png" /></p>
+<p>这时候，Gradle会自动下载Bmob SDK和需要的包，在Android Studio开发工具的右下角可以看到下载安装的进度（正常网络情况下，这个过程需要三分钟左右）。</p>
+<h2 id="application">创建Application子类<a class="headerlink" href="#application" title="Permanent link">&para;</a></h2>
+<p>新建一个继承自<code>Application</code>的子类<code>BmobApp</code>。代码如下：</p>
+<pre><code class="java">public class BmobApp extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Bmob.initialize(this, &quot;你的application id&quot;);
+    }
+}
+</code></pre>
+
 <h2 id="androidmanifestxml">配置AndroidManifest.xml<a class="headerlink" href="#androidmanifestxml" title="Permanent link">&para;</a></h2>
-<p>在你的应用程序的<code>AndroidManifest.xml</code>文件中添加如下的<code>权限</code>和<code>ContentProvider</code>信息：</p>
+<p>在你的应用程序的<code>AndroidManifest.xml</code>文件中添加如下的<code>应用类名</code>、<code>权限</code>和<code>ContentProvider</code>信息：</p>
 <pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
     &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
         package=&quot;cn.bmob.example&quot;
@@ -509,17 +582,10 @@
     &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
 
     &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@drawable/ic_launcher&quot;
-        android:label=&quot;@string/app_name&quot;
-        android:theme=&quot;@style/AppTheme&quot;&gt;
+        android:name=&quot;.BmobApp&quot;
+        ....其他信息&gt;
         &lt;activity
-            android:name=&quot;cn.bmob.example.MainActivity&quot;
-            android:screenOrientation=&quot;portrait&quot;
-            android:label=&quot;@string/app_name&quot; &gt;
-
-                &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;
-                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;
+            ...其他信息
         &lt;/activity&gt;
 
         &lt;!--添加ContentProvider信息 --&gt;
@@ -531,12 +597,7 @@
 &lt;/manifest&gt;
 </code></pre>
 
-<h2 id="bmobsdk">初始化BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
-<p>在你应用程序启动的Application的onCreate()方法中初始化Bmob功能。代码如下所示：</p>
-<pre><code class="java">        Bmob.initialize(this, &quot;Your Application ID&quot;);
-</code></pre>
-
-<h2 id="_4">添加一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">添加一行数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>首先创建JavaBean（对应为Bmob后台的数据表，更详细的解释请<a href="http://doc.bmobapp.com/data/android/develop_doc/index.html">查看Android开发文档</a>）</p>
 <pre><code class="java">public class Person extends BmobObject {
     private String name;
@@ -575,7 +636,7 @@ p2.save(new SaveListener&lt;String&gt;() {
 
 <p>如果toast出添加数据成功的消息，你会在Bmob对应Application Id的数据表中看到有一行新增的数据，如下图所示：</p>
 <p><img alt="" src="./image/newdata.png" /></p>
-<h2 id="_5">获取一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_4">获取一行数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <pre><code class="java">//查找Person表里面id为6b6c11c537的数据
 BmobQuery&lt;Person&gt; bmobQuery = new BmobQuery&lt;Person&gt;();
 bmobQuery.getObject(&quot;6b6c11c537&quot;, new QueryListener&lt;Person&gt;() {
@@ -590,7 +651,7 @@ bmobQuery.getObject(&quot;6b6c11c537&quot;, new QueryListener&lt;Person&gt;() {
 });
 </code></pre>
 
-<h2 id="_6">修改一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_5">修改一行数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <pre><code class="java">//更新Person表里面id为6b6c11c537的数据，address内容更新为“北京朝阳”
 Person p2 = new Person();
 p2.setAddress(&quot;北京朝阳&quot;);
@@ -608,7 +669,7 @@ p2.update(&quot;6b6c11c537&quot;, new UpdateListener() {
 });
 </code></pre>
 
-<h2 id="_7">删除一行数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_6">删除一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <pre><code class="java">Person p2 = new Person();
 p2.setObjectId(&quot;6b6c11c537&quot;);
 p2.delete(new UpdateListener() {
@@ -625,6 +686,14 @@ p2.delete(new UpdateListener() {
 });
 </code></pre>
 
+<h2 id="_7">更新日志<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>v4.0.4 2024-09-26</strong></p>
+<p><strong>Features</strong></p>
+<ul>
+<li>自动更新组件新增<code>BmobUpdateAgent.setUpdateDownloadListener</code>方法，点击下载安装后返回成功或者失败的回调结果。</li>
+</ul>
+<h2 id="9015">常见的9015错误如何解决<a class="headerlink" href="#9015" title="Permanent link">&para;</a></h2>
+<p><a href="https://blog.csdn.net/m0_74037076/article/details/131123957">点击查看9015问题如何解决</a></p>
 <h2 id="_8">源码下载<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/bmob/bmob-android-quickstart" title="快速入门相关源码下载">快速入门相关源码下载</a></p>
 <p>为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，<strong>嵌入Bmob的AppKey</strong>，再打包运行。</p>

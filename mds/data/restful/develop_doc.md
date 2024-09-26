@@ -23,52 +23,63 @@ Unity访问RestApi：[https://github.com/bmob/Bmob-Unity-Demo](https://github.co
 
 
 ## 请求格式
+
 对于POST和PUT请求，请求的主体必须是JSON格式,而且HTTP请求头的 **Content-Type** 需要设置为 **application/json** 。
 
-用户验证是通过HTTP请求头来进行的, **X-Bmob-Application-Id** 头表明你正在访问的是哪个App程序, 而 **X-Bmob-REST-API-Key** 头是用来授权的。在下面的例子中，你必须使用正确的key替换Your Application ID和Your REST API Key才能正常地发出Curl请求。
 
+## 请求header
 
+Bmob后端云支持两种Restful API的header的授权方式。
 
-## 加密请求格式
+- 简易授权方式
 
-17年之前，Restful API 一直是沿用 **X-Bmob-Application-Id** 与 **X-Bmob-REST-API-Key** 头是用来授权的，由于17年Bmob推出微信小程序SDK，进而推出了新的加密请求头方式在小程序端使用，经过1年多的客户良好反馈，现在加密方式开放给API模块使用。
+简易授权方式只需要在header中提供 `X-Bmob-Application-Id` 和 `X-Bmob-REST-API-Key` 其中，`X-Bmob-Application-Id` 头表明你正在访问的是哪个App程序, 而 `X-Bmob-REST-API-Key` 头是用来授权的。
 
+```
+curl -X GET \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    https://自己备案域名/1/classes/GameScore/e1kXT22L
 
+```
+
+- 加密授权方式
+
+简易授权方式适合服务端或者不公开对外运行的那些应用，不需要担心抓包破解的问题。加密授权方式更适合公开客户端模式的应用，header头的格式如下：
 
 ```
 curl -X GET \
     -H 'content-type: application/json'
-    -H 'X-Bmob-SDK-Type: API'
-    -H 'X-Bmob-Safe-Sign: abf91342a4103732cbcf8d8a727065da'
-    -H 'X-Bmob-Safe-Timestamp: 1583920308'
-    -H 'X-Bmob-Noncestr-Key: mI7dRHI4gbai0KaU'
+    -H 'X-Bmob-SDK-Type: wechatApp'
     -H 'X-Bmob-Secret-Key: bc7814ffb203da9f'
+    -H 'X-Bmob-Noncestr-Key: mI7dRHI4gbai0KaU'
+    -H 'X-Bmob-Safe-Timestamp: 1583920308'
+    -H 'X-Bmob-Safe-Sign: abf91342a4103732cbcf8d8a727065da'
+    -H 'X-Bmob-SDK-Version: 10'
     https://自己备案域名/1/classes/GameScore/e1kXT22L
 ```
 
-
-
 | 参数                  | 类型   | 参数说明                                                     |
 | --------------------- | ------ | ------------------------------------------------------------ |
-| X-Bmob-SDK-Type       | string | SDK类型，这里固定API                                         |
-| X-Bmob-Safe-Timestamp | int    | 客户端请求的 unix 时间戳（UTC），精确到毫秒                  |
+| X-Bmob-SDK-Type       | string | SDK类型，目前固定为 `wechatApp`                                         |
+| X-Bmob-Safe-Timestamp | string | 客户端请求的 unix 时间戳（UTC），精确到毫秒，长度13位字符      |
 | X-Bmob-Noncestr-Key   | string | 客户端请求产生的一个随机码，长度16个字符                     |
 | X-Bmob-Secret-Key     | string | Bmob控制台应用密匙 **Secret Key**                            |
-| X-Bmob-Safe-Sign      | string | md5 签名，签名规则 md5(url + timeStamp + safeToken + noncestr) ，具体 看下面介绍 |
+| X-Bmob-SDK-Version       | string | SDK版本，当前固定为 `10`                                         |
+| X-Bmob-Safe-Sign      | string | md5 签名，签名规则 md5(url + timeStamp + SecurityCode + noncestr + body + SDKVersion) ，具体 看下面介绍 |
 
 > 以上所有参数必填，请求时间客户端到服务器请求必须10s内，如果客户端手机时间不对，则无法请求。
 
-MD5加密规则说明
+MD5加密规则说明：
 
 | 参数      | 参数说明                                                     |
 | --------- | ------------------------------------------------------------ |
 | url       | 例如请求 https://自己备案域名/1/classes/GameScore/e1kXT22L 他的url则为『**/1/classes/GameScore/e1kXT22L** 』如果get请求后面带?aa=1 则不算url加密参数之中 |
 | timeStamp | 客户端请求的 unix 时间戳（UTC），精确到毫秒                  |
-| safeToken | 自定义API安全码，不通过网络传输。设置 **API 安全码**: 在应用功能设置，安全验证，API安全码自己设置长度为6个字符 |
+| SecurityCode | 自定义API安全码，不通过网络传输。设置 **API 安全码**: 在应用功能设置，安全验证，API安全码，可自行设置|
 | noncestr  | 客户端请求产生的一个随机码，长度16个字符                     |
-
-由于部分客户担心之前密匙已经泄露，控制台给新方法方式加了一个设置，关闭原有 **X-Bmob-Application-Id** 访问方式，具体设置请进入在应用功能设置，安全验证里面关闭。
-
+| body | 客户端请求的json内容，仅`POST`和`PUT`请求类型需要，其他类型均为空值                  |
+| SDKVersion | 目前固定为 `10` |
 
 
 ## 响应格式
@@ -3744,542 +3755,6 @@ curl -X GET \
 2. GeoPoint的点不能超过规定的范围。`纬度的范围`应该是在`-90.0到90.0`之间。`经度的范围`应该是在`-180.0到180.0`之间。如果您添加的经纬度超出了以上范围，将导致程序错误。
 3. 删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。
 4. 如果不加任何距离范围限制，则默认是100公里的半径范围。
-
-## app服务
-
-通过app REST API api，你可以查看，创建或编辑你的app，在用户管理后台也实现了这样的功能。通过验证你的bmob email账号和密码，你可以获取所有的app信息，创建一个新的app或者修改旧的app的信息。
-
-app REST API api的验证流程和其它REST API api有点不一样。在验证的时候，不是验证你的app key，而是验证账号的登录信息。头部 **X-Bmob-Email** 代表登录用的email，头部 **X-Bmob-Password** 代表登录用的密码。
-
-### 获取app信息
-
-**请求描述**
-
-可以获取一个账号下所有app的信息或者某个app的信息，如下。
-
-**请求**
-
-- url ：https://自己备案域名/1/apps （获取所有app信息） https://自己备案域名/1/apps/Your Application ID（获取特定app信息）
-
-- method ：GET
-
-- header:
-
-```
-X-Bmob-Email: Your Account Email
-X-Bmob-Password: Your Account Password
-```
-
-**成功时响应**
-
-- status: 200 OK
-
-- body:
-
-请求所有应用信息的body结构如下：
-
-```
-{
-  "results": [
-		{
-		  "appName": appName,
-		  "applicationId": app Id,
-		  "restKey": $estful Key,
-		  "masterKey": master Key,
-		  "accessKey": access Key,
-		  "secretKey": secret Key,
-		  "status": status (app 是否可用，0表示不可用，1表示可用),
-		  "notAllowedCreateTable": isAllowedCreateTable(是否允许通过api建表，0表示允许，1表示不允许)
-		},
-		{
-			  "appName": appName,
-			  "applicationId": app Id,
-			  "restKey": $estful Key,
-			  "masterKey": master Key,
-			  "accessKey": access Key,
-			  "secretKey": secret Key,
-			  "status": status (app 是否可用，0表示不可用，1表示可用),
-			  "notAllowedCreateTable": isAllowedCreateTable(是否允许通过api建表，0表示允许，1表示不允许)
-		 },
-		 ...
-  ]
-}
-```
-
-请求单个应用信息的body结构如下：
-
-```
-{
-  "appName": appName,
-  "applicationId": app Id,
-  "restKey": $estful Key,
-  "masterKey": master Key,
-  "accessKey": access Key,
-  "secretKey": secret Key,
-  "status": status (app 是否可用，0表示不可用，1表示可用),
-  "notAllowedCreateTable": isAllowedCreateTable(是否允许通过api建表，0表示允许，1表示不允许)
-}
-```
-
-### 创建新的app
-
-**请求描述**
-
-该请求接口可以动态创建一个应用。
-
-**请求**
-
-- url ：https://自己备案域名/1/apps
-
-- method ：POST
-
-- header:
-
-```
-X-Bmob-Email: Your Account Email
-X-Bmob-Password: Your Account Password
-```
-
-- body:
-
-```
-{
-  "appName" : appName,
-  "status": status,
-  "notAllowedCreateTable": value
-}
-```
-
-| 参数名 | 参数用途 | 取值范围 |是否必须要填|
-| :----:  | :----:  | :----:  | :----:  |
-|  appName | app的名称 | 少于30个字符     | 是|
-|  status | app是否可用| 0：表示禁用，1：表示可用     | 否|
-|  notAllowedCreateTable | 是否允许通过api创建表| 0：表示允许创建表，1：表示不允许创建表     | 否|
-
-**成功时响应**
-
-- status: 200 OK
-
-- body:
-
-```
-{
-  "appName": appName,
-  "applicationId": app Id,
-  "restKey": $estful Key,
-  "masterKey": master Key,
-  "accessKey": access Key,
-  "secretKey": secret Key,
-  "status": status (app 是否可用，0表示不可用，1表示可用),
-  "notAllowedCreateTable": isAllowedCreateTable(是否允许通过api建表，0表示允许，1表示不允许)
-}
-```
-
-**例子**
-
-下面是一个创建app的例子
-
-```
-curl -X POST \
-    -H "X-Bmob-Email: Your Account Email" \
-    -H "X-Bmob-Password: Your Account Password" \
-    -H "Content-Type: application/json" \
-    -d '{"appName":"myapp","status":1,"notAllowedCreateTable":0}' \
-    https://自己备案域名/1/apps
-```
-
-### 修改app信息
-
-修改app信息与添加app相似，只是请求URL修改为 https://自己备案域名/1/apps/appId，并且使用 PUT方法即可，其中body里为需要修改的信息，参见下表：
-
-通过使用PUT 方法，可以修改app的信息，修改app信息时支持如下的参数：
-
-| 参数名 | 参数用途 | 取值范围 |是否必须要填|
-| :----:  | :----:  | :----:  | :----:  |
-|  appName | app的名称 | 少于30个字符     | 否|
-|  status | app是否可用| 0：表示禁用，1：表示可用     | 否|
-|  notAllowedCreateTable | 是否允许通过api创建表| 0：表示允许创建表，1：表示不允许创建表     | 否|
-
-
-下面是修改app信息的例子
-
-```
-curl -X PUT \
-    -H "X-Bmob-Email: Your Account Email" \
-    -H "X-Bmob-Password: Your Account Password" \
-    -H "Content-Type: application/json" \
-    -d '{"appName":"myapp","status":1,"notAllowedCreateTable":0}' \
-    https://自己备案域名/1/apps/f6fe8d5ab8a7909a3c6f6a7a0adb9550
-```
-
-## 数据表
-
-通过数据表的REST API api，你可以查看，创建或编辑你的表结构，在用户管理后台的数据浏览页面也实现了这样的功能。
-
-注意，调用数据表相关的api，必须指定Master Key。
-
-### 获取app表的信息
-
-**请求描述**
-
-可获取所有表的结构或者是特定某张表的结构
-
-**请求**
-
-- url ：https://自己备案域名/1/schemas 或者 https://自己备案域名/1/schemas/tableName(获取特定表)
-
-- method ：GET
-
-- header:
-
-```
-X-Bmob-Application-Id: Your Application ID
-X-Bmob-Master-Key: Your Master Key
-```
-
-
-**成功时响应**
-
-- status: 200 OK
-
-- body:
-
-获取所有表结构：
-
-```
-{
-  "results": [
-		  {
-		  "className": tableName1,
-		  "fields": {
-		    key1: {
-		      "type": typeOfKey1
-		      "targetClass":tableName（Pointer及Relation类型）
-		    },
-		    key2: {
-		      "type": typeOfKey2
-		      "targetClass":tableName（Pointer及Relation类型）
-		    },
-		    ...
-		    }
-		  }
-		},
-		{
-		  "className": tableName2,
-		  "fields": {
-		    key1: {
-		      "type": typeOfKey1
-		      "targetClass":tableName（Pointer及Relation类型）
-		    },
-		    key2: {
-		      "type": typeOfKey2
-		      "targetClass":tableName（Pointer及Relation类型）
-		    },
-		    ...
-		    }
-		  }
-		},
-		...
-    ]
-}
-```
-
-获取特定表结构
-
-```
-{
-  "className": tableName,
-  "fields": {
-    key1: {
-      "type": typeOfKey1
-      "targetClass":tableName（Pointer及Relation类型）
-    },
-    key2: {
-      "type": typeOfKey2
-      "targetClass":tableName（Pointer及Relation类型）
-    },
-    ...
-    }
-  }
-}
-```
-
-**例子**
-
-例如，想要获取 `GameScore` 的表结构可使用以下请求。
-
-```
-curl -X GET \
-    -H "X-Bmob-Application-Id: Your Application ID" \
-    -H "X-Bmob-Master-Key: Your Master Key" \
-    https://自己备案域名/1/schemas/GameScore
-```
-
-返回的body如下：
-
-```
-{
-  "className": "GameScore",
-  "fields": {
-    "ACL": {
-      "type": "Object"
-    },
-    "createdAt": {
-      "type": "Date"
-    },
-    "location": {
-      "type": "Geo"
-    },
-    "name": {
-      "type": "String"
-    },
-    "objectId": {
-      "type": "String"
-    },
-    "updatedAt": {
-      "type": "Date"
-    }
-  }
-}
-```
-
-### 表支持的数据类型
-
-Bmob的表含有String、Number、Bool、Date、File、Geo、Array、Object、Pointer以及Relation类型。
-
-
-
-### 创建一个表
-
-**请求描述**
-
-可通过该接口创建一个表
-
-**请求**
-
-- url ： https://自己备案域名/1/schemas/TableName
-
-- method ：POST
-
-- header:
-
-```
-X-Bmob-Application-Id: Your Application ID
-X-Bmob-Master-Key: Your Master Key
-```
-
-- body:
-
-```
-{
-  "className": tableName,
-  "fields": {
-    key1: {
-      "type": typeOfKey1
-      "targetClass":tableName（Pointer及Relation类型需要填）
-    },
-    key2: {
-      "type": typeOfKey2
-      "targetClass":tableName（Pointer及Relation类型需要填）
-    },
-    ...
-    }
-  }
-}
-```
-
-**成功时响应**
-
-- status: 200 OK
-
-- body:
-
-```
-{
-  "className": tableName,
-  "fields": {
-    key1: {
-      "type": typeOfKey1
-      "targetClass":tableName（Pointer及Relation类型）
-    },
-    key2: {
-      "type": typeOfKey2
-      "targetClass":tableName（Pointer及Relation类型）
-    },
-    ...
-    }
-  }
-}
-```
-
-**例子**
-
-如创建表“City”，并添加字段 `name` 和 `visiter` （指向_User）
-
-```
-curl -X POST \
-    -H "X-Bmob-Application-Id: Your Application ID" \
-    -H "X-Bmob-Master-Key: Your Master Key" \
-	-H "Content-Type: application/json" \
-	-d '
-		{
-		  "className": "City",
-		  "fields": {
-				"name": {
-				  "type": "String"
-				},
-				"visiter": {
-				  "type": "Pointer",
-				  "targetClass":"_User"
-				}
-		  }
-		}' \
-  https://自己备案域名/1/schemas/City
-```
-
-### 修改表的结构
-
-**请求描述**
-
-**请求**
-
-- url ：https://自己备案域名/1/schemas/tableName
-
-- method ：PUT
-
-- header:
-
-```
-X-Bmob-Application-Id: Your Application ID
-X-Bmob-Master-Key: Your Master Key
-```
-
-- body:
-
-```
-  {
-      "className": tableName,
-      "fields": {
-        key1: {
-          "type": "String"(添加字段)
-        },
-        key2: {
-          "type": "String",
-          "__op": "Delete" (删除字段)
-        }
-      }
- }
-```
-
-**成功时响应**
-
-- status: 200 OK
-
-- body:
-
-返回的是修改后的表结构
-
-```
-{
-  "className": tableName,
-  "fields": {
-    key1: {
-      "type": typeOfKey1
-      "targetClass":tableName（Pointer及Relation类型）
-    },
-    key2: {
-      "type": typeOfKey2
-      "targetClass":tableName（Pointer及Relation类型）
-    },
-    ...
-    }
-  }
-}
-```
-
-
-**例子**
-
-在表“City”中添加字段“name”
-
-```
-curl -X PUT \
-	-H "X-Bmob-Application-Id: Your Application ID" \
-	-H "X-Bmob-Master-Key: Your Master Key" \
-	-H "Content-Type: application/json" \
-	-d '
-    {
-      "className": "City",
-      "fields": {
-        "name": {
-          "type": "String"
-        }
-      }
-    }' \
-  https://自己备案域名/1/schemas/City
-
-```
-
-在表“City”中删除字段“name”
-
-```
-curl -X PUT \
-	-H "X-Bmob-Application-Id: Your Application ID" \
-	-H "X-Bmob-Master-Key: Your Master Key" \
-	-H "Content-Type: application/json" \
-	-d '
-    {
-      "className": "City",
-      "fields": {
-        "name": {
-          "type": "String",
-          "__op": "Delete"
-        }
-      }
-    }' \
-  https://自己备案域名/1/schemas/City
-```
-
-### 删除表
-
-**请求描述**
-
-**请求**
-
-- url ：https://自己备案域名/1/schemas/tableName
-
-- method ：DELETE
-
-- header:
-
-```
-X-Bmob-Application-Id: Your Application ID
-X-Bmob-Master-Key: Your Master Key
-```
-
-
-**成功时响应**
-
-- status: 200 OK
-
-- body:
-
-```
-{
-  "msg": "ok"
-}
-```
-
-**例子**
-
-删除City表
-
-```
-curl -X DELETE \
-	-H "X-Bmob-Application-Id: Your Application ID" \
-	-H "X-Bmob-Master-Key: Your Master Key" \
-  https://自己备案域名/1/schemas/City
-```
 
 ## 获取服务器时间
 

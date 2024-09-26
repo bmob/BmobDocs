@@ -20,22 +20,21 @@
 
 ## 下载安装SDK
 
-Bmob C# SDK下载地址：<https://github.com/bmob/BmobSharp/releases>
+* Unity
+  
+Bmob C# 源码的下载地址：<https://github.com/bmob/Bmob-Unity-Demo/blob/main/Source.zip>
+
+下载之后，采用`源码引用`的方式，具体搭建过程请查看github上的文档：<https://github.com/bmob/Bmob-Unity-Demo>
 
 * Windows
+  
+Bmob C# DLL的下载地址：<https://github.com/bmob/BmobSharp/releases/download/1.5.2/bmobsharp-1.5.2.rar>
 
 下载后解压，将Windows文件夹下的`Bmob-Windows.dll`文件引用到你的项目工程中，如下图所示。
 
 ![](image/dll.png)
 
 demo：[bmob-desktop-demo](https://github.com/bmob/bmob-demo-csharp/tree/master/examples/bmob-desktop-demo)
-
-* Unity
-
-下载后解压，将Unity文件夹下的`Bmob-Unity.dll`文件放置到你的项目工程的 **Assets/libs/** 目录下。
-
-demo：[bmob-unity-demo](https://github.com/bmob/bmob-demo-csharp/tree/master/examples/bmob-unity-demo)
-开发环境(调试)搭建：请查询[BmobSharp的README文档](https://github.com/bmob/BmobSharp#开发环境搭建)。
 
 ## 新建模型类
 
@@ -167,8 +166,4 @@ private void createData_Click(object sender, EventArgs e)
     FinishedCallback(future.Result, resultText);
 }
 ```
-
-## 更多例子
-
-大家可详细查看[示例源码](https://github.com/bmob/bmob-demo-csharp/tree/master/examples/bmob-desktop-demo/)和 [SDK项目源码](https://github.com/bmob/BmobSharp)，了解更多的Bmob C# SDK for Windows的操作。
 

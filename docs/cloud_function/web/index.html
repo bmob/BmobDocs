@@ -65,6 +65,11 @@
                                 </li>
                             
                             
+                                <li >
+                                    <a href="../../data/harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
 								<li >
 									<a href="../../data/csharp/">C#</a>
                                 </li>
@@ -95,11 +100,6 @@
                                 </li>
 							
                             
-								<li >
-									<a href="../../data/wechat_app/">小程序(旧、弃用)</a>
-                                </li>
-                            
-                            
                                 <li >
                                     <a href="../../data/wechat_app_new/">快应用</a>
                                 </li>
@@ -116,7 +116,7 @@
 							
                             
 								<li >
-									<a href="../../data/wechat_app_new/rm/">小程序(新)</a>
+									<a href="../../data/wechat_app_new/rm/">小程序</a>
                                 </li>
                             
                             
@@ -141,10 +141,15 @@
             
               <li class="pull-left active">
                 
-					<!--<a href="../android/">云函数</a>-->
+					<!--<a href="">云函数</a>-->
 					<li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
+								<li class="active">
+									<a href="./">云函数开发文档</a>
+                                </li>
+                            
                             
                                 <li >
                                     <a href="../android/">Android</a>
@@ -185,11 +190,6 @@
                                     <a href="../restful/">REST API</a>
                                 </li>
 							
-                            
-								<li class="active">
-									<a href="./">Web</a>
-                                </li>
-                            
                         </ul>
                     </li>
                 
@@ -224,6 +224,52 @@
                             
                                 <li >
                                     <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/python/">python</a>
                                 </li>
 							
                         </ul>
@@ -307,6 +353,7 @@
 	
 		
 				
+					<div class="code-title">云函数开发文档</div>
 				
 				
 				
@@ -315,11 +362,20 @@
 				
 				
 				
-					<div class="code-title">Web</div>
 				
 		
 	
 		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
 				
 				
 				
@@ -347,22 +403,6 @@
 				
 					
 						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
 							
 								
 									<li class="active">
@@ -370,27 +410,11 @@
 										
 										<ul class="nav">
 											
-											<li class="active "><a href="#bmob">注册Bmob帐号</a>
+											<li class="active "><a href="#_1">创建云函数</a>
 												
 											</li>
 												
-											<li class=""><a href="#_1">网站后台创建应用</a>
-												
-											</li>
-												
-											<li class=""><a href="#sdk">获取应用密钥和下载SDK</a>
-												
-											</li>
-												
-											<li class=""><a href="#_2">创建云函数</a>
-												
-											</li>
-												
-											<li class=""><a href="#bmobsdk">安装和初始化BmobSDK</a>
-												
-											</li>
-												
-											<li class=""><a href="#_3">调用云函数</a>
+											<li class=""><a href="#_2">云函数的调用</a>
 												
 												<ul class="nav nav-l2">
 													<li><a class="itm-l2" href="#android">Android调用云函数</a></li>
@@ -402,16 +426,17 @@
 												
 											</li>
 												
-											<li class=""><a href="#_4">源码下载</a>
-												
-											</li>
-												
 										</ul>
 										
 									</li>
 								
 									<li class="">
 										<a class="itm-l1" href="develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="hook/">数据钩子</a>
 										
 									</li>
 								
@@ -433,7 +458,25 @@
 							
 						
 					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
 				
+			
+		
 			
 		
 			
@@ -447,24 +490,27 @@
                 <div class="wrap">
                     
 
-<h2 id="bmob">注册Bmob帐号<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
-<p>在网址栏输入www.bmobapp.com或者在百度输入Bmob进行搜索，打开Bmob官网后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活Bmob账户，你就可以用Bmob轻松开发应用了。</p>
-<p><img alt="" src="./image/rumen_zhuce.png" /></p>
-<h2 id="_1">网站后台创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。</p>
-<p><img alt="" src="./image/rumen_chuangjian.png" /></p>
-<h2 id="sdk">获取应用密钥和下载SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
-<p>选择你要开发的应用，进入该应用</p>
-<p><img alt="" src="./image/rumen_miyue_1.png" /></p>
-<p>在跳转页面，进入设置/应用密钥，点击复制，即可得到Application ID</p>
-<p><img alt="" src="./image/rumen_miyue_2.png" /></p>
-<p>获取Application ID后，下载SDK，开发者可以根据自己的需求选择相应的iOS SDK 或Android SDK，点击下载即可。</p>
-<p><img alt="" src="./image/rumen_miyue_3.png" /></p>
-<h2 id="_2">创建云函数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>在Bmob后台中，选择你刚刚创建好的应用，然后依次点击“云函数-&gt;添加方法”，在弹出窗口中输入云函数的方法名，该方法名将会在SDK调用时使用到。如下图所示：</p>
-<p><img alt="" src="./image/cloudcodeadd1.png" /></p>
-<p><img alt="" src="./image/cloudcodeadd2.png" /></p>
-<p>接着，你就可以在云函数的编辑器中撰写云函数了。如果你熟悉js脚本语言的话，撰写云函数非常简单，你只需要在onRequest方法中补充你的业务逻辑代码就可以了。onRequest方法包含3个参数，分别是request（请求对象，可以从中获取SDK上传的参数）, response（回应对象，可以将云函数的执行结果返回到SDK中）, modules（可调用的模块，包含数据库对象、HTTP对象等）。为方便演示，这里简单实现一个功能：接收客户端上传上来的name参数，根据name的值返回不同的结果。代码如下：</p>
+<p>Bmob的云函数是一个非常强大的模块，提供了云端代码的直接编写、数据钩子、定时任务等子模块，可以实现定时计算游戏的排行榜、拦截非法请求、处理复杂逻辑、动态调整等功能。</p>
+<h2 id="_1">创建云函数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>在Bmob后台中，进入应用，依次点击“云函数-&gt;添加方法”，在弹出窗口中输入云函数的方法名。如下图所示：</p>
+<p>注意：<code>方法名会在SDK调用时使用到</code>。</p>
+<p><img alt="" src="./image/create.png" /></p>
+<p><img alt="" src="./image/create1.png" /></p>
+<p>接着，你就可以在云函数的编辑器中撰写云函数了。</p>
+<p>云函数支持<code>NodeJs</code>语言，编写非常简单，你只需要在<code>onRequest</code>方法中编写你的业务逻辑代码就可以了。</p>
+<p><code>onRequest</code>方法包含3个参数，分别是：</p>
+<ul>
+<li>
+<p><code>request</code>（请求对象，可以从中获取SDK上传的参数）</p>
+</li>
+<li>
+<p><code>response</code>（回应对象，可以将云函数的执行结果返回到SDK中）,</p>
+</li>
+<li>
+<p><code>modules</code>（可调用的模块，包含数据库对象、HTTP对象等）。</p>
+</li>
+</ul>
+<p>为方便演示，这里简单实现一个功能：接收客户端传上来的<code>name</code>参数，根据<code>name</code>的值返回不同的结果。示例代码如下：</p>
 <pre><code class="java">function onRequest(request, response, modules) {
   //获取SDK客户端上传的name参数
   var name = request.body.name;
@@ -475,13 +521,11 @@
 }
 </code></pre>
 
-<h2 id="bmobsdk">安装和初始化BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
-<p>云函数的调用执行可以是在云端（通过“定时任务”模块去设置执行，实现定时业务逻辑计算的功能，如排行榜，这个操作非常简单，这里不再一一介绍），但更多的开发者是通过SDK调用的方式来执行云函数。这有点像存储过程，大家可以将更多的业务逻辑放在云端，可以随意改变，不需要更新应用，也不需要上传太多的数据参数。</p>
-<p>安装和初始化SDK的过程大家根据各自的平台（<a href="http://doc.bmobapp.com/data/android/" title="Android快速入门文档">Android</a> / <a href="http://doc.bmobapp.com/data/ios/" title="iOS快速入门文档">iOS</a>等）具体参考快速入门文档即可。</p>
-<h2 id="_3">调用云函数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>将如下的代码根据各自平台，插入到触发执行的方法里面。</p>
+<p>其中，<code>request.body</code>会携带客户端上传上来的参数列表。</p>
+<h2 id="_2">云函数的调用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>以下提供Android和iOS平台调用云函数的示例代码，更多语言请查看我们的开发文档。</p>
 <h3 id="android">Android调用云函数<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
-<pre><code class="java">//test对应你刚刚创建的云函数名称
+<pre><code class="java">//test对应你刚刚创建的云函数方法名
 String cloudCodeName = &quot;test&quot;;
 JSONObject params = new JSONObject();
 //name是上传到云端的参数名称，值是bmob，云函数可以通过调用request.body.name获取这个值
@@ -521,10 +565,6 @@ cloudCode.callEndpoint(MainActivity.this, cloudCodeName, params, new CloudCodeLi
 
     }] ;
 </code></pre>
-
-<h2 id="_4">源码下载<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/bmob/bmob-ios-demo/blob/master/CloudFunction.zip">iOS源码下载</a></p>
-<p><a href="http://www.bmobapp.com/static/Bmob_Sample_android_cloud.zip" title="Android源码下载">Android源码下载</a></p>
                 </div>
             </div>
         </div>

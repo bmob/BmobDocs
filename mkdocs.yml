@@ -25,6 +25,7 @@ pages:
         - 'libGDX': 'data/ios/lib_gdx.md'
         - 'Swift快速入门': 'data/ios/swift_quick_start.md'
         - 'Swift开发文档': 'data/ios/swift_develop_doc.md'
+    - 'harmony鸿蒙': 'data/harmony/index.md'
     - 'C#':
         - '快速入门': 'data/csharp/index.md'
         - '开发文档': 'data/csharp/develop_doc.md'
@@ -42,20 +43,27 @@ pages:
         - '快速入门': 'data/wechat_app_new/rm.md'
         - '开发文档': 'data/wechat_app_new/index.md'
     - 'Cocos2D-X': 'data/cocos2d_x/index.md'
-    - '小程序(旧、弃用)':
-        - '快速入门': 'data/wechat_app/index.md'
-        - '开发文档': 'data/wechat_app/develop_doc.md'
-        - '示例/功能': 'data/wechat_app/example.md'
+#    - '小程序(旧、弃用)':
+#        - '快速入门': 'data/wechat_app/index.md'
+#        - '开发文档': 'data/wechat_app/develop_doc.md'
+#        - '示例/功能': 'data/wechat_app/example.md'
     - '快应用': 'data/wechat_app_new/index.md'
     - 'Nodejs': 'data/wechat_app_new/index.md'
     - 'Cocos Creator': 'data/wechat_app_new/index.md'
-    - '小程序(新)':
+    - '小程序':
         - '快速入门': 'data/wechat_app_new/rm.md'
         - '开发文档': 'data/wechat_app_new/index.md'
     - 'Kotlin': 'data/kotlin/index.md'
     - 'Python': 'data/python/index.md'
     - 'Flutter': 'data/flutter/index.md'
 - '云函数':
+    - '云函数开发文档':
+        - '快速入门': 'cloud_function/web/index.md'
+        - '开发文档': 'cloud_function/web/develop_doc.md'
+        - '数据钩子': 'cloud_function/web/hook.md'
+        - '定时任务': 'cloud_function/web/timing_tasks.md'
+        - '微信云函数': 'cloud_function/web/weixin.md'
+        - '编码规范': 'cloud_function/web/norm.md'
     - 'Android': 'cloud_function/android/index.md'
     - 'iOS': 'cloud_function/ios/index.md'
     - 'Java': 'cloud_function/java/index.md'
@@ -64,12 +72,6 @@ pages:
     - 'PHP': 'cloud_function/php/index.md'
     - 'JavaScript': 'cloud_function/javascript/index.md'
     - 'REST API': 'cloud_function/restful/index.md'
-    - 'Web':
-        - '快速入门': 'cloud_function/web/index.md'
-        - '开发文档': 'cloud_function/web/develop_doc.md'
-        - '定时任务': 'cloud_function/web/timing_tasks.md'
-        - '微信云函数': 'cloud_function/web/weixin.md'
-        - '编码规范': 'cloud_function/web/norm.md'
 #- '支付服务':
 #    - 'Android':
 #        - '开发文档': 'pay/android/index.md'
@@ -87,6 +89,7 @@ pages:
     - 'PHP': 'sms/php/index.md'
     - 'JavaScript': 'sms/javascript/index.md'
     - 'REST API': 'sms/restful/index.md'
+    - 'python': 'sms/python/index.md'
 # - '游戏实时后端':
 #     - 'Unity':
 #         - '快速入门': 'game/unity/quick_start.md'
@@ -110,8 +113,10 @@ pages:
 - 'AI人工智能':
     - 'Android': 'ai/android/index.md'
     - 'iOS': 'ai/ios/index.md'
-    - '小程序': 'ai/wechat/index.md'
+    - '小程序': 'ai/html5/index.md'
     - 'Html5': 'ai/html5/index.md'
+    - 'API': 'ai/api/index.md'
+    - 'python': 'ai/python/index.md'
 - '其他':
     - '域名管理': 'other/domain/index.md'
     - '常见问题': 'other/common_problem/index.md'

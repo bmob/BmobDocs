@@ -65,6 +65,11 @@
                                 </li>
                             
                             
+                                <li >
+                                    <a href="../harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
 								<li class="active">
 									<a href="./">C#</a>
                                 </li>
@@ -95,11 +100,6 @@
                                 </li>
 							
                             
-								<li >
-									<a href="../wechat_app/">小程序(旧、弃用)</a>
-                                </li>
-                            
-                            
                                 <li >
                                     <a href="../wechat_app_new/">快应用</a>
                                 </li>
@@ -116,7 +116,7 @@
 							
                             
 								<li >
-									<a href="../wechat_app_new/rm/">小程序(新)</a>
+									<a href="../wechat_app_new/rm/">小程序</a>
                                 </li>
                             
                             
@@ -141,10 +141,15 @@
             
               <li class="pull-left">
                 
-					<!--<a href="../../cloud_function/android/">云函数</a>-->
+					<!--<a href="">云函数</a>-->
 					<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../cloud_function/web/">云函数开发文档</a>
+                                </li>
+                            
                             
                                 <li >
                                     <a href="../../cloud_function/android/">Android</a>
@@ -185,11 +190,6 @@
                                     <a href="../../cloud_function/restful/">REST API</a>
                                 </li>
 							
-                            
-								<li >
-									<a href="../../cloud_function/web/">Web</a>
-                                </li>
-                            
                         </ul>
                     </li>
                 
@@ -224,6 +224,52 @@
                             
                                 <li >
                                     <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ai/python/">python</a>
                                 </li>
 							
                         </ul>
@@ -290,6 +336,7 @@
 				
 				
 				
+				
 					<div class="code-title">C#</div>
 				
 				
@@ -304,7 +351,6 @@
 				
 				
 				
-				
 		
 	
 		
@@ -320,6 +366,16 @@
 		
 	
 		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
 				
 				
 				
@@ -343,6 +399,8 @@
 		
 			
 				
+					
+						
 					
 						
 					
@@ -381,10 +439,6 @@
 											</li>
 												
 											<li class=""><a href="#_4">添加一行数据</a>
-												
-											</li>
-												
-											<li class=""><a href="#_5">更多例子</a>
 												
 											</li>
 												
@@ -429,9 +483,9 @@
 					
 						
 					
-						
-					
 				
+			
+		
 			
 		
 			
@@ -458,19 +512,18 @@
 <p>在跳转页面，获取<code>Application ID</code>和<code>REST API key</code>，此IDs将会在初始化SDK中使用到。</p>
 <p><img alt="" src="./image/rumen_miyue_2.png" /></p>
 <h2 id="sdk">下载安装SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
-<p>Bmob C# SDK下载地址：<a href="https://github.com/bmob/BmobSharp/releases">https://github.com/bmob/BmobSharp/releases</a></p>
-<ul>
-<li>Windows</li>
-</ul>
-<p>下载后解压，将Windows文件夹下的<code>Bmob-Windows.dll</code>文件引用到你的项目工程中，如下图所示。</p>
-<p><img alt="" src="./image/dll.png" /></p>
-<p>demo：<a href="https://github.com/bmob/bmob-demo-csharp/tree/master/examples/bmob-desktop-demo">bmob-desktop-demo</a></p>
 <ul>
 <li>Unity</li>
 </ul>
-<p>下载后解压，将Unity文件夹下的<code>Bmob-Unity.dll</code>文件放置到你的项目工程的 <strong>Assets/libs/</strong> 目录下。</p>
-<p>demo：<a href="https://github.com/bmob/bmob-demo-csharp/tree/master/examples/bmob-unity-demo">bmob-unity-demo</a>
-开发环境(调试)搭建：请查询<a href="https://github.com/bmob/BmobSharp#开发环境搭建">BmobSharp的README文档</a>。</p>
+<p>Bmob C# 源码的下载地址：<a href="https://github.com/bmob/Bmob-Unity-Demo/blob/main/Source.zip">https://github.com/bmob/Bmob-Unity-Demo/blob/main/Source.zip</a></p>
+<p>下载之后，采用<code>源码引用</code>的方式，具体搭建过程请查看github上的文档：<a href="https://github.com/bmob/Bmob-Unity-Demo">https://github.com/bmob/Bmob-Unity-Demo</a></p>
+<ul>
+<li>Windows</li>
+</ul>
+<p>Bmob C# DLL的下载地址：<a href="https://github.com/bmob/BmobSharp/releases/download/1.5.2/bmobsharp-1.5.2.rar">https://github.com/bmob/BmobSharp/releases/download/1.5.2/bmobsharp-1.5.2.rar</a></p>
+<p>下载后解压，将Windows文件夹下的<code>Bmob-Windows.dll</code>文件引用到你的项目工程中，如下图所示。</p>
+<p><img alt="" src="./image/dll.png" /></p>
+<p>demo：<a href="https://github.com/bmob/bmob-demo-csharp/tree/master/examples/bmob-desktop-demo">bmob-desktop-demo</a></p>
 <h2 id="_3">新建模型类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>要想对Bmob云端的数据进行操作，需要创建和数据表对应的模型类。在Bmob中，模型类需要继承自<code>BmobTable</code>，类的实现如下。</p>
 <pre><code>//Game表对应的模型类
@@ -590,9 +643,6 @@ private void createData_Click(object sender, EventArgs e)
     FinishedCallback(future.Result, resultText);
 }
 </code></pre>
-
-<h2 id="_5">更多例子<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>大家可详细查看<a href="https://github.com/bmob/bmob-demo-csharp/tree/master/examples/bmob-desktop-demo/">示例源码</a>和 <a href="https://github.com/bmob/BmobSharp">SDK项目源码</a>，了解更多的Bmob C# SDK for Windows的操作。</p>
                 </div>
             </div>
         </div>
