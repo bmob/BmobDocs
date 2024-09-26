@@ -490,12 +490,16 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_11">监听对话框按键操作</a></li>
+													<li><a class="itm-l2" href="#_11">监听安装包下载是否成功</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_12">监听对话框按键操作</a></li>
 												</ul>
 												
 											</li>
 												
-											<li class=""><a href="#_12">常见问题</a>
+											<li class=""><a href="#_13">常见问题</a>
 												
 											</li>
 												
@@ -802,7 +806,22 @@
     BmobUpdateAgent.update(this);
 </code></pre>
 
-<h3 id="_11">监听对话框按键操作<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_11">监听安装包下载是否成功<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>如果想要监听安装包是否下载成功，可以用下面的方法：</p>
+<pre><code class="java">BmobUpdateAgent.setUpdateDownloadListener(new BmobUpdateDownloadListener() {
+            @Override
+            public void onDownloadReturned(Status downloadStatus) {
+                if(downloadStatus==Status.ERROR){
+                    Log.d(&quot;bmobdownlaod&quot;,&quot;下载异常&quot;);
+                }else{
+                    Log.d(&quot;bmobdownlaod&quot;,&quot;下载完成&quot;);
+                }
+            }
+        });
+
+</code></pre>
+
+<h3 id="_12">监听对话框按键操作<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>有时候开发者需要知道用户点击了哪个按钮，开发者可设置监听对话框的按钮点击事件。</p>
 <pre><code class="java">    //设置对对话框按钮的点击事件的监听
     BmobUpdateAgent.setDialogListener(new BmobDialogButtonListener() {
@@ -838,7 +857,7 @@ UpdateStatus.Update     =6： 代表点击的是“立即更新”
 UpdateStatus.NotNow     =7： 代表点击的是“以后再说”
 UpdateStatus.Close      =8： 代表关闭对话框--&gt;只有在强制更新状态下才会在更新对话框的右上方出现close按钮,如果用户不点击”立即更新“按钮，这时候开发者可做些操作，比如直接退出应用等
 </code></pre>
-<h2 id="_12">常见问题<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h2 id="_13">常见问题<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>一、<strong>上传新的APK文件之后，为什么使用 <code>v3.4.6以前版本的SDK开发的旧应用</code> 的自动更新功能出现<code>解析包出错</code>问题？</strong></p>
 <p>1、表现：</p>
 <pre><code>只下载58字节后就弹出安装界面，点击安装出现`解析包出错`的错误。
