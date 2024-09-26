@@ -196,6 +196,7 @@ p2.delete(new UpdateListener() {
   **v4.0.4 2024-09-26**
   
   **Features**
+  
   - 自动更新组件新增`BmobUpdateAgent.setUpdateDownloadListener`方法，点击下载安装后返回成功或者失败的回调结果。
 
 
