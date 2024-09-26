@@ -1772,7 +1772,7 @@ fileUploadControl.onchange = () => {
 
 ```
 
-### VUE 组件文件上次
+### VUE 组件文件上传
 
 调用自定义请求方法 http-request
 
