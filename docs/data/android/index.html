@@ -444,11 +444,15 @@
 												
 											</li>
 												
+											<li class=""><a href="#_7">更新日志</a>
+												
+											</li>
+												
 											<li class=""><a href="#9015">常见的9015错误如何解决</a>
 												
 											</li>
 												
-											<li class=""><a href="#_7">源码下载</a>
+											<li class=""><a href="#_8">源码下载</a>
 												
 											</li>
 												
@@ -533,7 +537,7 @@
 <h2 id="sdk">下载导入SDK包<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
 <p>打开 Android Studio 应用 <code>Gradle Scripts</code> 下的 <code>build.gradle(Module :你的应用名称)</code> 文件，在 <code>dependencies</code> 节点中，新增如下的 <code>依赖包</code> 信息：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:4.0.1'
+    implementation 'io.github.bmob:android-sdk:4.0.4'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -682,9 +686,13 @@ p2.delete(new UpdateListener() {
 });
 </code></pre>
 
+<h2 id="_7">更新日志<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>v4.0.4 2024-09-26</strong></p>
+<p><strong>Features</strong>
+  - 自动更新组件新增<code>BmobUpdateAgent.setUpdateDownloadListener</code>方法，点击下载安装后返回成功或者失败的回调结果。</p>
 <h2 id="9015">常见的9015错误如何解决<a class="headerlink" href="#9015" title="Permanent link">&para;</a></h2>
 <p><a href="https://blog.csdn.net/m0_74037076/article/details/131123957">点击查看9015问题如何解决</a></p>
-<h2 id="_7">源码下载<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">源码下载<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/bmob/bmob-android-quickstart" title="快速入门相关源码下载">快速入门相关源码下载</a></p>
 <p>为方便大家更好的理解Bmob SDK能够做的事情，我们还特意为大家提供了一些源码，大家可以下载之后，<strong>嵌入Bmob的AppKey</strong>，再打包运行。</p>
 <p>图文社区案例源码：<a href="https://github.com/bmob/Wonderful">https://github.com/bmob/Wonderful</a>  这个案例是猿圈媛圈开发团队提供的。</p>
