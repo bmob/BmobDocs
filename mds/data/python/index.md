@@ -4,7 +4,7 @@
 在命令行中执行下面的代码安装Python-bmob包：
 
 ```pip
-pip install python-bmob
+pip install bmobpy
 ```
 
 ## 初始化
