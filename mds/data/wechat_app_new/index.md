@@ -80,7 +80,7 @@ import Bmob from "hydrogen-js-sdk";
 
 
 
-Vue示例
+Vue2示例
 
 ```
 // 安装
@@ -88,9 +88,8 @@ npm install hydrogen-js-sdk
 
 // 打开 main.js
 import Bmob from "hydrogen-js-sdk";
-
-// 初始化 SDK版本 2.0.0 以下保留之前的初始化方法
-Bmob.initialize("你的Application ID", "你的REST API Key");
+//初始化
+Bmob.initialize("你的Secret Key", "你的API 安全码");
 
 // 挂载到全局使用
 Vue.prototype.Bmob = Bmob
@@ -102,6 +101,32 @@ Bmob.User.login('username','password').then(res => {
   console.log(err)
 });
 
+```
+
+Vu3  typescript示例
+
+```
+// 安装
+npm install hydrogen-js-sdk
+
+// 打开 main.js
+import Bmob from "hydrogen-js-sdk";
+
+// 初始化 SDK版本 
+Bmob.initialize("你的Secret Key", "你的API 安全码");
+
+其他页面,例如list.vue
+<script lang="ts" setup>
+import Bmob from 'hydrogen-js-sdk'
+
+// 项目其他页面使用跟小程序一样使用Bmob对象即可，例如：
+Bmob.User.login('username','password').then(res => {
+   console.log(res)
+ }).catch(err => {
+  console.log(err)
+});
+
+</script>
 ```
 
 
@@ -1747,6 +1772,30 @@ fileUploadControl.onchange = () => {
 
 ```
 
+### VUE 组件文件上传
+
+调用自定义请求方法 http-request
+
+```
+  <el-upload v-model:file-list="fileList" action="" :http-request="customUpload">
+    <el-icon>
+      <Plus />
+    </el-icon>
+  </el-upload>
+```
+
+customUpload 文件上传
+
+```
+const customUpload = async (options) => {
+  const file = Bmob.File(options.file.name, options.file);
+  const res = await file.save();
+  console.log("File saved successfully:", res);
+}
+```
+
+如果多文件上传，就把`const file = Bmob.File(options.file.name, options.file);`放在for里面即可
+
 ### 小程序文件上传
 
  **参数说明：**
@@ -2135,6 +2184,73 @@ Bmob.checkMsg(content).then(res => {
 违规：
 {"code":10007,"error":"CheckMsg errcode:87014, err:risky content hint: [zLf1lA01758931]"}
 ```
+
+**2024年微信新接口**
+
+```
+let userData = wx.Bmob.User.current()
+var open_Id = userData.openid;
+let data = {
+      openid: open_Id,
+      scene: 2,
+      content:content
+}
+Bmob.checkMsg2(data).then(res => {
+	console.log(res)
+}).catch(err => {
+	console.log(err)
+})
+```
+
+| 参数    | 类型   | 必填 | 说明             |
+| ------- | ------ | ---- | ---------------- |
+| openid  | string | 是   | 用户的openid参数 |
+| scene   | int    | 是   | 微信官方默认是2  |
+| content | string | 是   | 检测的内容       |
+
+```
+正常：
+{"msg":"ok"}
+违规：
+{
+   "errcode": 0,
+   "errmsg": "ok",
+   "result": {
+       "suggest": "risky",
+       "label": 20001
+   },
+   "detail": [
+       {
+           "strategy": "content_model",
+           "errcode": 0,
+           "suggest": "risky",
+           "label": 20006,
+           "prob": 90
+       },
+       {
+           "strategy": "keyword",
+           "errcode": 0,
+           "suggest": "pass",
+           "label": 20006,
+           "level": 20,
+           "keyword": "命中的关键词1"
+       },
+       {
+           "strategy": "keyword",
+           "errcode": 0,
+           "suggest": "risky",
+           "label": 20006,
+           "level": 90,
+           "keyword": "命中的关键词2"
+       }
+   ],
+   "trace_id": "60ae120f-371d5872-7941a05b"
+}
+具体字段看微信文档：
+https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/sec-center/sec-check/msgSecCheck.html
+```
+
+
 
 ####  图片检测：
 

@@ -684,6 +684,10 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#vue">VUE 组件文件上传</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
 													<li><a class="itm-l2" href="#_58">小程序文件上传</a></li>
 												</ul>
 												
@@ -942,15 +946,14 @@
 </code></pre>
 
 <p>使用ES6前端相关框架，建议使用此方式引入。快应用由于网络包不支持npm，暂时不支持npm，头条小程序可以跟小程序一样使用。</p>
-<p>Vue示例</p>
+<p>Vue2示例</p>
 <pre><code>// 安装
 npm install hydrogen-js-sdk
 
 // 打开 main.js
 import Bmob from &quot;hydrogen-js-sdk&quot;;
-
-// 初始化 SDK版本 2.0.0 以下保留之前的初始化方法
-Bmob.initialize(&quot;你的Application ID&quot;, &quot;你的REST API Key&quot;);
+//初始化
+Bmob.initialize(&quot;你的Secret Key&quot;, &quot;你的API 安全码&quot;);
 
 // 挂载到全局使用
 Vue.prototype.Bmob = Bmob
@@ -962,6 +965,30 @@ Bmob.User.login('username','password').then(res =&gt; {
   console.log(err)
 });
 
+</code></pre>
+
+<p>Vu3  typescript示例</p>
+<pre><code>// 安装
+npm install hydrogen-js-sdk
+
+// 打开 main.js
+import Bmob from &quot;hydrogen-js-sdk&quot;;
+
+// 初始化 SDK版本 
+Bmob.initialize(&quot;你的Secret Key&quot;, &quot;你的API 安全码&quot;);
+
+其他页面,例如list.vue
+&lt;script lang=&quot;ts&quot; setup&gt;
+import Bmob from 'hydrogen-js-sdk'
+
+// 项目其他页面使用跟小程序一样使用Bmob对象即可，例如：
+Bmob.User.login('username','password').then(res =&gt; {
+   console.log(res)
+ }).catch(err =&gt; {
+  console.log(err)
+});
+
+&lt;/script&gt;
 </code></pre>
 
 <h3 id="_7">调试模式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
@@ -2631,6 +2658,24 @@ fileUploadControl.onchange = () =&gt; {
 
 </code></pre>
 
+<h3 id="vue">VUE 组件文件上传<a class="headerlink" href="#vue" title="Permanent link">&para;</a></h3>
+<p>调用自定义请求方法 http-request</p>
+<pre><code>  &lt;el-upload v-model:file-list=&quot;fileList&quot; action=&quot;&quot; :http-request=&quot;customUpload&quot;&gt;
+    &lt;el-icon&gt;
+      &lt;Plus /&gt;
+    &lt;/el-icon&gt;
+  &lt;/el-upload&gt;
+</code></pre>
+
+<p>customUpload 文件上传</p>
+<pre><code>const customUpload = async (options) =&gt; {
+  const file = Bmob.File(options.file.name, options.file);
+  const res = await file.save();
+  console.log(&quot;File saved successfully:&quot;, res);
+}
+</code></pre>
+
+<p>如果多文件上传，就把<code>const file = Bmob.File(options.file.name, options.file);</code>放在for里面即可</p>
 <h3 id="_58">小程序文件上传<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
 <p><strong>参数说明：</strong></p>
 <table>
@@ -3059,6 +3104,92 @@ Bmob.checkMsg(content).then(res =&gt; {
 {&quot;msg&quot;:&quot;ok&quot;}
 违规：
 {&quot;code&quot;:10007,&quot;error&quot;:&quot;CheckMsg errcode:87014, err:risky content hint: [zLf1lA01758931]&quot;}
+</code></pre>
+
+<p><strong>2024年微信新接口</strong></p>
+<pre><code>let userData = wx.Bmob.User.current()
+var open_Id = userData.openid;
+let data = {
+      openid: open_Id,
+      scene: 2,
+      content:content
+}
+Bmob.checkMsg2(data).then(res =&gt; {
+    console.log(res)
+}).catch(err =&gt; {
+    console.log(err)
+})
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>openid</td>
+<td>string</td>
+<td>是</td>
+<td>用户的openid参数</td>
+</tr>
+<tr>
+<td>scene</td>
+<td>int</td>
+<td>是</td>
+<td>微信官方默认是2</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>是</td>
+<td>检测的内容</td>
+</tr>
+</tbody>
+</table>
+<pre><code>正常：
+{&quot;msg&quot;:&quot;ok&quot;}
+违规：
+{
+   &quot;errcode&quot;: 0,
+   &quot;errmsg&quot;: &quot;ok&quot;,
+   &quot;result&quot;: {
+       &quot;suggest&quot;: &quot;risky&quot;,
+       &quot;label&quot;: 20001
+   },
+   &quot;detail&quot;: [
+       {
+           &quot;strategy&quot;: &quot;content_model&quot;,
+           &quot;errcode&quot;: 0,
+           &quot;suggest&quot;: &quot;risky&quot;,
+           &quot;label&quot;: 20006,
+           &quot;prob&quot;: 90
+       },
+       {
+           &quot;strategy&quot;: &quot;keyword&quot;,
+           &quot;errcode&quot;: 0,
+           &quot;suggest&quot;: &quot;pass&quot;,
+           &quot;label&quot;: 20006,
+           &quot;level&quot;: 20,
+           &quot;keyword&quot;: &quot;命中的关键词1&quot;
+       },
+       {
+           &quot;strategy&quot;: &quot;keyword&quot;,
+           &quot;errcode&quot;: 0,
+           &quot;suggest&quot;: &quot;risky&quot;,
+           &quot;label&quot;: 20006,
+           &quot;level&quot;: 90,
+           &quot;keyword&quot;: &quot;命中的关键词2&quot;
+       }
+   ],
+   &quot;trace_id&quot;: &quot;60ae120f-371d5872-7941a05b&quot;
+}
+具体字段看微信文档：
+https://developers.weixin.qq.com/miniprogram/dev/OpenApiDoc/sec-center/sec-check/msgSecCheck.html
 </code></pre>
 
 <h4 id="_70">图片检测：<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h4>
