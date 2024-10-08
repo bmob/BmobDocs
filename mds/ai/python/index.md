@@ -17,10 +17,10 @@
 
 ## 安装
 
-在命令行中执行下面的代码安装Python-bmob包：
+在命令行中执行下面的代码安装`bmobpy`包：
 
 ```pip
-pip install python-bmob
+pip install bmobpy
 ```
 
 ## 初始化
@@ -60,6 +60,22 @@ b.chat('1+1等于多少？',session='firstman')
 ```
 
 其中，session可以是用户的昵称\ID等等。
+
+Bmob.chat方法会自动把对话记录保存在内存中，每次和AI交互的时候，都会讲上下文传递给AI。如果我们希望自定义上下文，可以使用下面的方法：
+
+```python
+context = [
+    {"content": "从现在开始，你是一名教师，名字叫张三，和你聊天的人叫李四，请认真扮演好教师的角色", "role": "system"},
+    {"content": "张老师好", "role": "user"},
+    {"content": "李同学，你好啊", "role": "assistant"},
+    {"content": "老师，什么是地球？", "role": "user"},
+    {"content": "地球就是我们生活的家园", "role": "assistant"},
+]
+b.chat2(context)
+
+```
+
+上面的代码中，`system`角色通常用来携带系统的prompt信息，`user`表示用户，也就是提问者，`assistant`表示AI。
 
 ### 关闭AI服务
 
