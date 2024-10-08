@@ -570,3 +570,11 @@ rs = b.resetPasswordBySMSCode('收到的短信验证码','新密码')
 print(rs)
 
 ```
+
+## 更新日志
+
+  **v1.9.0 2024-10-08**
+  
+  **Features**
+  
+  - 新增 `Bmob.chat2`方法，支持自定义上下文对话。
