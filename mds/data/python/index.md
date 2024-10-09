@@ -387,18 +387,6 @@ for r in rs:
     print(r)
 ```
 
-### 或查询
-
-上面提到的都是`and`查询，但有时候我们还会需要用到`or`查询，也就是或查询。下面以`Subject`（科目）表为例，这个表有一个名称为`name`的字段，里面存储着各种学科记录，比如语文、数学、英语、政治等等。
-
-如果我们只想查询`name`为`语文`或者`数学`的记录，代码可以这样写：
-
-```python
-rs = bmob.findObjects('Subject',where={"$or":[{"name":{"$eq":'语文'}},{"name":{"$eq":'数学'}}]})
-for r in rs:
-    print(r)
-
-```
 
 或查询的`json拼接`有任何疑问的地方，大家可以查看[restapi文档](http://doc.bmobapp.com/data/restful/develop_doc/#_28)。
 
@@ -475,6 +463,20 @@ rs = b.findObjects('mytable',where=query,keys=['name','address'])
 for r in rs:
     print(r)
 ```
+
+### 或查询
+
+上面提到的都是`and`查询，但有时候我们还会需要用到`or`查询，也就是或查询。下面以`Subject`（科目）表为例，这个表有一个名称为`name`的字段，里面存储着各种学科记录，比如语文、数学、英语、政治等等。
+
+如果我们只想查询`name`为`语文`或者`数学`的记录，代码可以这样写：
+
+```python
+rs = bmob.findObjects('Subject',where={"$or":[{"name":{"$eq":'语文'}},{"name":{"$eq":'数学'}}]})
+for r in rs:
+    print(r)
+
+```
+
 
 ## 统计查询
 
