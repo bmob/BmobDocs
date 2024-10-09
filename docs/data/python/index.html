@@ -551,7 +551,11 @@
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_28">链式查询</a></li>
+												<li><a class="itm-l2" href="#_28">或查询</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_29">链式查询</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
@@ -559,72 +563,72 @@
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_29">获取指定条数的数据</a></li>
+												<li><a class="itm-l2" href="#_30">获取指定条数的数据</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_30">跳过前面的一些数据</a></li>
+												<li><a class="itm-l2" href="#_31">跳过前面的一些数据</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_31">对查询结果进行排序</a></li>
+												<li><a class="itm-l2" href="#_32">对查询结果进行排序</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_32">返回指定的列</a></li>
+												<li><a class="itm-l2" href="#_33">返回指定的列</a></li>
 											</ul>
 											
 										</li>
 									
-										<li class=""><a href="#_33">统计查询</a>
+										<li class=""><a href="#_34">统计查询</a>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_34">计数</a></li>
+												<li><a class="itm-l2" href="#_35">计数</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_35">求和</a></li>
+												<li><a class="itm-l2" href="#_36">求和</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_36">最大值</a></li>
+												<li><a class="itm-l2" href="#_37">最大值</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_37">最小值</a></li>
+												<li><a class="itm-l2" href="#_38">最小值</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_38">平均值</a></li>
-											</ul>
-											
-										</li>
-									
-										<li class=""><a href="#_39">用户操作</a>
-											
-											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_40">账号密码注册</a></li>
-											</ul>
-											
-											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_41">账号密码登录</a></li>
-											</ul>
-											
-											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_42">邮件重置密码</a></li>
-											</ul>
-											
-											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_43">旧密码方式修改用户密码</a></li>
-											</ul>
-											
-											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_44">短信验证码重置密码</a></li>
+												<li><a class="itm-l2" href="#_39">平均值</a></li>
 											</ul>
 											
 										</li>
 									
-										<li class=""><a href="#_45">更新日志</a>
+										<li class=""><a href="#_40">用户操作</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_41">账号密码注册</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_42">账号密码登录</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_43">邮件重置密码</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_44">旧密码方式修改用户密码</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_45">短信验证码重置密码</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#_46">更新日志</a>
 											
 										</li>
 									
@@ -934,7 +938,17 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_28">链式查询<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<h3 id="_28">或查询<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>上面提到的都是<code>and</code>查询，但有时候我们还会需要用到<code>or</code>查询，也就是或查询。下面以<code>Subject</code>（科目）表为例，这个表有一个名称为<code>name</code>的字段，里面存储着各种学科记录，比如语文、数学、英语、政治等等。</p>
+<p>如果我们只想查询<code>name</code>为<code>语文</code>或者<code>数学</code>的记录，代码可以这样写：</p>
+<pre><code class="python">rs = bmob.findObjects('Subject',where={&quot;$or&quot;:[{&quot;name&quot;:{&quot;$eq&quot;:'语文'}},{&quot;name&quot;:{&quot;$eq&quot;:'数学'}}]})
+for r in rs:
+    print(r)
+
+</code></pre>
+
+<p>或查询的<code>json拼接</code>有任何疑问的地方，大家可以查看<a href="http://doc.bmobapp.com/data/restful/develop_doc/#_28">restapi文档</a>。</p>
+<h3 id="_29">链式查询<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
 <p>很多时候，我们的查询条件不会只有一个，这就需要用到 <code>BmobQuery</code> 的链式查询了。比如，我们要查询 <code>name等于Bmob后端云，而且age大于10</code> 的所有列，示例代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('name','Bmob后端云').addWhereGreaterThan('age',10)
 rs = b.findObjects('mytable',where=query)
@@ -951,7 +965,7 @@ for r in rs:
 </code></pre>
 
 <p>其中，<code>info</code> 是指针类型的列。</p>
-<h3 id="_29">获取指定条数的数据<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<h3 id="_30">获取指定条数的数据<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
 <p>默认情况下， <code>findObjects</code> 方法返回查询到的 <code>最多100条</code> 记录，这通常很消耗网络带宽。为解决这个问题，你可以使用 <code>limit</code> 参数，代码如下:</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,limit=50)
@@ -959,7 +973,7 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_30">跳过前面的一些数据<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<h3 id="_31">跳过前面的一些数据<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
 <p>在进行分页开发的时候，你通常还需要 <code>skip</code> 参数，配合 <code>limit</code> 参数一起使用。<code>skip</code> 参数可以跳过查询结果中的一定条数，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,skip=5)
@@ -967,7 +981,7 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h3 id="_31">对查询结果进行排序<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<h3 id="_32">对查询结果进行排序<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
 <p>你可以用 <code>findObjects</code> 方法的 <code>order</code> 参数对查询结果进行排序，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,order='createdAt')
@@ -979,7 +993,7 @@ for r in rs:
 <pre><code class="python">rs = b.findObjects('mytable',where=query,order='-createdAt')
 </code></pre>
 
-<h3 id="_32">返回指定的列<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<h3 id="_33">返回指定的列<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <p>默认情况下，<code>findObjects</code> 会返回表中的所有列的数据，但很多时候，这会浪费带宽和影响相应速度，为此，我们可以用 <code>keys</code> 参数来指定返回需要的列，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 rs = b.findObjects('mytable',where=query,keys=['name','address'])
@@ -987,15 +1001,15 @@ for r in rs:
     print(r)
 </code></pre>
 
-<h2 id="_33">统计查询<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
-<h3 id="_34">计数<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<h2 id="_34">统计查询<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<h3 id="_35">计数<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
 <p>如果你想知道你的数据有多少条，你就可以用 <code>count</code> 方法，进行计数查询，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereContainedIn('tags',['Android','good'])
 num = b.count('mytable',where=query)
 print(num)
 </code></pre>
 
-<h3 id="_35">求和<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<h3 id="_36">求和<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
 <p>有时候，你想知道总和的数据，比如了解一个月的收入，那就可以用 <code>sum</code> 方法，进行求和查询，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.sum('mytable', ['count','money'], where=query)
@@ -1003,30 +1017,30 @@ print('求和结果',rs)
 </code></pre>
 
 <p>上面的代码中，我们对 <code>count</code> 列和 <code>money</code> 列同时进行求和。</p>
-<h3 id="_36">最大值<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<h3 id="_37">最大值<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <p>用 <code>max</code> 方法，可以查到对应列的最大值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.max('mytable', ['money'], where=query)
 print('最大值结果',rs)
 </code></pre>
 
-<h3 id="_37">最小值<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<h3 id="_38">最小值<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
 <p>用 <code>min</code> 方法，可以查到对应列的最小值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.min('mytable', ['money'], where=query)
 print('最小值结果',rs)
 </code></pre>
 
-<h3 id="_38">平均值<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<h3 id="_39">平均值<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
 <p>用 <code>mean</code> 方法，可以查到对应列的平均值，代码如下：</p>
 <pre><code class="python">query = BmobQuery().addWhereEqualTo('isFree',False) 
 rs = b.mean('mytable', ['money'], where=query)
 print('最大值结果',rs)
 </code></pre>
 
-<h2 id="_39">用户操作<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<h2 id="_40">用户操作<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
 <p><strong><em>以下操作针对Bmob控制台中默认创建的 <code>_User</code> 表进行。</em></strong></p>
-<h3 id="_40">账号密码注册<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<h3 id="_41">账号密码注册<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.signUp('注册账号','注册密码', userInfo={
     'sex':True,
@@ -1035,34 +1049,34 @@ print('最大值结果',rs)
 print(rs)
 </code></pre>
 
-<h3 id="_41">账号密码登录<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<h3 id="_42">账号密码登录<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.login('13512707963','123456')
 print(rs)
 </code></pre>
 
 <p>登录成功，返回这条用户记录的信息。</p>
-<h3 id="_42">邮件重置密码<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<h3 id="_43">邮件重置密码<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.resetPasswordByEmail('这条记录对应的邮箱地址')
 print(rs)
 </code></pre>
 
 <p>发送成功，返回True。如果查不到对应的邮箱地址或者其他错误，返回False。</p>
-<h3 id="_43">旧密码方式修改用户密码<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<h3 id="_44">旧密码方式修改用户密码<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.updatePassword('这个用户数据对应的objectId', '旧密码', '新密码')
 print(rs)
 </code></pre>
 
-<h3 id="_44">短信验证码重置密码<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<h3 id="_45">短信验证码重置密码<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
 <p>示例代码如下:</p>
 <pre><code class="python">rs = b.resetPasswordBySMSCode('收到的短信验证码','新密码')
 print(rs)
 
 </code></pre>
 
-<h2 id="_45">更新日志<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
+<h2 id="_46">更新日志<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
 <p><strong>v1.9.0 2024-10-08</strong></p>
 <p><strong>Features</strong></p>
 <ul>
