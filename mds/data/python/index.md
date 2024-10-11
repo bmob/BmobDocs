@@ -27,6 +27,14 @@ b = Bmob("你的application id", "你的rest api key")
 
 我们对数据的所有操作，都围绕着 `Bmob类` 进行。
 
+某些情况下，我们需要用更高级的权限去操作数据，这就需要用到`Master Key`了，方法如下：
+
+```python
+
+b.setMasterKey("你的master key")
+
+```
+
 ## 快速入门
 
 ### 新增数据
@@ -588,7 +596,29 @@ print(rs)
 
 ```
 
+### 检查用户的登录是否过期
+
+示例代码如下:
+
+```python
+islogin = b.checkSession('98575e8482')
+if islogin is None:
+    print(b.getError())
+else:
+    print(islogin)
+
+```
+
+如果`checkSession`方法返回`None`，表示发生异常，可以通过`getError`方法获得错误信息。
+
 ## 更新日志
+
+  **v1.10.0 2024-10-11**
+  
+  **Features**
+  
+  - 新增 `Bmob.checkSession`方法，检查用户的登录是否过期。
+  - 添加`setMasterKey`方法的文档。
 
   **v1.9.0 2024-10-08**
   
