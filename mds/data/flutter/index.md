@@ -1278,3 +1278,11 @@ https://github.com/bmob/bmob-flutter-sdk/tree/master/data_plugin
 ```
 https://github.com/bmob/bmob-flutter-sdk/tree/master/data_demo
 ```
+
+## 版本更新
+
+### v1.0.1 2024-10-10
+
+- 优化引入的方式
+- 去掉不安全的初始化方法
+- 新增重置域名的方法
