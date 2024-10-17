@@ -641,6 +641,10 @@
 												
 											</li>
 												
+											<li class=""><a href="#18">18、调试模式</a>
+												
+											</li>
+												
 										</ul>
 										
 									</li>
@@ -5123,6 +5127,12 @@ Android6.0版本开始移除了对Apache的HTTP Client的支持，需要在<code
 <pre><code>    &lt;application
         android:networkSecurityConfig=&quot;@xml/network_security_config&quot;&gt;
     &lt;/application&gt;
+</code></pre>
+
+<h1 id="18">18、调试模式<a class="headerlink" href="#18" title="Permanent link">&para;</a></h1>
+<p>在Bmob SDK 4.0.5版本中，新增调试模式，调试模式下，SDK会打印请求的json结构。</p>
+<pre><code class="java">// 开启调试模式
+Bmob.setIsDebug(true);
 </code></pre>
                 </div>
             </div>
