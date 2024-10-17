@@ -626,9 +626,13 @@
 												<li><a class="itm-l2" href="#_45">短信验证码重置密码</a></li>
 											</ul>
 											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_46">检查用户的登录是否过期</a></li>
+											</ul>
+											
 										</li>
 									
-										<li class=""><a href="#_46">更新日志</a>
+										<li class=""><a href="#_47">更新日志</a>
 											
 										</li>
 									
@@ -674,6 +678,12 @@ b = Bmob(&quot;你的application id&quot;, &quot;你的rest api key&quot;)
 
 <p>其中，<code>application id</code>和<code>rest api key</code>是你在Bmob控制台上创建的应用密钥信息。</p>
 <p>我们对数据的所有操作，都围绕着 <code>Bmob类</code> 进行。</p>
+<p>某些情况下，我们需要用更高级的权限去操作数据，这就需要用到<code>Master Key</code>了，方法如下：</p>
+<pre><code class="python">
+b.setMasterKey(&quot;你的master key&quot;)
+
+</code></pre>
+
 <h2 id="_3">快速入门<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="_4">新增数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <pre><code class="python">result = b.save('mytable',data={
@@ -1076,7 +1086,24 @@ print(rs)
 
 </code></pre>
 
-<h2 id="_46">更新日志<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
+<h3 id="_46">检查用户的登录是否过期<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<p>示例代码如下:</p>
+<pre><code class="python">islogin = b.checkSession('98575e8482')
+if islogin is None:
+    print(b.getError())
+else:
+    print(islogin)
+
+</code></pre>
+
+<p>如果<code>checkSession</code>方法返回<code>None</code>，表示发生异常，可以通过<code>getError</code>方法获得错误信息。</p>
+<h2 id="_47">更新日志<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h2>
+<p><strong>v1.10.0 2024-10-11</strong></p>
+<p><strong>Features</strong></p>
+<ul>
+<li>新增 <code>Bmob.checkSession</code>方法，检查用户的登录是否过期。</li>
+<li>添加<code>setMasterKey</code>方法的文档。</li>
+</ul>
 <p><strong>v1.9.0 2024-10-08</strong></p>
 <p><strong>Features</strong></p>
 <ul>
