@@ -4511,3 +4511,14 @@ android {
         android:networkSecurityConfig="@xml/network_security_config">
     </application>
 ```
+
+# 18、调试模式
+
+在Bmob SDK 4.0.5版本中，新增调试模式，调试模式下，SDK会打印请求的json结构。
+
+```java
+// 开启调试模式
+Bmob.setIsDebug(true);
+```
+
+
