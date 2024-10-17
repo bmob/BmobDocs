@@ -9,19 +9,6 @@
 - 使用任何语言写的程序都可以操作[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")上的数据。
 - 如果你不再需要使用[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")，你可以导出你所有的数据。
 
-
-
-## 案例源码
-
-这里提供一些开发者写的其他语言调用RestApi的源码或者核心代码。
-
-PHP访问RestApi：[http://doc.bmobapp.com/data/php/](http://doc.bmobapp.com/data/php/)
-
-Python访问RestApi：[http://doc.bmobapp.com/data/python/](http://doc.bmobapp.com/data/python/)
-
-Unity访问RestApi：[https://github.com/bmob/Bmob-Unity-Demo](https://github.com/bmob/Bmob-Unity-Demo)
-
-
 ## 请求格式
 
 对于POST和PUT请求，请求的主体必须是JSON格式,而且HTTP请求头的 **Content-Type** 需要设置为 **application/json** 。
