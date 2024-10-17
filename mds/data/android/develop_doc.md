@@ -4514,11 +4514,20 @@ android {
 
 # 18、调试模式
 
-在Bmob SDK 4.0.5版本中，新增调试模式，调试模式下，SDK会打印请求的json结构。
+很多时候，我们会一下子排查不出操作Bmob后端云的代码问题，比如明明感觉查询语句没有问题，结果就是查询不出来数据。这种情况下，我们就可以开启调试模式。
 
 ```java
 // 开启调试模式
 Bmob.setIsDebug(true);
 ```
+
+在调试模式下，Logcat会打印出请求的`json`格式出来，方便大家和`restapi`的请求结构进行对比，从而找出代码的问题。为方便大家辨识，Logcat输出是以`E`的模式输出，分类为`Bmob调试`，比如下面的输出表示我们要对`_User`表进行操作，请求结构为`{"username":"bmob","password":"123456"}`：
+
+
+2024-10-17 09:38:17.333 20519-20519 Bmob调试                  cn.bmob.sdkdemo                      <font color="red"><b>E</b>  {"data":{"username":"bmob","password":"123456"},"c":"_User"}</font>
+
+
+
+
 
 
