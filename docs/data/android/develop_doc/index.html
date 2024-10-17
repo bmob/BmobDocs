@@ -5130,10 +5130,13 @@ Android6.0版本开始移除了对Apache的HTTP Client的支持，需要在<code
 </code></pre>
 
 <h1 id="18">18、调试模式<a class="headerlink" href="#18" title="Permanent link">&para;</a></h1>
-<p>在Bmob SDK 4.0.5版本中，新增调试模式，调试模式下，SDK会打印请求的json结构。</p>
+<p>很多时候，我们会一下子排查不出操作Bmob后端云的代码问题，比如明明感觉查询语句没有问题，结果就是查询不出来数据。这种情况下，我们就可以开启调试模式。</p>
 <pre><code class="java">// 开启调试模式
 Bmob.setIsDebug(true);
 </code></pre>
+
+<p>在调试模式下，Logcat会打印出请求的<code>json</code>格式出来，方便大家和<code>restapi</code>的请求结构进行对比，从而找出代码的问题。为方便大家辨识，Logcat输出是以<code>E</code>的模式输出，分类为<code>Bmob调试</code>，比如下面的输出表示我们要对<code>_User</code>表进行操作，请求结构为<code>{"username":"bmob","password":"123456"}</code>：</p>
+<p>2024-10-17 09:38:17.333 20519-20519 Bmob调试                  cn.bmob.sdkdemo                      <font color="red"><b>E</b>  {"data":{"username":"bmob","password":"123456"},"c":"_User"}</font></p>
                 </div>
             </div>
         </div>
