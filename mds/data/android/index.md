@@ -20,7 +20,7 @@
 打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.0.5'
+	implementation 'io.github.bmob:android-sdk:4.0.6'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -192,6 +192,13 @@ p2.delete(new UpdateListener() {
 ```
 
 ## 更新日志
+
+  **v4.0.6 2024-10-23**
+  
+  **Features**
+  
+  - 调整重置域名方法，对不合规的域名形式进行了修正。
+  - 对写了构造函数的继承自BmobObject的类进行了处理，SDK会直接抛出异常。
 
   **v4.0.5 2024-10-16**
   
