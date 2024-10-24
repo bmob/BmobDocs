@@ -69,6 +69,7 @@ public class BmobApp extends Application {
 	<!--获取wifi网络状态的信息 -->
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<!--获取sd卡写的权限，用于文件上传和下载-->
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<!--允许读取手机状态 用于创建BmobInstallation-->
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />

@@ -22,7 +22,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.0.4'
+	implementation 'io.github.bmob:android-sdk:4.0.6'
 	implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -64,6 +64,7 @@ class BmobApp : Application() {
 	<!--获取wifi网络状态的信息 -->
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<!--获取sd卡写的权限，用于文件上传和下载-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<!--允许读取手机状态 用于创建BmobInstallation-->
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
