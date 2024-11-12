@@ -588,7 +588,7 @@
 <h2 id="_4">导入依赖<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:4.0.4'
+    implementation 'io.github.bmob:android-sdk:4.0.5'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -624,6 +624,7 @@
     &lt;!--获取wifi网络状态的信息 --&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
     &lt;!--获取sd卡写的权限，用于文件上传和下载--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
     &lt;!--允许读取手机状态 用于创建BmobInstallation--&gt;
     &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
