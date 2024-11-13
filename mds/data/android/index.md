@@ -20,7 +20,7 @@
 打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.0.5'
+	implementation 'io.github.bmob:android-sdk:4.0.7'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -59,8 +59,6 @@ public class BmobApp extends Application {
     	package="cn.bmob.example"
     	android:versionCode="1"
     	android:versionName="1.0">
-
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
 
 	<!--允许联网 -->
 	<uses-permission android:name="android.permission.INTERNET" />
@@ -193,6 +191,12 @@ p2.delete(new UpdateListener() {
 ```
 
 ## 更新日志
+
+  **v4.0.7 2024-11-12**
+  
+  **Features**
+  
+  - 修正了存在构造函数抛出异常的bug。
 
   **v4.0.6 2024-10-23**
   

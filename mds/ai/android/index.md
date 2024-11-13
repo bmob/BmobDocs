@@ -20,9 +20,9 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.9.6'
-	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+	implementation 'io.github.bmob:android-sdk:4.0.7'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
 	implementation 'com.squareup.okio:okio:2.2.2'
 	implementation 'com.google.code.gson:gson:2.8.5'
@@ -58,8 +58,6 @@ public class BmobApp extends Application {
     	package="cn.bmob.example"
     	android:versionCode="1"
     	android:versionName="1.0">
-
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
 
 	<!--允许联网 -->
 	<uses-permission android:name="android.permission.INTERNET" />
