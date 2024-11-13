@@ -537,7 +537,7 @@
 <h2 id="sdk">下载导入SDK包<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
 <p>打开 Android Studio 应用 <code>Gradle Scripts</code> 下的 <code>build.gradle(Module :你的应用名称)</code> 文件，在 <code>dependencies</code> 节点中，新增如下的 <code>依赖包</code> 信息：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:4.0.5'
+    implementation 'io.github.bmob:android-sdk:4.0.7'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -567,8 +567,6 @@
         package=&quot;cn.bmob.example&quot;
         android:versionCode=&quot;1&quot;
         android:versionName=&quot;1.0&quot;&gt;
-
-    &lt;uses-sdk android:minSdkVersion=&quot;8&quot; android:targetSdkVersion=&quot;17&quot;/&gt;
 
     &lt;!--允许联网 --&gt;
     &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
@@ -688,6 +686,11 @@ p2.delete(new UpdateListener() {
 </code></pre>
 
 <h2 id="_7">更新日志<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>v4.0.7 2024-11-12</strong></p>
+<p><strong>Features</strong></p>
+<ul>
+<li>修正了存在构造函数抛出异常的bug。</li>
+</ul>
 <p><strong>v4.0.6 2024-10-23</strong></p>
 <p><strong>Features</strong></p>
 <ul>
