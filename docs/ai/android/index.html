@@ -499,9 +499,9 @@
 <h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:3.9.6'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.github.bmob:android-sdk:4.0.7'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
     implementation 'com.squareup.okio:okio:2.2.2'
     implementation 'com.google.code.gson:gson:2.8.5'
@@ -531,8 +531,6 @@
         package=&quot;cn.bmob.example&quot;
         android:versionCode=&quot;1&quot;
         android:versionName=&quot;1.0&quot;&gt;
-
-    &lt;uses-sdk android:minSdkVersion=&quot;8&quot; android:targetSdkVersion=&quot;17&quot;/&gt;
 
     &lt;!--允许联网 --&gt;
     &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
