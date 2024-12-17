@@ -22,7 +22,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation("io.github.bmob:android-sdk:4.0.7")
+	implementation("io.github.bmob:android-sdk:4.0.8")
     implementation("io.reactivex.rxjava3:rxjava:3.1.9")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
     implementation("com.squareup.okhttp3:okhttp:4.8.1")

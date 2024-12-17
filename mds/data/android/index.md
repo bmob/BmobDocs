@@ -20,7 +20,7 @@
 打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.0.7'
+	implementation 'io.github.bmob:android-sdk:4.0.8'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -191,7 +191,12 @@ p2.delete(new UpdateListener() {
 ```
 
 ## 更新日志
-
+  **v4.0.8 2024-12-16**
+  
+  **Features**
+  
+  - 修复AppVersion初始化失败的问题。
+  
   **v4.0.7 2024-11-12**
   
   **Features**
