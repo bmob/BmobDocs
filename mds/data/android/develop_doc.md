@@ -4456,6 +4456,8 @@ Android SDK的错误码都是以`9`开头的，其他错误码请点击查看：
     *;
 }
 
+-dontwarn io.reactivex.rxjava3.**
+-keep class io.reactivex.rxjava3.** {*;}
 
 ```
 # 15、域名备案和重置
