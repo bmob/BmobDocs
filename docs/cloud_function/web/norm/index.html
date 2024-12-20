@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+            <!--
+            <title>编码规范 - Bmob文档中心</title>
+            -->
+            <title>云函数 &middot; Web – Bmob后端云 </title>  
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">云函数</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li class="active">
+									<a href="../">云函数开发文档</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+					<div class="code-title">云函数开发文档</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+				
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../hook/">数据钩子</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../timing_tasks/">定时任务</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../weixin/">微信云函数</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">编码规范</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#_1">关于缩进</a>
+												
+											</li>
+												
+											<li class=""><a href="#_2">关于空格</a>
+												
+											</li>
+												
+											<li class=""><a href="#_3">关于命名</a>
+												
+											</li>
+												
+											<li class=""><a href="#_4">关于双等号</a>
+												
+											</li>
+												
+											<li class=""><a href="#_5">关于双引号</a>
+												
+											</li>
+												
+											<li class=""><a href="#_6">关于大括号位置</a>
+												
+											</li>
+												
+											<li class=""><a href="#_7">关于字面表达式的问题</a>
+												
+											</li>
+												
+											<li class=""><a href="#objectarray">Object和Array创建时的逗号问题</a>
+												
+											</li>
+												
+											<li class=""><a href="#witheval">避免使用with与eval</a>
+												
+											</li>
+												
+											<li class=""><a href="#for-in">关于for-in循环</a>
+												
+											</li>
+												
+											<li class=""><a href="#array">关于Array数组的问题</a>
+												
+											</li>
+												
+											<li class=""><a href="#_8">关于变量声明</a>
+												
+											</li>
+												
+											<li class=""><a href="#_9">注释规范</a>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<p>好的编码规范是攻城师们要遵循的法则，Bmob云函数希望大家能够养成良好的编码规范。Nodejs的编码规范与其他语言稍微有所不同，这里列举有所区别的地方。</p>
+<h2 id="_1">关于缩进<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>缩进，2个space，tab要转为2 space。这是Nodejs源码和module采用的标准，希望大家入乡随俗。</p>
+<h2 id="_2">关于空格<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>function关键词和函数名之间有一个空格；调用函数时，函数名和左括号之间没有空格。</p>
+<pre><code>// 正确
+function foo(bar) {...}
+foo(bar);
+foo(function callback(err, data) {...});
+foo(function (err, data) {...});
+
+// 错误
+function foo (bar) {...}
+foo (bar);
+foo(function callback (err, data) {...});
+foo(function(err, data) {...});
+</code></pre>
+
+<p>所有其他语法元素与左括号之间，都有一个空格。</p>
+<pre><code>// 正确
+return (a + b);
+if (a === 0) {...}
+for (var k in map) {...}
+while (i &gt; 0) {...}
+
+// 错误
+return(a + b);
+if(a === 0) {...}
+for(var k in map) {...}
+while(i &gt; 0) {...}
+</code></pre>
+
+<p>操作符号与参数之间有一个空格；能提高阅读性的空格不能省略。</p>
+<pre><code>// 正确
+var a = 1 + 2;
+for (var i = 0, l = items.length; i &lt; l; i++) {...}
+
+//错误
+var a=1+2;
+for(var i=0,l=items.length;i&lt;l;i++){...}
+</code></pre>
+
+<h2 id="_3">关于命名<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>好的变量与函数命名，可以避免大量的注释。Nodejs推荐使用驼峰式命名：</p>
+<pre><code>函数和变量：functionNamesLikeThis, variableNamesLikeThis
+类名和枚举类型：ClassNamesLikeThis, EnumNamesLikeThis
+类方法：methodNamesLikeThis
+常量：SYMBOLIC_CONSTANTS_LIKE_THIS
+</code></pre>
+<h2 id="_4">关于双等号<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>开发的时候大家请慎重使用==号，有时候结果未必会是您想的那样，请看下面的调试计算结果：</p>
+<pre><code>&gt; 0 == ''
+true
+&gt; 1 == true
+true
+&gt; 2 == true
+false
+&gt; 0 == '0'
+true
+&gt; false == 'false'
+false
+&gt; false == '0'
+true
+&gt; " \t\r\n " == 0
+true
+</code></pre>
+<h2 id="_5">关于双引号<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>使用string时，用单引号替代双引号（写JSON时除外）。</p>
+<pre><code>//正确
+var foo = 'bar';
+
+//错误
+var foo = &quot;bar&quot;;
+</code></pre>
+
+<h2 id="_6">关于大括号位置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<pre><code>//正确
+if (true) {
+  response.end('winning');
+}
+//错误
+if (true)
+{
+  response.end ('losing');
+}
+</code></pre>
+
+<h2 id="_7">关于字面表达式的问题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>使用字面表达式，用 '{}' ,'[]' 代替 new Array ，new Object，不要使用 string，bool，number 的对象类型，即不要调用 new String ，new Boolean ，new Number。</p>
+<h2 id="objectarray">Object和Array创建时的逗号问题<a class="headerlink" href="#objectarray" title="Permanent link">&para;</a></h2>
+<p>Object ，Array 创建，当有多个元素时，注意分行排列时逗号的位置。</p>
+<pre><code>//正确
+var a = ['hello', 'world'];
+var b = {
+  good: 'code',
+  'is generally': 'pretty',
+};
+
+//错误
+var a = [
+  'hello', 'world'
+];
+var b = {&quot;good&quot;: 'code'
+  , is generally: 'pretty'
+};
+</code></pre>
+
+<h2 id="witheval">避免使用with与eval<a class="headerlink" href="#witheval" title="Permanent link">&para;</a></h2>
+<h2 id="for-in">关于for-in循环<a class="headerlink" href="#for-in" title="Permanent link">&para;</a></h2>
+<p>for-in 循环，仅在 object/hash/map 时使用，绝不要对Array 使用。</p>
+<h2 id="array">关于Array数组的问题<a class="headerlink" href="#array" title="Permanent link">&para;</a></h2>
+<p>不要把Array 当做关联数组或Object 使用,即你不应该用非数字作为Array 的索引（有PHP开发经验的朋友尤其注意这点）。</p>
+<pre><code>//正确
+var a = {};
+a.hello = 'shit';
+a.foo = 'bar';
+
+//错误
+var a = []; // use '{}' instead
+a['hello'] = 'shit';
+a['foo'] = 'bar';
+</code></pre>
+
+<h2 id="_8">关于变量声明<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>变量声明时，应该每行声明一个，不应该都写在一行。</p>
+<pre><code>//正确
+var name = 'bmob';
+var website = 'www.bmobapp.com';
+
+//错误
+var name = 'bmob'
+  ,website = 'www.bmobapp.com';
+</code></pre>
+
+<h2 id="_9">注释规范<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>注释的规范如下所示：</p>
+<pre><code>/**
+ * 获取文章列表
+ * @param {number} num 文章数量.
+ * @param {string|date|null} dateTime 发布时间.
+ */
+var getPosts = function (num, dateTime) {
+  // ...
+};
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
