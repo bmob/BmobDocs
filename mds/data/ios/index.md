@@ -46,10 +46,12 @@
 
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+  [Bmob resetDomain:@"https://open.cctvcloud.cn"];
 	[Bmob registerWithAppKey:@"申请的Application ID"];
 	return YES;
 }
 ```
+这里需要注意的是，`open.cctvcloud.cn`是Bmob提供的测试域名，只有`1000`次的测试请求，正式上线后需要使用自己的备案域名。
 
 也可以在在main.m文件中，引入头文件 `#import <BmobSDK/Bmob.h>`
 
@@ -58,6 +60,7 @@ int main(int argc, char * argv[])
 {
 
     @autoreleasepool {
+       [Bmob resetDomain:@"https://open.cctvcloud.cn"];
     	 NSString *appKey = @"申请的Application ID";
    		 [Bmob registerWithAppKey:appKey];
 

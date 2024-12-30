@@ -55,23 +55,23 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档 [请点击](http://doc.bmobapp.com/other/data_safety/index.html);
 
 ## 数据迁移
-从v2.1.8开始，数据SDK新增了能重新设置请求域名的Api，类似数据迁移，调用方式如下：
-```
-[Bmob resetDomain:@"https://open-vip.bmobapp.com"];
-```
-其中，参数为开发者的域名，调用后的所有请求都指向新的域名。
 
+接工信部要求，Bmob提供了一定量的API请求数，供开发者开发阶段使用。当你的应用正式上线之后，请确保一定要使用你的备案域名。在域名备案过程中遇到任何问题，可联系我们的官方客服协助。
 
-如果使用自定义域名，假设你绑定的sdk域名是testopen.xxx.com，请使用下面的代码，让你的域名在sdk中生效：
-```
-[Bmob resetDomain:@"https://testopen.xxx.com"];
-```
+使用你自己备案域名的操作方法如下：
 
-如果是自定义域名使用了https，则为：
-```
-[Bmob resetDomain:@"https://testopen.xxx.com"];
-```
+1、在Bmob控制台（`设置 -> 域名管理`），新增一个SDK类型的域名。注意，一定不要使用你的备案主域名，这容易让工信部撤销你的备案。比如你购买的域名是 `abc.com` ，添加的SDK域名建议是 `sdk.abc.com` ,而不是 `abc.com`。
 
+2、在初始化SDK前调用如下代码：
+
+//采用你自己的备案域名
+[Bmob resetDomain:@"http://你在Bmob控制台绑定的SDK域名"];
+//初始化Bmob
+[Bmob registerWithAppKey:@"你的application id"];
+
+其中，参数为你在Bmob控制台绑定的SDK域名，调用后的所有请求都指向新的域名。
+
+关于域名重置和备案，请直接参考：[重置域名设置](http://doc.bmobapp.com/other/domain/)
 
 ## 对象
 
