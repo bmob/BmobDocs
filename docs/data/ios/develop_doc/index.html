@@ -846,10 +846,12 @@
 <p>使用你自己备案域名的操作方法如下：</p>
 <p>1、在Bmob控制台（<code>设置 -&gt; 域名管理</code>），新增一个SDK类型的域名。注意，一定不要使用你的备案主域名，这容易让工信部撤销你的备案。比如你购买的域名是 <code>abc.com</code> ，添加的SDK域名建议是 <code>sdk.abc.com</code> ,而不是 <code>abc.com</code>。</p>
 <p>2、在初始化SDK前调用如下代码：</p>
-<p>//采用你自己的备案域名
-[Bmob resetDomain:@"http://你在Bmob控制台绑定的SDK域名"];
+<pre><code>//采用你自己的备案域名
+[Bmob resetDomain:@&quot;http://你在Bmob控制台绑定的SDK域名&quot;];
 //初始化Bmob
-[Bmob registerWithAppKey:@"你的application id"];</p>
+[Bmob registerWithAppKey:@&quot;你的application id&quot;];
+</code></pre>
+
 <p>其中，参数为你在Bmob控制台绑定的SDK域名，调用后的所有请求都指向新的域名。</p>
 <p>关于域名重置和备案，请直接参考：<a href="http://doc.bmobapp.com/other/domain/">重置域名设置</a></p>
 <h2 id="_6">对象<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
