@@ -64,10 +64,12 @@ iOS9默认不允许进行http请求，所以在使用SDK的过程中需要往Inf
 
 2、在初始化SDK前调用如下代码：
 
+```
 //采用你自己的备案域名
 [Bmob resetDomain:@"http://你在Bmob控制台绑定的SDK域名"];
 //初始化Bmob
 [Bmob registerWithAppKey:@"你的application id"];
+```
 
 其中，参数为你在Bmob控制台绑定的SDK域名，调用后的所有请求都指向新的域名。
 

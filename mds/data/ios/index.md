@@ -46,7 +46,7 @@
 
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-  [Bmob resetDomain:@"https://open.cctvcloud.cn"];
+	[Bmob resetDomain:@"https://open.cctvcloud.cn"];
 	[Bmob registerWithAppKey:@"申请的Application ID"];
 	return YES;
 }
@@ -60,11 +60,11 @@ int main(int argc, char * argv[])
 {
 
     @autoreleasepool {
-       [Bmob resetDomain:@"https://open.cctvcloud.cn"];
+    	 [Bmob resetDomain:@"https://open.cctvcloud.cn"];
     	 NSString *appKey = @"申请的Application ID";
-   		 [Bmob registerWithAppKey:appKey];
+    	 [Bmob registerWithAppKey:appKey];
 
-       return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate     				class]));
+    	 return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate     				class]));
 	}
 }
 ```
