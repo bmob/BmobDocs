@@ -565,16 +565,19 @@
 <h2 id="bmobkey">设置应用的BmobKey<a class="headerlink" href="#bmobkey" title="Permanent link">&para;</a></h2>
 <p>在你的XCode工程中的AppDelegate.m文件中创建应用Key，填入申请的授权Key（SDK使用的是应用密钥里的Application ID），示例如下：</p>
 <pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+  [Bmob resetDomain:@&quot;https://open.cctvcloud.cn&quot;];
     [Bmob registerWithAppKey:@&quot;申请的Application ID&quot;];
     return YES;
 }
 </code></pre>
 
+<p>这里需要注意的是，<code>open.cctvcloud.cn</code>是Bmob提供的测试域名，只有<code>1000</code>次的测试请求，正式上线后需要使用自己的备案域名。</p>
 <p>也可以在在main.m文件中，引入头文件 <code>#import &lt;BmobSDK/Bmob.h&gt;</code></p>
 <pre><code>int main(int argc, char * argv[])
 {
 
     @autoreleasepool {
+       [Bmob resetDomain:@&quot;https://open.cctvcloud.cn&quot;];
          NSString *appKey = @&quot;申请的Application ID&quot;;
          [Bmob registerWithAppKey:appKey];
 
