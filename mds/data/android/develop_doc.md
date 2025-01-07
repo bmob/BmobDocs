@@ -3838,6 +3838,12 @@ RealTimeDataManager.getInstance().start(new RealTimeDataListener() {
 
 # 10、数据安全
 
+## 应用安全
+
+Bmob提供了一种最简单的应用安全模式，只需要将你的`应用的签名`加入到Bmob控制台中，就算其他人破解获取到你的`application id`，也无法访问你的数据。
+
+![](./image/safe.png)
+
 ## ACL和角色
 
 数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看[Bmob数据与安全页面](http://doc.bmobapp.com/other/data_safety/)，了解Bmob如何保护数据安全）。
@@ -3851,8 +3857,6 @@ RealTimeDataManager.getInstance().start(new RealTimeDataListener() {
 - 对于日志数据只有开发者才能够访问，ACL可以拒绝所有的访问权限。
 - 属于一个被授权的用户或者开发者所创建的数据，可以有公共的读的权限，但是写入权限仅限于管理者角色。
 - 一个用户发送给另外一个用户的消息，可以只给这些用户赋予读写的权限。
-
-
 
 BmobACL和BmobUser的权限设置：
 

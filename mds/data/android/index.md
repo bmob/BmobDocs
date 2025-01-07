@@ -20,7 +20,7 @@
 打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.0.9'
+	implementation 'io.github.bmob:android-sdk:4.1.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -191,38 +191,24 @@ p2.delete(new UpdateListener() {
 ```
 
 ## 更新日志
-  **v4.0.8 2024-12-16**
+
+  **v4.1.0 2025-01-06**
+  
+  **Features**
+  
+  - 添加仅支持apk签名访问的模式，增强安全性
+  
+  **v4.0.9 2024-12-16**
   
   **Features**
   
   - 修复AppVersion初始化失败的问题。
   
-  **v4.0.7 2024-11-12**
+  **v4.0.8 2024-11-12**
   
   **Features**
   
   - 修正了存在构造函数抛出异常的bug。
-
-  **v4.0.6 2024-10-23**
-  
-  **Features**
-  
-  - 调整重置域名方法，对不合规的域名形式进行了修正。
-  - 对写了构造函数的继承自BmobObject的类进行了处理，SDK会直接抛出异常。
-
-  **v4.0.5 2024-10-16**
-  
-  **Features**
-  
-  - 新增调试模式，调试模式下，SDK会打印请求的json结构。
-  
-
-  **v4.0.4 2024-09-26**
-  
-  **Features**
-  
-  - 自动更新组件新增`BmobUpdateAgent.setUpdateDownloadListener`方法，点击下载安装后返回成功或者失败的回调结果。
-
 
 
 ## 常见的9015错误如何解决
