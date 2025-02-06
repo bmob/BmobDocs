@@ -90,7 +90,7 @@ b.closeAI()
 ![](image/4.png)
 
 ```python
-from bmob import *
+from bmobpy import *
 
 b = Bmob("application id", "rest api key")
 b.connectAI()

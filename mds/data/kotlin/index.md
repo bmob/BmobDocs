@@ -146,7 +146,6 @@ data class GameScore(var playerName: String? = null, var score: Int? = null, var
                     Toast.makeText(applicationContext, ex.message, Toast.LENGTH_LONG).show()
                 }
             }
-
         })
     }
 ```
