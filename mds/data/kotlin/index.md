@@ -95,6 +95,12 @@ class GameScore : BmobObject() {
 }
 ```
 
+或者
+
+```java
+data class GameScore(var playerName: String? = null, var score: Int? = null, var isPay: Boolean? = null) : BmobObject() 
+```
+
 注意，大部分模型类都继承自`BmobObject`类。
 但如果你想使用内置的注册、登录、验证码登录这些内置方法，则改为继承自`BmobUser`类。
 
@@ -127,8 +133,11 @@ class GameScore : BmobObject() {
 ```java
     private fun updateObject(objectId: String?) {
         var person = Person()
+        // 设置表名
+        person.tableName = "Person"
         person.objectId = objectId
         person.name = "更新名字+" + System.currentTimeMillis()
+
         person.update(object : UpdateListener() {
             override fun done(ex: BmobException?) {
                 if (ex == null) {
@@ -141,6 +150,8 @@ class GameScore : BmobObject() {
         })
     }
 ```
+
+这里需要注意的是，更新数据时，需要手动设置表名，否则会报错。
 
 ## 删除一条数据
 
@@ -270,12 +281,18 @@ class GameScore : BmobObject() {
     private fun updateBatch() {
         val gameScores = ArrayList<BmobObject>()
         val gameScore1 = GameScore()
+        // 设置表名
+        gameScore1.tableName = "GameScore"
         gameScore1.objectId = "此处填写已存在的objectId"
         val gameScore2 = GameScore()
+        // 设置表名 
+        gameScore2.tableName = "GameScore"
         gameScore2.objectId = "此处填写已存在的objectId"
         gameScore2.playerName = "赵大"
         gameScore2.isPay = Boolean.FALSE
         val gameScore3 = GameScore()
+        // 设置表名
+        gameScore3.tableName = "GameScore"
         gameScore3.objectId = "此处填写已存在的objectId"
         gameScore3.playerName = "王二"
 
@@ -369,10 +386,13 @@ class GameScore : BmobObject() {
         //批量更新
         val gameScores1 = ArrayList<BmobObject>()
         val gameScore1 = GameScore()
+        // 设置表名
+        gameScore1.tableName = "GameScore"
         gameScore1.objectId = "此处填写已经存在的objectId"
         gameScore1.playerName = "李四"
         gameScores1.add(gameScore1)
         batch.updateBatch(gameScores1)
+
 
         //批量删除
         val gameScores2 = ArrayList<BmobObject>()
