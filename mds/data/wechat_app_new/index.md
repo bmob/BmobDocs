@@ -2024,21 +2024,47 @@ Bmob.User.upInfo(e.detail.userInfo).then(result => {
 
 **请求示例：**
 
-1.获取手机号
+1.获取手机号(2024 年规则，微信需要公司主体才可以获取手机号)
 
 ```
 //wxml
-<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号 </button>
+<button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
 
 //js
- getPhoneNumber: function (res) {
-    wx.Bmob.User.decryption(res).then(res => {
-      console.log(res)
-  })
-
- // 解密后返回数据格式如下
- // { "phoneNumber":"137xxxx6579", "purePhoneNumber":"137xxxx6579", "countryCode":"86", "watermark":{ "timestamp":1516762168, "appid":"wx094edexxxxx" } }
-  }
+getPhoneNumber: function(e) {
+    if (e.detail.errMsg!== 'getPhoneNumber:ok') {
+        wx.showToast({
+            title: '获取失败',
+            icon: 'none'
+        });
+        return;
+    }
+    if (e.detail.code) {
+        let code = e.detail.code
+        Bmob.getPhoneNumber({
+            code: code
+        }).then(result => {
+            this.setData({
+                phoneNumber: result.phoneNumber || JSON.stringify(result)
+            });
+            wx.showToast({
+                title: '获取成功',
+                icon: 'success'
+            });
+        }).catch(err => {
+            wx.showToast({
+                title: '获取失败',
+                icon: 'none'
+            });
+        });
+    } else {
+        wx.showToast({
+            title: '获取失败',
+            icon: 'none'
+        });
+    }
+}
+   //返回格式{"countryCode":"86","phoneNumber":"13711166579","purePhoneNumber":"13711166579","watermark":{"appid":"wx094ede192e7exxx","timestamp":1745828607}}
 ```
 
 2.获取分享群ID

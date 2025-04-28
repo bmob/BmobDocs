@@ -3756,6 +3756,130 @@ curl -X GET \
 3. 删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。
 4. 如果不加任何距离范围限制，则默认是100公里的半径范围。
 
+## 微信小程序
+
+### 获取用户 openid
+
+**请求描述**
+
+有时，app需要获取服务器的时间，可使用该请求。
+
+**请求**
+
+- url ：https://自己备案域名/1/wechatAppv1/${code}
+
+- method ：GET
+
+- header:
+
+```
+X-Bmob-Application-Id: Your Application ID
+X-Bmob-REST-API-Key: Your REST API Key
+```
+
+- Param:code 微信登录 code
+
+**成功时响应**
+
+- status: 200 OK
+
+- body:
+
+```
+{
+  "timestamp": timestamp,
+  "datetime": YYYY-mm-dd HH:ii:ss(北京时间)
+}
+```
+
+**例子**
+
+以下是一个请求样例，
+
+```
+curl -X GET \
+  -H "X-Bmob-Application-Id: Your Application ID"          \
+  -H "X-Bmob-REST-API-Key: Your REST API Key"        \
+  https://自己备案域名/1/wechatAppv1/${code}
+```
+
+返回参数如下：
+
+```
+{
+    "authData": {
+        "weapp": {
+            "expires_in": 7200,
+            "openid": "oagfv0IsvzjNqtbi8_qnG2d_wXbU",
+            "tempsk": "",
+            "sk": "MsxXdUFlGVkI1b0V5OTVmT0ZlUnB2YldRUT09",
+            "unionid": "o_8mGw8FyOx45KaTAewhAIDpQo7A"
+        }
+    },
+    "createdAt": "2017-06-29 10:50:06",
+    "mobilePhoneNumber": "137xxxxx579",
+    "nickName": "magic",
+    "objectId": "a415c43787",
+    "openid": "oagfv0IsvzjNqtbi8_qnG2d_wXbU",
+    "sessionToken": "d39137b0400a31b7801bdaee677e1c19",
+    "updatedAt": "2025-04-28 16:26:21",
+    "userPic": "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoA2XiapDhpzKO7CukcCQFAQqymrLUcuGzPRYTql4gCM8B2ljPS15XogDnWlRpyUibY1jVJUQg0ysBA/132",
+    "username": "adc9cee116c056bc"
+}
+```
+
+openid 在authData 下面
+
+### 获取access_token
+
+**请求描述**
+
+微信access_token，业务场景,当其他平台需要使用你小程序的token，并不想与Bmob的平台冲突，可以通过此API实现
+
+**请求**
+
+- url ：https://自己备案域名/1/wechatApp/getAccessToken
+
+- method ：GET
+
+- header:
+
+```
+X-Bmob-Application-Id: Your Application ID
+X-Bmob-REST-API-Key: Your REST API Key
+```
+
+**成功时响应**
+
+- status: 200 OK
+
+- body:
+
+```
+{"access_token":"91_0ct6NfzQ2eKaM_3_WhrFVx_mUX_i6ZquZji1kB-VdMQO_zdS1qv45SNkH9jDlLjoyAuIURZUELgq5PteB6IfnnYu_VApZb8C3t2YdTbrvv3_GWdvbh0xgHmLexxxx"}
+```
+
+**例子**
+
+以下是一个请求样例，
+
+```
+curl -X GET \
+  -H "X-Bmob-Application-Id: Your Application ID"          \
+  -H "X-Bmob-REST-API-Key: Your REST API Key"        \
+  https://自己备案域名/1/wechatApp/getAccessToken
+```
+
+返回参数如下：
+
+```
+{"access_token":"91_0ct6NfzQ2eKaM_3_WhrFVx_mUX_i6ZquZji1kB-VdMQO_zdS1qv45SNkH9jDlLjoyAuIURZUELgq5PteB6IfnnYu_VApZb8C3t2YdTbrvv3_GWdvbh0xgHmLet8HZJxxxx"}
+```
+
+openid 在authData 下面
+
+
+
 ## 获取服务器时间
 
 **请求描述**
