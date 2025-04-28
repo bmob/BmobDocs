@@ -20,7 +20,7 @@
 打开 Android Studio 应用 `Gradle Scripts` 下的 `build.gradle(Module :你的应用名称)` 文件，在 `dependencies` 节点中，新增如下的 `依赖包` 信息：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.0.4'
+	implementation 'io.github.bmob:android-sdk:4.1.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -60,8 +60,6 @@ public class BmobApp extends Application {
     	android:versionCode="1"
     	android:versionName="1.0">
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
-
 	<!--允许联网 -->
 	<uses-permission android:name="android.permission.INTERNET" />
 	<!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
@@ -69,6 +67,7 @@ public class BmobApp extends Application {
 	<!--获取wifi网络状态的信息 -->
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<!--获取sd卡写的权限，用于文件上传和下载-->
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<!--允许读取手机状态 用于创建BmobInstallation-->
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -193,12 +192,23 @@ p2.delete(new UpdateListener() {
 
 ## 更新日志
 
-  **v4.0.4 2024-09-26**
+  **v4.1.0 2025-01-06**
   
   **Features**
   
-  - 自动更新组件新增`BmobUpdateAgent.setUpdateDownloadListener`方法，点击下载安装后返回成功或者失败的回调结果。
-
+  - 添加仅支持apk签名访问的模式，增强安全性
+  
+  **v4.0.9 2024-12-16**
+  
+  **Features**
+  
+  - 修复AppVersion初始化失败的问题。
+  
+  **v4.0.8 2024-11-12**
+  
+  **Features**
+  
+  - 修正了存在构造函数抛出异常的bug。
 
 
 ## 常见的9015错误如何解决

@@ -11,7 +11,7 @@
             
             <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
             <!--
             <title>开发文档 - Bmob文档中心</title>
             -->
@@ -580,11 +580,15 @@
 											<li class=""><a href="#10">10、数据安全</a>
 												
 												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_51">应用安全</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
 													<li><a class="itm-l2" href="#acl">ACL和角色</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_55">应用安全</a></li>
+													<li><a class="itm-l2" href="#_56">应用安全</a></li>
 												</ul>
 												
 											</li>
@@ -592,11 +596,11 @@
 											<li class=""><a href="#11_1">11、地理位置</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_56">创建地理位置对象</a></li>
+													<li><a class="itm-l2" href="#_57">创建地理位置对象</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_57">查询地理位置信息</a></li>
+													<li><a class="itm-l2" href="#_58">查询地理位置信息</a></li>
 												</ul>
 												
 											</li>
@@ -604,11 +608,11 @@
 											<li class=""><a href="#12_1">12、其他功能</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_58">获取服务器时间</a></li>
+													<li><a class="itm-l2" href="#_59">获取服务器时间</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_59">自动更新组件</a></li>
+													<li><a class="itm-l2" href="#_60">自动更新组件</a></li>
 												</ul>
 												
 											</li>
@@ -638,6 +642,10 @@
 												<ul class="nav nav-l2">
 													<li><a class="itm-l2" href="#android-p">Android P 网络配置</a></li>
 												</ul>
+												
+											</li>
+												
+											<li class=""><a href="#18">18、调试模式</a>
 												
 											</li>
 												
@@ -4382,6 +4390,9 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 <p><strong>1、监听器不支持UI线程，在监听回调中请不要直接操作UI；</strong></p>
 <p><strong>2、如果你要监听User、Installation等系统表的话，表名前需要加上“_”，例如：_User</strong></p>
 <h1 id="10">10、数据安全<a class="headerlink" href="#10" title="Permanent link">&para;</a></h1>
+<h2 id="_51">应用安全<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h2>
+<p>Bmob提供了一种最简单的应用安全模式，只需要将你的<code>应用的签名</code>加入到Bmob控制台中，就算其他人破解获取到你的<code>application id</code>，也无法访问你的数据。</p>
+<p><img alt="" src="../image/safe.png" /></p>
 <h2 id="acl">ACL和角色<a class="headerlink" href="#acl" title="Permanent link">&para;</a></h2>
 <p>数据安全是软件系统中最重要的组成部分，为了更好的保护应用数据的安全，Bmob在软件架构层面提供了应用层次、表层次、ACL（Access Control List：访问控制列表）、角色管理（Role）四种不同粒度的权限控制的方式，确保用户数据的安全（详细请查看<a href="http://doc.bmobapp.com/other/data_safety/">Bmob数据与安全页面</a>，了解Bmob如何保护数据安全）。</p>
 <p>其中，最灵活的方法是通过ACL和角色，它的思路是每一条数据有一个用户和角色的列表，以及这些用户和角色拥有什么样的许可权限。</p>
@@ -4466,7 +4477,7 @@ BmobFile.deleteBatch(urls, new DeleteBatchListener() {
 </tr>
 </tbody>
 </table>
-<h3 id="_51">默认访问权限<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<h3 id="_52">默认访问权限<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
 <p>在没有显示指定的情况下，每一个BmobObject(表)中的ACL(列)属性的默认值是所有人可读可写的。在客户端想要修改这个权限设置，只需要简单调用BmobACL的setPublicReadAccess方法和setPublicWriteAccess方法，即：</p>
 <pre><code class="java">/**
  * 设置发布的帖子对所有用户的访问控制权限
@@ -4504,7 +4515,7 @@ private void publicAcl() {
 </code></pre>
 
 <p>注意：可读可写是默认的权限，不需要写额外的代码。</p>
-<h3 id="_52">指定用户的访问权限<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<h3 id="_53">指定用户的访问权限<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
 <p>假如你想实现一个分享日志类的应用时，这可能会需要针对不同的日志设定不同的访问权限。比如，公开的日志，发布者有更改和修改的权限，其他用户只有读的权限，那么可用如下代码实现：</p>
 <pre><code class="java">/**
  * 设置发布的帖子对当前用户的访问控制权限
@@ -4560,7 +4571,7 @@ blog.save(new SaveListener&lt;String&gt;() {
 });
 </code></pre>
 
-<h3 id="_53">角色管理<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<h3 id="_54">角色管理<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
 <p>上面的指定用户访问权限虽然很方便，但是对于有些应用可能会有一定的局限性。比如一家公司的工资系统，员工和公司的出纳们只拥有工资的读权限，而公司的人事和老板才拥有全部的读写权限。要实现这种功能，你也可以通过设置每个用户的ACL权限来实现，如下：</p>
 <pre><code class="java">/**
  * 设置发布的帖子对某种角色的访问控制权限
@@ -4595,7 +4606,7 @@ private void roleAcl() {
 
 </code></pre>
 
-<h3 id="_54">角色之间的从属关系<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<h3 id="_55">角色之间的从属关系<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
 <p>下面我们来说一下角色与角色之间的从属关系。用一个例子来说明下：一个互联网企业有移动部门，部门中有不同的小组，如Android开发组和IOS开发组。每个小组只拥有自己小组的代码读写权限，但这两个小组同时拥有核心库代码的读权限。</p>
 <pre><code class="java">/**
  * 查询某角色是否存在
@@ -4705,7 +4716,7 @@ private void removeUserFromRole(BmobRole bmobRole) {
 
 <h3 id="acl_1">ACL案例源码<a class="headerlink" href="#acl_1" title="Permanent link">&para;</a></h3>
 <p>我们为大家提供一个ACL相关的案例源码，大家可以点击下载：<a href="https://github.com/bmob/bmob-android-demo-acl">https://github.com/bmob/bmob-android-demo-acl</a></p>
-<h2 id="_55">应用安全<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h2>
+<h2 id="_56">应用安全<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h2>
 <p>请大家在使用Bmob开发应用程序之前，仔细阅读<a href="http://doc.bmobapp.com/other/data_safety/">数据与安全</a>的文档。</p>
 <h1 id="11_1">11、地理位置<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h1>
 <p>Bmob允许用户根据地球的经度和纬度坐标进行基于地理位置的信息查询。通过在BmobObject的查询中添加一个BmobGeoPoint的对象查询，你就可以实现轻松查找出离当前用户最接近的信息或地点的功能。</p>
@@ -4717,7 +4728,7 @@ private void removeUserFromRole(BmobRole bmobRole) {
 }
 </code></pre>
 
-<h3 id="_56">创建地理位置对象<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h3>
+<h3 id="_57">创建地理位置对象<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
 <p>首先需要创建一个BmobGeoPoint对象。例如，创建一个东经116.39727786183357度，北纬39.913768382429105度的BmobGeoPoint对象：</p>
 <pre><code class="java">/**
  * 更新当前用户地理位置信息
@@ -4741,7 +4752,7 @@ private void updateLocation() {
 }
 </code></pre>
 
-<h3 id="_57">查询地理位置信息<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<h3 id="_58">查询地理位置信息<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
 <pre><code class="java">/**
  * 获取当前用户的地理位置信息
  */
@@ -4879,7 +4890,7 @@ private void queryBox() {
 </li>
 </ol>
 <h1 id="12_1">12、其他功能<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h1>
-<h3 id="_58">获取服务器时间<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+<h3 id="_59">获取服务器时间<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
 <p>在Bmob对象中提供了一个静态方法，用于获取服务器时间。</p>
 <pre><code class="java">Bmob.getServerTime(new QueryListener&lt;Long&gt;() {
 
@@ -4897,10 +4908,10 @@ private void queryBox() {
 });
 </code></pre>
 
-<h3 id="_59">自动更新组件<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
+<h3 id="_60">自动更新组件<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
 <p>Bmob为大家提供了应用的自动更新组件，使用这个组件可以快速方便实现应用的自动升级功能。
 详细的使用操作可以参考文档：<a href="http://doc.bmobapp.com/data/android/auto_update/">自动更新组件文档</a></p>
-<h4 id="_60">获取所有表的结构<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h4>
+<h4 id="_61">获取所有表的结构<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h4>
 <pre><code class="java">
 Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 
@@ -4916,7 +4927,7 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
 
 </code></pre>
 
-<h4 id="_61">返回数据说明<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h4>
+<h4 id="_62">返回数据说明<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h4>
 <p>注：<code>BmobTableSchema</code>参数说明：</p>
 <p>其中</p>
 <p><code>className</code>：表示表名</p>
@@ -5081,6 +5092,8 @@ Bmob.getAllTableSchema(context, new QueryListListener&lt;BmobTableSchema&gt;() {
     *;
 }
 
+-dontwarn io.reactivex.rxjava3.**
+-keep class io.reactivex.rxjava3.** {*;}
 
 </code></pre>
 
@@ -5124,6 +5137,15 @@ Android6.0版本开始移除了对Apache的HTTP Client的支持，需要在<code
         android:networkSecurityConfig=&quot;@xml/network_security_config&quot;&gt;
     &lt;/application&gt;
 </code></pre>
+
+<h1 id="18">18、调试模式<a class="headerlink" href="#18" title="Permanent link">&para;</a></h1>
+<p>很多时候，我们会一下子排查不出操作Bmob后端云的代码问题，比如明明感觉查询语句没有问题，结果就是查询不出来数据。这种情况下，我们就可以开启调试模式。</p>
+<pre><code class="java">// 开启调试模式
+Bmob.setIsDebug(true);
+</code></pre>
+
+<p>在调试模式下，Logcat会打印出请求的<code>json</code>格式出来，方便大家和<code>restapi</code>的请求结构进行对比，从而找出代码的问题。为方便大家辨识，Logcat输出是以<code>E</code>的模式输出，分类为<code>Bmob调试</code>，比如下面的输出表示我们要对<code>_User</code>表进行操作，请求结构为<code>{"username":"bmob","password":"123456"}</code>：</p>
+<p>2024-10-17 09:38:17.333 20519-20519 Bmob调试                  cn.bmob.sdkdemo                      <font color="red"><b>E</b>  {"data":{"username":"bmob","password":"123456"},"c":"_User"}</font></p>
                 </div>
             </div>
         </div>

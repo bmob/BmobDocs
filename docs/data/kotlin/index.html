@@ -11,7 +11,7 @@
             
             <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
             <!--
             <title>Kotlin - Bmob文档中心</title>
             -->
@@ -588,12 +588,12 @@
 <h2 id="_4">导入依赖<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
 <pre><code class="gradle">dependencies {
-    implementation 'io.github.bmob:android-sdk:3.8.23'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'com.squareup.okhttp3:okhttp:4.8.1'
-    implementation 'com.squareup.okio:okio:2.2.2'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation(&quot;io.github.bmob:android-sdk:4.1.0&quot;)
+    implementation(&quot;io.reactivex.rxjava3:rxjava:3.1.9&quot;)
+    implementation(&quot;io.reactivex.rxjava3:rxandroid:3.0.2&quot;)
+    implementation(&quot;com.squareup.okhttp3:okhttp:4.8.1&quot;)
+    implementation(&quot;com.squareup.okio:okio:2.2.2&quot;)
+    implementation(&quot;com.google.code.gson:gson:2.8.5&quot;)
 }
 </code></pre>
 
@@ -615,8 +615,6 @@
         android:versionCode=&quot;1&quot;
         android:versionName=&quot;1.0&quot;&gt;
 
-    &lt;uses-sdk android:minSdkVersion=&quot;8&quot; android:targetSdkVersion=&quot;17&quot;/&gt;
-
     &lt;!--允许联网 --&gt;
     &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
     &lt;!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  --&gt;
@@ -624,6 +622,7 @@
     &lt;!--获取wifi网络状态的信息 --&gt;
     &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
     &lt;!--获取sd卡写的权限，用于文件上传和下载--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
     &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
     &lt;!--允许读取手机状态 用于创建BmobInstallation--&gt;
     &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
@@ -653,6 +652,10 @@
 }
 </code></pre>
 
+<p>或者</p>
+<pre><code class="java">data class GameScore(var playerName: String? = null, var score: Int? = null, var isPay: Boolean? = null) : BmobObject() 
+</code></pre>
+
 <p>注意，大部分模型类都继承自<code>BmobObject</code>类。
 但如果你想使用内置的注册、登录、验证码登录这些内置方法，则改为继承自<code>BmobUser</code>类。</p>
 <h2 id="_6">添加一行数据<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -679,8 +682,11 @@
 <h2 id="_7">更新一条数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <pre><code class="java">    private fun updateObject(objectId: String?) {
         var person = Person()
+        // 设置表名
+        person.tableName = &quot;Person&quot;
         person.objectId = objectId
         person.name = &quot;更新名字+&quot; + System.currentTimeMillis()
+
         person.update(object : UpdateListener() {
             override fun done(ex: BmobException?) {
                 if (ex == null) {
@@ -689,11 +695,11 @@
                     Toast.makeText(applicationContext, ex.message, Toast.LENGTH_LONG).show()
                 }
             }
-
         })
     }
 </code></pre>
 
+<p>这里需要注意的是，更新数据时，需要手动设置表名，否则会报错。</p>
 <h2 id="_8">删除一条数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <pre><code class="java">    private fun deleteObject(objectId: String?) {
         var person = Person()
@@ -873,12 +879,18 @@ private fun createBatch() {
 private fun updateBatch() {
     val gameScores = ArrayList&lt;BmobObject&gt;()
     val gameScore1 = GameScore()
+    // 设置表名
+    gameScore1.tableName = "GameScore"
     gameScore1.objectId = "此处填写已存在的objectId"
     val gameScore2 = GameScore()
+    // 设置表名 
+    gameScore2.tableName = "GameScore"
     gameScore2.objectId = "此处填写已存在的objectId"
     gameScore2.playerName = "赵大"
     gameScore2.isPay = Boolean.FALSE
     val gameScore3 = GameScore()
+    // 设置表名
+    gameScore3.tableName = "GameScore"
     gameScore3.objectId = "此处填写已存在的objectId"
     gameScore3.playerName = "王二"
 
@@ -968,10 +980,13 @@ private fun deleteBatch() {
     //批量更新
     val gameScores1 = ArrayList&lt;BmobObject&gt;()
     val gameScore1 = GameScore()
+    // 设置表名
+    gameScore1.tableName = "GameScore"
     gameScore1.objectId = "此处填写已经存在的objectId"
     gameScore1.playerName = "李四"
     gameScores1.add(gameScore1)
     batch.updateBatch(gameScores1)
+
 
     //批量删除
     val gameScores2 = ArrayList&lt;BmobObject&gt;()

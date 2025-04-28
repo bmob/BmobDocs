@@ -2235,9 +2235,6 @@ Bmob.checkMsg2(data).then(res => {
 | content | string | 是   | 检测的内容       |
 
 ```
-正常：
-{"msg":"ok"}
-违规：
 {
    "errcode": 0,
    "errmsg": "ok",

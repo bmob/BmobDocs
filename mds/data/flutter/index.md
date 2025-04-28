@@ -1,80 +1,42 @@
-# Flutter开发文档
+# Flutter文档
 
-# 1、集成
+## 安装
 
-## 1.1、下载源码
-Flutter官方源码：[点击下载](https://github.com/bmob/bmob-flutter-sdk)
-
-## 1.2、修改配置
-修改项目的配置文件 pubspec.yaml文件，在依赖节点 dependencies 中新增项：
-```
-dependencies:
-  path: ../data_plugin
+```shell
+flutter pub add bmob_plugin
 ```
 
-## 1.3、导入
-导入语句：
-```
-import 'package:data_plugin/data_plugin.dart';
+## 引用 
+
+```dart
+import 'package:bmob_plugin/bmob_plugin.dart';
 ```
 
-## 1.4、平台
-目前涉及到特定平台信息处理的方法只适配了Android外，其他方法均兼容Android、iOS。
+## 初始化
 
-## 1.5、参考
-源码：
+```dart
+Bmob.initialize(secretKey, apiSafe,[masterKey]);
 ```
-https://github.com/bmob/bmob-flutter-sdk/tree/master/data_plugin
-```
-案例：
-```
-https://github.com/bmob/bmob-flutter-sdk/tree/master/data_demo
-```
-# 2、使用
 
-1、初始化
+上面的三个参数分别对应Bmob后端云的`控制台`->`设置`->`应用密钥`中的`Secret Key`、`API安全码`和`Master Key`。
 
-在runApp中进行一下初始化操作：
-```
-/**
- * 非加密方式初始化
- */
-Bmob.init("https://自己备案域名", "appId", "apiKey");
-```
-```
-/**
- * 超级权限非加密方式初始化
- */
-Bmob.initMasterKey("https://自己备案域名", "appId","apiKey","masterKey");
-```
-```
-/**
- * 加密方式初始化
- */
-Bmob.initEncryption("https://自己备案域名", "secretKey", "apiSafe");
-```
-```
-/**
- * 超级权限加密方式初始化
- */
-Bmob.initEncryptionMasterKey("https://自己备案域名","secretKey","apiSafe","masterKey");
-```
-2、导入源码
+一般情况下，不建议大家填入`masterKey`参数。
 
-Dart要求，在使用具体功能代码的时候需要先导入对应代码的所在源文件。
-例如，使用BmobUser前需要导入：
+## 重置域名
+
+在开发阶段，Flutter SDK内置了一个测试域名供大家快速开发测试，但基于监管的要求，这个域名会限制每个应用的请求次数。正式上线之后，大家需要替换为自己的备案域名，方法如下：
+
+```dart
+Bmob.resetDomain("http://api.abc.com");
+Bmob.initialize(secretKey, apiSafe,[masterKey]);
 ```
-import 'package:data_plugin/bmob/table/bmob_user.dart';
-```
-3、发布库
 
-此SDK插件只用于Bmob数据服务相关的数据操作，与此服务无关的UI以及其他涉及平台功能的操作需要开发者自行编写。Dart允许开发者自己编写相关的UI库以及平台插件，并发布到Dart仓库供所有开发者使用，具体可以参考：
+其中，`http://api.abc.com`是你的备案域名。
 
-https://zhuanlan.zhihu.com/p/60136574
+## 数据类型
 
-## 2.1、数据类型
+### 基本数据类型
 
-### 2.1.1、基本数据类型
 1、基本数据类型 BmobObject
 
 |属性|解释|
@@ -132,7 +94,7 @@ https://zhuanlan.zhihu.com/p/60136574
 |roles|子角色|
 |users|角色用户|
 
-### 2.1.2、自定义数据类型
+### 自定义数据类型
 
 1、继承BmobObject
 
@@ -141,7 +103,7 @@ https://zhuanlan.zhihu.com/p/60136574
 ```
 https://zhuanlan.zhihu.com/p/59932453
 ```
-### 2.1.3、错误类型
+### 错误类型
 |属性|解释|
 |----|----|
 |code|错误代码|
@@ -153,7 +115,7 @@ BmobError bmobError = BmobError.convert(e);
 ```
 
 
-## 2.2、增删改查一条数据
+## 增删改查一条数据
 
 新增：
 ```
@@ -253,7 +215,7 @@ _deleteFieldValue(BuildContext context) {
 }
 ```
 
-## 2.3、查询多条数据
+## 查询多条数据
 
 等于：
 ```
@@ -381,7 +343,7 @@ _queryWhereLargeEqual(BuildContext context) {
   });
 }
 ```
-## 2.4、关联操作
+## 关联操作
 
 添加：
 ```
@@ -466,7 +428,7 @@ _queryPointer() {
 }
 ```
 
-## 2.5、位置操作
+## 位置操作
 添加：
 ```
 ///添加地理位置信息
@@ -487,7 +449,7 @@ _addGeoPoint() {
 ```
 
 
-## 2.6、时间操作
+## 时间操作
 
 添加：
 ```
@@ -520,7 +482,7 @@ _getServerTime() {
 }
 ```
 
-## 2.7、文件操作
+## 文件操作
 
 上传文件，Android在上传前需先允许文件访问权限，可以使用SDK自带的文件选择器。
 ```
@@ -590,7 +552,7 @@ _deleteFile(String url) {
   });
 }
 ```
-## 2.8、用户操作
+## 用户操作
 登录：
 ```
 ///用户名和密码登录
@@ -687,7 +649,7 @@ _sendEmail(BuildContext context) {
   });
 }
 ```
-## 2.9、角色操作
+## 角色操作
 添加角色：
 ```
 ///添加角色
@@ -747,7 +709,7 @@ _addUserToSavedRole() {
 }
 ```
 
-## 2.10、数据访问权限操作
+## 数据访问权限操作
 
 设置数据公共访问权限：
 ```
@@ -810,7 +772,7 @@ _saveDataAndRoleAcl() {
 }
 ```
 
-## 2.11、设备操作
+## 设备操作
 获取设备ID：
 ```
 ///获取设备ID
@@ -833,7 +795,7 @@ _initInstallation(BuildContext context) {
 ```
 
 
-## 2.12、短信操作
+## 短信操作
 
 发送短信验证码：
 ```
@@ -863,7 +825,7 @@ _verifySmsCode(BuildContext context) {
 }
 ```
 
-## 2.13、数据监听
+## 数据监听
 
 ```
 ///数据监听
@@ -911,7 +873,7 @@ _change(context) {
 |subRowUpdate|订阅行更新|
 |subRowDelete|订阅行删除|
 
-## 2.14、排序
+## 排序
 
 正序：
 setOrder("字段名称");
@@ -942,7 +904,7 @@ _queryOrder(BuildContext context) {
 }
 ```
 
-## 2.15、分页
+## 分页
 
 设置返回条数：
 setLimit(int value);
@@ -983,7 +945,7 @@ void _queryList(BuildContext context) {
 }
 ```
 
-## 2.16 统计查询
+## 统计查询
 
 分组操作，返回某些列的数值：
 ```
@@ -1306,3 +1268,21 @@ void _queryAnd(BuildContext context){
 }
 ```
 
+## 源码
+
+源码：
+```
+https://github.com/bmob/bmob-flutter-sdk/tree/master/data_plugin
+```
+案例：
+```
+https://github.com/bmob/bmob-flutter-sdk/tree/master/data_demo
+```
+
+## 版本更新
+
+### v1.0.1 2024-10-10
+
+- 优化引入的方式
+- 去掉不安全的初始化方法
+- 新增重置域名的方法

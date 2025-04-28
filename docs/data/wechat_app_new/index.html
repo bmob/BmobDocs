@@ -11,7 +11,7 @@
             
             <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
             <!--
             <title>开发文档 - Bmob文档中心</title>
             -->
@@ -684,7 +684,7 @@
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#vue">VUE 组件文件上次</a></li>
+													<li><a class="itm-l2" href="#vue">VUE 组件文件上传</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
@@ -2658,7 +2658,7 @@ fileUploadControl.onchange = () =&gt; {
 
 </code></pre>
 
-<h3 id="vue">VUE 组件文件上次<a class="headerlink" href="#vue" title="Permanent link">&para;</a></h3>
+<h3 id="vue">VUE 组件文件上传<a class="headerlink" href="#vue" title="Permanent link">&para;</a></h3>
 <p>调用自定义请求方法 http-request</p>
 <pre><code>  &lt;el-upload v-model:file-list=&quot;fileList&quot; action=&quot;&quot; :http-request=&quot;customUpload&quot;&gt;
     &lt;el-icon&gt;
@@ -3151,10 +3151,7 @@ Bmob.checkMsg2(data).then(res =&gt; {
 </tr>
 </tbody>
 </table>
-<pre><code>正常：
-{&quot;msg&quot;:&quot;ok&quot;}
-违规：
-{
+<pre><code>{
    &quot;errcode&quot;: 0,
    &quot;errmsg&quot;: &quot;ok&quot;,
    &quot;result&quot;: {

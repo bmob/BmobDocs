@@ -11,7 +11,7 @@
             
             <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script>
+        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
             <!--
             <title>开发文档 - Bmob文档中心</title>
             -->
@@ -439,7 +439,7 @@
 												
 											</li>
 												
-											<li class=""><a href="#_5">数据迁移</a>
+											<li class=""><a href="#_5">接入备案域名</a>
 												
 											</li>
 												
@@ -841,20 +841,19 @@
 <p>在Bmob平台注册的每个账户都可以创建多个应用程序，每个应用程序都有其独自的应用程序ID，在后续程序编写中，所有的应用程序将凭其ID来使用Bmob SDK。同一个应用可以分别在测试环境和生产环境中部署不同的版本。</p>
 <h3 id="_4">应用安全<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>请大家在使用Bmob开发应用程序之前，认真阅读我们给大家提供的“数据与安全”的文档，确保你的应用在发布时安全。文档 <a href="http://doc.bmobapp.com/other/data_safety/index.html">请点击</a>;</p>
-<h2 id="_5">数据迁移<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>从v2.1.8开始，数据SDK新增了能重新设置请求域名的Api，类似数据迁移，调用方式如下：</p>
-<pre><code>[Bmob resetDomain:@&quot;https://open-vip.bmobapp.com&quot;];
+<h2 id="_5">接入备案域名<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>接工信部要求，Bmob提供了一定量的API请求数，供开发者开发阶段使用。当你的应用正式上线之后，请确保一定要使用你的备案域名。在域名备案过程中遇到任何问题，可联系我们的官方客服协助。</p>
+<p>使用你自己备案域名的操作方法如下：</p>
+<p>1、在Bmob控制台（<code>设置 -&gt; 域名管理</code>），新增一个SDK类型的域名。注意，一定不要使用你的备案主域名，这容易让工信部撤销你的备案。比如你购买的域名是 <code>abc.com</code> ，添加的SDK域名建议是 <code>sdk.abc.com</code> ,而不是 <code>abc.com</code>。</p>
+<p>2、在初始化SDK前调用如下代码：</p>
+<pre><code>//采用你自己的备案域名
+[Bmob resetDomain:@&quot;http://你在Bmob控制台绑定的SDK域名&quot;];
+//初始化Bmob
+[Bmob registerWithAppKey:@&quot;你的application id&quot;];
 </code></pre>
 
-<p>其中，参数为开发者的域名，调用后的所有请求都指向新的域名。</p>
-<p>如果使用自定义域名，假设你绑定的sdk域名是testopen.xxx.com，请使用下面的代码，让你的域名在sdk中生效：</p>
-<pre><code>[Bmob resetDomain:@&quot;https://testopen.xxx.com&quot;];
-</code></pre>
-
-<p>如果是自定义域名使用了https，则为：</p>
-<pre><code>[Bmob resetDomain:@&quot;https://testopen.xxx.com&quot;];
-</code></pre>
-
+<p>其中，参数为你在Bmob控制台绑定的SDK域名，调用后的所有请求都指向新的域名。</p>
+<p>关于域名重置和备案，请直接参考：<a href="http://doc.bmobapp.com/other/domain/">重置域名设置</a></p>
 <h2 id="_6">对象<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">数据对象<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>Bmob存储的数据是建立在BmobObject基础上的，每个BmobObject包含键(Key)-值(value)对的JSON兼容数据。这个数据是无模式的，这意味着不需要提前指定每个BmobObject存在什么键。你只需要设置你想要的键值对让我们在后端存储。</p>

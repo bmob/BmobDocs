@@ -22,12 +22,12 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:3.8.23'
-	implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-	implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
-	implementation 'com.squareup.okio:okio:2.2.2'
-	implementation 'com.google.code.gson:gson:2.8.5'
+	implementation("io.github.bmob:android-sdk:4.1.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.9")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+    implementation("com.squareup.okhttp3:okhttp:4.8.1")
+    implementation("com.squareup.okio:okio:2.2.2")
+    implementation("com.google.code.gson:gson:2.8.5")
 }
 ```
 
@@ -55,8 +55,6 @@ class BmobApp : Application() {
     	android:versionCode="1"
     	android:versionName="1.0">
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
-
 	<!--允许联网 -->
 	<uses-permission android:name="android.permission.INTERNET" />
 	<!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
@@ -64,6 +62,7 @@ class BmobApp : Application() {
 	<!--获取wifi网络状态的信息 -->
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<!--获取sd卡写的权限，用于文件上传和下载-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<!--允许读取手机状态 用于创建BmobInstallation-->
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -94,6 +93,12 @@ class GameScore : BmobObject() {
     var score: Int? = null
     var isPay: Boolean? = null
 }
+```
+
+或者
+
+```java
+data class GameScore(var playerName: String? = null, var score: Int? = null, var isPay: Boolean? = null) : BmobObject() 
 ```
 
 注意，大部分模型类都继承自`BmobObject`类。
@@ -128,8 +133,11 @@ class GameScore : BmobObject() {
 ```java
     private fun updateObject(objectId: String?) {
         var person = Person()
+        // 设置表名
+        person.tableName = "Person"
         person.objectId = objectId
         person.name = "更新名字+" + System.currentTimeMillis()
+
         person.update(object : UpdateListener() {
             override fun done(ex: BmobException?) {
                 if (ex == null) {
@@ -138,10 +146,11 @@ class GameScore : BmobObject() {
                     Toast.makeText(applicationContext, ex.message, Toast.LENGTH_LONG).show()
                 }
             }
-
         })
     }
 ```
+
+这里需要注意的是，更新数据时，需要手动设置表名，否则会报错。
 
 ## 删除一条数据
 
@@ -271,12 +280,18 @@ class GameScore : BmobObject() {
     private fun updateBatch() {
         val gameScores = ArrayList<BmobObject>()
         val gameScore1 = GameScore()
+        // 设置表名
+        gameScore1.tableName = "GameScore"
         gameScore1.objectId = "此处填写已存在的objectId"
         val gameScore2 = GameScore()
+        // 设置表名 
+        gameScore2.tableName = "GameScore"
         gameScore2.objectId = "此处填写已存在的objectId"
         gameScore2.playerName = "赵大"
         gameScore2.isPay = Boolean.FALSE
         val gameScore3 = GameScore()
+        // 设置表名
+        gameScore3.tableName = "GameScore"
         gameScore3.objectId = "此处填写已存在的objectId"
         gameScore3.playerName = "王二"
 
@@ -370,10 +385,13 @@ class GameScore : BmobObject() {
         //批量更新
         val gameScores1 = ArrayList<BmobObject>()
         val gameScore1 = GameScore()
+        // 设置表名
+        gameScore1.tableName = "GameScore"
         gameScore1.objectId = "此处填写已经存在的objectId"
         gameScore1.playerName = "李四"
         gameScores1.add(gameScore1)
         batch.updateBatch(gameScores1)
+
 
         //批量删除
         val gameScores2 = ArrayList<BmobObject>()

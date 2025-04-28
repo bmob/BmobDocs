@@ -4,7 +4,7 @@
 在命令行中执行下面的代码安装Python-bmob包：
 
 ```pip
-pip install python-bmob
+pip install bmobpy
 ```
 
 ## 初始化
@@ -26,6 +26,14 @@ b = Bmob("你的application id", "你的rest api key")
 其中，`application id`和`rest api key`是你在Bmob控制台上创建的应用密钥信息。
 
 我们对数据的所有操作，都围绕着 `Bmob类` 进行。
+
+某些情况下，我们需要用更高级的权限去操作数据，这就需要用到`Master Key`了，方法如下：
+
+```python
+
+b.setMasterKey("你的master key")
+
+```
 
 ## 快速入门
 
@@ -181,6 +189,22 @@ b.chat('1+1等于多少？',session='firstman')
 ```
 
 其中，session可以是用户的昵称\ID等等。
+
+Bmob.chat方法会自动把对话记录保存在内存中，每次和AI交互的时候，都会讲上下文传递给AI。如果我们希望自定义上下文，可以使用下面的方法：
+
+```python
+context = [
+    {"content": "从现在开始，你是一名教师，名字叫张三，和你聊天的人叫李四，请认真扮演好教师的角色", "role": "system"},
+    {"content": "张老师好", "role": "user"},
+    {"content": "李同学，你好啊", "role": "assistant"},
+    {"content": "老师，什么是地球？", "role": "user"},
+    {"content": "地球就是我们生活的家园", "role": "assistant"},
+]
+b.chat2(context)
+
+```
+
+上面的代码中，`system`角色通常用来携带系统的prompt信息，`user`表示用户，也就是提问者，`assistant`表示AI。
 
 ### 关闭AI服务
 
@@ -371,6 +395,9 @@ for r in rs:
     print(r)
 ```
 
+
+或查询的`json拼接`有任何疑问的地方，大家可以查看[restapi文档](http://doc.bmobapp.com/data/restful/develop_doc/#_28)。
+
 ### 链式查询
 
 很多时候，我们的查询条件不会只有一个，这就需要用到 `BmobQuery` 的链式查询了。比如，我们要查询 `name等于Bmob后端云，而且age大于10` 的所有列，示例代码如下：
@@ -444,6 +471,20 @@ rs = b.findObjects('mytable',where=query,keys=['name','address'])
 for r in rs:
     print(r)
 ```
+
+### 或查询
+
+上面提到的都是`and`查询，但有时候我们还会需要用到`or`查询，也就是或查询。下面以`Subject`（科目）表为例，这个表有一个名称为`name`的字段，里面存储着各种学科记录，比如语文、数学、英语、政治等等。
+
+如果我们只想查询`name`为`语文`或者`数学`的记录，代码可以这样写：
+
+```python
+rs = bmob.findObjects('Subject',where={"$or":[{"name":{"$eq":'语文'}},{"name":{"$eq":'数学'}}]})
+for r in rs:
+    print(r)
+
+```
+
 
 ## 统计查询
 
@@ -554,3 +595,40 @@ rs = b.resetPasswordBySMSCode('收到的短信验证码','新密码')
 print(rs)
 
 ```
+
+### 检查用户的登录是否过期
+
+示例代码如下:
+
+```python
+islogin = b.checkSession('98575e8482')
+if islogin is None:
+    print(b.getError())
+else:
+    print(islogin)
+
+```
+
+如果`checkSession`方法返回`None`，表示发生异常，可以通过`getError`方法获得错误信息。
+
+## 更新日志
+
+  **v1.10.1 2025-02-06**
+  
+  **Features**
+  
+  - 优化网络请求方法，提升稳定性。
+
+  **v1.10.0 2024-10-11**
+  
+  **Features**
+  
+  - 新增 `Bmob.checkSession`方法，检查用户的登录是否过期。
+
+  - 添加`setMasterKey`方法的文档。
+
+  **v1.9.0 2024-10-08**
+  
+  **Features**
+  
+  - 新增 `Bmob.chat2`方法，支持自定义上下文对话。
