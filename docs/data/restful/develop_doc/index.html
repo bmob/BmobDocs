@@ -665,11 +665,23 @@
 												
 											</li>
 												
-											<li class=""><a href="#_78">获取服务器时间</a>
+											<li class=""><a href="#_78">微信小程序</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#openid">获取用户 openid</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#access_token">获取access_token</a></li>
+												</ul>
 												
 											</li>
 												
-											<li class=""><a href="#_79">错误码</a>
+											<li class=""><a href="#_79">获取服务器时间</a>
+												
+											</li>
+												
+											<li class=""><a href="#_80">错误码</a>
 												
 											</li>
 												
@@ -4378,7 +4390,121 @@ curl -X PUT \
 <li>删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。</li>
 <li>如果不加任何距离范围限制，则默认是100公里的半径范围。</li>
 </ol>
-<h2 id="_78">获取服务器时间<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h2>
+<h2 id="_78">微信小程序<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h2>
+<h3 id="openid">获取用户 openid<a class="headerlink" href="#openid" title="Permanent link">&para;</a></h3>
+<p><strong>请求描述</strong></p>
+<p>有时，app需要获取服务器的时间，可使用该请求。</p>
+<p><strong>请求</strong></p>
+<ul>
+<li>
+<p>url ：https://自己备案域名/1/wechatAppv1/${code}</p>
+</li>
+<li>
+<p>method ：GET</p>
+</li>
+<li>
+<p>header:</p>
+</li>
+</ul>
+<pre><code>X-Bmob-Application-Id: Your Application ID
+X-Bmob-REST-API-Key: Your REST API Key
+</code></pre>
+
+<ul>
+<li>Param:code 微信登录 code</li>
+</ul>
+<p><strong>成功时响应</strong></p>
+<ul>
+<li>
+<p>status: 200 OK</p>
+</li>
+<li>
+<p>body:</p>
+</li>
+</ul>
+<pre><code>{
+  &quot;timestamp&quot;: timestamp,
+  &quot;datetime&quot;: YYYY-mm-dd HH:ii:ss(北京时间)
+}
+</code></pre>
+
+<p><strong>例子</strong></p>
+<p>以下是一个请求样例，</p>
+<pre><code>curl -X GET \
+  -H &quot;X-Bmob-Application-Id: Your Application ID&quot;          \
+  -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
+  https://自己备案域名/1/wechatAppv1/${code}
+</code></pre>
+
+<p>返回参数如下：</p>
+<pre><code>{
+    &quot;authData&quot;: {
+        &quot;weapp&quot;: {
+            &quot;expires_in&quot;: 7200,
+            &quot;openid&quot;: &quot;oagfv0IsvzjNqtbi8_qnG2d_wXbU&quot;,
+            &quot;tempsk&quot;: &quot;&quot;,
+            &quot;sk&quot;: &quot;MsxXdUFlGVkI1b0V5OTVmT0ZlUnB2YldRUT09&quot;,
+            &quot;unionid&quot;: &quot;o_8mGw8FyOx45KaTAewhAIDpQo7A&quot;
+        }
+    },
+    &quot;createdAt&quot;: &quot;2017-06-29 10:50:06&quot;,
+    &quot;mobilePhoneNumber&quot;: &quot;137xxxxx579&quot;,
+    &quot;nickName&quot;: &quot;magic&quot;,
+    &quot;objectId&quot;: &quot;a415c43787&quot;,
+    &quot;openid&quot;: &quot;oagfv0IsvzjNqtbi8_qnG2d_wXbU&quot;,
+    &quot;sessionToken&quot;: &quot;d39137b0400a31b7801bdaee677e1c19&quot;,
+    &quot;updatedAt&quot;: &quot;2025-04-28 16:26:21&quot;,
+    &quot;userPic&quot;: &quot;https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoA2XiapDhpzKO7CukcCQFAQqymrLUcuGzPRYTql4gCM8B2ljPS15XogDnWlRpyUibY1jVJUQg0ysBA/132&quot;,
+    &quot;username&quot;: &quot;adc9cee116c056bc&quot;
+}
+</code></pre>
+
+<p>openid 在authData 下面</p>
+<h3 id="access_token">获取access_token<a class="headerlink" href="#access_token" title="Permanent link">&para;</a></h3>
+<p><strong>请求描述</strong></p>
+<p>微信access_token，业务场景,当其他平台需要使用你小程序的token，并不想与Bmob的平台冲突，可以通过此API实现</p>
+<p><strong>请求</strong></p>
+<ul>
+<li>
+<p>url ：https://自己备案域名/1/wechatApp/getAccessToken</p>
+</li>
+<li>
+<p>method ：GET</p>
+</li>
+<li>
+<p>header:</p>
+</li>
+</ul>
+<pre><code>X-Bmob-Application-Id: Your Application ID
+X-Bmob-REST-API-Key: Your REST API Key
+</code></pre>
+
+<p><strong>成功时响应</strong></p>
+<ul>
+<li>
+<p>status: 200 OK</p>
+</li>
+<li>
+<p>body:</p>
+</li>
+</ul>
+<pre><code>{&quot;access_token&quot;:&quot;91_0ct6NfzQ2eKaM_3_WhrFVx_mUX_i6ZquZji1kB-VdMQO_zdS1qv45SNkH9jDlLjoyAuIURZUELgq5PteB6IfnnYu_VApZb8C3t2YdTbrvv3_GWdvbh0xgHmLexxxx&quot;}
+</code></pre>
+
+<p><strong>例子</strong></p>
+<p>以下是一个请求样例，</p>
+<pre><code>curl -X GET \
+  -H &quot;X-Bmob-Application-Id: Your Application ID&quot;          \
+  -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
+  https://自己备案域名/1/wechatApp/getAccessToken
+</code></pre>
+
+<p>返回参数如下：</p>
+<pre><code>{&quot;access_token&quot;:&quot;91_0ct6NfzQ2eKaM_3_WhrFVx_mUX_i6ZquZji1kB-VdMQO_zdS1qv45SNkH9jDlLjoyAuIURZUELgq5PteB6IfnnYu_VApZb8C3t2YdTbrvv3_GWdvbh0xgHmLet8HZJxxxx&quot;}
+</code></pre>
+
+<p>openid 在authData 下面</p>
+<h2 id="_79">获取服务器时间<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h2>
 <p><strong>请求描述</strong></p>
 <p>有时，app需要获取服务器的时间，可使用该请求。</p>
 <p><strong>请求</strong></p>
@@ -4425,7 +4551,7 @@ X-Bmob-REST-API-Key: Your REST API Key
 </code></pre>
 
 <p>timestamp为时间戳，datetime为格式化的日期。</p>
-<h2 id="_79">错误码<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h2>
+<h2 id="_80">错误码<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h2>
 <p>参照<a href="../../../other/error_code/#restapi">所有平台错误码列表</a> 中的REST API部分。</p>
                 </div>
             </div>

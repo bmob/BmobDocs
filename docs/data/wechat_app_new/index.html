@@ -2932,19 +2932,45 @@ del.destroy(val).then(res =&gt; {
 <h3 id="_66">小程序加密数据解密<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
 <p>在小程序的开发过程中，获取一些隐私信息，需要解密处理，例如：获取手机号、运动步数、分享转发群Id，获取uuid等，为了大家更方便的拿到这些信息，SDK封装了解密方法。</p>
 <p><strong>请求示例：</strong></p>
-<p>1.获取手机号</p>
+<p>1.获取手机号(2024 年规则，微信需要公司主体才可以获取手机号)</p>
 <pre><code>//wxml
-&lt;button open-type=&quot;getPhoneNumber&quot; bindgetphonenumber=&quot;getPhoneNumber&quot;&gt;获取手机号 &lt;/button&gt;
+&lt;button type=&quot;primary&quot; open-type=&quot;getPhoneNumber&quot; bindgetphonenumber=&quot;getPhoneNumber&quot;&gt;获取手机号码&lt;/button&gt;
 
 //js
- getPhoneNumber: function (res) {
-    wx.Bmob.User.decryption(res).then(res =&gt; {
-      console.log(res)
-  })
-
- // 解密后返回数据格式如下
- // { &quot;phoneNumber&quot;:&quot;137xxxx6579&quot;, &quot;purePhoneNumber&quot;:&quot;137xxxx6579&quot;, &quot;countryCode&quot;:&quot;86&quot;, &quot;watermark&quot;:{ &quot;timestamp&quot;:1516762168, &quot;appid&quot;:&quot;wx094edexxxxx&quot; } }
-  }
+getPhoneNumber: function(e) {
+    if (e.detail.errMsg!== 'getPhoneNumber:ok') {
+        wx.showToast({
+            title: '获取失败',
+            icon: 'none'
+        });
+        return;
+    }
+    if (e.detail.code) {
+        let code = e.detail.code
+        Bmob.getPhoneNumber({
+            code: code
+        }).then(result =&gt; {
+            this.setData({
+                phoneNumber: result.phoneNumber || JSON.stringify(result)
+            });
+            wx.showToast({
+                title: '获取成功',
+                icon: 'success'
+            });
+        }).catch(err =&gt; {
+            wx.showToast({
+                title: '获取失败',
+                icon: 'none'
+            });
+        });
+    } else {
+        wx.showToast({
+            title: '获取失败',
+            icon: 'none'
+        });
+    }
+}
+   //返回格式{&quot;countryCode&quot;:&quot;86&quot;,&quot;phoneNumber&quot;:&quot;13711166579&quot;,&quot;purePhoneNumber&quot;:&quot;13711166579&quot;,&quot;watermark&quot;:{&quot;appid&quot;:&quot;wx094ede192e7exxx&quot;,&quot;timestamp&quot;:1745828607}}
 </code></pre>
 
 <p>2.获取分享群ID</p>
