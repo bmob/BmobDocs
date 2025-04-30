@@ -189,6 +189,9 @@ ChatAi.onClose((c) => {
 
 ## 源码下载
 
-[AI快速入门源码下载](https://github.com/bmob/Bmob-H5-AI)
+H5 源码 [AI快速入门源码下载](https://github.com/bmob/Bmob-H5-AI)
+小程序源码  [AI 小程序快速入门源码下载] (https://github.com:bmob/wechatapp-demo)
 
-案例演示地址：https://mapbridge.bmobapp.com
+AI 小程序页面预览
+
+![wechat_ai](image/wechat_ai.png)
