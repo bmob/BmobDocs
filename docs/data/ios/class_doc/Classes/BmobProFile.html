@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BmobProFile Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BmobSDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">bmob</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/cacheFizesSize">+ cacheFizesSize</option>
+		
+		<option value="//api/name/cleanCache">+ cleanCache</option>
+		
+		<option value="//api/name/deleteFileWithFileName:callBack:">+ deleteFileWithFileName:callBack:</option>
+		
+		<option value="//api/name/downloadFileWithFilename:block:progress:">+ downloadFileWithFilename:block:progress:</option>
+		
+		<option value="//api/name/getFileAcessUrlWithFileName:callBack:">+ getFileAcessUrlWithFileName:callBack:</option>
+		
+		<option value="//api/name/localThumbnailImageWithFilepath:mode:width:height:resultBlock:">+ localThumbnailImageWithFilepath:mode:width:height:resultBlock:</option>
+		
+		<option value="//api/name/localThumbnailImageWithFilepath:ruleID:resultBlock:">+ localThumbnailImageWithFilepath:ruleID:resultBlock:</option>
+		
+		<option value="//api/name/signUrlWithFilename:url:validTime:accessKey:secretKey:">+ signUrlWithFilename:url:validTime:accessKey:secretKey:</option>
+		
+		<option value="//api/name/thumbnailImageWithFilename:ruleID:resultBlock:">+ thumbnailImageWithFilename:ruleID:resultBlock:</option>
+		
+		<option value="//api/name/uploadFileWithFilename:fileData:block:progress:">+ uploadFileWithFilename:fileData:block:progress:</option>
+		
+		<option value="//api/name/uploadFileWithPath:block:progress:">+ uploadFileWithPath:block:progress:</option>
+		
+		<option value="//api/name/uploadFilesWithDatas:resultBlock:progress:">+ uploadFilesWithDatas:resultBlock:progress:</option>
+		
+		<option value="//api/name/uploadFilesWithPaths:resultBlock:progress:">+ uploadFilesWithPaths:resultBlock:progress:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BmobProFile Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>BmobProFile.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>提供文件相关功能接口</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/downloadFileWithFilename:block:progress:" title="downloadFileWithFilename:block:progress:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadFileWithFilename:block:progress:">+&nbsp;downloadFileWithFilename:block:progress:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>下载文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)downloadFileWithFilename:(NSString *)<em>filename</em> block:(BmobFileDownloadResultBlock)<em>block</em> progress:(BmobProgressBlock)<em>progressBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>filename</code></th>
+						<td><p>文件名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>下载的结果</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>progressBlock</code></th>
+						<td><p>下载的进度</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cacheFizesSize" title="cacheFizesSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cacheFizesSize">+&nbsp;cacheFizesSize</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>存放下载文件的图片的文件夹的大小</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (long long)cacheFizesSize</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>文件夹的大小</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cleanCache" title="cleanCache"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cleanCache">+&nbsp;cleanCache</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>清除下载的图片跟缩略图图片</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)cleanCache</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/thumbnailImageWithFilename:ruleID:resultBlock:" title="thumbnailImageWithFilename:ruleID:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/thumbnailImageWithFilename:ruleID:resultBlock:">+&nbsp;thumbnailImageWithFilename:ruleID:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>缩略图处理</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)thumbnailImageWithFilename:(NSString *)<em>filename</em> ruleID:(NSUInteger)<em>ruleID</em> resultBlock:(BmobFileResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>filename</code></th>
+						<td><p>图片的文件名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>ruleID</code></th>
+						<td><p>规格ID</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>处理的结果信息，包括是否成功，错误信息，文件名，文件的url地址</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/localThumbnailImageWithFilepath:ruleID:resultBlock:" title="localThumbnailImageWithFilepath:ruleID:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/localThumbnailImageWithFilepath:ruleID:resultBlock:">+&nbsp;localThumbnailImageWithFilepath:ruleID:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>本地缩略图处理</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)localThumbnailImageWithFilepath:(NSString *)<em>filepath</em> ruleID:(NSUInteger)<em>ruleID</em> resultBlock:(BmobLocalImageResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>filepath</code></th>
+						<td><p>图片的路径</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>ruleID</code></th>
+						<td><p>规格ID</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>处理的结果信息，包括是否成功，错误信息，文件的地址</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/localThumbnailImageWithFilepath:mode:width:height:resultBlock:" title="localThumbnailImageWithFilepath:mode:width:height:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/localThumbnailImageWithFilepath:mode:width:height:resultBlock:">+&nbsp;localThumbnailImageWithFilepath:mode:width:height:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>本地缩略图处理</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)localThumbnailImageWithFilepath:(NSString *)<em>filepath</em> mode:(ThumbnailImageScaleMode)<em>m</em> width:(CGFloat)<em>w</em> height:(CGFloat)<em>h</em> resultBlock:(BmobLocalImageResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>filepath</code></th>
+						<td><p>图片的路径</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>m</code></th>
+						<td><p>图片处理的模式</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>w</code></th>
+						<td><p>宽度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>h</code></th>
+						<td><p>高度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>处理的结果信息，包括是否成功，错误信息，文件的地址</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signUrlWithFilename:url:validTime:accessKey:secretKey:" title="signUrlWithFilename:url:validTime:accessKey:secretKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signUrlWithFilename:url:validTime:accessKey:secretKey:">+&nbsp;signUrlWithFilename:url:validTime:accessKey:secretKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>开启安全验证后的url签名</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSString *)signUrlWithFilename:(NSString *)<em>filename</em> url:(NSString *)<em>urlString</em> validTime:(int)<em>validTime</em> accessKey:(NSString *)<em>a</em> secretKey:(NSString *)<em>s</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>filename</code></th>
+						<td><p>文件名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>urlString</code></th>
+						<td><p>文件的url地址</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>validTime</code></th>
+						<td><p>有效时间 单位：秒</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>a</code></th>
+						<td><p>accessKey</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>s</code></th>
+						<td><p>secretKey</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>签名后的url地址</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getFileAcessUrlWithFileName:callBack:" title="getFileAcessUrlWithFileName:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getFileAcessUrlWithFileName:callBack:">+&nbsp;getFileAcessUrlWithFileName:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>得到直接访问文件的url</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)getFileAcessUrlWithFileName:(NSString *)<em>fileName</em> callBack:(BmobGetAccessUrlBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>返回的回调</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uuid</code></th>
+						<td><p>上传文件时得到的uuid</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteFileWithFileName:callBack:" title="deleteFileWithFileName:callBack:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteFileWithFileName:callBack:">+&nbsp;deleteFileWithFileName:callBack:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>删除已上传文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)deleteFileWithFileName:(NSString *)<em>fileName</em> callBack:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>返回的回调</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uuid</code></th>
+						<td><p>上传文件时得到的uuid</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFileWithPath:block:progress:" title="uploadFileWithPath:block:progress:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFileWithPath:block:progress:">+&nbsp;uploadFileWithPath:block:progress:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>上传文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)uploadFileWithPath:(NSString *)<em>path</em> block:(BmobFileResultBlock)<em>block</em> progress:(BmobProgressBlock)<em>progressBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>path</code></th>
+						<td><p>路径</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>上传的结果</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>progressBlock</code></th>
+						<td><p>上传的进度</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFileWithFilename:fileData:block:progress:" title="uploadFileWithFilename:fileData:block:progress:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFileWithFilename:fileData:block:progress:">+&nbsp;uploadFileWithFilename:fileData:block:progress:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>上传文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)uploadFileWithFilename:(NSString *)<em>filename</em> fileData:(NSData *)<em>data</em> block:(BmobFileResultBlock)<em>block</em> progress:(BmobProgressBlock)<em>progressBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>filename</code></th>
+						<td><p>文件名(带后缀)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>文件的数据</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>上传的结果</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>progressBlock</code></th>
+						<td><p>上传的进度</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFilesWithPaths:resultBlock:progress:" title="uploadFilesWithPaths:resultBlock:progress:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFilesWithPaths:resultBlock:progress:">+&nbsp;uploadFilesWithPaths:resultBlock:progress:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量上传文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)uploadFilesWithPaths:(NSArray *)<em>array</em> resultBlock:(BmobBatchFileUploadResultBlock)<em>block</em> progress:(BmobIndexAndProgressBlock)<em>progress</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>array</code></th>
+						<td><p>文件的路径</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFilesWithDatas:resultBlock:progress:" title="uploadFilesWithDatas:resultBlock:progress:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFilesWithDatas:resultBlock:progress:">+&nbsp;uploadFilesWithDatas:resultBlock:progress:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量上传文件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)uploadFilesWithDatas:(NSArray *)<em>dataArray</em> resultBlock:(BmobBatchFileUploadResultBlock)<em>block</em> progress:(BmobIndexAndProgressBlock)<em>progress</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dataArray</code></th>
+						<td><p>数组中存放的NSDictionary，NSDictionary里面的格式为@{@&ldquo;filename&rdquo;:@&ldquo;你的文件名&rdquo;,@&ldquo;data&rdquo;:文件的data}
+文件名需要带后缀</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>上传文件的结果回调</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>progress</code></th>
+						<td><p>上传文件的进度回调，表示当前是第几个，进度多少</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobProFile.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 bmob. All rights reserved. Updated: 2015-10-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
