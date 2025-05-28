@@ -1,20 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for nav_item in nav %}
-    {% if nav_item.children %}
-        {% for nav_item in nav_item.children %}
+
+    
     <url>
-     <loc>{{ config.site_url }}{{ nav_item.abs_url }}</loc>
-     <lastmod>{{nav_item.update_date}}</lastmod>
+     <loc>/</loc>
+     <lastmod>2025-05-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        {% endfor %}
-    {% else %}
+    
+
+    
+        
     <url>
-     <loc>{{ config.site_url }}{{ nav_item.abs_url }}</loc>
-     <lastmod>{{nav_item.update_date}}</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
-    {% endif %}
-{% endfor %}
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/harmony/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/cocos2d_x/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/wechat_app_new/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/wechat_app_new/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/wechat_app_new/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/kotlin/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/python/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/data/flutter/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/android/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/ios/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/java/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/python/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/csharp/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/php/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/javascript/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/cloud_function/restful/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/sms/android/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sms/ios/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sms/php/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sms/javascript/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sms/restful/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sms/python/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/ai/android/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/ios/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/html5/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/html5/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/api/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/ai/python/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/other/domain/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/common_problem/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/error_code/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/data_safety/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/bql/</loc>
+     <lastmod>2025-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
 </urlset>
