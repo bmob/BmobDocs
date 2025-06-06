@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BmobUser Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BmobSDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">bmob</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/email">email</option>
+		
+		<option value="//api/name/mobilePhoneNumber">mobilePhoneNumber</option>
+		
+		<option value="//api/name/password">password</option>
+		
+		<option value="//api/name/username">username</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/getCurrentObject">+ getCurrentObject</option>
+		
+		<option value="//api/name/getCurrentUser">+ getCurrentUser</option>
+		
+		<option value="//api/name/loginInBackgroundWithAuthorDictionary:platform:block:">+ loginInBackgroundWithAuthorDictionary:platform:block:</option>
+		
+		<option value="//api/name/loginInbackgroundWithAccount:andPassword:block:">+ loginInbackgroundWithAccount:andPassword:block:</option>
+		
+		<option value="//api/name/loginInbackgroundWithMobilePhoneNumber:andSMSCode:block:">+ loginInbackgroundWithMobilePhoneNumber:andSMSCode:block:</option>
+		
+		<option value="//api/name/loginWithUsernameInBackground:password:">+ loginWithUsernameInBackground:password:</option>
+		
+		<option value="//api/name/loginWithUsernameInBackground:password:block:">+ loginWithUsernameInBackground:password:block:</option>
+		
+		<option value="//api/name/logout">+ logout</option>
+		
+		<option value="//api/name/query">+ query</option>
+		
+		<option value="//api/name/requestPasswordResetInBackgroundWithEmail:">+ requestPasswordResetInBackgroundWithEmail:</option>
+		
+		<option value="//api/name/resetPasswordInbackgroundWithSMSCode:andNewPassword:block:">+ resetPasswordInbackgroundWithSMSCode:andNewPassword:block:</option>
+		
+		<option value="//api/name/signOrLoginInbackgroundWithMobilePhoneNumber:SMSCode:andPassword:block:">+ signOrLoginInbackgroundWithMobilePhoneNumber:SMSCode:andPassword:block:</option>
+		
+		<option value="//api/name/signOrLoginInbackgroundWithMobilePhoneNumber:andSMSCode:block:">+ signOrLoginInbackgroundWithMobilePhoneNumber:andSMSCode:block:</option>
+		
+		<option value="//api/name/signUpInBackgroundWithAuthorDictionary:platform:block:">+ signUpInBackgroundWithAuthorDictionary:platform:block:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/cancelLinkedInBackgroundWithPlatform:block:">- cancelLinkedInBackgroundWithPlatform:block:</option>
+		
+		<option value="//api/name/linkedInBackgroundWithAuthorDictionary:platform:block:">- linkedInBackgroundWithAuthorDictionary:platform:block:</option>
+		
+		<option value="//api/name/setUserName:">- setUserName:</option>
+		
+		<option value="//api/name/signUpInBackground">- signUpInBackground</option>
+		
+		<option value="//api/name/signUpInBackgroundWithBlock:">- signUpInBackgroundWithBlock:</option>
+		
+		<option value="//api/name/signUpOrLoginInbackgroundWithSMSCode:block:">- signUpOrLoginInbackgroundWithSMSCode:block:</option>
+		
+		<option value="//api/name/updateCurrentUserPasswordWithOldPassword:newPassword:block:">- updateCurrentUserPasswordWithOldPassword:newPassword:block:</option>
+		
+		<option value="//api/name/userEmailVerified:">- userEmailVerified:</option>
+		
+		<option value="//api/name/verifyEmailInBackgroundWithEmailAddress:">- verifyEmailInBackgroundWithEmailAddress:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BmobUser Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/BmobObject.html">BmobObject</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>BmobUser.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/username" title="username"></a>
+	<h3 class="method-title"><code><a href="#//api/name/username">&nbsp;&nbsp;username</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>用户名</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (copy, nonatomic) NSString *username</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/password" title="password"></a>
+	<h3 class="method-title"><code><a href="#//api/name/password">&nbsp;&nbsp;password</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>密码</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (copy, nonatomic) NSString *password</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/email" title="email"></a>
+	<h3 class="method-title"><code><a href="#//api/name/email">&nbsp;&nbsp;email</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>邮箱</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (copy, nonatomic) NSString *email</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobilePhoneNumber" title="mobilePhoneNumber"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobilePhoneNumber">&nbsp;&nbsp;mobilePhoneNumber</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>手机号码</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (copy, nonatomic) NSString *mobilePhoneNumber</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/query" title="query"></a>
+	<h3 class="method-title"><code><a href="#//api/name/query">+&nbsp;query</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询用户表</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BmobQuery *)query</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>创建用户表的查询</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserName:" title="setUserName:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserName:">&ndash;&nbsp;setUserName:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>设置用户名
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setUserName:(NSString *)<em>username</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>username</code></th>
+						<td><p>提供的用户名</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loginWithUsernameInBackground:password:" title="loginWithUsernameInBackground:password:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginWithUsernameInBackground:password:">+&nbsp;loginWithUsernameInBackground:password:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>用户登陆</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)loginWithUsernameInBackground:(NSString *)<em>username</em> password:(NSString *)<em>password</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>username</code></th>
+						<td><p>用户名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>password</code></th>
+						<td><p>密码</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loginWithUsernameInBackground:password:block:" title="loginWithUsernameInBackground:password:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginWithUsernameInBackground:password:block:">+&nbsp;loginWithUsernameInBackground:password:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>登陆后返回用户信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)loginWithUsernameInBackground:(NSString *)<em>username</em> password:(NSString *)<em>password</em> block:(BmobUserResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>username</code></th>
+						<td><p>用户名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>password</code></th>
+						<td><p>密码</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>是否成功登陆，若成功登陆返回用户信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/logout" title="logout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/logout">+&nbsp;logout</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>注销登陆账号,删除本地账号
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)logout</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signUpInBackground" title="signUpInBackground"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signUpInBackground">&ndash;&nbsp;signUpInBackground</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>后台注册
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signUpInBackground</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signUpInBackgroundWithBlock:" title="signUpInBackgroundWithBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signUpInBackgroundWithBlock:">&ndash;&nbsp;signUpInBackgroundWithBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>后台注册,返回注册结果
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signUpInBackgroundWithBlock:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>返回成功还是失败</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/verifyEmailInBackgroundWithEmailAddress:" title="verifyEmailInBackgroundWithEmailAddress:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/verifyEmailInBackgroundWithEmailAddress:">&ndash;&nbsp;verifyEmailInBackgroundWithEmailAddress:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>邮件认证，在web端应用设置中又开启邮箱验证</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)verifyEmailInBackgroundWithEmailAddress:(NSString *)<em>email</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>email</code></th>
+						<td><p>邮箱地址</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestPasswordResetInBackgroundWithEmail:" title="requestPasswordResetInBackgroundWithEmail:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestPasswordResetInBackgroundWithEmail:">+&nbsp;requestPasswordResetInBackgroundWithEmail:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>通过邮件设置密码
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)requestPasswordResetInBackgroundWithEmail:(NSString *)<em>email</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>email</code></th>
+						<td><p>提供的邮件地址</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/userEmailVerified:" title="userEmailVerified:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/userEmailVerified:">&ndash;&nbsp;userEmailVerified:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>得到邮箱验证的结果</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)userEmailVerified:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>邮箱验证的结果及其信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCurrentObject" title="getCurrentObject"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCurrentObject">+&nbsp;getCurrentObject</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>得到当前BmobUser
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BmobUser *)getCurrentObject</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>返回BmobUser对象</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCurrentUser" title="getCurrentUser"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCurrentUser">+&nbsp;getCurrentUser</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>得到当前BmobUser
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BmobUser *)getCurrentUser</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>返回BmobUser对象</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateCurrentUserPasswordWithOldPassword:newPassword:block:" title="updateCurrentUserPasswordWithOldPassword:newPassword:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateCurrentUserPasswordWithOldPassword:newPassword:block:">&ndash;&nbsp;updateCurrentUserPasswordWithOldPassword:newPassword:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>利用旧密码重置新密码</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateCurrentUserPasswordWithOldPassword:(NSString *)<em>oldPassword</em> newPassword:(NSString *)<em>newPassword</em> block:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>oldPassword</code></th>
+						<td><p>旧密码</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newPassword</code></th>
+						<td><p>新密码</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signUpInBackgroundWithAuthorDictionary:platform:block:" title="signUpInBackgroundWithAuthorDictionary:platform:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signUpInBackgroundWithAuthorDictionary:platform:block:">+&nbsp;signUpInBackgroundWithAuthorDictionary:platform:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>第三方授权登录后，在Bmob生成一个bmob用户</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)signUpInBackgroundWithAuthorDictionary:(NSDictionary *)<em>infoDictionary</em> platform:(BmobSNSPlatform)<em>platform</em> block:(BmobUserResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>infoDictionary</code></th>
+						<td><p>授权信息，格式为@{@&ldquo;access_token&rdquo;:@&ldquo;获取的token&rdquo;,@&ldquo;uid&rdquo;:@&ldquo;授权后获取的id&rdquo;,@&ldquo;expirationDate&rdquo;:@&ldquo;获取的过期时间（NSDate）&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>platform</code></th>
+						<td><p>新浪微博，或者腾讯qq</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成新的用户，跟结果信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loginInBackgroundWithAuthorDictionary:platform:block:" title="loginInBackgroundWithAuthorDictionary:platform:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginInBackgroundWithAuthorDictionary:platform:block:">+&nbsp;loginInBackgroundWithAuthorDictionary:platform:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>第三方授权登录后，在Bmob生成一个bmob用户</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)loginInBackgroundWithAuthorDictionary:(NSDictionary *)<em>infoDictionary</em> platform:(BmobSNSPlatform)<em>platform</em> block:(BmobUserResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>infoDictionary</code></th>
+						<td><p>授权信息，格式为@{@&ldquo;access_token&rdquo;:@&ldquo;获取的token&rdquo;,@&ldquo;uid&rdquo;:@&ldquo;授权后获取的id&rdquo;,@&ldquo;expirationDate&rdquo;:@&ldquo;获取的过期时间（NSDate）&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>platform</code></th>
+						<td><p>新浪微博，或者腾讯qq</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成新的用户，跟结果信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/linkedInBackgroundWithAuthorDictionary:platform:block:" title="linkedInBackgroundWithAuthorDictionary:platform:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/linkedInBackgroundWithAuthorDictionary:platform:block:">&ndash;&nbsp;linkedInBackgroundWithAuthorDictionary:platform:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>登录用户关联第三方账号</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)linkedInBackgroundWithAuthorDictionary:(NSDictionary *)<em>infoDictionary</em> platform:(BmobSNSPlatform)<em>platform</em> block:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>infoDictionary</code></th>
+						<td><p>授权信息，格式为@{@&ldquo;access_token&rdquo;:@&ldquo;获取的token&rdquo;,@&ldquo;uid&rdquo;:@&ldquo;授权后获取的id&rdquo;,@&ldquo;expirationDate&rdquo;:@&ldquo;获取的过期时间（NSDate）&rdquo;}</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>platform</code></th>
+						<td><p>新浪微博，或者腾讯qq</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>关联结果跟信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cancelLinkedInBackgroundWithPlatform:block:" title="cancelLinkedInBackgroundWithPlatform:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cancelLinkedInBackgroundWithPlatform:block:">&ndash;&nbsp;cancelLinkedInBackgroundWithPlatform:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>登录用户取消关联第三方账号</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)cancelLinkedInBackgroundWithPlatform:(BmobSNSPlatform)<em>platform</em> block:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>platform</code></th>
+						<td><p>新浪微博，或者腾讯qq</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>取消关联结果跟信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOrLoginInbackgroundWithMobilePhoneNumber:andSMSCode:block:" title="signOrLoginInbackgroundWithMobilePhoneNumber:andSMSCode:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOrLoginInbackgroundWithMobilePhoneNumber:andSMSCode:block:">+&nbsp;signOrLoginInbackgroundWithMobilePhoneNumber:andSMSCode:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>手机号码加验证码一键注册登录</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)signOrLoginInbackgroundWithMobilePhoneNumber:(NSString *)<em>phoneNumber</em> andSMSCode:(NSString *)<em>smsCode</em> block:(BmobUserResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>phoneNumber</code></th>
+						<td><p>&lt;#phoneNumber description#></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>smsCode</code></th>
+						<td><p>&lt;#smsCode description#></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOrLoginInbackgroundWithMobilePhoneNumber:SMSCode:andPassword:block:" title="signOrLoginInbackgroundWithMobilePhoneNumber:SMSCode:andPassword:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOrLoginInbackgroundWithMobilePhoneNumber:SMSCode:andPassword:block:">+&nbsp;signOrLoginInbackgroundWithMobilePhoneNumber:SMSCode:andPassword:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>手机号码加验证码一键注册登录并且设置用户密码</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)signOrLoginInbackgroundWithMobilePhoneNumber:(NSString *)<em>phoneNumber</em> SMSCode:(NSString *)<em>smsCode</em> andPassword:(NSString *)<em>password</em> block:(BmobUserResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>phoneNumber</code></th>
+						<td><p>手机号</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>smsCode</code></th>
+						<td><p>验证码</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>password</code></th>
+						<td><p>用户密码</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signUpOrLoginInbackgroundWithSMSCode:block:" title="signUpOrLoginInbackgroundWithSMSCode:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signUpOrLoginInbackgroundWithSMSCode:block:">&ndash;&nbsp;signUpOrLoginInbackgroundWithSMSCode:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>手机号码加验证码一键注册登录，并且可设置用户表的其它信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signUpOrLoginInbackgroundWithSMSCode:(NSString *)<em>smsCode</em> block:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>smsCode</code></th>
+						<td><p>验证码</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loginInbackgroundWithAccount:andPassword:block:" title="loginInbackgroundWithAccount:andPassword:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginInbackgroundWithAccount:andPassword:block:">+&nbsp;loginInbackgroundWithAccount:andPassword:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>账号密码登录，账号可以为用户名、手机号或者邮箱</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)loginInbackgroundWithAccount:(NSString *)<em>account</em> andPassword:(NSString *)<em>password</em> block:(BmobUserResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>account</code></th>
+						<td><p>&lt;#account description#></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>password</code></th>
+						<td><p>&lt;#<a href="#//api/name/password">password</a> description#></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>&lt;#block description#></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loginInbackgroundWithMobilePhoneNumber:andSMSCode:block:" title="loginInbackgroundWithMobilePhoneNumber:andSMSCode:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginInbackgroundWithMobilePhoneNumber:andSMSCode:block:">+&nbsp;loginInbackgroundWithMobilePhoneNumber:andSMSCode:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>手机号码加验证码登录</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)loginInbackgroundWithMobilePhoneNumber:(NSString *)<em>phoneNumber</em> andSMSCode:(NSString *)<em>smsCode</em> block:(BmobUserResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>phoneNumber</code></th>
+						<td><p>&lt;#phoneNumber description#></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>smsCode</code></th>
+						<td><p>&lt;#smsCode description#></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resetPasswordInbackgroundWithSMSCode:andNewPassword:block:" title="resetPasswordInbackgroundWithSMSCode:andNewPassword:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resetPasswordInbackgroundWithSMSCode:andNewPassword:block:">+&nbsp;resetPasswordInbackgroundWithSMSCode:andNewPassword:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>利用短信验证码重置帐号密码，只有填写手机号码的用户可用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)resetPasswordInbackgroundWithSMSCode:(NSString *)<em>SMSCode</em> andNewPassword:(NSString *)<em>newPassword</em> block:(BmobBooleanResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>&lt;#block description#></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>smscode</code></th>
+						<td><p>&lt;#smscode description#></p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>phoneNumber</code></th>
+						<td><p>&lt;#phoneNumber description#></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 bmob. All rights reserved. Updated: 2015-10-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

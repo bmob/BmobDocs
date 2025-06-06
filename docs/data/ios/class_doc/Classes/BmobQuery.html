@@ -1,0 +1,3579 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BmobQuery Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BmobSDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">bmob</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/cachePolicy">cachePolicy</option>
+		
+		<option value="//api/name/isGroupcount">isGroupcount</option>
+		
+		<option value="//api/name/limit">limit</option>
+		
+		<option value="//api/name/maxCacheAge">maxCacheAge</option>
+		
+		<option value="//api/name/skip">skip</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/clearAllCachedResults">+ clearAllCachedResults</option>
+		
+		<option value="//api/name/queryForUser">+ queryForUser</option>
+		
+		<option value="//api/name/queryWithClassName:">+ queryWithClassName:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addTheConstraintByAndOperationWithArray:">- addTheConstraintByAndOperationWithArray:</option>
+		
+		<option value="//api/name/addTheConstraintByOrOperationWithArray:">- addTheConstraintByOrOperationWithArray:</option>
+		
+		<option value="//api/name/averageKeys:">- averageKeys:</option>
+		
+		<option value="//api/name/calcInBackgroundWithBlock:">- calcInBackgroundWithBlock:</option>
+		
+		<option value="//api/name/cancle">- cancle</option>
+		
+		<option value="//api/name/clearCachedResult">- clearCachedResult</option>
+		
+		<option value="//api/name/constructHavingDic:">- constructHavingDic:</option>
+		
+		<option value="//api/name/countObjectsInBackgroundWithBlock:">- countObjectsInBackgroundWithBlock:</option>
+		
+		<option value="//api/name/findObjectsInBackgroundWithBlock:">- findObjectsInBackgroundWithBlock:</option>
+		
+		<option value="//api/name/getObjectInBackgroundWithId:block:">- getObjectInBackgroundWithId:block:</option>
+		
+		<option value="//api/name/groupbyKeys:">- groupbyKeys:</option>
+		
+		<option value="//api/name/hasCachedResult">- hasCachedResult</option>
+		
+		<option value="//api/name/includeKey:">- includeKey:</option>
+		
+		<option value="//api/name/initWithClassName:">- initWithClassName:</option>
+		
+		<option value="//api/name/maxKeys:">- maxKeys:</option>
+		
+		<option value="//api/name/minKeys:">- minKeys:</option>
+		
+		<option value="//api/name/orderByAscending:">- orderByAscending:</option>
+		
+		<option value="//api/name/orderByDescending:">- orderByDescending:</option>
+		
+		<option value="//api/name/queryBQLCanCacheInBackgroundWithblock:">- queryBQLCanCacheInBackgroundWithblock:</option>
+		
+		<option value="//api/name/queryInBackgroundWithBQL:block:">- queryInBackgroundWithBQL:block:</option>
+		
+		<option value="//api/name/queryInBackgroundWithBQL:pvalues:block:">- queryInBackgroundWithBQL:pvalues:block:</option>
+		
+		<option value="//api/name/queryWithAllConstraint:">- queryWithAllConstraint:</option>
+		
+		<option value="//api/name/queryWithConstraint:">- queryWithConstraint:</option>
+		
+		<option value="//api/name/selectKeys:">- selectKeys:</option>
+		
+		<option value="//api/name/setBQL:">- setBQL:</option>
+		
+		<option value="//api/name/setPlaceholder:">- setPlaceholder:</option>
+		
+		<option value="//api/name/statisticsInBackgroundWithBQL:block:">- statisticsInBackgroundWithBQL:block:</option>
+		
+		<option value="//api/name/statisticsInBackgroundWithBQL:pvalues:block:">- statisticsInBackgroundWithBQL:pvalues:block:</option>
+		
+		<option value="//api/name/sumKeys:">- sumKeys:</option>
+		
+		<option value="//api/name/whereKey:containedIn:">- whereKey:containedIn:</option>
+		
+		<option value="//api/name/whereKey:containsAll:">- whereKey:containsAll:</option>
+		
+		<option value="//api/name/whereKey:doesNotMatchQuery:">- whereKey:doesNotMatchQuery:</option>
+		
+		<option value="//api/name/whereKey:endWithString:">- whereKey:endWithString:</option>
+		
+		<option value="//api/name/whereKey:equalTo:">- whereKey:equalTo:</option>
+		
+		<option value="//api/name/whereKey:greaterThan:">- whereKey:greaterThan:</option>
+		
+		<option value="//api/name/whereKey:greaterThanOrEqualTo:">- whereKey:greaterThanOrEqualTo:</option>
+		
+		<option value="//api/name/whereKey:lessThan:">- whereKey:lessThan:</option>
+		
+		<option value="//api/name/whereKey:lessThanOrEqualTo:">- whereKey:lessThanOrEqualTo:</option>
+		
+		<option value="//api/name/whereKey:matchesQuery:">- whereKey:matchesQuery:</option>
+		
+		<option value="//api/name/whereKey:matchesWithRegex:">- whereKey:matchesWithRegex:</option>
+		
+		<option value="//api/name/whereKey:nearGeoPoint:">- whereKey:nearGeoPoint:</option>
+		
+		<option value="//api/name/whereKey:nearGeoPoint:withinKilometers:">- whereKey:nearGeoPoint:withinKilometers:</option>
+		
+		<option value="//api/name/whereKey:nearGeoPoint:withinMiles:">- whereKey:nearGeoPoint:withinMiles:</option>
+		
+		<option value="//api/name/whereKey:nearGeoPoint:withinRadians:">- whereKey:nearGeoPoint:withinRadians:</option>
+		
+		<option value="//api/name/whereKey:notContainedIn:">- whereKey:notContainedIn:</option>
+		
+		<option value="//api/name/whereKey:notEqualTo:">- whereKey:notEqualTo:</option>
+		
+		<option value="//api/name/whereKey:startWithString:">- whereKey:startWithString:</option>
+		
+		<option value="//api/name/whereKey:withinGeoBoxFromSouthwest:toNortheast:">- whereKey:withinGeoBoxFromSouthwest:toNortheast:</option>
+		
+		<option value="//api/name/whereKeyDoesNotExist:">- whereKeyDoesNotExist:</option>
+		
+		<option value="//api/name/whereKeyExists:">- whereKeyExists:</option>
+		
+		<option value="//api/name/whereKeySExists:">- whereKeySExists:</option>
+		
+		<option value="//api/name/whereKeysDoesNotExist:">- whereKeysDoesNotExist:</option>
+		
+		<option value="//api/name/whereObjectKey:relatedTo:">- whereObjectKey:relatedTo:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BmobQuery Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>BmobQuery.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Bmob后台查询类</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/limit" title="limit"></a>
+	<h3 class="method-title"><code><a href="#//api/name/limit">&nbsp;&nbsp;limit</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>限制得到多少个结果
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger limit</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/skip" title="skip"></a>
+	<h3 class="method-title"><code><a href="#//api/name/skip">&nbsp;&nbsp;skip</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>查询结果跳到第几个
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSInteger skip</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cachePolicy" title="cachePolicy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cachePolicy">&nbsp;&nbsp;cachePolicy</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>缓存策略
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (assign) BmobCachePolicy cachePolicy</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/maxCacheAge" title="maxCacheAge"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maxCacheAge">&nbsp;&nbsp;maxCacheAge</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>缓存有效时间
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readwrite, assign) NSTimeInterval maxCacheAge</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isGroupcount" title="isGroupcount"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isGroupcount">&nbsp;&nbsp;isGroupcount</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>统计时是否返回记录数</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property BOOL isGroupcount</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/queryWithClassName:" title="queryWithClassName:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/queryWithClassName:">+&nbsp;queryWithClassName:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>查询对象
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BmobQuery *)queryWithClassName:(NSString *)<em>className</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>className</code></th>
+						<td><p>对象名称（数据库表名）</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>BmobQuery查询对象</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/queryForUser" title="queryForUser"></a>
+	<h3 class="method-title"><code><a href="#//api/name/queryForUser">+&nbsp;queryForUser</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询用户表</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BmobQuery *)queryForUser</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>BmobQuery查询对象</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithClassName:" title="initWithClassName:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithClassName:">&ndash;&nbsp;initWithClassName:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>通过className初始化BmobQuery对象
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id)initWithClassName:(NSString *)<em>className</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>className</code></th>
+						<td><p>对象名称（数据库表名）</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>BmobQuery查询对象</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/orderByAscending:" title="orderByAscending:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/orderByAscending:">&ndash;&nbsp;orderByAscending:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>按key进行升序排序
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)orderByAscending:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>列名</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/orderByDescending:" title="orderByDescending:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/orderByDescending:">&ndash;&nbsp;orderByDescending:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>按key进行降序排序
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)orderByDescending:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>列名</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/includeKey:" title="includeKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/includeKey:">&ndash;&nbsp;includeKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>添加需要返回类型的列名</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)includeKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>列名</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/selectKeys:" title="selectKeys:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/selectKeys:">&ndash;&nbsp;selectKeys:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置查询后要返回的key</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)selectKeys:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keys</code></th>
+						<td><p>key数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:equalTo:" title="whereKey:equalTo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:equalTo:">&ndash;&nbsp;whereKey:equalTo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值等于object的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> equalTo:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>提供的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:containsAll:" title="whereKey:containsAll:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:containsAll:">&ndash;&nbsp;whereKey:containsAll:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>添加查询列类型为数组的约束条件，只有数组当中包含array的所有元素才匹配</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> containsAll:(NSArray *)<em>array</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>类型为数组的列名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>array</code></th>
+						<td><p>需要匹配的元素数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:notEqualTo:" title="whereKey:notEqualTo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:notEqualTo:">&ndash;&nbsp;whereKey:notEqualTo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值不为object的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> notEqualTo:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>提供的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:greaterThan:" title="whereKey:greaterThan:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:greaterThan:">&ndash;&nbsp;whereKey:greaterThan:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值大于object的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> greaterThan:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>提供的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:greaterThanOrEqualTo:" title="whereKey:greaterThanOrEqualTo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:greaterThanOrEqualTo:">&ndash;&nbsp;whereKey:greaterThanOrEqualTo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值大于或等于提供的object的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> greaterThanOrEqualTo:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>提供的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:lessThan:" title="whereKey:lessThan:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:lessThan:">&ndash;&nbsp;whereKey:lessThan:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值小于提供的object的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> lessThan:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>提供的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:lessThanOrEqualTo:" title="whereKey:lessThanOrEqualTo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:lessThanOrEqualTo:">&ndash;&nbsp;whereKey:lessThanOrEqualTo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值小于或等于提供的object的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> lessThanOrEqualTo:(id)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>提供的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:containedIn:" title="whereKey:containedIn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:containedIn:">&ndash;&nbsp;whereKey:containedIn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值包含array的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> containedIn:(NSArray *)<em>array</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>array</code></th>
+						<td><p>提供的数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:notContainedIn:" title="whereKey:notContainedIn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:notContainedIn:">&ndash;&nbsp;whereKey:notContainedIn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>添加key的值不包含array的约束条件
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> notContainedIn:(NSArray *)<em>array</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>array</code></th>
+						<td><p>提供的数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKeyExists:" title="whereKeyExists:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKeyExists:">&ndash;&nbsp;whereKeyExists:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>指定的key是存在的</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKeyExists:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKeySExists:" title="whereKeySExists:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKeySExists:">&ndash;&nbsp;whereKeySExists:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>keys数组内的各列的值是存在的</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKeySExists:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keys</code></th>
+						<td><p>多个列组成的数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKeyDoesNotExist:" title="whereKeyDoesNotExist:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKeyDoesNotExist:">&ndash;&nbsp;whereKeyDoesNotExist:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>指定的key是不存在的</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKeyDoesNotExist:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKeysDoesNotExist:" title="whereKeysDoesNotExist:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKeysDoesNotExist:">&ndash;&nbsp;whereKeysDoesNotExist:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>keys数组中的各列的值是不存在的</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKeysDoesNotExist:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keys</code></th>
+						<td><p>多个列组成的数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:matchesQuery:" title="whereKey:matchesQuery:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:matchesQuery:">&ndash;&nbsp;whereKey:matchesQuery:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询的对象某个列符合另一个查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> matchesQuery:(BmobQuery *)<em>query</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>列名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>query</code></th>
+						<td><p>另一个查询</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:doesNotMatchQuery:" title="whereKey:doesNotMatchQuery:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:doesNotMatchQuery:">&ndash;&nbsp;whereKey:doesNotMatchQuery:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询的对象某个列不符合另一个查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> doesNotMatchQuery:(BmobQuery *)<em>query</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>列名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>query</code></th>
+						<td><p>另一个查询</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereObjectKey:relatedTo:" title="whereObjectKey:relatedTo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereObjectKey:relatedTo:">&ndash;&nbsp;whereObjectKey:relatedTo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取object的关系成员的对象</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereObjectKey:(NSString *)<em>key</em> relatedTo:(BmobObject *)<em>object</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>object所在表的列名，为Relation类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>object</code></th>
+						<td><p>Bmobject对象</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sumKeys:" title="sumKeys:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sumKeys:">&ndash;&nbsp;sumKeys:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置需要计算总和的列名数组</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)sumKeys:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keys</code></th>
+						<td><p>需要计算总和的列名称数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/averageKeys:" title="averageKeys:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/averageKeys:">&ndash;&nbsp;averageKeys:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置需要计算平均值的列名数组</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)averageKeys:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keys</code></th>
+						<td><p>需要计算平均值的列名称数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/maxKeys:" title="maxKeys:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maxKeys:">&ndash;&nbsp;maxKeys:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置需要计算最大值的列名数组</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)maxKeys:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keys</code></th>
+						<td><p>需要计算最大值的列名称数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/minKeys:" title="minKeys:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minKeys:">&ndash;&nbsp;minKeys:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置需要计算最小值的列名数组</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)minKeys:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keys</code></th>
+						<td><p>需要计算最小值的列名称数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/groupbyKeys:" title="groupbyKeys:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/groupbyKeys:">&ndash;&nbsp;groupbyKeys:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置需要分组的列名数组</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)groupbyKeys:(NSArray *)<em>keys</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>需要计算进行分组的列名称数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/constructHavingDic:" title="constructHavingDic:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/constructHavingDic:">&ndash;&nbsp;constructHavingDic:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置having条件字典</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)constructHavingDic:(NSDictionary *)<em>havingDic</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>havingDic</code></th>
+						<td><p>having条件字典</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:nearGeoPoint:" title="whereKey:nearGeoPoint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:nearGeoPoint:">&ndash;&nbsp;whereKey:nearGeoPoint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>键</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> nearGeoPoint:(BmobGeoPoint *)<em>geopoint</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>geopoint</code></th>
+						<td><p>位置信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:nearGeoPoint:withinMiles:" title="whereKey:nearGeoPoint:withinMiles:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:nearGeoPoint:withinMiles:">&ndash;&nbsp;whereKey:nearGeoPoint:withinMiles:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>键</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> nearGeoPoint:(BmobGeoPoint *)<em>geopoint</em> withinMiles:(double)<em>maxDistance</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>geopoint</code></th>
+						<td><p>位置信息</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>maxDistance</code></th>
+						<td><p>最大长度（单位：英里）</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:nearGeoPoint:withinKilometers:" title="whereKey:nearGeoPoint:withinKilometers:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:nearGeoPoint:withinKilometers:">&ndash;&nbsp;whereKey:nearGeoPoint:withinKilometers:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>键</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> nearGeoPoint:(BmobGeoPoint *)<em>geopoint</em> withinKilometers:(double)<em>maxDistance</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>geopoint</code></th>
+						<td><p>位置信息</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>maxDistance</code></th>
+						<td><p>最大长度（单位：公里）</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:nearGeoPoint:withinRadians:" title="whereKey:nearGeoPoint:withinRadians:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:nearGeoPoint:withinRadians:">&ndash;&nbsp;whereKey:nearGeoPoint:withinRadians:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>键</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> nearGeoPoint:(BmobGeoPoint *)<em>geopoint</em> withinRadians:(double)<em>maxDistance</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>geopoint</code></th>
+						<td><p>位置信息</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>maxDistance</code></th>
+						<td><p>最大半径</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:withinGeoBoxFromSouthwest:toNortheast:" title="whereKey:withinGeoBoxFromSouthwest:toNortheast:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:withinGeoBoxFromSouthwest:toNortheast:">&ndash;&nbsp;whereKey:withinGeoBoxFromSouthwest:toNortheast:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>键</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> withinGeoBoxFromSouthwest:(BmobGeoPoint *)<em>southwest</em> toNortheast:(BmobGeoPoint *)<em>northeast</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>键</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>southwest</code></th>
+						<td><p>西南方向位置</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>northeast</code></th>
+						<td><p>东北方向位置</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addTheConstraintByAndOperationWithArray:" title="addTheConstraintByAndOperationWithArray:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addTheConstraintByAndOperationWithArray:">&ndash;&nbsp;addTheConstraintByAndOperationWithArray:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>组合并查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addTheConstraintByAndOperationWithArray:(NSArray *)<em>array</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>array</code></th>
+						<td><p>约束条件数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addTheConstraintByOrOperationWithArray:" title="addTheConstraintByOrOperationWithArray:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addTheConstraintByOrOperationWithArray:">&ndash;&nbsp;addTheConstraintByOrOperationWithArray:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>组合或查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addTheConstraintByOrOperationWithArray:(NSArray *)<em>array</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>array</code></th>
+						<td><p>约束条件数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/queryWithAllConstraint:" title="queryWithAllConstraint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/queryWithAllConstraint:">&ndash;&nbsp;queryWithAllConstraint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>构造查询条件,一旦设置，查询的条件即为conDictionary</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)queryWithAllConstraint:(NSDictionary *)<em>conDictionary</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>conDictionary</code></th>
+						<td><p>构造查询条件</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/queryWithConstraint:" title="queryWithConstraint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/queryWithConstraint:">&ndash;&nbsp;queryWithConstraint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>构造查询条件，可以与其他方法同时存在</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)queryWithConstraint:(NSDictionary *)<em>dictionary</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dictionary</code></th>
+						<td><p>查询条件</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasCachedResult" title="hasCachedResult"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasCachedResult">&ndash;&nbsp;hasCachedResult</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>查看是否有查询的缓存
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)hasCachedResult</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>查询结果 有为YES 没有为NO</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearCachedResult" title="clearCachedResult"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearCachedResult">&ndash;&nbsp;clearCachedResult</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>清理查询的缓存
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clearCachedResult</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearAllCachedResults" title="clearAllCachedResults"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearAllCachedResults">+&nbsp;clearAllCachedResults</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>清理所有查询的缓存
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)clearAllCachedResults</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getObjectInBackgroundWithId:block:" title="getObjectInBackgroundWithId:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getObjectInBackgroundWithId:block:">&ndash;&nbsp;getObjectInBackgroundWithId:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>通过id查找BmobObject对象
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getObjectInBackgroundWithId:(NSString *)<em>objectId</em> block:(BmobObjectResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>objectId</code></th>
+						<td><p>BmobObject对象的id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>得到的BmobObject对象</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/findObjectsInBackgroundWithBlock:" title="findObjectsInBackgroundWithBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/findObjectsInBackgroundWithBlock:">&ndash;&nbsp;findObjectsInBackgroundWithBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>查找BmobObject对象数组，该方法可查询多条数据
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)findObjectsInBackgroundWithBlock:(BmobObjectArrayResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>得到BmobObject对象数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/calcInBackgroundWithBlock:" title="calcInBackgroundWithBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/calcInBackgroundWithBlock:">&ndash;&nbsp;calcInBackgroundWithBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>统计表数据
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)calcInBackgroundWithBlock:(BmobObjectArrayResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>得到字典数组</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/countObjectsInBackgroundWithBlock:" title="countObjectsInBackgroundWithBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/countObjectsInBackgroundWithBlock:">&ndash;&nbsp;countObjectsInBackgroundWithBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>查找表中符合条件的个数
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)countObjectsInBackgroundWithBlock:(BmobIntegerResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>得到个数</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setBQL:" title="setBQL:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setBQL:">&ndash;&nbsp;setBQL:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置bql语句</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setBQL:(NSString *)<em>bql</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bql</code></th>
+						<td><p>bql语句</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setPlaceholder:" title="setPlaceholder:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setPlaceholder:">&ndash;&nbsp;setPlaceholder:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置占位符</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setPlaceholder:(NSArray *)<em>ary</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>ary</code></th>
+						<td><p>占位符数据</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/queryInBackgroundWithBQL:block:" title="queryInBackgroundWithBQL:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/queryInBackgroundWithBQL:block:">&ndash;&nbsp;queryInBackgroundWithBQL:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用 BQL 异步查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)queryInBackgroundWithBQL:(NSString *)<em>bql</em> block:(BmobBQLObjectResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bql</code></th>
+						<td><p>BQL 字符串</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>查询结果回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/queryInBackgroundWithBQL:pvalues:block:" title="queryInBackgroundWithBQL:pvalues:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/queryInBackgroundWithBQL:pvalues:block:">&ndash;&nbsp;queryInBackgroundWithBQL:pvalues:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用BQL异步查询，该方法是使用占位符时的调用方法</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)queryInBackgroundWithBQL:(NSString *)<em>bql</em> pvalues:(NSArray *)<em>pvalues</em> block:(BmobBQLObjectResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bql</code></th>
+						<td><p>BQL字符串</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>pvalues</code></th>
+						<td><p>占位符的值</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>查询结果回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/queryBQLCanCacheInBackgroundWithblock:" title="queryBQLCanCacheInBackgroundWithblock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/queryBQLCanCacheInBackgroundWithblock:">&ndash;&nbsp;queryBQLCanCacheInBackgroundWithblock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用BQL异步查询，只有该方法支持异步查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)queryBQLCanCacheInBackgroundWithblock:(BmobBQLObjectResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>查询结果回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/statisticsInBackgroundWithBQL:block:" title="statisticsInBackgroundWithBQL:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/statisticsInBackgroundWithBQL:block:">&ndash;&nbsp;statisticsInBackgroundWithBQL:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用 BQL 异步统计查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)statisticsInBackgroundWithBQL:(NSString *)<em>bql</em> block:(BmobBQLArrayResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bql</code></th>
+						<td><p>BQL 统计查询字符串</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>查询结果回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/statisticsInBackgroundWithBQL:pvalues:block:" title="statisticsInBackgroundWithBQL:pvalues:block:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/statisticsInBackgroundWithBQL:pvalues:block:">&ndash;&nbsp;statisticsInBackgroundWithBQL:pvalues:block:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用BQL异步统计查询，该方法是使用占位符时的调用方法</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)statisticsInBackgroundWithBQL:(NSString *)<em>bql</em> pvalues:(NSArray *)<em>pvalues</em> block:(BmobBQLArrayResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bql</code></th>
+						<td><p>BQL字符串</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>pvalues</code></th>
+						<td><p>占位符的值</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>查询结果回调</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cancle" title="cancle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cancle">&ndash;&nbsp;cancle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>取消查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)cancle</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:matchesWithRegex:" title="whereKey:matchesWithRegex:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:matchesWithRegex:">&ndash;&nbsp;whereKey:matchesWithRegex:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>正则表达式查询</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> matchesWithRegex:(NSString *)<em>regex</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>字段名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>regex</code></th>
+						<td><p>正则表达式</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:startWithString:" title="whereKey:startWithString:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:startWithString:">&ndash;&nbsp;whereKey:startWithString:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询以特定字符串开头的数据</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> startWithString:(NSString *)<em>start</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>字段名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>start</code></th>
+						<td><p>想要查询的开头的字符串</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/whereKey:endWithString:" title="whereKey:endWithString:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/whereKey:endWithString:">&ndash;&nbsp;whereKey:endWithString:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>查询以特定字符串结尾的数据</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)whereKey:(NSString *)<em>key</em> endWithString:(NSString *)<em>end</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>字段名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>end</code></th>
+						<td><p>想要查询的结尾的字符串</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobQuery.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 bmob. All rights reserved. Updated: 2015-10-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

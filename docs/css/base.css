@@ -117,6 +117,7 @@ pre code {
     word-wrap: normal;
     font-family: monospace,serif;
     font-size: 12px;
+	color: #fff;
 }
 
 kbd {
@@ -217,6 +218,7 @@ footer {
     .bs-sidebar.affix { /* csslint allow: adjoining-classes */
         position: fixed; /* Undo the static from mobile first approach */
         top: 80px;
+        bottom:0;
     }
     .bs-sidebar.affix-bottom { /* csslint allow: adjoining-classes */
         position: absolute; /* Undo the static from mobile first approach */
