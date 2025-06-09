@@ -971,17 +971,326 @@ function onRequest(request, response, modules) {
 
 ```
 
+
+
+## Redis 操作对象
+
+基于 Bmob 云函数的 Redis 模块 - Promise then 方式
+
+### 初始化 Redis 实例
+
+所有操作前需要先初始化 Redis 实例：
+
+```js
+const redis = modules.oRedis;
+```
+
+### 操作文档
+
+### 字符串 (String) 操作
+
+#### set(key, value, [expireSeconds])
+
+设置键值对，可设置过期时间
+
+```js
+// 设置普通键值
+redis.set('username', 'JohnDoe')
+  .then(function(reply) {
+    console.log('设置成功:', reply); // 'OK'
+  });
+
+// 设置带过期时间的键值（30秒）
+redis.set('session_token', 'abc123xyz', 30)
+  .then(function(reply) {
+    console.log('带过期时间的设置成功');
+  });
+```
+
+#### get(key)
+
+获取键对应的值
+
+```js
+redis.get('username')
+  .then(function(value) {
+    if (value === null) {
+      console.log('键不存在');
+    } else {
+      console.log('用户名:', value); // 'JohnDoe'
+    }
+  })
+  .catch(function(error) {
+    console.error('获取失败:', error);
+  });
+```
+
+### 哈希 (Hash) 操作
+
+#### hset(key, field, value)
+
+设置哈希字段的值
+
+```js
+redis.hset('user:1000', 'email', 'user@example.com')
+  .then(function(result) {
+    console.log('字段设置:', result ? '成功' : '失败');
+  });
+```
+
+#### hget(key, field)
+
+获取哈希字段的值
+
+```js
+redis.hget('user:1000', 'email')
+  .then(function(value) {
+    console.log('用户邮箱:', value);
+  });
+```
+
+#### hgetall(key)
+
+获取哈希的所有字段和值
+
+```js
+redis.hgetall('user:1000')
+  .then(function(userData) {
+    if (userData) {
+      console.log('用户数据:', userData);
+      // 输出: { email: 'user@example.com', name: 'John' }
+    } else {
+      console.log('用户数据不存在');
+    }
+  });
+```
+
+### 列表 (List) 操作
+
+#### lpush(key, ...values)
+
+从列表左侧插入元素
+
+```js
+redis.lpush('tasks', 'task1', 'task2', 'task3')
+  .then(function(length) {
+    console.log('当前列表长度:', length);
+  });
+```
+
+#### rpush(key, ...values)
+
+从列表右侧插入元素
+
+```js
+redis.rpush('messages', 'msg1', 'msg2')
+  .then(function(length) {
+    console.log('新增消息后长度:', length);
+  });
+```
+
+#### lrange(key, start, stop)
+
+获取列表指定范围的元素
+
+```js
+// 获取所有元素 (0 到 -1)
+redis.lrange('tasks', 0, -1)
+  .then(function(tasks) {
+    console.log('所有任务:', tasks);
+  });
+
+// 获取前5个元素
+redis.lrange('messages', 0, 4)
+  .then(function(recentMessages) {
+    console.log('最近5条消息:', recentMessages);
+  });
+```
+
+#### lpop(key)
+
+从列表左侧弹出一个元素
+
+```js
+redis.lpop('tasks')
+  .then(function(value) {
+    if (value === null) {
+      console.log('列表为空');
+    } else {
+      console.log('弹出的元素:', value);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+```
+
+#### rpop(key)
+
+从列表右侧弹出一个元素
+
+```js
+redis.rpop('messages')
+  .then(function(value) {
+    if (value === null) {
+      console.log('列表为空');
+    } else {
+      console.log('弹出的元素:', value);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+```
+
+### 集合 (Set) 操作
+
+#### sadd(key, ...members)
+
+向集合添加元素
+
+```js
+redis.sadd('user:1000:tags', 'VIP', 'Premium', 'NewUser')
+  .then(function(count) {
+    console.log('成功添加标签数:', count);
+  });
+```
+
+#### smembers(key)
+
+获取集合的所有元素
+
+```js
+redis.smembers('user:1000:tags')
+  .then(function(tags) {
+    console.log('用户标签:', tags);
+    // 输出: ['VIP', 'Premium', 'NewUser']
+  });
+```
+
+#### spop(key, [count])
+
+从集合中随机弹出一个或多个元素
+
+```js
+// 弹出一个元素
+redis.spop('user:1000:tags')
+  .then(function(value) {
+    if (value === null) {
+      console.log('集合为空');
+    } else {
+      console.log('弹出的元素:', value);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+
+// 弹出多个元素
+redis.spop('user:1000:tags', 2)
+  .then(function(values) {
+    if (values.length === 0) {
+      console.log('集合为空');
+    } else {
+      console.log('弹出的元素:', values);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+```
+
+### 通用操作
+
+#### del(key)
+
+删除一个或多个键
+
+```js
+redis.del('temp_data')
+  .then(function(count) {
+    console.log('删除键数量:', count);
+  });
+```
+
+#### exists(key)
+
+检查键是否存在
+
+```js
+redis.exists('user:1000')
+  .then(function(exists) {
+    if (exists) {
+      console.log('用户数据存在');
+    } else {
+      console.log('用户数据不存在');
+    }
+  });
+```
+
+#### expire(key, seconds)
+
+设置键的过期时间
+
+```js
+redis.expire('session:abc', 3600) // 1小时过期
+  .then(function(success) {
+    if (success) {
+      console.log('过期时间设置成功');
+    } else {
+      console.log('键不存在，设置失败');
+    }
+  });
+```
+
+#### quit()
+
+关闭 Redis 连接
+
+```js
+redis.quit()
+  .then(function() {
+    console.log('Redis连接已关闭');
+  });
+```
+
+## 最佳实践提示
+
+1. 所有 Redis 操作都返回 Promise，使用 `.then()` 处理成功结果，`.catch()` 处理错误
+2. 在云函数中，不需要每次操作后都关闭连接（这个待验证）
+3. 键命名使用冒号分隔的命名空间，如 `user:1000:profile`
+4. 存储对象时使用 `JSON.stringify()`，获取后使用 `JSON.parse()`
+5. 数值类型需要手动转换：`parseInt()` 或 `parseFloat()`
+6. 处理空值时：`redis.get()` 返回 `null` 表示键不存在
+
+
+
+
 ## HTTP请求对象
+
 oHttp对象可以模拟实现get、post、put、delete等各种HTTP请求信息，让你在云端实现诸如数据采集、OAuth授权登录等功能。Bmob的HTTP请求模块采用Nodejs提供的request模块，这里提供简单的Get和Post的操作实例。更多的功能详细参考：[https://npmjs.org/package/request](https://npmjs.org/package/request)
 ```
 /**
 *发起Get请求
 */
-//获取Http模块
-var http = modules.oHttp;
-//发起Get请求
-http('https://www.bmobapp.com', function (error, res, body) {
-	response.send(body);
+const http = modules.oHttp; // HTTP 请求模块
+
+// 定义请求选项
+const options = {
+    method: 'GET',
+    url: 'https://api.example.com/data', // 示例API地址
+    headers: {
+        'Authorization': 'Bearer YOUR_ACCESS_TOKEN', // 授权令牌
+        'Content-Type': 'application/json' // 指定JSON格式
+    }
+};
+
+// 发起GET请求
+http.get(options, function (error, res, body) {
+    if (error) {
+        response.send(error);
+    }
+    response.send(body);
 });
 
 -
