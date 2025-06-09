@@ -424,18 +424,42 @@
 											
 										</li>
 									
-										<li class=""><a href="#_3">图形验证码</a>
+										<li class=""><a href="#_3">发送通知短信</a>
 											
 										</li>
 									
-										<li class=""><a href="#_4">购买事项</a>
+										<li class=""><a href="#_4">图形验证码</a>
+											
+										</li>
+									
+										<li class=""><a href="#_5">报备事项</a>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_5">购买方法</a></li>
+												<li><a class="itm-l2" href="#_6">一、签名授权说明</a></li>
 											</ul>
 											
 											<ul class="nav nav-l2">
-												<li><a class="itm-l2" href="#_6">发票事宜</a></li>
+												<li><a class="itm-l2" href="#_7">二、企业信息</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_8">三、法定代表人信息</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_9">四、重要提示</a></li>
+											</ul>
+											
+										</li>
+									
+										<li class=""><a href="#_10">购买事项</a>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_11">购买方法</a></li>
+											</ul>
+											
+											<ul class="nav nav-l2">
+												<li><a class="itm-l2" href="#_12">发票事宜</a></li>
 											</ul>
 											
 										</li>
@@ -462,10 +486,10 @@
 
 <p>在一些应用场景下，你可能希望用户验证手机号码后才能进行一些操作，例如充值等。这些操作跟用户系统没有关系，可以通过我们提供的的短信验证API来实现。</p>
 <p>每个 Bmob 帐户有 10 条免费额度的短信数量用于测试，超过需要购买短信条数才能继续使用。</p>
-<p>默认使用 【比目科技】 作为签名，可以在控制台进行修改。</p>
+<p>默认使用 【元素科技】 作为签名，可以在控制台进行修改。</p>
 <h2 id="_1">请求短信验证码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>请求描述</strong></p>
-<p>使用特定的模板请求验证码，如果没有在管理后台创建好模板，可使用默认的模板，<a href="http://www.bmobapp.com/" title="Bmob移动后端云服务平台">Bmob</a> 默认的模板是: <strong>您的验证码是%smscode%，有效期为%ttl%分钟。您正在使用%appname%的验证码</strong></p>
+<p>使用特定的模板请求验证码，如果没有在管理后台创建好模板，可使用默认的模板，<a href="http://www.bmobapp.com/" title="Bmob移动后端云服务平台">Bmob</a> 默认的模板是:  您的验证码为：${code}，该验证码5分钟内有效，请勿泄露于他人！</p>
 <p><strong>请求</strong></p>
 <ul>
 <li>
@@ -613,7 +637,79 @@ Content-Type: application/json
 <li>计算得到的短信条数在本条短信发送成功后将会从你的账户剩余的短信条数中扣除。</li>
 </ol>
 <p><strong>短信发送限制规则是1/分钟，5/小时，10/天。即对于一个应用来说，一天给同一手机号发送短信不能超过10条，一小时给同一手机号发送短信不能超过5条，一分钟给同一手机号发送短信不能超过1条</strong></p>
-<h2 id="_3">图形验证码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">发送通知短信<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><strong>请求描述</strong></p>
+<p>找回密码，等相关通知都可以，可以包含金额，卡号，数量，姓名等等  例如：温馨提醒：${conference}会议将在${address}地点，于${time}时间开始，请您准时参加。</p>
+<p><strong>请求</strong></p>
+<ul>
+<li>
+<p>url ：https://自己备案域名/1/requestSms</p>
+</li>
+<li>
+<p>method ：POST</p>
+</li>
+<li>
+<p>header:</p>
+</li>
+</ul>
+<pre><code>X-Bmob-Application-Id: Your Application ID
+X-Bmob-REST-API-Key: Your REST API Key
+Content-Type: application/json
+</code></pre>
+
+<ul>
+<li>body:</li>
+</ul>
+<pre><code>{
+  &quot;mobilePhoneNumber&quot;: phoneNum,
+  &quot;content&quot;: { //对应短信内变量
+    &quot;card_number&quot;: 10001,  卡号
+    &quot;amount&quot;: 0.01,  消费金额
+    &quot;balance&quot;: 19   余额
+  }
+  &quot;template&quot;: templateName(必填)
+}
+</code></pre>
+
+<p><strong>成功时响应</strong></p>
+<ul>
+<li>
+<p>status: 200 OK</p>
+</li>
+<li>
+<p>body:</p>
+</li>
+</ul>
+<pre><code>{
+    &quot;smsId&quot;: smsId（可用于后面使用查询短信状态接口来查询该条短信是否发送成功）
+}
+</code></pre>
+
+<p><strong>例子</strong></p>
+<p>使用默认的模板请求短信验证码：</p>
+<pre><code>curl -X POST \
+  -H &quot;X-Bmob-Application-Id: Your Application ID&quot;          \
+  -H &quot;X-Bmob-REST-API-Key: Your REST API Key&quot;        \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+  &quot;mobilePhoneNumber&quot;: &quot;13788886579&quot;,
+  &quot;content&quot;: {
+    &quot;card_number&quot;: 13,
+    &quot;amount&quot;: 0.01,
+    &quot;balance&quot;: 19
+  },
+  &quot;template&quot;: &quot;yingxiao&quot;
+}' \
+  https://自己备案域名/1/requestSms
+</code></pre>
+
+<p>成功返回，短信验证码ID，可用于后面使用查询短信状态接口来查询该短信验证码是否发送成功和是否验证过：</p>
+<pre><code>{
+    &quot;smsId&quot;: 1232222
+}
+</code></pre>
+
+<h2 id="_4">图形验证码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>图形验证码是防范短信轰炸最有效的手段。目前只有通过短信模板发送才支持使用图形验证码。</p>
 <p>通过下面的接口获取图形验证码：</p>
 <pre><code>curl -X POST \
@@ -719,12 +815,35 @@ Content-Type: application/json
 </code></pre>
 
 <p>发送短信模板验证码的时候，把这个validate_token参数带上即可</p>
-<h2 id="_4">购买事项<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">购买方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h2 id="_5">报备事项<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">一、签名授权说明<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>国内短信仅支持中国大陆公司授权申请签名。若授权主体为中国香港、中国澳门、中国台湾及境外公司，请联系我们客服</p>
+<h3 id="_7">二、企业信息<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>认证方式</strong>：线上提交认证，联系我们客服</li>
+<li><strong>选择证件</strong>：企业营业执照</li>
+<li><strong>营业证件</strong>：签名归属方的企业营业执照（请提交包含统一社会信用代码的证件照片，支持 jpg、png、gif、jpeg 格式，每张图片不大于 5MB）</li>
+</ol>
+<h3 id="_8">三、法定代表人信息<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>选择证件</strong>：身份证</li>
+<li><strong>企业法定代表人姓名</strong>：[此处输入法定代表人姓名]</li>
+<li><strong>企业法定代表人身份证号码</strong>：[此处输入身份证号码]</li>
+<li>身份证有效期</li>
+<li>开始时间：</li>
+<li>截止时间：若证照有效期为长期时，有效期截止时间可填入：2099 年 12 月 31 日；如遇无法识别或识别错误时，请手工输入实际截止时间。</li>
+</ol>
+<h3 id="_9">四、重要提示<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ol>
+<li>因监管需求，必须补充在工商侧登记的法定代表人姓名及身份证号码，否则可能会因信息不全而导致报备失败从而无法发送短信。</li>
+<li>同一个管理员若申请多个不同的企业资质会导致报备失败，请确认一管一企以提升报备成功率。</li>
+</ol>
+<h2 id="_10">购买事项<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">购买方法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>短信条数只能输入整数，且不能少于1000条</p>
 <p><img alt="短信计费模式" src="http://bmob-file-service-t.b0.upaiyun.com/Doc_File/jfms.png" /></p>
 <p>进入账号控制台，选择应用--&gt; 短信 --&gt; 点击充值即可。</p>
-<h3 id="_6">发票事宜<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_12">发票事宜<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>购买金额满100可提供发票，1000元以内的到付，1000以上（含1000）包邮。</p>
 <p>登录后台提交工单，提供购买服务的订单号和开票信息。</p>
 <p><strong>个人</strong></p>
