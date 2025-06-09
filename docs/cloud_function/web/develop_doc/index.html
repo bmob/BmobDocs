@@ -605,9 +605,9 @@
 													<li><a class="itm-l2" href="#_36">通用操作</a></li>
 												</ul>
 												
-											</li>
-												
-											<li class=""><a href="#_37">最佳实践提示</a>
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_37">最佳实践提示</a></li>
+												</ul>
 												
 											</li>
 												
@@ -1783,7 +1783,7 @@ redis.spop('user:1000:tags', 2)
   });
 </code></pre>
 
-<h2 id="_37">最佳实践提示<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<h3 id="_37">最佳实践提示<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <ol>
 <li>所有 Redis 操作都返回 Promise，使用 <code>.then()</code> 处理成功结果，<code>.catch()</code> 处理错误</li>
 <li>在云函数中，不需要每次操作后都关闭连接（这个待验证）</li>
