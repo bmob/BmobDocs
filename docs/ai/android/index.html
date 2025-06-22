@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
+            <!--
+            <title>Android - Bmob文档中心</title>
+            -->
+            <title>Bmob后端云 </title>  
+            
+            <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../css/highlight.css">
+            <link href="../../css/agate.css" rel="stylesheet">
+            <link href="../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../..">
+                <!--Bmob文档中心-->
+                <img src="../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../data/wechat_app_new/rm/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">云函数</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../cloud_function/web/">云函数开发文档</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../cloud_function/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../cloud_function/restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="./">AI人工智能</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li class="active">
+                                    <a href="./">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+					<div class="code-title">Android</div>
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+					
+						
+							
+								
+									
+										<li class="active "><a href="#_1">创建应用</a>
+											
+										</li>
+									
+										<li class=""><a href="#_2">获取应用密钥</a>
+											
+										</li>
+									
+										<li class=""><a href="#_3">导入依赖</a>
+											
+										</li>
+									
+										<li class=""><a href="#application">创建Application子类</a>
+											
+										</li>
+									
+										<li class=""><a href="#androidmanifestxml">配置AndroidManifest.xml</a>
+											
+										</li>
+									
+										<li class=""><a href="#ai">调用AI对话</a>
+											
+										</li>
+									
+										<li class=""><a href="#_4">停止输出内容</a>
+											
+										</li>
+									
+										<li class=""><a href="#ai_1">自定义AI机器人</a>
+											
+										</li>
+									
+										<li class=""><a href="#_5">清除对话</a>
+											
+										</li>
+									
+										<li class=""><a href="#_6">模拟对话内容</a>
+											
+										</li>
+									
+										<li class=""><a href="#_7">接口费用</a>
+											
+										</li>
+									
+										<li class=""><a href="#_8">视频教程</a>
+											
+										</li>
+									
+										<li class=""><a href="#_9">源码下载</a>
+											
+										</li>
+									
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h2 id="_1">创建应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>登录账号进入bmob后台后，点击后台界面左上角“创建应用”，在弹出框输入你应用的名称，然后确认，你就拥有了一个等待开发的应用。</p>
+<p><img alt="" src="./image/rumen_chuangjian.png" /></p>
+<h2 id="_2">获取应用密钥<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>选择你要开发的应用，进入该应用</p>
+<p><img alt="" src="./image/rumen_miyue_1.png" /></p>
+<p>在跳转页面，进入设置/应用密钥，点击复制，即可得到<code>Application ID</code></p>
+<p><img alt="" src="./image/rumen_miyue_2.png" /></p>
+<h2 id="_3">导入依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>在<code>app</code>的<code>build.gradle</code>文件中添加<code>依赖文件</code>：</p>
+<pre><code class="gradle">dependencies {
+    implementation 'io.github.bmob:android-sdk:4.1.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.8.1'
+    implementation 'com.squareup.okio:okio:2.2.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+}
+</code></pre>
+
+<h2 id="application">创建Application子类<a class="headerlink" href="#application" title="Permanent link">&para;</a></h2>
+<p>新建一个继承自<code>Application</code>的子类<code>BmobApp</code>。代码如下：</p>
+<pre><code class="java">public class BmobApp extends Application {
+    public static BmobAI bmobAI;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //初始化
+        Bmob.initialize(this,&quot;你的application id&quot;);
+        //初始化AI（初始化时，会自动创建一个websocket，保持心跳连接，确保实时回复）
+        bmobAI = new BmobAI();
+    }
+}
+</code></pre>
+
+<h2 id="androidmanifestxml">配置AndroidManifest.xml<a class="headerlink" href="#androidmanifestxml" title="Permanent link">&para;</a></h2>
+<p>在你的应用程序的<code>AndroidManifest.xml</code>文件中添加如下的<code>应用类名</code>、<code>权限</code>和<code>ContentProvider</code>信息：</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+    &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+        package=&quot;cn.bmob.example&quot;
+        android:versionCode=&quot;1&quot;
+        android:versionName=&quot;1.0&quot;&gt;
+
+    &lt;!--允许联网 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+    &lt;!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+    &lt;!--获取wifi网络状态的信息 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
+
+    &lt;application
+        android:name=&quot;.BmobApp&quot;
+        ....其他信息&gt;
+        &lt;activity
+            ...其他信息
+        &lt;/activity&gt;
+
+        &lt;!--添加ContentProvider信息 --&gt;
+        &lt;provider
+            android:name=&quot;cn.bmob.v3.util.BmobContentProvider&quot;
+            android:authorities=&quot;你的应用包名.BmobContentProvider&quot;&gt;
+        &lt;/provider&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;
+</code></pre>
+
+<h2 id="ai">调用AI对话<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h2>
+<pre><code class="java">
+//连接AI服务器（这个代码为了防止AI连接中断，因为可能会存在某些情况下，比如网络切换、中断等，导致心跳连接失败）
+BmobApp.bmobAI.Connect();
+//发送对话信息
+BmobApp.bmobAI.Chat(&quot;帮我用写一段android访问Bmob后端云的代码&quot;, &quot;session_id&quot;, new ChatMessageListener() {
+    @Override
+    public void onMessage(String message) {
+        //消息流的形式返回AI的结果
+        Log.d(&quot;Bmob&quot;, message);
+    }
+
+    @Override
+    public void onFinish(String message) {
+        //一次性返回全部结果，这个方法需要等待一段时间，友好性较差
+        Log.d(&quot;Bmob&quot;, message);
+    }
+
+    @Override
+    public void onError(String error) {
+        //OpenAI的密钥错误或者超过OpenAI并发时，会返回这个错误
+        Log.d(&quot;Bmob&quot;, &quot;连接发生异常了&quot;+error);
+    }
+
+    @Override
+    public void onClose() {
+        Log.d(&quot;Bmob&quot;, &quot;连接被关闭了&quot;);
+    }
+});
+</code></pre>
+
+<p>其中，<code>session_id</code>是会话Id信息，你可以传入用户的<code>objectId</code>，也可以是其他固定的信息，如用户的<code>手机号码</code>、<code>注册账号</code>等等。后端根据会话Id信息，自动拼接相应的上下文信息，发送给GPT进行处理。
+<code>onMessage</code>方法是以流的形式，不断回传<code>message</code>信息给你，呈现在UI界面上。通过这种方法，你可以实现更好的用户体验。
+<code>onFinish</code>方法是等待GPT完全请求完毕，才回传最终内容<code>message</code>给你。
+<code>onError</code>和<code>onClose</code>方法是请求连接发生错误时调用，如网络关闭等。</p>
+<ul>
+<li>BmobAI的其他方法</li>
+</ul>
+<p><code>BmobAI</code>类还有<code>isConnect</code>方法和<code>Connect</code>方法。</p>
+<p><code>isConnect</code>方法返回布尔值，表示是否和服务器保持着连接状态。</p>
+<p><code>Connect</code>方法是主动和服务器连接的方法，主要是当你的网络发生异常时，主动重新和服务器进行连接。</p>
+<h2 id="_4">停止输出内容<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>如果你想中断AI的内容输出，还可以调用如下的代码：</p>
+<pre><code class="java">
+BmobApp.bmobAI.Stop();
+
+</code></pre>
+
+<h2 id="ai_1">自定义AI机器人<a class="headerlink" href="#ai_1" title="Permanent link">&para;</a></h2>
+<p>如果需要设置AI的角色，你可以在调用 <code>BmobApp.bmobAI.Chat</code> 方法前，调用  <code>BmobApp.bmobAI.setPrompt</code> 方法，如：</p>
+<pre><code class="java">
+BmobApp.bmobAI.setPrompt(&quot;接下来的每个回复都要叫我宝贝&quot;);
+
+</code></pre>
+
+<p>启用这个方法之后，我们会在每次给AI发起内容生成的时候，都在最开始的地方附带上 <code>"接下来的每个回复都要叫我宝贝"</code> 这句话，确保内容按你的要求生成。</p>
+<h2 id="_5">清除对话<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>SDK会在 <code>内存</code> 中保存会话(session)信息，每次执行 <code>BmobAI.Chat</code> 方法时，会自动找到最近的 <code>7对</code> 上下文（17条对话），组装好内容，和最终的AI服务商交互。</p>
+<p>如果你不想携带以往的会话(session)信息，可以在执行 <code>BmobAI.Chat</code> 方法之前，先执行  <code>BmobAI.Clear("你的session名称")</code> 方法，将session信息从内存中清除。</p>
+<h2 id="_6">模拟对话内容<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>你还可以自由地在调用BmobAI.Chat方法前，模拟添加用户的问和ChatGPT的答。</p>
+<p>方法如下：</p>
+<pre><code class="java">//模拟用户的问  
+BmobApp.bmobAI.setUserChatMessage(&quot;模拟用户的问题&quot;,&quot;你的session名称&quot;);  
+
+//模拟Chatgpt的答  
+BmobApp.bmobAI.setAssistantChatMessage(&quot;模拟Chatgpt的回答&quot;,&quot;你的session名称&quot;);  
+
+</code></pre>
+
+<h2 id="_7">接口费用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>免费赠送1000条。</p>
+<p>超过1000条，可以选择购买（1分钱一条）或者使用自有的密钥。</p>
+<p>使用自有密钥的方法如下：进入到应用之后，依次点击 <code>设置</code> -&gt; <code>AI设置</code> -&gt; <code>添加配置</code>，将你的密钥信息填上去即可。
+<img alt="" src="./image/aiconfig.png" /></p>
+<h2 id="_8">视频教程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<iframe src="//player.bilibili.com/player.html?aid=998743296&bvid=BV11x4y1d7Nk&cid=1202328961&page=1" width="1024" height="768" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h2 id="_9">源码下载<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/bmob/Bmob-Android-AI">AI快速入门源码下载</a></p>
+<p><a href="https://github.com/bmob/Bmob-Android-AI-Prompt">AI角色案例</a></p>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../..';</script>
+            <script src="../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../js/highlight.pack.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
