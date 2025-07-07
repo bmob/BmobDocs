@@ -428,18 +428,6 @@
 											
 										</li>
 									
-										<li class=""><a href="#vip">VIP付费限制相关错误码</a>
-											
-										</li>
-									
-										<li class=""><a href="#_1">短信功能相关错误码</a>
-											
-										</li>
-									
-										<li class=""><a href="#_2">支付功能错误码</a>
-											
-										</li>
-									
 								
 							
 						
@@ -746,13 +734,9 @@
 <td align="left"></td>
 <td align="left">It is busy...Try it later!</td>
 </tr>
-<tr>
-<td align="left">当HttpResponseCode的值为401或500时，接口返回的内容格式如下：</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
 </tbody>
 </table>
+<p>当HttpResponseCode的值为401或500时，接口返回的内容格式如下：</p>
 <pre><code class="JSON">{
     &quot;error&quot;: &quot;unauthorized&quot;
 }
@@ -843,9 +827,14 @@
 <td align="left">登录信息是必需的，如邮箱和密码时缺少其中一个提示此信息</td>
 </tr>
 <tr>
+<td align="left">110</td>
+<td align="left">db is moving, please do not use http method POST,PUT,DELETE</td>
+<td align="left">数据库正在迁移，请勿使用POST、PUT、DELETE方法</td>
+</tr>
+<tr>
 <td align="left">111</td>
 <td align="left">invalid type for key '%s', expected '%s', but got '%s'.</td>
-<td align="left">传入的字段值与字段类型不匹配，期望是这样(%s)的，但传过来却是这样(%s)的</td>
+<td align="left">传入的字段值与字段类型不匹配</td>
 </tr>
 <tr>
 <td align="left">112</td>
@@ -868,74 +857,79 @@
 <td align="left">纬度范围在[-90, 90] 或 经度范围在[-180, 180]</td>
 </tr>
 <tr>
+<td align="left">118</td>
+<td align="left">param %s is need.</td>
+<td align="left">缺少必需的参数</td>
+</tr>
+<tr>
 <td align="left">120</td>
 <td align="left">Email verify should be opened in your app setup page of bmob</td>
-<td align="left">要使用此功能，请在<a href="http://www.bmobapp.com/" title="Bmob移动后端云服务平台">Bmob</a>后台应用设置中打开邮箱认证功能开关</td>
+<td align="left">要使用此功能，请在Bmob后台应用设置中打开邮箱认证功能开关</td>
+</tr>
+<tr>
+<td align="left">121</td>
+<td align="left">api数已超出限制，目前使用的api数:%d，套餐的api数:%d，购买的api数剩余0条</td>
+<td align="left">API调用次数超出限制</td>
+</tr>
+<tr>
+<td align="left">122</td>
+<td align="left">权限验证不通过</td>
+<td align="left">用户权限验证失败</td>
+</tr>
+<tr>
+<td align="left">125</td>
+<td align="left">default value invalid json : %s.</td>
+<td align="left">默认值的JSON格式不正确</td>
 </tr>
 <tr>
 <td align="left">131</td>
-<td align="left">Invalid device token:%s</td>
-<td align="left">不正确的deviceToken</td>
+<td align="left">Invalid device token:%s OR Invalid installation ID:%s OR Invalid device type:%s</td>
+<td align="left">设备token、安装ID或设备类型无效</td>
 </tr>
 <tr>
 <td align="left">132</td>
-<td align="left">Invalid installation ID:%s</td>
-<td align="left">不正确的installationId</td>
-</tr>
-<tr>
-<td align="left">133</td>
-<td align="left">Invalid device type:%s</td>
-<td align="left">不正确的deviceType</td>
-</tr>
-<tr>
-<td align="left">134</td>
-<td align="left">device token '%s' already token.</td>
-<td align="left">deviceToken已经存在</td>
-</tr>
-<tr>
-<td align="left">135</td>
-<td align="left">installation ID '%s' already token.</td>
-<td align="left">installationId已经存在</td>
+<td align="left">device token '%s' already exist. OR installation ID '%s' already token.</td>
+<td align="left">设备token或安装ID已存在</td>
 </tr>
 <tr>
 <td align="left">136</td>
 <td align="left">%s cannot be changed by this operation OR deviceToken may not be set for deviceType android</td>
-<td align="left">只读属性不能修改 或 android设备不需要设置deviceToken</td>
+<td align="left">某些属性不能被修改，或Android设备不需要设置deviceToken</td>
+</tr>
+<tr>
+<td align="left">137</td>
+<td align="left">Clients aren't allowed to perform the %s operation on the installation class.</td>
+<td align="left">客户端不允许对installation类执行特定操作</td>
 </tr>
 <tr>
 <td align="left">138</td>
-<td align="left">%s is read only.</td>
-<td align="left">表是只读的</td>
+<td align="left">%s is read only. OR This app can not op delete in sdk</td>
+<td align="left">某些字段是只读的，或应用不能在SDK中执行删除操作</td>
 </tr>
 <tr>
 <td align="left">139</td>
-<td align="left">Role names must be restricted to alphanumeric characters, dashes(-), underscores(_), and spaces.</td>
-<td align="left">角色名称是大小写敏感的，并且必须以英文字母开头，有效的字符仅限在英文字母、数字、空格、横线以及下划线。</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">role name '%s' already taken.</td>
-<td align="left">角色名称已经存在。</td>
+<td align="left">Role names must be restricted to alphanumeric characters, dashes(-), underscores(_), and spaces. OR role name '%s' already taken.</td>
+<td align="left">角色名称格式限制或角色名已被使用</td>
 </tr>
 <tr>
 <td align="left">141</td>
 <td align="left">Missing the push data.</td>
-<td align="left">缺失推送需要的data参数</td>
+<td align="left">推送数据缺失</td>
 </tr>
 <tr>
 <td align="left">142</td>
 <td align="left">%s shoule be like: 2013-12-04 00:51:13</td>
-<td align="left">时间格式应该如下： 2013-12-04 00:51:13</td>
+<td align="left">时间格式应该符合特定格式</td>
 </tr>
 <tr>
 <td align="left">143</td>
-<td align="left">%s must be a number"</td>
-<td align="left">必须是一个数字</td>
+<td align="left">%s must be a number</td>
+<td align="left">必须是数字</td>
 </tr>
 <tr>
 <td align="left">144</td>
 <td align="left">%s cannot before now</td>
-<td align="left">不能是之前的时间</td>
+<td align="left">不能是过去的时间</td>
 </tr>
 <tr>
 <td align="left">145</td>
@@ -944,13 +938,13 @@
 </tr>
 <tr>
 <td align="left">146</td>
-<td align="left">file name error</td>
-<td align="left">文件名错误</td>
+<td align="left">file name must use base64 encode before upload OR file must have suffix</td>
+<td align="left">文件名必须使用base64编码或必须有后缀名</td>
 </tr>
 <tr>
 <td align="left">147</td>
 <td align="left">file offeset error</td>
-<td align="left">文件分页上传偏移量错误</td>
+<td align="left">文件偏移量错误</td>
 </tr>
 <tr>
 <td align="left">148</td>
@@ -969,8 +963,38 @@
 </tr>
 <tr>
 <td align="left">151</td>
-<td align="left">file delete error</td>
+<td align="left">file delete error:%s</td>
 <td align="left">文件删除错误</td>
+</tr>
+<tr>
+<td align="left">152</td>
+<td align="left">file url empty</td>
+<td align="left">文件URL为空</td>
+</tr>
+<tr>
+<td align="left">153</td>
+<td align="left">file not your owned</td>
+<td align="left">不是文件所有者</td>
+</tr>
+<tr>
+<td align="left">154</td>
+<td align="left">delete all file error</td>
+<td align="left">删除所有文件错误</td>
+</tr>
+<tr>
+<td align="left">155</td>
+<td align="left">%s required</td>
+<td align="left">缺少必需的文件相关参数</td>
+</tr>
+<tr>
+<td align="left">156</td>
+<td align="left">%s not found</td>
+<td align="left">文件未找到</td>
+</tr>
+<tr>
+<td align="left">157</td>
+<td align="left">file url Invalid, please check if you had setting agent of network</td>
+<td align="left">文件URL无效，请检查网络代理设置</td>
 </tr>
 <tr>
 <td align="left">160</td>
@@ -1004,58 +1028,48 @@
 </tr>
 <tr>
 <td align="left">201</td>
-<td align="left">%s missing</td>
-<td align="left">缺失数据</td>
+<td align="left">'%s' missing.</td>
+<td align="left">缺少必需的用户信息</td>
 </tr>
 <tr>
 <td align="left">202</td>
 <td align="left">username '%s' already taken.</td>
-<td align="left">用户名已经存在</td>
+<td align="left">用户名已被使用</td>
 </tr>
 <tr>
 <td align="left">203</td>
 <td align="left">email '%s' already taken.</td>
-<td align="left">邮箱已经存在</td>
+<td align="left">邮箱已被使用</td>
 </tr>
 <tr>
 <td align="left">204</td>
-<td align="left">you must provide an email.</td>
-<td align="left">必须提供一个邮箱地址</td>
+<td align="left">you must provide an email</td>
+<td align="left">必须提供邮箱地址</td>
 </tr>
 <tr>
 <td align="left">205</td>
-<td align="left">no user found with email '%s'.</td>
-<td align="left">没有找到此邮件的用户</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">no user found with username '%s'.</td>
-<td align="left">没有找到此用户名的用户</td>
+<td align="left">no user found with email '%s'. OR no user found with username '%s'.</td>
+<td align="left">未找到对应邮箱或用户名的用户</td>
 </tr>
 <tr>
 <td align="left">206</td>
-<td align="left">User cannot be altered without sessionToken Error.</td>
-<td align="left">登录用户才能修改自己的信息。RestAPI的Http Header中没有提供sessionToken的正确值，不能修改或删除用户</td>
+<td align="left">无权限操作用户表，应用初始化时，请传入MasterKey</td>
+<td align="left">需要MasterKey才能操作用户表</td>
 </tr>
 <tr>
 <td align="left">207</td>
-<td align="left">code error.</td>
+<td align="left">code error:%s.</td>
 <td align="left">验证码错误</td>
 </tr>
 <tr>
 <td align="left">208</td>
-<td align="left">authData error.</td>
-<td align="left">authData不正确</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left">authData already linked by other user.</td>
-<td align="left">authData已经绑定了其他用户账户</td>
+<td align="left">authData error OR authData already linked by other user</td>
+<td align="left">第三方账号认证数据错误或已被其他用户关联</td>
 </tr>
 <tr>
 <td align="left">209</td>
 <td align="left">mobilePhoneNumber '%s' already taken.</td>
-<td align="left">该手机号码已经存在</td>
+<td align="left">手机号已被使用</td>
 </tr>
 <tr>
 <td align="left">210</td>
@@ -1063,312 +1077,464 @@
 <td align="left">旧密码不正确</td>
 </tr>
 <tr>
+<td align="left">211</td>
+<td align="left">用户请先登录，或者用户登录已过期需要重新登录</td>
+<td align="left">用户未登录或登录已过期</td>
+</tr>
+<tr>
+<td align="left">232</td>
+<td align="left">支付服务不可用</td>
+<td align="left">支付功能暂不可用</td>
+</tr>
+<tr>
+<td align="left">233</td>
+<td align="left">该api接口已停用</td>
+<td align="left">API接口已停用</td>
+</tr>
+<tr>
+<td align="left">234</td>
+<td align="left">没有支付权限，请联系bmob工作人员</td>
+<td align="left">无支付权限</td>
+</tr>
+<tr>
+<td align="left">235</td>
+<td align="left">获取支付权限错误:%s</td>
+<td align="left">获取支付权限失败</td>
+</tr>
+<tr>
+<td align="left">236</td>
+<td align="left">请在设置-&gt;应用配置中填写相关的信息</td>
+<td align="left">需要配置支付相关信息</td>
+</tr>
+<tr>
 <td align="left">301</td>
-<td align="left">%s</td>
-<td align="left">验证错误详细提示，如邮箱格式不正确</td>
+<td align="left">%s OR this api response err:%s</td>
+<td align="left">验证错误或API响应错误</td>
 </tr>
 <tr>
 <td align="left">302</td>
 <td align="left">your app setting '%s'.</td>
-<td align="left">Bmob后台设置了应用设置值， 如'不允许SDK创建表 '</td>
+<td align="left">应用设置相关错误</td>
+</tr>
+<tr>
+<td align="left">303</td>
+<td align="left">%s is not for your wechat url.</td>
+<td align="left">微信URL不匹配</td>
 </tr>
 <tr>
 <td align="left">310</td>
-<td align="left">%s</td>
-<td align="left">云端逻辑运行错误的详细信息</td>
+<td align="left">call cloudcode error:%s</td>
+<td align="left">调用云代码错误</td>
 </tr>
 <tr>
 <td align="left">311</td>
 <td align="left">invalid cloudcode name: %s.</td>
-<td align="left">云端逻辑名称是大小写敏感的，且必须以英文字母开头，有效的字符仅限在英文字母、数字以及下划线。</td>
+<td align="left">云代码名称格式错误</td>
+</tr>
+<tr>
+<td align="left">312</td>
+<td align="left">请传入云代码</td>
+<td align="left">缺少云代码</td>
+</tr>
+<tr>
+<td align="left">313</td>
+<td align="left">update cloudcode err: %s</td>
+<td align="left">更新云代码错误</td>
+</tr>
+<tr>
+<td align="left">314</td>
+<td align="left">该云端代码不存在，没法删除</td>
+<td align="left">云代码不存在</td>
+</tr>
+<tr>
+<td align="left">315</td>
+<td align="left">删除云端代码错误: %s</td>
+<td align="left">删除云代码失败</td>
+</tr>
+<tr>
+<td align="left">316</td>
+<td align="left">生成云端代码文件错误: %s</td>
+<td align="left">生成云代码文件失败</td>
+</tr>
+<tr>
+<td align="left">317</td>
+<td align="left">调用容器错误: %s</td>
+<td align="left">容器调用失败</td>
+</tr>
+<tr>
+<td align="left">318</td>
+<td align="left">往redis中写入新版云端代码错误: %s OR get cloudcode config error</td>
+<td align="left">Redis写入云代码错误或获取云代码配置失败</td>
+</tr>
+<tr>
+<td align="left">319</td>
+<td align="left">获取云端代码列表错误: %s OR 获取云端代码错误: %s</td>
+<td align="left">获取云代码列表或具体云代码失败</td>
+</tr>
+<tr>
+<td align="left">320</td>
+<td align="left">解析云端代码错误: %s</td>
+<td align="left">解析云代码失败</td>
+</tr>
+<tr>
+<td align="left">321</td>
+<td align="left">保存错误，代码中包含未支持的javascript对象</td>
+<td align="left">不支持的JavaScript对象</td>
+</tr>
+<tr>
+<td align="left">322</td>
+<td align="left">更新云端代码失败: %s</td>
+<td align="left">更新Java云代码失败</td>
+</tr>
+<tr>
+<td align="left">323</td>
+<td align="left">删除云端代码失败: %s</td>
+<td align="left">删除Java云代码失败</td>
+</tr>
+<tr>
+<td align="left">324</td>
+<td align="left">数据钩子错误: %s</td>
+<td align="left">数据Hook错误</td>
+</tr>
+<tr>
+<td align="left">330</td>
+<td align="left">推送服务只有付费才能使用</td>
+<td align="left">推送服务需付费使用</td>
 </tr>
 <tr>
 <td align="left">401</td>
 <td align="left">unique index cannot has duplicate value: %s</td>
-<td align="left">唯一键不能存在重复的值</td>
+<td align="left">唯一索引不能有重复值</td>
 </tr>
 <tr>
 <td align="left">402</td>
 <td align="left">query where larger than %d bytes.</td>
-<td align="left">查询的wher语句长度大于具体多少个字节</td>
+<td align="left">查询条件超出字节限制</td>
+</tr>
+<tr>
+<td align="left">501</td>
+<td align="left">you are forbidden.</td>
+<td align="left">用户被禁止访问</td>
 </tr>
 <tr>
 <td align="left">601</td>
 <td align="left">Invalid bql:%s</td>
-<td align="left">不正确的BQL查询语句</td>
-</tr>
-</tbody>
-</table>
-<h2 id="vip">VIP付费限制相关错误码<a class="headerlink" href="#vip" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th align="left">错误码</th>
-<th align="left">内容</th>
-<th align="left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">1002</td>
-<td align="left">Tables of the app can create has reached to limit</td>
-<td align="left">该应用能创建的表数已达到限制</td>
+<td align="left">BQL查询语句错误</td>
 </tr>
 <tr>
-<td align="left">1003</td>
-<td align="left">Rows of the table can add has reached to limit</td>
-<td align="left">该表的行数已达到限制</td>
+<td align="left">10001</td>
+<td align="left">%s required.</td>
+<td align="left">支付相关参数缺失</td>
 </tr>
 <tr>
-<td align="left">1004</td>
-<td align="left">Fields of the table can add has reached to limit</td>
-<td align="left">该表的列数已达到限制</td>
+<td align="left">10002</td>
+<td align="left">order_no not exists. OR order_no not own by your app.</td>
+<td align="left">订单号不存在或不属于当前应用</td>
 </tr>
 <tr>
-<td align="left">1005</td>
-<td align="left">Request api of the this month has reached to limit</td>
-<td align="left">每月api请求数量已达到限制</td>
+<td align="left">10003</td>
+<td align="left">%s.</td>
+<td align="left">支付相关错误</td>
 </tr>
 <tr>
-<td align="left">1006</td>
-<td align="left">Crontab jobs of the app has reached to limit</td>
-<td align="left">该应用能创建定时任务数已达到限制</td>
+<td align="left">10004</td>
+<td align="left">shengfu pay err: %s.</td>
+<td align="left">盛付通支付错误</td>
 </tr>
 <tr>
-<td align="left">1007</td>
-<td align="left">CloudCodes of the app has reached to limit</td>
-<td align="left">该应用能创建云端逻辑数已达到限制</td>
+<td align="left">10005</td>
+<td align="left">shengfu pay add mysql row err: %s.</td>
+<td align="left">盛付通支付数据存储错误</td>
 </tr>
 <tr>
-<td align="left">1500</td>
-<td align="left">The file is larger than file size you can upload</td>
-<td align="left">你上传的文件大小已超出限制</td>
+<td align="left">10006</td>
+<td align="left">该功能仅供专业版以及以上套餐的应用使用。</td>
+<td align="left">需要专业版及以上套餐</td>
 </tr>
-</tbody>
-</table>
-<h2 id="_1">短信功能相关错误码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>短信功能包含的错误码，除了包括以上的109, 207, 209 状态码外，还定义了以下错误码：</p>
-<table>
-<thead>
 <tr>
-<th align="left">错误码</th>
-<th align="left">内容</th>
-<th align="left">含义</th>
+<td align="left">10007</td>
+<td align="left">%s</td>
+<td align="left">通用错误信息</td>
 </tr>
-</thead>
-<tbody>
+<tr>
+<td align="left">10008</td>
+<td align="left">%s</td>
+<td align="left">应用禁用相关错误</td>
+</tr>
 <tr>
 <td align="left">10010</td>
 <td align="left">mobile '%s' send message limited.</td>
-<td align="left">该手机号发送短信达到限制(对于一个应用来说，一天给同<br/>一手机号发送短信不能超过10条，一小时给同一手机号发<br/>送短信不能超过5条，一分钟给同一手机号发送短信不能超过1条)</td>
+<td align="left">短信发送达到限制</td>
 </tr>
 <tr>
 <td align="left">10011</td>
-<td align="left">no remaining number for send messages.</td>
-<td align="left">该账户无可用的发送短信条数</td>
+<td align="left">sdk短信已用完</td>
+<td align="left">SDK短信余额不足</td>
 </tr>
 <tr>
 <td align="left">10012</td>
-<td align="left">your credit info must verify ok.</td>
-<td align="left">身份信息必须审核通过才能使用该功能</td>
+<td align="left">实名验证未审核通过 OR 用户redis信息异常 OR 用户状态异常 OR 应用支付截图未审核通过</td>
+<td align="left">用户认证或状态相关错误</td>
 </tr>
 <tr>
 <td align="left">10013</td>
 <td align="left">sms content illegal.</td>
-<td align="left">非法短信内容</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_2">支付功能错误码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th align="left">错误码</th>
-<th align="left">模块</th>
-<th align="left">内容</th>
-<th align="left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">-1</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">微信返回的错误码，可能是未安装微信，也可能是微信没获得网络权限等</td>
+<td align="left">短信内容非法</td>
 </tr>
 <tr>
-<td align="left">-2</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">微信支付用户中断操作</td>
+<td align="left">10014</td>
+<td align="left">sms content contain url.</td>
+<td align="left">短信内容包含URL</td>
 </tr>
 <tr>
-<td align="left">-3</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">未安装支付插件</td>
+<td align="left">10015</td>
+<td align="left">illegal content.</td>
+<td align="left">内容非法</td>
 </tr>
 <tr>
-<td align="left">102</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">设置了安全验证，但是签名或IP不对</td>
+<td align="left">10016</td>
+<td align="left">deviceId is empty OR restful短信已用完</td>
+<td align="left">设备ID为空或RESTful短信用完</td>
 </tr>
 <tr>
-<td align="left">6001</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">支付宝支付用户中断操作</td>
+<td align="left">10017</td>
+<td align="left">your device: %s send sms reach limit</td>
+<td align="left">设备发送短信达到限制</td>
 </tr>
 <tr>
-<td align="left">4000</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">支付宝支付出错，可能是参数有问题</td>
+<td align="left">10018</td>
+<td align="left">smsId:%s not found</td>
+<td align="left">短信ID不存在</td>
 </tr>
 <tr>
-<td align="left">1111</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">解析服务器返回的数据出错，可能是提交参数有问题</td>
+<td align="left">10019</td>
+<td align="left">%s format is not 2006-01-02 15:04:05</td>
+<td align="left">时间格式错误</td>
 </tr>
 <tr>
-<td align="left">2222</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">服务器端返回参数出错，可能是提交的参数有问题（如查询的订单号不存在）</td>
+<td align="left">10020</td>
+<td align="left">%s must out of 10 minutes from now OR not found apps</td>
+<td align="left">时间必须超过当前10分钟或未找到应用</td>
 </tr>
 <tr>
-<td align="left">3333</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">解析服务器数据出错，可能是提交参数有问题</td>
+<td align="left">10021</td>
+<td align="left">该应用不允许调用自定义短信接口 OR not found app</td>
+<td align="left">不允许自定义短信或未找到应用</td>
 </tr>
 <tr>
-<td align="left">5277</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">查询订单号时未输入订单号</td>
+<td align="left">10022</td>
+<td align="left">模板:%s 不存在</td>
+<td align="left">短信模板不存在</td>
 </tr>
 <tr>
-<td align="left">7777</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">微信客户端未安装</td>
+<td align="left">10030</td>
+<td align="left">app name is needed</td>
+<td align="left">应用名称必需</td>
 </tr>
 <tr>
-<td align="left">8888</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">微信客户端版本不支持微信支付</td>
+<td align="left">10031</td>
+<td align="left">create app error</td>
+<td align="left">创建应用失败</td>
 </tr>
 <tr>
-<td align="left">9010</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">网络异常，可能是没有给应用网络权限</td>
+<td align="left">10032</td>
+<td align="left">app name %s is large than 30 characters</td>
+<td align="left">应用名称超过30字符</td>
 </tr>
 <tr>
-<td align="left">10003</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">商品名或详情不符合微信/支付宝的规定（如微信商品名不可以超过42个中文）</td>
+<td align="left">10034</td>
+<td align="left">app name %v is not string</td>
+<td align="left">应用名称必须是字符串</td>
 </tr>
 <tr>
-<td align="left">10777</td>
-<td align="left">Android</td>
-<td align="left"></td>
-<td align="left">上次发起的请求还未处理完成，禁止下次请求，可用BP.ForceFree()解除</td>
+<td align="left">10035</td>
+<td align="left">field: %v value: %v is not right</td>
+<td align="left">字段值不正确</td>
 </tr>
 <tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">10037</td>
+<td align="left">create app is limit</td>
+<td align="left">创建应用达到限制</td>
 </tr>
 <tr>
-<td align="left">4000</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">支付类型错误，请填写 BmobAlipay</td>
+<td align="left">10038</td>
+<td align="left">update app info error</td>
+<td align="left">更新应用信息失败</td>
 </tr>
 <tr>
-<td align="left">4001</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">解析服务器返回的数据出错，可能是提交参数有问题</td>
+<td align="left">10039</td>
+<td align="left">app name is empty</td>
+<td align="left">应用名称为空</td>
 </tr>
 <tr>
-<td align="left">4002</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">查询不到订单号，请在支付回调执行后查询</td>
+<td align="left">10040</td>
+<td align="left">not allow sdk create or delete column</td>
+<td align="left">不允许SDK创建或删除列</td>
 </tr>
 <tr>
-<td align="left">4004</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">网络错误，请检查网络</td>
+<td align="left">10041</td>
+<td align="left">app name can not start with _,limit 20 characters</td>
+<td align="left">应用名称不能以_开头且限制20字符</td>
 </tr>
 <tr>
-<td align="left">4005</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">支付宝未安装，或者没有配置 info.plist 参数</td>
+<td align="left">10042</td>
+<td align="left">file name can not contain back slash,file name:%s</td>
+<td align="left">文件名不能包含反斜杠</td>
 </tr>
 <tr>
-<td align="left">4006</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">用户执行取消付款操作</td>
+<td align="left">10050</td>
+<td align="left">new password is empty</td>
+<td align="left">新密码为空</td>
 </tr>
 <tr>
-<td align="left">4007</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">价格超出限额</td>
+<td align="left">10051</td>
+<td align="left">new password must string</td>
+<td align="left">新密码必须是字符串</td>
 </tr>
 <tr>
-<td align="left">4008</td>
-<td align="left">iOS</td>
-<td align="left"></td>
-<td align="left">获取支付参数错误，请稍后重试</td>
+<td align="left">10052</td>
+<td align="left">update password err:%v</td>
+<td align="left">更新密码错误</td>
 </tr>
 <tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">10061</td>
+<td align="left">master key Err</td>
+<td align="left">主密钥错误</td>
 </tr>
 <tr>
-<td align="left">150</td>
-<td align="left">REST API</td>
-<td align="left">order_no is null.</td>
-<td align="left">订单号是空的.</td>
+<td align="left">10062</td>
+<td align="left">class name mismatch between %s and %s</td>
+<td align="left">类名不匹配</td>
 </tr>
 <tr>
-<td align="left">10001</td>
-<td align="left">REST API</td>
-<td align="left">%s required</td>
-<td align="left">有些项是必填的</td>
+<td align="left">10063</td>
+<td align="left">field: %s is reserve</td>
+<td align="left">字段名是保留字</td>
 </tr>
 <tr>
-<td align="left">10002</td>
-<td align="left">REST API</td>
-<td align="left">order_no not exists.</td>
-<td align="left">你要查询的订单号不存在.</td>
+<td align="left">10064</td>
+<td align="left">field: %s is exists</td>
+<td align="left">字段已存在</td>
 </tr>
 <tr>
-<td align="left">10003</td>
-<td align="left">REST API</td>
-<td align="left">%s.</td>
-<td align="left">详细错误信息，如微信或支付宝返回的详细错误.</td>
+<td align="left">10065</td>
+<td align="left">TargetClass %s need className</td>
+<td align="left">目标类需要类名</td>
 </tr>
 <tr>
-<td align="left">10004</td>
-<td align="left">REST API</td>
-<td align="left">%s.</td>
-<td align="left">详细错误信息，如微信或支付宝返回的详细错误.</td>
+<td align="left">10066</td>
+<td align="left">%s TargetClass %s not exist</td>
+<td align="left">目标类不存在</td>
+</tr>
+<tr>
+<td align="left">10067</td>
+<td align="left">save schemas err</td>
+<td align="left">保存数据表结构失败</td>
+</tr>
+<tr>
+<td align="left">10068</td>
+<td align="left">schemas save field err</td>
+<td align="left">保存字段失败</td>
+</tr>
+<tr>
+<td align="left">10069</td>
+<td align="left">schemas type %s not exist</td>
+<td align="left">数据类型不存在</td>
+</tr>
+<tr>
+<td align="left">10070</td>
+<td align="left">op %s not suppport</td>
+<td align="left">不支持的操作</td>
+</tr>
+<tr>
+<td align="left">10071</td>
+<td align="left">field: %s is not exist</td>
+<td align="left">字段不存在</td>
+</tr>
+<tr>
+<td align="left">10072</td>
+<td align="left">schemas delete field err</td>
+<td align="left">删除字段失败</td>
+</tr>
+<tr>
+<td align="left">10073</td>
+<td align="left">user schema is not permit</td>
+<td align="left">不允许修改用户表结构</td>
+</tr>
+<tr>
+<td align="left">10074</td>
+<td align="left">delete schema err</td>
+<td align="left">删除数据表结构失败</td>
+</tr>
+<tr>
+<td align="left">10075</td>
+<td align="left">unique may already existed</td>
+<td align="left">唯一索引可能已存在</td>
+</tr>
+<tr>
+<td align="left">10076</td>
+<td align="left">Qps beyond the limit: %v,%v,%v OR Cloudcode Qps beyond the limit: %d, %d, %s</td>
+<td align="left">QPS超出限制</td>
+</tr>
+<tr>
+<td align="left">10080</td>
+<td align="left">register validate err: %s</td>
+<td align="left">注册验证错误</td>
+</tr>
+<tr>
+<td align="left">10081</td>
+<td align="left">register err</td>
+<td align="left">注册失败</td>
+</tr>
+<tr>
+<td align="left">10082</td>
+<td align="left">ForgetPwd err</td>
+<td align="left">忘记密码操作失败</td>
+</tr>
+<tr>
+<td align="left">10083</td>
+<td align="left">email '%s' not exist.</td>
+<td align="left">邮箱不存在</td>
+</tr>
+<tr>
+<td align="left">10084</td>
+<td align="left">Since the last backpu less than two hours</td>
+<td align="left">距离上次备份不足两小时</td>
+</tr>
+<tr>
+<td align="left">10085</td>
+<td align="left">Since the last restore less than a day</td>
+<td align="left">距离上次恢复不足一天</td>
+</tr>
+<tr>
+<td align="left">10086</td>
+<td align="left">no backup one</td>
+<td align="left">没有备份</td>
+</tr>
+<tr>
+<td align="left">10090</td>
+<td align="left">cloudcode_is_migration not exist.</td>
+<td align="left">云代码迁移标记不存在</td>
+</tr>
+<tr>
+<td align="left">10091</td>
+<td align="left">set cloudcode docker flag err: %s</td>
+<td align="left">设置云代码Docker标记失败</td>
+</tr>
+<tr>
+<td align="left">10100</td>
+<td align="left">今天微信发送的消息已超过规定的%d次</td>
+<td align="left">微信消息发送超出限制</td>
+</tr>
+<tr>
+<td align="left">10200</td>
+<td align="left">请求过程中网络超时</td>
+<td align="left">网络请求超时</td>
+</tr>
+<tr>
+<td align="left">10210</td>
+<td align="left">应用半小时内超过了请求数限制</td>
+<td align="left">应用请求数超出限制</td>
 </tr>
 </tbody>
 </table>
