@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BmobImage Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BmobSDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">bmob</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/cutImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:">+ cutImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:</option>
+		
+		<option value="//api/name/thumbnailImageBySpecifiesTheHeight:quality:sourceImageUrl:outputType:resultBlock:">+ thumbnailImageBySpecifiesTheHeight:quality:sourceImageUrl:outputType:resultBlock:</option>
+		
+		<option value="//api/name/thumbnailImageBySpecifiesTheLength:quality:sourceImageUrl:outputType:resultBlock:">+ thumbnailImageBySpecifiesTheLength:quality:sourceImageUrl:outputType:resultBlock:</option>
+		
+		<option value="//api/name/thumbnailImageBySpecifiesTheShort:quality:sourceImageUrl:outputType:resultBlock:">+ thumbnailImageBySpecifiesTheShort:quality:sourceImageUrl:outputType:resultBlock:</option>
+		
+		<option value="//api/name/thumbnailImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:">+ thumbnailImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:</option>
+		
+		<option value="//api/name/thumbnailImageBySpecifiesTheWidth:quality:sourceImageUrl:outputType:resultBlock:">+ thumbnailImageBySpecifiesTheWidth:quality:sourceImageUrl:outputType:resultBlock:</option>
+		
+		<option value="//api/name/watermarkImageWithSourceImageUrl:watermarkImageUrl:dissolve:direction:x:y:outputType:resultBlock:">+ watermarkImageWithSourceImageUrl:watermarkImageUrl:dissolve:direction:x:y:outputType:resultBlock:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BmobImage Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>BmobImage.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/thumbnailImageBySpecifiesTheWidth:quality:sourceImageUrl:outputType:resultBlock:" title="thumbnailImageBySpecifiesTheWidth:quality:sourceImageUrl:outputType:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/thumbnailImageBySpecifiesTheWidth:quality:sourceImageUrl:outputType:resultBlock:">+&nbsp;thumbnailImageBySpecifiesTheWidth:quality:sourceImageUrl:outputType:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>指定宽， 高自适应，等比例缩放</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)thumbnailImageBySpecifiesTheWidth:(NSInteger)<em>width</em> quality:(NSInteger)<em>quality</em> sourceImageUrl:(NSString *)<em>imageUrl</em> outputType:(BmobImageOutputType)<em>type</em> resultBlock:(BmobIdResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>width</code></th>
+						<td><p>限定图片的宽度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>图片的质量1~100</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>imageUrl</code></th>
+						<td><p>原图片的地址</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>返回类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成返回结果和信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobImage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/thumbnailImageBySpecifiesTheHeight:quality:sourceImageUrl:outputType:resultBlock:" title="thumbnailImageBySpecifiesTheHeight:quality:sourceImageUrl:outputType:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/thumbnailImageBySpecifiesTheHeight:quality:sourceImageUrl:outputType:resultBlock:">+&nbsp;thumbnailImageBySpecifiesTheHeight:quality:sourceImageUrl:outputType:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>指定高， 宽自适应，等比例缩放</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)thumbnailImageBySpecifiesTheHeight:(NSInteger)<em>height</em> quality:(NSInteger)<em>quality</em> sourceImageUrl:(NSString *)<em>imageUrl</em> outputType:(BmobImageOutputType)<em>type</em> resultBlock:(BmobIdResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>height</code></th>
+						<td><p>限定图片的高度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>图片的质量1~100</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>imageUrl</code></th>
+						<td><p>原图片的地址</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>返回类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成的BmobFile文件，及错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobImage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/thumbnailImageBySpecifiesTheLength:quality:sourceImageUrl:outputType:resultBlock:" title="thumbnailImageBySpecifiesTheLength:quality:sourceImageUrl:outputType:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/thumbnailImageBySpecifiesTheLength:quality:sourceImageUrl:outputType:resultBlock:">+&nbsp;thumbnailImageBySpecifiesTheLength:quality:sourceImageUrl:outputType:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>指定最长边，短边自适应，等比例缩放</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)thumbnailImageBySpecifiesTheLength:(NSInteger)<em>longEdge</em> quality:(NSInteger)<em>quality</em> sourceImageUrl:(NSString *)<em>imageUrl</em> outputType:(BmobImageOutputType)<em>type</em> resultBlock:(BmobIdResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>longEdge</code></th>
+						<td><p>指定图片的最长边的大小</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>图片的质量1~100</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>imageUrl</code></th>
+						<td><p>原图片的地址</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>返回类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成的BmobFile文件，及错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobImage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/thumbnailImageBySpecifiesTheShort:quality:sourceImageUrl:outputType:resultBlock:" title="thumbnailImageBySpecifiesTheShort:quality:sourceImageUrl:outputType:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/thumbnailImageBySpecifiesTheShort:quality:sourceImageUrl:outputType:resultBlock:">+&nbsp;thumbnailImageBySpecifiesTheShort:quality:sourceImageUrl:outputType:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>指定最短边，长边自适应，等比例缩放</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)thumbnailImageBySpecifiesTheShort:(NSInteger)<em>shortEdge</em> quality:(NSInteger)<em>quality</em> sourceImageUrl:(NSString *)<em>imageUrl</em> outputType:(BmobImageOutputType)<em>type</em> resultBlock:(BmobIdResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>shortEdge</code></th>
+						<td><p>指定图片的最短边的大小</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>图片的质量1~100</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>imageUrl</code></th>
+						<td><p>原图片的地址</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>返回类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成的BmobFile文件，及错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobImage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/thumbnailImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:" title="thumbnailImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/thumbnailImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:">+&nbsp;thumbnailImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>指定最大宽高， 等比例缩放</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)thumbnailImageBySpecifiesTheWidth:(NSInteger)<em>width</em> height:(NSInteger)<em>height</em> quality:(NSInteger)<em>quality</em> sourceImageUrl:(NSString *)<em>imageUrl</em> outputType:(BmobImageOutputType)<em>type</em> resultBlock:(BmobIdResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>width</code></th>
+						<td><p>指定宽度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>height</code></th>
+						<td><p>指定高度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>图片的质量1~100</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>imageUrl</code></th>
+						<td><p>原图片的地址</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>返回类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成的BmobFile文件，及错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobImage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cutImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:" title="cutImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cutImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:">+&nbsp;cutImageBySpecifiesTheWidth:height:quality:sourceImageUrl:outputType:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>固定宽高， 居中裁剪</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)cutImageBySpecifiesTheWidth:(NSInteger)<em>width</em> height:(NSInteger)<em>height</em> quality:(NSInteger)<em>quality</em> sourceImageUrl:(NSString *)<em>imageUrl</em> outputType:(BmobImageOutputType)<em>type</em> resultBlock:(BmobIdResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>width</code></th>
+						<td><p>指定要裁剪的宽度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>height</code></th>
+						<td><p>指定要裁剪的高度</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>quality</code></th>
+						<td><p>图片的质量1~100</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>imageUrl</code></th>
+						<td><p>原图片的地址</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>返回类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成的BmobFile文件，及错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobImage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/watermarkImageWithSourceImageUrl:watermarkImageUrl:dissolve:direction:x:y:outputType:resultBlock:" title="watermarkImageWithSourceImageUrl:watermarkImageUrl:dissolve:direction:x:y:outputType:resultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/watermarkImageWithSourceImageUrl:watermarkImageUrl:dissolve:direction:x:y:outputType:resultBlock:">+&nbsp;watermarkImageWithSourceImageUrl:watermarkImageUrl:dissolve:direction:x:y:outputType:resultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>图片添加水印</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)watermarkImageWithSourceImageUrl:(NSString *)<em>sourceImageUrl</em> watermarkImageUrl:(NSString *)<em>watermarkImageUrl</em> dissolve:(NSInteger)<em>dissolve</em> direction:(BmobWatermarkDirection)<em>direction</em> x:(NSInteger)<em>x</em> y:(NSInteger)<em>y</em> outputType:(BmobImageOutputType)<em>type</em> resultBlock:(BmobIdResultBlock)<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sourceImageUrl</code></th>
+						<td><p>原图的路径</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>watermarkImageUrl</code></th>
+						<td><p>水印图的路径</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dissolve</code></th>
+						<td><p>透明度,范围在0-255</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>direction</code></th>
+						<td><p>水印的位置</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>x</code></th>
+						<td><p>横轴边距，单位为像素，缺省为10</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>y</code></th>
+						<td><p>纵轴边距，单位为像素，缺省为10</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>返回类型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>生成的BmobFile文件，及错误信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobImage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 bmob. All rights reserved. Updated: 2015-10-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
