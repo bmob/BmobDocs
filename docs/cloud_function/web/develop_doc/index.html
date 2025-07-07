@@ -575,6 +575,42 @@
 												
 											</li>
 												
+											<li class=""><a href="#redis">Redis 操作对象</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#redis_1">初始化 Redis 实例</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_35">操作文档</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#string">字符串 (String) 操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#hash">哈希 (Hash) 操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#list">列表 (List) 操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#set">集合 (Set) 操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_36">通用操作</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_37">最佳实践提示</a></li>
+												</ul>
+												
+											</li>
+												
 											<li class=""><a href="#http_1">HTTP请求对象</a>
 												
 											</li>
@@ -583,7 +619,7 @@
 												
 											</li>
 												
-											<li class=""><a href="#_35">事件对象</a>
+											<li class=""><a href="#_38">事件对象</a>
 												
 											</li>
 												
@@ -607,26 +643,26 @@
 												
 											</li>
 												
-											<li class=""><a href="#_36">时间格式化类</a>
+											<li class=""><a href="#_39">时间格式化类</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_37">格式化示例</a></li>
+													<li><a class="itm-l2" href="#_40">格式化示例</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_38">相对时间</a></li>
+													<li><a class="itm-l2" href="#_41">相对时间</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_39">日历时间</a></li>
+													<li><a class="itm-l2" href="#_42">日历时间</a></li>
 												</ul>
 												
 											</li>
 												
-											<li class=""><a href="#_40">云函数调试工具</a>
+											<li class=""><a href="#_43">云函数调试工具</a>
 												
 												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_41">网页在线调试工具</a></li>
+													<li><a class="itm-l2" href="#_44">网页在线调试工具</a></li>
 												</ul>
 												
 												<ul class="nav nav-l2">
@@ -635,11 +671,11 @@
 												
 											</li>
 												
-											<li class=""><a href="#_42">错误对象</a>
+											<li class=""><a href="#_45">错误对象</a>
 												
 											</li>
 												
-											<li class=""><a href="#_43">日志对象</a>
+											<li class=""><a href="#_46">日志对象</a>
 												
 											</li>
 												
@@ -1528,15 +1564,256 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 
 </code></pre>
 
+<h2 id="redis">Redis 操作对象<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h2>
+<p>基于 Bmob 云函数的 Redis 模块 - Promise then 方式</p>
+<h3 id="redis_1">初始化 Redis 实例<a class="headerlink" href="#redis_1" title="Permanent link">&para;</a></h3>
+<p>所有操作前需要先初始化 Redis 实例：</p>
+<pre><code class="js">const redis = modules.oRedis;
+</code></pre>
+
+<h3 id="_35">操作文档<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<h3 id="string">字符串 (String) 操作<a class="headerlink" href="#string" title="Permanent link">&para;</a></h3>
+<h4 id="setkey-value-expireseconds">set(key, value, [expireSeconds])<a class="headerlink" href="#setkey-value-expireseconds" title="Permanent link">&para;</a></h4>
+<p>设置键值对，可设置过期时间</p>
+<pre><code class="js">// 设置普通键值
+redis.set('username', 'JohnDoe')
+  .then(function(reply) {
+    console.log('设置成功:', reply); // 'OK'
+  });
+
+// 设置带过期时间的键值（30秒）
+redis.set('session_token', 'abc123xyz', 30)
+  .then(function(reply) {
+    console.log('带过期时间的设置成功');
+  });
+</code></pre>
+
+<h4 id="getkey">get(key)<a class="headerlink" href="#getkey" title="Permanent link">&para;</a></h4>
+<p>获取键对应的值</p>
+<pre><code class="js">redis.get('username')
+  .then(function(value) {
+    if (value === null) {
+      console.log('键不存在');
+    } else {
+      console.log('用户名:', value); // 'JohnDoe'
+    }
+  })
+  .catch(function(error) {
+    console.error('获取失败:', error);
+  });
+</code></pre>
+
+<h3 id="hash">哈希 (Hash) 操作<a class="headerlink" href="#hash" title="Permanent link">&para;</a></h3>
+<h4 id="hsetkey-field-value">hset(key, field, value)<a class="headerlink" href="#hsetkey-field-value" title="Permanent link">&para;</a></h4>
+<p>设置哈希字段的值</p>
+<pre><code class="js">redis.hset('user:1000', 'email', 'user@example.com')
+  .then(function(result) {
+    console.log('字段设置:', result ? '成功' : '失败');
+  });
+</code></pre>
+
+<h4 id="hgetkey-field">hget(key, field)<a class="headerlink" href="#hgetkey-field" title="Permanent link">&para;</a></h4>
+<p>获取哈希字段的值</p>
+<pre><code class="js">redis.hget('user:1000', 'email')
+  .then(function(value) {
+    console.log('用户邮箱:', value);
+  });
+</code></pre>
+
+<h4 id="hgetallkey">hgetall(key)<a class="headerlink" href="#hgetallkey" title="Permanent link">&para;</a></h4>
+<p>获取哈希的所有字段和值</p>
+<pre><code class="js">redis.hgetall('user:1000')
+  .then(function(userData) {
+    if (userData) {
+      console.log('用户数据:', userData);
+      // 输出: { email: 'user@example.com', name: 'John' }
+    } else {
+      console.log('用户数据不存在');
+    }
+  });
+</code></pre>
+
+<h3 id="list">列表 (List) 操作<a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
+<h4 id="lpushkey-values">lpush(key, ...values)<a class="headerlink" href="#lpushkey-values" title="Permanent link">&para;</a></h4>
+<p>从列表左侧插入元素</p>
+<pre><code class="js">redis.lpush('tasks', 'task1', 'task2', 'task3')
+  .then(function(length) {
+    console.log('当前列表长度:', length);
+  });
+</code></pre>
+
+<h4 id="rpushkey-values">rpush(key, ...values)<a class="headerlink" href="#rpushkey-values" title="Permanent link">&para;</a></h4>
+<p>从列表右侧插入元素</p>
+<pre><code class="js">redis.rpush('messages', 'msg1', 'msg2')
+  .then(function(length) {
+    console.log('新增消息后长度:', length);
+  });
+</code></pre>
+
+<h4 id="lrangekey-start-stop">lrange(key, start, stop)<a class="headerlink" href="#lrangekey-start-stop" title="Permanent link">&para;</a></h4>
+<p>获取列表指定范围的元素</p>
+<pre><code class="js">// 获取所有元素 (0 到 -1)
+redis.lrange('tasks', 0, -1)
+  .then(function(tasks) {
+    console.log('所有任务:', tasks);
+  });
+
+// 获取前5个元素
+redis.lrange('messages', 0, 4)
+  .then(function(recentMessages) {
+    console.log('最近5条消息:', recentMessages);
+  });
+</code></pre>
+
+<h4 id="lpopkey">lpop(key)<a class="headerlink" href="#lpopkey" title="Permanent link">&para;</a></h4>
+<p>从列表左侧弹出一个元素</p>
+<pre><code class="js">redis.lpop('tasks')
+  .then(function(value) {
+    if (value === null) {
+      console.log('列表为空');
+    } else {
+      console.log('弹出的元素:', value);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+</code></pre>
+
+<h4 id="rpopkey">rpop(key)<a class="headerlink" href="#rpopkey" title="Permanent link">&para;</a></h4>
+<p>从列表右侧弹出一个元素</p>
+<pre><code class="js">redis.rpop('messages')
+  .then(function(value) {
+    if (value === null) {
+      console.log('列表为空');
+    } else {
+      console.log('弹出的元素:', value);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+</code></pre>
+
+<h3 id="set">集合 (Set) 操作<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
+<h4 id="saddkey-members">sadd(key, ...members)<a class="headerlink" href="#saddkey-members" title="Permanent link">&para;</a></h4>
+<p>向集合添加元素</p>
+<pre><code class="js">redis.sadd('user:1000:tags', 'VIP', 'Premium', 'NewUser')
+  .then(function(count) {
+    console.log('成功添加标签数:', count);
+  });
+</code></pre>
+
+<h4 id="smemberskey">smembers(key)<a class="headerlink" href="#smemberskey" title="Permanent link">&para;</a></h4>
+<p>获取集合的所有元素</p>
+<pre><code class="js">redis.smembers('user:1000:tags')
+  .then(function(tags) {
+    console.log('用户标签:', tags);
+    // 输出: ['VIP', 'Premium', 'NewUser']
+  });
+</code></pre>
+
+<h4 id="spopkey-count">spop(key, [count])<a class="headerlink" href="#spopkey-count" title="Permanent link">&para;</a></h4>
+<p>从集合中随机弹出一个或多个元素</p>
+<pre><code class="js">// 弹出一个元素
+redis.spop('user:1000:tags')
+  .then(function(value) {
+    if (value === null) {
+      console.log('集合为空');
+    } else {
+      console.log('弹出的元素:', value);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+
+// 弹出多个元素
+redis.spop('user:1000:tags', 2)
+  .then(function(values) {
+    if (values.length === 0) {
+      console.log('集合为空');
+    } else {
+      console.log('弹出的元素:', values);
+    }
+  })
+  .catch(function(error) {
+    console.error('弹出失败:', error);
+  });
+</code></pre>
+
+<h3 id="_36">通用操作<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<h4 id="delkey">del(key)<a class="headerlink" href="#delkey" title="Permanent link">&para;</a></h4>
+<p>删除一个或多个键</p>
+<pre><code class="js">redis.del('temp_data')
+  .then(function(count) {
+    console.log('删除键数量:', count);
+  });
+</code></pre>
+
+<h4 id="existskey">exists(key)<a class="headerlink" href="#existskey" title="Permanent link">&para;</a></h4>
+<p>检查键是否存在</p>
+<pre><code class="js">redis.exists('user:1000')
+  .then(function(exists) {
+    if (exists) {
+      console.log('用户数据存在');
+    } else {
+      console.log('用户数据不存在');
+    }
+  });
+</code></pre>
+
+<h4 id="expirekey-seconds">expire(key, seconds)<a class="headerlink" href="#expirekey-seconds" title="Permanent link">&para;</a></h4>
+<p>设置键的过期时间</p>
+<pre><code class="js">redis.expire('session:abc', 3600) // 1小时过期
+  .then(function(success) {
+    if (success) {
+      console.log('过期时间设置成功');
+    } else {
+      console.log('键不存在，设置失败');
+    }
+  });
+</code></pre>
+
+<h4 id="quit">quit()<a class="headerlink" href="#quit" title="Permanent link">&para;</a></h4>
+<p>关闭 Redis 连接</p>
+<pre><code class="js">redis.quit()
+  .then(function() {
+    console.log('Redis连接已关闭');
+  });
+</code></pre>
+
+<h3 id="_37">最佳实践提示<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<ol>
+<li>所有 Redis 操作都返回 Promise，使用 <code>.then()</code> 处理成功结果，<code>.catch()</code> 处理错误</li>
+<li>在云函数中，不需要每次操作后都关闭连接（这个待验证）</li>
+<li>键命名使用冒号分隔的命名空间，如 <code>user:1000:profile</code></li>
+<li>存储对象时使用 <code>JSON.stringify()</code>，获取后使用 <code>JSON.parse()</code></li>
+<li>数值类型需要手动转换：<code>parseInt()</code> 或 <code>parseFloat()</code></li>
+<li>处理空值时：<code>redis.get()</code> 返回 <code>null</code> 表示键不存在</li>
+</ol>
 <h2 id="http_1">HTTP请求对象<a class="headerlink" href="#http_1" title="Permanent link">&para;</a></h2>
 <p>oHttp对象可以模拟实现get、post、put、delete等各种HTTP请求信息，让你在云端实现诸如数据采集、OAuth授权登录等功能。Bmob的HTTP请求模块采用Nodejs提供的request模块，这里提供简单的Get和Post的操作实例。更多的功能详细参考：<a href="https://npmjs.org/package/request">https://npmjs.org/package/request</a></p>
 <pre><code>/**
 *发起Get请求
 */
-//获取Http模块
-var http = modules.oHttp;
-//发起Get请求
-http('https://www.bmobapp.com', function (error, res, body) {
+const http = modules.oHttp; // HTTP 请求模块
+
+// 定义请求选项
+const options = {
+    method: 'GET',
+    url: 'https://api.example.com/data', // 示例API地址
+    headers: {
+        'Authorization': 'Bearer YOUR_ACCESS_TOKEN', // 授权令牌
+        'Content-Type': 'application/json' // 指定JSON格式
+    }
+};
+
+// 发起GET请求
+http.get(options, function (error, res, body) {
+    if (error) {
+        response.send(error);
+    }
     response.send(body);
 });
 
@@ -1600,7 +1877,7 @@ function onRequest(request, response, modules) {
 }
 </code></pre>
 
-<h2 id="_35">事件对象<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<h2 id="_38">事件对象<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
 <p>oEvent，也就是eventproxy模块，解决异步回调的问题。</p>
 <p>更多的功能详细参考：<a href="https://github.com/JacksonTian/eventproxy">https://github.com/JacksonTian/eventproxy</a></p>
 <pre><code>function onRequest(request, response, modules) {
@@ -1778,7 +2055,7 @@ function onRequest(request, response, modules) {
 }
 </code></pre>
 
-<h2 id="_36">时间格式化类<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<h2 id="_39">时间格式化类<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
 <p>获取当前时间，格式化为  <code>2022-11-18 14:36:03</code> 。</p>
 <pre><code>function onRequest(request, response, modules) {
     let moment = modules.oMoment
@@ -1787,7 +2064,7 @@ function onRequest(request, response, modules) {
 }
 </code></pre>
 
-<h3 id="_37">格式化示例<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<h3 id="_40">格式化示例<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
 <pre><code>moment().format('MMMM Do YYYY, h:mm:ss a'); // 十月 18日 2021, 2:38:27 下午
 moment().format('dddd');                    // 星期一
 moment().format(&quot;MMM Do YY&quot;);               // 10月 18日 21
@@ -1795,7 +2072,7 @@ moment().format('YYYY [escaped] YYYY');     // 2021 escaped 2021
 moment().format();                          // 2021-10-18T14:38:27+08:00
 </code></pre>
 
-<h3 id="_38">相对时间<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<h3 id="_41">相对时间<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
 <pre><code class="js">moment(&quot;20111031&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 10 年前
 moment(&quot;20120620&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 9 年前
 moment().startOf('day').fromNow();        // 15 小时前
@@ -1804,7 +2081,7 @@ moment().startOf('hour').fromNow();       // 39 分钟前
                                           // undefined
 </code></pre>
 
-<h3 id="_39">日历时间<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<h3 id="_42">日历时间<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
 <pre><code class="js">moment().subtract(10, 'days').calendar(); // 2021/10/08
 moment().subtract(6, 'days').calendar();  // 上星期二14:38
 moment().subtract(3, 'days').calendar();  // 上星期五14:38
@@ -1816,10 +2093,10 @@ moment().add(10, 'days').calendar();      // 2021/10/28
                                           // undefined
 </code></pre>
 
-<h2 id="_40">云函数调试工具<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<h2 id="_43">云函数调试工具<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<h3 id="_41">网页在线调试工具<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<h3 id="_44">网页在线调试工具<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
 </li>
 </ol>
 <p>为方便开发者调试云函数，Bmob为开发者提供了便捷的云端调试工具，你可以直接在云函数的编辑页面下对编写的代码进行调试，如实现从Bar表中查找指定objectId号（SDK中上传参数）的数据，你可以在云函数中实现如下：</p>
@@ -1844,7 +2121,7 @@ moment().add(10, 'days').calendar();      // 2021/10/28
 <p>有时我们开发的云函数，可能上百行代码，在网页不太方便，这时我们可以使用自己习惯的开发工具来编写代码，通过<strong>Bmobup</strong>命令来调试上传，Bmob平台Node、Java云函数本地开发调试工具,增加云函数开发效率，支持<code>Mac</code>,<code>Windows</code>,<code>liunx</code>系统 。它的流程会把你本地写的代码，提交到Bmob应用云函数并返回结果。</p>
 <p>项目地址：</p>
 <p>https://github.com/bmob/bmobup</p>
-<h2 id="_42">错误对象<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<h2 id="_45">错误对象<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
 <p>Bmob提供的官方模块（非第三方）的错误回调中都会有一个<code>err</code>对象，这个<code>err</code>对象包含两个属性：<code>error</code>和<code>code</code>，分别代表错误异常信息和错误代码。调用时可以简单如下使用：</p>
 <pre><code>function onRequest(request, response, modules) {
     var db = modules.oData;
@@ -1859,7 +2136,7 @@ moment().add(10, 'days').calendar();      // 2021/10/28
 }
 </code></pre>
 
-<h2 id="_43">日志对象<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<h2 id="_46">日志对象<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
 <p><strong> 这个功能已暂时停用 </strong></p>
 <p>oLog 是一个日志对象，当程序调试时，可以把对应变量的值写入日志表。</p>
 <pre><code>function onRequest(request, response, modules) {
