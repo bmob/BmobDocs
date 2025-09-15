@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
+            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
+            
+            
+            
+            <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
+            <!--
+            <title>微信支付 - Bmob文档中心</title>
+            -->
+            <title>云函数 &middot; Web – Bmob后端云 </title>  
+            
+            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+            <link href="../../../css/base.css" rel="stylesheet">
+            <link rel="stylesheet" href="../../../css/highlight.css">
+            <link href="../../../css/agate.css" rel="stylesheet">
+            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
+    </head>
+
+    <body >
+
+        <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="main-nav">
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../..">
+                <!--Bmob文档中心-->
+                <img src="../../../img/logo.png" alt="">
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            
+              <li class="pull-left">
+                
+					<a href="../../..">文档首页</a>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="">数据服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li >
+									<a href="../../../data/android/">Android</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/ios/">iOS</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/harmony/">harmony鸿蒙</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/csharp/">C#</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/php/">PHP</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/go/">GO</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/restful/">REST API</a>
+                                </li>
+                            
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">JavaScript</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/cocos2d_x/">Cocos2D-X</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">快应用</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Nodejs</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/wechat_app_new/">Cocos Creator</a>
+                                </li>
+							
+                            
+								<li >
+									<a href="../../../data/wechat_app_new/rm/">小程序</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../../data/kotlin/">Kotlin</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../data/flutter/">Flutter</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left active">
+                
+					<!--<a href="">云函数</a>-->
+					<li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+								<li class="active">
+									<a href="../">云函数开发文档</a>
+                                </li>
+                            
+                            
+                                <li >
+                                    <a href="../../android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../java/">Java</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../python/">Python</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../csharp/">C#</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../restful/">REST API</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../sms/android/">短信服务</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../sms/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/php/">PHP</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/javascript/">JavaScript</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/restful/">REST API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../sms/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../ai/android/">AI人工智能</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../ai/android/">Android</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/ios/">iOS</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/html5/">小程序</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/html5/">Html5</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/api/">API</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../ai/python/">python</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li class="pull-left">
+                
+					<!--<a href="../../../other/domain/">其他</a>-->
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+                                <li >
+                                    <a href="../../../other/domain/">域名管理</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/common_problem/">常见问题</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/error_code/">错误码</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/data_safety/">数据安全</a>
+                                </li>
+							
+                            
+                                <li >
+                                    <a href="../../../other/bql/">BQL</a>
+                                </li>
+							
+                        </ul>
+                    </li>
+                
+              </li>
+            
+              <li>
+                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
+              </li>
+              <li>
+                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
+              </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+        <div class="pagebody" id="main-wrapper">
+            <div class="sidebar">
+                <div class="bs-sidebar hidden-print affix well" role="complementary">
+
+	
+		
+	
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+					<div class="code-title">云函数开发文档</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+				
+		
+	
+		
+				
+				
+				
+				
+				
+		
+	
+
+
+	<ul class="nav bs-sidenav">
+		
+			
+		
+			
+		
+			
+				
+					
+						
+							
+								
+									<li class="">
+										<a class="itm-l1" href="../">快速入门</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../develop_doc/">开发文档</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../hook/">数据钩子</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../alipay/">支付宝支付</a>
+										
+									</li>
+								
+									<li class="active">
+										<a class="itm-l1" href="./">微信支付</a>
+										
+										<ul class="nav">
+											
+											<li class="active "><a href="#app">微信支付 App 接入教程</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_1">简介</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_2">一、前置准备</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_4">二、核心功能开发</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_7">三、微信支付云函数详细说明</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_8">四、使用注意事项</a></li>
+												</ul>
+												
+											</li>
+												
+										</ul>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../timing_tasks/">定时任务</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../weixin/">微信云函数</a>
+										
+									</li>
+								
+									<li class="">
+										<a class="itm-l1" href="../norm/">编码规范</a>
+										
+									</li>
+								
+							
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+				
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+            </div>
+            <div class="content" role="main">
+                <div class="wrap">
+                    
+
+<h1 id="app">微信支付 App 接入教程<a class="headerlink" href="#app" title="Permanent link">&para;</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本教程将引导你完成微信 App 支付功能的接入，实现以下任务：</p>
+<ul>
+<li>处理客户端发起的微信支付请求，生成预支付交易会话标识</li>
+<li>将订单信息存储在 Bmob 的 <code>pay_order_record</code> 表中</li>
+<li>接收微信支付异步通知，自动更新订单支付状态</li>
+<li>遵循微信支付开发文档规范，确保支付流程安全可靠</li>
+</ul>
+<h2 id="_2">一、前置准备<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 微信支付商户平台配置<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>1.1.1 注册 / 登录微信支付商户平台（<a href="https://pay.weixin.qq.com/">https://pay.weixin.qq.com</a>）</li>
+<li>1.1.2 完成商户认证（个体工商户或企业资质）</li>
+<li>1.1.3 开通 "App 支付" 能力（商户平台→产品中心→App 支付→开通）</li>
+<li>1.1.4 绑定 AppID（需与开发者平台的 App 应用关联）</li>
+</ul>
+<h3 id="12">1.2 密钥与证书配置<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>1.2.1 获取商户号（mchid）：商户平台首页可查看</li>
+<li>1.2.2 配置 API 密钥：</li>
+<li>路径：账户中心→API 安全→设置 API 密钥（32 位随机字符串）</li>
+<li>1.2.3 申请 API 证书：</li>
+<li>路径：账户中心→API 安全→申请 API 证书</li>
+<li>下载证书后解压，获取 <code>apiclient_cert.p12</code> 和 <code>apiclient_key.pem</code>（用于签名）</li>
+<li>1.2.4 记录证书序列号：</li>
+<li>可通过微信支付提供的证书工具提取，或在商户平台查看</li>
+</ul>
+<h3 id="13-bmob">1.3 Bmob 环境准备<a class="headerlink" href="#13-bmob" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>1.3.1 云函数创建（新建 <code>wechatPayment</code> 云函数）</p>
+</li>
+<li>
+<p>1.3.2 数据表设计（</p>
+</li>
+</ul>
+<p><code>pay_order_record</code></p>
+<p>表字段规范）</p>
+<ul>
+<li>必选字段：<code>out_trade_no</code>（商户订单号）、<code>total</code>（金额，分）、<code>pay_status</code>（支付状态）等</li>
+<li>
+<p>关联字段：<code>user_id</code>（用户 ID）、<code>goods_id</code>（商品 ID）等</p>
+</li>
+<li>
+<p>1.3.3 依赖说明：微信支付 V3 接口无需额外 SDK，直接通过 HTTP 接口调用</p>
+</li>
+</ul>
+<h3 id="14-pay_order_record">1.4 数据表设计（pay_order_record 表）<a class="headerlink" href="#14-pay_order_record" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>列注释</th>
+<th>默认值</th>
+<th>约束 / 说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>objectId</strong></td>
+<td>String</td>
+<td>订单唯一标识（Bmob 自动生成）</td>
+<td>未设置</td>
+<td>自增唯一值，内部系统订单标识</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>String</td>
+<td>用户 ID</td>
+<td>未设置</td>
+<td>关联用户表的唯一标识</td>
+</tr>
+<tr>
+<td>goods_id</td>
+<td>String</td>
+<td>商品 ID</td>
+<td>未设置</td>
+<td>关联商品表的唯一标识</td>
+</tr>
+<tr>
+<td>out_trade_no</td>
+<td>String</td>
+<td>商户订单号</td>
+<td>未设置</td>
+<td>全局唯一，格式为 <code>tzxz_用户ID_时间戳</code></td>
+</tr>
+<tr>
+<td>total</td>
+<td>Number</td>
+<td>订单金额（单位：分）</td>
+<td>0</td>
+<td>整数存储，避免浮点数精度问题</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>String</td>
+<td>金额描述（元）</td>
+<td>未设置</td>
+<td>如 "1.00 元"，用于展示</td>
+</tr>
+<tr>
+<td>pay_type</td>
+<td>Number</td>
+<td>支付方式（0：微信；1：支付宝）</td>
+<td>0</td>
+<td>默认为微信支付</td>
+</tr>
+<tr>
+<td>pay_status</td>
+<td>Number</td>
+<td>支付状态（0：未支付；1：已支付）</td>
+<td>0</td>
+<td>默认为未支付</td>
+</tr>
+<tr>
+<td>pay_status_des</td>
+<td>String</td>
+<td>支付状态描述</td>
+<td>未设置</td>
+<td>如 "已下单，未支付"、"支付成功"</td>
+</tr>
+<tr>
+<td>appid</td>
+<td>String</td>
+<td>微信应用 ID</td>
+<td>未设置</td>
+<td>关联的微信开放平台 AppID</td>
+</tr>
+<tr>
+<td>device_ip</td>
+<td>String</td>
+<td>客户端 IP 地址</td>
+<td>未设置</td>
+<td>记录下单设备 IP</td>
+</tr>
+<tr>
+<td>prepay_id</td>
+<td>String</td>
+<td>预支付交易会话标识</td>
+<td>未设置</td>
+<td>微信支付返回，用于客户端调起支付</td>
+</tr>
+<tr>
+<td>trade_no</td>
+<td>String</td>
+<td>微信支付订单号</td>
+<td>未设置</td>
+<td>支付成功后由微信回调返回</td>
+</tr>
+<tr>
+<td>pay_time</td>
+<td>Date</td>
+<td>支付时间</td>
+<td>未设置</td>
+<td>支付成功后更新，格式为 <code>YYYY-MM-DD HH:mm:ss</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_3">字段设计说明：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ol>
+<li>金额存储</li>
+</ol>
+<p>：</p>
+<ul>
+<li><code>total</code> 字段以「分」为单位存储整数（如 100 表示 1.00 元）</li>
+<li>
+<p><code>amount</code> 字段用于前端展示，存储格式化后的字符串</p>
+</li>
+<li>
+<p>订单号设计</p>
+</li>
+</ul>
+<p>：</p>
+<ul>
+<li><code>out_trade_no</code> 需全局唯一，采用 <code>tzxz_用户ID_时间戳</code> 格式确保唯一性</li>
+<li>
+<p>与微信支付接口的 <code>out_trade_no</code> 参数保持一致</p>
+</li>
+<li>
+<p>状态管理</p>
+</li>
+</ul>
+<p>：</p>
+<ul>
+<li><code>pay_status</code> 用数字表示状态，便于后续扩展（如新增 "已取消" 状态码 2）</li>
+<li><code>pay_status_des</code> 存储可读性描述，方便后台管理查看</li>
+</ul>
+<h2 id="_4">二、核心功能开发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 云函数入口设计<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>云函数入口接收客户端请求参数，处理后返回标准化响应格式，确保前后端交互一致性。</p>
+<h4 id="211-requestbody">2.1.1 请求参数规范（<code>request.body</code>字段说明）<a class="headerlink" href="#211-requestbody" title="Permanent link">&para;</a></h4>
+<p>客户端需通过 <code>request.body</code> 传递以下 JSON 格式参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>数据类型</th>
+<th>是否必填</th>
+<th>说明</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user_id</code></td>
+<td>String</td>
+<td>是</td>
+<td>用户唯一标识，关联用户表</td>
+<td><code>"e1c1897b3f"</code></td>
+</tr>
+<tr>
+<td><code>goods_id</code></td>
+<td>String</td>
+<td>是</td>
+<td>商品唯一标识，关联商品表</td>
+<td><code>"p1eyfffg"</code></td>
+</tr>
+<tr>
+<td><code>app_name</code></td>
+<td>String</td>
+<td>是</td>
+<td>应用名称</td>
+<td><code>"兔子下载"</code></td>
+</tr>
+<tr>
+<td><code>app_channel</code></td>
+<td>String</td>
+<td>是</td>
+<td>应用渠道</td>
+<td><code>"master"</code></td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td>String</td>
+<td>是</td>
+<td>设备型号</td>
+<td><code>"三星s10"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>请求参数示例</strong>：</p>
+<p>json</p>
+<pre><code class="json">{
+  &quot;user_id&quot;: &quot;e1c1897b3f&quot;,
+  &quot;goods_id&quot;: &quot;p1eyfffg&quot;,
+  &quot;app_name&quot;: &quot;兔子下载&quot;,
+  &quot;app_channel&quot;: &quot;master&quot;,
+  &quot;device&quot;: &quot;三星s10&quot;
+}
+</code></pre>
+
+<h4 id="212">2.1.2 响应格式定义<a class="headerlink" href="#212" title="Permanent link">&para;</a></h4>
+<p>云函数处理完成后，返回标准化 JSON 响应，包含状态码、业务数据和描述信息：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>说明</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td>Number</td>
+<td>响应状态码： - 200：成功 - 301：参数错误 - 404：商品不存在 - 500：系统错误</td>
+<td><code>200</code>/<code>301</code>/<code>404</code>/<code>500</code></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>Object</td>
+<td>业务数据对象，成功时返回支付相关信息</td>
+<td>成功时非空，失败时可为 <code>null</code></td>
+</tr>
+<tr>
+<td><code>msg</code></td>
+<td>String</td>
+<td>响应描述信息，说明操作结果</td>
+<td>成功 / 错误提示文本</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>data</code> 对象字段说明</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>数据类型</th>
+<th>说明</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prepay_id</code></td>
+<td>String</td>
+<td>微信预支付交易会话标识，客户端用于调起支付</td>
+<td><code>"wx201410272009395522657a640800"</code></td>
+</tr>
+<tr>
+<td><code>out_trade_no</code></td>
+<td>String</td>
+<td>商户生成的唯一订单号，用于跟踪支付状态</td>
+<td><code>"tzxz_e1c1897b3f_1623846752103"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>成功响应示例</strong>：</p>
+<p>json</p>
+<pre><code class="json">{
+  &quot;code&quot;: 200,
+  &quot;data&quot;: {
+    &quot;prepay_id&quot;: &quot;wx201410272009395522657a640800&quot;,
+    &quot;out_trade_no&quot;: &quot;tzxz_e1c1897b3f_1623846752103&quot;
+  },
+  &quot;msg&quot;: &quot;创建订单成功&quot;
+}
+</code></pre>
+
+<p><strong>错误响应示例（参数错误）</strong>：</p>
+<pre><code class="json">{
+  &quot;code&quot;: 301,
+  &quot;data&quot;: null,
+  &quot;msg&quot;: &quot;缺少参数user_id&quot;
+}
+</code></pre>
+
+<h4 id="_5">设计说明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>参数验证</strong>：严格校验 5 个必填参数，确保业务数据完整性</li>
+<li><strong>响应标准化</strong>：与支付宝支付接口保持一致的响应格式，便于客户端统一处理</li>
+<li><strong>安全性</strong>：通过签名机制确保请求合法性，防止参数篡改</li>
+</ol>
+<h3 id="22">2.2 生成预支付订单代码<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h4 id="221-wechatpayment">2.2.1 预支付订单生成（函数名：wechatPayment）<a class="headerlink" href="#221-wechatpayment" title="Permanent link">&para;</a></h4>
+<p>创建名为 <code>wechatPayment</code> 的云函数，用于处理支付请求、创建订单记录并调用微信支付接口获取预支付 ID：</p>
+<pre><code class="js">function onRequest(request, response, modules) {
+    // 防止重复响应
+    let isResponseSent = false;
+    const sendResponse = (code, data = null, msg) =&gt; {
+        if (!isResponseSent) {
+            isResponseSent = true;
+            response.send({ code, data, msg });
+        }
+    };
+
+    try {
+        // 1. 引入依赖模块
+        const http = modules.oHttp;
+        const NodeRSA = modules.oCryptoRSA;
+        const crypto = modules.oCrypto;
+        const db = modules.oData;
+
+        // 2. 微信支付配置
+        const config = {
+            mchid: &quot;16324234&quot;, // 商户ID
+            appid: &quot;wxd8cdsfhjkhjf&quot;, // 应用ID
+            notifyUrl: &quot;http://cloud.bmob.cn/xxxx/pay_notify&quot;, // 回调通知地址
+            apiUrl: &quot;https://api.mch.weixin.qq.com/v3/pay/transactions/app&quot;, // 下单接口地址
+            privateKey: &quot;&quot;, // 商户私钥（请补充实际密钥）
+            serialNo: &quot;xxxxxx&quot; // 证书序列号
+        };
+
+        // 3. 解析请求参数
+        const {
+            user_id,
+            goods_id,
+            app_name,
+            app_channel,
+            device
+        } = request.body;
+
+        // 客户端IP
+        const device_ip = request.ip;
+
+        // 4. 参数验证
+        const requiredParams = [
+            { key: 'user_id', value: user_id },
+            { key: 'goods_id', value: goods_id },
+            { key: 'app_name', value: app_name },
+            { key: 'app_channel', value: app_channel },
+            { key: 'device', value: device }
+        ];
+
+        for (const param of requiredParams) {
+            if (param.value === undefined || param.value === null || param.value === '') {
+                return sendResponse(301, null, `缺少参数${param.key}`);
+            }
+        }
+
+        // 5. 生成商户订单号
+        const out_trade_no = `tzxz_${user_id}_${Date.now()}`;
+
+        // 6. 查询商品信息
+        db.findOne({
+            table: &quot;goods_info&quot;,
+            objectId: goods_id
+        }, (err, data) =&gt; {
+            if (err) {
+                console.error('查询商品失败:', err);
+                return sendResponse(500, null, &quot;查询商品信息失败&quot;);
+            }
+
+            try {
+                const goods_data = JSON.parse(data);
+
+                // 验证商品是否存在
+                if (goods_data.error) {
+                    return sendResponse(404, null, &quot;商品信息不存在&quot;);
+                }
+
+                // 7. 准备订单数据
+                const orderData = {
+                    user_info: { &quot;__type&quot;: &quot;Pointer&quot;, &quot;className&quot;: &quot;_User&quot;, &quot;objectId&quot;: user_id },
+                    user_id: user_id,
+                    app_name: app_name,
+                    app_channel: app_channel,
+                    description: goods_data.description || &quot;1个月会员&quot;,
+                    amount: (goods_data.total / 100) + &quot;元&quot;,
+                    out_trade_no: out_trade_no,
+                    pay_type: 0, // 0表示微信支付
+                    pay_status: 0, // 0表示未支付
+                    pay_status_des: &quot;已下单,未支付&quot;,
+                    order_number: 1, // 第几次购买
+                    platform: 0, // 0表示安卓
+                    goods_id: goods_id,
+                    device: device,
+                    appid: config.appid,
+                    total: goods_data.total || 100, // 金额（分）
+                    device_ip: device_ip
+                };
+
+                // 8. 创建订单记录
+                db.insert({
+                    table: &quot;pay_order_record&quot;,
+                    data: orderData
+                }, (insertErr, insertData) =&gt; {
+                    if (insertErr) {
+                        console.error('创建订单失败:', insertErr);
+                        return sendResponse(500, null, &quot;创建订单失败&quot;);
+                    }
+
+                    try {
+                        const orderResult = JSON.parse(insertData);
+                        if (orderResult.error) {
+                            return sendResponse(500, null, &quot;创建订单记录失败&quot;);
+                        }
+
+                        // 9. 构建微信支付请求参数
+                        const timestamp = Math.round(Date.now() / 1000); // 10位时间戳
+
+                        // 生成随机字符串
+                        const md5 = crypto.createHash('md5');
+                        const nonce_str = md5.update(timestamp.toString()).digest('hex');
+
+                        // 支付金额信息
+                        const amount = {
+                            total: orderData.total,
+                            currency: &quot;CNY&quot;
+                        };
+
+                        // 请求体
+                        const request_body = JSON.stringify({
+                            appid: config.appid,
+                            mchid: config.mchid,
+                            description: orderData.description,
+                            out_trade_no: out_trade_no,
+                            notify_url: config.notifyUrl,
+                            amount: amount
+                        });
+
+                        // 10. 生成签名
+                        const signatureStr = [
+                            &quot;POST&quot;, // 请求方法
+                            &quot;/v3/pay/transactions/app&quot;, // 接口路径
+                            timestamp.toString(), // 时间戳
+                            nonce_str, // 随机字符串
+                            request_body // 请求体
+                        ].join(&quot;\n&quot;) + &quot;\n&quot;;
+
+                        // 签名处理
+                        const key = new NodeRSA();
+                        key.setOptions({ b: 2048, signingScheme: &quot;sha256&quot; });
+                        key.importKey(config.privateKey, &quot;pkcs8-private&quot;);
+                        const sign_result = key.sign(signatureStr).toString('base64');
+
+                        // 11. 构建请求头
+                        const authorization = `WECHATPAY2-SHA256-RSA2048 mchid=&quot;${config.mchid}&quot;,nonce_str=&quot;${nonce_str}&quot;,timestamp=&quot;${timestamp}&quot;,serial_no=&quot;${config.serialNo}&quot;,signature=&quot;${sign_result}&quot;`;
+
+                        // 12. 调用微信支付接口
+                        const options = {
+                            url: config.apiUrl,
+                            headers: {
+                                &quot;Content-Type&quot;: &quot;application/json&quot;,
+                                &quot;Accept&quot;: &quot;application/json&quot;,
+                                &quot;Authorization&quot;: authorization
+                            },
+                            body: request_body
+                        };
+
+                        // 发送请求
+                        http.post(options, (error, res, body) =&gt; {
+                            if (error) {
+                                console.error('调用微信支付接口失败:', error);
+                                return sendResponse(500, null, &quot;获取预支付信息失败&quot;);
+                            }
+
+                            try {
+                                const payResult = JSON.parse(body);
+                                if (payResult.prepay_id) {
+                                    // 返回预支付ID
+                                    sendResponse(200, {
+                                        prepay_id: payResult.prepay_id,
+                                        out_trade_no: out_trade_no
+                                    }, &quot;创建订单成功&quot;);
+                                } else {
+                                    console.error('微信支付接口返回异常:', body);
+                                    sendResponse(500, null, &quot;微信支付接口返回异常&quot;);
+                                }
+                            } catch (parseError) {
+                                console.error('解析支付结果失败:', parseError);
+                                sendResponse(500, null, &quot;解析支付结果失败&quot;);
+                            }
+                        });
+
+                    } catch (orderParseError) {
+                        console.error('解析订单结果失败:', orderParseError);
+                        sendResponse(500, null, &quot;解析订单数据失败&quot;);
+                    }
+                });
+
+            } catch (goodsParseError) {
+                console.error('解析商品数据失败:', goodsParseError);
+                sendResponse(500, null, &quot;解析商品信息失败&quot;);
+            }
+        });
+
+    } catch (error) {
+        console.error('系统异常:', error);
+        sendResponse(500, null, &quot;系统异常，请稍后重试&quot;);
+    }
+}
+</code></pre>
+
+<h4 id="222">2.2.2 微信支付回调处理<a class="headerlink" href="#222" title="Permanent link">&para;</a></h4>
+<p>微信支付回调函数用于接收微信支付平台发送的支付结果通知，验证通知合法性并更新订单状态：</p>
+<p>微信支付成功后，会传入这些参数，可以查看官方文档：https://pay.weixin.qq.com/doc/v3/merchant/4013070368</p>
+<pre><code class="javascript">{
+    &quot;id&quot;: &quot;EV-2018022511223320873&quot;,
+    &quot;create_time&quot;: &quot;2015-05-20T13:29:35+08:00&quot;,
+    &quot;resource_type&quot;: &quot;encrypt-resource&quot;,
+    &quot;event_type&quot;: &quot;TRANSACTION.SUCCESS&quot;,
+    &quot;summary&quot;: &quot;支付成功&quot;,
+    &quot;resource&quot;: {
+        &quot;original_type&quot;: &quot;transaction&quot;,
+        &quot;algorithm&quot;: &quot;AEAD_AES_256_GCM&quot;,
+        &quot;ciphertext&quot;: &quot;&quot;,
+        &quot;associated_data&quot;: &quot;&quot;,
+        &quot;nonce&quot;: &quot;&quot;
+    }
+}
+</code></pre>
+
+<p>具体就是接收这些参数，然后更新订单表</p>
+<pre><code class="js">function onRequest(request, response, modules) {
+    // 防止重复响应
+    let isResponseSent = false;
+    const sendResponse = (data) =&gt; {
+        if (!isResponseSent) {
+            isResponseSent = true;
+            response.send(data);
+        }
+    };
+
+    try {
+        const crypto = modules.oCrypto;
+        const db = modules.oData;
+        const NodeRSA = modules.oCryptoRSA;
+
+        // 1. 微信支付配置
+        const config = {
+            mchid: &quot;16343434&quot;, // 商户ID
+            appid: &quot;wxd8dsfdsfd324234&quot;, // 应用ID
+            apiV3Key: &quot;&quot;, // API v3密钥（用于解密回调数据）
+            alipayPublicKey: &quot;&quot;, // 微信支付平台公钥（用于验签）
+            signType: &quot;RSA2&quot;
+        };
+
+        // 2. 获取回调参数
+        const headers = request.headers;
+        const notifyBody = request.body;
+
+        // 回调通知中的签名信息
+        const signature = headers['wechatpay-signature'];
+        const timestamp = headers['wechatpay-timestamp'];
+        const nonce = headers['wechatpay-nonce'];
+        const serial = headers['wechatpay-serial'];
+
+        console.log('收到微信支付通知:', {
+            signature,
+            timestamp,
+            nonce,
+            serial,
+            body: notifyBody
+        });
+
+        // 3. 验证签名
+        const signatureStr = [
+            timestamp,
+            nonce,
+            JSON.stringify(notifyBody)
+        ].join(&quot;\n&quot;) + &quot;\n&quot;;
+
+        const pubKey = new NodeRSA();
+        pubKey.importKey(config.alipayPublicKey, &quot;pkcs8-public&quot;);
+        const verifyResult = pubKey.verify(signatureStr, signature, 'utf8', 'base64');
+
+        if (!verifyResult) {
+            console.error('微信支付通知签名验证失败');
+            return sendResponse({ code: 'FAIL', message: '签名验证失败' });
+        }
+
+        // 4. 解析通知数据
+        const {
+            out_trade_no, // 商户订单号
+            transaction_id, // 微信支付订单号
+            trade_state, // 交易状态
+            amount
+        } = notifyBody;
+
+        // 验证关键参数
+        if (!out_trade_no || !trade_state) {
+            console.error('通知缺少关键参数', { out_trade_no, trade_state });
+            return sendResponse({ code: 'FAIL', message: '参数不完整' });
+        }
+
+        // 5. 处理支付结果
+        if (trade_state === 'SUCCESS') {
+            // 6. 查询订单是否已处理（幂等性处理）
+            db.findOne({
+                table: 'pay_order_record',
+                where: { out_trade_no: out_trade_no }
+            }, (err, orderData) =&gt; {
+                if (err) {
+                    console.error('查询订单失败:', err);
+                    return sendResponse({ code: 'FAIL', message: '查询订单失败' });
+                }
+
+                if (!orderData) {
+                    console.error('订单不存在:', out_trade_no);
+                    return sendResponse({ code: 'FAIL', message: '订单不存在' });
+                }
+
+                // 7. 检查订单当前状态
+                if (orderData.pay_status === 1) {
+                    console.log('订单已处理:', out_trade_no);
+                    return sendResponse({ code: 'SUCCESS' });
+                }
+
+                // 8. 更新订单状态
+                const updateData = {
+                    pay_status: 1, // 标记为已支付
+                    pay_status_des: &quot;支付成功&quot;,
+                    trade_no: transaction_id,
+                    pay_time: {
+                        &quot;__type&quot;: &quot;Date&quot;,
+                        &quot;iso&quot;: new Date().toISOString().replace('T', ' ').split('.')[0]
+                    },
+                    prepay_id: orderData.prepay_id // 保留预支付ID
+                };
+
+                db.update({
+                    &quot;table&quot;: 'pay_order_record',
+                    &quot;objectId&quot;: orderData.objectId,
+                    &quot;data&quot;: updateData
+                }, (updateErr) =&gt; {
+                    if (updateErr) {
+                        console.error('更新订单失败:', updateErr);
+                        return sendResponse({ code: 'FAIL', message: '更新订单失败' });
+                    }
+
+                    console.log('订单支付成功并更新:', out_trade_no);
+                    sendResponse({ code: 'SUCCESS' });
+                });
+            });
+        } else {
+            // 处理其他状态（如支付失败、关闭等）
+            console.log(`订单状态: ${trade_state}, 订单号: ${out_trade_no}`);
+
+            if (['CLOSED', 'PAYERROR'].includes(trade_state)) {
+               //这里不支持条件更新，先查出 objectId 再更新
+                db.update({
+                    &quot;table&quot;: 'pay_order_record',
+                    &quot;where&quot;: { out_trade_no: out_trade_no },
+                    &quot;data&quot;: { 
+                        pay_status: 2, // 2表示支付失败
+                        pay_status_des: &quot;支付失败&quot;
+                    }
+                }, (err) =&gt; {
+                    if (err) console.error('更新失败状态出错:', err);
+                    sendResponse({ code: 'SUCCESS' });
+                });
+            } else {
+                sendResponse({ code: 'SUCCESS' });
+            }
+        }
+
+    } catch (error) {
+        console.error('回调处理异常:', error);
+        sendResponse({ code: 'FAIL', message: '处理异常' });
+    }
+}
+</code></pre>
+
+<h5 id="_6">回调函数核心作用：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<ol>
+<li><strong>验证通知合法性</strong>：通过签名验证确保通知来自微信支付平台</li>
+<li><strong>处理支付结果</strong>：根据 <code>trade_state</code> 更新订单状态</li>
+<li><strong>保证幂等性</strong>：防止重复处理同一通知导致的订单状态异常</li>
+<li><strong>同步支付信息</strong>：保存微信支付订单号、支付时间等关键信息</li>
+</ol>
+<h2 id="_7">三、微信支付云函数详细说明<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 函数概述<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><strong>函数名称</strong>：微信支付云函数（<code>wechatPayment</code>）
+<strong>功能描述</strong>：处理客户端支付请求，创建订单记录，调用微信支付接口生成预支付 ID
+<strong>依赖资源</strong>：</p>
+<ul>
+<li><code>modules.oHttp</code>：Bmob HTTP 请求模块</li>
+<li><code>modules.oCryptoRSA</code>：RSA 加密模块</li>
+<li><code>modules.oCrypto</code>：加密工具模块</li>
+<li><code>modules.oData</code>：Bmob 数据操作模块</li>
+</ul>
+<h3 id="32">3.2 核心流程解析<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h4 id="321">3.2.1 初始化与配置<a class="headerlink" href="#321" title="Permanent link">&para;</a></h4>
+<pre><code class="javascript">// 防重复响应机制
+let isResponseSent = false;
+const sendResponse = (code, data = null, msg) =&gt; {
+    if (!isResponseSent) {
+        isResponseSent = true;
+        response.send({ code, data, msg });
+    }
+};
+</code></pre>
+
+<ul>
+<li>作用：确保云函数仅返回一次响应，避免异步操作导致的重复响应</li>
+</ul>
+<h4 id="322">3.2.2 参数验证流程<a class="headerlink" href="#322" title="Permanent link">&para;</a></h4>
+<pre><code class="javascript">const requiredParams = [
+    { key: 'user_id', value: user_id },
+    { key: 'goods_id', value: goods_id },
+    { key: 'app_name', value: app_name },
+    { key: 'app_channel', value: app_channel },
+    { key: 'device', value: device }
+];
+
+for (const param of requiredParams) {
+    if (param.value === undefined || param.value === null || param.value === '') {
+        return sendResponse(301, null, `缺少参数${param.key}`);
+    }
+}
+</code></pre>
+
+<ul>
+<li>验证逻辑：检查所有必填参数是否存在且有效</li>
+<li>错误处理：发现缺失参数立即返回 301 错误，终止流程</li>
+</ul>
+<h4 id="323">3.2.3 订单创建与商品信息查询<a class="headerlink" href="#323" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>生成商户订单号</strong>：</li>
+</ol>
+<p><code>javascript
+   const out_trade_no = `tzxz_${user_id}_${Date.now()}`;</code></p>
+<p>采用用户 ID + 时间戳的格式，确保订单号唯一</p>
+<ol>
+<li><strong>查询商品信息</strong>：</li>
+</ol>
+<p><code>javascript
+   db.findOne({
+       table: "goods_info",
+       objectId: goods_id
+   }, (err, data) =&gt; { ... });</code></p>
+<p>从商品表获取商品价格、描述等信息，用于创建订单</p>
+<h4 id="324">3.2.4 微信支付签名生成<a class="headerlink" href="#324" title="Permanent link">&para;</a></h4>
+<p>微信支付 V3 接口要求请求必须包含签名，生成过程如下：</p>
+<ol>
+<li><strong>构建签名字符串</strong>：</li>
+</ol>
+<p><code>javascript
+   const signatureStr = [
+       "POST", // 请求方法
+       "/v3/pay/transactions/app", // 接口路径
+       timestamp.toString(), // 时间戳
+       nonce_str, // 随机字符串
+       request_body // 请求体
+   ].join("\n") + "\n";</code></p>
+<ol>
+<li><strong>生成签名</strong>：</li>
+</ol>
+<p><code>javascript
+   const key = new NodeRSA();
+   key.setOptions({ b: 2048, signingScheme: "sha256" });
+   key.importKey(config.privateKey, "pkcs8-private");
+   const sign_result = key.sign(signatureStr).toString('base64');</code></p>
+<ol>
+<li><strong>构建 Authorization 头</strong>：</li>
+</ol>
+<p><code>javascript
+   const authorization = `WECHATPAY2-SHA256-RSA2048 mchid="${config.mchid}",nonce_str="${nonce_str}",timestamp="${timestamp}",serial_no="${config.serialNo}",signature="${sign_result}"`;</code></p>
+<h4 id="325">3.2.5 调用微信支付接口<a class="headerlink" href="#325" title="Permanent link">&para;</a></h4>
+<pre><code class="javascript">const options = {
+    url: config.apiUrl,
+    headers: {
+        &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &quot;Accept&quot;: &quot;application/json&quot;,
+        &quot;Authorization&quot;: authorization
+    },
+    body: request_body
+};
+
+http.post(options, (error, res, body) =&gt; { ... });
+</code></pre>
+
+<ul>
+<li>接口地址：<code>https://api.mch.weixin.qq.com/v3/pay/transactions/app</code></li>
+<li>请求方法：POST</li>
+<li>成功响应：返回包含<code>prepay_id</code>的 JSON 数据，用于客户端调起支付</li>
+</ul>
+<h2 id="_8">四、使用注意事项<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>配置信息</strong>：</li>
+<li>替换<code>config</code>中的<code>mchid</code>、<code>appid</code>为实际商户号和 AppID</li>
+<li>补充<code>privateKey</code>（商户私钥）和<code>serialNo</code>（证书序列号）</li>
+<li>确保<code>notifyUrl</code>是可公开访问的 URL，用于接收支付结果通知</li>
+<li><strong>安全注意</strong>：</li>
+<li>私钥不可泄露，建议通过 Bmob 环境变量存储</li>
+<li>生产环境必须使用 HTTPS 协议</li>
+<li>定期更新 API 密钥和证书，确保账户安全</li>
+<li><strong>测试环境</strong>：</li>
+<li>开发阶段可使用微信支付沙箱环境进行测试</li>
+<li>沙箱环境地址：<code>https://api.mch.weixin.qq.com/sandboxnew/pay/transactions/app</code></li>
+<li>测试时需使用沙箱专用的密钥和证书</li>
+<li><strong>异常处理</strong>：</li>
+<li>确保所有异步操作都有错误处理机制</li>
+<li>关键步骤添加日志记录，便于问题排查</li>
+<li>实现订单超时处理机制，避免长期未支付订单占用资源</li>
+</ol>
+                </div>
+            </div>
+        </div>
+
+        
+            <script>var base_url = '../../..';</script>
+            <script src="../../../js/jquery-1.10.2.min.js"></script>
+            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+            <script src="../../../js/highlight.pack.js"></script>
+            <script src="../../../js/main.js"></script>
+            <script src="../../../js/base.js"></script>
+
+		<!--
+        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
+        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
+		-->
+    </body>
+
+</html>
