@@ -516,6 +516,12 @@
 <li>将订单信息存储在 Bmob 的 <code>pay_order_record</code> 表中</li>
 <li>接收微信支付异步通知，自动更新订单支付状态</li>
 <li>遵循微信支付开发文档规范，确保支付流程安全可靠</li>
+<li>根据微信官方文档修改可以支持以下支付</li>
+<li>h5支付</li>
+<li>native支付</li>
+<li>app支付</li>
+<li>JSAPI支付</li>
+<li>小程序支付</li>
 </ul>
 <h2 id="_2">一、前置准备<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="11">1.1 微信支付商户平台配置<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
@@ -542,12 +548,8 @@
 <p>1.3.1 云函数创建（新建 <code>wechatPayment</code> 云函数）</p>
 </li>
 <li>
-<p>1.3.2 数据表设计（</p>
+<p>1.3.2 数据表设计（<code>pay_order_record</code>表字段规范）</p>
 </li>
-</ul>
-<p><code>pay_order_record</code></p>
-<p>表字段规范）</p>
-<ul>
 <li>必选字段：<code>out_trade_no</code>（商户订单号）、<code>total</code>（金额，分）、<code>pay_status</code>（支付状态）等</li>
 <li>
 <p>关联字段：<code>user_id</code>（用户 ID）、<code>goods_id</code>（商品 ID）等</p>
@@ -670,33 +672,32 @@
 </table>
 <h4 id="_3">字段设计说明：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <ol>
-<li>金额存储</li>
-</ol>
-<p>：</p>
-<ul>
-<li><code>total</code> 字段以「分」为单位存储整数（如 100 表示 1.00 元）</li>
+<li>
+<p>金额存储：</p>
+</li>
+<li>
+<p><code>total</code> 字段以「分」为单位存储整数（如 100 表示 1.00 元）</p>
+</li>
 <li>
 <p><code>amount</code> 字段用于前端展示，存储格式化后的字符串</p>
 </li>
 <li>
-<p>订单号设计</p>
+<p>订单号设计：</p>
 </li>
-</ul>
-<p>：</p>
-<ul>
-<li><code>out_trade_no</code> 需全局唯一，采用 <code>tzxz_用户ID_时间戳</code> 格式确保唯一性</li>
+<li>
+<p><code>out_trade_no</code> 需全局唯一，采用 <code>tzxz_用户ID_时间戳</code> 格式确保唯一性</p>
+</li>
 <li>
 <p>与微信支付接口的 <code>out_trade_no</code> 参数保持一致</p>
 </li>
 <li>
-<p>状态管理</p>
+<p>状态管理：</p>
 </li>
-</ul>
-<p>：</p>
-<ul>
-<li><code>pay_status</code> 用数字表示状态，便于后续扩展（如新增 "已取消" 状态码 2）</li>
+<li>
+<p><code>pay_status</code> 用数字表示状态，便于后续扩展（如新增 "已取消" 状态码 2）</p>
+</li>
 <li><code>pay_status_des</code> 存储可读性描述，方便后台管理查看</li>
-</ul>
+</ol>
 <h2 id="_4">二、核心功能开发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="21">2.1 云函数入口设计<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
 <p>云函数入口接收客户端请求参数，处理后返回标准化响应格式，确保前后端交互一致性。</p>
@@ -718,7 +719,7 @@
 <td>String</td>
 <td>是</td>
 <td>用户唯一标识，关联用户表</td>
-<td><code>"e1c1897b3f"</code></td>
+<td><code>"3cca32f4bb"</code></td>
 </tr>
 <tr>
 <td><code>goods_id</code></td>
@@ -732,7 +733,7 @@
 <td>String</td>
 <td>是</td>
 <td>应用名称</td>
-<td><code>"兔子下载"</code></td>
+<td><code>"Bmob 后端云 App"</code></td>
 </tr>
 <tr>
 <td><code>app_channel</code></td>
@@ -746,18 +747,17 @@
 <td>String</td>
 <td>是</td>
 <td>设备型号</td>
-<td><code>"三星s10"</code></td>
+<td><code>"小米 18 pro"</code></td>
 </tr>
 </tbody>
 </table>
 <p><strong>请求参数示例</strong>：</p>
-<p>json</p>
 <pre><code class="json">{
-  &quot;user_id&quot;: &quot;e1c1897b3f&quot;,
+  &quot;user_id&quot;: &quot;3cca32f4bb&quot;,
   &quot;goods_id&quot;: &quot;p1eyfffg&quot;,
-  &quot;app_name&quot;: &quot;兔子下载&quot;,
+  &quot;app_name&quot;: &quot;Bmob 后端云 App&quot;,
   &quot;app_channel&quot;: &quot;master&quot;,
-  &quot;device&quot;: &quot;三星s10&quot;
+  &quot;device&quot;: &quot;小米 18 pro&quot;
 }
 </code></pre>
 
@@ -814,17 +814,16 @@
 <td><code>out_trade_no</code></td>
 <td>String</td>
 <td>商户生成的唯一订单号，用于跟踪支付状态</td>
-<td><code>"tzxz_e1c1897b3f_1623846752103"</code></td>
+<td><code>"tzxz_3cca32f4bb_1623846752103"</code></td>
 </tr>
 </tbody>
 </table>
 <p><strong>成功响应示例</strong>：</p>
-<p>json</p>
 <pre><code class="json">{
   &quot;code&quot;: 200,
   &quot;data&quot;: {
     &quot;prepay_id&quot;: &quot;wx201410272009395522657a640800&quot;,
-    &quot;out_trade_no&quot;: &quot;tzxz_e1c1897b3f_1623846752103&quot;
+    &quot;out_trade_no&quot;: &quot;tzxz_3cca32f4bb_1623846752103&quot;
   },
   &quot;msg&quot;: &quot;创建订单成功&quot;
 }
@@ -1345,8 +1344,9 @@ http.post(options, (error, res, body) =&gt; { ... });
 <li>替换<code>config</code>中的<code>mchid</code>、<code>appid</code>为实际商户号和 AppID</li>
 <li>补充<code>privateKey</code>（商户私钥）和<code>serialNo</code>（证书序列号）</li>
 <li>确保<code>notifyUrl</code>是可公开访问的 URL，用于接收支付结果通知</li>
+<li><code>notifyUrl</code> 用来处理订单状态，修改会员状态，例如购买了电影会员，应该在这个函数里面修改用户的 VIP 状态</li>
 <li><strong>安全注意</strong>：</li>
-<li>私钥不可泄露，建议通过 Bmob 环境变量存储</li>
+<li>私钥不可泄露，建议通过 Bmob 函数变量存储</li>
 <li>生产环境必须使用 HTTPS 协议</li>
 <li>定期更新 API 密钥和证书，确保账户安全</li>
 <li><strong>测试环境</strong>：</li>
