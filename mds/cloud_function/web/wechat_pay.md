@@ -8,6 +8,14 @@
 - 将订单信息存储在 Bmob 的 `pay_order_record` 表中
 - 接收微信支付异步通知，自动更新订单支付状态
 - 遵循微信支付开发文档规范，确保支付流程安全可靠
+- 根据微信官方文档修改可以支持以下支付
+- h5支付
+- native支付
+- app支付
+- JSAPI支付
+- 小程序支付
+
+
 
 ## 一、前置准备
 
@@ -33,19 +41,10 @@
 
 - 1.3.1 云函数创建（新建 `wechatPayment` 云函数）
 
-- 1.3.2 数据表设计（
-
-  ```
-  pay_order_record
-  ```
-
-   
-
-  表字段规范）
-
+- 1.3.2 数据表设计（`pay_order_record`表字段规范）
   - 必选字段：`out_trade_no`（商户订单号）、`total`（金额，分）、`pay_status`（支付状态）等
   - 关联字段：`user_id`（用户 ID）、`goods_id`（商品 ID）等
-
+  
 - 1.3.3 依赖说明：微信支付 V3 接口无需额外 SDK，直接通过 HTTP 接口调用
 
 ### 1.4 数据表设计（pay_order_record 表）
@@ -69,26 +68,20 @@
 
 #### 字段设计说明：
 
-1. 金额存储
-
-   ：
+1. 金额存储：
 
    - `total` 字段以「分」为单位存储整数（如 100 表示 1.00 元）
    - `amount` 字段用于前端展示，存储格式化后的字符串
-
-2. 订单号设计
-
-   ：
+   
+2. 订单号设计：
 
    - `out_trade_no` 需全局唯一，采用 `tzxz_用户ID_时间戳` 格式确保唯一性
    - 与微信支付接口的 `out_trade_no` 参数保持一致
-
-3. 状态管理
-
-   ：
+   
+3. 状态管理：
 
    - `pay_status` 用数字表示状态，便于后续扩展（如新增 "已取消" 状态码 2）
-   - `pay_status_des` 存储可读性描述，方便后台管理查看
+- `pay_status_des` 存储可读性描述，方便后台管理查看
 
 ## 二、核心功能开发
 
@@ -100,35 +93,23 @@
 
 客户端需通过 `request.body` 传递以下 JSON 格式参数：
 
-| 参数名        | 数据类型 | 是否必填 | 说明                     | 示例值         |
-| ------------- | -------- | -------- | ------------------------ | -------------- |
-| `user_id`     | String   | 是       | 用户唯一标识，关联用户表 | `"e1c1897b3f"` |
-| `goods_id`    | String   | 是       | 商品唯一标识，关联商品表 | `"p1eyfffg"`   |
-| `app_name`    | String   | 是       | 应用名称                 | `"兔子下载"`   |
-| `app_channel` | String   | 是       | 应用渠道                 | `"master"`     |
-| `device`      | String   | 是       | 设备型号                 | `"三星s10"`    |
+| 参数名        | 数据类型 | 是否必填 | 说明                     | 示例值              |
+| ------------- | -------- | -------- | ------------------------ | ------------------- |
+| `user_id`     | String   | 是       | 用户唯一标识，关联用户表 | `"3cca32f4bb"`      |
+| `goods_id`    | String   | 是       | 商品唯一标识，关联商品表 | `"p1eyfffg"`        |
+| `app_name`    | String   | 是       | 应用名称                 | `"Bmob 后端云 App"` |
+| `app_channel` | String   | 是       | 应用渠道                 | `"master"`          |
+| `device`      | String   | 是       | 设备型号                 | `"小米 18 pro"`     |
 
 **请求参数示例**：
 
-json
-
-
-
-
-
-
-
-
-
-
-
 ```json
 {
-  "user_id": "e1c1897b3f",
+  "user_id": "3cca32f4bb",
   "goods_id": "p1eyfffg",
-  "app_name": "兔子下载",
+  "app_name": "Bmob 后端云 App",
   "app_channel": "master",
-  "device": "三星s10"
+  "device": "小米 18 pro"
 }
 ```
 
@@ -147,28 +128,16 @@ json
 | 字段名         | 数据类型 | 说明                                       | 示例值                             |
 | -------------- | -------- | ------------------------------------------ | ---------------------------------- |
 | `prepay_id`    | String   | 微信预支付交易会话标识，客户端用于调起支付 | `"wx201410272009395522657a640800"` |
-| `out_trade_no` | String   | 商户生成的唯一订单号，用于跟踪支付状态     | `"tzxz_e1c1897b3f_1623846752103"`  |
+| `out_trade_no` | String   | 商户生成的唯一订单号，用于跟踪支付状态     | `"tzxz_3cca32f4bb_1623846752103"`  |
 
 **成功响应示例**：
-
-json
-
-
-
-
-
-
-
-
-
-
 
 ```json
 {
   "code": 200,
   "data": {
     "prepay_id": "wx201410272009395522657a640800",
-    "out_trade_no": "tzxz_e1c1897b3f_1623846752103"
+    "out_trade_no": "tzxz_3cca32f4bb_1623846752103"
   },
   "msg": "创建订单成功"
 }
@@ -670,8 +639,6 @@ for (const param of requiredParams) {
 
 1. **构建签名字符串**：
 
-   
-
    ```javascript
    const signatureStr = [
        "POST", // 请求方法
@@ -681,7 +648,7 @@ for (const param of requiredParams) {
        request_body // 请求体
    ].join("\n") + "\n";
    ```
-
+   
 2. **生成签名**：
 
 
@@ -726,8 +693,9 @@ http.post(options, (error, res, body) => { ... });
    - 替换`config`中的`mchid`、`appid`为实际商户号和 AppID
    - 补充`privateKey`（商户私钥）和`serialNo`（证书序列号）
    - 确保`notifyUrl`是可公开访问的 URL，用于接收支付结果通知
+   - `notifyUrl` 用来处理订单状态，修改会员状态，例如购买了电影会员，应该在这个函数里面修改用户的 VIP 状态
 2. **安全注意**：
-   - 私钥不可泄露，建议通过 Bmob 环境变量存储
+   - 私钥不可泄露，建议通过 Bmob 函数变量存储
    - 生产环境必须使用 HTTPS 协议
    - 定期更新 API 密钥和证书，确保账户安全
 3. **测试环境**：
