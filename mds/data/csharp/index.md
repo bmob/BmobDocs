@@ -22,13 +22,19 @@
 
 * Unity
   
+
 Bmob C# 源码的下载地址：<https://github.com/bmob/Bmob-Unity-Demo/blob/main/Source.zip>
+
+你可以针对源代码做任何修改调试，最新代码请看下面Windows dll文件。
+
+
 
 下载之后，采用`源码引用`的方式，具体搭建过程请查看github上的文档：<https://github.com/bmob/Bmob-Unity-Demo>
 
 * Windows
   
-Bmob C# DLL的下载地址：<https://github.com/bmob/BmobSharp/releases/download/1.5.2/bmobsharp-1.5.2.rar>
+
+Bmob C# DLL的下载地址：https://github.com/bmob/bmob-demo-csharp/blob/master/Bmob-Windows.dll
 
 下载后解压，将Windows文件夹下的`Bmob-Windows.dll`文件引用到你的项目工程中，如下图所示。
 

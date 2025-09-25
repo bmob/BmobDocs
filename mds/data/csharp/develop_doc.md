@@ -167,7 +167,7 @@ public Task<List<Dictionary<string, object>>> BatchTaskAsync(BmobBatch requests)
 public Task<ThumbnailCallbackData> ThumbnailTaskAsync(ThumbnailParameter param);
 ```
 
-关于接口方法的使用见详细开发文档。上面列表与实际可能有一点出错，可以查看最新版的源代码<https://github.com/bmob/BmobSharp>
+关于接口方法的使用见详细开发文档。上面列表与实际可能有一点出错，可以查看最新版的源代码，源代码是开源的，您可以针对源代码做任何修改。 <https://github.com/bmob/BmobSharp>
 
 ## 数据类型
 
@@ -1485,5 +1485,4 @@ BmobDebug.level = BmobDebug.Level.TRACE;
             formstatus.Text = "上传成功！";
         }
 ```
-
 
