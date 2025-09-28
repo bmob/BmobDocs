@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BmobObjectsBatch Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">BmobSDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">bmob</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/batchObjectsInBackgroundWithResultBlock:">- batchObjectsInBackgroundWithResultBlock:</option>
+		
+		<option value="//api/name/deleteBmobObjectWithClassName:objectId:">- deleteBmobObjectWithClassName:objectId:</option>
+		
+		<option value="//api/name/saveBmobObjectWithClassName:parameters:">- saveBmobObjectWithClassName:parameters:</option>
+		
+		<option value="//api/name/updateBmobObjectWithClassName:objectId:parameters:">- updateBmobObjectWithClassName:objectId:parameters:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BmobObjectsBatch Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>BmobObjectsBatch.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/saveBmobObjectWithClassName:parameters:" title="saveBmobObjectWithClassName:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/saveBmobObjectWithClassName:parameters:">&ndash;&nbsp;saveBmobObjectWithClassName:parameters:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>创建某条数据，可多次调用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)saveBmobObjectWithClassName:(NSString *)<em>className</em> parameters:(NSDictionary *)<em>para</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>className</code></th>
+						<td><p>表名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>para</code></th>
+						<td><p>要创建的列名跟列的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobObjectsBatch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateBmobObjectWithClassName:objectId:parameters:" title="updateBmobObjectWithClassName:objectId:parameters:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateBmobObjectWithClassName:objectId:parameters:">&ndash;&nbsp;updateBmobObjectWithClassName:objectId:parameters:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>更新某条数据，可多次调用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateBmobObjectWithClassName:(NSString *)<em>className</em> objectId:(NSString *)<em>objectId</em> parameters:(NSDictionary *)<em>para</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>className</code></th>
+						<td><p>表名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>objectId</code></th>
+						<td><p>某行数据的objectId</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>para</code></th>
+						<td><p>要更新的列和列的值</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobObjectsBatch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteBmobObjectWithClassName:objectId:" title="deleteBmobObjectWithClassName:objectId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteBmobObjectWithClassName:objectId:">&ndash;&nbsp;deleteBmobObjectWithClassName:objectId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>删除某条数据，可多次调用</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteBmobObjectWithClassName:(NSString *)<em>className</em> objectId:(NSString *)<em>objectId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>className</code></th>
+						<td><p>表名</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>objectId</code></th>
+						<td><p>某条数据的objectId</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobObjectsBatch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/batchObjectsInBackgroundWithResultBlock:" title="batchObjectsInBackgroundWithResultBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/batchObjectsInBackgroundWithResultBlock:">&ndash;&nbsp;batchObjectsInBackgroundWithResultBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>批量修改数据</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)batchObjectsInBackgroundWithResultBlock:(void ( ^ ) ( BOOL isSuccessful , NSError *error ))<em>block</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>block</code></th>
+						<td><p>返回操作的的结果和信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BmobObjectsBatch.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2015 bmob. All rights reserved. Updated: 2015-10-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
