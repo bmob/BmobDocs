@@ -22,7 +22,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation("io.github.bmob:android-sdk:4.1.0")
+	implementation("io.github.bmob:android-sdk:4.2.1")
     implementation("io.reactivex.rxjava3:rxjava:3.1.9")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
     implementation("com.squareup.okhttp3:okhttp:4.8.1")
@@ -249,7 +249,7 @@ data class GameScore(var playerName: String? = null, var score: Int? = null, var
             gameScore.playerName = "运动员$i"
             gameScores.add(gameScore)
         }
-
+    
         /**
          * 3.5.0版本开始提供
          */
@@ -294,16 +294,16 @@ data class GameScore(var playerName: String? = null, var score: Int? = null, var
         gameScore3.tableName = "GameScore"
         gameScore3.objectId = "此处填写已存在的objectId"
         gameScore3.playerName = "王二"
-
+    
         gameScores.add(gameScore1)
         gameScores.add(gameScore2)
         gameScores.add(gameScore3)
-
+    
         /**
          * 从3.5.0版本开始提供
          */
         BmobBatch().updateBatch(gameScores).doBatch(object : QueryListListener<BatchResult>() {
-
+    
             override fun done(o: List<BatchResult>, ex: BmobException?) {
                 if (ex == null) {
                     for (i in o.indices) {
@@ -336,7 +336,7 @@ data class GameScore(var playerName: String? = null, var score: Int? = null, var
         gameScore2.objectId = "此处填写已存在的objectId"
         val gameScore3 = GameScore()
         gameScore3.objectId = "此处填写已存在的objectId"
-
+    
         gameScores.add(gameScore1)
         gameScores.add(gameScore2)
         gameScores.add(gameScore3)
@@ -346,7 +346,7 @@ data class GameScore(var playerName: String? = null, var score: Int? = null, var
          * 3.5.0版本开始提供
          */
         BmobBatch().deleteBatch(gameScores).doBatch(object : QueryListListener<BatchResult>() {
-
+    
             override fun done(o: List<BatchResult>, e: BmobException?) {
                 if (e == null) {
                     for (i in o.indices) {
@@ -381,7 +381,7 @@ data class GameScore(var playerName: String? = null, var score: Int? = null, var
         gameScore.playerName = "张三"
         gameScores.add(gameScore)
         batch.insertBatch(gameScores)
-
+    
         //批量更新
         val gameScores1 = ArrayList<BmobObject>()
         val gameScore1 = GameScore()
@@ -399,10 +399,10 @@ data class GameScore(var playerName: String? = null, var score: Int? = null, var
         gameScore2.objectId = "此处填写已经存在的objectId"
         gameScores2.add(gameScore2)
         batch.deleteBatch(gameScores2)
-
+    
         //从3.5.0版本开始提供
         batch.doBatch(object : QueryListListener<BatchResult>() {
-
+    
             override fun done(results: List<BatchResult>, ex: BmobException?) {
                 if (ex == null) {
                     //返回结果的results和上面提交的顺序是一样的，请一一对应
@@ -495,7 +495,7 @@ private fun resetPassword() {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_WRITE_CODE)
         }
     }
-
+    
     /**
      * 权限申请回调结果
      */
@@ -549,30 +549,30 @@ private fun resetPassword() {
 ### 上传多个文件
 
 	 /**
-     * bmob  上传多个文件
-     */
-    private fun uploadMultiFile() {
-        /**
-         * 此处修改为你手机的文件路径
-         */
-        var filePaths:Array<String> = arrayOf("/storage/emulated/0/1.png", "/storage/emulated/0/2.png", "/storage/emulated/0/3.png")
-        BmobFile.uploadBatch(filePaths,object : UploadBatchListener {
-            override fun onError(code: Int, error: String?) {
-                Toast.makeText(mContext, "上传出错：$error",Toast.LENGTH_LONG).show()
-            }
-
-            override fun onProgress(curIndex: Int, curPercent: Int, total: Int, totalPercent: Int) {
-                Toast.makeText(mContext, "上传进度：$curIndex",Toast.LENGTH_LONG).show()
-            }
-
-            override fun onSuccess(bmobFiles: MutableList<BmobFile>?, urls: MutableList<String>?) {
-                if (urls != null) {
-                    if (urls.size==filePaths.size)
-                        Toast.makeText(mContext, "全部上传成功",Toast.LENGTH_LONG).show()
-                }
-            }
-        })
-    }
+	 * bmob  上传多个文件
+	 */
+	private fun uploadMultiFile() {
+	    /**
+	     * 此处修改为你手机的文件路径
+	     */
+	    var filePaths:Array<String> = arrayOf("/storage/emulated/0/1.png", "/storage/emulated/0/2.png", "/storage/emulated/0/3.png")
+	    BmobFile.uploadBatch(filePaths,object : UploadBatchListener {
+	        override fun onError(code: Int, error: String?) {
+	            Toast.makeText(mContext, "上传出错：$error",Toast.LENGTH_LONG).show()
+	        }
+	
+	        override fun onProgress(curIndex: Int, curPercent: Int, total: Int, totalPercent: Int) {
+	            Toast.makeText(mContext, "上传进度：$curIndex",Toast.LENGTH_LONG).show()
+	        }
+	
+	        override fun onSuccess(bmobFiles: MutableList<BmobFile>?, urls: MutableList<String>?) {
+	            if (urls != null) {
+	                if (urls.size==filePaths.size)
+	                    Toast.makeText(mContext, "全部上传成功",Toast.LENGTH_LONG).show()
+	            }
+	        }
+	    })
+	}
 
 ### 删除单个文件
 
@@ -714,7 +714,7 @@ private fun resetPassword() {
             Toast.makeText(mContext,"请输入邮箱",Toast.LENGTH_LONG).show()
             return
         }
-
+    
         val password = input_password.text.toString()
         if (TextUtils.isEmpty(password)){
             Toast.makeText(mContext,"请输入邮箱",Toast.LENGTH_LONG).show()
@@ -774,7 +774,7 @@ private fun resetPassword() {
     private fun associateThird(snsType: String, accessToken: String, expiresIn: String, userId: String) {
         val authInfo = BmobThirdUserAuth(snsType, accessToken, expiresIn, userId)
         BmobUser.associateWithAuthData(authInfo, object : UpdateListener() {
-
+    
             override fun done(ex: BmobException?) {
                 if (ex == null) {
                     Log.e("associateWithAuthData", "关联成功")
@@ -795,7 +795,7 @@ private fun resetPassword() {
     private fun unAssociateThird(snsType: String) {
         var currentUser: User? = BmobUser.getCurrentUser(User::class.java)
         currentUser?.dissociateAuthData(snsType, object : UpdateListener() {
-
+    
             override fun done(ex: BmobException?) {
                 if (ex == null) {
                     Log.e("dissociateAuthData", "取消关联成功")
@@ -819,7 +819,7 @@ private fun resetPassword() {
         BmobUpdateAgent.setUpdateOnlyWifi(false);
         //TODO 设置更新监听器
         BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
-
+    
             @Override
             public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
                 BmobException e = updateInfo.getException();
@@ -833,7 +833,7 @@ private fun resetPassword() {
         });
         //TODO 设置对话框监听器
         BmobUpdateAgent.setDialogListener(new BmobDialogButtonListener() {
-
+    
             @Override
             public void onClick(int status) {
                 switch (status) {
@@ -846,7 +846,7 @@ private fun resetPassword() {
                     case UpdateStatus.Close:
                         Toast.makeText(MainActivity.this, "点击了对话框关闭按钮", Toast.LENGTH_SHORT).show();
                         break;
-
+    
                     default:
                         break;
                 }
@@ -913,7 +913,7 @@ private fun resetPassword() {
         }
         return true;
     }
-
+    
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -966,7 +966,7 @@ private fun resetPassword() {
                     Toast.makeText(mContext, "监听到更新：" + data.optString("name") + "-" + data.optString("content"), Toast.LENGTH_SHORT).show()
                 }
             }
-
+    
             override fun onConnectCompleted(ex: Exception) {
                 if (ex == null) {
                     Log.i("onConnectCompleted", "连接情况：" + if (rtd.isConnected) "已连接" else "未连接")
@@ -992,11 +992,11 @@ private fun resetPassword() {
      */
     private fun aclAccess() {
         val user = BmobUser.getCurrentUser(User::class.java)
-
+    
         val acl = BmobACL()    //创建一个ACL对象
         acl.setPublicReadAccess(true)  // 设置所有人可读的权限
         acl.setWriteAccess(user, true)   // 设置当前用户可写的权限
-
+    
         val post = Post()
         post.author = user
         post.title="ACL"
@@ -1026,18 +1026,18 @@ private fun resetPassword() {
         //创建公司某用户的工资对象
         val wage = Wage()
         wage.wage= 10000.0
-
+    
         //这里创建四个用户对象，分别为老板、人事小张、出纳小谢和自己
         val boss: BmobUser? =null
         val hr_zhang: BmobUser? =null
         val hr_luo: BmobUser? =null
         val cashier_xie: BmobUser? =null
         val me: BmobUser? =null
-
+    
         //创建HR和Cashier两个用户角色（这里为了举例BmobRole的使用，将这段代码写在这里，正常情况下放在员工管理界面会更合适）
         val hr = BmobRole("HR")
         val cashier = BmobRole("Cashier")
-
+    
         //将hr_zhang和hr_luo归属到hr角色中
         hr.users.add(hr_zhang)
         hr.users.add(hr_luo)
@@ -1051,7 +1051,7 @@ private fun resetPassword() {
                 }
             }
         })
-
+    
         //将cashier_xie归属到cashier角色中
         cashier.users.add(cashier_xie)
         //保存到云端角色表中（web端可以查看Role表）
@@ -1064,17 +1064,17 @@ private fun resetPassword() {
                 }
             }
         })
-
+    
         //创建ACL对象
         val acl = BmobACL()
         acl.setReadAccess(boss, true) // 假设老板只有一个, 设置读权限
         acl.setReadAccess(me, true) // 给自己设置读权限
         acl.setRoleReadAccess(hr, true) // 给hr角色设置读权限
         acl.setRoleReadAccess(cashier, true) // 给cashier角色设置读权限
-
+    
         acl.setWriteAccess(boss, true) // 设置老板拥有写权限
         acl.setRoleWriteAccess(hr, true) // 设置hr角色拥有写权限
-
+    
         //设置工资对象的ACL
         wage.acl = acl
         wage.save(object :SaveListener<String>(){
@@ -1276,7 +1276,7 @@ private fun publishPost() {
         query.order("-updatedAt")
         query.include("author")// 希望在查询帖子信息的同时也把发布人的信息查询出来
         query.findObjects(object : FindListener<Post>() {
-
+    
             override fun done(posts: List<Post>, e: BmobException?) {
                 if (e == null) {
                     Log.i("bmob", "成功")
@@ -1495,5 +1495,4 @@ private fun getAllTable() {
     })
 }
 ```
-
 

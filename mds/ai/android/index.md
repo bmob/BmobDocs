@@ -20,7 +20,7 @@
 在`app`的`build.gradle`文件中添加`依赖文件`：
 ```gradle
 dependencies {
-	implementation 'io.github.bmob:android-sdk:4.1.0'
+	implementation 'io.github.bmob:android-sdk:4.2.1'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.9'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.8.1'
@@ -123,6 +123,7 @@ BmobApp.bmobAI.Chat("帮我用写一段android访问Bmob后端云的代码", "se
 
 - BmobAI的其他方法
   
+
 `BmobAI`类还有`isConnect`方法和`Connect`方法。
 
 `isConnect`方法返回布尔值，表示是否和服务器保持着连接状态。
@@ -148,7 +149,7 @@ BmobApp.bmobAI.Stop();
 BmobApp.bmobAI.setPrompt("接下来的每个回复都要叫我宝贝");
 
 ```
- 
+
 启用这个方法之后，我们会在每次给AI发起内容生成的时候，都在最开始的地方附带上 `"接下来的每个回复都要叫我宝贝"` 这句话，确保内容按你的要求生成。
 
 ## 清除对话
