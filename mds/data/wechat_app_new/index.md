@@ -2606,6 +2606,345 @@ var openId = wx.getStorageSync('openid');
 
 
 
+### 小程序虚拟支付
+
+**简介：**
+
+微信小程序虚拟支付（Virtual Payment），用于 **道具直购 / 代币充值 / 代币扣减支付 / 订单查询 / 退款** 等场景。该能力由 SDK `Bmob.Pay` 提供封装方法，直接调用即可。
+
+**接口列表：**
+
+1. 创建虚拟支付订单：**POST** `/1/wxvp/createOrder`
+2. 查询用户代币余额：**POST** `/1/wxvp/queryUserBalance`
+3. 查询现金订单状态：**POST** `/1/wxvp/queryOrder`
+4. 代币扣减支付：**POST** `/1/wxvp/currencyPay`
+5. 代币支付退款：**POST** `/1/wxvp/cancelCurrencyPay`
+
+> 说明：以下示例中 `openid`、`sk(session_key)` 支持不传；若已通过 `Bmob.User.auth()` 登录，SDK 会自动从当前登录用户 `authData.weapp` 里读取。
+
+#### 1. 创建虚拟支付订单
+
+**POST** `/1/wxvp/createOrder`
+
+**功能描述：**
+
+创建微信虚拟支付订单，用于后续拉起支付/结算流程（适用于道具直购与代币充值等）。
+
+**请求参数：**
+
+| 字段 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| openid | string | 否 | 用户的 openid（默认从当前登录用户读取） |
+| session_key | string | 否 | 用户 session_key（同 sk，默认从当前登录用户读取） |
+| sk | string | 否 | 登录返回的 sk（同 session_key） |
+| env | int | 否 | 环境：`0`-正式，`1`-沙箱；默认 `0` |
+| mode | string | 是 | 支付类型：`short_series_goods` 或 `short_series_coin` |
+| goods_price | int | 是 | 商品单价，单位：分，须 >0 |
+| buy_quantity | int | 否 | 购买数量，默认 `1` |
+| product_id | string | 否 | 道具 ID，`mode=short_series_goods` 时必填 |
+| currency_type | string | 否 | 货币类型，默认 `CNY` |
+| attach | string | 否 | 透传字段 |
+| name | string | 否 | 商品名称（仅存入本地订单记录） |
+| biz_meta | string | 否 | 业务透传数据 |
+
+**请求示例：**
+
+```json
+{
+  "env": 0,
+  "mode": "short_series_coin",
+  "goods_price": 100,
+  "buy_quantity": 1,
+  "currency_type": "CNY",
+  "attach": "any",
+  "name": "100 代币",
+  "biz_meta": "{\"from\":\"index\"}"
+}
+```
+
+**SDK 调用示例：**
+
+```
+Bmob.Pay.wxvpCreateOrder({
+  env: 0,
+  mode: 'short_series_coin',
+  goods_price: 100,
+  buy_quantity: 1,
+  currency_type: 'CNY',
+  attach: 'any',
+  name: '100 代币',
+  biz_meta: JSON.stringify({ from: 'index' })
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})
+```
+
+**完整示例：创建订单并发起虚拟支付（推荐开发者照抄）**
+
+> 说明：该示例参考 `pages/index/index.js` 的实现流程：先 `wx.Bmob.User.auth()` 确保登录态，再创建订单，最后使用订单返回的签名参数调起 `wx.requestVirtualPayment`。
+
+```
+// 版本对比工具（用于判断 requestVirtualPayment 能力是否可用）
+function compareVersion (_v1, _v2) {
+  if (typeof _v1 !== 'string' || typeof _v2 !== 'string') return 0
+  const v1 = _v1.split('.')
+  const v2 = _v2.split('.')
+  const len = Math.max(v1.length, v2.length)
+  while (v1.length < len) v1.push('0')
+  while (v2.length < len) v2.push('0')
+  for (let i = 0; i < len; i++) {
+    const num1 = parseInt(v1[i], 10)
+    const num2 = parseInt(v2[i], 10)
+    if (num1 > num2) return 1
+    if (num1 < num2) return -1
+  }
+  return 0
+}
+
+// 点击按钮发起虚拟支付
+function startVirtualPay () {
+  const SDKVersion = wx.getSystemInfoSync().SDKVersion
+
+  // 低版本兼容：小于 2.19.2 且不支持 requestVirtualPayment 直接提示
+  if (compareVersion(SDKVersion, '2.19.2') < 0 && !wx.canIUse('requestVirtualPayment')) {
+    wx.showToast({ title: '当前客户端不支持虚拟支付', icon: 'none' })
+    return
+  }
+
+  // 业务参数（示例：道具直购 short_series_goods）
+  const payParams = {
+    env: 0, // 0 正式，1 沙箱
+    mode: 'short_series_goods',
+    goods_price: 2, // 单价：分
+    buy_quantity: 1,
+    product_id: 'test_order',
+    name: '限定礼物',
+    attach: 'testdata'
+  }
+
+  // 1）确保登录（SDK 会自动从当前用户读取 openid/sk）
+  wx.Bmob.User.auth()
+    .then(() => {
+      // 2）创建虚拟支付订单
+      return wx.Bmob.Pay.wxvpCreateOrder(payParams)
+    })
+    .then(res => {
+      console.log('wxvpCreateOrder res:', res)
+
+      // 订单号：建议落库保存，用于后续查询/退款
+      const { order_id, signData, mode, paySig, signature } = res || {}
+      console.log('order_id:', order_id)
+
+      // 3）可选：插入一条业务订单记录（示例表名 test_order，请按你自己的表结构调整）
+      // const q = wx.Bmob.Query('test_order')
+      // q.set('orderID', order_id)
+      // q.set('orderFee', String(payParams.goods_price * payParams.buy_quantity))
+      // q.set('status', 0) // 0-初始化
+      // q.save()
+
+      // 4）调起微信虚拟支付
+      return new Promise((resolve, reject) => {
+        wx.requestVirtualPayment({
+          signData,
+          paySig,
+          signature,
+          mode,
+          success: resolve,
+          fail: reject
+        })
+      })
+    })
+    .then(payRes => {
+      // 支付成功（这里写你的发货/业务逻辑）
+      console.log('requestVirtualPayment success:', payRes)
+      wx.showToast({ title: '支付成功', icon: 'success' })
+    })
+    .catch(err => {
+      // 创建订单失败 / 调起支付失败
+      console.error('虚拟支付失败:', err)
+      wx.showToast({ title: '支付失败', icon: 'none' })
+    })
+}
+```
+
+#### 2. 查询用户代币余额
+
+**POST** `/1/wxvp/queryUserBalance`
+
+**功能描述：**
+
+查询用户代币余额（有价 + 赠送），支付前可调用以确认余额是否充足。
+
+**请求参数：**
+
+| 字段 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| openid | string | 否 | 用户的 openid（默认从当前登录用户读取） |
+| env | int | 否 | 环境：`0`-正式，`1`-沙箱；默认 `0` |
+| sk | string | 否 | 登录返回的 sk（同 session_key，默认从当前登录用户读取） |
+| session_key | string | 否 | 同 sk |
+
+**SDK 调用示例：**
+
+```
+Bmob.Pay.wxvpQueryUserBalance({
+  env: 0
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})
+```
+
+#### 3. 查询现金订单状态
+
+**POST** `/1/wxvp/queryOrder`
+
+**功能描述：**
+
+用于查询现金订单（道具直购或代币充值）的当前状态及结算信息。
+
+**请求参数：**
+
+| 字段 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| openid | string | 否 | 用户的 openid（默认从当前登录用户读取） |
+| env | int | 否 | 环境：`0`-正式，`1`-沙箱；默认 `0` |
+| order_id | string | 否 | 业务订单号，与 `wx_order_id` 二选一 |
+| wx_order_id | string | 否 | 微信内部单号，与 `order_id` 二选一 |
+
+**SDK 调用示例：**
+
+```
+Bmob.Pay.wxvpQueryOrder({
+  env: 0,
+  order_id: 'ORDER_20240101_001'
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})
+```
+
+#### 4. 代币扣减支付
+
+**POST** `/1/wxvp/currencyPay`
+
+**功能描述：**
+
+从用户代币账户中扣减指定数量的代币，用于代币支付场景。扣减成功后应立即为用户发货。
+
+**请求参数：**
+
+| 字段 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| openid | string | 否 | 用户的 openid（默认从当前登录用户读取） |
+| env | int | 否 | 环境：`0`-正式，`1`-沙箱；默认 `0` |
+| sk | string | 否 | 登录返回的 sk（默认从当前登录用户读取） |
+| amount | int | 是 | 支付的代币数量，须 >0 |
+| order_id | string | 是 | 业务订单号，需全局唯一 |
+| payitem | string | 否 | 物品信息 JSON 字符串 |
+| remark | string | 否 | 备注信息 |
+
+**请求示例：**
+
+```json
+{
+  "env": 0,
+  "amount": 100,
+  "order_id": "ORDER_20240101_001",
+  "payitem": "{\"name\":\"coin\"}",
+  "remark": "代币支付"
+}
+```
+
+**SDK 调用示例：**
+
+```
+Bmob.Pay.wxvpCurrencyPay({
+  env: 0,
+  amount: 100,
+  order_id: 'ORDER_20240101_001',
+  payitem: JSON.stringify({ name: 'coin' }),
+  remark: '代币支付'
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})
+```
+
+#### 5. 代币支付退款
+
+**POST** `/1/wxvp/cancelCurrencyPay`
+
+**功能描述：**
+
+对 `currencyPay` 接口产生的代币支付订单发起退款（逆操作），将代币退还给用户。
+
+**请求参数：**
+
+| 字段 | 类型 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| openid | string | 必填 | 用户的 openid |
+| env | int | 必填 | 环境：`0`-正式，`1`-沙箱 |
+| sk | string | 必填 | 登录返回的 sk（服务端解密后计算用户态签名） |
+| pay_order_id | string | 必填 | 原 `currencyPay` 调用时传入的 `order_id` |
+| order_id | string | 必填 | 本次退款单的单号，需全局唯一 |
+| amount | int | 必填 | 退款代币数量，须大于 `0` |
+
+**请求示例：**
+
+```json
+{
+  "openid": "oUBzr0GO-wolgKbv5k-UyzBdCdr4",
+  "env": 0,
+  "sk": "a1b2cxhAbNEYUlkaMBEsmFgzig==",
+  "pay_order_id": "ORDER_20240101_001",
+  "order_id": "REFUND_COIN_20240101_001",
+  "amount": 100
+}
+```
+
+**SDK 调用示例：**
+
+```
+Bmob.Pay.wxvpCancelCurrencyPay({
+  openid: 'oUBzr0GO-wolgKbv5k-UyzBdCdr4',
+  env: 0,
+  sk: 'a1b2cxhAbNEYUlkaMBEsmFgzig==',
+  pay_order_id: 'ORDER_20240101_001',
+  order_id: 'REFUND_COIN_20240101_001',
+  amount: 100
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.log(err)
+})
+```
+
+**响应参数：**
+
+| 字段 | 类型 | 说明 |
+| --- | --- | --- |
+| errcode | int | 错误码，`0` 为成功 |
+| errmsg | string | 错误信息 |
+| order_id | string | 退款订单号（与请求中 `order_id` 一致） |
+
+**响应示例：**
+
+```json
+{
+  "errcode": 0,
+  "errmsg": "ok",
+  "order_id": "REFUND_COIN_20240101_001"
+}
+```
+
+> **注意：** 若返回 `errcode=268490004`（重复操作），表示该退款订单已成功执行，无需重试。
+
 ### 小程序退款 ###
 
 **简介：**
