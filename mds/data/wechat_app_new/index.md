@@ -2612,6 +2612,12 @@ var openId = wx.getStorageSync('openid');
 
 微信小程序虚拟支付（Virtual Payment），用于 **道具直购 / 代币充值 / 代币扣减支付 / 订单查询 / 退款** 等场景。该能力由 SDK `Bmob.Pay` 提供封装方法，直接调用即可。
 
+**使用条件：**
+
+1. 需企业用户提前开通微信支付
+2. 填写支付商户id到Bmob控制台
+3. 开通Bmob专业版或以上版本（可开通试用，工单联系）
+
 **接口列表：**
 
 1. 创建虚拟支付订单：**POST** `/1/wxvp/createOrder`
