@@ -435,15 +435,23 @@
 										
 										<ul class="nav">
 											
-											<li class="active "><a href="#bmob">在Bmob上创建应用</a>
+											<li class="active "><a href="#bmob">在 Bmob 上创建应用</a>
 												
 											</li>
 												
-											<li class=""><a href="#swift">创建Swift项目</a>
+											<li class=""><a href="#swift">创建 Swift 项目</a>
 												
 											</li>
 												
-											<li class=""><a href="#bmobsdk">设置BmobSDK</a>
+											<li class=""><a href="#bmobsdk">设置 BmobSDK</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#cocoapods">方式一：通过 CocoaPods 安装（推荐）</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#sdk">方式二：手动导入 SDK</a></li>
+												</ul>
 												
 											</li>
 												
@@ -451,11 +459,31 @@
 												
 											</li>
 												
-											<li class=""><a href="#curd">测试CURD功能</a>
+											<li class=""><a href="#crud">测试 CRUD 功能</a>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#sdk_1">初始化 SDK</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_2">创建数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_3">查询数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_4">更新数据</a></li>
+												</ul>
+												
+												<ul class="nav nav-l2">
+													<li><a class="itm-l2" href="#_5">删除数据</a></li>
+												</ul>
 												
 											</li>
 												
-											<li class=""><a href="#_2">案例源码</a>
+											<li class=""><a href="#_6">案例源码</a>
 												
 											</li>
 												
@@ -517,17 +545,37 @@
                 <div class="wrap">
                     
 
-<p>本文档的目的是为了方便大家在Swift工程中使用BmobSDK，实现应用的快速开发。下面介绍怎么在 Swift 工程中使用 BmobSDK。</p>
-<h2 id="bmob">在Bmob上创建应用<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
-<p>关于如何创建应用，具体请参照<a href="http://doc.bmobapp.com/data/ios/">快速入门</a></p>
-<h2 id="swift">创建Swift项目<a class="headerlink" href="#swift" title="Permanent link">&para;</a></h2>
-<p>使用Xcode6创建一个新的Single View Application</p>
+<p>本文档的目的是为了方便大家在 Swift 工程中使用 BmobSDK，实现应用的快速开发。下面介绍怎么在 Swift 工程中使用 BmobSDK。</p>
+<h2 id="bmob">在 Bmob 上创建应用<a class="headerlink" href="#bmob" title="Permanent link">&para;</a></h2>
+<p>关于如何创建应用，具体请参照<a href="https://doc.bmobapp.com/data/ios/">快速入门</a></p>
+<h2 id="swift">创建 Swift 项目<a class="headerlink" href="#swift" title="Permanent link">&para;</a></h2>
+<p>使用 Xcode 创建一个新的 Single View Application</p>
 <p><img alt="" src="../image/Swift_BmobSDK_01.png" /></p>
-<p>Language选择Swift</p>
+<p>Language 选择 Swift</p>
 <p><img alt="" src="../image/Swift_BmobSDK_02.png" /></p>
-<h2 id="bmobsdk">设置BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
-<p>从官网下载最新的<a href="https://bmobapp.com/sdk/Bmob_iOS_SDK_v2.3.0-20180411.zip">BmobSDK</a>,解压导入项目。</p>
-<p>添加依赖库文件:</p>
+<h2 id="bmobsdk">设置 BmobSDK<a class="headerlink" href="#bmobsdk" title="Permanent link">&para;</a></h2>
+<h3 id="cocoapods">方式一：通过 CocoaPods 安装（推荐）<a class="headerlink" href="#cocoapods" title="Permanent link">&para;</a></h3>
+<p>在项目根目录下创建 <code>Podfile</code> 文件，内容如下：</p>
+<pre><code class="ruby">target &quot;你的项目名称&quot; do
+  platform :ios, &quot;15.6&quot;
+  use_frameworks!
+  pod 'BmobSDK'
+end
+</code></pre>
+
+<blockquote>
+<p>将 <code>"你的项目名称"</code> 替换为你在 Xcode 中创建的实际项目名称。</p>
+</blockquote>
+<p>然后在终端中进入项目目录，执行：</p>
+<pre><code class="bash">pod install
+</code></pre>
+
+<blockquote>
+<p><strong>注意：</strong> 使用 CocoaPods 安装完成后，请关闭当前的 <code>.xcodeproj</code> 项目文件，改为打开项目目录下新生成的 <code>.xcworkspace</code> 文件。后续所有操作都应在 <code>.xcworkspace</code> 中进行，否则会导致找不到 Pod 引入的库而编译报错。</p>
+</blockquote>
+<h3 id="sdk">方式二：手动导入 SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h3>
+<p>从https://github.com/bmob/Bmob-iOS-SDK下载最新的 BmobSDK,解压后将 SDK 文件(<code>BmobSDK.xcframework</code>)拖入项目中。</p>
+<p>然后添加以下依赖库文件：</p>
 <ul>
 <li>Foundation.framework</li>
 <li>CoreLocation.framework</li>
@@ -539,116 +587,115 @@
 <li>SystemConfiguration.framework</li>
 <li>AVFoundation.framework</li>
 <li>MediaPlayer.framework</li>
+<li>Photos.framework</li>
 <li>libz.1.2.5.tbd</li>
 <li>libicucore.tbd</li>
 <li>libsqlite3.tbd</li>
 <li>libc++.tbd</li>
-<li>libWeChatSDK.a(如果需要使用支付功能，必须导入，可从微信开放平台下载最新的)</li>
-<li>photos.framework</li>
+<li>libWeChatSDK.a（如果需要使用支付功能，必须导入，可从微信开放平台下载最新的）</li>
 </ul>
-<p>添加完成后，应该像这个样子</p>
+<p>添加完成后，应该像这个样子：</p>
 <p><img alt="" src="../image/Swift_BmobSDK_03.png" /></p>
-<p>或者开发者也可以通过cocoapods来进行管理
-Podfile 文件的内容可以写成</p>
-<pre><code>target &quot;xxxxxx&quot; do
-platform:ios,&quot;8.0&quot;
-use_frameworks!
-
-pod 'BmobSDK'
-
-
-end
-
-</code></pre>
-
 <h2 id="_1">创建桥接头文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>想要在Swift中使用Objective-C 的类和方法的话，需要创建一个.h 头文件，把你想在 Swift 中使用的 Objective-C 的头文件都包含进来。创建桥接头文件的方法有两种：可以自己手动创建一个桥接头文件并在项目配置项里面进行设置，也可以使用更快捷的方式，在你的项目里创建一个无用的 Objective-C 类文件（如：test.m），Xcode 将询问你是否要创建一个桥接头文件：</p>
+<p>由于 BmobSDK 是 Objective-C 编写的，在 Swift 项目中使用需要创建一个桥接头文件（Bridging Header）。</p>
+<p>最快捷的方式是：在项目中新建一个任意名称的 Objective-C 文件（如 <code>test.m</code>），Xcode 会自动询问你是否创建桥接头文件，点击 <strong>Create Bridging Header</strong> 即可：</p>
 <p><img alt="" src="../image/Swift_BmobSDK_04.png" /></p>
-<p>完成之后，你就可以删除test.m文件了,然后在 BmobSwift-Bridging-Header.h 中引入</p>
-<pre><code>#import &lt;BmobSDK/Bmob.h&gt;
+<p>完成之后，你就可以删除 <code>test.m</code> 文件了。然后在生成的桥接头文件 <code>{你的项目名}-Bridging-Header.h</code> 中引入 BmobSDK：</p>
+<pre><code class="objc">#import &lt;BmobSDK/Bmob.h&gt;
 </code></pre>
 
-<h2 id="curd">测试CURD功能<a class="headerlink" href="#curd" title="Permanent link">&para;</a></h2>
-<p>在AppDelegate.swift注册申请的AppKey</p>
-<pre><code>    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&gt; Bool {
-        // Override point for customization after application launch.
+<h2 id="crud">测试 CRUD 功能<a class="headerlink" href="#crud" title="Permanent link">&para;</a></h2>
+<h3 id="sdk_1">初始化 SDK<a class="headerlink" href="#sdk_1" title="Permanent link">&para;</a></h3>
+<p>在 <code>testApp.swift</code> 中注册你的 AppKey（登录 <a href="https://www.bmobapp.com">Bmob 控制台</a> 后，在 <strong>应用设置 &gt; 应用密钥</strong> 中获取）：</p>
+<pre><code class="swift">import SwiftUI
 
-        Bmob.register(WithAppKey: &quot;xxxxx&quot;)
-
-        return true
+@main
+struct test202603App: App {
+    init() {
+        Bmob.register(withAppKey: &quot;xxxxx&quot;)
     }
-</code></pre>
 
-<p>在ViewController.swift 中添加函数</p>
-<pre><code>//创建方法
-    func save(){
-        let gamescore:BmobObject = BmobObject(className: &quot;GameScore&quot;)
-        gamescore.setObject(&quot;Jhon Smith&quot;, forKey: &quot;playerName&quot;)
-        gamescore.setObject(90, forKey: &quot;score&quot;)
-        gamescore.saveInBackgroundWithResultBlock { (isSuccessful, error) in
-            if error != nil{
-                print(&quot;error is \(error.localizedDescription)&quot;)
-            }else{
-                print(&quot;success&quot;)
-            }
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
         }
     }
+}
 </code></pre>
 
-<p>然后在viewDidLoad函数中调用</p>
-<pre><code>override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        save()
+<h3 id="_2">创建数据<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>在 <code>ViewController.swift</code> 中添加以下方法，用于向 <code>GameScore</code> 表插入一条数据：</p>
+<pre><code class="swift">func save() {
+    let gamescore = BmobObject(className: &quot;GameScore&quot;)
+    gamescore.setObject(&quot;John Smith&quot;, forKey: &quot;playerName&quot;)
+    gamescore.setObject(90, forKey: &quot;score&quot;)
+    gamescore.saveInBackground { (isSuccessful, error) in
+        if let error = error {
+            print(&quot;保存失败: \(error.localizedDescription)&quot;)
+        } else {
+            print(&quot;保存成功&quot;)
+        }
     }
+}
 </code></pre>
 
-<p>现在就可以在WEB后台查看是否创建成功，如下图所示。</p>
+<p>然后在 <code>viewDidLoad</code> 中调用：</p>
+<pre><code class="swift">override func viewDidLoad() {
+    super.viewDidLoad()
+    save()
+}
+</code></pre>
+
+<p>运行项目后，可以在 Bmob 控制台的后台查看是否创建成功，如下图所示：</p>
 <p><img alt="" src="../image/Swift_BmobSDK_05.png" /></p>
-<pre><code>//查询方法
-func queryUsers()  {
-        let query:BmobQuery = BmobUser.query()
-        query.orderByDescending(&quot;createdAt&quot;)
-        query.findObjectsInBackgroundWithBlock { (array, error) in
-            for i in 0..&lt;array.count{
-                let obj : BmobUser = array[i] as! BmobUser
-                print(&quot;object id \(obj.objectId),username \(obj.username)&quot;)
-
+<h3 id="_3">查询数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>查询 <code>BmobUser</code> 表中的用户列表，按创建时间倒序排列：</p>
+<pre><code class="swift">func queryUsers() {
+    let query: BmobQuery = BmobUser.query()
+    query.orderByDescending(&quot;createdAt&quot;)
+    query.findObjectsInBackground { (array, error) in
+        guard let results = array else { return }
+        for item in results {
+            if let obj = item as? BmobUser {
+                print(&quot;objectId: \(obj.objectId ?? &quot;&quot;), username: \(obj.username ?? &quot;&quot;)&quot;)
             }
         }
     }
-
+}
 </code></pre>
 
-<pre><code>//更新方法
-func update() {
-        let  gamescore:BmobObject = BmobObject(outDatatWithClassName: &quot;GameScore&quot;, objectId: &quot;f3a82207ed&quot;)
-        gamescore.setObject(91, forKey: &quot;score&quot;)
-        gamescore.updateInBackgroundWithResultBlock { (isSuccessful, error) in
-            if error != nil{
-                print(&quot;error is \(error.localizedDescription)&quot;)
-            }else{
-                print(&quot;success&quot;)
-            }
+<h3 id="_4">更新数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>根据 <code>objectId</code> 更新一条已有的 <code>GameScore</code> 记录：</p>
+<pre><code class="swift">func update() {
+    let gamescore = BmobObject(outDatatWithClassName: &quot;GameScore&quot;, objectId: &quot;替换为实际的objectId&quot;)
+    gamescore.setObject(91, forKey: &quot;score&quot;)
+    gamescore.updateInBackground { (isSuccessful, error) in
+        if let error = error {
+            print(&quot;更新失败: \(error.localizedDescription)&quot;)
+        } else {
+            print(&quot;更新成功&quot;)
         }
     }
+}
 </code></pre>
 
-<pre><code>//删除方法
-    func deleteGameScore()  {
-        let  gamescore:BmobObject = BmobObject(outDatatWithClassName: &quot;GameScore&quot;, objectId: &quot;4faf28f4dd&quot;)
-        gamescore.deleteInBackgroundWithBlock { (isSuccessful, error) in
-            if error != nil{
-                print(&quot;error is \(error.localizedDescription)&quot;)
-            }else{
-                print(&quot;success&quot;)
-            }
+<h3 id="_5">删除数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>根据 <code>objectId</code> 删除一条 <code>GameScore</code> 记录：</p>
+<pre><code class="swift">func deleteGameScore() {
+    let gamescore = BmobObject(outDatatWithClassName: &quot;GameScore&quot;, objectId: &quot;替换为实际的objectId&quot;)
+    gamescore.deleteInBackground { (isSuccessful, error) in
+        if let error = error {
+            print(&quot;删除失败: \(error.localizedDescription)&quot;)
+        } else {
+            print(&quot;删除成功&quot;)
         }
     }
+}
 </code></pre>
 
-<h2 id="_2">案例源码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_6">案例源码<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/bmob/bmob-ios-demo/blob/master/SwiftDemo.zip" title="点击下载源码">点击下载源码</a></p>
+<p>更多问题请控制台工单联系我们</p>
                 </div>
             </div>
         </div>
