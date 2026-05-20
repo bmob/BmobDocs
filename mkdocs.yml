@@ -135,6 +135,8 @@ nav:
       - 小程序/Html5: ai/html5/index.md
       - REST API: ai/api/index.md
       - python: ai/python/index.md
+  - 视频教程: video/index.html
+  - 知识库: https://www.bmobapp.com/repository/index
   - 其他:
       - 域名管理: other/domain/index.md
       - 常见问题: other/common_problem/index.md
