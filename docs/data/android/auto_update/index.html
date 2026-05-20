@@ -1,562 +1,3787 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
-            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
-            
-            
-            
-            <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
-            <!--
-            <title>自动更新 - Bmob文档中心</title>
-            -->
-            <title>数据存储 &middot; Android – Bmob后端云 </title>  
-            
-            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
-            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
-            <link href="../../../css/base.css" rel="stylesheet">
-            <link rel="stylesheet" href="../../../css/highlight.css">
-            <link href="../../../css/agate.css" rel="stylesheet">
-            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
-    </head>
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../example/">
+      
+      
+        <link rel="next" href="../../ios/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>自动更新 - Bmob文档中心</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-    <body >
 
-        <div class="navbar navbar-fixed-top" role="navigation">
-    <div class="main-nav">
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="../../..">
-                <!--Bmob文档中心-->
-                <img src="../../../img/logo.png" alt="">
-            </a>
-        </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
+    
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/stylesheets/bmob.css">
 
-          <ul class="nav navbar-nav">
-            
-              <li class="pull-left">
-                
-					<a href="../../..">文档首页</a>
-                
-              </li>
-            
-              <li class="pull-left active">
-                
-					<!--<a href="">数据服务</a>-->
-					<li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-								<li class="active">
-									<a href="../">Android</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../ios/">iOS</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../harmony/">harmony鸿蒙</a>
-                                </li>
-							
-                            
-								<li >
-									<a href="../../csharp/">C#</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../php/">PHP</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../go/">GO</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../restful/">REST API</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../wechat_app_new/rm/">JavaScript</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../cocos2d_x/">Cocos2D-X</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../wechat_app_new/">快应用</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../wechat_app_new/">Nodejs</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../wechat_app_new/">Cocos Creator</a>
-                                </li>
-							
-                            
-								<li >
-									<a href="../../wechat_app_new/rm/">小程序</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../kotlin/">Kotlin</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../python/">Python</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../flutter/">Flutter</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="">云函数</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-								<li >
-									<a href="../../../cloud_function/web/">云函数开发文档</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../../cloud_function/android/">Android</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../cloud_function/ios/">iOS</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../cloud_function/java/">Java</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../cloud_function/python/">Python</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../cloud_function/csharp/">C#</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../cloud_function/php/">PHP</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../cloud_function/javascript/">JavaScript</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../cloud_function/restful/">REST API</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="../../../sms/android/">短信服务</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                                <li >
-                                    <a href="../../../sms/android/">Android</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/ios/">iOS</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/php/">PHP</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/javascript/">JavaScript</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/restful/">REST API</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/python/">python</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="../../../ai/android/">AI人工智能</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                                <li >
-                                    <a href="../../../ai/android/">Android</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/ios/">iOS</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/html5/">小程序</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/html5/">Html5</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/api/">API</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/python/">python</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="../../../other/domain/">其他</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                                <li >
-                                    <a href="../../../other/domain/">域名管理</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/common_problem/">常见问题</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/error_code/">错误码</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/data_safety/">数据安全</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/bql/">BQL</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li>
-                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
-              </li>
-              <li>
-                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
-              </li>
-            </ul>
-
-        </div>
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Bmob文档中心" class="md-header__button md-logo" aria-label="Bmob文档中心" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bmob文档中心
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              自动更新
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bmob/bmobdocs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  文档首页
 
-        <div class="pagebody" id="main-wrapper">
-            <div class="sidebar">
-                <div class="bs-sidebar hidden-print affix well" role="complementary">
+      </a>
+    </li>
+  
 
-	
-		
-	
-		
-				
-					<div class="code-title">Android</div>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-				
-				
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-				
-				
-				
-				
-		
-	
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  数据服务
 
+        </a>
+      </li>
+    
+  
 
-	<ul class="nav bs-sidenav">
-		
-			
-		
-			
-				
-					
-						
-							
-								
-									<li class="">
-										<a class="itm-l1" href="../">快速入门</a>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../develop_doc/">开发文档</a>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../example/">示例/功能</a>
-										
-									</li>
-								
-									<li class="active">
-										<a class="itm-l1" href="./">自动更新</a>
-										
-										<ul class="nav">
-											
-											<li class="active "><a href="#_1">快速入门</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#1">1、添加资源文件</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#2androidmanifestxml">2、配置AndroidManifest.xml</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#3appversion">3、初始化AppVersion表</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#4">4、调用自动更新接口</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#5apkapkurl">5、上传APK文件或填写apk文件的url地址</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#6">6、集成检测</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#android70">兼容Android7.0</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#1-androidmanifestxmlapplication">1 在AndroidManifest.xml中的Application标签下添加如下内容：</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#2-resxmlfile_pathsxmlapk">2 在res的xml目录下创建file_paths.xml文件，用来指定Apk文件下载的位置，参考如下：</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_4">其他更新方式</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_5">手动更新</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_6">静默下载更新</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_7">自定义功能</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_8">恢复默认设置</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_9">设置更新的网络条件</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_10">监听检测更新的结果</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_11">监听安装包下载是否成功</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_12">监听对话框按键操作</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_13">常见问题</a>
-												
-											</li>
-												
-										</ul>
-										
-									</li>
-								
-							
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-				
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-	</ul>
-</div>
-            </div>
-            <div class="content" role="main">
-                <div class="wrap">
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cloud_function/web/" class="md-tabs__link">
+          
+  
+  
+  云函数
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sms/android/" class="md-tabs__link">
+          
+  
+  
+  短信服务
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/android/" class="md-tabs__link">
+          
+  
+  
+  AI人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../other/domain/" class="md-tabs__link">
+          
+  
+  
+  其他
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
                     
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bmob文档中心" class="md-nav__button md-logo" aria-label="Bmob文档中心" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bmob文档中心
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bmob/bmobdocs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文档首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据服务
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据服务
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Android
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例/功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自动更新
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自动更新
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速入门
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快速入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、添加资源文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2androidmanifestxml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、配置AndroidManifest.xml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3appversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、初始化AppVersion表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、调用自动更新接口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4、调用自动更新接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        强制更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        忽略版本更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5apkapkurl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5、上传APK文件或填写apk文件的url地址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6、集成检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android70" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        兼容Android7.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="兼容Android7.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-androidmanifestxmlapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 在AndroidManifest.xml中的Application标签下添加如下内容：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resxmlfile_pathsxmlapk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 在res的xml目录下创建file_paths.xml文件，用来指定Apk文件下载的位置，参考如下：
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他更新方式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他更新方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静默下载更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        恢复默认设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置更新的网络条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监听检测更新的结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监听安装包下载是否成功
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监听对话框按键操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    iOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例/功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/classdoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    类库文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/lib_gdx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    libGDX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/swift_quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/swift_develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../harmony/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    harmony鸿蒙
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C#
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C#
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csharp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csharp/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csharp/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例/功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PHP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REST API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../restful/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../restful/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wechat_app_new/rm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cocos2d_x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocos2D-X
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小程序
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    小程序
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wechat_app_new/rm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kotlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kotlin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../flutter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    云函数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    云函数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    云函数开发文档
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    云函数开发文档
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据钩子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/alipay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支付宝支付
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/wechat_pay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    微信支付
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/timing_tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    定时任务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/weixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    微信云函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/web/norm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编码规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/csharp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C#
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud_function/restful/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    短信服务
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    短信服务
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/restful/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI人工智能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/html5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小程序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/html5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小程序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    域名管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/common_problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/error_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    错误码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/data_safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/bql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速入门
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快速入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、添加资源文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2androidmanifestxml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、配置AndroidManifest.xml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3appversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、初始化AppVersion表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、调用自动更新接口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4、调用自动更新接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        强制更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        忽略版本更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5apkapkurl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5、上传APK文件或填写apk文件的url地址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6、集成检测
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android70" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        兼容Android7.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="兼容Android7.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-androidmanifestxmlapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 在AndroidManifest.xml中的Application标签下添加如下内容：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resxmlfile_pathsxmlapk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 在res的xml目录下创建file_paths.xml文件，用来指定Apk文件下载的位置，参考如下：
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他更新方式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他更新方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静默下载更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自定义功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        恢复默认设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置更新的网络条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监听检测更新的结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监听安装包下载是否成功
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        监听对话框按键操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>自动更新</h1>
 
 <h2 id="_1">快速入门<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="1">1、添加资源文件<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
@@ -570,56 +3795,50 @@
 </ol>
 <h3 id="2androidmanifestxml">2、配置AndroidManifest.xml<a class="headerlink" href="#2androidmanifestxml" title="Permanent link">&para;</a></h3>
 <p>1.打开AndroidManifest.xml，添加SDK需要的权限到<manifest>标签下：</p>
-<pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;&gt;&lt;/uses-permission&gt;
+<pre><code class="language-xml">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;&gt;&lt;/uses-permission&gt;
 &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;&gt;&lt;/uses-permission&gt;
 &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;&gt;&lt;/uses-permission&gt;
 &lt;uses-permission android:name=&quot;android.permission.REQUEST_INSTALL_PACKAGES&quot;&gt;&lt;/uses-permission&gt;
 </code></pre>
-
 <p>说明：
 - android.permission.WRITE_EXTERNAL_STORAGE 权限允许将下载的apk保存到sd卡中。
 - android.permission.ACCESS_NETWORK_STATE 权限允许检查网络状态，从而根据不同网络环境决定何种下载策略,务必添加该权限。
 - android.permission.REQUEST_INSTALL_PACKAGES 权限适配Android8.0的安装权限管理</p>
 <p>2.添加渠道到<application>标签下：</p>
-<pre><code class="xml">&lt;meta-data android:value=&quot;Channel ID&quot; android:name=&quot;BMOB_CHANNEL&quot;/&gt;
+<pre><code class="language-xml">&lt;meta-data android:value=&quot;Channel ID&quot; android:name=&quot;BMOB_CHANNEL&quot;/&gt;
 </code></pre>
-
 <p>说明：<code>BMOB_CHANNEL</code>用来标注应用推广渠道，不同渠道可以上传不同更新包，您可以使用20位以内的英文和数字为渠道定名，替换value中的<code>Channel ID</code>。如果不添加，将不区分渠道。(注意不要出现在manifest中标识了渠道但后端控制台没写渠道值，这样是无法自动更新的，因为没匹配上)</p>
 <p>3.添加Activity到<application>标签下：</p>
-<pre><code class="xml">&lt;activity
+<pre><code class="language-xml">&lt;activity
             android:name=&quot;cn.bmob.v3.update.UpdateDialogActivity&quot;
             android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; &gt;
         &lt;/activity&gt;
 </code></pre>
-
 <h3 id="3appversion">3、初始化AppVersion表<a class="headerlink" href="#3appversion" title="Permanent link">&para;</a></h3>
 <p>一行代码轻松搞定<code>AppVersion</code>表（<strong>注意：请务必将该表在WEB端设置为只读模式</strong>）：</p>
 <p>SDK提供了初始化自动创建<code>AppVersion</code>表的方法，不再需要开发者手动在web端创建。只需要在你使用自动更新功能的地方调用如下代码：</p>
-<pre><code class="java">    BmobUpdateAgent.initAppVersion();
+<pre><code class="language-java">    BmobUpdateAgent.initAppVersion();
 </code></pre>
-
 <p><strong>注：</strong></p>
 <p><strong>1、initAppVersion方法适合开发者调试自动更新功能时使用，一旦AppVersion表在后台创建成功，建议屏蔽或删除此方法，否则会生成多行记录。</strong></p>
 <p><strong>2、如果调用了此方法后，在管理后台没有看见AppVersion表生成，建议到手机的应用管理界面<code>清除该应用的数据，并再次调用该方法</code>，也可到LogCat中查看与<code>bmob</code>相关错误日志。</strong></p>
 <p><strong>3、如果<code>2</code>方法尝试多次之后仍然无效，请<code>手动创建AppVersion表</code>，表的各个字段名称请查看下表。</strong></p>
 <h3 id="4">4、调用自动更新接口<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>最常见的自动更新模式是：当用户进入应用首页后，如果处于wifi环境则检测更新，如果有更新，弹出对话框提示有新版本，用户点选更新开始下载更新。实现的方法是，在应用程序入口Activity里的<code>OnCreate()</code>方法中调用如下代码：</p>
-<pre><code class="java">public void onCreate(Bundle  savedInstanceState) {
+<pre><code class="language-java">public void onCreate(Bundle  savedInstanceState) {
     super.onCreate(savedInstanceState);
     BmobUpdateAgent.update(this);
 }
 </code></pre>
-
 <ol>
 <li>考虑到用户流量的限制，目前我们默认在WiFi接入情况下才进行自动提醒。如需要在任意网络环境下都进行更新自动提醒，则请在update调用之前添加以下代码：</li>
 </ol>
-<pre><code class="java">BmobUpdateAgent.setUpdateOnlyWifi(false)
+<pre><code class="language-java">BmobUpdateAgent.setUpdateOnlyWifi(false)
 </code></pre>
-
 <ol>
 <li>如果你发现调用update方法无反应，可使用下面<code>自定义功能</code>中的<code>监听检测更新的结果</code>提到的方法来监听自动更新的结果,具体如下：</li>
 </ol>
-<pre><code class="java">BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+<pre><code class="language-java">BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
 
     @Override
     public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
@@ -628,11 +3847,10 @@
     }
 })
 </code></pre>
-
 <h4 id="_2">强制更新<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>应用场景：如果应用需要屏蔽旧版本，强制用户必须更新升级到最新版才能继续使用。</p>
 <p>SDK中为自动更新方式提供了<code>强制更新</code>功能，当开发者开启强制更新功能（即将后台的<code>AppVersion</code>表中的isforce字段置为true）时，客户端调用<code>BmobUpdateAgent.update(context)</code>方法后，更新对话框只保留“立即更新”按钮且不再支持回退操作。其效果图如下：</p>
-<p><img alt="" src="../image/force.png" /></p>
+<p><img alt="" src="image/force.png" /></p>
 <h4 id="_3">忽略版本更新<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>SDK中为自动更新方式提供了<code>忽略版本更新</code>功能，当用户勾选”忽略该版“选项时，再次调用<code>BmobUpdateAgent.update(context)</code>则不再出现版本更新对话框。</p>
 <p><strong>注：强制更新和忽略版本更新只支持自动更新方式。</strong></p>
@@ -641,72 +3859,72 @@
 <table>
 <thead>
 <tr>
-<th align="left">字段名称</th>
-<th align="left">字段类型</th>
-<th align="left">是否必填</th>
-<th align="left">字段说明</th>
+<th style="text-align: left;">字段名称</th>
+<th style="text-align: left;">字段类型</th>
+<th style="text-align: left;">是否必填</th>
+<th style="text-align: left;">字段说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">update_log</td>
-<td align="left">String</td>
-<td align="left">是</td>
-<td align="left">更新日志</td>
+<td style="text-align: left;">update_log</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">更新日志</td>
 </tr>
 <tr>
-<td align="left">version</td>
-<td align="left">String</td>
-<td align="left">是</td>
-<td align="left">版本名称</td>
+<td style="text-align: left;">version</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">版本名称</td>
 </tr>
 <tr>
-<td align="left">version_i</td>
-<td align="left">Number</td>
-<td align="left">是</td>
-<td align="left">版本号</td>
+<td style="text-align: left;">version_i</td>
+<td style="text-align: left;">Number</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">版本号</td>
 </tr>
 <tr>
-<td align="left">platform</td>
-<td align="left">String</td>
-<td align="left">是</td>
-<td align="left">平台，注意："Android"为安卓平台标示，"ios"为ios平台标示</td>
+<td style="text-align: left;">platform</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">平台，注意："Android"为安卓平台标示，"ios"为ios平台标示</td>
 </tr>
 <tr>
-<td align="left">target_size</td>
-<td align="left">String</td>
-<td align="left">是</td>
-<td align="left">Apk文件大小</td>
+<td style="text-align: left;">target_size</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">是</td>
+<td style="text-align: left;">Apk文件大小</td>
 </tr>
 <tr>
-<td align="left">isforce</td>
-<td align="left">Boolean</td>
-<td align="left">否</td>
-<td align="left">是否强制更新</td>
+<td style="text-align: left;">isforce</td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">是否强制更新</td>
 </tr>
 <tr>
-<td align="left">path</td>
-<td align="left">File</td>
-<td align="left">是/否</td>
-<td align="left">Apk文件</td>
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">File</td>
+<td style="text-align: left;">是/否</td>
+<td style="text-align: left;">Apk文件</td>
 </tr>
 <tr>
-<td align="left">android_url</td>
-<td align="left">String</td>
-<td align="left">是/否</td>
-<td align="left">apk市场地址（path字段和本字段必填其中一个）</td>
+<td style="text-align: left;">android_url</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">是/否</td>
+<td style="text-align: left;">apk市场地址（path字段和本字段必填其中一个）</td>
 </tr>
 <tr>
-<td align="left">channel</td>
-<td align="left">String</td>
-<td align="left">否</td>
-<td align="left">渠道标示</td>
+<td style="text-align: left;">channel</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">渠道标示</td>
 </tr>
 <tr>
-<td align="left">ios_url</td>
-<td align="left">String</td>
-<td align="left">否</td>
-<td align="left">iOS app store地址（如果是ios记录一定要填写）</td>
+<td style="text-align: left;">ios_url</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">否</td>
+<td style="text-align: left;">iOS app store地址（如果是ios记录一定要填写）</td>
 </tr>
 </tbody>
 </table>
@@ -722,7 +3940,7 @@
 <p><strong>4、新版SDKV3.3.4允许下载已上传到应用市场上的apk文件，因此，path和android_url两者填任意一个即可，若都填写，默认优先下载path字段下的apk文件。</strong></p>
 <p><strong>5、新版SDKV3.3.4新增对update_log字段内容进行文字排版的功能，只需要在分段处加上分隔符<code>；</code>即可（UI效果如下图）</strong></p>
 <p>具体格式参考如下范例：1、修复第三方登陆成功后无法获取本地用户信息的问题<code>；</code>2、修复设置缓存策略后无法获取本地缓存信息的问题<code>；</code>3、修复调用云端逻辑（callEndpoint）方法的成功回调的返回值中含有“results”的问题<code>；</code>4、新版文件管理中对本地缩略图的处理方法新增压缩质量的参数。</p>
-<p><img alt="" src="../image/update.png" /></p>
+<p><img alt="" src="image/update.png" /></p>
 <p><strong>6、如果在web后台上传apk文件，然后在使用了v3.4.6之前版本的sdk的应用上调用自动更新功能出现 <code>解析包出错</code> 的问题，解决方法如下：</strong></p>
 <p><strong>请不要上传apk文件到<code>path</code>字段，改为<code>填写apk文件的url地址</code>到<code>android_url</code>字段。</strong></p>
 <p>具体原因请查看 <a href="http://doc.bmobapp.com/other/common_problem/">常见问题</a>。</p>
@@ -739,7 +3957,7 @@
 <h2 id="android70">兼容Android7.0<a class="headerlink" href="#android70" title="Permanent link">&para;</a></h2>
 <p>兼容了Android7.0中的FileProvider，具体用法如下：</p>
 <h3 id="1-androidmanifestxmlapplication">1 在AndroidManifest.xml中的Application标签下添加如下内容：<a class="headerlink" href="#1-androidmanifestxmlapplication" title="Permanent link">&para;</a></h3>
-<pre><code class="xml">&lt;provider
+<pre><code class="language-xml">&lt;provider
     android:name=&quot;android.support.v4.content.FileProvider&quot;
     android:authorities=&quot;此处填写你应用的包名&quot;
     android:exported=&quot;false&quot;
@@ -750,14 +3968,12 @@
 &lt;/provider&gt;
 
 </code></pre>
-
 <h3 id="2-resxmlfile_pathsxmlapk">2 在res的xml目录下创建file_paths.xml文件，用来指定Apk文件下载的位置，参考如下：<a class="headerlink" href="#2-resxmlfile_pathsxmlapk" title="Permanent link">&para;</a></h3>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;paths&gt;
     &lt;external-path name=&quot;Download&quot; path=&quot;Download&quot;/&gt;
 &lt;/paths&gt;
 </code></pre>
-
 <h2 id="_4">其他更新方式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>除了在快速入门中提到的自动更新之外，Bmob自动更新SDK还支持另外两种场景：手动更新、静默更新。
 下面将详细介绍这两种场景的接口及默认行为。</p>
@@ -782,7 +3998,7 @@
 <p>注：updateOnlyWifi:true表示只在wifi环境下检测更新，false表示所有环境下均可检测更新</p>
 <h3 id="_10">监听检测更新的结果<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>如果开发者想自己处理检测更新的结果，可以按如下步骤，实现更新监听接口，自主处理更新事件：</p>
-<pre><code class="java">    BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+<pre><code class="language-java">    BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
 
         @Override
         public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
@@ -805,10 +4021,9 @@
     //发起自动更新
     BmobUpdateAgent.update(this);
 </code></pre>
-
 <h3 id="_11">监听安装包下载是否成功<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>如果想要监听安装包是否下载成功，可以用下面的方法：</p>
-<pre><code class="java">BmobUpdateAgent.setUpdateDownloadListener(new BmobUpdateDownloadListener() {
+<pre><code class="language-java">BmobUpdateAgent.setUpdateDownloadListener(new BmobUpdateDownloadListener() {
             @Override
             public void onDownloadReturned(Status downloadStatus) {
                 if(downloadStatus==Status.ERROR){
@@ -820,10 +4035,9 @@
         });
 
 </code></pre>
-
 <h3 id="_12">监听对话框按键操作<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>有时候开发者需要知道用户点击了哪个按钮，开发者可设置监听对话框的按钮点击事件。</p>
-<pre><code class="java">    //设置对对话框按钮的点击事件的监听
+<pre><code class="language-java">    //设置对对话框按钮的点击事件的监听
     BmobUpdateAgent.setDialogListener(new BmobDialogButtonListener() {
 
         @Override
@@ -843,7 +4057,6 @@
         }
     });
 </code></pre>
-
 <p><strong>注：UpdateStatus列表</strong></p>
 <pre><code>UpdateStatus.TimeOut    =-1：查询出错或超时
 UpdateStatus.Yes        = 0：有更新
@@ -888,22 +4101,115 @@ UpdateStatus.Close      =8： 代表关闭对话框--&gt;只有在强制更新�
  &lt;!-- 设置应用渠道，如果应用不需要区分渠道，则建议删除此行 --&gt;
 &lt;meta-data android:name="BMOB_CHANNEL" android:value="bmob"/&gt;
 </code></pre>
-                </div>
-            </div>
-        </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    <nav class="bmob-content-nav" aria-label="页脚" >
+      <div class="md-footer__inner md-grid">
         
-            <script>var base_url = '../../..';</script>
-            <script src="../../../js/jquery-1.10.2.min.js"></script>
-            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
-            <script src="../../../js/highlight.pack.js"></script>
-            <script src="../../../js/main.js"></script>
-            <script src="../../../js/base.js"></script>
+          
+          <a href="../example/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 示例/功能">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                示例/功能
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../ios/" class="md-footer__link md-footer__link--next" aria-label="下一页: 快速入门">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                快速入门
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </div>
+    </nav>
+  
 
-		<!--
-        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
-        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
-		-->
-    </body>
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2017 Bmob, Maintained by the Bmob Support.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "navigation.footer", "navigation.top", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  <script src="../../../assets/javascripts/bmob-toc.js"></script>
 
+  </body>
 </html>

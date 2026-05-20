@@ -1,8 +1,0 @@
-site/
-env/
-dist/
-htmlcov/
-.tox/
-mkdocs.egg-info/
-*.pyc
-.coverage

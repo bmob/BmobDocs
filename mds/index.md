@@ -1,260 +1,162 @@
-<div id="loading">
-	<div>
-		<h1></h1>
-		<div class="loading">
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-	</div>
-</div>
-<div class="page-wrapper">
-	<header class="header text-center">
-		<div class="container">
-			<div class="branding">
-				<h1 class="logo">
-				<span class="text-highlight">Bmob</span><span class="text-bold">文档中心</span>
-			</h1>
-			</div>
-			<div class="tagline">
-				<p></p>
-				<p>Bmob 后端云专注于为移动应用提供一整套后端云服务</p>
-				<p>帮助开发者免去几乎所有的服务器端编码的工作量，成倍降低开发成本和开发时间。</p>
-			</div>
-			<!--//tagline-->
-			<!--div class="social-container">
-				<iframe src="https://ghbtns.com/github-btn.html?user=bmob&repo=bmobdocs&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-				<iframe src="https://ghbtns.com/github-btn.html?user=bmob&repo=bmobdocs&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-				<iframe src="https://ghbtns.com/github-btn.html?user=bmob&repo=bmobdocs&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-			</div-->
-		</div>
-	</header>
-	<section class="cards-section text-center">
-		<div class="container">
+---
+hide:
+  - navigation
+  - toc
+---
 
-<!--div class="alert alert-danger alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>重要提示!</strong> 因公司官网域名已更换，部分文档尚未来得及修正，文档中有关bmob.cn域名请改为bmobapp.com，如仍有疑问，请联系客服QQ：2967459363  获取支持。
-</div-->
-			<div id="cards-wrapper" class="cards-wrapper row">
-				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o1"></i>
-						</div>
-						<h3 class="title">数据服务</h3>
-						<div class="text-left">
-							<ul class="links">
-								<li><s class="languageType"></s><a href="./data/android/index.html" class="intro" >Android</a></li>
-								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./data/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType"></s><a href="./data/harmony/index.html" class="intro" >harmony鸿蒙</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./data/restful/index.html" class="intro" >API 文档</a></li>
-								<li><s class="languageType" style="background-position:left -483px;"></s><a href="./data/kotlin/index.html" class="intro" >Kotlin</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >小程序</a></li>
-								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./data/php/index.html" class="intro" >PHP</a></li>
-								<li><s class="languageType" style="background-position:left -214px;"></s><a href="./data/cocos2d_x/index.html" class="intro" >Cocos2d-x</a></li>
-								<li><s class="languageType" style="background-position:left -132px;"></s><a href="./data/go/index.html" class="intro" >Go</a></li>
-								<!--li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app/index.html" class="intro" >小程序（旧）</a></li-->
-								<li><s class="languageType" style="background-position:left -347px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >JavaScript</a></li>
-								<li><s class="languageType" style="background-position:left -375px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >快应用</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >Nodejs</a></li>
-								<li><s class="languageType" style="background-position:left -214px;"></s><a href="./data/wechat_app_new/index.html" class="intro" >Cocos Creator</a></li>
-								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./data/csharp/index.html" class="intro" >Unity/C#</a></li>
-								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./data/python/index.html" class="intro" >Python</a></li>
-								<li><s class="languageType" style="background-position:left -536px;"></s><a href="./data/flutter/index.html" class="intro" >Flutter</a></li>
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o8"></i>
-						</div>
-						<!--//icon-holder-->
-						<h3 class="title">AI人工智能</h3>
-						<div class="text-left">
-							<ul class="links else">
-							<li><s class="languageType"></s><a href="./ai/android/index.html" class="intro" >Android</a></li>
-								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./ai/ios/index.html" class="intro" >   iOS</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./ai/html5/index.html" class="intro" >   小程序</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./ai/html5/index.html" class="intro" >   Html5</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./ai/api/index.html" class="intro" >API 文档</a></li>
-								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./ai/python/index.html" class="intro" >python</a></li>
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<!--//item-->
-				<!--//item-->
-				<div class="item item-blue item-2 col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o3"></i>
-						</div>
-						<h3 class="title">短信服务</h3>
-						<div class="text-left">
-							<ul class="links">
-								<li><s class="languageType"></s><a href="./sms/android/index.html" class="intro" >Android</a></li>
-								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./sms/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./sms/restful/index.html" class="intro" >API文档</a></li>
-								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./sms/php/index.html" class="intro" >PHP</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./sms/javascript/index.html" class="intro" >JavaScript</a></li>
-								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./sms/python/index.html" class="intro" >python</a></li>
-								<li></li>
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<!--//item-->
-<!-- 				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o8"></i>
-						</div>
-						<h3 class="title">游戏实时后端</h3>
-						<div class="text-left">
-							<ul class="links">
-								<li><s class="languageType" style="background-position:left -402px;"></s><a href="./game/unity/quick_start" class="intro" >Unity</a></li>
-								<li><s class="languageType" style="background-position:left -214px;"></s><a href="./game/cocos_creator/quick_start" class="intro" >Cocos Creator</a></li>
-								<li><s class="languageType" style="background-position:left -347px;"></s><a href="./game/wechat_games/quick_start" class="intro" >微信小游戏</a></li>
-								<li><s class="languageType" style="background-position:left -428px;"></s><a href="./game/cloud_function/develop_doc" class="intro" >云函数</a></li>
-								<li><s class="languageType" style="background-position:left -321px;"></s><a href="./game/classic_case" class="intro" >经典案例</a></li>
-								<li></li>
-							</ul>
-						</div>
-					</div>
-				</div> -->
-				<!--//item-->
-				<div style="display:none" class="item item-blue col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o4"></i>
-						</div>
-						<h3 class="title">即时通讯</h3>
-						<div class="text-left">
-							<ul class="links">
-								<li><s class="languageType"></s><a href="./im/android/index.html" class="intro" >Android</a></li>
-								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./im/ios/index.html" class="intro" >iOS</a></li>
-								<li></li>
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<!--//item-->
-				<div style="display:none" class="item item-blue col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o5"></i>
-						</div>
-						<h3 class="title">推送功能</h3>
-						<div class="text-left">
-							<ul class="links">
-								<li><s class="languageType"></s><a href="./push/android/index.html" class="intro" >Android</a></li>
-								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./push/ios/index.html" class="intro" >iOS</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./push/restful/index.html" class="intro" >API 文档</a></li>
-								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./push/php/index.html" class="intro" >PHP</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./push/javascript/index.html" class="intro" >JavaScript</a></li>
-								<li></li>
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<!--//item-->
-				<!-- <div class="item item-blue col-md-4 col-sm-6 col-xs-6">
-		<div class="item-inner">
-			<div class="icon-holder">
-				<i class="icon o6"></i>
-			</div>
-			<h3 class="title">移动支付</h3>
-			<div class="text-left">
-				<ul class="links">
-				  <li><s class="languageType"></s><a href="./pay/android/index.html" class="intro" >Android</a></li>
-				  <li><s class="languageType" style="background-position:left -26px;"></s><a href="./pay/ios/index.html" class="intro" >iOS</a></li>
-				  <li><s class="languageType"  style="background-position:left -52px;"></s><a href="./pay/restful/index.html" class="intro" >API 文档</a></li>
-				  <li></li>
-				</ul>
-			</div>
-		</div>
-	</div> -->
-				<div style="display:none" class="item item-blue col-md-4 col-sm-6 col-xs-6 hidden">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o7"></i>
-						</div>
-						<h3 class="title">容器服务</h3>
-						<div class="text-left">
-							<ul class="links">
-								<li><s class="languageType" style="background-position:left -267px;"></s><a href="./container/web/index.html" class="intro" >Container</a></li>
-								<li></li>
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<!--//item-->
-				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o2"></i>
-						</div>
-						<h3 class="title">云函数</h3>
-						<div class="text-left">
-							<ul class="links else">
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/index.html" class="intro" >云函数开发文档</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/web/hook/index.html" class="intro" >数据钩子文档</a></li>
-								<li><s class="languageType"></s><a href="./cloud_function/android/index.html" class="intro" >Android调用</a></li>
-								<li><s class="languageType" style="background-position:left -26px;"></s><a href="./cloud_function/ios/index.html" class="intro" >iOS调用</a></li>
-								<li><s class="languageType" style="background-position:left -52px;"></s><a href="./cloud_function/restful/index.html" class="intro" >API调用</a></li>
-								<li><s class="languageType" style="background-position:left -80px;"></s><a href="./cloud_function/csharp/index.html" class="intro" >C#调用</a></li>
-								<li><s class="languageType" style="background-position:left -106px;"></s><a href="./cloud_function/javascript/index.html" class="intro" >Js调用</a></li>
-								<li><s class="languageType" style="background-position:left -159px;"></s><a href="./cloud_function/php/index.html" class="intro" >PHP调用</a></li>
-								
-								<!--li><s class="languageType" style="background-position:left -187px;"></s><a href="./cloud_function/java/index.html" class="intro" >WEB(Java)</a></li>
-								<li><s class="languageType" style="background-position:left -457px;"></s><a href="./cloud_function/python/index.html" class="intro" >Python调用</a></li-->
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<!--//item-->
-				<!--//item-->
-				<div class="item item-blue col-md-4 col-sm-6 col-xs-6">
-					<div class="item-inner">
-						<div class="icon-holder">
-							<i class="icon o7"></i>
-						</div>
-						<!--//icon-holder-->
-						<h3 class="title">其他</h3>
-						<div class="text-left">
-							<ul class="links else">
-							<li><a href="./other/domain/index.html" class="intro" >域名管理</a></li>
-								<li><a href="./other/error_code/index.html" class="intro" >错误码</a></li>
-								<li><a href="./other/common_problem/index.html" class="intro" >常见问题</a></li>
-								<li><a href="./other/bql/index.html" class="intro" >BQL详细指南</a></li>
-								<li><a href="./other/data_safety/index.html" class="intro" >数据与安全</a></li>
-								<!-- <li><a href="./other/donate/index.html" class="intro" >打赏Bmob</a></li> -->
-								<li><a href="./video/index.html" class="intro" target="_blank">视频教程</a></li>
-							</ul>
-						</div>
-					</div>
-					<!--//item-inner-->
-				</div>
-				<!--//item-->
-			</div>
-			<!--//cards-->
-		</div>
-		<!--//container-->
-	</section>
-	<!--//cards-section-->
-</div>
+<div class="bmob-home">
 
+<section class="bmob-hero center">
+  <div class="bmob-container">
+    <div class="bmob-hero-badge">
+      <span class="bmob-hero-badge-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+          <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
+        </svg>
+      </span>
+      <span>Bmob 后端云 · 文档中心</span>
+    </div>
+    <h1 class="bmob-title">让开发变得简单</h1>
+    <p class="bmob-sub bmob-hero-sub">Bmob 后端云专注于为移动应用提供一整套后端云服务，<br>帮助开发者免去几乎所有的服务器端编码工作量，成倍降低开发成本与开发时间。</p>
+    <div class="bmob-hero-actions">
+      <a href="data/android/" class="bmob-btn bmob-btn-hero bmob-btn-hero-primary">
+        快速入门
+        <svg class="bmob-btn-ico bmob-btn-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#docs" class="bmob-btn bmob-btn-hero bmob-btn-hero-ghost">
+        <svg class="bmob-btn-ico" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg>
+        浏览文档
+      </a>
+    </div>
+    <div class="bmob-hero-points">
+      <span class="bmob-hero-point"><span class="bmob-hero-point-check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>多平台 SDK</span>
+      <span class="bmob-hero-point"><span class="bmob-hero-point-check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>RESTful API</span>
+      <span class="bmob-hero-point"><span class="bmob-hero-point-check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>5 分钟快速上线</span>
+    </div>
+  </div>
+</section>
+
+<section id="docs" class="bmob-section bmob-section-dark">
+  <div class="bmob-container">
+    <div class="bmob-stats-strip">
+      <div class="bmob-stat-item"><p class="bmob-stat-number">15+</p><p class="bmob-stat-label">平台 SDK</p></div>
+      <div class="bmob-stat-item"><p class="bmob-stat-number">50万+</p><p class="bmob-stat-label">注册开发者</p></div>
+      <div class="bmob-stat-item"><p class="bmob-stat-number">99.99%</p><p class="bmob-stat-label">服务可用性</p></div>
+      <div class="bmob-stat-item"><p class="bmob-stat-number">7×24</p><p class="bmob-stat-label">技术支持</p></div>
+    </div>
+
+    <div class="center">
+      <h2 class="bmob-title bmob-title-sm">文档导航</h2>
+      <p class="bmob-sub">选择产品与服务，快速找到对应平台的开发文档</p>
+    </div>
+
+    <div class="bmob-docs-grid">
+
+      <article class="bmob-doc-card bmob-doc-card-expandable">
+        <div class="bmob-doc-card-head">
+          <div class="bmob-doc-icon bmob-doc-icon-blue" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+          </div>
+          <h3>数据服务</h3>
+        </div>
+        <ul class="bmob-doc-links">
+          <li><a href="data/android/">Android</a></li>
+          <li><a href="data/ios/">iOS</a></li>
+          <li><a href="data/harmony/">Harmony 鸿蒙</a></li>
+          <li><a href="data/restful/">REST API</a></li>
+          <li><a href="data/kotlin/">Kotlin</a></li>
+          <li><a href="data/wechat_app_new/">小程序</a></li>
+        </ul>
+        <details class="bmob-doc-expand">
+          <summary class="bmob-doc-expand-toggle">
+            <span class="bmob-doc-expand-label bmob-doc-expand-label-more">展开更多平台</span>
+            <span class="bmob-doc-expand-label bmob-doc-expand-label-less">收起</span>
+            <svg class="bmob-doc-expand-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <ul class="bmob-doc-links bmob-doc-links-more">
+            <li><a href="data/php/">PHP</a></li>
+            <li><a href="data/cocos2d_x/">Cocos2d-x</a></li>
+            <li><a href="data/go/">Go</a></li>
+            <li><a href="data/wechat_app_new/">JavaScript</a></li>
+            <li><a href="data/csharp/">Unity / C#</a></li>
+            <li><a href="data/python/">Python</a></li>
+            <li><a href="data/flutter/">Flutter</a></li>
+          </ul>
+        </details>
+      </article>
+
+      <article class="bmob-doc-card">
+        <div class="bmob-doc-card-head">
+          <div class="bmob-doc-icon bmob-doc-icon-purple" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>
+          </div>
+          <h3>AI 人工智能</h3>
+        </div>
+        <ul class="bmob-doc-links">
+          <li><a href="ai/android/">Android</a></li>
+          <li><a href="ai/ios/">iOS</a></li>
+          <li><a href="ai/html5/">小程序</a></li>
+          <li><a href="ai/html5/">Html5</a></li>
+          <li><a href="ai/api/">API 文档</a></li>
+          <li><a href="ai/python/">Python</a></li>
+        </ul>
+      </article>
+
+      <article class="bmob-doc-card">
+        <div class="bmob-doc-card-head">
+          <div class="bmob-doc-icon bmob-doc-icon-blue" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </div>
+          <h3>短信服务</h3>
+        </div>
+        <ul class="bmob-doc-links">
+          <li><a href="sms/android/">Android</a></li>
+          <li><a href="sms/ios/">iOS</a></li>
+          <li><a href="sms/restful/">REST API</a></li>
+          <li><a href="sms/php/">PHP</a></li>
+          <li><a href="sms/javascript/">JavaScript</a></li>
+          <li><a href="sms/python/">Python</a></li>
+        </ul>
+      </article>
+
+      <article class="bmob-doc-card">
+        <div class="bmob-doc-card-head">
+          <div class="bmob-doc-icon bmob-doc-icon-purple" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="6" rx="2"/><rect x="3" y="15" width="18" height="6" rx="2"/><path d="M7 6h.01"/><path d="M7 18h.01"/></svg>
+          </div>
+          <h3>云函数</h3>
+        </div>
+        <ul class="bmob-doc-links bmob-doc-links-stack">
+          <li><a href="cloud_function/web/">云函数开发文档</a></li>
+          <li><a href="cloud_function/web/hook/">数据钩子</a></li>
+          <li><a href="cloud_function/android/">Android 调用</a></li>
+          <li><a href="cloud_function/ios/">iOS 调用</a></li>
+          <li><a href="cloud_function/restful/">REST API 调用</a></li>
+          <li><a href="cloud_function/csharp/">C# 调用</a></li>
+          <li><a href="cloud_function/javascript/">JavaScript 调用</a></li>
+          <li><a href="cloud_function/php/">PHP 调用</a></li>
+        </ul>
+      </article>
+
+      <article class="bmob-doc-card">
+        <div class="bmob-doc-card-head">
+          <div class="bmob-doc-icon bmob-doc-icon-blue" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+          </div>
+          <h3>其他</h3>
+        </div>
+        <ul class="bmob-doc-links bmob-doc-links-stack">
+          <li><a href="other/domain/">域名管理</a></li>
+          <li><a href="other/error_code/">错误码</a></li>
+          <li><a href="other/common_problem/">常见问题</a></li>
+          <li><a href="other/bql/">BQL 详细指南</a></li>
+          <li><a href="other/data_safety/">数据与安全</a></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</div>

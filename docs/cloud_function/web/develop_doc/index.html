@@ -1,752 +1,5294 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta content="Bmob,BmobCloud,bomb,BaaS,mBaaS,PaaS,Serverless,FaaS,Function as a Service,Backend as a Service,serverless computing,cloud function,后端云,bmob后端云,小程序云,小程序后端,云数据库,云存储,文件存储,云函数,云端代码,定时任务,游戏后端,游戏云,用户系统,无服务器函数,移动开发,app开发,小程序开发,云端一体化,互联网中间件" name="keywords"/>
-            <meta content="国内首家专注于移动应用Serverless云服务的平台,Bmob后端云让移动开发更简单,全方位一体化的后端服务平台" name="description"/>
-            
-            
-            
-            <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-        <!-- <script type="text/javascript" src="//game.bmobapp.com/static/doc_union.js"></script> -->
-            <!--
-            <title>开发文档 - Bmob文档中心</title>
-            -->
-            <title>云函数 &middot; Web – Bmob后端云 </title>  
-            
-            <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
-            <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
-            <link href="../../../css/base.css" rel="stylesheet">
-            <link rel="stylesheet" href="../../../css/highlight.css">
-            <link href="../../../css/agate.css" rel="stylesheet">
-            <link href="../../../css/custom.css" rel="stylesheet" id="custom">
-    </head>
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../hook/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>开发文档 - Bmob文档中心</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-    <body >
 
-        <div class="navbar navbar-fixed-top" role="navigation">
-    <div class="main-nav">
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="../../..">
-                <!--Bmob文档中心-->
-                <img src="../../../img/logo.png" alt="">
-            </a>
-        </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
+    
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/stylesheets/bmob.css">
 
-          <ul class="nav navbar-nav">
-            
-              <li class="pull-left">
-                
-					<a href="../../..">文档首页</a>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="">数据服务</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据服务 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-								<li >
-									<a href="../../../data/android/">Android</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../../data/ios/">iOS</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../../data/harmony/">harmony鸿蒙</a>
-                                </li>
-							
-                            
-								<li >
-									<a href="../../../data/csharp/">C#</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../../data/php/">PHP</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../../data/go/">GO</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../../data/restful/">REST API</a>
-                                </li>
-                            
-                            
-								<li >
-									<a href="../../../data/wechat_app_new/rm/">JavaScript</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../../data/cocos2d_x/">Cocos2D-X</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../data/wechat_app_new/">快应用</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../data/wechat_app_new/">Nodejs</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../data/wechat_app_new/">Cocos Creator</a>
-                                </li>
-							
-                            
-								<li >
-									<a href="../../../data/wechat_app_new/rm/">小程序</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../../data/kotlin/">Kotlin</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../data/python/">Python</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../data/flutter/">Flutter</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left active">
-                
-					<!--<a href="">云函数</a>-->
-					<li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">云函数 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-								<li class="active">
-									<a href="../">云函数开发文档</a>
-                                </li>
-                            
-                            
-                                <li >
-                                    <a href="../../android/">Android</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../ios/">iOS</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../java/">Java</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../python/">Python</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../csharp/">C#</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../php/">PHP</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../javascript/">JavaScript</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../restful/">REST API</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="../../../sms/android/">短信服务</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">短信服务 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                                <li >
-                                    <a href="../../../sms/android/">Android</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/ios/">iOS</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/php/">PHP</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/javascript/">JavaScript</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/restful/">REST API</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../sms/python/">python</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="../../../ai/android/">AI人工智能</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">AI人工智能 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                                <li >
-                                    <a href="../../../ai/android/">Android</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/ios/">iOS</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/html5/">小程序</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/html5/">Html5</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/api/">API</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../ai/python/">python</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li class="pull-left">
-                
-					<!--<a href="../../../other/domain/">其他</a>-->
-					<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            
-                                <li >
-                                    <a href="../../../other/domain/">域名管理</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/common_problem/">常见问题</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/error_code/">错误码</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/data_safety/">数据安全</a>
-                                </li>
-							
-                            
-                                <li >
-                                    <a href="../../../other/bql/">BQL</a>
-                                </li>
-							
-                        </ul>
-                    </li>
-                
-              </li>
-            
-              <li>
-                  <a href="https://www.bmobapp.com/repository/index" target="_blank">知识库</a>
-              </li>
-              <li>
-                  <a href="http://doc.bmobapp.com/video/index.html" target="_blank">视频教程</a>
-              </li>
-            </ul>
-
-        </div>
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Bmob文档中心" class="md-header__button md-logo" aria-label="Bmob文档中心" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bmob文档中心
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              开发文档
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bmob/bmobdocs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  文档首页
 
-        <div class="pagebody" id="main-wrapper">
-            <div class="sidebar">
-                <div class="bs-sidebar hidden-print affix well" role="complementary">
+      </a>
+    </li>
+  
 
-	
-		
-	
-		
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-					<div class="code-title">云函数开发文档</div>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-				
-				
-				
-				
-				
-		
-	
-		
-				
-				
-				
-				
-				
-		
-	
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../data/android/" class="md-tabs__link">
+          
+  
+  
+  数据服务
 
+        </a>
+      </li>
+    
+  
 
-	<ul class="nav bs-sidenav">
-		
-			
-		
-			
-		
-			
-				
-					
-						
-							
-								
-									<li class="">
-										<a class="itm-l1" href="../">快速入门</a>
-										
-									</li>
-								
-									<li class="active">
-										<a class="itm-l1" href="./">开发文档</a>
-										
-										<ul class="nav">
-											
-											<li class="active "><a href="#_1">调用云函数的方式</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#secret-key">获取Secret Key</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#get">以Get的方式调用云函数</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#post">以Post的方式调用云函数</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_2">云函数模块解释</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#request">request模块</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#response">response模块</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#modules">modules模块</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_3">数据库对象</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_4">查询多条数据</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_5">查询单条数据</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_6">获取表的记录数</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_7">修改数据</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_8">添加数据</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_9">删除数据</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_10">删除某行某字段的数据</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_11">用户注册</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_12">用户登录</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_13">用户密码重置</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_14">获取某一用户记录</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_15">更新某一用户记录</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_16">获得所有用户信息</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_17">删除某一个指定用户</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_18">邮箱验证</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_19">文件对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#_20">云函数对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#_21">地理位置对象</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_22">创建地理位置</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_23">查询地理位置</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_24">关联关系对象</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_25">添加关联关系</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_26">修改关联对象</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_27">查询关联对象</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_28">删除关联关系</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_29">原子操作对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#_30">批量操作对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#_31">数组操作对象</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_32">添加数组对象</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_33">删除数组对象</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_34">查询数组对象</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#redis">Redis 操作对象</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#redis_1">初始化 Redis 实例</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_35">操作文档</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#string">字符串 (String) 操作</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#hash">哈希 (Hash) 操作</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#list">列表 (List) 操作</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#set">集合 (Set) 操作</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_36">通用操作</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_37">最佳实践提示</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#http_1">HTTP请求对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#asyncawait">异步对象Async/Await</a>
-												
-											</li>
-												
-											<li class=""><a href="#_38">事件对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#encode">Encode编码转换对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#htmlohtmlparser">html元素解析对象（oHtmlparser）</a>
-												
-											</li>
-												
-											<li class=""><a href="#bqlobql">bql对象（oBql）</a>
-												
-											</li>
-												
-											<li class=""><a href="#ocrypto">加密对象（oCrypto）</a>
-												
-											</li>
-												
-											<li class=""><a href="#ocryptojs">新加密对象oCryptoJS</a>
-												
-											</li>
-												
-											<li class=""><a href="#_39">时间格式化类</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_40">格式化示例</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_41">相对时间</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_42">日历时间</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_43">云函数调试工具</a>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#_44">网页在线调试工具</a></li>
-												</ul>
-												
-												<ul class="nav nav-l2">
-													<li><a class="itm-l2" href="#bmobup">命令调试工具 Bmobup</a></li>
-												</ul>
-												
-											</li>
-												
-											<li class=""><a href="#_45">错误对象</a>
-												
-											</li>
-												
-											<li class=""><a href="#_46">日志对象</a>
-												
-											</li>
-												
-										</ul>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../hook/">数据钩子</a>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../alipay/">支付宝支付</a>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../wechat_pay/">微信支付</a>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../timing_tasks/">定时任务</a>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../weixin/">微信云函数</a>
-										
-									</li>
-								
-									<li class="">
-										<a class="itm-l1" href="../norm/">编码规范</a>
-										
-									</li>
-								
-							
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-						
-					
-				
-			
-		
-			
-		
-			
-		
-			
-		
-	</ul>
-</div>
-            </div>
-            <div class="content" role="main">
-                <div class="wrap">
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  云函数
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../sms/android/" class="md-tabs__link">
+          
+  
+  
+  短信服务
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/android/" class="md-tabs__link">
+          
+  
+  
+  AI人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../other/domain/" class="md-tabs__link">
+          
+  
+  
+  其他
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
                     
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Bmob文档中心" class="md-nav__button md-logo" aria-label="Bmob文档中心" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bmob文档中心
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bmob/bmobdocs/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文档首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据服务
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据服务
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Android
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/android/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/android/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例/功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/android/auto_update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自动更新
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    iOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/ios/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/ios/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例/功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/ios/classdoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    类库文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/ios/lib_gdx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    libGDX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/ios/swift_quick_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/ios/swift_develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swift开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/harmony/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    harmony鸿蒙
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C#
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C#
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/csharp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/csharp/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/csharp/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例/功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PHP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/php/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/go/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REST API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/restful/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/restful/develop_doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/wechat_app_new/rm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/cocos2d_x/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cocos2D-X
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小程序
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    小程序
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/wechat_app_new/rm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/wechat_app_new/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/kotlin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kotlin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data/flutter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    云函数
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    云函数
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    云函数开发文档
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    云函数开发文档
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    开发文档
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调用云函数的方式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="调用云函数的方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secret-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取Secret Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        以Get的方式调用云函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        以Post的方式调用云函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        云函数模块解释
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="云函数模块解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        request模块
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="request模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        post方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取调用云函数的http方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        response模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        modules模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据库对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询多条数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询单条数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取表的记录数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除某行某字段的数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户注册
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户登录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户密码重置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取某一用户记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新某一用户记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获得所有用户信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除某一个指定用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邮箱验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        云函数对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地理位置对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地理位置对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建地理位置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询地理位置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关联关系对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关联关系对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加关联关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改关联对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询关联对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除关联关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原子操作对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        批量操作对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数组操作对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数组操作对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加数组对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除数组对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询数组对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis 操作对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 操作对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        初始化 Redis 实例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作文档
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字符串 (String) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="字符串 (String) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setkey-value-expireseconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set(key, value, [expireSeconds])
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        哈希 (Hash) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="哈希 (Hash) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hsetkey-field-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hset(key, field, value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hgetkey-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hget(key, field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hgetallkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hgetall(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        列表 (List) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="列表 (List) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lpushkey-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lpush(key, ...values)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpushkey-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rpush(key, ...values)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrangekey-start-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lrange(key, start, stop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpopkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lpop(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpopkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rpop(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        集合 (Set) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="集合 (Set) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saddkey-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sadd(key, ...members)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smemberskey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        smembers(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spopkey-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        spop(key, [count])
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        通用操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="通用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        del(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existskey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exists(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expirekey-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expire(key, seconds)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        quit()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP请求对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异步对象Async/Await
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        事件对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encode编码转换对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlohtmlparser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        html元素解析对象（oHtmlparser）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bqlobql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bql对象（oBql）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocrypto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加密对象（oCrypto）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocryptojs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新加密对象oCryptoJS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间格式化类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="时间格式化类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        格式化示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相对时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日历时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        云函数调试工具
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="云函数调试工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网页在线调试工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmobup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令调试工具 Bmobup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        错误对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日志对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据钩子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alipay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    支付宝支付
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wechat_pay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    微信支付
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timing_tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    定时任务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    微信云函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../norm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编码规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../csharp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C#
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../restful/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    短信服务
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    短信服务
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/restful/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sms/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI人工智能
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/android/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/ios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iOS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/html5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小程序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/html5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小程序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    域名管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/common_problem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/error_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    错误码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/data_safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../other/bql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调用云函数的方式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="调用云函数的方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secret-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取Secret Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        以Get的方式调用云函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        以Post的方式调用云函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        云函数模块解释
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="云函数模块解释">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        request模块
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="request模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        post方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取调用云函数的http方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        response模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        modules模块
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据库对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询多条数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询单条数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取表的记录数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除某行某字段的数据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户注册
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户登录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户密码重置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取某一用户记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新某一用户记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获得所有用户信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除某一个指定用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邮箱验证
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        云函数对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地理位置对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地理位置对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建地理位置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询地理位置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关联关系对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="关联关系对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加关联关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改关联对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询关联对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除关联关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        原子操作对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        批量操作对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数组操作对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数组操作对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加数组对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除数组对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询数组对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis 操作对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis 操作对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        初始化 Redis 实例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作文档
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字符串 (String) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="字符串 (String) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setkey-value-expireseconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set(key, value, [expireSeconds])
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        哈希 (Hash) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="哈希 (Hash) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hsetkey-field-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hset(key, field, value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hgetkey-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hget(key, field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hgetallkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hgetall(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        列表 (List) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="列表 (List) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lpushkey-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lpush(key, ...values)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpushkey-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rpush(key, ...values)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lrangekey-start-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lrange(key, start, stop)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpopkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lpop(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpopkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rpop(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        集合 (Set) 操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="集合 (Set) 操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saddkey-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sadd(key, ...members)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smemberskey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        smembers(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spopkey-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        spop(key, [count])
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        通用操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="通用操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delkey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        del(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existskey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        exists(key)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expirekey-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expire(key, seconds)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        quit()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP请求对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncawait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异步对象Async/Await
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        事件对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encode编码转换对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#htmlohtmlparser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        html元素解析对象（oHtmlparser）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bqlobql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bql对象（oBql）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocrypto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加密对象（oCrypto）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocryptojs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新加密对象oCryptoJS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间格式化类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="时间格式化类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        格式化示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相对时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日历时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        云函数调试工具
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="云函数调试工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网页在线调试工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmobup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令调试工具 Bmobup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        错误对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日志对象
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>开发文档</h1>
 
 <p>在开发云函数时，希望大家能够先看看我们提供的编码规范文档：<a href="http://doc.bmobapp.com/cloud_function/web/norm/">http://doc.bmobapp.com/cloud_function/web/norm/</a></p>
 <h2 id="_1">调用云函数的方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -760,7 +5302,6 @@
 <p>下面展示了以Get的方式调用云函数：</p>
 <pre><code>curl -X GET http://cloud.bmobapp.com/0348d0c262bc91d9/test?name=jeff
 </code></pre>
-
 <p>其中：
 0348d0c262bc91d9：应用的Secret Key。
 test：云函数的名称
@@ -773,7 +5314,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     -d 'name=jeff' \
     http://cloud.bmobapp.com/0348d0c262bc91d9/test
 </code></pre>
-
 <p>其中：
 0348d0c262bc91d9：应用的Secret Key。
 test：云函数的名称
@@ -788,11 +5328,9 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 <p>用get方式调用云函数，例如：</p>
 <pre><code>curl -X GET http://cloud.bmobapp.com/0348d0c262bc91d9/test?name=jeff
 </code></pre>
-
 <p>可用下面的方法获取name的值：</p>
 <pre><code>request.query.name
 </code></pre>
-
 <h4 id="post_1">post方式<a class="headerlink" href="#post_1" title="Permanent link">&para;</a></h4>
 <p>用post方式调用云函数，例如：</p>
 <pre><code>curl -X POST \
@@ -800,11 +5338,9 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     -d 'name=jeff' \
     http://cloud.bmobapp.com/0348d0c262bc91d9/test
 </code></pre>
-
 <p>可用下面的方法获取name的值：</p>
 <pre><code>request.body.name
 </code></pre>
-
 <h4 id="http">获取调用云函数的http方式<a class="headerlink" href="#http" title="Permanent link">&para;</a></h4>
 <p>当云函数是用于某些平台的回调时，同一段云函数可能有时是采用get的方式调用，有时是采用post的方式调用, 可用下面的方法获取当前云函数是采用get还是post方式调用。</p>
 <p>例子如下：</p>
@@ -816,20 +5352,17 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     }
 
 </code></pre>
-
 <h3 id="response">response模块<a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
 <p>response为云函数的信息回传模块，该模块包含了一个send方法，实现将云端的执行结果（如查询的数据）返回给SDK或者RestApi等调用端：</p>
-<pre><code class="java">response.send(string result)
+<pre><code class="language-java">response.send(string result)
 </code></pre>
-
 <h3 id="modules">modules模块<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h3>
 <p>modules是Bmob云函数提供给大家的各种对象处理的模块，包括数据库对象（oData）、文件对象（oFile）、地理位置对象（oLocation）、关联关系对象（oRelation）、原子操作对象（oAtom）、数据批量操作对象（oBatch）、数组对象（oArray）、消息推送对象（oPush）、云函数对象（oFunctions）、HTTP对象（oHttp）、字符编码转换对象（oEncodeing）、事件对象（oEvent）、bql对象（oBql）、html元素解析对象（oHtmlparser）、加密对象（oCrypto）。云函数想要调用这些对象时，只需要用如下的方法即可获取：</p>
-<pre><code class="java">  //获取数据库对象
+<pre><code class="language-java">  //获取数据库对象
   var db = modules.oData;
   //下面进行其他操作
 </code></pre>
-
-<p><strong> 这里需要说明一点的是：云函数对数据格式的封装遵循RestApi的规则，如果在查看过程中有什么疑问，请移步到<a href="http://doc.bmobapp.com/cloud_function/restful/">RestApi开发文档</a>。 </strong></p>
+<p>** 这里需要说明一点的是：云函数对数据格式的封装遵循RestApi的规则，如果在查看过程中有什么疑问，请移步到<a href="http://doc.bmobapp.com/cloud_function/restful/">RestApi开发文档</a>。 **</p>
 <h2 id="_3">数据库对象<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>数据库操作的简单实例如下：</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -843,13 +5376,11 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <p>其中，Posts是查找的数据表名称，table是关键词。</p>
 <p>需要注意的是，Bmob云函数底层采用Nodejs进行开发，继承了Nodejs的异步非阻塞事件驱动模式，因此也不可避免的需要大量使用回调方法，这些方法往往以非显式声明的闭包形式存在。</p>
 <p><strong>此外，通过oData数据库对象获取返回的回调接口中，所有的data数据都是string类型，如果需要在云端中作为对象类型调用的话，需要将string类型转换为object类型，即：</strong></p>
 <pre><code>    var dataObject= JSON.parse(data);
 </code></pre>
-
 <p>oData对象的其他操作方法如下：</p>
 <h3 id="_4">查询多条数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <pre><code>find({
@@ -864,9 +5395,8 @@ name=jeff: 传入一个参数，名称是name，值是jeff
  },function(err,data){    //回调函数
  });
 </code></pre>
-
 <p>以下是读取Games表（包含name字段）的数据，并对这些数据进行遍历，将name字段连接起来的一段代码样例：</p>
-<pre><code class="java">function onRequest(request, response, modules) {
+<pre><code class="language-java">function onRequest(request, response, modules) {
   var db = modules.oData;
   db.find({
     &quot;table&quot;:&quot;Games&quot;
@@ -887,15 +5417,13 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 });
 }
 </code></pre>
-
 <h3 id="_5">查询单条数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<pre><code class="java">findOne({
+<pre><code class="language-java">findOne({
   &quot;table&quot;:&quot;XXX&quot;,             //表名
   &quot;objectId&quot;:&quot;XXXX&quot;         //记录的objectId
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <p><strong>需要注意的是：</strong>
 1. 为确保User表的安全性，findOne方法不能直接操作User表。
 2. find方法返回的data是字符串类型，如果需要直接对象化调用的话，需要将string类型转换为object类型，即如下，从_User表中查找objectId=YIuNDDDO的数据，并把username信息显示出来：</p>
@@ -910,7 +5438,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <h3 id="_6">获取表的记录数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <pre><code>function onRequest(request, response, modules) {
     var db = modules.oData;
@@ -928,7 +5455,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     });
 }
 </code></pre>
-
 <p>其中，<code>count</code>为标识位，具体原因大家可以参考Restapi说明文档：<a href="http://doc.bmobapp.com/data/restful/develop_doc/#_30">http://doc.bmobapp.com/data/restful/develop_doc/#_30</a>。</p>
 <h3 id="_7">修改数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <pre><code>update({
@@ -938,7 +5464,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <p>以下是一个更新数据的示例代码，实现的效果是从Games表中找到objectId=hmw9888C的数据，将其name数据改为pingpang games。</p>
 <pre><code>function onRequest(request, response, modules) {
   var db = modules.oData;
@@ -951,7 +5476,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <h3 id="_8">添加数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <pre><code>insert({
   &quot;table&quot;:&quot;XXX&quot;,             //表名
@@ -959,7 +5483,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_9">删除数据<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <pre><code>remove({
   &quot;table&quot;:&quot;XXX&quot;,             //表名
@@ -967,7 +5490,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_10">删除某行某字段的数据<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <pre><code>db.update({
    'table': 'xxx',
@@ -981,14 +5503,12 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 // DO ANYTHING
 });
 </code></pre>
-
 <h3 id="_11">用户注册<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <pre><code>userSignUp({
   &quot;data&quot;:{&quot;a&quot;:&quot;XXXX&quot;,&quot;b&quot;:&quot;XXXX&quot;}             //用户注册的信息，格式为JSON
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_12">用户登录<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <pre><code>userLogin({
   &quot;username&quot;:&quot;aa&quot;,            //登录用户名
@@ -996,21 +5516,18 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_13">用户密码重置<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <pre><code>userRestPassword({
   &quot;data&quot;:{&quot;email&quot;:&quot;XX@XX.com&quot;}      //需要重置密码的用户邮件账号
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_14">获取某一用户记录<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <pre><code>getUserByObjectId({
   &quot;objectId&quot;:&quot;XXXX&quot;          //记录的objectId
 },function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_15">更新某一用户记录<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p><strong>说明：必须先登录才能更新，切记！！！否则会报sessionToken error</strong></p>
 <pre><code>updateUserByObjectId({
@@ -1019,7 +5536,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     },function(err,data){         //回调函数
 });
 </code></pre>
-
 <p>以下是更新用户信息的示例代码：</p>
 <pre><code>function onRequest(request, response, modules) {
   var db = modules.oData;
@@ -1042,12 +5558,10 @@ name=jeff: 传入一个参数，名称是name，值是jeff
 });
 }
 </code></pre>
-
 <h3 id="_16">获得所有用户信息<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <pre><code>getAllUser(function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_17">删除某一个指定用户<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <p><strong>说明：必须登录才行，切记！！！否则会报sessionToken error</strong></p>
 <pre><code>removeUserByObjectId({
@@ -1055,7 +5569,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     },function(err,data){         //回调函数
 });
 </code></pre>
-
 <h3 id="_18">邮箱验证<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p>发送给用户的邮箱验证的邮件会在一周内失效，可以通过下面的方法来强制重新发送</p>
 <pre><code>requestEmailVerify({
@@ -1064,7 +5577,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
   });
 </code></pre>
-
 <p><strong>这里有一个小技巧分享给大家，有时候你会希望能够用Master Key（Bmob给大家提供的超级权限，可以对数据进行任何操作）对数据进行操作，包括不需要用户登录就可以修改用户信息等。那么你只需要在对数据进行操作前，通过db.setHeader方法设置下Master Key头信息即可，如下：</strong></p>
 <pre><code>function onRequest(request, response, modules) {
   var db = modules.oData;
@@ -1074,7 +5586,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <h2 id="_19">文件对象<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <p>云函数只支持文件的删除操作。删除文件，必须要知道文件的url，示例代码如下：</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -1089,14 +5600,12 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <p>其中，2017/06/03/8989824440d8c3a680865e4086fcab62.jpg 为文件完整路径的"http://bmob-cdn-10.b0.upaiyun.com/2017/06/03/8989824440d8c3a680865e4086fcab62.jpg"的有效url。</p>
 <p>返回结果是个json对象：</p>
 <pre><code>{
   &quot;msg&quot;: &quot;ok&quot;
 }
 </code></pre>
-
 <h2 id="_20">云函数对象<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
 <p>在云函数中可以调用本app的其它云函数，示例代码如下：</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -1111,7 +5620,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     });
 }
 </code></pre>
-
 <p>在上面的例子中，<code>name</code>是云函数的函数名，<code>data</code>中是传递的参数</p>
 <p>如果不需要传递任何参数，可以用下面的实例代码：</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -1125,7 +5633,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     });
 }
 </code></pre>
-
 <h2 id="_21">地理位置对象<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
 <p>Bmob允许用户根据地球的经度和纬度坐标进行基于地理位置的信息查询。你可以在查询中添加一个GeoPoint的对象查询。您可以实现轻松查找出离当前用户最接近的信息或地点的功能。</p>
 <h3 id="_22">创建地理位置<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
@@ -1147,7 +5654,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <h3 id="_23">查询地理位置<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <p>现在您有一系列的对象对应的地理坐标，如果能发现那些对象离指定的点近就好了，这可以通过GeoPoint数据类型加上在查询中使用$nearSphere做到。获取离用户最近的10个地点的实现代码如下：</p>
 <pre><code>  location.query({
@@ -1167,7 +5673,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 
 </code></pre>
-
 <p>这会按离纬度30.0，经度-20.0的距离排序返回一系列的结果，第一个就是最近的对象。(注意如果一个特定的order参数给了的话，它会覆盖按距离排序)，例如，下面是两个上面的查询返回的结果：</p>
 <pre><code>{
     &quot;results&quot;: [
@@ -1194,7 +5699,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     ]
 }
 </code></pre>
-
 <p>为了限定搜素的最大举例，需要加入$maxDistanceInMiles和$maxDistanceInKilometers或者$maxDistanceInRadians参数来限定。如果不加，则默认是100KM的半径。如，要找半径在10公里内的数据的实现代码如下：</p>
 <pre><code>  location.query({
     &quot;table&quot;:&quot;GameScore&quot;,
@@ -1214,7 +5718,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 
 </code></pre>
-
 <p>同样做查询寻找在一个特定的范围里面的对象也是可以的，为了找到在一个矩形的区域里的对象，按下面的格式加入一个约束 {"$within": {"$box": {[southwestGeoPoint, northeastGeoPoint]}}}，下面是一段示例代码：</p>
 <pre><code>  location.query({
     &quot;table&quot;:&quot;GameScore&quot;,
@@ -1241,7 +5744,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
      //回调函数
   });
 </code></pre>
-
 <h2 id="_24">关联关系对象<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
 <p>一个对象可以与其他对象相联系。就像数据库中的主外键关系一样，数据表 A 的某一个字段是数据表 B 的外键，只有表 B 中存在的数据才可插入进表 A 中的字段。</p>
 <h3 id="_25">添加关联关系<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
@@ -1257,7 +5759,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <p>为了更新 <code>Relation</code> 的Key类型，Bmob提供特殊的操作来原子化地添加和删除一个或多个关系，我们可以像这样添加一行记录时并添加多个关系:</p>
 <pre><code>  rel.add({
     &quot;table&quot;:&quot;GameScore&quot;,
@@ -1267,7 +5768,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 
 </code></pre>
-
 <h3 id="_26">修改关联对象<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
 <p>为了更新 <code>Pointer</code> 的Key类型，Bmob提供特殊的操作来原子化地添加和删除一个指针，我们可以像这样添加一个指针:</p>
 <pre><code>  rel.update({
@@ -1278,7 +5778,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
      //回调函数
   });
 </code></pre>
-
 <p>为了更新 <code>Relation</code> 的Key类型，Bmob提供特殊的操作来原子化地添加和删除一个或多个关系，我们可以像这样添加多个关系:</p>
 <pre><code>  rel.update({
     &quot;table&quot;:&quot;GameScore&quot;,
@@ -1288,7 +5787,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
      //回调函数
   });
 </code></pre>
-
 <h3 id="_27">查询关联对象<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
 <p>有几种方式来对关系 <code>Relation</code> 或 指针 <code>Pointer</code> 类型数据进行查询, 如果您将要获取对象中有个Key类型是关系 <code>Relation</code> 或 指针 <code>Pointer</code>，这都说明你要获取的对象是匹配到另一个特殊（关联或指向）的对象的, 您可以用一个 <code>where</code> 参数查询, 自己使用 <code>__type</code> 构造一个 <code>Pointer</code>, 就像你构造其他数据类型一样。举例说, 如果每一条评论(Comment对象)有一个Key叫post，类型是Pointer，并且指向了一个具体的帖子(Post对象，用objectId表示一个帖子)，那么您可以使用下面的请求获取一个帖子的所有评论:</p>
 <pre><code>rel.query({
@@ -1298,7 +5796,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
  });
 </code></pre>
-
 <p>如果您想要获取对象, 这些对象的一个字段指向的对象是符合另一个查询的, 您可以使用 $inQuery 操作符，注意默认的 limit 是 100 而且最大的 limit 是 1000，这个限制同样适用于内部的查询, 所以对于较大的数据集您可能需要细心地构建查询来获得期望的行为。举例说, 假设您有一个 帖子(Post)类和一个评论(Comment)类, 每个评论(Comment)都有一个指向它的帖子(Post)的关系Key名为post，并且类型为Pointer, 您可以找到所有有图片的帖子(Post)的评论(Comment):</p>
 <pre><code>rel.query({
   &quot;table&quot;:&quot;Comment&quot;,
@@ -1307,7 +5804,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
  });
 </code></pre>
-
 <p>同理，使用下面的请求，您可以找到所有没有图片的帖子(Post)的评论(Comment):</p>
 <pre><code>rel.query({
   &quot;table&quot;:&quot;Comment&quot;,
@@ -1316,7 +5812,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
  });
 </code></pre>
-
 <p>如果您想获取的对象，是其父对象的关系 <code>Relation</code> 类型的Key的所有成员的话, 您可以使用 $relatedTo 操作符, 假设您有一个帖子(Post)类和一个系统默认的用户(_User)类, 而每一个帖子(Post)都可以被不同的用户(_User)所喜欢。 如果帖子(Post)类下面有一个Key名为likes，且是 <code>Relation</code> 类型, 存储了喜欢这个帖子(Post)的用户(_User)。那么您可以找到喜欢过同一个指定的帖子(Post)的所有用户：</p>
 <pre><code>rel.query({
   &quot;table&quot;:&quot;users&quot;,
@@ -1325,7 +5820,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
  });
 </code></pre>
-
 <p>还可以使用组合查询，比如下面这样，判断用户是否喜欢(likes)过这个帖子：</p>
 <pre><code>rel.query({
   &quot;table&quot;:&quot;Comment&quot;,
@@ -1336,14 +5830,12 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
  });
 </code></pre>
-
 <p>返回结果集如下：</p>
 <pre><code>{
     count: 1
     results: [ ]
 }
 </code></pre>
-
 <p>你可以做如下判断，如果count=1，表明用户喜欢的这个帖子objectId存在，即用户喜欢过这个帖子；若count=0, 表明用户没有喜欢过这个帖子。</p>
 <p>在某些情况之下，您可能需要在一个查询之中返回关联对象的多种类型，您可以通过传入字段名称到include参数中，多个字段名称用,间隔， 比如，我们想获得最近的10篇评论，而您想同时得到它们相关的post：
 <code>include的Key必须是Pointer类型</code></p>
@@ -1356,7 +5848,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
  });
 </code></pre>
-
 <p>不是作为一个 <code>Pointer</code> 类型表示，post字段现在已经被展开为一个完整的帖子(Post)对象， __type 被设置为 <code>Object</code> 而 <code>className</code> 同样也被提供了。 举例说， 一个指向帖子(Post)的Pointer原本展示为：</p>
 <pre><code>{
   &quot;__type&quot;: &quot;Pointer&quot;,
@@ -1364,7 +5855,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   &quot;objectId&quot;: &quot;51e3a359e4b015ead4d95ddc&quot;
 }
 </code></pre>
-
 <p>当一个查询使用include参数来包含进去来取代 <code>Pointer</code> 之后，可以看到 <code>Pointer</code> 被展开为：</p>
 <pre><code>{
   &quot;__type&quot;: &quot;Object&quot;,
@@ -1375,7 +5865,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   &quot;otherFields&quot;: &quot;willAlsoBeIncluded&quot;
 }
 </code></pre>
-
 <p>您可以同样做多层的include, 这时要使用 "." 号. 如果您要include一条评论(Comment)对应的帖子(Post)的作者(author)：
 <code>include的Key必须是Pointer类型</code></p>
 <pre><code>rel.query({
@@ -1387,7 +5876,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
     //回调函数
  });
 </code></pre>
-
 <h3 id="_28">删除关联关系<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
 <p>可以在一个对象中删除一个关系:</p>
 <pre><code>  rel.delete({
@@ -1398,7 +5886,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
      //回调函数
   });
 </code></pre>
-
 <h2 id="_29">原子操作对象<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
 <p>很多应用可能会有需要计数器的功能，比如某条信息被点赞多少次等。Bmob提供了非常便捷的方式来保证原子性的修改某一数值字段的值，示例代码如下：</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -1415,7 +5902,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <pre><code>function onRequest(request, response, modules) {
   //获取原子操作对象
   var atom = modules.oAtom;
@@ -1430,7 +5916,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <h2 id="_30">批量操作对象<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
 <p>为了减少因为网络通讯次数太多而带来的时间浪费, 您使用使用下面的批量(batch)操作，在一个请求中对多个普通对象(不支持系统内置的用户对象)进行添加(create)、更新(update)、删除(delete) 操作，上限为50个。</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -1464,7 +5949,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <p>批量操作的响应会是一个列表, 列表的返回值个数同给定的requests请求个数是相等的。列表中每个返回项都有一个字段是 <code>"success"</code> 或者 <code>"error"</code>， <code>"success"</code> 的值是通常是和你进行其他REST操作成功时返回的值是一样的:</p>
 <pre><code>{
   &quot;success&quot;: {
@@ -1473,7 +5957,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   }
 }
 </code></pre>
-
 <p><code>"error"</code> 的值是有返回码和错误信息字符串的一个对象:</p>
 <pre><code>{
   &quot;error&quot;: {
@@ -1482,7 +5965,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   }
 }
 </code></pre>
-
 <p>在 batch 操作中更新(update)和删除(delete)同样是有效的:</p>
 <pre><code>function onRequest(request, response, modules) {
   //获取数组对象
@@ -1510,13 +5992,11 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 }
 </code></pre>
-
 <h2 id="_31">数组操作对象<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
 <p>用下面的方法来获取数组对象：</p>
 <pre><code>  var arr = modules.oArray;
 
 </code></pre>
-
 <h3 id="_32">添加数组对象<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
 <p>添加数组对象,不管元素是否存在都添加的实现代码如下：</p>
 <pre><code>  arr.add({
@@ -1527,7 +6007,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 
 </code></pre>
-
 <p>添加数组对象,只有在元素不存在情况下才添加的实现代码如下：</p>
 <pre><code>  //往GameScore表中字段skills添加的数组
   arr.addUnique({
@@ -1539,7 +6018,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 
 </code></pre>
-
 <h3 id="_33">删除数组对象<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
 <pre><code>  //往GameScore表中字段skills删除数组
   arr.remove({
@@ -1551,7 +6029,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 
 </code></pre>
-
 <h3 id="_34">查询数组对象<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
 <p>查询数组对象,可以查找skills的数组值中包含有"flying"的对象的实现方法如下:</p>
 <pre><code>  //往GameScore表中字段skills添加的数组
@@ -1562,7 +6039,6 @@ name=jeff: 传入一个参数，名称是name，值是jeff
      //回调函数
   });
 </code></pre>
-
 <p>查询数组对象,可以查找skills的数组值中包含有"flying","kungfu"的对象的实现方法如下：</p>
 <pre><code>  //往GameScore表中字段skills添加的数组
   arr.query({
@@ -1573,19 +6049,17 @@ name=jeff: 传入一个参数，名称是name，值是jeff
   });
 
 </code></pre>
-
 <h2 id="redis">Redis 操作对象<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h2>
 <p>基于 Bmob 云函数的 Redis 模块 - Promise then 方式</p>
 <h3 id="redis_1">初始化 Redis 实例<a class="headerlink" href="#redis_1" title="Permanent link">&para;</a></h3>
 <p>所有操作前需要先初始化 Redis 实例：</p>
-<pre><code class="js">const redis = modules.oRedis;
+<pre><code class="language-js">const redis = modules.oRedis;
 </code></pre>
-
 <h3 id="_35">操作文档<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
 <h3 id="string">字符串 (String) 操作<a class="headerlink" href="#string" title="Permanent link">&para;</a></h3>
 <h4 id="setkey-value-expireseconds">set(key, value, [expireSeconds])<a class="headerlink" href="#setkey-value-expireseconds" title="Permanent link">&para;</a></h4>
 <p>设置键值对，可设置过期时间</p>
-<pre><code class="js">// 设置普通键值
+<pre><code class="language-js">// 设置普通键值
 redis.set('username', 'JohnDoe')
   .then(function(reply) {
     console.log('设置成功:', reply); // 'OK'
@@ -1597,10 +6071,9 @@ redis.set('session_token', 'abc123xyz', 30)
     console.log('带过期时间的设置成功');
   });
 </code></pre>
-
 <h4 id="getkey">get(key)<a class="headerlink" href="#getkey" title="Permanent link">&para;</a></h4>
 <p>获取键对应的值</p>
-<pre><code class="js">redis.get('username')
+<pre><code class="language-js">redis.get('username')
   .then(function(value) {
     if (value === null) {
       console.log('键不存在');
@@ -1612,27 +6085,24 @@ redis.set('session_token', 'abc123xyz', 30)
     console.error('获取失败:', error);
   });
 </code></pre>
-
 <h3 id="hash">哈希 (Hash) 操作<a class="headerlink" href="#hash" title="Permanent link">&para;</a></h3>
 <h4 id="hsetkey-field-value">hset(key, field, value)<a class="headerlink" href="#hsetkey-field-value" title="Permanent link">&para;</a></h4>
 <p>设置哈希字段的值</p>
-<pre><code class="js">redis.hset('user:1000', 'email', 'user@example.com')
+<pre><code class="language-js">redis.hset('user:1000', 'email', 'user@example.com')
   .then(function(result) {
     console.log('字段设置:', result ? '成功' : '失败');
   });
 </code></pre>
-
 <h4 id="hgetkey-field">hget(key, field)<a class="headerlink" href="#hgetkey-field" title="Permanent link">&para;</a></h4>
 <p>获取哈希字段的值</p>
-<pre><code class="js">redis.hget('user:1000', 'email')
+<pre><code class="language-js">redis.hget('user:1000', 'email')
   .then(function(value) {
     console.log('用户邮箱:', value);
   });
 </code></pre>
-
 <h4 id="hgetallkey">hgetall(key)<a class="headerlink" href="#hgetallkey" title="Permanent link">&para;</a></h4>
 <p>获取哈希的所有字段和值</p>
-<pre><code class="js">redis.hgetall('user:1000')
+<pre><code class="language-js">redis.hgetall('user:1000')
   .then(function(userData) {
     if (userData) {
       console.log('用户数据:', userData);
@@ -1642,27 +6112,24 @@ redis.set('session_token', 'abc123xyz', 30)
     }
   });
 </code></pre>
-
 <h3 id="list">列表 (List) 操作<a class="headerlink" href="#list" title="Permanent link">&para;</a></h3>
 <h4 id="lpushkey-values">lpush(key, ...values)<a class="headerlink" href="#lpushkey-values" title="Permanent link">&para;</a></h4>
 <p>从列表左侧插入元素</p>
-<pre><code class="js">redis.lpush('tasks', 'task1', 'task2', 'task3')
+<pre><code class="language-js">redis.lpush('tasks', 'task1', 'task2', 'task3')
   .then(function(length) {
     console.log('当前列表长度:', length);
   });
 </code></pre>
-
 <h4 id="rpushkey-values">rpush(key, ...values)<a class="headerlink" href="#rpushkey-values" title="Permanent link">&para;</a></h4>
 <p>从列表右侧插入元素</p>
-<pre><code class="js">redis.rpush('messages', 'msg1', 'msg2')
+<pre><code class="language-js">redis.rpush('messages', 'msg1', 'msg2')
   .then(function(length) {
     console.log('新增消息后长度:', length);
   });
 </code></pre>
-
 <h4 id="lrangekey-start-stop">lrange(key, start, stop)<a class="headerlink" href="#lrangekey-start-stop" title="Permanent link">&para;</a></h4>
 <p>获取列表指定范围的元素</p>
-<pre><code class="js">// 获取所有元素 (0 到 -1)
+<pre><code class="language-js">// 获取所有元素 (0 到 -1)
 redis.lrange('tasks', 0, -1)
   .then(function(tasks) {
     console.log('所有任务:', tasks);
@@ -1674,10 +6141,9 @@ redis.lrange('messages', 0, 4)
     console.log('最近5条消息:', recentMessages);
   });
 </code></pre>
-
 <h4 id="lpopkey">lpop(key)<a class="headerlink" href="#lpopkey" title="Permanent link">&para;</a></h4>
 <p>从列表左侧弹出一个元素</p>
-<pre><code class="js">redis.lpop('tasks')
+<pre><code class="language-js">redis.lpop('tasks')
   .then(function(value) {
     if (value === null) {
       console.log('列表为空');
@@ -1689,10 +6155,9 @@ redis.lrange('messages', 0, 4)
     console.error('弹出失败:', error);
   });
 </code></pre>
-
 <h4 id="rpopkey">rpop(key)<a class="headerlink" href="#rpopkey" title="Permanent link">&para;</a></h4>
 <p>从列表右侧弹出一个元素</p>
-<pre><code class="js">redis.rpop('messages')
+<pre><code class="language-js">redis.rpop('messages')
   .then(function(value) {
     if (value === null) {
       console.log('列表为空');
@@ -1704,28 +6169,25 @@ redis.lrange('messages', 0, 4)
     console.error('弹出失败:', error);
   });
 </code></pre>
-
 <h3 id="set">集合 (Set) 操作<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
 <h4 id="saddkey-members">sadd(key, ...members)<a class="headerlink" href="#saddkey-members" title="Permanent link">&para;</a></h4>
 <p>向集合添加元素</p>
-<pre><code class="js">redis.sadd('user:1000:tags', 'VIP', 'Premium', 'NewUser')
+<pre><code class="language-js">redis.sadd('user:1000:tags', 'VIP', 'Premium', 'NewUser')
   .then(function(count) {
     console.log('成功添加标签数:', count);
   });
 </code></pre>
-
 <h4 id="smemberskey">smembers(key)<a class="headerlink" href="#smemberskey" title="Permanent link">&para;</a></h4>
 <p>获取集合的所有元素</p>
-<pre><code class="js">redis.smembers('user:1000:tags')
+<pre><code class="language-js">redis.smembers('user:1000:tags')
   .then(function(tags) {
     console.log('用户标签:', tags);
     // 输出: ['VIP', 'Premium', 'NewUser']
   });
 </code></pre>
-
 <h4 id="spopkey-count">spop(key, [count])<a class="headerlink" href="#spopkey-count" title="Permanent link">&para;</a></h4>
 <p>从集合中随机弹出一个或多个元素</p>
-<pre><code class="js">// 弹出一个元素
+<pre><code class="language-js">// 弹出一个元素
 redis.spop('user:1000:tags')
   .then(function(value) {
     if (value === null) {
@@ -1751,19 +6213,17 @@ redis.spop('user:1000:tags', 2)
     console.error('弹出失败:', error);
   });
 </code></pre>
-
 <h3 id="_36">通用操作<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
 <h4 id="delkey">del(key)<a class="headerlink" href="#delkey" title="Permanent link">&para;</a></h4>
 <p>删除一个或多个键</p>
-<pre><code class="js">redis.del('temp_data')
+<pre><code class="language-js">redis.del('temp_data')
   .then(function(count) {
     console.log('删除键数量:', count);
   });
 </code></pre>
-
 <h4 id="existskey">exists(key)<a class="headerlink" href="#existskey" title="Permanent link">&para;</a></h4>
 <p>检查键是否存在</p>
-<pre><code class="js">redis.exists('user:1000')
+<pre><code class="language-js">redis.exists('user:1000')
   .then(function(exists) {
     if (exists) {
       console.log('用户数据存在');
@@ -1772,10 +6232,9 @@ redis.spop('user:1000:tags', 2)
     }
   });
 </code></pre>
-
 <h4 id="expirekey-seconds">expire(key, seconds)<a class="headerlink" href="#expirekey-seconds" title="Permanent link">&para;</a></h4>
 <p>设置键的过期时间</p>
-<pre><code class="js">redis.expire('session:abc', 3600) // 1小时过期
+<pre><code class="language-js">redis.expire('session:abc', 3600) // 1小时过期
   .then(function(success) {
     if (success) {
       console.log('过期时间设置成功');
@@ -1784,15 +6243,13 @@ redis.spop('user:1000:tags', 2)
     }
   });
 </code></pre>
-
 <h4 id="quit">quit()<a class="headerlink" href="#quit" title="Permanent link">&para;</a></h4>
 <p>关闭 Redis 连接</p>
-<pre><code class="js">redis.quit()
+<pre><code class="language-js">redis.quit()
   .then(function() {
     console.log('Redis连接已关闭');
   });
 </code></pre>
-
 <h3 id="_37">最佳实践提示<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
 <ol>
 <li>所有 Redis 操作都返回 Promise，使用 <code>.then()</code> 处理成功结果，<code>.catch()</code> 处理错误</li>
@@ -1850,7 +6307,6 @@ http.post(options, function(error, res, body) {
 
 
 </code></pre>
-
 <h2 id="asyncawait">异步对象Async/Await<a class="headerlink" href="#asyncawait" title="Permanent link">&para;</a></h2>
 <p><strong>Async/Await</strong> 很方便解决nodejs异步网络请求问题，下面是引入对象，如需更多了解，可以查阅Nodejs官方文档</p>
 <pre><code>// 多个函数从上到下依次执行,相互之间没有数据交互
@@ -1886,7 +6342,6 @@ function onRequest(request, response, modules) {
     })
 }
 </code></pre>
-
 <h2 id="_38">事件对象<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
 <p>oEvent，也就是eventproxy模块，解决异步回调的问题。</p>
 <p>更多的功能详细参考：<a href="https://github.com/JacksonTian/eventproxy">https://github.com/JacksonTian/eventproxy</a></p>
@@ -1907,7 +6362,6 @@ function onRequest(request, response, modules) {
 
 }
 </code></pre>
-
 <h2 id="encode">Encode编码转换对象<a class="headerlink" href="#encode" title="Permanent link">&para;</a></h2>
 <p>Encode对象可以实现字符编码的转换。更多的功能详细参考：<a href="https://www.npmjs.org/package/encoding">https://www.npmjs.org/package/encoding</a></p>
 <p>Encode对象就一个方法convert()，使用方法为：encoding.convert(text, toCharset, fromCharset)。</p>
@@ -1920,7 +6374,6 @@ var result = encoding.convert(&quot;禅&quot;,&quot;gbk&quot;,&quot;utf8&quot;);
 response.send(result.toString());
 
 </code></pre>
-
 <h2 id="htmlohtmlparser">html元素解析对象（oHtmlparser）<a class="headerlink" href="#htmlohtmlparser" title="Permanent link">&para;</a></h2>
 <p>html元素解析对象可以实现html的解释。更多的功能详细参考：<a href="https://www.npmjs.org/package/htmlparser">https://www.npmjs.org/package/htmlparser</a></p>
 <p>代码例子</p>
@@ -1935,7 +6388,6 @@ response.send(result.toString());
 }
 
 </code></pre>
-
 <p>代码的输出：</p>
 <pre><code>[
   {
@@ -1957,7 +6409,6 @@ response.send(result.toString());
 ]
 
 </code></pre>
-
 <h2 id="bqlobql">bql对象（oBql）<a class="headerlink" href="#bqlobql" title="Permanent link">&para;</a></h2>
 <p>我们提供类 SQL 语法的 BQL 查询语言来查询数据</p>
 <p>下面的代码例子就是查询GameScore表的所有数据</p>
@@ -1975,7 +6426,6 @@ response.send(result.toString());
 }
 
 </code></pre>
-
 <p>BQL 还支持占位符查询，where 和 limit 子句的条件参数可以使用问号替换，然后通过 values 数组传入：</p>
 <pre><code>function onRequest(request, response, modules) {
     //获得bql的对象
@@ -1992,7 +6442,6 @@ response.send(result.toString());
 
 }
 </code></pre>
-
 <p>更多请参考 <a href="http://doc.bmobapp.com/other/bql/">BQL 详细指南</a> 。</p>
 <h2 id="ocrypto">加密对象（oCrypto）<a class="headerlink" href="#ocrypto" title="Permanent link">&para;</a></h2>
 <p>提供md5和sha1两种加密算法。更多的功能详细参考：<a href="https://www.npmjs.org/package/crypto">https://www.npmjs.org/package/crypto</a></p>
@@ -2005,7 +6454,6 @@ response.send(result.toString());
 }
 
 </code></pre>
-
 <h2 id="ocryptojs">新加密对象oCryptoJS<a class="headerlink" href="#ocryptojs" title="Permanent link">&para;</a></h2>
 <p>Gzip</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -2019,7 +6467,6 @@ response.send(result.toString());
 
 
 </code></pre>
-
 <p>RSA 非对称加密</p>
 <pre><code>//RSA
 function onRequest(request, response, modules) {
@@ -2036,7 +6483,6 @@ function onRequest(request, response, modules) {
     response.end(encrypted)
 }
 </code></pre>
-
 <p>AES 加密</p>
 <pre><code>// AES
 function onRequest(request, response, modules) {
@@ -2064,7 +6510,6 @@ function onRequest(request, response, modules) {
     response.end(text)
 }
 </code></pre>
-
 <h2 id="_39">时间格式化类<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
 <p>获取当前时间，格式化为  <code>2022-11-18 14:36:03</code> 。</p>
 <pre><code>function onRequest(request, response, modules) {
@@ -2073,7 +6518,6 @@ function onRequest(request, response, modules) {
     response.end(time)
 }
 </code></pre>
-
 <h3 id="_40">格式化示例<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
 <pre><code>moment().format('MMMM Do YYYY, h:mm:ss a'); // 十月 18日 2021, 2:38:27 下午
 moment().format('dddd');                    // 星期一
@@ -2081,18 +6525,16 @@ moment().format(&quot;MMM Do YY&quot;);               // 10月 18日 21
 moment().format('YYYY [escaped] YYYY');     // 2021 escaped 2021
 moment().format();                          // 2021-10-18T14:38:27+08:00
 </code></pre>
-
 <h3 id="_41">相对时间<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
-<pre><code class="js">moment(&quot;20111031&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 10 年前
+<pre><code class="language-js">moment(&quot;20111031&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 10 年前
 moment(&quot;20120620&quot;, &quot;YYYYMMDD&quot;).fromNow(); // 9 年前
 moment().startOf('day').fromNow();        // 15 小时前
 moment().endOf('day').fromNow();          // 9 小时内
 moment().startOf('hour').fromNow();       // 39 分钟前
                                           // undefined
 </code></pre>
-
 <h3 id="_42">日历时间<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
-<pre><code class="js">moment().subtract(10, 'days').calendar(); // 2021/10/08
+<pre><code class="language-js">moment().subtract(10, 'days').calendar(); // 2021/10/08
 moment().subtract(6, 'days').calendar();  // 上星期二14:38
 moment().subtract(3, 'days').calendar();  // 上星期五14:38
 moment().subtract(1, 'days').calendar();  // 昨天14:38
@@ -2102,7 +6544,6 @@ moment().add(3, 'days').calendar();       // 下星期四14:38
 moment().add(10, 'days').calendar();      // 2021/10/28
                                           // undefined
 </code></pre>
-
 <h2 id="_43">云函数调试工具<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -2120,7 +6561,6 @@ moment().add(10, 'days').calendar();      // 2021/10/28
   });
 }
 </code></pre>
-
 <p>调试时，你在云端调试工具中输入参数名为objectId，参数值为你想要查询的信息，如下图，即可查看到调试结果。</p>
 <p><img alt="" src="../image/ydts.png" /></p>
 <ol>
@@ -2145,9 +6585,8 @@ moment().add(10, 'days').calendar();      // 2021/10/28
     });
 }
 </code></pre>
-
 <h2 id="_46">日志对象<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
-<p><strong> 这个功能已暂时停用 </strong></p>
+<p>** 这个功能已暂时停用 **</p>
 <p>oLog 是一个日志对象，当程序调试时，可以把对应变量的值写入日志表。</p>
 <pre><code>function onRequest(request, response, modules) {
     var oLog = modules.oLog;
@@ -2155,24 +6594,116 @@ moment().add(10, 'days').calendar();      // 2021/10/28
 }
 
 </code></pre>
-
 <p>代码执行后，会在应用生成一个表，名称<strong>oLog</strong>，点击即可查看日志</p>
-                </div>
-            </div>
-        </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    <nav class="bmob-content-nav" aria-label="页脚" >
+      <div class="md-footer__inner md-grid">
         
-            <script>var base_url = '../../..';</script>
-            <script src="../../../js/jquery-1.10.2.min.js"></script>
-            <script src="../../../js/bootstrap-3.0.3.min.js"></script>
-            <script src="../../../js/highlight.pack.js"></script>
-            <script src="../../../js/main.js"></script>
-            <script src="../../../js/base.js"></script>
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 快速入门">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                快速入门
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../hook/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数据钩子">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                数据钩子
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </div>
+    </nav>
+  
 
-		<!--
-        <div id="go-top"><i class="fa fa-chevron-up"></i></div>
-        <a href="https://docs.bmobapp.com/data/Android/a_faststart/doc/index.html" id="back" target="_blank">返回 <br> 旧版</a>
-		-->
-    </body>
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2017 Bmob, Maintained by the Bmob Support.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "navigation.footer", "navigation.top", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "content.code.copy", "content.tooltips", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  <script src="../../../assets/javascripts/bmob-toc.js"></script>
 
+  </body>
 </html>

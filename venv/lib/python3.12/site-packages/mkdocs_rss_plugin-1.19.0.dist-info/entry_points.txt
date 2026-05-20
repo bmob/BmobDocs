@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+rss = mkdocs_rss_plugin.plugin:GitRssPlugin

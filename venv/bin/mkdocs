@@ -1,0 +1,6 @@
+#!/Users/magic/Documents/bmob/mkdocs-material/venv/bin/python3
+import sys
+from mkdocs.__main__ import cli
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(cli())

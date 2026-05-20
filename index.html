@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmob - 让开发变得简单</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #0f172a;
+            --surface-soft: #111827;
+            --surface-alt: #030712;
+            --line: #1f2937;
+            --text: #ffffff;
+            --text-soft: #9ca3af;
+            --brand: #3593ff;
+            --brand-2: #7c3aed;
+            --radius: 16px;
+            --max: 1520px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.55;
+            font-size: 17px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(var(--max), 96vw);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-dark {
+            background: #030712;
+        }
+
+        .title {
+            margin: 0 0 16px;
+            font-size: clamp(42px, 6.5vw, 72px);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .title {
+            margin: 0 0 20px;
+            font-size: clamp(48px, 7.2vw, 84px);
+        }
+
+        .sub {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: clamp(17px, 2.2vw, 24px);
+        }
+
+        .hero-sub {
+            max-width: 56em;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            font-size: clamp(20px, 2.6vw, 30px) !important;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-inner {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-cluster {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 30px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand);
+        }
+
+        .logo-mark svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            font-size: 17px;
+            color: var(--text-soft);
+        }
+
+        .nav-links a:hover,
+        .product-btn:hover {
+            color: #fff;
+        }
+
+        .product-wrap {
+            position: relative;
+        }
+
+        .product-btn {
+            background: none;
+            border: 0;
+            color: inherit;
+            font: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .product-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .product-wrap:hover .product-btn {
+            color: var(--brand);
+        }
+
+        .product-btn span {
+            font-size: 0.7rem;
+            transition: transform 0.2s ease;
+        }
+
+        .product-wrap:hover .product-btn span {
+            transform: rotate(180deg);
+        }
+
+        /* Product Dropdown - Mega Menu Style */
+        .product-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 680px;
+            padding: 1.5rem;
+            background: rgba(17, 17, 24, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-wrap:hover .product-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(12px);
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--line);
+        }
+
+        .dropdown-icon {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #3593ff;
+        }
+
+        .dropdown-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke-width: 2;
+            display: block;
+        }
+
+        .dropdown-icon.mcp,
+        .dropdown-icon.codeflow,
+        .dropdown-icon.sms,
+        .dropdown-icon.harmony {
+            color: #7c3aed;
+        }
+
+        .dropdown-content h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+        }
+
+        .dropdown-content p {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .dropdown-tag {
+            display: inline-block;
+            padding: 0.125rem 0.5rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            color: white;
+            border-radius: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            min-width: 26px;
+            text-align: center;
+            border-radius: 999px;
+            padding: 2px 8px;
+            color: #fff;
+            font-size: 11px;
+        }
+
+        .badge.hot {
+            background: #ef4444;
+        }
+
+        .badge.new {
+            background: #22c55e;
+        }
+
+        .badge.sale {
+            background: #f97316;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 17px;
+            color: var(--text-soft);
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 36px rgba(53, 147, 255, 0.35);
+        }
+
+        .menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #111827;
+            color: #fff;
+        }
+
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid var(--line);
+            background: #111827;
+            padding: 10px 16px 16px;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-link {
+            display: block;
+            color: #d1d5db;
+            padding: 12px 0;
+            border-bottom: 1px solid #1f2937;
+            font-size: 16px;
+        }
+
+        .hero {
+            position: relative;
+            padding: 140px 0 96px;
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 560px;
+            height: 560px;
+            border-radius: 50%;
+            filter: blur(96px);
+            opacity: 0.24;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            background: var(--brand);
+            top: -220px;
+            left: 120px;
+        }
+
+        .hero::after {
+            background: var(--brand-2);
+            top: 190px;
+            right: 14%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 999px;
+            border: 1px solid #374151;
+            background: rgba(31, 41, 55, 0.5);
+            padding: 12px 22px;
+            color: #d1d5db;
+            font-size: clamp(16px, 1.5vw, 19px);
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #3593ff;
+        }
+
+        .hero-badge-icon svg {
+            width: 1.1em;
+            height: 1.1em;
+        }
+
+        .hero-actions {
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            min-height: 56px;
+        }
+
+        .btn-hero .btn-ico {
+            flex-shrink: 0;
+        }
+
+        .btn-hero-primary {
+            color: #fff;
+            background: linear-gradient(90deg, #3593ff, #7c3aed);
+            box-shadow: 0 4px 24px rgba(53, 147, 255, 0.3);
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 32px rgba(53, 147, 255, 0.45);
+        }
+
+        .btn-hero-primary:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        .btn-arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .btn-hero-ghost {
+            border: 1px solid #374151;
+            color: #fff;
+            background: rgba(17, 24, 39, 0.5);
+        }
+
+        .btn-hero-ghost:hover {
+            background: rgba(31, 41, 55, 0.8);
+        }
+
+        .btn-ico-github {
+            opacity: 0.95;
+        }
+
+        .btn-ghost {
+            border: 1px solid #374151;
+            color: #fff;
+            background: rgba(17, 24, 39, 0.5);
+        }
+
+        .hero-points {
+            margin-top: 36px;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            font-size: clamp(17px, 1.6vw, 20px);
+        }
+
+        .hero-point {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-soft);
+        }
+
+        .hero-point-check {
+            flex-shrink: 0;
+            color: #3593ff;
+        }
+
+        .hero-point-check svg {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+
+        .code-card {
+            margin: 56px auto 0;
+            max-width: min(1120px, 100%);
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, #111827, #020617);
+            padding: 32px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-r {
+            background: #ef4444;
+        }
+
+        .dot-y {
+            background: #f59e0b;
+        }
+
+        .dot-g {
+            background: #22c55e;
+        }
+
+        pre {
+            margin: 0;
+            overflow: auto;
+            font-size: 15px;
+            line-height: 1.75;
+            color: #cbd5e1;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        }
+
+        .code-langs {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .code-lang {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 34px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1px solid #334155;
+            background: rgba(15, 23, 42, 0.68);
+            color: #cbd5e1;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        .code-lang:hover {
+            color: #ffffff;
+            border-color: rgba(53, 147, 255, 0.75);
+            background: rgba(53, 147, 255, 0.14);
+            transform: translateY(-1px);
+        }
+
+        .code-lang.active {
+            color: #ffffff;
+            border-color: rgba(53, 147, 255, 0.85);
+            background: rgba(53, 147, 255, 0.2);
+            box-shadow: 0 0 0 1px rgba(53, 147, 255, 0.2) inset;
+        }
+
+        .grid-3 {
+            margin-top: 44px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .feature-ai-row+.grid-3 {
+            margin-top: 28px;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            background: var(--surface-soft);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(53, 147, 255, 0.72);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 38px rgba(53, 147, 255, 0.2);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            font-size: 24px;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke-width: 2;
+        }
+
+        .feature-blue {
+            color: #3593ff;
+        }
+
+        .feature-purple {
+            color: #7c3aed;
+        }
+
+        .card h3 {
+            margin: 16px 0 10px;
+            font-size: 24px;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 17px;
+        }
+
+        .feature-ai-row {
+            margin-top: 44px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card-ai-hub,
+        .card-edge {
+            border-radius: 24px;
+            padding: 32px 36px 88px;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            background: radial-gradient(120% 80% at 12% 8%, rgba(53, 147, 255, 0.12), transparent 55%),
+                radial-gradient(90% 70% at 88% 92%, rgba(124, 58, 237, 0.08), transparent 50%),
+                #141418;
+            border-color: #27272f;
+        }
+
+        .card-ai-hub .card-ai-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .ai-hub-icon-box {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 12px;
+            background: #0c0d12;
+            border: 1px solid #2a2a33;
+            display: grid;
+            place-items: center;
+            color: #f8fafc;
+        }
+
+        .ai-hub-icon-box svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .card-ai-hub h3 {
+            margin: 4px 0 0;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .card-ai-hub .card-ai-desc {
+            margin: 0 0 18px;
+            font-size: 15px;
+            line-height: 1.65;
+            color: #9ca3af;
+        }
+
+        .ai-hub-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ai-hub-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid #3f3f4a;
+            background: rgba(0, 0, 0, 0.25);
+            font-size: 12px;
+            font-weight: 500;
+            color: #a1a1aa;
+        }
+
+        .ai-hub-wire {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 72px;
+            pointer-events: none;
+            opacity: 0.55;
+        }
+
+        .card-edge .card-edge-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .edge-icon-box {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 12px;
+            background: #0c0d12;
+            border: 1px solid #2a2a33;
+            display: grid;
+            place-items: center;
+            color: #a855f7;
+        }
+
+        .edge-icon-box svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .card-edge h3 {
+            margin: 4px 0 0;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .card-edge .card-edge-desc {
+            margin: 0 0 22px;
+            font-size: 15px;
+            line-height: 1.65;
+            color: #9ca3af;
+        }
+
+        .edge-status {
+            position: absolute;
+            left: 32px;
+            right: 32px;
+            bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .edge-bar {
+            flex: 1;
+            height: 6px;
+            border-radius: 999px;
+            background: #27272f;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .edge-bar-fill {
+            height: 100%;
+            width: 62%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #6d28d9 0%, #7c3aed 42%, #3b82f6 100%);
+            background-size: 160% 100%;
+            box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+            animation: edgeHeartbeat 2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+        }
+
+        .edge-status-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+            background: linear-gradient(90deg, #a78bfa 0%, #8b5cf6 38%, #60a5fa 100%);
+            background-size: 160% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: edgeLabelHeartbeat 2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+        }
+
+        @keyframes edgeHeartbeat {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+                filter: brightness(0.9) saturate(1);
+                box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+            }
+
+            18% {
+                background-position: 26% 50%;
+                filter: brightness(1.16) saturate(1.18);
+                box-shadow: 0 0 10px rgba(109, 40, 217, 0.22);
+            }
+
+            30% {
+                background-position: 38% 50%;
+                filter: brightness(0.94) saturate(1.02);
+                box-shadow: 0 0 2px rgba(59, 130, 246, 0.08);
+            }
+
+            46% {
+                background-position: 52% 50%;
+                filter: brightness(1.23) saturate(1.24);
+                box-shadow: 0 0 14px rgba(59, 130, 246, 0.24);
+            }
+
+            60% {
+                background-position: 58% 50%;
+                filter: brightness(0.93) saturate(1.01);
+                box-shadow: 0 0 2px rgba(59, 130, 246, 0.08);
+            }
+        }
+
+        @keyframes edgeLabelHeartbeat {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+                filter: brightness(0.92);
+            }
+
+            18% {
+                background-position: 26% 50%;
+                filter: brightness(1.06);
+            }
+
+            30% {
+                background-position: 38% 50%;
+                filter: brightness(0.94);
+            }
+
+            46% {
+                background-position: 52% 50%;
+                filter: brightness(1.08);
+            }
+
+            60% {
+                background-position: 58% 50%;
+                filter: brightness(0.93);
+            }
+        }
+
+        .why {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 34px;
+            margin-top: 36px;
+            align-items: start;
+        }
+
+        .benefit {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .tick {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            flex: 0 0 auto;
+        }
+
+        .benefit h4 {
+            margin: 2px 0 6px;
+            font-size: 24px;
+        }
+
+        .benefit p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 17px;
+        }
+
+        .mini-panels {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px;
+            background: #111827;
+        }
+
+        .mini {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #374151;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 10px;
+            background: #1f2937;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .mini:hover {
+            border-color: rgba(53, 147, 255, 0.72);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 38px rgba(53, 147, 255, 0.2);
+        }
+
+        .mini:last-child {
+            margin-bottom: 0;
+        }
+
+        .mini strong {
+            font-size: 18px;
+        }
+
+        .testimonials {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .stats-strip {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .stat-item {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 22px 16px;
+            text-align: center;
+            background: #111827;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .stat-item:hover {
+            border-color: rgba(53, 147, 255, 0.72);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 38px rgba(53, 147, 255, 0.2);
+        }
+
+        .stat-number {
+            margin: 0;
+            font-size: clamp(32px, 3.5vw, 48px);
+            font-weight: 800;
+            line-height: 1.15;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            margin: 10px 0 0;
+            color: var(--text-soft);
+            font-size: 16px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            font-weight: 700;
+        }
+
+        .meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .meta strong {
+            font-size: 17px;
+        }
+
+        .meta small {
+            display: block;
+            color: var(--text-soft);
+            font-size: 15px;
+        }
+
+        .quote {
+            margin: 0;
+            color: #d1d5db;
+            font-size: 17px;
+        }
+
+        .schools {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .school {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #111827;
+            padding: 16px 12px;
+            text-align: left;
+            color: #d1d5db;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .school-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .school:hover {
+            border-color: rgba(53, 147, 255, 0.72);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 38px rgba(53, 147, 255, 0.2);
+        }
+
+        .pricing {
+            margin-top: 36px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .plan {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan h3 {
+            font-size: 22px;
+        }
+
+        .plan .price {
+            margin: 8px 0 14px;
+            font-size: 52px;
+            font-weight: 800;
+        }
+
+        .plan ul {
+            margin: 0 0 20px;
+            padding: 0 0 0 20px;
+            color: #d1d5db;
+            flex: 1;
+        }
+
+        .plan li {
+            margin-bottom: 9px;
+            font-size: 17px;
+        }
+
+        .plan.featured {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            border-color: #60a5fa;
+            box-shadow: 0 22px 56px rgba(53, 147, 255, 0.35);
+            transform: scale(1.02);
+        }
+
+        .plan.featured .btn-primary {
+            background: #fff;
+            color: #2563eb;
+        }
+
+        .cta {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--brand));
+        }
+
+        .cta .title {
+            -webkit-text-fill-color: #fff;
+            background: none;
+        }
+
+        .section.cta .title {
+            font-size: clamp(40px, 5.2vw, 64px);
+            margin-bottom: clamp(14px, 2.2vw, 24px);
+        }
+
+        .cta .sub {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 36em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section.cta .hero-actions {
+            margin-top: clamp(44px, 5.2vw, 72px);
+        }
+
+        .btn-cta {
+            font: inherit;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            min-height: 56px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn-cta-primary {
+            border: 0;
+            background: #fff;
+            color: #3593ff;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .btn-cta-primary:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta-primary:hover .btn-cta-arrow {
+            transform: translateX(4px);
+        }
+
+        .btn-cta-arrow {
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-cta-ghost {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+        }
+
+        .btn-cta-ghost:hover {
+            background: #fff;
+            color: #2563eb;
+            border-color: #fff;
+        }
+
+        .footer {
+            border-top: 1px solid #111827;
+            background: #000;
+            padding: 50px 0 24px;
+            color: var(--text-soft);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 22px;
+            margin-bottom: 24px;
+        }
+
+        .footer h5 {
+            margin: 0 0 12px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .footer-link {
+            display: inline-block;
+            color: var(--text-soft);
+            text-decoration: none;
+            transition: transform 0.22s ease, color 0.22s ease;
+            will-change: transform;
+        }
+
+        .footer-link:hover {
+            color: var(--brand);
+            transform: translateX(6px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #111827;
+            padding-top: 18px;
+            text-align: center;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 1080px) {
+            .feature-ai-row {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-3,
+            .testimonials,
+            .pricing {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .stats-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .schools {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .why {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 760px) {
+
+            .nav-cluster .nav-links,
+            .nav-cluster .nav-right {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .grid-3,
+            .testimonials,
+            .pricing,
+            .schools {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 68px 0;
+            }
+
+            .title {
+                font-size: clamp(32px, 10vw, 52px);
+            }
+
+            .hero {
+                padding-top: 104px;
+            }
+
+            .product-dropdown {
+                width: min(90vw, 500px);
+                left: 50%;
+                transform: translateX(-50%) translateY(10px);
+            }
+
+            .product-wrap:hover .product-dropdown {
+                transform: translateX(-50%) translateY(12px);
+            }
+
+            .dropdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <span class="logo-mark" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17.5 19H9a7 7 0 1 1 1.3-13.9A6 6 0 1 1 17.5 19Z" />
+                    </svg>
+                </span>
+                <span>Bmob</span>
+            </a>
+            <div class="nav-cluster">
+                <div class="nav-links">
+                    <div class="product-wrap">
+                        <button type="button" class="product-btn">产品 <span>▼</span></button>
+                        <div class="product-dropdown">
+                            <div class="dropdown-grid">
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon database" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                            <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+                                            <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>云数据库 <span class="dropdown-tag">热门</span></h4>
+                                        <p>高性能NoSQL云端数据库</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon mcp" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="3" width="18" height="6" rx="2" />
+                                            <rect x="3" y="15" width="18" height="6" rx="2" />
+                                            <path d="M7 6h.01" />
+                                            <path d="M7 18h.01" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>MCP 服务 <span class="dropdown-tag">新</span></h4>
+                                        <p>模型上下文协议服务</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon iot" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M3 12h18" />
+                                            <path d="M12 3a14 14 0 0 1 0 18" />
+                                            <path d="M12 3a14 14 0 0 0 0 18" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>物联网 IoT</h4>
+                                        <p>设备接入与数据管理</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon codeflow" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M13 2 3 14h7l-1 8 10-12h-7z" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>CodeFlow <span class="dropdown-tag">新</span></h4>
+                                        <p>AI 驱动的代码生成平台</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon source" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m21 8-9-5-9 5 9 5 9-5Z" />
+                                            <path d="m3 8 9 5 9-5" />
+                                            <path d="M3 8v8l9 5 9-5V8" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>源码通</h4>
+                                        <p>精选优质开源项目源码</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon miniapp" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="7" y="2.5" width="10" height="19" rx="2" />
+                                            <path d="M11 6h2" />
+                                            <path d="M12 18h.01" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>小程序</h4>
+                                        <p>多平台小程序解决方案</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon sms" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                                            <path d="m3 7 9 6 9-6" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>短信验证码</h4>
+                                        <p>快速稳定的短信服务</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon hook" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10 8V5a2 2 0 1 1 4 0v8a6 6 0 1 1-12 0V9" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>数据钩子</h4>
+                                        <p>灵活的数据触发器</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon harmony" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 3a9 9 0 1 0 9 9" />
+                                            <path d="M12 3v6" />
+                                            <path d="M21 12h-6" />
+                                            <path d="m17.5 17.5-4.2-4.2" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>鸿蒙 SDK <span class="dropdown-tag">新</span></h4>
+                                        <p>鸿蒙生态开发支持</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <div class="dropdown-icon prompt" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+                                        </svg></div>
+                                    <div class="dropdown-content">
+                                        <h4>提示词广场</h4>
+                                        <p>AI 提示词分享社区</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#docs">文档</a>
+                    <a href="#pricing">价格</a>
+                </div>
+                <div class="nav-right">
+                    <a href="#">登录</a>
+                    <button type="button" class="btn btn-primary">免费开始</button>
+                </div>
+                <button type="button" class="menu-btn" id="menuBtn">☰</button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a class="mobile-link" href="#">云数据库</a>
+            <a class="mobile-link" href="#">MCP 服务</a>
+            <a class="mobile-link" href="#">物联网 IoT</a>
+            <a class="mobile-link" href="#docs">文档</a>
+            <a class="mobile-link" href="#pricing">价格</a>
+            <a class="mobile-link" href="#">社区</a>
+            <a class="mobile-link" href="#">登录</a>
+            <button type="button" class="btn btn-primary" style="margin-top:12px; width:100%;">免费开始</button>
+        </div>
+    </nav>
+
+    <section class="hero center">
+        <div class="container">
+            <div class="hero-badge">
+                <span class="hero-badge-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                        <path d="M20 3v4" />
+                        <path d="M22 5h-4" />
+                        <path d="M4 17v2" />
+                        <path d="M5 18H3" />
+                    </svg>
+                </span>
+                <span>全新一代后端云服务平台</span>
+            </div>
+            <h1 class="title">让开发变得简单</h1>
+            <p class="sub hero-sub">无需后端开发，快速构建应用。<br>专注于产品创新，让 Bmob 处理基础设施。</p>
+            <div class="hero-actions">
+                <button type="button" class="btn btn-hero btn-hero-primary">
+                    立即开始
+                    <svg class="btn-ico btn-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </button>
+                <button type="button" class="btn btn-hero btn-hero-ghost">
+                    <svg class="btn-ico btn-ico-github" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                    查看文档
+                </button>
+            </div>
+            <div class="hero-points">
+                <div class="hero-point">
+                    <span class="hero-point-check" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                    </span>
+                    <span>免费开始</span>
+                </div>
+                <div class="hero-point">
+                    <span class="hero-point-check" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                    </span>
+                    <span>自动扩容</span>
+                </div>
+                <div class="hero-point">
+                    <span class="hero-point-check" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                    </span>
+                    <span>5分钟快速上线</span>
+                </div>
+            </div>
+
+            <div class="code-card">
+                <div class="code-dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span
+                        class="dot dot-g"></span></div>
+                <pre><code id="codeSnippet">// Android (Java) 初始化 Bmob SDK
+Bmob.initialize(this, "YOUR_APP_ID", "YOUR_REST_API_KEY");
+
+// 保存数据
+BmobObject todo = new BmobObject("Todo");
+todo.setValue("title", "学习 Bmob");
+todo.setValue("completed", false);
+
+todo.save(new SaveListener<String>() {
+  @Override
+  public void done(String objectId, BmobException e) {
+    if (e == null) {
+      Log.d("bmob", "保存成功: " + objectId);
+    }
+  }
+});</code></pre>
+                <div class="code-langs" aria-label="多语言切换">
+                    <a href="#" class="code-lang active" data-lang="android">Android</a>
+                    <a href="#" class="code-lang" data-lang="ios">iOS</a>
+                    <a href="#" class="code-lang" data-lang="harmony">Harmony鸿蒙</a>
+                    <a href="#" class="code-lang" data-lang="kotlin">Kotlin</a>
+                    <a href="#" class="code-lang" data-lang="miniapp">小程序</a>
+                    <a href="#" class="code-lang" data-lang="php">PHP</a>
+                    <a href="#" class="code-lang" data-lang="golang">Golang</a>
+                    <a href="#" class="code-lang" data-lang="curl">cURL</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-dark">
+        <div class="container">
+            <div class="center">
+                <h2 class="title">核心功能</h2>
+                <p class="sub">全方位的后端服务，助力快速开发</p>
+            </div>
+            <div class="feature-ai-row">
+                <article class="card card-ai-hub">
+                    <div class="card-ai-head">
+                        <div class="ai-hub-icon-box" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                                <circle cx="12" cy="12" r="2.8" fill="currentColor" stroke="none" />
+                                <circle cx="12" cy="5" r="2" fill="currentColor" stroke="none" />
+                                <circle cx="19" cy="12" r="2" fill="currentColor" stroke="none" />
+                                <circle cx="12" cy="19" r="2" fill="currentColor" stroke="none" />
+                                <circle cx="5" cy="12" r="2" fill="currentColor" stroke="none" />
+                                <path d="M12 7.8v2.4M16.2 12h2.4M12 16.2v2.4M5.4 12h2.4" opacity="0.85" />
+                            </svg>
+                        </div>
+                        <h3>Bmob AI Hub</h3>
+                    </div>
+                    <p class="card-ai-desc">一键接入 DeepSeek、Qwen、Kimi、GLM、Doubao 等国内主流大模型。支持提示词工程管理与高并发 API 智能路由，为 AI
+                        应用保驾护航。</p>
+                    <div class="ai-hub-tags">
+                        <span class="ai-hub-tag">DeepSeek-V3</span>
+                        <span class="ai-hub-tag">Qwen3-Max</span>
+                        <span class="ai-hub-tag">Kimi K2</span>
+                        <span class="ai-hub-tag">GLM-4.5</span>
+                        <span class="ai-hub-tag">Doubao</span>
+                        <span class="ai-hub-tag">...</span>
+                    </div>
+                    <svg class="ai-hub-wire" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80"
+                        preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="aiWireGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#3593ff" />
+                                <stop offset="100%" stop-color="#7c3aed" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M60 65 L120 25 L200 55 L280 25 L340 65" fill="none" stroke="url(#aiWireGrad)"
+                            stroke-width="1" stroke-dasharray="4 6" opacity="0.7" />
+                        <circle cx="60" cy="65" r="4" fill="#3593ff" opacity="0.85" />
+                        <circle cx="120" cy="25" r="4" fill="#60a5fa" opacity="0.85" />
+                        <circle cx="200" cy="55" r="4.5" fill="#a78bfa" opacity="0.9" />
+                        <circle cx="280" cy="25" r="4" fill="#7c3aed" opacity="0.85" />
+                        <circle cx="340" cy="65" r="4" fill="#3593ff" opacity="0.85" />
+                    </svg>
+                </article>
+                <article class="card card-edge">
+                    <div class="card-edge-head">
+                        <div class="edge-icon-box" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2 3 14h7l-1 8 10-12h-7z" />
+                            </svg>
+                        </div>
+                        <h3>Serverless Edge</h3>
+                    </div>
+                    <p class="card-edge-desc">云函数（Cloud Functions）实现「Zero Ops」。代码自动弹性伸缩，毫秒级冷启动，在离用户最近的边缘端运行逻辑。</p>
+                    <div class="edge-status">
+                        <div class="edge-bar">
+                            <div class="edge-bar-fill"></div>
+                        </div>
+                        <span class="edge-status-label">AUTO-SCALING ACTIVE</span>
+                    </div>
+                </article>
+            </div>
+            <div class="grid-3">
+                <article class="card">
+                    <div class="feature-icon feature-blue" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3" />
+                            <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+                            <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
+                        </svg>
+                    </div>
+                    <h3>数据存储</h3>
+                    <p>云端数据库服务，支持实时同步、灵活查询和自动备份。</p>
+                </article>
+                <article class="card">
+                    <div class="feature-icon feature-purple" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="6" rx="2" />
+                            <rect x="3" y="15" width="18" height="6" rx="2" />
+                            <path d="M7 6h.01" />
+                            <path d="M7 18h.01" />
+                        </svg>
+                    </div>
+                    <h3>云函数</h3>
+                    <p>无服务器计算，自动扩展，按需付费，专注业务逻辑。</p>
+                </article>
+                <article class="card">
+                    <div class="feature-icon feature-blue" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 2 3 14h7l-1 8 10-12h-7z" />
+                        </svg>
+                    </div>
+                    <h3>实时通信</h3>
+                    <p>WebSocket 与消息推送，覆盖即时通讯与实时数据同步场景。</p>
+                </article>
+                <article class="card">
+                    <div class="feature-icon feature-purple" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-4 8 4z" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                    </div>
+                    <h3>用户认证</h3>
+                    <p>安全用户系统，支持多种登录方式与权限控制。</p>
+                </article>
+                <article class="card">
+                    <div class="feature-icon feature-blue" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <h3>API 服务</h3>
+                    <p>RESTful API、多语言 SDK 和完整开发文档。</p>
+                </article>
+                <article class="card">
+                    <div class="feature-icon feature-purple" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.5 19H9a7 7 0 1 1 1.3-13.9A6 6 0 1 1 17.5 19Z" />
+                        </svg>
+                    </div>
+                    <h3>文件存储</h3>
+                    <p>海量文件存储、CDN 加速、图片处理，安全可靠。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="why">
+                <div>
+                    <h2 class="title" style="font-size:clamp(34px,4.5vw,56px)">为什么选择 Bmob？</h2>
+                    <div class="benefit"><span class="tick">✓</span>
+                        <div>
+                            <h4>极速开发</h4>
+                            <p>无需搭建服务器，5分钟即可上线应用后端。</p>
+                        </div>
+                    </div>
+                    <div class="benefit"><span class="tick">✓</span>
+                        <div>
+                            <h4>弹性扩容</h4>
+                            <p>自动扩展基础设施，轻松应对业务增长。</p>
+                        </div>
+                    </div>
+                    <div class="benefit"><span class="tick">✓</span>
+                        <div>
+                            <h4>安全稳定</h4>
+                            <p>企业级安全保障，99.99% 可用性承诺。</p>
+                        </div>
+                    </div>
+                    <div class="benefit"><span class="tick">✓</span>
+                        <div>
+                            <h4>成本极低</h4>
+                            <p>按需付费，无闲置资源浪费，降低运营成本。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-panels">
+                    <div class="mini">
+                        <div class="feature-icon feature-blue" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+                                <path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3" />
+                            </svg>
+                        </div>
+                        <div><strong>云数据库</strong>
+                            <div class="sub" style="font-size:15px">实时同步 · 灵活查询</div>
+                        </div>
+                    </div>
+                    <div class="mini">
+                        <div class="feature-icon feature-purple" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="6" rx="2" />
+                                <rect x="3" y="15" width="18" height="6" rx="2" />
+                                <path d="M7 6h.01" />
+                                <path d="M7 18h.01" />
+                            </svg>
+                        </div>
+                        <div><strong>云函数</strong>
+                            <div class="sub" style="font-size:15px">无服务器 · 自动扩展</div>
+                        </div>
+                    </div>
+                    <div class="mini">
+                        <div class="feature-icon feature-blue" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a4 4 0 0 1-4 4H8a5 5 0 1 1 .7-9.95A5.5 5.5 0 1 1 21 15Z" />
+                                <path d="M8 13h8" />
+                                <path d="m12 10 0 6" />
+                            </svg>
+                        </div>
+                        <div><strong>即时通讯</strong>
+                            <div class="sub" style="font-size:15px">消息推送 · 实时同步</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="stats-strip">
+                <article class="stat-item">
+                    <p class="stat-number">50W+</p>
+                    <p class="stat-label">开发者用户</p>
+                </article>
+                <article class="stat-item">
+                    <p class="stat-number">99.99%</p>
+                    <p class="stat-label">服务可用性</p>
+                </article>
+                <article class="stat-item">
+                    <p class="stat-number">30B+</p>
+                    <p class="stat-label">日均 API 调用</p>
+                </article>
+                <article class="stat-item">
+                    <p class="stat-number">150+</p>
+                    <p class="stat-label">服务覆盖地区</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="center">
+                <h2 class="title">开发者的真实评价</h2>
+                <p class="sub">来自不同领域开发者的使用体验</p>
+            </div>
+            <div class="testimonials">
+                <article class="card">
+                    <div class="meta"><span class="avatar">探</span>
+                        <div><strong>ID: 探索者</strong><small>全栈开发者</small></div>
+                    </div>
+                    <p class="quote">接入速度快得惊人，几行代码就完成用户系统搭建，至少省了两周开发时间。</p>
+                </article>
+                <article class="card">
+                    <div class="meta"><span class="avatar">L</span>
+                        <div><strong>ID: 产品经理Lily</strong><small>产品经理</small></div>
+                    </div>
+                    <p class="quote">文案优化、PRD 润色与协作流程无缝衔接，团队交付效率明显提升。</p>
+                </article>
+                <article class="card">
+                    <div class="meta"><span class="avatar">学</span>
+                        <div><strong>ID: 学生开发者</strong><small>在校学生</small></div>
+                    </div>
+                    <p class="quote">1元起充门槛低，课程作业和竞赛项目都能轻松跑通，对学生很友好。</p>
+                </article>
+                <article class="card">
+                    <div class="meta"><span class="avatar">资</span>
+                        <div><strong>ID: 资深工程师</strong><small>后端架构师</small></div>
+                    </div>
+                    <p class="quote">高并发场景依旧稳定，日志体系清晰，线上问题定位效率很高。</p>
+                </article>
+                <article class="card">
+                    <div class="meta"><span class="avatar">商</span>
+                        <div><strong>ID: 跨境电商团队</strong><small>电商运营</small></div>
+                    </div>
+                    <p class="quote">多语言内容生成质量超预期，客服与营销文案可直接投入生产使用。</p>
+                </article>
+                <article class="card">
+                    <div class="meta"><span class="avatar">A</span>
+                        <div><strong>ID: AI应用创业者</strong><small>创业者</small></div>
+                    </div>
+                    <p class="quote">从 MVP 到正式上线一直使用 Bmob，自动扩容让团队更安心。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="center">
+                <h2 class="title">高校信赖之选</h2>
+                <p class="sub">全国顶尖高校师生都在使用 Bmob</p>
+            </div>
+            <div class="schools">
+                <div class="school"><img class="school-logo" src="assets/school-badges/tsinghua.svg" alt="清华大学校徽">清华大学
+                </div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/ucas.svg" alt="中国科学院大学校徽">中国科学院大学
+                </div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/sjtu.svg" alt="上海交通大学校徽">上海交通大学
+                </div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/zju.svg" alt="浙江大学校徽">浙江大学</div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/fudan.svg" alt="复旦大学校徽">复旦大学
+                </div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/tju.svg" alt="天津大学校徽">天津大学</div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/xjtu.svg" alt="西安交通大学校徽">西安交通大学
+                </div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/jlu.svg" alt="吉林大学校徽">吉林大学</div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/sdu.svg" alt="山东大学校徽">山东大学</div>
+                <div class="school"><img class="school-logo" src="assets/school-badges/sysu.svg" alt="中山大学校徽">中山大学</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="center">
+                <h2 class="title">灵活的价格方案</h2>
+                <p class="sub">从个人开发者到企业用户，总有适合您的方案</p>
+            </div>
+            <div class="pricing">
+                <article class="card plan">
+                    <h3>免费版</h3>
+                    <div class="price">¥0<span style="font-size:18px;font-weight:600">/用3个月</span></div>
+                    <ul>
+                        <li>公有云集群</li>
+                        <li>100万次 数据 API</li>
+                        <li>10万行 / 20列 / 20表</li>
+                        <li>2000 并发（半小时）</li>
+                        <li>20GB 文件存储与流量</li>
+                        <li>工单支持（正常回复）</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary">立即开始</button>
+                </article>
+                <article class="card plan featured">
+                    <h3>专业版</h3>
+                    <div class="price">¥99<span style="font-size:18px;font-weight:600">/月</span></div>
+                    <ul>
+                        <li>公有云集群</li>
+                        <li>500万次 数据 API</li>
+                        <li>200万行 / 50列 / 50表</li>
+                        <li>10000 并发（半小时）</li>
+                        <li>模糊查询 / 小程序支付</li>
+                        <li>工单支持（优先回复）</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary">选择专业版</button>
+                </article>
+                <article class="card plan">
+                    <h3>企业版 Pro</h3>
+                    <div class="price">¥2299<span style="font-size:18px;font-weight:600">起/月</span></div>
+                    <ul>
+                        <li>独立集群 / 高可用</li>
+                        <li>不限 API、行列、并发</li>
+                        <li>免费开启海外加速</li>
+                        <li>免费开启文件域名 / 云函数</li>
+                        <li>团队管理 / 软件著作权</li>
+                        <li>独立服务群（及时回复）</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary">联系我们</button>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="docs" class="section cta center">
+        <div class="container">
+            <h2 class="title">准备好迎接开发的未来了吗？</h2>
+            <p class="sub">开启12年沉淀的稳定服务，使用 Bmob 快速构建您的下一个应用</p>
+            <div class="hero-actions cta-actions">
+                <button type="button" class="btn-cta btn-cta-primary">
+                    立即注册
+                    <svg class="btn-cta-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </button>
+                <button type="button" class="btn-cta btn-cta-ghost">联系我们</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="logo" style="font-size:24px">
+                        <span class="logo-mark" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.5 19H9a7 7 0 1 1 1.3-13.9A6 6 0 1 1 17.5 19Z" />
+                            </svg>
+                        </span>
+                        <span>Bmob</span>
+                    </a>
+                    <p style="margin-top:10px">专注于为开发者提供最简单、最快捷的后端云服务解决方案。</p>
+                </div>
+                <div>
+                    <h5>产品</h5>
+                    <ul>
+                        <li><a href="#" class="footer-link">云数据库</a></li>
+                        <li><a href="#" class="footer-link">MCP 服务</a></li>
+                        <li><a href="#" class="footer-link">物联网IoT</a></li>
+                        <li><a href="#" class="footer-link">CodeFlow</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>资源</h5>
+                    <ul>
+                        <li><a href="#" class="footer-link">开发文档</a></li>
+                        <li><a href="#" class="footer-link">API参考</a></li>
+                        <li><a href="#" class="footer-link">SDK下载</a></li>
+                        <li><a href="#" class="footer-link">示例代码</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>公司</h5>
+                    <ul>
+                        <li><a href="#" class="footer-link">公司简介</a></li>
+                        <li><a href="#" class="footer-link">新闻动态</a></li>
+                        <li><a href="#" class="footer-link">服务条款</a></li>
+                        <li><a href="#" class="footer-link">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2012-2026 元素（深圳）软件有限公司
+                <span style="opacity:0.7; padding: 0 10px;">|</span>
+                <a href="#" class="footer-link">粤ICP备2024251222号</a>
+                <span style="opacity:0.7; padding: 0 10px;">|</span>
+                <a href="#" class="footer-link">增值电信业务经营许可证：粤B2-20250911</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const codeSnippet = document.getElementById("codeSnippet");
+        const codeLangButtons = document.querySelectorAll(".code-lang[data-lang]");
+        let opened = false;
+        menuBtn.addEventListener("click", () => {
+            opened = !opened;
+            mobileMenu.classList.toggle("open", opened);
+            menuBtn.textContent = opened ? "✕" : "☰";
+        });
+
+        const languageCodeMap = {
+            android: `// Android (Java) 初始化 Bmob SDK
+Bmob.initialize(this, "YOUR_APP_ID", "YOUR_REST_API_KEY");
+
+// 保存数据
+BmobObject todo = new BmobObject("Todo");
+todo.setValue("title", "学习 Bmob");
+todo.setValue("completed", false);
+
+todo.save(new SaveListener<String>() {
+  @Override
+  public void done(String objectId, BmobException e) {
+    if (e == null) {
+      Log.d("bmob", "保存成功: " + objectId);
+    }
+  }
+});`,
+            ios: `// iOS (Swift) 初始化 Bmob SDK
+Bmob.initialize(withApplicationId: "YOUR_APP_ID", apiKey: "YOUR_REST_API_KEY")
+
+// 保存数据
+let todo = BmobObject(className: "Todo")
+todo?.setObject("学习 Bmob", forKey: "title")
+todo?.setObject(false, forKey: "completed")
+todo?.saveInBackground({ success, error in
+  if success {
+    print("保存成功")
+  }
+})`,
+            harmony: `// HarmonyOS (ArkTS) 初始化 Bmob
+import http from '@ohos.net.http';
+
+const APP_ID = "YOUR_APP_ID";
+const REST_KEY = "YOUR_REST_API_KEY";
+
+async function createTodo() {
+  const request = http.createHttp();
+  const url = \`https://api2.bmob.cn/1/classes/Todo\`;
+  const data = { title: "学习 Bmob", completed: false };
+  await request.request(url, {
+    method: http.RequestMethod.POST,
+    header: {
+      "X-Bmob-Application-Id": APP_ID,
+      "X-Bmob-REST-API-Key": REST_KEY,
+      "Content-Type": "application/json"
+    },
+    extraData: JSON.stringify(data)
+  });
+}`,
+            kotlin: `// Kotlin 初始化 Bmob SDK
+Bmob.initialize(this, "YOUR_APP_ID", "YOUR_REST_API_KEY")
+
+// 保存数据
+val todo = BmobObject("Todo").apply {
+  setValue("title", "学习 Bmob")
+  setValue("completed", false)
+}
+todo.save(object : SaveListener<String>() {
+  override fun done(objectId: String?, e: BmobException?) {
+    if (e == null) println("保存成功: $objectId")
+  }
+})`,
+            miniapp: `// 小程序初始化
+const Bmob = require("utils/bmob.js");
+Bmob.initialize("YOUR_APP_ID", "YOUR_REST_API_KEY");
+
+// 保存数据
+const query = Bmob.Query("Todo");
+query.set("title", "学习 Bmob");
+query.set("completed", false);
+query.save().then(res => {
+  console.log("保存成功:", res);
+});`,
+            php: `<?php
+// PHP 初始化 Bmob SDK (示例)
+require_once 'Bmob/Bmob.php';
+
+$bmobAppId = "YOUR_APP_ID";
+$bmobRestKey = "YOUR_REST_API_KEY";
+
+$data = [
+  "title" => "学习 Bmob",
+  "completed" => false
+];
+
+$result = BmobObject::create("Todo", $data, $bmobAppId, $bmobRestKey);
+echo "保存成功: " . json_encode($result);
+?>`,
+            golang: `// Golang 初始化并写入数据
+package main
+
+import (
+  "bytes"
+  "net/http"
+)
+
+func main() {
+  body := []byte(\`{"title":"学习 Bmob","completed":false}\`)
+  req, _ := http.NewRequest("POST", "https://api2.bmob.cn/1/classes/Todo", bytes.NewBuffer(body))
+  req.Header.Set("X-Bmob-Application-Id", "YOUR_APP_ID")
+  req.Header.Set("X-Bmob-REST-API-Key", "YOUR_REST_API_KEY")
+  req.Header.Set("Content-Type", "application/json")
+  http.DefaultClient.Do(req)
+}`,
+            curl: `# cURL 查询 GameScore 列表
+curl -X GET \\
+  -H "X-Bmob-Application-Id: Your Application ID" \\
+  -H "X-Bmob-REST-API-Key: Your REST API Key" \\
+  https://自己备案域名/1/classes/GameScore
+}`
+        };
+
+        codeLangButtons.forEach((btn) => {
+            btn.addEventListener("click", (event) => {
+                event.preventDefault();
+                const lang = btn.getAttribute("data-lang");
+                if (!lang || !languageCodeMap[lang]) return;
+                codeSnippet.textContent = languageCodeMap[lang];
+                codeLangButtons.forEach((item) => item.classList.remove("active"));
+                btn.classList.add("active");
+            });
+        });
+    </script>
+</body>
+
+</html>

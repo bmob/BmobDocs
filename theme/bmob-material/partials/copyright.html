@@ -1,0 +1,12 @@
+<div class="md-copyright">
+  <div class="md-copyright__highlight">
+    Copyright © 2013–{{ build_date_utc.year }}
+    {% if config.copyright %} {{ config.copyright }}{% else %} Bmob, Maintained by the Bmob Support.{% endif %}
+  </div>
+  {% if not config.extra.generator == false %}
+    Made with
+    <a href="https://www.mkdocs.org/" target="_blank" rel="noopener">
+      MkDocs
+    </a>
+  {% endif %}
+</div>
