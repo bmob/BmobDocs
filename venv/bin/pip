@@ -1,4 +1,4 @@
-#!/Users/magic/Documents/bmob/mkdocs-material/venv/bin/python3
+#!/data/bmob/www/BmobDocs/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
