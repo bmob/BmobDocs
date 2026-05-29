@@ -36,14 +36,16 @@
 }
 
 /* ========== 文档正文图片：渐变画框 ========== */
+/*
+ * 命中 p>img（含「段落文字 + 换行图」混排，如 REST 快速入门注册截图）
+ * 以及 figure / 链接包裹图；列表与表格内图片保持轻量样式。
+ */
 
-/* 仅文档页正文，排除首页与顶栏 */
-.md-content:not(:has(.bmob-home)) > .md-typeset > p:has(> img:only-child),
-.md-content:not(:has(.bmob-home)) > .md-typeset > figure {
+.md-content:not(:has(.bmob-home)) .md-typeset :is(p > img, p > a:has(> img)),
+.md-content:not(:has(.bmob-home)) .md-typeset figure {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  box-sizing: border-box;
   width: fit-content;
   max-width: 100%;
   margin: 1.35em auto;
@@ -56,8 +58,7 @@
   transition: box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
-.md-content:not(:has(.bmob-home)) > .md-typeset > p:has(> img:only-child)::before,
-.md-content:not(:has(.bmob-home)) > .md-typeset > figure::before {
+.md-content:not(:has(.bmob-home)) .md-typeset :is(p > a:has(> img), figure)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -65,16 +66,20 @@
   pointer-events: none;
 }
 
-.md-content:not(:has(.bmob-home)) > .md-typeset > p:has(> img:only-child):hover,
-.md-content:not(:has(.bmob-home)) > .md-typeset > figure:hover {
+.md-content:not(:has(.bmob-home)) .md-typeset :is(p > img, p > a:has(> img)):hover,
+.md-content:not(:has(.bmob-home)) .md-typeset figure:hover {
   border-color: rgba(53, 147, 255, 0.45);
   box-shadow:
     var(--bmob-img-shadow),
     0 0 24px rgba(53, 147, 255, 0.12);
 }
 
-.md-content:not(:has(.bmob-home)) > .md-typeset > p:has(> img:only-child) > img,
-.md-content:not(:has(.bmob-home)) > .md-typeset > figure img {
+.md-content:not(:has(.bmob-home)) .md-typeset p > a:has(> img) {
+  text-decoration: none;
+  color: inherit;
+}
+
+.md-content:not(:has(.bmob-home)) .md-typeset :is(p > a:has(> img), figure) > img {
   position: relative;
   z-index: 1;
   display: block;
@@ -86,36 +91,30 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 段落内联图片：轻量圆角与阴影 */
-.md-content:not(:has(.bmob-home)) > .md-typeset p:not(:has(> img:only-child)) img,
-.md-content:not(:has(.bmob-home)) > .md-typeset li img,
-.md-content:not(:has(.bmob-home)) > .md-typeset td img,
-.md-content:not(:has(.bmob-home)) > .md-typeset th img {
+/* 列表 / 表格内图片：轻量圆角，不用渐变画框 */
+.md-content:not(:has(.bmob-home)) .md-typeset :is(li, td, th) img,
+.md-content:not(:has(.bmob-home)) .md-typeset img.bmob-img-plain {
+  display: inline;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
   border-radius: 6px;
+  background: none;
   box-shadow: 0 2px 12px rgba(15, 23, 42, 0.1);
   vertical-align: middle;
 }
 
 [data-md-color-scheme="slate"]
   .md-content:not(:has(.bmob-home))
-  > .md-typeset
-  p:not(:has(> img:only-child))
+  .md-typeset
+  :is(li, td, th)
   img,
 [data-md-color-scheme="slate"]
   .md-content:not(:has(.bmob-home))
-  > .md-typeset
-  li
-  img,
-[data-md-color-scheme="slate"]
-  .md-content:not(:has(.bmob-home))
-  > .md-typeset
-  td
-  img,
-[data-md-color-scheme="slate"]
-  .md-content:not(:has(.bmob-home))
-  > .md-typeset
-  th
-  img {
+  .md-typeset
+  img.bmob-img-plain {
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
 

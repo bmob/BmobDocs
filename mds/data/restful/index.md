@@ -1,5 +1,6 @@
 ## 注册Bmob帐号
 在网址栏输入www.bmobapp.com或者在百度输入Bmob搜索，打开[Bmob官网](http://www.bmobapp.com/ "Bmob移动后端云服务平台")后，点击右上角的“注册”，在跳转页面填入你的姓名、邮箱、设置密码，确认后到你的邮箱激活[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台")账户，你就可以用Bmob轻松开发应用了。
+
 ![](image/rumen_zhuce.png)
 ## 网站后台创建应用
 
