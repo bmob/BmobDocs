@@ -54,27 +54,31 @@ curl -X GET \
     https://your-api-domain/1/classes/GameScore/e1kXT22L
 ```
 
-| 参数                  | 类型   | 参数说明                                                     |
-| --------------------- | ------ | ------------------------------------------------------------ |
-| X-Bmob-SDK-Type       | string | SDK 类型，目前固定为 `wechatApp`                             |
-| X-Bmob-Safe-Timestamp | string | 客户端请求的 unix 时间戳（UTC），精确到毫秒，长度13位字符      |
-| X-Bmob-Noncestr-Key   | string | 客户端请求产生的一个随机码，长度16个字符                     |
-| X-Bmob-Secret-Key     | string | Bmob 控制台应用密匙 **Secret Key**                           |
-| X-Bmob-SDK-Version    | string | SDK 版本，当前固定为 `10`                                    |
+
+| 参数                    | 类型     | 参数说明                                                                                   |
+| --------------------- | ------ | -------------------------------------------------------------------------------------- |
+| X-Bmob-SDK-Type       | string | SDK 类型，目前固定为 `wechatApp`                                                               |
+| X-Bmob-Safe-Timestamp | string | 客户端请求的 unix 时间戳（UTC），精确到毫秒，长度13位字符                                                     |
+| X-Bmob-Noncestr-Key   | string | 客户端请求产生的一个随机码，长度16个字符                                                                  |
+| X-Bmob-Secret-Key     | string | Bmob 控制台应用密匙 **Secret Key**                                                            |
+| X-Bmob-SDK-Version    | string | SDK 版本，当前固定为 `10`                                                                      |
 | X-Bmob-Safe-Sign      | string | md5 签名，签名规则 md5(url + timeStamp + SecurityCode + noncestr + body + SDKVersion)，具体看下面介绍 |
+
 
 > **注意**：以上所有参数必填，请求时间客户端到服务器请求必须 10s 内，如果客户端手机时间不对，则无法请求。
 
 #### MD5 加密规则说明
 
-| 参数         | 参数说明                                                                                                                   |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| url          | 例如请求 `https://your-api-domain/1/classes/GameScore/e1kXT22L`，其 url 则为 `**/1/classes/GameScore/e1kXT22L**`，如果 GET 请求后面带 `?aa=1` 则不算 url 加密参数之中 |
-| timeStamp    | 客户端请求的 unix 时间戳（UTC），精确到毫秒                                                                                 |
-| SecurityCode | 自定义 API 安全码，不通过网络传输。设置 **API 安全码**：在应用功能设置，安全验证，API 安全码，可自行设置                     |
-| noncestr     | 客户端请求产生的一个随机码，长度16个字符                                                                                    |
-| body         | 客户端请求的 json 内容，仅 `POST` 和 `PUT` 请求类型需要，其他类型均为空值                                                   |
-| SDKVersion   | 目前固定为 `10`                                                                                                             |
+
+| 参数           | 参数说明                                                                                                                                         |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| url          | 例如请求 `https://your-api-domain/1/classes/GameScore/e1kXT22L`，其 url 则为 `**/1/classes/GameScore/e1kXT22L`**，如果 GET 请求后面带 `?aa=1` 则不算 url 加密参数之中 |
+| timeStamp    | 客户端请求的 unix 时间戳（UTC），精确到毫秒                                                                                                                   |
+| SecurityCode | 自定义 API 安全码，不通过网络传输。设置 **API 安全码**：在应用功能设置，安全验证，API 安全码，可自行设置                                                                                |
+| noncestr     | 客户端请求产生的一个随机码，长度16个字符                                                                                                                        |
+| body         | 客户端请求的 json 内容，仅 `POST` 和 `PUT` 请求类型需要，其他类型均为空值                                                                                              |
+| SDKVersion   | 目前固定为 `10`                                                                                                                                   |
+
 
 ## 响应格式
 
@@ -95,72 +99,86 @@ API 访问需要在 `https://your-api-domain` 域名下，相对路径前缀 `/1
 
 ### 对象快速参考
 
-| URL                            | HTTP   | 功能       |
-| :----------------------------- | :----- | :--------- |
-| /1/classes/TableName           | POST   | 添加数据   |
-| /1/classes/TableName/objectId  | PUT    | 更新数据   |
-| /1/classes/TableName/objectId  | DELETE | 删除数据   |
-| /1/batch                       | POST   | 批量操作数据 |
-| /1/classes/TableName/objectId  | GET    | 查询数据   |
-| /1/cloudQuery                  | GET    | 使用 BQL 查询 |
+
+| URL                           | HTTP   | 功能        |
+| ----------------------------- | ------ | --------- |
+| /1/classes/TableName          | POST   | 添加数据      |
+| /1/classes/TableName/objectId | PUT    | 更新数据      |
+| /1/classes/TableName/objectId | DELETE | 删除数据      |
+| /1/batch                      | POST   | 批量操作数据    |
+| /1/classes/TableName/objectId | GET    | 查询数据      |
+| /1/cloudQuery                 | GET    | 使用 BQL 查询 |
+
 
 ### 用户快速参考
 
-| URL                                  | HTTP   | 功能                                   |
-| :----------------------------------- | :----- | :------------------------------------- |
-| /1/users                             | POST   | 用户注册、使用手机号注册登录、第三方注册登录 |
-| /1/login                             | POST   | 登录                                   |
-| /1/users/objectId                    | GET    | 获取当前用户、查询用户                   |
-| /1/users/objectId                    | PUT    | 更新用户、第三方连接及断开连接           |
-| /1/users/objectId                    | DELETE | 删除用户                               |
-| /1/requestPasswordReset              | POST   | 密码重置                               |
-| /1/resetPasswordBySmsCode/smsCode    | PUT    | 短信密码重置                           |
-| /1/updateUserPassword/objectId       | POST   | 旧密码更新密码                         |
-| /1/requestEmailVerify                | POST   | 邮箱验证                               |
+
+| URL                               | HTTP   | 功能                     |
+| --------------------------------- | ------ | ---------------------- |
+| /1/users                          | POST   | 用户注册、使用手机号注册登录、第三方注册登录 |
+| /1/login                          | POST   | 登录                     |
+| /1/users/objectId                 | GET    | 获取当前用户、查询用户            |
+| /1/users/objectId                 | PUT    | 更新用户、第三方连接及断开连接        |
+| /1/users/objectId                 | DELETE | 删除用户                   |
+| /1/requestPasswordReset           | POST   | 密码重置                   |
+| /1/resetPasswordBySmsCode/smsCode | PUT    | 短信密码重置                 |
+| /1/updateUserPassword/objectId    | POST   | 旧密码更新密码                |
+| /1/requestEmailVerify             | POST   | 邮箱验证                   |
+
 
 ### 文件管理快速参考
 
-| URL                        | HTTP   | 功能           |
-| :------------------------- | :----- | :------------- |
-| /2/files/fileName          | POST   | 文件上传       |
-| /2/files/cdnName/url       | DELETE | 删除文件       |
-| /2/cdnBatchDelete          | POST   | 批量删除 CDN 文件 |
+
+| URL                  | HTTP   | 功能          |
+| -------------------- | ------ | ----------- |
+| /2/files/fileName    | POST   | 文件上传        |
+| /2/files/cdnName/url | DELETE | 删除文件        |
+| /2/cdnBatchDelete    | POST   | 批量删除 CDN 文件 |
+
 
 ### ACL 和角色管理快速参考
 
-| URL                     | HTTP   | 功能     |
-| :---------------------- | :----- | :------- |
-| /1/roles                | POST   | 创建角色 |
-| /1/roles/objectId       | GET    | 获取角色 |
-| /1/roles/objectId       | PUT    | 更新角色 |
+
+| URL               | HTTP | 功能   |
+| ----------------- | ---- | ---- |
+| /1/roles          | POST | 创建角色 |
+| /1/roles/objectId | GET  | 获取角色 |
+| /1/roles/objectId | PUT  | 更新角色 |
+
 
 ### App 服务快速参考
 
-| URL               | HTTP   | 功能             |
-| :---------------- | :----- | :--------------- |
-| /1/apps           | GET    | 获取所有 App 信息 |
-| /1/apps/appId     | GET    | 获取特定 App 信息 |
-| /1/apps           | POST   | 创建新 App       |
-| /1/apps/appId     | PUT    | 修改 App 信息    |
+
+| URL           | HTTP | 功能          |
+| ------------- | ---- | ----------- |
+| /1/apps       | GET  | 获取所有 App 信息 |
+| /1/apps/appId | GET  | 获取特定 App 信息 |
+| /1/apps       | POST | 创建新 App     |
+| /1/apps/appId | PUT  | 修改 App 信息   |
+
 
 ### 数据表快速参考
 
-| URL                        | HTTP   | 功能         |
-| :------------------------- | :----- | :----------- |
-| /1/schemas                 | GET    | 获取所有表信息 |
-| /1/schemas/TableName       | GET    | 获取特定表信息 |
-| /1/schemas/TableName       | POST   | 创建表       |
-| /1/schemas/TableName       | PUT    | 修改表       |
-| /1/schemas/TableName       | DELETE | 删除表       |
+
+| URL                  | HTTP   | 功能      |
+| -------------------- | ------ | ------- |
+| /1/schemas           | GET    | 获取所有表信息 |
+| /1/schemas/TableName | GET    | 获取特定表信息 |
+| /1/schemas/TableName | POST   | 创建表     |
+| /1/schemas/TableName | PUT    | 修改表     |
+| /1/schemas/TableName | DELETE | 删除表     |
+
 
 ### 其它功能快速参考
 
-| URL                 | HTTP   | 功能               |
-| :------------------ | :----- | :----------------- |
-| /1/timestamp        | GET    | 获取服务器时间     |
-| /1/requestSmsCode   | POST   | 请求短信验证码     |
-| /1/requestEmailCode | POST   | 请求邮件验证码     |
-| /1/verifySmsCode    | POST   | 验证短信/邮件验证码 |
+
+| URL                 | HTTP | 功能         |
+| ------------------- | ---- | ---------- |
+| /1/timestamp        | GET  | 获取服务器时间    |
+| /1/requestSmsCode   | POST | 请求短信验证码    |
+| /1/requestEmailCode | POST | 请求邮件验证码    |
+| /1/verifySmsCode    | POST | 验证短信/邮件验证码 |
+
 
 ## 对象
 
@@ -182,7 +200,7 @@ Key 必须是字母和数字组成的字符串，Value 可以是任何可以 JSO
 
 每个对象都有一个类名，你可以通过类名来区分不同的数据，例如，我们可以把游戏得分对象称之为 GameScore。我们推荐你使用 **NameYourClassesLikeThis** 和 **nameYourKeysLikeThis** 这样的格式为你的类名和 Key 命名，这可以使你的代码看起来很漂亮。
 
-当你从 [Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 中获取对象时，一些字段会被自动加上：`createdAt`、`updatedAt` 和 `objectId`，这些字段的名字是保留的，你不能自行设置它们，我们上面设置的对象在获取时应该是下面的样子：
+当你从 [Bmob](http://www.bmobapp.com/) 中获取对象时，一些字段会被自动加上：`createdAt`、`updatedAt` 和 `objectId`，这些字段的名字是保留的，你不能自行设置它们，我们上面设置的对象在获取时应该是下面的样子：
 
 ```json
 {
@@ -217,7 +235,7 @@ https://your-api-domain/1/classes/GameScore/e1kXT22L
 
 ### 数据类型
 
-到现在为止我们只使用了可以被标准 JSON 编码的值，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 移动客户端 SDK 库同样支持日期、地理位置数据和指针数据、关系型数据。在 REST API 中，这些值都被编码了，同时有一个 `__type` 字段来标识出它们所属的类型，所以如果你采用正确的编码的话就可以读或者写这些字段了。
+到现在为止我们只使用了可以被标准 JSON 编码的值，[Bmob](http://www.bmobapp.com/) 移动客户端 SDK 库同样支持日期、地理位置数据和指针数据、关系型数据。在 REST API 中，这些值都被编码了，同时有一个 `__type` 字段来标识出它们所属的类型，所以如果你采用正确的编码的话就可以读或者写这些字段了。
 
 **Date** 类型包含了一个 `iso` 字段存储了一个 UTC 时间戳，以 ISO 8601 格式和毫秒级的精度来存储时间：`YYYY-MM-DDTHH:MM:SS.MMMZ` 或者 `YYYY-MM-DDTHH:MM:SS`。
 
@@ -290,7 +308,7 @@ curl -X PUT \
 
 **请求描述**
 
-为了在 [Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 上创建一个新的对象，应该向 class 的 URL 发送一个 POST 请求，其中内容体应该是包含对象本身的 JSON 格式。
+为了在 [Bmob](http://www.bmobapp.com/) 上创建一个新的对象，应该向 class 的 URL 发送一个 POST 请求，其中内容体应该是包含对象本身的 JSON 格式。
 
 **请求**
 
@@ -451,7 +469,7 @@ curl -X PUT \
 
 **请求描述**
 
-为了在 [Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 上删除一个对象，可以发送一个 DELETE 请求到指定的对象的 URL。
+为了在 [Bmob](http://www.bmobapp.com/) 上删除一个对象，可以发送一个 DELETE 请求到指定的对象的 URL。
 
 **请求**
 
@@ -834,20 +852,22 @@ https://your-api-domain/1/classes/GameScore?where=%7B%22name%22:%22Lily%22%7D
 
 where 的参数值除了上面的准确匹配外，还支持比较运算符的方式，除了给定一个确定值的方式，还可以提供一个 hash 中包含有 key 用于比较，where 参数支持下面一些选项：
 
-| Key          | 操作                     |
-| :----------- | :----------------------- |
-| `$lt`        | 小于                     |
-| `$lte`       | 小于等于                 |
-| `$gt`        | 大于                     |
-| `$gte`       | 大于等于                 |
-| `$ne`        | 不等于                   |
-| `$in`        | 包含在数组中             |
-| `$nin`       | 不包含在数组中           |
-| `$exists`    | 这个 Key 有值           |
-| `$select`    | 匹配另一个查询的返回值   |
-| `$dontSelect`| 排除另一个查询的返回     |
-| `$all`       | 包括所有给定的值         |
-| `$regex`     | 匹配 PCRE 表达式        |
+
+| Key           | 操作          |
+| ------------- | ----------- |
+| `$lt`         | 小于          |
+| `$lte`        | 小于等于        |
+| `$gt`         | 大于          |
+| `$gte`        | 大于等于        |
+| `$ne`         | 不等于         |
+| `$in`         | 包含在数组中      |
+| `$nin`        | 不包含在数组中     |
+| `$exists`     | 这个 Key 有值   |
+| `$select`     | 匹配另一个查询的返回值 |
+| `$dontSelect` | 排除另一个查询的返回  |
+| `$all`        | 包括所有给定的值    |
+| `$regex`      | 匹配 PCRE 表达式 |
+
 
 作为示例，为了获取 score 得分在 [1000, 3000] 之间的对象，我们需要这样做：
 
@@ -1001,10 +1021,12 @@ curl -X GET \
 
 ### 复合查询
 
-| Key     | 操作                   |
-| :------ | :--------------------- |
-| `$or`   | 复合查询中的或查询     |
-| `$and`  | 复合查询中的与查询     |
+
+| Key    | 操作        |
+| ------ | --------- |
+| `$or`  | 复合查询中的或查询 |
+| `$and` | 复合查询中的与查询 |
+
 
 如果你想查询对象符合几种查询之一，你可以使用 `$or` 或 `$and` 操作符，带一个 JSON 数组作为它的值。例如，如果你想找到 player 赢了很多或者赢了很少，你可以用如下的方式：
 
@@ -1077,15 +1099,17 @@ curl -X GET \
 
 Bmob 的统计查询，提供以下关键字或其组合的查询操作：
 
-| Key         | 操作                     |
-| :---------- | :----------------------- |
-| `groupby`   | 分组操作                 |
-| `groupcount`| 返回每个分组的总记录     |
-| `sum`       | 计算总和                 |
-| `average`   | 计算平均值               |
-| `max`       | 计算最大值               |
-| `min`       | 计算最小值               |
-| `having`    | 分组中的过滤条件         |
+
+| Key          | 操作         |
+| ------------ | ---------- |
+| `groupby`    | 分组操作       |
+| `groupcount` | 返回每个分组的总记录 |
+| `sum`        | 计算总和       |
+| `average`    | 计算平均值      |
+| `max`        | 计算最大值      |
+| `min`        | 计算最小值      |
+| `having`     | 分组中的过滤条件   |
+
 
 为避免和用户创建的列名称冲突，Bmob 约定以上统计关键字（sum、max、min）的查询结果值都用 `_(关键字)+首字母大写的列名` 的格式，如计算玩家得分列名称为 score 总和的操作，则返回的结果集会有一个列名为 `_sumScore`。average 返回的列为 `_avg+首字母大写的列名`，有 groupcount 的情形下则返回 `_count`。
 
@@ -1279,7 +1303,7 @@ curl -X GET \
     https://your-api-domain/1/cloudQuery
 ```
 
-更多请参考 [BQL 详细指南](/other/Other/m_bql/doc/index.html "BQL 详细指南")。
+更多请参考 [BQL 详细指南](/other/Other/m_bql/doc/index.html)。
 
 BQL 还支持占位符查询，where 和 limit 子句的条件参数可以使用问号替换，然后通过 `values` 数组传入：
 
@@ -1295,7 +1319,7 @@ curl -X GET \
 
 ## 数组
 
-为了存储数组型数据，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 提供了 3 种操作来原子性地更改一个数组字段：
+为了存储数组型数据，[Bmob](http://www.bmobapp.com/) 提供了 3 种操作来原子性地更改一个数组字段：
 
 - **Add**：在一个数组字段的后面添加一些指定的对象（包装在一个数组内）
 - **AddUnique**：只会在原本数组字段中没有这些对象的情形下才会添加入数组，插入数组的位置不固定的
@@ -1554,20 +1578,24 @@ curl -X GET \
 
 **_User**
 
-| 字段     | 类型   | 含义                                         |
-| :------- | :----- | :------------------------------------------- |
-| objectId | string |                                              |
+
+| 字段       | 类型     | 含义                       |
+| -------- | ------ | ------------------------ |
+| objectId | string |                          |
 | username | string | 用户名，用户可以是作者发帖子，也可以是读者发评论 |
+
 
 **Post**
 
-| 字段     | 类型           | 含义               |
-| :------- | :------------- | :----------------- |
-| objectId | string         |                    |
-| title    | string         | 帖子标题           |
-| content  | string         | 帖子内容           |
-| author   | Pointer(_User) | 作者               |
-| likes    | Relation(_User)| 喜欢帖子的读者     |
+
+| 字段       | 类型              | 含义      |
+| -------- | --------------- | ------- |
+| objectId | string          |         |
+| title    | string          | 帖子标题    |
+| content  | string          | 帖子内容    |
+| author   | Pointer(_User)  | 作者      |
+| likes    | Relation(_User) | 喜欢帖子的读者 |
+
 
 ### Pointer 的使用
 
@@ -1721,7 +1749,7 @@ curl -X GET \
     https://your-api-domain/1/classes/Comment
 ```
 
-2. 如果想要约束关联对象除 objectId 外的其它值，比如我想要返回所有指向的 author 指向的对象，其 username 都为 Lily 的 Post 对象，该如何做呢？我们可以使用 `$inQuery` 来完成，具体如下：
+1. 如果想要约束关联对象除 objectId 外的其它值，比如我想要返回所有指向的 author 指向的对象，其 username 都为 Lily 的 Post 对象，该如何做呢？我们可以使用 `$inQuery` 来完成，具体如下：
 
 ```bash
 curl -X GET \
@@ -1863,9 +1891,9 @@ curl -X GET \
 
 ## 用户管理
 
-很多跨平台和跨系统的应用都有一个统一的登录流程，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 通过 REST API 访问用户的账户让你实现该功能。
+很多跨平台和跨系统的应用都有一个统一的登录流程，[Bmob](http://www.bmobapp.com/) 通过 REST API 访问用户的账户让你实现该功能。
 
-通常来说，用户这个类的功能与其他的对象是相同的，比如都没有限制模式（Schema Less），User 对象和其他对象不同的是一个用户必须有用户名（username）和密码（password），密码会被自动地加密和存储。[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 强制你 username 和 email 这两个 Key 的值必须是不重复的。
+通常来说，用户这个类的功能与其他的对象是相同的，比如都没有限制模式（Schema Less），User 对象和其他对象不同的是一个用户必须有用户名（username）和密码（password），密码会被自动地加密和存储。[Bmob](http://www.bmobapp.com/) 强制你 username 和 email 这两个 Key 的值必须是不重复的。
 
 ### 属性
 
@@ -1881,7 +1909,7 @@ Bmob 默认会有几个特定的属性：
 
 注册一个新用户与创建一个新的普通对象之间的不同点在于其 username 和 password 字段都是必要的，password 字段会以与其他的字段不一样的方式处理，它在保存时会被加密而且永远不会被返回给任何来自客户端的请求。
 
-在你的应用设置页面中，你可以向 [Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 来请求认证邮件地址，这项设置启用了的话，所有用户在注册时填写 email 这个 Key 的值，并且邮箱有效的情况下，就会向这个邮箱地址发出一封邮件，邮件中会包含一个来自 Bmob 的邮箱验证的链接，当你的用户查收邮件并点击这个链接后，这个用户 emailVerified 的 Key 的值会置为 true，你可以在 emailVerified 字段上查看用户的 email 是否已经通过验证了。
+在你的应用设置页面中，你可以向 [Bmob](http://www.bmobapp.com/) 来请求认证邮件地址，这项设置启用了的话，所有用户在注册时填写 email 这个 Key 的值，并且邮箱有效的情况下，就会向这个邮箱地址发出一封邮件，邮件中会包含一个来自 Bmob 的邮箱验证的链接，当你的用户查收邮件并点击这个链接后，这个用户 emailVerified 的 Key 的值会置为 true，你可以在 emailVerified 字段上查看用户的 email 是否已经通过验证了。
 
 为了注册一个新的用户，需要向 user 路径发送一个 POST 请求，你可以加入一个甚至多个新的字段。
 
@@ -1945,7 +1973,7 @@ curl -X POST \
 
 **请求描述**
 
-[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 支持让用户直接输入手机号码进行注册，如果手机号码存在则自动登陆。
+[Bmob](http://www.bmobapp.com/) 支持让用户直接输入手机号码进行注册，如果手机号码存在则自动登陆。
 
 **请求**
 
@@ -1963,7 +1991,7 @@ curl -X POST \
 }
 ```
 
-其中 `mobilePhoneNumber` 就是手机号码，而 `smsCode` 是使用 [请求短信验证码 API](http://doc.bmobapp.com/sms/restful/ "请求短信验证码API") 发送到用户手机上的 6 位验证码字符串。如果是新用户且不传入 username，默认用户名将是手机号码。
+其中 `mobilePhoneNumber` 就是手机号码，而 `smsCode` 是使用 [请求短信验证码 API](http://doc.bmobapp.com/sms/restful/) 发送到用户手机上的 6 位验证码字符串。如果是新用户且不传入 username，默认用户名将是手机号码。
 
 **成功时响应**
 
@@ -2264,7 +2292,7 @@ curl -X PUT \
 
 **请求描述**
 
-为了在 [Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 上删除一个用户，可以向用户的 URL 上发送一个 DELETE 请求，前提是你必须提供一个 X-Bmob-Session-Token 在 Http 请求头以便认证授权。
+为了在 [Bmob](http://www.bmobapp.com/) 上删除一个用户，可以向用户的 URL 上发送一个 DELETE 请求，前提是你必须提供一个 X-Bmob-Session-Token 在 Http 请求头以便认证授权。
 
 当然了，你也可以直接把 MasterKey 传入到 `X-Bmob-Master-Key` 中，这个就可以实现在不需要提供 SessionToken 的情形下更新和删除用户了，但希望只在开发环境下使用，不要把 MasterKey 发布出去。
 
@@ -2509,7 +2537,7 @@ curl -X PUT \
 
 ### 邮箱验证
 
-设置邮件验证是一个可选的应用设置，这样可以对已经确认过邮件的用户提供一部分保留的体验，邮件验证功能会在用户（User）对象中加入 emailVerified 字段，当一个用户的邮件被新添加或者修改过的话，emailVerified 会默认被设为 false，如果应用设置中开启了邮箱认证功能，[Bmob](http://www.bmobapp.com/ "Bmob移动后端云服务平台") 会对用户填写的邮箱发送一个链接，这个链接可以把 emailVerified 设置为 true。
+设置邮件验证是一个可选的应用设置，这样可以对已经确认过邮件的用户提供一部分保留的体验，邮件验证功能会在用户（User）对象中加入 emailVerified 字段，当一个用户的邮件被新添加或者修改过的话，emailVerified 会默认被设为 false，如果应用设置中开启了邮箱认证功能，[Bmob](http://www.bmobapp.com/) 会对用户填写的邮箱发送一个链接，这个链接可以把 emailVerified 设置为 true。
 
 emailVerified 字段有 3 种状态可以考虑：
 
@@ -2647,11 +2675,23 @@ curl -X POST \
 
 ### 用户账户连接
 
-Bmob 允许你连接你的用户到第三方账户服务系统，比如新浪微博和 QQ，这样就允许您的用户用已经存在的第三方账户直接登录您的 App。通过注册或者更新的用户信息的功能，使用 `authData` 字段来保存第三方服务的授权信息就可以做到。一旦用户关联了某个第三方账户，`authData` 将被存储到您的 Bmob 的用户信息里，并通过登录即可重新获取到。
+Bmob 允许你连接你的用户到第三方账户服务系统（微博、Apple、QQ、微信、各类小程序等），使用户可以用已有第三方账号直接登录 App。通过用户注册或更新接口，在请求体中传入 `authData` 保存第三方授权信息即可。关联成功后，`authData` 会写入 Bmob 用户记录，后续可用相同 `authData` 登录并取回该用户。
 
-`authData` 是一个普通的 JSON 对象，它所要求的 key 根据第三方账户服务不同而不同，具体要求见下面。每种情况下，你都需要自己负责完成整个授权过程（一般是通过 OAuth 协议，1.0 或者 2.0）通过连接的 API 来获取授权信息。
+`authData` 是一个 JSON 对象，顶层 key 为平台标识，value 为该平台授权字段。你需自行完成各平台的 OAuth / 登录流程，从第三方 API 取得下列字段后再提交给 Bmob。
 
-新浪微博的 `authData` 内容：
+| authData 键 | 平台 | 必填字段 | 用户唯一标识 |
+|-------------|------|----------|--------------|
+| `weibo` | 微博 OAuth | `uid`, `access_token`, `expires_in` | `uid` |
+| `apple` | Apple Sign In | `uid`（或 `id`）, `access_token`（或 `token`） | `uid` |
+| `qq` | QQ OAuth（App） | `openid`, `access_token`, `expires_in` | `openid` |
+| `weixin` | 微信 OAuth（App） | `openid`, `access_token`, `expires_in` | `openid` |
+| `weapp` | 微信小程序 | `openid`, `session_key` | `openid` |
+| `qqapp` | QQ 小程序 | `openid`, `session_key` | `openid` |
+| `toutiao` | 头条/抖音小程序 | `session_key`（`openid` 可选） | `openid` |
+
+各平台 `authData` 请求体示例（注册 `POST /1/users`、连接 `PUT /1/users/<objectId>` 时放在 body 根级，与下表结构一致）：
+
+**微博（`weibo`）**
 
 ```json
 {
@@ -2665,7 +2705,22 @@ Bmob 允许你连接你的用户到第三方账户服务系统，比如新浪微
 }
 ```
 
-腾讯 QQ 的 `authData` 内容：
+**Apple Sign In（`apple`）**
+
+可使用 `uid` / `id`、`access_token` / `token` 任一组字段名：
+
+```json
+{
+    "authData": {
+        "apple": {
+            "uid": "001234.abcdef012345678.1234",
+            "access_token": "eyJraWQiOiJBNC4uLi4iLCJhbGciOiJSUzI1NiJ9..."
+        }
+    }
+}
+```
+
+**QQ OAuth App（`qq`）**
 
 ```json
 {
@@ -2674,6 +2729,61 @@ Bmob 允许你连接你的用户到第三方账户服务系统，比如新浪微
             "openid": "2345CA18A5CD6255E5BA185E7BECD222",
             "access_token": "12345678-SM3m2avZxh5cjJmIrAfx4ZYyamdofM7IjU",
             "expires_in": 1382686496
+        }
+    }
+}
+```
+
+**微信 OAuth App（`weixin`）**
+
+```json
+{
+    "authData": {
+        "weixin": {
+            "openid": "o6_bmjrPTlm6_2sgVt7hMZOPfL2M",
+            "access_token": "ACCESS_TOKEN",
+            "expires_in": 7200
+        }
+    }
+}
+```
+
+**微信小程序（`weapp`）**
+
+```json
+{
+    "authData": {
+        "weapp": {
+            "openid": "oagfv0IsvzjNqtbi8_qnG2d_wXbU",
+            "session_key": "MsxXdUFlGVkI1b0V5OTVmT0ZlUnB2YldRUT09"
+        }
+    }
+}
+```
+
+**QQ 小程序（`qqapp`）**
+
+```json
+{
+    "authData": {
+        "qqapp": {
+            "openid": "A1B2C3D4E5F6G7H8I9J0",
+            "session_key": "dGhpcyBpcyBhIHNhbXBsZSBzZXNzaW9uIGtleQ=="
+        }
+    }
+}
+```
+
+**头条/抖音小程序（`toutiao`）**
+
+`openid` 可选；未传时以 `session_key` 参与识别，建议尽量同时传入 `openid`：
+
+```json
+{
+    "authData": {
+        "toutiao": {
+            "session_key": "dGhpcyBpcyBhIHNhbXBsZSBzZXNzaW9uIGtleQ==",
+            "openid": "tt_openid_optional"
         }
     }
 }
@@ -2700,16 +2810,12 @@ Bmob 允许你连接你的用户到第三方账户服务系统，比如新浪微
 - url：`https://your-api-domain/1/users`
 - method：POST
 - header：（公共 Header）
-- body:
+- body：将 `<platform>` 替换为上表中的平台 key，`authData.<platform>` 内字段与上文对应平台的 JSON 示例一致（如 `weapp` 使用 `openid`、`session_key`，而非 `uid`）。
 
 ```json
 {
     "authData": {
-        "<platform>": {
-            "uid": "<uid>",
-            "access_token": "<accessToken>",
-            "expires_in": "<expiresIn>"
-        }
+        "<platform>": { }
     }
 }
 ```
@@ -2723,7 +2829,7 @@ Status: 200 OK
 Location: https://your-api-domain/1/users/<objectId>
 ```
 
-应答的 body 类似：
+应答的 body 类似（`authData` 内字段因平台而异，与请求及上文各平台示例一致）：
 
 ```json
 {
@@ -2733,11 +2839,7 @@ Location: https://your-api-domain/1/users/<objectId>
     "objectId": "<objectId>",
     "sessionToken": "<sessionToken>",
     "authData": {
-        "<platform>": {
-            "uid": "<uid>",
-            "access_token": "<accessToken>",
-            "expires_in": "<expiresIn>"
-        }
+        "<platform>": { }
     }
 }
 ```
@@ -2785,7 +2887,7 @@ curl -X POST \
 
 **请求描述**
 
-连接一个现有的用户到新浪微博或者腾讯 QQ 帐号，可以通过发送一个 PUT 请求附带 authData 字段到以上 Location 返回的用户 URL 做到。
+连接一个现有用户到第三方账号（微博、Apple、QQ、微信、小程序等），可向 `PUT /1/users/<objectId>` 附带与上文一致的 `authData` 字段。
 
 **请求**
 
@@ -2800,16 +2902,12 @@ Content-Type: application/json
 X-Bmob-Session-Token: <sessionToken>
 ```
 
-- body:
+- body：`authData` 结构与上文各平台示例相同。
 
 ```json
 {
     "authData": {
-        "<platform>": {
-            "uid": "<uid>",
-            "access_token": "<accessToken>",
-            "expires_in": "<expiresIn>"
-        }
+        "<platform>": { }
     }
 }
 ```
@@ -2817,24 +2915,7 @@ X-Bmob-Session-Token: <sessionToken>
 **成功时响应**
 
 - status: `200 OK`
-- body:
-
-```json
-{
-    "username": "<username>",
-    "createdAt": "YYYY-mm-dd HH:ii:ss",
-    "updatedAt": "YYYY-mm-dd HH:ii:ss",
-    "objectId": "<objectId>",
-    "sessionToken": "<sessionToken>",
-    "authData": {
-        "<platform>": {
-            "uid": "<uid>",
-            "access_token": "<accessToken>",
-            "expires_in": "<expiresIn>"
-        }
-    }
-}
-```
+- body：返回更新后的用户对象，其中 `authData` 包含已连接平台的授权字段（字段名因平台而异，见上文示例）。
 
 **例子**
 
