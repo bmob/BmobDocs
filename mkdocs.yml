@@ -54,14 +54,18 @@ nav:
           - 开发文档: data/android/develop_doc.md
           - 示例/功能: data/android/example.md
           - 自动更新: data/android/auto_update.md
-      - iOS:
+      - iOS-Objectc:
           - 快速入门: data/ios/index.md
           - 开发文档: data/ios/develop_doc.md
           - 示例/功能: data/ios/example.md
           - 类库文档: data/ios/classdoc.md
           - libGDX: data/ios/lib_gdx.md
-          - Swift快速入门: data/ios/swift_quick_start.md
-          - Swift开发文档: data/ios/swift_develop_doc.md
+          - 快速入门（桥接）: data/ios/swift_quick_start.md
+          - 开发文档（桥接）: data/ios/swift_develop_doc.md
+      - 新iOS-Swift:
+          - 快速入门: data/swift/index.md
+          - 开发文档: data/swift/develop_doc.md
+          - 示例/功能: data/swift/example.md
       - 小程序:
           - 快速入门: data/wechat_app_new/rm.md
           - 开发文档: data/wechat_app_new/index.md

@@ -63,6 +63,7 @@ hide:
         <ul class="bmob-doc-links">
           <li><a href="data/android/">Android</a></li>
           <li><a href="data/ios/">iOS</a></li>
+          <li><a href="data/swift/">Swift</a></li>
           <li><a href="data/harmony/">Harmony 鸿蒙</a></li>
           <li><a href="data/restful/">REST API</a></li>
           <li><a href="data/kotlin/">Kotlin</a></li>
