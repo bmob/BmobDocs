@@ -539,6 +539,26 @@ body[data-md-color-scheme="slate"] {
   background-color: transparent;
 }
 
+/* 手机抽屉：嵌套菜单为 absolute 叠层，须用不透明底盖住下层（含 GitHub 源码条），避免文字重叠 */
+@media screen and (max-width: 76.234375em) {
+  [data-md-color-scheme="slate"] .md-sidebar--primary,
+  [data-md-color-scheme="slate"] .md-sidebar--primary .md-sidebar__scrollwrap,
+  [data-md-color-scheme="slate"] .md-nav--primary,
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav,
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__title ~ .md-nav__list {
+    background: #030712;
+    background-color: #030712;
+  }
+
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__title:not([for="__drawer"]) {
+    background-color: #111827;
+  }
+
+  [data-md-color-scheme="slate"] .md-nav__source {
+    background-color: #0b1220;
+  }
+}
+
 /* 首页内容区不要纯色块挡住 body 渐变 */
 body[data-md-color-scheme="slate"] .bmob-home {
   background: transparent;

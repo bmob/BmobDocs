@@ -893,6 +893,8 @@ func uploadAttachment(fileURL: URL) async -> String? {
 
 ### 10. 云函数调用示例
 
+> **参数类型**：客户端可传 `Int`、`Bool` 等原生类型，但 Bmob 服务端会将所有参数值转为字符串写入云函数的 `request.body`（如 `42`→`"42"`）。云函数内需手动解析，详见 [develop_doc 云函数参数注意事项](develop_doc.md#云函数参数注意事项)。
+
 ```swift
 // Services/CloudFunctionExample.swift
 

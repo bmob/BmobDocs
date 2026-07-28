@@ -71,6 +71,12 @@ curl -X POST \
 request.body.name
 ```
 
+#### 参数类型（已知行为）
+
+> **已知行为**：Bmob 服务端会将云函数参数的所有值转为字符串后再传入 `request.body`，因此云函数中 `typeof(param)` 始终为 `"string"`。Int/Bool/Array/Dict 等类型均会被序列化为字符串形式（如 `42`→`"42"`、`true`→`"true"`、`[1,2,3]`→`"[1,2,3]"`）。这是 Bmob 后端的设计行为，非 SDK bug。如需在云函数中使用特定类型，请在云函数内手动解析（如 `parseInt(request.body.name)`、`JSON.parse(request.body.items)`）。
+
+该行为适用于通过 Android、iOS、Swift 等加密客户端 SDK 以 POST 方式调用云函数的场景。
+
 #### 获取调用云函数的http方式
 
 当云函数是用于某些平台的回调时，同一段云函数可能有时是采用get的方式调用，有时是采用post的方式调用, 可用下面的方法获取当前云函数是采用get还是post方式调用。

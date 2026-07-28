@@ -559,6 +559,26 @@ let result = try await BmobCloud.run(
 BmobCloud.fire(function: "sendNotification", params: ["userId": "123"])
 ```
 
+### 云函数参数注意事项
+
+> **已知行为**：Bmob 服务端会将云函数参数的所有值转为字符串后再传入 `request.body`，因此云函数中 `typeof(param)` 始终为 `"string"`。Int/Bool/Array/Dict 等类型均会被序列化为字符串形式（如 `42`→`"42"`、`true`→`"true"`、`[1,2,3]`→`"[1,2,3]"`）。这是 Bmob 后端的设计行为，非 SDK bug。如需在云函数中使用特定类型，请在云函数内手动解析（如 `parseInt(request.body.name)`、`JSON.parse(request.body.items)`）。
+
+客户端 `params` 可传 Swift 原生类型（`Int`、`Bool`、`[String: Any]` 等），SDK 会正常编码；但云函数侧收到的仍是字符串，编写云函数时请按上述规则解析。
+
+该行为适用于通过 Android、iOS、Swift 等加密客户端 SDK 以 POST 方式调用云函数的场景。
+
+```swift
+// 客户端可传多种类型
+try await BmobCloud.run(
+    function: "updateScore",
+    params: [
+        "userId": "abc123",
+        "score": 42,           // 云函数中 request.body.score === "42"
+        "completed": true      // 云函数中 request.body.completed === "true"
+    ]
+)
+```
+
 ### 类型安全调用
 
 ```swift
