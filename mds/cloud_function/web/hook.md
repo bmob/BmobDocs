@@ -29,19 +29,19 @@
 
 如果我们要设置限制对 `Order` 订单表的数据请求，可以编写云函数如下：
 
-```java
-
+```javascript
 function onRequest(request, response, modules) {
-
+    // 钩子对所有表生效，务必先判定表名，避免误伤其他表
     let tableName = request.body.table;
-    if(tableName=="Order") {
-      response.send({"msg": tableName + "表禁止操作"});
-    }
-    else{
-      response.send({"msg": "ok"});
+
+    if (tableName == "Order") {
+        // msg 返回的内容不是 "ok" 时，不再请求 Bmob 后端云，直接返回客户端
+        response.send({ "msg": tableName + "表禁止操作" });
+    } else {
+        // msg 为 "ok" 时，按原请求继续下一步操作
+        response.send({ "msg": "ok" });
     }
 }
-
 ```
 
 其中，`request.body.table`是Bmob收到前端请求后，自动给云函数转发过来的标记，表示`请求的表名`。
@@ -63,18 +63,17 @@ function onRequest(request, response, modules) {
 
 如果我们要限制IOS平台的访问，可以编写云函数如下：
 
-```java
-
+```javascript
 function onRequest(request, response, modules) {
-    // 获取请求平台
+    // 获取请求平台：Android、IOS 或者空
     let caller = request.body.caller;
-    if(caller=="IOS")){
-      response.send({"msg":"禁止IOS访问"});
-    }
-    else{
-      response.send({"msg":"ok"});
-}
 
+    if (caller == "IOS") {
+        response.send({ "msg": "禁止IOS访问" });
+    } else {
+        response.send({ "msg": "ok" });
+    }
+}
 ```
 
 
@@ -82,19 +81,125 @@ function onRequest(request, response, modules) {
 
 假如我们要对客户端上传上来的 `sex` 字段进行判定，如果值为 `男` 的话，设置 `sex` 字段为 `1` ，否则设置为 `0` ，可以编写云函数如下：
 
-```java
-
+```javascript
 function onRequest(request, response, modules) {
+    // 1. 钩子对所有表生效，务必先判定表名，避免误伤其他表
+    let tableName = request.body.table;
+    if (tableName != "Order") {
+        // 其他表：原样放行，继续走正常的请求流程
+        response.send({ "msg": "ok" });
+        return;
+    }
 
-    let data = JSON.parse(request.body.data);
-    data["$set"]["sex"] = dm["$set"]["sexText"] == "男" ? 1 : 0;
+    // 2. 客户端上传的数据在 request.body.data 中，是一个 JSON 字符串
+    //    update 操作的结构形如：{ "$set": { 字段: 值 }, "objectId": "xxx" }
+    let data = JSON.parse(request.body.data || "{}");
 
+    // 3. 二次校验与处理：将 sexText 字段的值转为数值字段 sex
+    data["$set"]["sex"] = data["$set"]["sexText"] == "男" ? 1 : 0;
+    // 处理完成后，可以删除不再需要的字段，例如：
+    // delete data["$set"]["sexText"];
+
+    // 4. 返回修改后的数据
+    //    - success 为 "ok"：告诉数据钩子继续执行原请求
+    //    - data：修改后的数据（JSON 字符串），会替换客户端上传的数据提交给后端
     let backData = {
         "success": "ok",
         "data": JSON.stringify(data)
     };
-
     response.end(backData);
 }
-
 ```
+
+这里需要区分钩子的两种返回方式：
+
+- **放行/拦截**：`response.send({ "msg": "ok" })` 表示放行，`msg` 为其他内容时表示拦截，直接返回客户端，不再请求 Bmob 后端云。
+- **修改数据后放行**：`response.end({ "success": "ok", "data": JSON.stringify(修改后的数据) })`，其中 `success` 为 `"ok"` 表示继续执行，`data` 为修改后的数据（必须是 JSON 字符串），会替换客户端上传的数据。
+
+## 对查询的数据进行二次处理
+
+数据钩子同样会拦截查询（`request.body.operation` 为 `query`）请求。我们可以根据 `request.body.table` 和 `request.body.operation` 决定是否放行查询，也可以在钩子中通过 `modules.oData` 主动查询数据库，对数据做关联校验、统计等二次处理。
+
+### 禁止某些表的查询
+
+例如：禁止 `Order` 表的查询请求，其他操作一律放行。
+
+```javascript
+function onRequest(request, response, modules) {
+    // 获取请求的表名与操作类型：create、update、delete、query
+    let tableName = request.body.table;
+    let operation = request.body.operation;
+
+    if (tableName == "Order" && operation == "query") {
+        // 拦截 Order 表的查询
+        response.send({ "msg": "Order 表禁止查询" });
+    } else {
+        // 其他表或其他操作：原样放行
+        response.send({ "msg": "ok" });
+    }
+}
+```
+
+### 在数据钩子中查询数据库
+
+数据钩子中可以通过 `modules.oData` 查询数据库。例如：在 `Order` 表新增订单时，先查询 `User` 表校验用户是否存在，并统计当前订单总数，再把查询结果写入本次新增的数据中。
+
+```javascript
+function onRequest(request, response, modules) {
+    let tableName = request.body.table;
+    let operation = request.body.operation;
+
+    // 只处理 Order 表的新增请求，其他请求一律放行
+    if (tableName != "Order" || operation != "create") {
+        response.send({ "msg": "ok" });
+        return;
+    }
+
+    let db = modules.oData;                    // 数据库操作模块
+    let orderData = JSON.parse(request.body.data || "{}"); // 新增的数据是字段对象，如 { "userId": "xxx" }
+
+    // 1. 查询订单所属的用户是否存在
+    //    注意：findOne 不能直接操作 _User 表，查询用户请使用 getUserByObjectId
+    db.findOne({
+        "table": "User",
+        "objectId": orderData.userId
+    }, function(err, user) {
+        if (err) {
+            // 用户不存在：拦截本次下单，把错误信息直接返回客户端
+            response.send({ "msg": "下单失败：" + err.error });
+            return;
+        }
+
+        // 2. 统计当前订单总数（count 设为 1 且 limit 为 0 时，只返回总数不返回数据）
+        db.find({
+            "table": "Order",
+            "limit": 0,
+            "count": 1
+        }, function(err, countData) {
+            if (err) {
+                response.send({ "msg": "统计订单失败：" + err.error });
+                return;
+            }
+
+            // oData 回调返回的 data 都是字符串，必须 JSON.parse 后才能当对象使用
+            let userObj = JSON.parse(user);
+            let orderCount = JSON.parse(countData).count;
+
+            // 3. 把查询结果附加到本次新增的数据中
+            orderData.userName = userObj.username;
+            orderData.orderCount = orderCount;
+
+            // 4. 返回修改后的数据，继续执行原请求
+            response.end({
+                "success": "ok",
+                "data": JSON.stringify(orderData)
+            });
+        });
+    });
+}
+```
+
+> **注意**：
+> - `modules.oData` 所有回调返回的 `data` 都是字符串类型，需要 `JSON.parse` 后才能按对象使用。
+> - 回调出错时，`err` 对象包含 `err.error`（错误信息）和 `err.code`（错误码）两个属性。
+> - 数据钩子基于 Node.js，所有数据库操作都是异步回调风格，必须在回调内完成后续逻辑，不要在主函数体内直接 `response.send`。
