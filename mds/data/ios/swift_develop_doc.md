@@ -1843,6 +1843,8 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
 
 BmobFile 可以让你的应用程序将文件存储到服务器中，比如常见的文件类型图像文件、影像文件、音乐文件和任何其他二进制数据都可以使用。当文件上传成功后，可以通过 `url` 属性来获取文件的地址。
 
+文件经 Bmob 开放接口 `POST /8/files` 上传（鉴权与其它业务接口相同），服务端落盘到 CDN；删除走 `POST /8/delcdnupload`。
+
 ### 上传文件
 
 #### 上传文件方法
@@ -1945,13 +1947,11 @@ file.deleteInBackground { (isSuccessful, error) in
 }
 ```
 
-当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口：
+当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口（请使用上传成功后返回的 URL）：
 
 ```swift
-let array = [
-    "http://bmob-cdn-1.b0.upaiyun.com/jpg/579c8dc6676e460b82d83c8eb5c8aaa5.jpg",
-    "http://bmob-cdn-1.b0.upaiyun.com/jpg/59e3817d6cec416ba99a126c9d42768f.jpg"
-]
+// 域名以实际 CDN 为准（如 *.bmobpay.com）
+let array = [file1.url!, file2.url!]
 BmobFile.filesDeleteBatchWithArray(array) { (arr, isSuccessful, error) in
     print("fail delete array \(arr ?? [])")
     print("error \(error?.localizedDescription ?? "")")

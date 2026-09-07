@@ -461,6 +461,8 @@ try await user.unlink(platform: .wechat)
 
 ## 文件管理
 
+文件经 Bmob 开放接口 `POST /8/files` 上传（请求体为 `{加密JSON}&&{文件Base64}`，鉴权与其它 `/8/*` 业务接口相同），服务端落盘到 CDN；删除使用 `POST /8/delcdnupload`。
+
 ### 上传文件
 
 ```swift
@@ -477,6 +479,7 @@ do {
         print("上传进度: \(Int(progress * 100))%")
     }
     print("文件 URL: \(file.url!)")
+    print("CDN: \(file.cdn ?? "")")
 } catch {
     print("上传失败: \(error)")
 }
@@ -508,7 +511,8 @@ try await user.signUp()
 ### 下载文件
 
 ```swift
-guard let url = URL(string: "https://bmob-cdn-xxx.bmobcloud.com/photo.jpg") else { return }
+// 使用上传成功后返回的 url（域名以实际 CDN 为准，如 *.bmobpay.com）
+guard let url = URL(string: file.url!) else { return }
 
 let (data, _) = try await URLSession.shared.data(from: url)
 let image = UIImage(data: data)
@@ -517,8 +521,9 @@ let image = UIImage(data: data)
 ### 删除文件
 
 ```swift
-let file = BmobFile(url: "https://bmob-cdn-xxx.bmobcloud.com/photo.jpg")
-try await file.delete()
+// 优先使用上传后的 BmobFile（含 url / cdn）；也可用 URL 重建
+let file = BmobFile(url: uploadedURL, cdn: "aliyun")
+try await file?.delete()
 ```
 
 ### 批量操作
@@ -535,8 +540,8 @@ let uploaded = try await BmobFile.uploadBatch(files) { progress in
     print("批量上传进度: \(Int(progress * 100))%")
 }
 
-// 批量删除
-try await BmobFile.deleteBatch(urls: ["url1", "url2", "url3"])
+// 批量删除（传入上传返回的 url 列表）
+try await BmobFile.deleteBatch(urls: uploaded.compactMap { $0.url })
 ```
 
 ---

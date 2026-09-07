@@ -2141,7 +2141,7 @@ Test *t = [[Test alloc] initFromBmobObject:obj];
 BmobFile可以让你的应用程序将文件存储到服务器中，比如常见的文件类型图像文件，影像文件、音乐文件和任何其他二进制数据都可以使用。当文件上传成功后，可以通过url属性来获取文件的地址。
 
 ### 上传文件
-`1.6.9版本之后，上传服务使用CDN服务`
+文件通过 Bmob 开放接口 `POST /8/files` 上传（鉴权与其它业务接口相同），服务端落盘到 CDN。客户端无需再对接又拍云等第三方直传。
 
 #### 上传文件方法
 
@@ -2196,11 +2196,7 @@ NSLog(@"上传进度%.2f",progress);
 ```
 
 ### 以分片的方式上传文件
-分片上传文件和上传整个文件的机制有所不同，是先把整个文件进行分片（256KB一片），然后再进行一片一片的上传。当文件以分片的方式上传到Bmob服务器时，具有几种优势：
-
-1. 适合于尺寸较大的文件传输，通过切片来避免单个HTTP数据量过大而导致连接超时；
-
-2. 在网络条件较差的环境下，较小的尺寸可以有较高的上传成功率，从而避免无休止的失败重试；
+`saveInBackgroundByDataSharding:` 接口仍保留以兼容旧代码，当前实现与 `saveInBackground:` 相同，均为整文件经 `/8/files` 上传。大文件请注意超时与网络环境，必要时自行拆分后多次调用上传接口。
 
 在BmobSDK中对应的函数方法为
 
@@ -2276,7 +2272,7 @@ NSLog(@"%@",file.url);
 
 ### 删除文件
 
-`删除文件接口只能删除1.6.9版本之后上传的文件`
+删除接口对应 `POST /8/delcdnupload`，请传入上传成功后返回的完整文件 URL（或由其解析出的 CDN 路径）。
 
 如果需要删除文件，使用以下接口即可
 
@@ -2289,10 +2285,11 @@ NSLog(@"%@",file.url);
 -(void)deleteInBackground:(BmobBooleanResultBlock)block;
 ```
 
-当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口
+当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口（参数为实际上传返回的 URL 列表）：
 
 ```
-NSArray *array = @[@"http://bmob-cdn-1.b0.upaiyun.com/jpg/579c8dc6676e460b82d83c8eb5c8aaa5.jpg",@"http://bmob-cdn-1.b0.upaiyun.com/jpg/59e3817d6cec416ba99a126c9d42768f.jpg "]
+// 请使用上传成功后返回的 url，域名以实际 CDN 为准（如 *.bmobpay.com）
+NSArray *array = @[file1.url, file2.url];
 
 [BmobFile filesDeleteBatchWithArray:array resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
 NSLog(@"fail delete array %@",array);
