@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -9579,7 +9579,7 @@ Test *t = [[Test alloc] initFromBmobObject:obj];
 <h3 id="_81">创建文件对象<a class="headerlink" href="#_81" title="Permanent link">&para;</a></h3>
 <p>BmobFile可以让你的应用程序将文件存储到服务器中，比如常见的文件类型图像文件，影像文件、音乐文件和任何其他二进制数据都可以使用。当文件上传成功后，可以通过url属性来获取文件的地址。</p>
 <h3 id="_82">上传文件<a class="headerlink" href="#_82" title="Permanent link">&para;</a></h3>
-<p><code>1.6.9版本之后，上传服务使用CDN服务</code></p>
+<p>文件通过 Bmob 开放接口 <code>POST /8/files</code> 上传（鉴权与其它业务接口相同），服务端落盘到 CDN。客户端无需再对接又拍云等第三方直传。</p>
 <h4 id="_83">上传文件方法<a class="headerlink" href="#_83" title="Permanent link">&para;</a></h4>
 <p>可以通过文件路径和NSData上传。如下图的例子，是将test.png的文本文件保存到服务器端：</p>
 <pre><code>-(void)saveInBackground:(BmobBooleanResultBlock)block;
@@ -9620,15 +9620,7 @@ NSLog(@&quot;上传进度%.2f&quot;,progress);
 }];
 </code></pre>
 <h3 id="_85">以分片的方式上传文件<a class="headerlink" href="#_85" title="Permanent link">&para;</a></h3>
-<p>分片上传文件和上传整个文件的机制有所不同，是先把整个文件进行分片（256KB一片），然后再进行一片一片的上传。当文件以分片的方式上传到Bmob服务器时，具有几种优势：</p>
-<ol>
-<li>
-<p>适合于尺寸较大的文件传输，通过切片来避免单个HTTP数据量过大而导致连接超时；</p>
-</li>
-<li>
-<p>在网络条件较差的环境下，较小的尺寸可以有较高的上传成功率，从而避免无休止的失败重试；</p>
-</li>
-</ol>
+<p><code>saveInBackgroundByDataSharding:</code> 接口仍保留以兼容旧代码，当前实现与 <code>saveInBackground:</code> 相同，均为整文件经 <code>/8/files</code> 上传。大文件请注意超时与网络环境，必要时自行拆分后多次调用上传接口。</p>
 <p>在BmobSDK中对应的函数方法为</p>
 <pre><code>-(void)saveInBackgroundByDataSharding:(BmobBooleanResultBlock)block;
 </code></pre>
@@ -9689,7 +9681,7 @@ NSLog(@&quot;%@&quot;,file.url);
 </code></pre>
 <p>可用通过file的url属性(file.url)，来得到文件的地址进行下载。</p>
 <h3 id="_88">删除文件<a class="headerlink" href="#_88" title="Permanent link">&para;</a></h3>
-<p><code>删除文件接口只能删除1.6.9版本之后上传的文件</code></p>
+<p>删除接口对应 <code>POST /8/delcdnupload</code>，请传入上传成功后返回的完整文件 URL（或由其解析出的 CDN 路径）。</p>
 <p>如果需要删除文件，使用以下接口即可</p>
 <pre><code class="language-objc">/**
 *  异步请求删除文件
@@ -9698,8 +9690,9 @@ NSLog(@&quot;%@&quot;,file.url);
 */
 -(void)deleteInBackground:(BmobBooleanResultBlock)block;
 </code></pre>
-<p>当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口</p>
-<pre><code>NSArray *array = @[@&quot;http://bmob-cdn-1.b0.upaiyun.com/jpg/579c8dc6676e460b82d83c8eb5c8aaa5.jpg&quot;,@&quot;http://bmob-cdn-1.b0.upaiyun.com/jpg/59e3817d6cec416ba99a126c9d42768f.jpg &quot;]
+<p>当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口（参数为实际上传返回的 URL 列表）：</p>
+<pre><code>// 请使用上传成功后返回的 url，域名以实际 CDN 为准（如 *.bmobpay.com）
+NSArray *array = @[file1.url, file2.url];
 
 [BmobFile filesDeleteBatchWithArray:array resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
 NSLog(@&quot;fail delete array %@&quot;,array);
@@ -10189,7 +10182,7 @@ type = Date;
     
     
   
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   <script src="../../../assets/javascripts/bmob-toc.js"></script>

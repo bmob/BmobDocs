@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -9215,6 +9215,7 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
 <p><a href="https://github.com/bmob/bmob-ios-demo/tree/master/BmobSDK/BmobFileDemo">文件管理章节 Demo</a></p>
 <h3 id="_78">创建文件对象<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h3>
 <p>BmobFile 可以让你的应用程序将文件存储到服务器中，比如常见的文件类型图像文件、影像文件、音乐文件和任何其他二进制数据都可以使用。当文件上传成功后，可以通过 <code>url</code> 属性来获取文件的地址。</p>
+<p>文件经 Bmob 开放接口 <code>POST /8/files</code> 上传（鉴权与其它业务接口相同），服务端落盘到 CDN；删除走 <code>POST /8/delcdnupload</code>。</p>
 <h3 id="_79">上传文件<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h3>
 <h4 id="_80">上传文件方法<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h4>
 <p>如下的例子，是将 test.txt 的文本文件保存到服务器端。可以在 block 里面把文件添加到对象中，建议使用异步上传的方法，再在 block 进行操作：</p>
@@ -9295,11 +9296,9 @@ BmobFile.filesUploadBatchWithPaths([path, path2], progressBlock: { (index, progr
 <pre><code class="language-swift">file.deleteInBackground { (isSuccessful, error) in
 }
 </code></pre>
-<p>当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口：</p>
-<pre><code class="language-swift">let array = [
-    &quot;http://bmob-cdn-1.b0.upaiyun.com/jpg/579c8dc6676e460b82d83c8eb5c8aaa5.jpg&quot;,
-    &quot;http://bmob-cdn-1.b0.upaiyun.com/jpg/59e3817d6cec416ba99a126c9d42768f.jpg&quot;
-]
+<p>当开发者需要一次性删除多个文件的时候，可以调用批量删除文件的接口（请使用上传成功后返回的 URL）：</p>
+<pre><code class="language-swift">// 域名以实际 CDN 为准（如 *.bmobpay.com）
+let array = [file1.url!, file2.url!]
 BmobFile.filesDeleteBatchWithArray(array) { (arr, isSuccessful, error) in
     print(&quot;fail delete array \(arr ?? [])&quot;)
     print(&quot;error \(error?.localizedDescription ?? &quot;&quot;)&quot;)
@@ -9769,7 +9768,7 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
     
     
   
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   <script src="../../../assets/javascripts/bmob-toc.js"></script>
