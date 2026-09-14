@@ -117,6 +117,7 @@ API 访问需要在 `https://your-api-domain` 域名下，相对路径前缀 `/1
 | --------------------------------- | ------ | ---------------------- |
 | /1/users                          | POST   | 用户注册、使用手机号注册登录、第三方注册登录 |
 | /1/login                          | POST   | 登录                     |
+| /1/logout                         | POST   | 退出登录                   |
 | /1/users/objectId                 | GET    | 获取当前用户、查询用户            |
 | /1/users/objectId                 | PUT    | 更新用户、第三方连接及断开连接        |
 | /1/users/objectId                 | DELETE | 删除用户                   |
@@ -2139,6 +2140,72 @@ curl -X POST \
     -H "Content-Type: application/json" \
     -d '{"username":"user@example.com","smsCode":"6位邮件验证码"}' \
     https://your-api-domain/1/login
+```
+
+### 退出登录
+
+**请求描述**
+
+当用户需要退出登录时，可以发送一个 HTTP POST 请求到 `/1/logout`，在请求体中携带需要退出登录的用户 `objectId`。退出当前登录用户时，需要在 Header 中携带 `X-Bmob-Session-Token`。
+
+**请求**
+
+- url：`https://your-api-domain/1/logout`
+- method：POST
+- header：
+
+```
+X-Bmob-Application-Id: Your Application ID
+X-Bmob-REST-API-Key: Your REST API Key
+X-Bmob-Session-Token: Your Session Token
+Content-Type: application/json
+```
+
+- body:
+
+```json
+{
+    "objectId": "<user_object_id>"
+}
+```
+
+> **注意**：如果你拥有应用的 MasterKey，也可以将 `X-Bmob-Master-Key` 传入请求 Header（替代 `X-Bmob-Session-Token`），这样即使不是该用户本人登录，也可以把 body 中指定 `objectId` 的用户强制下线（例如管理员踢用户下线）。请只在服务端等可信环境使用 MasterKey，不要将其发布到客户端中。
+
+**成功时响应**
+
+- status: `200 OK`
+- body:
+
+```json
+{
+    "msg": "ok"
+}
+```
+
+**例子**
+
+当前登录用户退出登录（退出 objectId 为 `Kc3M222J` 的用户）：
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "X-Bmob-Session-Token: Your Session Token" \
+    -H "Content-Type: application/json" \
+    -d '{"objectId":"Kc3M222J"}' \
+    https://your-api-domain/1/logout
+```
+
+使用 MasterKey 强制指定用户下线（无需 Session Token）：
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "X-Bmob-Master-Key: Your Master Key" \
+    -H "Content-Type: application/json" \
+    -d '{"objectId":"Kc3M222J"}' \
+    https://your-api-domain/1/logout
 ```
 
 ### 获取当前用户
