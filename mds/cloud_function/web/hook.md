@@ -140,6 +140,51 @@ function onRequest(request, response, modules) {
 }
 ```
 
+### 查询前钩子（修改查询条件）
+
+查询请求被钩子拦截时，`request.body.data` 是客户端查询条件序列化后的 JSON 字符串（包含 `where`、`limit`、`skip`、`order`、`include`、`keys` 等字段）。我们可以在钩子中解析它、改写 `where` 条件，再把新的查询条件回传给 Bmob 后端云，实现"查询前钩子"的效果，例如：只能查到自己（或自己所在团队）的数据、自动追加 `status = 1` 之类的软删除条件等。
+
+```javascript
+function onRequest(request, response, modules) {
+    // 1. 先判定表名，避免误伤其他表
+    let tableName = request.body.table;
+
+    if (tableName == "Order") {
+        // 2. request.body.data 是查询条件 JSON 字符串（客户端 Query 序列化后的结果）
+        let query = {};
+        try {
+            query = JSON.parse(request.body.data || "{}");
+        } catch (e) {
+            query = {};
+        }
+
+        // 3. 追加/改写 where 条件：只允许查询 status 为 1 的订单
+        if (!query.where) {
+            query.where = {};
+        }
+        query.where.status = 1;
+
+        // 4. 返回修改后的查询条件，继续按原请求查询
+        //    - msg 为 "ok"：告诉数据钩子继续执行原请求
+        //    - data：修改后的查询条件（JSON 字符串），会替换客户端上传的查询条件
+        response.send({
+            "msg": "ok",
+            "data": JSON.stringify(query)
+        });
+        return;
+    }
+
+    // 其他表放行
+    response.send({ "msg": "ok" });
+}
+```
+
+> **说明**：
+> - 如果不想改写条件，只是拦截查询，直接 `response.send({ "msg": "xxx表禁止查询" })` 即可（`msg` 不是 `"ok"` 时不再请求后端云）。
+> - 查询条件中的 `where` 支持 Bmob 的查询语法，例如 `query.where.createdAt = { "$gte": { "__type": "Date", "iso": "2026-01-01T00:00:00.000Z" } }`。
+> - 返回时 `data` 必须是 **JSON 字符串**，否则后端云无法解析。
+> - 如果需要在钩子中先查库做权限/关联校验（例如校验当前 `token` 对应的用户），请使用 `modules.oData`，并在其回调中再 `response.send`（见下一小节）。
+
 ### 在数据钩子中查询数据库
 
 数据钩子中可以通过 `modules.oData` 查询数据库。例如：在 `Order` 表新增订单时，先查询 `User` 表校验用户是否存在，并统计当前订单总数，再把查询结果写入本次新增的数据中。
