@@ -1,11 +1,13 @@
 数据钩子是配合Bmob云函数使用的一个强大的模块，所有的数据请求都会先经过数据钩子，再和Bmob后端云进行交互，系统架构如下：
 
-![](image/hook.png)
+![](image/hook_map.png)
+
+
 
 由此可见，数据钩子可以帮我们实现包含但不限于如下场景：
 
 - 限制或者允许某些表的增加、更新、删除或者查询。
-    
+  
 - 限制或者允许某个平台（Android、iOS或者API）的访问。
   
 - 对客户端上传的数据进行二次校验和处理。
@@ -51,7 +53,7 @@ function onRequest(request, response, modules) {
 除了`table`标记之外，Bmob收到前端请求后，会自动给 `request.body` 添加如下标记：
 
 - `request.body.caller` ：表示请求的客户端，值分别为：Android、IOS或者空。
-    
+  
 - `request.body.ua` ：表示请求的user_agent信息。
   
 - `request.body.token` ：表示请求的登录用户的sessionToken信息。
