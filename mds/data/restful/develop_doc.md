@@ -130,11 +130,19 @@ API 访问需要在 `https://your-api-domain` 域名下，相对路径前缀 `/1
 ### 文件管理快速参考
 
 
-| URL                  | HTTP   | 功能          |
+| URL | HTTP | 功能 |
 | -------------------- | ------ | ----------- |
-| /2/files/fileName    | POST   | 文件上传        |
-| /2/files/cdnName/url | DELETE | 删除文件        |
-| /2/cdnBatchDelete    | POST   | 批量删除 CDN 文件 |
+| /2/files/fileName | POST | 文件上传 |
+| /2/files/cdnName/url | DELETE | 删除文件 |
+| /2/cdnBatchDelete | POST | 按路径批量删除 CDN 文件 |
+| /2/CdnBatchDeleteById | POST | 按上传日志 objectId 批量删除 |
+| /2/fileManager/list | GET | 文件管理器：列出目录与文件 |
+| /2/fileManager/mkdir | POST | 文件管理器：创建目录 |
+| /2/fileManager/upload/objectKey | POST | 文件管理器：上传到指定路径 |
+| /2/fileManager/delete | POST | 文件管理器：删除文件/目录 |
+| /2/fileManager/copy | POST | 文件管理器：复制 |
+| /2/fileManager/move | POST | 文件管理器：移动/重命名 |
+| /1/classes/file_upload_log | GET | 应用文件上传日志查询/搜索 |
 
 
 ### ACL 和角色管理快速参考
@@ -3075,13 +3083,15 @@ curl -X PUT \
 
 ## 文件管理
 
-Bmob 的新版文件采用了 CDN。
+Bmob 文件服务基于 CDN / 对象存储。历史上以又拍云（`upyun`）为主；新应用开通独立域名后默认使用**阿里云 OSS**（返回的 `cdn` 字段为 `aliyun`）。下文接口对两种平台均适用，删除路径中的 `cdnName` 请使用上传接口返回的 `cdn` 值。
+
+控制台「文件管理」对应 `/2/fileManager/*`（需应用已切换阿里云 OSS）；「应用文件」上传日志对应系统表 `file_upload_log`。
 
 ### 整个文件上传
 
 **请求描述**
 
-上传一个文件到 CDN。
+上传一个文件到 CDN。服务端会按日期路径存储，并写入应用文件上传日志表 `file_upload_log`。
 
 **请求**
 
@@ -3104,7 +3114,7 @@ Content-Type: <contentType>
 - status: `200`
 - body:
 
-返回的主体是一个 JSON 对象，包含：文件名（filename）、cdn 信息（cdnname）、文件地址（url）。
+返回的主体是一个 JSON 对象，包含：文件名（filename）、cdn 信息（cdn）、文件地址（url）。
 
 ```json
 {
@@ -3113,6 +3123,8 @@ Content-Type: <contentType>
     "cdn": "<cdnname>"
 }
 ```
+
+`cdn` 常见取值：`upyun`（又拍）、`aliyun`（阿里云 OSS）。
 
 **例子**
 
@@ -3138,7 +3150,17 @@ curl -X POST \
     https://your-api-domain/2/files/myPicture.jpg
 ```
 
-返回的内容，此时使用 `http://bmob-cdn-24.b0.upaiyun.com/2016/04/14/9306f2e74090d668801eac8814b3f56f.jpg` 即可访问：
+返回示例（阿里云）：
+
+```json
+{
+    "filename": "myPicture.jpg",
+    "url": "https://your-bucket.oss-cn-hangzhou.aliyuncs.com/2024/01/01/xxxx.jpg",
+    "cdn": "aliyun"
+}
+```
+
+又拍云返回示例：
 
 ```json
 {
@@ -3186,7 +3208,7 @@ curl -X PUT \
 **请求**
 
 - url：`https://your-api-domain/2/files/<cdnName>/<url>`
-  - `cdnName`：上传文件后 body 返回的 cdnname
+  - `cdnName`：上传文件后 body 返回的 `cdn`（如 `upyun`、`aliyun`）
   - `url`：上传文件后在 body 中返回的 url 除去域名之后的字符串
 - method：DELETE
 - header：（公共 Header）
@@ -3204,7 +3226,7 @@ curl -X PUT \
 
 **例子**
 
-如下为删除 jpg 文件的例子：
+删除又拍云文件：
 
 ```bash
 curl -X DELETE \
@@ -3213,9 +3235,16 @@ curl -X DELETE \
     https://your-api-domain/2/files/upyun/2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png
 ```
 
-在上面的例子中要删除的图片为 `http://bmob-cdn-1614.b0.upaiyun.com/2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png`，截取这个 url 中的 `2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png` 拼上前面的参数 `https://your-api-domain/2/files/upyun/`，就能得到删除时所使用的 url：`https://your-api-domain/2/files/upyun/2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png`
+删除阿里云 OSS 文件（`cdn` 为 `aliyun` 时）：
 
-如果域名是用 bmobcloud.com 的（例如：`https://bmob-cdn-10.bmobcloud.com/2019/01/09/08d7522240e650f68035e4b79077fe82.png`），根据上面的规则，也同样得到 `https://your-api-domain/2/files/upyun/2019/01/09/08d7522240e650f68035e4b79077fe82.png`
+```bash
+curl -X DELETE \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    https://your-api-domain/2/files/aliyun/2024/01/01/xxxx.jpg
+```
+
+在上面的例子中要删除的图片为 `http://bmob-cdn-1614.b0.upaiyun.com/2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png`，截取这个 url 中的 `2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png` 拼上前面的参数 `https://your-api-domain/2/files/upyun/`，就能得到删除时所使用的 url。
 
 > **注意**：删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。
 
@@ -3232,7 +3261,7 @@ curl -X DELETE \
 - header：（公共 Header）
 - body:
 
-cdnname 为上传文件时返回的 cdnname，url1、url2 为上传时返回的 url 除去域名后的字符串。
+cdnname 为上传文件时返回的 `cdn`，url1、url2 为上传时返回的 url 除去域名后的字符串。
 
 ```json
 {
@@ -3270,8 +3299,6 @@ cdnname 为删除失败的 cdn 名称，url1、url2 为删除失败的 url 地�
 
 **例子**
 
-如下为删除上传例子中的 jpg 文件：
-
 ```bash
 curl -X POST \
     -H "X-Bmob-Application-Id: Your Application ID" \
@@ -3281,7 +3308,372 @@ curl -X POST \
     https://your-api-domain/2/cdnBatchDelete
 ```
 
+阿里云示例：
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: application/json" \
+    -d '{"aliyun":["2024/01/01/xxxx.txt"]}' \
+    https://your-api-domain/2/cdnBatchDelete
+```
+
 > **注意**：删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。
+
+### 按上传日志 ID 批量删除
+
+**请求描述**
+
+根据应用文件上传日志（`file_upload_log`）中的 `objectId` 批量删除 CDN 文件，并同步清理日志记录。body 中历史参数名仍为 `upyun`，值为 objectId 数组（与控制台「应用文件」删除一致）。
+
+**请求**
+
+- url：`https://your-api-domain/2/CdnBatchDeleteById`
+- method：POST
+- header：（公共 Header）
+- body:
+
+```json
+{
+    "upyun": ["<objectId1>", "<objectId2>"]
+}
+```
+
+**成功时响应**
+
+```json
+{
+    "msg": "ok"
+}
+```
+
+**例子**
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: application/json" \
+    -d '{"upyun":["5ce25619eea4f3dc252c126c"]}' \
+    https://your-api-domain/2/CdnBatchDeleteById
+```
+
+### 文件管理器（OSS 目录浏览）
+
+基于阿里云 OSS 的路径级文件管理，对应控制台「素材管理 → 文件管理」。**仅支持已切换至阿里云 OSS（`cdn` / platform 为 `aliyun`）的应用。**
+
+对象 key 不以 `/` 开头；路径段中禁止出现 `.`、`..`。目录 key 建议以 `/` 结尾。
+
+#### 列出目录与文件
+
+**请求**
+
+- url：`https://your-api-domain/2/fileManager/list`
+- method：GET
+- query：
+
+| 参数 | 说明 |
+| --- | --- |
+| prefix | 当前目录前缀，如 `docs/`；空表示根目录 |
+| maxKeys | 单次返回上限，默认 100，最大 1000 |
+| continuationToken | 上一页返回的 `nextContinuationToken`，用于翻页 |
+
+**成功时响应**
+
+```json
+{
+    "prefix": "docs/",
+    "cdn": "aliyun",
+    "domain": "xxx.oss-cn-hangzhou.aliyuncs.com",
+    "folders": [
+        {
+            "name": "assets",
+            "key": "docs/assets/",
+            "type": "folder"
+        }
+    ],
+    "files": [
+        {
+            "name": "a.txt",
+            "key": "docs/a.txt",
+            "type": "file",
+            "size": 12,
+            "url": "https://xxx/docs/a.txt",
+            "ext": "txt",
+            "lastModified": "2024-01-01T12:00:00Z"
+        }
+    ],
+    "isTruncated": false,
+    "nextContinuationToken": ""
+}
+```
+
+**例子**
+
+```bash
+curl -X GET \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    "https://your-api-domain/2/fileManager/list?prefix=docs/&maxKeys=100"
+```
+
+#### 创建目录
+
+**请求**
+
+- url：`https://your-api-domain/2/fileManager/mkdir`
+- method：POST
+- body:
+
+```json
+{
+    "path": "docs/images"
+}
+```
+
+**成功时响应**
+
+```json
+{
+    "msg": "ok",
+    "key": "docs/images/",
+    "cdn": "aliyun",
+    "type": "folder"
+}
+```
+
+**例子**
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: application/json" \
+    -d '{"path":"docs/images"}' \
+    https://your-api-domain/2/fileManager/mkdir
+```
+
+#### 上传到指定路径
+
+与 `/2/files/<fileName>` 不同：本接口按你指定的对象 key 原样写入（可保留目录结构），适合静态站点资源维护。
+
+**请求**
+
+- url：`https://your-api-domain/2/fileManager/upload/<objectKey>`
+  - `objectKey`：完整对象路径，如 `docs/readme.md`（可对路径分段做 URL Encode）
+- method：POST
+- header：`Content-Type` 为文件 MIME 类型
+- body：文件二进制流
+
+**成功时响应**
+
+```json
+{
+    "url": "https://xxx/docs/readme.md",
+    "filename": "readme.md",
+    "key": "docs/readme.md",
+    "cdn": "aliyun",
+    "size": 1024
+}
+```
+
+**例子**
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: text/markdown" \
+    --data-binary '@readme.md' \
+    https://your-api-domain/2/fileManager/upload/docs/readme.md
+```
+
+#### 删除文件或目录
+
+目录 key 以 `/` 结尾时会递归删除其下全部对象。
+
+**请求**
+
+- url：`https://your-api-domain/2/fileManager/delete`
+- method：POST
+- body:
+
+```json
+{
+    "keys": ["docs/a.txt", "docs/images/"]
+}
+```
+
+**成功时响应**
+
+```json
+{
+    "msg": "ok",
+    "deleted": 3
+}
+```
+
+**例子**
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: application/json" \
+    -d '{"keys":["docs/a.txt","docs/images/"]}' \
+    https://your-api-domain/2/fileManager/delete
+```
+
+#### 复制 / 移动（重命名）
+
+**请求**
+
+- 复制：`POST https://your-api-domain/2/fileManager/copy`
+- 移动：`POST https://your-api-domain/2/fileManager/move`
+- body:
+
+```json
+{
+    "source": "a.txt",
+    "destination": "backup/a.txt"
+}
+```
+
+目录复制/移动时，`source` / `destination` 建议以 `/` 结尾（如 `"old/"` → `"new/"`）。
+
+**成功时响应**
+
+```json
+{
+    "msg": "ok",
+    "source": "a.txt",
+    "destination": "backup/a.txt",
+    "cdn": "aliyun",
+    "url": "https://xxx/backup/a.txt"
+}
+```
+
+**例子**
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: application/json" \
+    -d '{"source":"a.txt","destination":"backup/a.txt"}' \
+    https://your-api-domain/2/fileManager/copy
+```
+
+```bash
+curl -X POST \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -H "Content-Type: application/json" \
+    -d '{"source":"old/","destination":"new/"}' \
+    https://your-api-domain/2/fileManager/move
+```
+
+### 应用文件上传日志
+
+每次通过 `/2/files` 或文件管理器上传成功后，平台会在系统表 **`file_upload_log`** 中写入一条记录（控制台「应用文件」列表即查询此表）。可通过标准数据表查询接口读写查询（该表一般为只读查询用途）。
+
+**请求**
+
+- url：`https://your-api-domain/1/classes/file_upload_log`
+- method：GET
+- 支持与普通表相同的 `limit`、`skip`、`order`、`count`、`keys`、`where` 等参数
+
+**主要字段**
+
+| 字段 | 说明 |
+| --- | --- |
+| objectId | 日志记录 ID（可用于 `/2/CdnBatchDeleteById`） |
+| name | 原始文件名 |
+| url | 文件访问地址 |
+| size | 文件大小（字节） |
+| ext | 扩展名 |
+| domain | CDN / OSS 域名 |
+| cdn | 存储标识（数值，历史字段） |
+| created | 上传时间 |
+| app_id / dev_id | 应用与开发者 ID |
+
+**列出最近上传日志**
+
+```bash
+curl -X GET \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -G \
+    --data-urlencode 'order=-created' \
+    --data-urlencode 'limit=20' \
+    --data-urlencode 'count=1' \
+    https://your-api-domain/1/classes/file_upload_log
+```
+
+**成功时响应示例**
+
+```json
+{
+    "results": [
+        {
+            "objectId": "5ce25619eea4f3dc252c126c",
+            "name": "myPicture.jpg",
+            "url": "https://xxx/2024/01/01/xxxx.jpg",
+            "size": 102400,
+            "ext": "jpg",
+            "domain": "xxx.oss-cn-hangzhou.aliyuncs.com",
+            "created": "2024-01-01 12:00:00"
+        }
+    ],
+    "count": 1
+}
+```
+
+### 文件搜索（按文件名）
+
+对 `file_upload_log` 使用 `where` + `$regex` 即可按文件名模糊搜索（与控制台「应用文件」搜索一致）。
+
+> **注意**：模糊查询（`$regex`）只对付费用户开放，付费后可直接使用。详见上文「查询」章节。
+
+**按文件名包含关键字搜索**
+
+```bash
+curl -X GET \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -G \
+    --data-urlencode 'where={"name":{"$regex":".*logo.*"}}' \
+    --data-urlencode 'order=-created' \
+    --data-urlencode 'limit=20' \
+    --data-urlencode 'count=1' \
+    https://your-api-domain/1/classes/file_upload_log
+```
+
+**按扩展名精确筛选**
+
+```bash
+curl -X GET \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -G \
+    --data-urlencode 'where={"ext":"png"}' \
+    --data-urlencode 'order=-created' \
+    https://your-api-domain/1/classes/file_upload_log
+```
+
+**按文件名精确匹配**
+
+```bash
+curl -X GET \
+    -H "X-Bmob-Application-Id: Your Application ID" \
+    -H "X-Bmob-REST-API-Key: Your REST API Key" \
+    -G \
+    --data-urlencode 'where={"name":"myPicture.jpg"}' \
+    https://your-api-domain/1/classes/file_upload_log
+```
+
+> **说明**：`file_upload_log` 是上传流水日志，不保证与 OSS 当前目录树一一对应。若需浏览真实目录结构，请使用 `/2/fileManager/list`。
 
 ## ACL 和角色
 
