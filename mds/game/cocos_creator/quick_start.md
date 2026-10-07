@@ -35,7 +35,7 @@ score|int|65535|-|true|false|玩家分数
 
 点击 **发布**
 
-![Attr](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/969d75ac40a48def80e1aaab031db534.jpg)
+![Attr](https://bmob-cdn-14496.bmobpay.com/2018/04/10/969d75ac40a48def80e1aaab031db534.jpg)
 
 ----
 
@@ -48,7 +48,7 @@ score|int|65535|-|true|false|玩家分数
 *此时可能提示`已经被睡眠，不下发更新指令`，也是更新云函数成功的表现*
 
 
-![Cloud](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/f052c8d34011d16c8095bcf9cc6af519.jpg)
+![Cloud](https://bmob-cdn-14496.bmobpay.com/2018/04/10/f052c8d34011d16c8095bcf9cc6af519.jpg)
 
 ----
 
@@ -60,7 +60,7 @@ score|int|65535|-|true|false|玩家分数
 
 *示例图是启用中的服务器，所以显示按钮为睡眠*
 
-![Server](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/e94ef77840c4c89380026a27ed36d695.jpg)
+![Server](https://bmob-cdn-14496.bmobpay.com/2018/04/10/e94ef77840c4c89380026a27ed36d695.jpg)
 
 ----
 
@@ -70,7 +70,7 @@ score|int|65535|-|true|false|玩家分数
 
 游戏设置 > 应用密钥 > AppKey
 
-![AppKey](https://bmob-cdn-14496.b0.upaiyun.com/2018/04/10/9e583f0140450b708063a0f598bdc99c.jpg)
+![AppKey](https://bmob-cdn-14496.bmobpay.com/2018/04/10/9e583f0140450b708063a0f598bdc99c.jpg)
 
 ## 项目
 

@@ -401,7 +401,7 @@ function onRequest(request, response, modules) {
 
   var file = modules.oFile;
 
-  //文件的路径为 http://bmob-cdn-10.b0.upaiyun.com/2017/06/03/8989824440d8c3a680865e4086fcab62.jpg
+  //文件的路径为 http://bmob-cdn-10.bmobpay.com/2017/06/03/8989824440d8c3a680865e4086fcab62.jpg
   file.del({
 	"url":"2017/06/03/8989824440d8c3a680865e4086fcab62.jpg"  //截取有效路径
   },function(err,data){
@@ -410,7 +410,7 @@ function onRequest(request, response, modules) {
 }
 ```
 
-其中，2017/06/03/8989824440d8c3a680865e4086fcab62.jpg 为文件完整路径的"http://bmob-cdn-10.b0.upaiyun.com/2017/06/03/8989824440d8c3a680865e4086fcab62.jpg"的有效url。
+其中，2017/06/03/8989824440d8c3a680865e4086fcab62.jpg 为文件完整路径的"http://bmob-cdn-10.bmobpay.com/2017/06/03/8989824440d8c3a680865e4086fcab62.jpg"的有效url。
 
 返回结果是个json对象：
 ```

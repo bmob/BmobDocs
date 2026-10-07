@@ -1467,7 +1467,7 @@ function showPic(urlArr, t) {
 ### 文件删除
 ```
 var path;
-path = "http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png";
+path = "http://bmob-cdn-9200.bmobpay.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png";
 var s = new Bmob.Files.del(path).then(function(res) {
     if (res.msg == "ok") {
         console.log('删除成功');
@@ -1481,7 +1481,7 @@ function(error) {
 
 ## 图片处理
 
-新版文件服务由第三方厂商又拍云提供，只需要在文件上传成功返回的url后面拼接特定参数即可实现缩放，缩略图，加水印等效果，[如图](http://bmob-cdn-9200.b0.upaiyun.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png!/scale/80/watermark/text/5rC05Y2wCg==)，具体可参考[这里](http://docs.upyun.com/cloud/image/) 。
+新版文件服务由第三方厂商又拍云提供，只需要在文件上传成功返回的url后面拼接特定参数即可实现缩放，缩略图，加水印等效果，[如图](http://bmob-cdn-9200.bmobpay.com/2017/04/25/f24b9ef540f1aeb680ebe01ba8543d9f.png!/scale/80/watermark/text/5rC05Y2wCg==)，具体可参考[这里](http://docs.upyun.com/cloud/image/) 。
 
 
 ## Promise

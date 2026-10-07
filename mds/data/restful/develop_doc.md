@@ -3165,7 +3165,7 @@ curl -X POST \
 ```json
 {
     "filename": "myPicture.jpg",
-    "url": "http://bmob-cdn-24.b0.upaiyun.com/2016/04/14/9306f2e74090d668801eac8814b3f56f.jpg",
+    "url": "http://bmob-cdn-24.bmobpay.com/2016/04/14/9306f2e74090d668801eac8814b3f56f.jpg",
     "cdn": "upyun"
 }
 ```
@@ -3194,7 +3194,7 @@ curl -X PUT \
         "__type": "File",
         "group": "group1",
         "filename": "myPicture.jpg",
-        "url": "http://bmob-cdn-24.b0.upaiyun.com/2016/04/14/9306f2e74090d668801eac8814b3f56f.jpg"
+        "url": "http://bmob-cdn-24.bmobpay.com/2016/04/14/9306f2e74090d668801eac8814b3f56f.jpg"
     }}' \
     https://your-api-domain/1/classes/GameScore/e1kXT22L
 ```
@@ -3244,7 +3244,7 @@ curl -X DELETE \
     https://your-api-domain/2/files/aliyun/2024/01/01/xxxx.jpg
 ```
 
-在上面的例子中要删除的图片为 `http://bmob-cdn-1614.b0.upaiyun.com/2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png`，截取这个 url 中的 `2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png` 拼上前面的参数 `https://your-api-domain/2/files/upyun/`，就能得到删除时所使用的 url。
+在上面的例子中要删除的图片为 `http://bmob-cdn-1614.bmobpay.com/2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png`，截取这个 url 中的 `2019/01/09/53a0ff6340b6a7b780c9031d79d8befe.png` 拼上前面的参数 `https://your-api-domain/2/files/upyun/`，就能得到删除时所使用的 url。
 
 > **注意**：删除文件不会删除文件关联的行记录中的文件列的值，需要自行通过更新行来删除关联。
 

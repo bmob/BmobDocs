@@ -440,7 +440,7 @@ playerCount 为需要设定的房间人数。
 ## 附录
 
 ### 房间逻辑流程图
-![此处输入图片的描述](http://bmob-cdn-15075.b0.upaiyun.com/2018/05/21/2812fc16409b2ab18070b26e228a91d2.png)
+![此处输入图片的描述](http://bmob-cdn-15075.bmobpay.com/2018/05/21/2812fc16409b2ab18070b26e228a91d2.png)
 
 ### 常量
 

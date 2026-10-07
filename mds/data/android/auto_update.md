@@ -329,7 +329,7 @@ BmobUpdateAgent.setUpdateDownloadListener(new BmobUpdateDownloadListener() {
 
      自4月13日上线CDN文件服务以来，通过Web后台上传的apk文件都会自动上传到CDN服务提供商那里，而`v3.4.6以前版本的SDK`的自动更新功能中得到`用于下载的url地址会将Bmob原有的文件域名拼接到BmobFile的url前面`。
 
-	因此，最终拼接成的用于下载的地址是类似这样的：`http://file.bmobapp.com/http://bmob-cdn-82.b0.upaiyun.com/2016/04/20/xxx.apk`，由此导致 `解析包出错`。
+	因此，最终拼接成的用于下载的地址是类似这样的：`http://file.bmobapp.com/http://bmob-cdn-82.bmobpay.com/2016/04/20/xxx.apk`，由此导致 `解析包出错`。
 
 3、解决方法：
 

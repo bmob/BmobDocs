@@ -1243,13 +1243,15 @@ query.find().then(res => {
       ...
     },
     ...
+  ]
 }
-
 ```
 
 #### 约束Pointer值查询
 
 **简介：**Pointer 类型在数据库是一个json数据类型，只需调用Pointer方法创建一个Pointer对象存入到字段中，如下：
+
+```
 const pointer = Bmob.Pointer('_User')
 const poiID = pointer.set('QdXD888B')
 
@@ -1883,7 +1885,7 @@ curl -X POST \
   -H 'content-type: application/json' \
   -H 'x-bmob-application-id: xxx' \
   -H 'x-bmob-rest-api-key: xxx' \
-  -d '{"source": "https://bmob-cdn-80.b0.upaiyun.com/2018/08/17/f4ca5b26305348c88ae70818982c1168.mp4", "save_as": "https://bmob-cdn-80.b0.upaiyun.com/f4ca5b26305348c88ae70818982c1161.jpg", "point": "00:00:05"}'
+  -d '{"source": "https://bmob-cdn-80.bmobpay.com/2018/08/17/f4ca5b26305348c88ae70818982c1168.mp4", "save_as": "https://bmob-cdn-80.bmobpay.com/f4ca5b26305348c88ae70818982c1161.jpg", "point": "00:00:05"}'
 
 //{"source": "<视频的存储地址>", "point": "<时间点>", "save_as": "<截图保存地址>"}
 ```
@@ -1912,7 +1914,7 @@ curl -X POST \
 ```
 // 传入string是单个文件删除，传入array是批量删除
 const del = Bmob.File();
-const val =  ["http://bmob-cdn-15009.b0.upaiyun.com/2018/05/02/aae4998a403e018680a7eff90852905e.jpg"]
+const val =  ["http://bmob-cdn-15009.bmobpay.com/2018/05/02/aae4998a403e018680a7eff90852905e.jpg"]
 del.destroy(val).then(res => {
   console.log(res);
 }).catch(err => {
@@ -2474,8 +2476,8 @@ uploadCheck:function(){
 
 **参数说明：**
 
-| 参数        | 类型   | 必填 |参数说明                                                     |
-| ----------- | ------ | ------------------------------------------------------------ |
+| 参数        | 类型   | 必填 | 参数说明                                                     |
+| ----------- | ------ | ---- | ------------------------------------------------------------ |
 | touser      | string | 是 | 当前用户的`openid`                                           |
 | template_id | string | 是 |模板Id，登陆微信后台获取                                     |
 | page        | string | 是 |点击模板卡片后的跳转页面，仅限本小程序内的页面。支持带参数,（示例index?foo=bar）。该字段不填则模板无跳转。 |
@@ -2513,7 +2515,6 @@ uploadCheck:function(){
     }).catch(function (error) {
     	console.log(error);
     });
-****
 
 ###  小程序付款到零钱
 

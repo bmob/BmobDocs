@@ -224,20 +224,20 @@ onKicked|玩家被踢出房间|-
 
 - Room.java的代码很简单，只在房间创建、开始、销毁等时候进行Bmob数据库的操作
 
-![Room.java](//bmob-cdn-14496.b0.upaiyun.com/2018/03/02/edb9d14640f45beb801d0f9b53bb3008.png "Room.java")
+![Room.java](//bmob-cdn-14496.bmobpay.com/2018/03/02/edb9d14640f45beb801d0f9b53bb3008.png "Room.java")
 
 ---
 
 - Player.java的代码承担了大多数的游戏逻辑，例如下面是某玩家上报击中另一个玩家时的处理器
 
 
-![Player.java](//bmob-cdn-14496.b0.upaiyun.com/2018/03/02/e3ecabaa40bd942a8077829cd35b44f1.jpg "Player.java")
+![Player.java](//bmob-cdn-14496.bmobpay.com/2018/03/02/e3ecabaa40bd942a8077829cd35b44f1.jpg "Player.java")
 
 ---
 
 - Unity内代码(属性同步)
 
-![Player.cs](//bmob-cdn-14496.b0.upaiyun.com/2018/03/02/08b21c594085329e80d4b4ddf483561f.png "Player.cs")
+![Player.cs](//bmob-cdn-14496.bmobpay.com/2018/03/02/08b21c594085329e80d4b4ddf483561f.png "Player.cs")
 
 ##打怪游戏改造
 ### 准备一个单机的Unity游戏 ###
@@ -246,10 +246,10 @@ onKicked|玩家被踢出房间|-
 
 本文选择了一款可爱的射击打怪游戏：[Survival Shooter Tutorial](https://assetstore.unity.com/packages/essentials/tutorial-projects/survival-shooter-tutorial-40756)
 
-![游戏图片](//bmob-cdn-13250.b0.upaiyun.com/2018/03/09/460f8bb94008d8358000b5549955ba18.jpg)
+![游戏图片](//bmob-cdn-13250.bmobpay.com/2018/03/09/460f8bb94008d8358000b5549955ba18.jpg)
 
 项目导入后的样子：
-![项目图片](//bmob-cdn-13250.b0.upaiyun.com/2018/03/09/082832c6407fa5778057916ba7ccc6a8.png)
+![项目图片](//bmob-cdn-13250.bmobpay.com/2018/03/09/082832c6407fa5778057916ba7ccc6a8.png)
 
 
  绍项目结构简介：
@@ -273,7 +273,7 @@ onKicked|玩家被踢出房间|-
 
 可以在上一步骤中看到项目中只有一个玩家Player，要改造成联网的游戏就需要多个玩家，所以作者把场景中的Player物体克隆一份，命名为Player2，当然控制它的脚本也不能少，克隆克隆克隆！
 
-![](//bmob-cdn-13250.b0.upaiyun.com/2018/03/09/585f4a93406d440680223e33d0e2e3a2.png)
+![](//bmob-cdn-13250.bmobpay.com/2018/03/09/585f4a93406d440680223e33d0e2e3a2.png)
 
  1. Player2Health.cs：
    因为Player2Health控制的是其他玩家的血量，所以把玩家收到怪物攻击时减的血量设为0，让其他玩家的血量不受本地控制。
@@ -529,7 +529,7 @@ public class Room extends RoomBase{
 
 如何在1小时内将单机下棋游戏改造成多人联网实时对战小游戏
 
-![小程序二维码](//bmob-cdn-12841.b0.upaiyun.com/2018/05/04/ef8b1dd640626c6080af0508497c8c96.png)
+![小程序二维码](//bmob-cdn-12841.bmobpay.com/2018/05/04/ef8b1dd640626c6080af0508497c8c96.png)
 
 ----------
 
@@ -726,5 +726,5 @@ public class Room extends RoomBase{
 
 ### 二维码
 
-![Hydra对战](https://bmob-cdn-18902.b0.upaiyun.com/2018/05/08/ba758ddd40f3db0a80c26394ff31254b.png)
+![Hydra对战](https://bmob-cdn-18902.bmobpay.com/2018/05/08/ba758ddd40f3db0a80c26394ff31254b.png)
 
