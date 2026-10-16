@@ -29,18 +29,44 @@
 
 ## 安装方式
 
+安装时请指定实际使用的工具。未指定 `--agent` 时，安装器可能把目标识别成 PromptScript，而 PromptScript 不支持全局安装（`-g`）。
+
 ### 一键安装全部 skills（推荐）
 
+Cursor：
+
 ```bash
-npx skills add bmob/agent-skills -y -g
+npx skills add bmob/agent-skills -y -g --agent cursor
+```
+
+Codex：
+
+```bash
+npx skills add bmob/agent-skills -y -g --agent codex
+```
+
+Claude Code：
+
+```bash
+npx skills add bmob/agent-skills -y -g --agent claude-code
+```
+
+### PromptScript
+
+PromptScript 不支持全局安装。若确实使用 PromptScript，请在项目目录执行：
+
+```bash
+npx skills add bmob/agent-skills -y --agent promptscript
 ```
 
 ### 安装指定 skill
 
+将 `--agent` 换成实际工具。下面以 Cursor 为例：
+
 ```bash
-npx skills add bmob/agent-skills --skill bmob
-npx skills add bmob/agent-skills --skill bmob-database-javascript
-npx skills add bmob/agent-skills --skill bmob-mcp
+npx skills add bmob/agent-skills -y -g --agent cursor --skill bmob
+npx skills add bmob/agent-skills -y -g --agent cursor --skill bmob-database-javascript
+npx skills add bmob/agent-skills -y -g --agent cursor --skill bmob-mcp
 ```
 
 ### 手动复制安装
