@@ -17,14 +17,14 @@ BmobSwift SDK 是 Bmob 后端云的全新 Swift SDK，专为 Swift 现代并发�
 
 1. **File → Add Package Dependencies…**
 2. 输入仓库 URL: `https://github.com/bmob/BmobSwiftSDK`
-3. 选择版本规则（推荐最新版本 `Up to Next Major Version: 1.0.2`）
+3. 选择版本规则（推荐最新版本 `Up to Next Major Version: 1.0.8`）
 4. 勾选 `BmobSDK` 模块，点击 `Add Package`
 
 在 `Package.swift` 中：
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/bmob/BmobSwiftSDK", from: "1.0.2")
+    .package(url: "https://github.com/bmob/BmobSwiftSDK", from: "1.0.8")
 ],
 targets: [
     .target(name: "YourApp", dependencies: [
@@ -39,7 +39,7 @@ targets: [
 # Podfile
 
 # 伞式集成
-pod 'BmobSwiftSDK', '~> 1.0.2'
+pod 'BmobSwiftSDK', '~> 1.0.8'
 
 # 按需集成
 pod 'BmobSwiftSDK/Core'    # 仅核心网络层

@@ -9,6 +9,7 @@
 - [用户管理](#用户管理)
 - [文件管理](#文件管理)
 - [云函数](#云函数)
+- [实时数据监听](#实时数据监听)
 - [地理位置](#地理位置)
 - [ACL 与安全](#acl-与安全)
 - [错误处理](#错误处理)
@@ -32,7 +33,7 @@
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/bmob/BmobSwiftSDK", from: "1.0.2")
+    .package(url: "https://github.com/bmob/BmobSwiftSDK", from: "1.0.8")
 ],
 targets: [
     .target(name: "YourApp", dependencies: [
@@ -49,7 +50,7 @@ platform :ios, '15.0'
 use_frameworks!
 
 target 'YourApp' do
-  pod 'BmobSwiftSDK', '~> 1.0.2'
+  pod 'BmobSwiftSDK', '~> 1.0.8'
 end
 ```
 
@@ -622,6 +623,154 @@ for user in result.users {
 
 ---
 
+## 实时数据监听
+
+> 请使用 1.0.8 或更新版本，包含 WebSocket 握手 403 / -1011 修复及空 objectId 回退修复。自定义监听域名接口自 1.0.7 起提供。
+
+实时监听使用与旧版 Objective-C SDK 相同的 Socket.IO 协议，支持表更新、表删除、行更新、行删除。
+请先完成 `Bmob.initialize(appKey:)`；SDK 根据下述地址优先级选择实时服务地址，并使用初始化时的 AppKey 建立连接。
+
+### 两步连接与握手兼容
+
+1. 先请求 HTTP/HTTPS 地址 `/socket.io/1/?t=<timestamp>`，获取 `sid:心跳超时:连接超时:websocket`。
+2. 使用返回的 SID 连接 `/socket.io/1/websocket/<sid>`，HTTP 对应 `ws://`，HTTPS 对应 `wss://`；主机及端口保持一致。
+
+例如 `http://io.codenow.cn:3010` 先进行 HTTP 握手，再连接 `ws://io.codenow.cn:3010/socket.io/1/websocket/<sid>`。
+SDK 自动使用 WebSocket URLRequest 并添加对应的 HTTP/HTTPS `Origin`，兼容旧版实时服务。
+出现 `NSURLErrorDomain -1011` 时先升级到 1.0.8；错误日志中的 URL 本身不足以判断问题，应同时检查服务端握手响应（缺少 Origin 时可能返回 403）。
+
+### 自定义监听域名
+
+地址优先级：用户自定义地址 → 初始化响应的 `io` → 默认地址 `http://io.codenow.cn:3010`。
+
+```swift
+// 初始化前后均可设置，用 await 保证设置完成后再连接。
+try await Bmob.resetIODomain("https://realtime.example.com:443")
+```
+
+清除自定义配置，恢复使用服务端 `io`（未返回时使用默认地址）：
+
+```swift
+try await Bmob.resetIODomain(nil)
+```
+
+支持 `http://`、`https://`、`ws://`、`wss://` 和无协议的 `host:port`（默认 HTTP）。
+只传协议、主机及可选端口，SDK 自动拼接 Socket.IO 握手和 WebSocket 路径。
+HTTPS/WSS 地址对应 HTTPS 握手及 WSS 连接。地址无效时抛出 `BmobError.invalidParameter`，保留原有配置。
+初始化接口不会覆盖用户配置。此设置控制实时监听地址，API 请求域名通过 `Bmob.resetDomain` 独立设置。
+
+已建立的连接在下次连接或自动重连时使用新地址；需立即切换时，先设置地址，再调用
+`event.disconnect()`、重新获取 `event.eventStream()`（如有使用），最后 `event.connect()`。
+
+```swift
+try await Bmob.resetIODomain("https://next-realtime.example.com")
+event.disconnect()
+let nextMessages = event.eventStream() // 主动断开已结束旧事件流
+// 已登记的订阅会保留，无需重复登记。
+event.connect()
+for await message in nextMessages {
+    print(message.rawValue)
+}
+```
+
+### AsyncStream 方式
+
+```swift
+import BmobSDK
+
+// 在业务对象中保存此实例，直到不再需要监听。
+let event = BmobEvent()
+try await Bmob.initialize(appKey: "YOUR_APP_KEY")
+let messages = event.eventStream()
+event.listenTableChange(className: "Post")
+event.listenRowChange(.deleteRow, tableName: "Post", objectId: "row-id")
+event.connect()
+
+for await message in messages {
+    print(message.action ?? "", message.className ?? "", message.objectId ?? "")
+    print(message.data ?? [:])
+    // UI 更新请回到 MainActor。
+}
+```
+
+### 监听与取消监听
+
+| 操作 | 方法 |
+|------|------|
+| 表更新（包含表内行数据变化） | `event.listenTableChange(.updateTable, tableName: "Post")` |
+| 表删除 | `event.listenTableChange(.deleteTable, tableName: "Post")` |
+| 行更新 | `event.listenRowChange(.updateRow, tableName: "Post", objectId: "row-id")` |
+| 行删除 | `event.listenRowChange(.deleteRow, tableName: "Post", objectId: "row-id")` |
+
+取消监听时，使用相同 action、表名及 objectId 调用对应方法：
+
+```swift
+event.cancelListenTableChange(.updateTable, tableName: "Post")
+event.cancelListenRowChange(.deleteRow, tableName: "Post", objectId: "row-id")
+event.disconnect() // 或 stop()
+```
+
+现有 `listenTableChange(className:)`、`listenRowChange(className:objectId:)` 默认监听更新，
+对应的简写取消方法也只取消更新事件。相同订阅会去重；删除事件需要单独订阅。
+
+### 代理方式与生命周期
+
+也可设置弱引用代理 `event.delegate`，代理对象需由业务方持有。
+代理和多个 `eventStream()` 可同时使用，彼此不会覆盖。
+
+```swift
+final class RealtimeObserver: BmobEventDelegate {
+    func bmobEventDidConnect(_ event: BmobEvent) {
+        print("连接已建立")
+    }
+    func bmobEventCanStartListen(_ event: BmobEvent) {
+        print("服务端已就绪，已登记的订阅会自动发送")
+    }
+    func bmobEvent(_ event: BmobEvent, didReceiveMessage message: BmobEventMessage) {
+        print(message.rawValue)
+    }
+    func bmobEvent(_ event: BmobEvent, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    func bmobEventDidDisconnect(_ event: BmobEvent, error: Error?) {
+        print("连接已断开", error as Any)
+    }
+}
+```
+
+代理回调在主队列执行。`isConnected` 仅在收到服务端连接包后为 true；
+服务端发出就绪事件后，SDK 才会发送提前登记的订阅。
+消息类型为 `BmobEventMessage`，除 `rawValue` 外其余字段均为可选值：
+
+| 字段 | 含义 |
+|------|------|
+| `action` | 服务端事件操作名称 |
+| `className` | 服务端 `tableName`，也兼容 `className` 字段 |
+| `objectId` | 非空的顶层 objectId；未提供或为空字符串时读取 `data.objectId` |
+| `data` | 可选的数据字典 |
+| `rawValue` | 服务端原始消息字典（非可选） |
+
+默认 `autoReconnect = true`，意外断线后每 5 秒重新握手，并在就绪后恢复仍有效的订阅。
+事件流在重连期间保持开启；监听不补发断线期间的变更，需要完整数据时请重新查询。
+`autoReconnect = false` 可关闭自动重连。
+主动 `disconnect()` 会结束所有事件流并取消重连，保留订阅；再次连接时请新建事件流。
+取消单个事件流不会停止连接或其他消费者。`BmobEvent.shared` 提供可选的共享实例。
+
+### 运行 Chat 端到端测试
+
+SDK 源码中的 `Tests/BmobCoreTests/BmobEventChatIntegrationTests.swift` 验证初始化、订阅 `Chat.updateTable`、REST 新增记录及事件内容。
+测试用唯一标记区分本次事件，断言 action、表名、objectId、name 和 content，并在结束时删除本次创建的记录；清理失败会报告测试失败。
+默认跳过；在 SDK 源码目录提供测试应用的环境变量后运行，不要将真实密钥写入源码或 Git：
+
+```bash
+export BMOB_EVENT_CHAT_LIVE_TEST=1
+export BMOB_EVENT_APP_KEY="YOUR_APP_KEY"
+export BMOB_EVENT_REST_KEY="YOUR_REST_API_KEY"
+swift test --filter BmobEventChatIntegrationTests
+```
+
+---
+
 ## 地理位置
 
 ### 创建地理位置
@@ -736,7 +885,19 @@ do {
 
 ## 更新日志
 
-### v1.0.2 (最新)
+### v1.0.8 (2026-10-21)
+
+- WebSocket 显式使用 WS/WSS 请求并补齐同源 Origin，修复实时握手 HTTP 403 / `NSURLErrorDomain -1011`。
+- 顶层 objectId 为空时，回退读取 data.objectId。
+- 新增协议映射、请求头、空 objectId 回归测试及可选 Chat 线上端到端测试，自动清理测试记录。
+
+### v1.0.7 (2026-10-21)
+
+- 修复实时数据监听协议，支持表/行更新与删除、退订、断线重连及订阅恢复。
+- 修复 AsyncStream，支持多个事件流与代理同时接收消息。
+- 新增 `Bmob.resetIODomain(_:)`，可设置自定义监听地址，传 `nil` 恢复自动选择。
+
+### v1.0.2
 
 - Bug 修复与性能优化
 - 改进网络请求稳定性
