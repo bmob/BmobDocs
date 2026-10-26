@@ -1741,6 +1741,59 @@ if (bUser) {
 
 4.缓存用户的有效期为7天
 
+
+### 服务端退出登录
+
+`[BmobUser logout]` 仅清除本地缓存。新版 SDK 可向服务端退出当前用户，使会话失效：
+
+```objective-c
+[BmobUser logoutInBackgroundWithBlock:^(BOOL success, NSError *error) {
+    if (error) {
+        NSLog(@"退出失败：%@", error);
+        return;
+    }
+    // 服务端退出成功，本地登录缓存已清理
+}];
+
+// 显式退出指定用户会话，需要该用户的有效 token
+[BmobUser logoutWithObjectId:@"USER_OBJECT_ID"
+               sessionToken:@"USER_SESSION_TOKEN"
+                      block:^(BOOL success, NSError *error) {
+    // 处理结果
+}];
+```
+
+底层使用加密 `POST /8/logout`，发送 `c=_User`、`data.objectId` 和顶层 `sessionToken`，由网关转发到 REST `POST /1/logout`。需部署支持该转发入口的网关。成功响应 `data.msg=ok` 后，仅当当前用户 ID/token 与请求一致时清理本地缓存；失败通过 error 返回，保留登录状态。回调在主线程。客户端不支持传 Master Key 强制其他用户下线。
+
+### 检查用户会话是否有效
+
+本地存在 `currentUser` 只代表有缓存，不代表服务端 sessionToken 仍有效。新版 SDK 提供 `POST /8/check_session` 的封装：
+
+```objective-c
+[BmobUser checkSessionInBackgroundWithBlock:^(BOOL valid, NSError *error) {
+    if (error) {
+        NSLog(@"检查失败：%@", error); // 网络或服务端错误，不等于会话过期
+    } else if (valid) {
+        NSLog(@"会话有效");
+    } else {
+        NSLog(@"会话失效或本地未登录，可提示重新登录");
+    }
+}];
+```
+
+也可检查指定用户与 token，不修改当前登录状态：
+
+```objective-c
+[BmobUser checkSessionWithObjectId:@"USER_OBJECT_ID"
+                     sessionToken:@"USER_SESSION_TOKEN"
+                            block:^(BOOL valid, NSError *error) {
+    // valid=NO 且 error=nil：服务端明确返回 msg=fail
+}];
+```
+
+回调在主线程执行。服务端 `data.msg=ok` 对应 YES，`fail` 对应 NO；网络、服务端、格式异常通过 error 返回。当前用户入口在本地没有用户 ID 或 token 时返回 NO/nil，不发送请求；显式入口缺少参数时返回参数错误。检查本身不会自动 logout、刷新 token 或清除缓存。
+
+
 ### 更新用户
 
 当用户登录成功后，在本地有个缓存的用户对象，如果开发者希望更改当前用户的某个属性可按如下代码操作:
@@ -2141,7 +2194,12 @@ Test *t = [[Test alloc] initFromBmobObject:obj];
 BmobFile可以让你的应用程序将文件存储到服务器中，比如常见的文件类型图像文件，影像文件、音乐文件和任何其他二进制数据都可以使用。当文件上传成功后，可以通过url属性来获取文件的地址。
 
 ### 上传文件
-文件通过 Bmob 开放接口 `POST /8/files` 上传（鉴权与其它业务接口相同），服务端落盘到 CDN。客户端无需再对接又拍云等第三方直传。
+新版 `BmobFile` 保留现有上传接口，内部按 CDN 配置中的 `uploadThreshold`（原始文件字节数）自动分流。字段缺失或非正值时使用 `10485760`（10 MiB）：小于阈值走原 `POST /8/files`；等于及以上走 OSS 分片直传，再通过原 `/8/savecdnupload` 登记。业务代码无需自行拆分文件或调用 STS。
+
+新上传文件使用 `yyyy/MM/dd/32位随机文件名.扩展名`，日期目录由服务端生成，最终 URL 使用应用配置的 CDN 域名。不要根据 URL 路径格式判断文件归属，应保存 SDK 返回的 URL。
+
+首次接入含 OSS 的静态 XCFramework 时，App 需链接 `Network.framework`、`libresolv.tbd`，并保留原有 `SystemConfiguration.framework`、`CoreTelephony.framework` 等依赖；无需 Embed 系统库。已有旧 SDK 只上传小文件的应用可继续使用 REST；大文件分片续传需要更新 SDK 和服务端，且服务端能颁发有效 STS 临时凭证。文件删除继续使用原接口。
+
 
 #### 上传文件方法
 
@@ -2196,7 +2254,10 @@ NSLog(@"上传进度%.2f",progress);
 ```
 
 ### 以分片的方式上传文件
-`saveInBackgroundByDataSharding:` 接口仍保留以兼容旧代码，当前实现与 `saveInBackground:` 相同，均为整文件经 `/8/files` 上传。大文件请注意超时与网络环境，必要时自行拆分后多次调用上传接口。
+`saveInBackgroundByDataSharding:` 继续保留，与普通保存方法进入同一套按大小分流逻辑；小文件仍走 REST，大文件实际分片。不要把其方法名理解为对所有文件强制分片。
+
+取消调用 `[file cancel]`；取消或失败后，再调用原保存方法重试。请保留本地文件内容和文件名，App 重启后可用原文件重新创建 BmobFile 再保存。SDK 对大文件保留检查点，跨天重试沿用首次生成的对象路径，未完成分片可能重传。OSS 已传完但登记失败时，只重试登记。成功回调代表上传和登记完成；App 重启不会自动开始上传，也不保证系统后台持续上传。
+
 
 在BmobSDK中对应的函数方法为
 

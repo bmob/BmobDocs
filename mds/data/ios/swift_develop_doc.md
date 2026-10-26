@@ -1469,6 +1469,48 @@ BmobUser.logout()
 > 1. 这个用户对象缓存了基本的数据，可以通过 `objectForKey(key)` 方法来得到某一列的值。
 > 2. 由于是缓存的数据，所以 Web 端的修改本地是不会自动更新的，需要重新登录才会更新本地缓存数据。
 
+
+### 服务端退出登录
+
+`BmobUser.logout()` 仅清理本地缓存。新版 Objective-C SDK 的 Swift 桥接接口：
+
+```swift
+BmobUser.logoutInBackground { success, error in
+    if let error = error {
+        print("退出失败：\(error)")
+        return
+    }
+    // 服务端退出成功，本地缓存已清理
+}
+
+BmobUser.logout(objectId: "USER_OBJECT_ID", sessionToken: "USER_SESSION_TOKEN") { success, error in
+    // 显式退出该用户的会话
+}
+```
+
+请求通过加密 `/8/logout` 转发至 `/1/logout`，需部署支持该入口的网关。成功后仅清理匹配 ID/token 的当前用户；失败保留本地状态，error 在主线程返回。客户端不得传 Master Key。
+
+### 检查用户会话是否有效
+
+这里仍是 Objective-C SDK 的 Swift 桥接写法，使用新版 BmobSDK 的方法：
+
+```swift
+BmobUser.checkSessionInBackground { valid, error in
+    if let error = error {
+        print("检查失败：\(error)")
+    } else {
+        print(valid ? "会话有效" : "会话失效或本地未登录")
+    }
+}
+
+BmobUser.checkSession(objectId: "USER_OBJECT_ID", sessionToken: "USER_SESSION_TOKEN") { valid, error in
+    // 显式检查指定用户，不改变当前登录状态
+}
+```
+
+回调在主线程执行。valid=false、error=nil 表示服务端返回 fail，或当前用户入口没有本地登录信息；请求错误保留 error，不能当成“已过期”。方法不自动注销、刷新 token 或删除缓存。纯 Swift BmobSwiftSDK 的 async 方法见纯 Swift 文档。
+
+
 ### 更新用户
 
 当用户登录成功后，在本地有个缓存的用户对象，如果开发者希望更改当前用户的某个属性可按如下代码操作：
@@ -1843,7 +1885,16 @@ query.findObjectsInBackgroundWithBlock { (array, error) in
 
 BmobFile 可以让你的应用程序将文件存储到服务器中，比如常见的文件类型图像文件、影像文件、音乐文件和任何其他二进制数据都可以使用。当文件上传成功后，可以通过 `url` 属性来获取文件的地址。
 
-文件经 Bmob 开放接口 `POST /8/files` 上传（鉴权与其它业务接口相同），服务端落盘到 CDN；删除走 `POST /8/delcdnupload`。
+新版 `BmobFile` 保留现有上传接口，内部按 CDN 配置中的 `uploadThreshold`（原始文件字节数）自动分流。字段缺失或非正值时使用 `10485760`（10 MiB）：小于阈值走原 `POST /8/files`；等于及以上走 OSS 分片直传，再通过原 `/8/savecdnupload` 登记。业务代码无需自行拆分文件或调用 STS。
+
+新上传文件使用 `yyyy/MM/dd/32位随机文件名.扩展名`，日期目录由服务端生成，最终 URL 使用应用配置的 CDN 域名。不要根据 URL 路径格式判断文件归属，应保存 SDK 返回的 URL。
+
+首次接入含 OSS 的静态 XCFramework 时，App 需链接 `Network.framework`、`libresolv.tbd`，并保留原有 `SystemConfiguration.framework`、`CoreTelephony.framework` 等依赖；无需 Embed 系统库。已有旧 SDK 只上传小文件的应用可继续使用 REST；大文件分片续传需要更新 SDK 和服务端，且服务端能颁发有效 STS 临时凭证。文件删除继续使用原接口。
+
+`saveInBackgroundByDataSharding` 继续保留，与普通保存方法进入同一套按大小分流逻辑；小文件仍走 REST，大文件实际分片。不要把其方法名理解为对所有文件强制分片。
+
+取消调用 `file.cancel()`；取消或失败后，再调用原保存方法重试。请保留本地文件内容和文件名，App 重启后可用原文件重新创建 BmobFile 再保存。SDK 对大文件保留检查点，跨天重试沿用首次生成的对象路径，未完成分片可能重传。OSS 已传完但登记失败时，只重试登记。成功回调代表上传和登记完成；App 重启不会自动开始上传，也不保证系统后台持续上传。
+
 
 ### 上传文件
 

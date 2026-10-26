@@ -2261,6 +2261,8 @@ curl -X GET \
 
 **请求**
 
+Objective-C BmobSDK 和纯 Swift BmobSwiftSDK 已提供会话检查方法，内部调用加密的 `POST /8/check_session`，将 `data.msg` 的 `ok` / `fail` 映射为有效 / 失效；网络、服务端及响应格式错误单独返回错误。方法不会自动注销用户或刷新 token。以下是原生 REST 调用方式，普通 HTTP 客户端继续使用 `/1/checkSession/<objectId>`。
+
 - url：`https://your-api-domain/1/checkSession/<objectId>`
 - method：GET
 - header：

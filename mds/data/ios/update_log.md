@@ -1,3 +1,10 @@
+## v2.6.2（2026-10-26）
+1、BmobFile 接口保持兼容：按 CDN uploadThreshold 分流，默认小于 10 MiB 走 /8/files，等于及以上走 OSS 分片直传和原登记接口。
+2、新文件使用年/月/日目录，支持保留原路径的跨天续传、取消后重试及上传完成后的登记重试；需有效 STS 授权。App 需补充 Network.framework、libresolv.tbd 等系统依赖。
+3、BmobUser 新增 checkSessionInBackgroundWithBlock: 与 checkSessionWithObjectId:sessionToken:block:，区分会话失效和请求错误，不自动注销。
+
+4、BmobUser 新增 logoutInBackgroundWithBlock: 和 logoutWithObjectId:sessionToken:block:，通过 /8/logout 退出服务端会话，成功后清理匹配缓存；原 logout 保持本地退出语义。
+
 ## v2.6.0(2026-09-07)
 1、文件上传改为经开放接口 `POST /8/files`（加密通道，与其它业务接口鉴权一致），不再由客户端直传又拍云
 2、文件删除仍走 `POST /8/delcdnupload`，兼容阿里云 CDN 返回的 `cdn` 标识

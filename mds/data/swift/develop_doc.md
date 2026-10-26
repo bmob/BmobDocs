@@ -379,7 +379,7 @@ let user = try await BmobUser.login(mobilePhoneNumber: "13800138000", smsCode: "
 
 ```swift
 // 恢复本地缓存的用户
-BmobUser.restoreCurrent()
+await BmobUser.restoreCurrent()
 
 if let currentUser = BmobUser.current {
     print("用户名: \(currentUser.username ?? "")")
@@ -388,11 +388,52 @@ if let currentUser = BmobUser.current {
 }
 ```
 
+### 检查用户会话是否有效
+
+本地缓存用户不等于服务端会话有效。使用用户实例上的 async 方法：
+
+```swift
+await BmobUser.restoreCurrent()
+if let user = BmobUser.current {
+    do {
+        let valid = try await user.checkSession()
+        print(valid ? "会话有效" : "会话失效或缺少本地登录信息")
+    } catch {
+        print("检查失败：\(error)") // 断网、服务端或协议错误，不应直接判断为过期
+    }
+}
+
+// 检查指定用户与 token，不改变当前登录用户或全局 token
+let valid = try await BmobUser.checkSession(
+    objectId: "USER_OBJECT_ID", sessionToken: "USER_SESSION_TOKEN"
+)
+```
+
+底层为加密客户端协议 `POST /8/check_session`，发送 `c=_User`、顶层 objectId 和对应 sessionToken。data.msg=ok 返回 true，fail 返回 false；实例缺少 ID/token 返回 false，显式方法缺少参数抛出 invalidParameter。网络、服务端和异常响应抛出错误。方法不会自动 logout、续期 token 或清理用户缓存；更新 UI 时回到主线程。
+
 ### 登出
 
 ```swift
 BmobUser.logout()
 ```
+
+### 服务端退出登录
+
+`BmobUser.logout()` 仅清理本地缓存。新版 SDK 可使服务端会话失效：
+
+```swift
+do {
+    try await BmobUser.logoutFromServer()
+    // 服务端退出成功，本地登录信息已清理
+} catch {
+    print("退出失败：\(error)") // 保留登录状态，可重试
+}
+
+// 显式退出指定用户会话，需要该用户的有效 token
+try await BmobUser.logout(objectId: "USER_OBJECT_ID", sessionToken: "USER_SESSION_TOKEN")
+```
+
+底层使用加密 `POST /8/logout`，发送 `c=_User`、`data.objectId` 和顶层 `sessionToken`，网关转发到 REST `/1/logout`。需部署支持该入口的网关。成功后仅当当前用户 ID/token 匹配时清理本地缓存和全局 token，避免清理请求期间的新登录。网络、服务端、异常响应均抛出错误并保留状态；缺少当前用户抛出 authenticationFailed，显式方法缺少参数抛出 invalidParameter。客户端不提供 Master Key 强制下线接口。更新 UI 时回到 MainActor。
 
 ### 更新用户信息
 
@@ -462,7 +503,7 @@ try await user.unlink(platform: .wechat)
 
 ## 文件管理
 
-文件经 Bmob 开放接口 `POST /8/files` 上传（请求体为 `{加密JSON}&&{文件Base64}`，鉴权与其它 `/8/*` 业务接口相同），服务端落盘到 CDN；删除使用 `POST /8/delcdnupload`。
+文件上传支持图片、文档、音视频等类型，也支持大文件和上传进度回调。继续使用 `BmobFile.upload()` 即可，无需额外设置上传参数。文件大小及存储额度以应用服务配置为准。
 
 ### 上传文件
 
@@ -486,13 +527,27 @@ do {
 }
 ```
 
+### 上传通道与文件路径
+
+SDK 从 `/8/cdn` 读取 `uploadThreshold`，按原始文件字节数分流：默认小于 `10485760`（10 MiB）走 `/8/files`，等于及以上走 OSS 分片直传并通过 `/8/savecdnupload` 登记；继续调用 `upload()` 即可。App 重启后应保留同一文件名和内容，重新创建 BmobFile 再上传。
+
+新文件路径为 `yyyy/MM/dd/32位随机文件名.扩展名`，跨天续传保留原路径；上传后的 `file.url` 为最终 CDN URL。服务端需颁发有效 STS 凭证，客户端不配置长期 OSS AccessKey。纯 Swift 上传器不依赖 Objective-C 的 OSS 框架，无需因本功能新增 Network.framework/libresolv.tbd。
+
 ### 从本地路径上传
 
 ```swift
-let file = BmobFile(filePath: "/path/to/document.pdf")
-try await file.upload()
+guard let file = BmobFile(filePath: "/path/to/video.mp4") else { return }
+try await file.upload { progress in
+    print("上传进度: \(Int(progress * 100))%")
+}
 print("文件 URL: \(file.url!)")
 ```
+
+### 失败后重试
+
+上传失败后，可对同一文件再次调用 `upload()`。对于支持续传的上传，SDK 会保留已完成的进度；App 重启后，以相同文件名和相同内容重新创建 `BmobFile`，再调用 `upload()` 即可继续。请保留原文件，避免重试前修改内容。
+
+进度回调取值为 `0.0...1.0`，上传成功后才报告 `1.0`。回调中更新界面时，请切换到主线程。使用 Swift `Task` 管理上传任务时，可调用 `cancel()` 取消任务，之后可重新发起上传。
 
 ### 在对象中保存文件
 
