@@ -3546,6 +3546,8 @@ BmobFile bmobFile = new BmobFile(new File(picPath));
 
 ### 上传单一文件
 
+**自 Android SDK v4.2.5 起，支持大文件断点续传。请将 SDK 依赖升级至 `io.github.bmob:android-sdk:4.2.5`。**
+
 文件分片上传的方法非常简单，示例代码如下：
 
 ```java
